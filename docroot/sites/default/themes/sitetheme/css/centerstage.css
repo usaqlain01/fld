@@ -1,7 +1,7 @@
-.view-homepage-centerstage 				{ background-color:#000; color:#fff; height:450px; }
+.view-homepage-centerstage 				{ background-color:#000; color:#fff; height:350px; }
 
 .view-homepage-centerstage .field-name-file
-										{ border-bottom:4px solid #CE3E05; }
+										{ /*border-bottom:4px solid #CE3E05;*/ }
 
 .view-homepage-centerstage .field-name-field-imagename
 										{ font-size:21px; font-weight:bold; padding:10px 10px 0 10px; }
@@ -16,7 +16,7 @@
 										{ padding:0 0 15px 0; height:50px; }
 
 .view-homepage-centerstage .views_slideshow_cycle_controls
-										{ position:absolute; top:150px; width:960px; height:65px; }
+										{ position:absolute; top:110px; width:960px; height:65px; }
 
 .view-homepage-centerstage .views_slideshow_cycle_previous,
 .view-homepage-centerstage .views_slideshow_cycle_next
@@ -29,7 +29,7 @@
 										{ padding-right:10px; }
 
 .view-homepage-centerstage .views_slideshow_cycle_pager .pager-item img
-										{ opacity:.4; filter:alpha(opacity=40); width:150px; height:50px; }
+										{ opacity:.4; filter:alpha(opacity=40); width:150px; height:35px; }
 
 .view-homepage-centerstage .views_slideshow_cycle_pager .active-slide img
 										{ opacity:1; filter:alpha(opacity=100); } 
@@ -48,13 +48,13 @@
 										
 
 .view-homepage-centerstage .field-name-field-description p
-										{ width:95%; margin:auto; padding:2px 0 5px 0; height:30px; }
+										{ width:95%; margin:auto; padding:2px 0 5px 0; height:30px; color:#bbb; }
 										
 .view-homepage-centerstage .active-slide
-										{ padding-top:59px; background:url('../images/centerstagePointer.gif') center top no-repeat; clear:both; height:100%; width:100%; }
+										{ padding-top:37px; background:url('../images/centerstagePointer.gif') center top no-repeat; clear:both; height:100%; width:100%; }
 										
 .view-homepage-centerstage .views_slideshow_pager_thumbnails
-										{ width:95%; margin:auto; padding-top:24px; border-top:1px solid #333; }
+										{ width:95%; margin:auto; padding-top:17px; border-top:1px solid #333; }
 										
 #views_slideshow_cycle_teaser_section_homepage_centerstage-block_1
-										{ height:360px!important; }
+										{ /*height:290px!important;*/ }

@@ -465,7 +465,7 @@ function custom_field_formatter_info() {
     ),
     'custom_field_as_view' => array(
       'label' => t('Custom: Field as View'),
-      'field types' => array('node_reference', 'user_reference'),
+      'field types' => array('node_reference', 'user_reference', 'taxonomy_term_reference'),
       'settings' => array(
         'view' => NULL,
         'display' => 'default',

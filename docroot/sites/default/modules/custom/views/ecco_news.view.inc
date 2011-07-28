@@ -172,7 +172,7 @@ $handler->display->display_options['filters']['tid_2']['vocabulary'] = 'research
 /* Display: Page: Urban Cons & Anthro News */
 $handler = $view->new_display('page', 'Page: Urban Cons & Anthro News', 'page_1');
 $handler->display->display_options['defaults']['title'] = FALSE;
-$handler->display->display_options['title'] = 'Urban Anthropology and Conservation Team News';
+$handler->display->display_options['title'] = 'ECCo Chicago Region News';
 $handler->display->display_options['defaults']['pager'] = FALSE;
 $handler->display->display_options['pager']['type'] = 'full';
 $handler->display->display_options['pager']['options']['items_per_page'] = '10';
@@ -421,9 +421,10 @@ $translatables['ecco_news'] = array(
   t('Nid'),
   t('node/[nid]'),
   t('Page: Urban Cons & Anthro News'),
-  t('Urban Anthropology and Conservation Team News'),
+  t('ECCo Chicago Region News'),
   t('more'),
   t('Feed: Urban Cons & Anthro News'),
+  t('Urban Anthropology and Conservation Team News'),
   t('Page: Amazon/Andes News'),
   t('Andes/Amazon Conservation News'),
   t('Feed: Amazon/Andes News'),

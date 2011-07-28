@@ -4,6 +4,8 @@ $view->name = 'multimedia_gallery';
 $view->description = 'This view creates the general multimedia gallery under \'Explore and Learn\'';
 $view->tag = '';
 $view->base_table = 'node';
+$view->human_name = '';
+$view->core = 0;
 $view->api_version = '3.0-alpha1';
 $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
 
@@ -141,53 +143,18 @@ $handler->display->display_options['filters']['type']['expose']['label'] = 'Medi
 $handler->display->display_options['filters']['type']['expose']['use_operator'] = 0;
 $handler->display->display_options['filters']['type']['expose']['identifier'] = 'type';
 $handler->display->display_options['filters']['type']['expose']['reduce'] = 1;
-
-/*
- *
- * The following two node title filters are in place to exclude things like press 
- * kits and Special Events Galleries from showing up.
- *
- */
-
 /* Filter: Node: Title */
 $handler->display->display_options['filters']['title']['id'] = 'title';
 $handler->display->display_options['filters']['title']['table'] = 'node';
 $handler->display->display_options['filters']['title']['field'] = 'title';
 $handler->display->display_options['filters']['title']['operator'] = 'not';
 $handler->display->display_options['filters']['title']['value'] = 'Events';
-
 /* Filter: Node: Title */
 $handler->display->display_options['filters']['title_1']['id'] = 'title_1';
 $handler->display->display_options['filters']['title_1']['table'] = 'node';
 $handler->display->display_options['filters']['title_1']['field'] = 'title';
 $handler->display->display_options['filters']['title_1']['operator'] = 'not';
 $handler->display->display_options['filters']['title_1']['value'] = 'Press';
-$handler->display->display_options['path'] = 'explore/gallery';
-
-/* Filter: Taxonomy: Term */
-
-/* 
- *
- * I've commented this out for the time being as topic has become an overloaded tag
- * We should revisit this soon to find more appropriate filters 
- *
- * -DH, 24 Feb 2011
- *
-$handler->display->display_options['filters']['tid']['id'] = 'tid';
-$handler->display->display_options['filters']['tid']['table'] = 'taxonomy_index';
-$handler->display->display_options['filters']['tid']['field'] = 'tid';
-$handler->display->display_options['filters']['tid']['exposed'] = TRUE;
-$handler->display->display_options['filters']['tid']['expose']['operator'] = 'tid_op';
-$handler->display->display_options['filters']['tid']['expose']['label'] = 'Topic';
-$handler->display->display_options['filters']['tid']['expose']['use_operator'] = 0;
-$handler->display->display_options['filters']['tid']['expose']['identifier'] = 'tid';
-$handler->display->display_options['filters']['tid']['expose']['reduce'] = 0;
-$handler->display->display_options['filters']['tid']['reduce_duplicates'] = 0;
-$handler->display->display_options['filters']['tid']['type'] = 'select';
-$handler->display->display_options['filters']['tid']['vocabulary'] = 'topic';
-$handler->display->display_options['filters']['tid']['error_message'] = 1; 
- *
- */
 
 /* Display: Gallery Page Display */
 $handler = $view->new_display('page', 'Gallery Page Display', 'gallery_page_display');
@@ -200,16 +167,37 @@ $handler->display->display_options['header']['area']['table'] = 'views';
 $handler->display->display_options['header']['area']['field'] = 'area';
 $handler->display->display_options['header']['area']['empty'] = FALSE;
 $handler->display->display_options['header']['area']['content'] = 'Learn more about the Field Museum\'s collections, exhibits, events, and archives. Explore our image, video and podcast repository.';
-$handler->display->display_options['header']['area']['format'] = '2';
-$handler->display->display_options['path'] = 'explore/gallery';
+$handler->display->display_options['path'] = 'about/gallery';
+$handler->display->display_options['menu']['title'] = 'Multimedia Gallery';
+$handler->display->display_options['menu']['weight'] = '0';
+$handler->display->display_options['menu']['name'] = 'main-menu';
 
 /* Display: Feed */
 $handler = $view->new_display('feed', 'Feed', 'feed_1');
+$handler->display->display_options['pager']['type'] = 'some';
 $handler->display->display_options['style_plugin'] = 'rss';
-$handler->display->display_options['style_options']['mission_description'] = FALSE;
 $handler->display->display_options['row_plugin'] = 'node_rss';
 $handler->display->display_options['path'] = 'explore/gallery/feed';
 $handler->display->display_options['displays'] = array(
   'gallery_page_display' => 'gallery_page_display',
   'default' => 0,
+);
+$translatables['multimedia_gallery'] = array(
+  t('Defaults'),
+  t('more'),
+  t('Apply'),
+  t('Reset'),
+  t('Sort By'),
+  t('Asc'),
+  t('Desc'),
+  t('Items per page'),
+  t('- All -'),
+  t('Offset'),
+  t('<A href=[path]>[entity_id]</a>'),
+  t('[path]'),
+  t('Media Type'),
+  t('Gallery Page Display'),
+  t('Multimedia Gallery'),
+  t('Learn more about the Field Museum\'s collections, exhibits, events, and archives. Explore our image, video and podcast repository.'),
+  t('Feed'),
 );

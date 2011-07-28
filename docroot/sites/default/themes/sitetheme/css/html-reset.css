@@ -298,6 +298,27 @@ fieldset {
 
 */
 
+@font-face {
+  font-family: 'neutrademi';
+  src: url('../type/neutrademi-webfont.eot');
+  src: local('☺'),
+		url('../type/neutrademi-webfont.svg') format("svg"), 
+		url('../type/nneutrademi-webfont.woff') format("woff"),
+ 		url('../type/neutrademi-webfont.ttf') format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'neutrabold';
+  src: url('../type/neutrabold-webfont.eot');
+  src: local('☺'),
+		url('../type/neutrabold-webfont.svg') format("svg"), 
+		url('../type/nneutrabold-webfont.woff') format("woff"),
+ 		url('../type/neutrabold-webfont.ttf') format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
 
 @font-face {
   font-family: 'neutra';

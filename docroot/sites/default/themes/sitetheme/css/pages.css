@@ -44,7 +44,7 @@ hr 										{ height:0; border:1px solid #ccc; color:#aaa; }
 #header 								{  }
 #header .section 						{  }
 #logo /* Wrapping link for logo */ 		{ float:left; /* LTR */ margin:0; padding:0; }
-#logo img 								{ vertical-align:bottom; }
+#logo img 								{ vertical-align:bottom; padding:15px 20px;  }
 
 #name-and-slogan /* Wrapper for website name and slogan */ {  }
 
@@ -139,7 +139,8 @@ ul.links li.node-readmore 				{  }
 .field-name-field-map a,
 .views-field-view-node a,
 .section-users .field-type-file a,
-ul.links li.node-readmore a
+ul.links li.node-readmore a,
+.view-id-blog .more-link
 										{ border-top:1px dashed #bfbfbf; display:block; background:url(../images/icon-learn-more.png) no-repeat right center; padding-right:12px; text-align:right !important; color:#212121 !important; text-transform:uppercase; font:italic bold 11px/22px Arial !important; clear:both; }
 
 .pager /* A list of page numbers when more than 1 page of content is available */

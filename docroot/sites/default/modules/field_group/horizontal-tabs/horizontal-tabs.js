@@ -1,4 +1,3 @@
-// $Id: horizontal-tabs.js,v 1.1.2.1 2010/11/06 23:03:37 stalski Exp $
 
 (function ($) {
 
@@ -43,6 +42,13 @@ Drupal.behaviors.horizontalTabs = {
         if (this.id == focusID) {
           tab_focus = $(this);
         }
+      });
+
+      // Add required fields mark to any fieldsets containing required fields
+      $('fieldset.horizontal-tabs-pane').each(function(i){
+       if ($(this).find('.form-required').length > 0) {
+         $('li.horizontal-tab-button').eq(i).children('a').find('strong:first').after($('.form-required').eq(0).clone()).after('&nbsp;');
+       }
       });
 
       $('> li:first', tab_list).addClass('first');

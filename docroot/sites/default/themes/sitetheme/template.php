@@ -168,13 +168,13 @@ function sitetheme_page_alter(&$page) {
   }
 
   // Remove the sidebar_first from the page array.
-  if(!empty($nid) && $page['content']['system_main']['nodes'][$nid]['#node']->type == 'explore_our_collections') {
+  /*if(!empty($nid) && $page['content']['system_main']['nodes'][$nid]['#node']->type == 'explore_our_collections') {
     $page['content_top']['#region'] = 'content_top';
     $page['content_top']['#sorted'] = TRUE;
     $page['content_top']['#theme_wrappers'][] = 'region';
     array_unshift($page['content_top'], $page['content']['system_main']);
     unset($page['content']['system_main']);
-  }
+  }*/
 
   if (!empty($page['content']['system_main']['#account'])) {
     $page['content_top']['#region'] = 'content_top';
@@ -536,6 +536,13 @@ function sitetheme_preprocess_views_view_fields(&$vars, $hook) {
       unset ($vars['fields']['tid_2']);
     }
   }
+}
+
+function sitetheme_preprocess_views_view_row_rss(&$vars, $hook) {
+  /*foreach ($vars as $k => $v) {
+    $vars['stuff'][] = $k;
+  }*/
+  $vars['data'] = $vars['view']->result[$vars['id']-1]->_field_data['nid']['entity'];
 }
 
 /**

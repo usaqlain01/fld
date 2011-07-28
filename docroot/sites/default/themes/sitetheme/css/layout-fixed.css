@@ -32,7 +32,7 @@ body {
    */
 
 #page 									{  }
-#centerstage 							{ height:462px; }
+#centerstage 							{ height:360px; }
 
 /*
  * Header
@@ -83,7 +83,7 @@ body {
  */
 #navigation 							{  }
 
-.centerstage #navigation 				{  }
+.centerstage #navigation 				{ margin-bottom:10px; }
 
 #main.with-navigation 					{  }
 

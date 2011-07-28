@@ -139,11 +139,11 @@ $handler->display->display_options['fields']['entity_id']['element_label_colon']
 $handler->display->display_options['fields']['entity_id']['element_default_classes'] = 1;
 $handler->display->display_options['fields']['entity_id']['hide_empty'] = 0;
 $handler->display->display_options['fields']['entity_id']['empty_zero'] = 0;
-/* Sort criterion: Node: Updated date */
-$handler->display->display_options['sorts']['changed']['id'] = 'changed';
-$handler->display->display_options['sorts']['changed']['table'] = 'node';
-$handler->display->display_options['sorts']['changed']['field'] = 'changed';
-$handler->display->display_options['sorts']['changed']['order'] = 'DESC';
+/* Sort criterion: Node: Post date */
+$handler->display->display_options['sorts']['created']['id'] = 'created';
+$handler->display->display_options['sorts']['created']['table'] = 'node';
+$handler->display->display_options['sorts']['created']['field'] = 'created';
+$handler->display->display_options['sorts']['created']['order'] = 'DESC';
 /* Argument: Fields: field_dept_division_tags (field_dept_division_tags) - tid */
 $handler->display->display_options['arguments']['field_dept_division_tags_tid']['id'] = 'field_dept_division_tags_tid';
 $handler->display->display_options['arguments']['field_dept_division_tags_tid']['table'] = 'field_data_field_dept_division_tags';
@@ -152,7 +152,11 @@ $handler->display->display_options['arguments']['field_dept_division_tags_tid'][
 $handler->display->display_options['arguments']['field_dept_division_tags_tid']['default_action'] = 'default';
 $handler->display->display_options['arguments']['field_dept_division_tags_tid']['style_plugin'] = 'default_summary';
 $handler->display->display_options['arguments']['field_dept_division_tags_tid']['default_argument_type'] = 'php';
-$handler->display->display_options['arguments']['field_dept_division_tags_tid']['default_argument_options']['code'] = '// find matching topic terms and use OR
+$handler->display->display_options['arguments']['field_dept_division_tags_tid']['default_argument_options']['code'] = '// special case for explore science page = node/60
+if (arg(1) == 60) {
+  return \'67+77+78+85+90+686+104+371+103+109\';  //taxo IDs of all science departments
+}
+// find matching topic terms and use OR
 $node = node_load(arg(1));
 if ($node && !empty($node->field_dept_division_tags[LANGUAGE_NONE])) {
   $tids = array();
@@ -263,6 +267,14 @@ $handler = $view->new_display('attachment', 'Attachment', 'attachment_1');
 $handler->display->display_options['pager']['type'] = 'some';
 $handler->display->display_options['pager']['options']['items_per_page'] = '1';
 $handler->display->display_options['pager']['options']['offset'] = '0';
+$handler->display->display_options['defaults']['empty'] = FALSE;
+/* Empty text: Global: Link */
+$handler->display->display_options['empty']['link']['id'] = 'link';
+$handler->display->display_options['empty']['link']['table'] = 'views';
+$handler->display->display_options['empty']['link']['field'] = 'link';
+$handler->display->display_options['empty']['link']['empty'] = FALSE;
+$handler->display->display_options['empty']['link']['text'] = '< Back to Explore Science';
+$handler->display->display_options['empty']['link']['path'] = 'explore';
 $handler->display->display_options['defaults']['relationships'] = FALSE;
 $handler->display->display_options['defaults']['fields'] = FALSE;
 /* Field: Node: Title */
@@ -299,6 +311,12 @@ $handler->display->display_options['arguments']['field_dept_division_tags_tid'][
 $handler->display->display_options['arguments']['field_dept_division_tags_tid']['default_argument_options']['vocabularies'] = array(
   'department_division' => 'department_division',
 );
+$handler->display->display_options['arguments']['field_dept_division_tags_tid']['validate_type'] = 'taxonomy_term';
+$handler->display->display_options['arguments']['field_dept_division_tags_tid']['validate_options']['vocabularies'] = array(
+  'department_division' => 'department_division',
+);
+$handler->display->display_options['arguments']['field_dept_division_tags_tid']['validate_options']['transform'] = 0;
+$handler->display->display_options['arguments']['field_dept_division_tags_tid']['validate_fail'] = 'empty';
 $handler->display->display_options['arguments']['field_dept_division_tags_tid']['break_phrase'] = 0;
 $handler->display->display_options['arguments']['field_dept_division_tags_tid']['not'] = 0;
 $handler->display->display_options['defaults']['filters'] = FALSE;
@@ -343,5 +361,6 @@ $translatables['blogs_block'] = array(
   t('Offset'),
   t('Feed: Page - no argument'),
   t('Attachment'),
+  t('< Back to Explore Science'),
   t('< Back to [title]'),
 );

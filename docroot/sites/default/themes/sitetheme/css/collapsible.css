@@ -1,34 +1,12 @@
-.collapsible .field-label {
-  background-color: #92B40A;
-  background-image: url('../images/field-collapsible-arrows.png');
-  background-position: 4px -24px;
-  background-repeat: no-repeat;
-  font: bold 13px Helvetica, Arial, "Nimbus Sans L", sans-serif;
-  color: #fff;
-  cursor: pointer;
-  padding: 4px 6px 4px 20px;
-  border-bottom: 0px none;
-}
+.collapsible .field-label
+										{ background-color:#92B40A; background-image:url('../images/field-collapsible-arrows.png'); background-position:4px -24px; background-repeat:no-repeat; font:bold 13px Helvetica, Arial, "Nimbus Sans L", sans-serif; color:#fff; cursor:pointer; padding:4px 6px 4px 20px; border-bottom:0px none; }
 
-.collapsible.collapsed .field-label {
-  background-position: 4px 6px;
-  background-color: #EEEEEE;
-  color: #000000;
-  margin-bottom: 4px;
-}
+.collapsible.collapsed .field-label 	{ background-position:4px 6px; background-color:#EEEEEE; color:#000000; margin-bottom:4px; }
 
-.collapsible .field-items {
-  padding: 10px;
-}
+.collapsible .field-items 				{ padding:10px; }
 
-.collapsible p {
-  margin-top: 0px;
-}
+.collapsible p 							{ margin-top:0px; }
 
-.view.collapsible .field-items {
-  padding: 0px;
-}
+.view.collapsible .field-items 			{ padding:0px; }
 
-.view.collapsible .view-content {
-  padding: 10px;
-}
+.view.collapsible .view-content 		{ padding:10px; }

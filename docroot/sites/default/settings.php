@@ -465,3 +465,18 @@ if (!empty($_SERVER['AH_SITE_GROUP'])) {
     require($file);
   }
 }
+
+
+// Acquia Network settings
+if ($_SERVER["AH_SITE_NAME"] == "fldmuse") {
+  $conf["acquia_identifier"] = "YZQU-17567";
+  $conf["acquia_key"] = "fba18ff3dcfe0a09d5ec5590ebe971a2";
+  $conf["file_private_path"] = "/mnt/files/fldmuse/files-private";
+}
+elseif ($_SERVER["AH_SITE_NAME"] == "fldmusestg") {
+  $conf["acquia_identifier"] = "DERW-17568";
+  $conf["acquia_key"] = "b8255f83056f3ed2faf34529f5a460f6";
+  $conf["file_private_path"] = "/mnt/files/fldmusestg/files-private";
+}
+
+

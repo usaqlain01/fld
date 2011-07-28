@@ -7,9 +7,6 @@
 
 .view 									{  }
 
-.block-views .view-footer,
-.block-views .more-link 				{ /*  position:absolute; left:0; bottom:0; width:100%; */ }
-
 .page-view .view .feed-icon 			{ margin-top:-115px; }
 
 .block .view .feed-icon 				{ margin-top:0; position:absolute; right:20px; top:5px; width:100px; }
@@ -50,12 +47,16 @@
 .page-views .view-blog .views-row 		{ border-bottom:1px solid #d3d3d3; padding-bottom:15px; margin-bottom:15px; }
 .page-views .sidebar .views-row  		{ border-bottom:none; padding-bottom:0; }
 
-.page-views .views-row
-.views-field-picture, .page-views
-.views-row .field-name-field-image		{ float:left; overflow:hidden; margin-right:10px; }
+.page-user-blog .view-blog .views-row .field-name-field-image
+										{ margin:0; }
+
+.page-views .views-row .views-field-picture,
+.page-views .views-row .field-name-field-image,
+.page-user-blog .view-blog .views-row .field-name-field-image
+										{ float:left; overflow:hidden; margin-right:10px; }
 
 .page-views
-.views-row .field-name-field-branding-image		{ float:left; overflow:hidden; margin-right:10px; width: 100px; text-align:center; }
+.views-row .field-name-field-branding-image { float:left; overflow:hidden; margin-right:10px; width: 100px; text-align:center; }
 
 .page-views .views-field-title 			{ font:normal bold 1.0769em Arial; margin-bottom:0; }
 
@@ -66,6 +67,7 @@
 .view-wr-04-related-content-widget .views-field-title a,
 .view-dept-div-collections-list .views-field-view-node a,
 .view-dept-div-collections-list .field-name-field-link .field-item a,
+.page-user-blog .view-blog .views-field-title a,
 .page-views .views-field-title a
 										{ color:#FF8112; }
 
@@ -109,14 +111,14 @@
 										{ display:block; }
 
 .view-widgets,
-#block-views-featured_links-block_1 	{ margin-top:40px; }
+#block-views-featured_links-block_1 	{ /*margin-top:40px;*/ }
 
 .view-widgets .views-field-title 		{ margin-bottom:0; color:#fff; }
 
 .view-widgets .field-name-field-widget-image img
 										{ }
 
-.view-widgets .views-row 				{ margin-bottom:30px; }
+.view-widgets .views-row 				{ margin-top:20px; }
 
 .view-related-content-widget .views-field-title
 										{ border:none; }
@@ -295,14 +297,18 @@
 .view-display-id-block_6 .views-field-created,
 .view-news .views-field-title,
 .view-blogs-block .views-field-title,
-#block-views-FAQ-related_questions .views-field-title
+.page-user-blog .view-blog .views-field-title,
+#block-views-FAQ-related_questions .views-field-title,
 										{ border:none; font:normal bold 12px Arial; }
 
 .view-display-id-block_6 .views-row,
 .view-news .views-row,
 .view-blogs-block .views-row,
 .view-ecco-news .views-row,
-.view-education-programs .views-row		{ padding:5px 4px; }
+.view-education-programs .views-row,
+.page-user-blog .view-blog .views-row,
+#block-views-c_r_newsletter-block_1 .views-row
+										{ padding:5px 4px; }
 
 #block-views-FAQ-related_questions .views-row
 										{ padding:0px 0px; }
@@ -323,7 +329,8 @@
 #block-views-FAQ-related_questions .views-row-even a:visited
 										{ background-color:#fff; }
 
-#block-views-FAQ-related_questions .views-row a:hover
+#block-views-FAQ-related_questions .views-row a:hover,
+#block-views-c_r_newsletter-block_1 .views-row a:hover
 										{ background-color:#92b40a; color:#fff; text-decoration:none; }
 										
 #block-views-FAQ-related_questions .views-row-inner .views-field-title
@@ -483,7 +490,7 @@
  * Centerstage
  */
 #centerstage .views_slideshow_cycle_slide.views_slideshow_slide
-										{ height:379px!important; }
+										{ height:275px!important; }
 
 
 /*
@@ -726,7 +733,7 @@
 .view-homepage .jcarousel-container 	{ position:static !important; }
 
 .view-homepage .jcarousel-container,
-.view-homepage .jcarousel-clip  		{ width:615px !important; height:190px !important; }
+.view-homepage .jcarousel-clip  		{ width:615px; /*width:615px !important; height:190px !important;*/ }
 
 .view-homepage .jcarousel-item 			{ width:205px !important; height:190px !important; }
 
@@ -921,47 +928,54 @@
 										{ margin-bottom:20px; }
 
 
-/* News + Blog Page */
+/* News + Blog Page + User Blog List */
 
 .page-about-news .view-news.view-id-news .views-row,
 .page-explore-blogs .view-blogs-block.view-id-blogs_block .views-row,
 .page-explore .view-ecco-news .views-row,
+.page-user-blog .view-blog .views-row,
 .page-happening .view-education-programs .views-row
 										{ border:1px solid #fff; margin-bottom:8px; }
 
 .page-about-news .view-news.view-id-news .views-row-odd,
 .page-explore-blogs .view-blogs-block.view-id-blogs_block .views-row-odd,
 .page-explore .view-ecco-news .views-row-odd,
+.page-user-blog .view-blog .views-row-odd,
 .page-happening .view-education-programs .views-row-odd
 										{ background:#eee; border:1px solid #eee; }
 
 .page-about-news .view-news.view-id-news .views-row:hover,
 .page-explore-blogs .view-blogs-block.view-id-blogs_block .views-row:hover,
 .page-explore .view-ecco-news .views-row:hover,
+.page-user-blog .view-blog .views-row:hover,
 .page-happening .view-education-programs .views-row:hover
 										{ background:none; border:1px solid #FF8112; }
 
 .page-about-news .view-news.view-id-news .views-row-odd:hover,
 .page-explore-blogs .view-blogs-block.view-id-blogs_block .views-row-odd:hover,
 .page-explore .view-ecco-news .views-row-odd:hover,
+.page-user-blog .view-blog .views-row-odd:hover,
 .page-happening .view-education-programs .views-row-odd:hover
 										{ background:#eee; border:1px solid #FF8112; }
 										
 .page-about-news .view-news.view-id-news .views-row:hover a,
 .page-explore-blogs .view-blogs-block.view-id-blogs_block .views-row:hover a,
 .page-explore .view-ecco-news .views-row:hover a,
+.page-user-blog .view-blog .views-row:hover a,
 .page-happening .view-education-programs .views-row:hover a
 										{ background:inherit; color:#FF8112; }
 
 .page-about-news .view-news.view-id-news .views-row .views-field-entity-id-1,
 .page-explore-blogs .view-blogs-block.view-id-blogs_block .views-row .views-field-entity-id-1,
 .page-explore .view-ecco-news .views-row .views-field-entity-id-1,
+.page-user-blog .view-blog .views-row .views-field-entity-id-1,
 .page-happening .view-education-programs .views-row .views-field-entity-id-1
 										{ float:left; }
 
 .page-about-news .view-news.view-id-news .views-row .views-field-title a,
 .page-explore-blogs .view-blogs-block.view-id-blogs_block .views-row .views-field-title a,
 .page-explore .view-ecco-news .views-row .views-field-title a,
+.page-user-blog .view-blog .views-row .views-field-title a,
 .page-happening .view-education-programs .views-row .views-field-title a
 										{ font-size:14px; }
 
@@ -970,6 +984,7 @@
 .page-explore-blogs .view-blogs-block.view-id-blogs_block .views-row .views-field-name,
 .page-explore-blogs .view-blogs-block.view-id-blogs_block .views-row .views-field-name a,
 .page-explore .view-ecco-news .views-row .views-field-created,
+.page-user-blog .view-blog .views-row .views-field-created,
 .page-happening .view-education-programs .views-row .views-field-created
 										{ font-family:arial, helvetica; font-style:normal; font-size:11px; margin:5px 0; color:#999; line-height:1em; }
 
@@ -996,7 +1011,7 @@
 										
 /*** PODCAST VIEWS ***/
 .view-podcasts .views-row-first			{ clear:both; }
-.view-podcasts .views-row				{ border-top:1px solid #888; padding-top:10px; }
+.view-podcasts .views-row				{ border-top:1px solid #888; padding:10px 0px; }
 #block-views-podcasts-block_2
 .view-podcasts .views-row-last			{ border-bottom:1px solid #888; }
 
@@ -1004,3 +1019,30 @@
 
 .view-podcasts .views-field-title		{ margin:0; }
 .view-podcasts .views-field-created		{ font-family:helvetica; font-style:normal; }
+
+
+/*** User Profile Page ***/
+.section-users #block-views-user_profile_contact-block_1
+										{ border-bottom:none!important; }
+
+.view-user-profile-contact .views-field-entity-id,
+.view-user-profile-contact .views-field-entity-id-1,
+.view-user-profile-contact .views-field-entity-id-2 { background:#eee; }
+
+.page-user-blog .views-field-entity-id,
+.page-user-blog .views-field-entity-id-1,
+.page-user-blog .views-field-entity-id-2{ background:none; }
+
+.view-user-profile-contact .views-label-entity-id,
+.view-user-profile-contact .views-label-entity-id-1,
+.view-user-profile-contact .views-label-entity-id-2 { padding:5px 0 0 10px; margin:0; margin-top:0; color:#888; }
+
+.view-user-profile-contact .views-field-entity-id .field-content .field-items,										
+.view-user-profile-contact .views-field-entity-id-1 .field-content .field-items,
+.view-user-profile-contact .views-field-entity-id-2 .field-content .field-items
+										{ padding:0 0 5px 10px; border-bottom:#888 dotted 1px; }
+										
+.view-user-profile-contact .views-field-entity-id-2 .field-content .field-items
+										{ margin-bottom:10px; padding-bottom:10px; border-bottom:none; }
+										
+										

@@ -1,3 +1,30 @@
+Menu Block 7.x-2.2, 2011-03-09
+------------------------------
+- #1086376: Custom menu fix doesn't work for new installations
+
+Menu Block 7.x-2.1, 2011-02-06
+------------------------------
+- #1051988: Fix wrong path in menu_block_help()
+- #1050766: Improve usability of "Parent item" UI
+- #1050040 by AgentRickard: Remove performance-killing variable_set() calls on non-admin pages
+
+Menu Block 7.x-2.0, 2011-01-11
+------------------------------
+- #1022478: Add "Edit book outline" contextual link for book menu blocks
+- #1022428: Contextual links for all menu blocks disappear if book menu_block used
+- #1017142: except for one menu, all other menus (including books) never receive an active trail
+- #1017122 by becw, mfer and JohnAlbin: Core bug work-around: add active trail to custom menus
+- Always show core menu blocks if they are in a region
+- #993998 by tgf: Core menu suppression broken
+- #993998 by jackinloadup: Delete links misplaced on menu list form
+- #958166 by Simon Georges and JohnAlbin: secondary-menu removed from core; replace with user-menu
+- #825132: Performance problem on sites with many books
+- #945714 by pedrochristopher: theme override misidentified in README
+- #593126: hook_get_menus() causes conflicts with Menu Access, og_menu, etc
+- #825132: Add hook_menu_block_get_sort_menus() for improved performance and UX of book integration
+- #957362 by blixxxa: Add Swedish translation
+- Fix theme hook suggestions for non-numeric block deltas
+
 Menu Block 7.x-2.0-beta4, 2010-09-29
 ------------------------------------
 - #891690: Never accept a fix not in patch form. And if you do, test it!

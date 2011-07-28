@@ -1,5 +1,4 @@
 <?php
-// $Id: token.tokens.inc,v 1.36 2010/12/18 01:53:33 davereid Exp $
 
 /**
  * @file
@@ -35,15 +34,24 @@ function token_token_info_alter(&$info) {
     }
     $token_type = $entity_info['token type'];
 
-    // Add [entity:path] tokens if they do not already exist.
-    if (!isset($info['tokens'][$token_type]['path']) && (!empty($entity_info['uri callback']) || !empty($entity_info['bundles'][$entity]['uri callback']))) {
-      $info['tokens'][$token_type]['path'] = array(
-        'name' => t('Path'),
-        'description' => t('The URL alias of the @entity.', array('@entity' => drupal_strtolower($entity_info['label']))),
+    // Add [entity:url] tokens if they do not already exist.
+    // @todo Support entity:label
+    if (!isset($info['tokens'][$token_type]['url']) && (!empty($entity_info['uri callback']) || !empty($entity_info['bundles'][$entity]['uri callback']))) {
+      $info['tokens'][$token_type]['url'] = array(
+        'name' => t('URL'),
+        'description' => t('The URL of the @entity.', array('@entity' => drupal_strtolower($entity_info['label']))),
         'module' => 'token',
+        'type' => 'url',
       );
     }
   }
+
+  $info['tokens']['comment']['url']['type'] = 'url';
+  //$info['tokens']['file']['url']['type'] = 'url';
+  $info['tokens']['node']['url']['type'] = 'url';
+  $info['tokens']['term']['url']['type'] = 'url';
+  $info['tokens']['user']['url']['type'] = 'url';
+  // @todo Support other tokens not named 'url'
 }
 
 /**
@@ -91,6 +99,7 @@ function token_token_info() {
   $info['tokens']['content-type']['edit-url'] = array(
     'name' => t('Edit URL'),
     'description' => t("The URL of the content type's edit page."),
+    //'type' => 'url',
   );
 
   // Taxonomy term and vocabulary tokens.
@@ -98,6 +107,7 @@ function token_token_info() {
     $info['tokens']['term']['edit-url'] = array(
       'name' => t('Edit URL'),
       'description' => t("The URL of the taxonomy term's edit page."),
+      //'type' => 'url',
     );
 
     $info['tokens']['vocabulary']['machine-name'] = array(
@@ -107,6 +117,7 @@ function token_token_info() {
     $info['tokens']['vocabulary']['edit-url'] = array(
       'name' => t('Edit URL'),
       'description' => t("The URL of the vocabulary's edit page."),
+      //'type' => 'url',
     );
   }
 
@@ -122,11 +133,13 @@ function token_token_info() {
     'name' => t('Account cancellation URL'),
     'description' => t('The URL of the confirm delete page for the user account.'),
     'restricted' => TRUE,
+    //'type' => 'url',
   );
   $info['tokens']['user']['one-time-login-url'] = array(
     'name' => t('One-time login URL'),
     'description' => t('The URL of the one-time login page for the user account.'),
     'restricted' => TRUE,
+    //'type' => 'url',
   );
   if (variable_get('user_pictures', 0)) {
     $info['tokens']['user']['picture'] = array(
@@ -135,6 +148,11 @@ function token_token_info() {
       'type' => 'file',
     );
   }
+  $info['tokens']['user']['roles'] = array(
+    'name' => t('Roles'),
+    'description' => t('The user roles associated with the user account.'),
+    'type' => 'array',
+  );
 
   // Current user tokens.
   $info['tokens']['current-user']['ip-address'] = array(
@@ -156,13 +174,10 @@ function token_token_info() {
     'name' => t('Title'),
     'description' => t('The title of the menu link.'),
   );
-  $info['tokens']['menu-link']['path'] = array(
-    'name' => t('Path'),
-    'description' => t('The URL alias of the menu link.'),
-  );
   $info['tokens']['menu-link']['url'] = array(
     'name' => t('URL'),
     'description' => t('The URL of the menu link.'),
+    'type' => 'url',
   );
   $info['tokens']['menu-link']['parent'] = array(
     'name' => t('Parent'),
@@ -184,13 +199,10 @@ function token_token_info() {
     'name' => t('Title'),
     'description' => t('The title of the current page.'),
   );
-  $info['tokens']['current-page']['path'] = array(
-    'name' => t('Path'),
-    'description' => t('The URL alias of the current page.'),
-  );
   $info['tokens']['current-page']['url'] = array(
     'name' => t('URL'),
     'description' => t('The URL of the current page.'),
+    'type' => 'url',
   );
   $info['tokens']['current-page']['page-number'] = array(
     'name' => t('Page number'),
@@ -199,6 +211,67 @@ function token_token_info() {
   $info['tokens']['current-page']['arg'] = array(
     'name' => t('Page argument'),
     'description' => t("The specific argument of the current page (e.g. 'arg:1' on the page 'node/1' returns '1')."),
+    'dynamic' => TRUE,
+  );
+
+  // URL tokens.
+  $info['types']['url'] = array(
+    'name' => t('URL'),
+    'description' => t('Tokens related to URLs.'),
+    'needs-data' => 'url',
+  );
+  $info['tokens']['url']['path'] = array(
+    'name' => t('Internal path'),
+    'description' => t('The internal Drupal path of the URL.'),
+  );
+  $info['tokens']['url']['alias'] = array(
+    'name' => t('Alias'),
+    'description' => t('The alias of the URL.'),
+  );
+  $info['tokens']['url']['relative'] = array(
+    'name' => t('Relative URL'),
+    'description' => t('The relative URL.'),
+  );
+  $info['tokens']['url']['absolute'] = array(
+    'name' => t('Absolute URL'),
+    'description' => t('The absolute URL.'),
+  );
+  $info['tokens']['url']['brief'] = array(
+    'name' => t('Brief URL'),
+    'description' => t('The URL without the protocol and trailing backslash.'),
+  );
+
+  // Array tokens.
+  $info['types']['array'] = array(
+    'name' => t('Array'),
+    'description' => t('Tokens related to arrays of strings.'),
+    'needs-data' => 'array',
+  );
+  $info['tokens']['array']['first'] = array(
+    'name' => t('First'),
+    'description' => t('The first element of the array.'),
+  );
+  $info['tokens']['array']['last'] = array(
+    'name' => t('Last'),
+    'description' => t('The last element of the array.'),
+  );
+  $info['tokens']['array']['count'] = array(
+    'name' => t('Count'),
+    'description' => t('The number of elements in the array.'),
+  );
+  $info['tokens']['array']['reversed'] = array(
+    'name' => t('Reversed'),
+    'description' => t('The array reversed.'),
+    'type' => 'array',
+  );
+  $info['tokens']['array']['keys'] = array(
+    'name' => t('Keys'),
+    'description' => t('The array of keys of the array.'),
+    'type' => 'array',
+  );
+  $info['tokens']['array']['join'] = array(
+    'name' => t('Imploded'),
+    'description' => t('The values of the array joined together with a custom string in-between each value.'),
     'dynamic' => TRUE,
   );
 
@@ -226,6 +299,16 @@ function token_tokens($type, $tokens, array $data = array(), array $options = ar
   // @todo Remove when http://drupal.org/node/943028 is fixed.
   if ($type == 'current-date') {
     $replacements += token_generate('date', $tokens, array('date' => REQUEST_TIME), $options);
+  }
+
+  // Comment tokens.
+  if ($type == 'comment' && !empty($data['comment'])) {
+    $comment = $data['comment'];
+
+    // Chained token relationships.
+    if (($url_tokens = token_find_with_prefix($tokens, 'url'))) {
+      $replacements += token_generate('url', $url_tokens, entity_uri('comment', $comment), $options);
+    }
   }
 
   // Node tokens.
@@ -256,6 +339,9 @@ function token_tokens($type, $tokens, array $data = array(), array $options = ar
     }
     if (($node_type_tokens = token_find_with_prefix($tokens, 'content-type')) && $node_type = node_type_load($node->type)) {
       $replacements += token_generate('content-type', $node_type_tokens, array('node_type' => $node_type), $options);
+    }
+    if (($url_tokens = token_find_with_prefix($tokens, 'url'))) {
+      $replacements += token_generate('url', $url_tokens, entity_uri('node', $node), $options);
     }
   }
 
@@ -299,6 +385,11 @@ function token_tokens($type, $tokens, array $data = array(), array $options = ar
           $replacements[$original] = url("taxonomy/term/{$term->tid}/edit", $url_options);
           break;
       }
+    }
+
+    // Chained token relationships.
+    if (($url_tokens = token_find_with_prefix($tokens, 'url'))) {
+      $replacements += token_generate('url', $url_tokens, entity_uri('taxonomy_term', $term), $options);
     }
   }
 
@@ -344,6 +435,9 @@ function token_tokens($type, $tokens, array $data = array(), array $options = ar
             $replacements[$original] = theme('user_picture', array('account' => $account));
           }
           break;
+        case 'roles':
+          $replacements[$original] = token_render_array($account->roles, $options);
+          break;
       }
     }
 
@@ -352,6 +446,12 @@ function token_tokens($type, $tokens, array $data = array(), array $options = ar
       // @todo Remove when core bug http://drupal.org/node/978028 is fixed.
       $account->picture->description = '';
       $replacements += token_generate('file', $picture_tokens, array('file' => $account->picture), $options);
+    }
+    if ($url_tokens = token_find_with_prefix($tokens, 'url')) {
+      $replacements += token_generate('url', $url_tokens, entity_uri('user', $account), $options);
+    }
+    if ($role_tokens = token_find_with_prefix($tokens, 'roles')) {
+      $replacements += token_generate('array', $role_tokens, array('array' => $account->roles), $options);
     }
   }
 
@@ -384,10 +484,6 @@ function token_tokens($type, $tokens, array $data = array(), array $options = ar
         case 'title':
           $replacements[$original] = $sanitize ? check_plain($link['title']) : $link['title'];
           break;
-        case 'path':
-          $alias = drupal_get_path_alias($link['href'], $language_code);
-          $replacements[$original] = $sanitize ? check_plain($alias) : $alias;
-          break;
         case 'url':
           $replacements[$original] = url($link['href'], $url_options);
           break;
@@ -411,6 +507,9 @@ function token_tokens($type, $tokens, array $data = array(), array $options = ar
     if (!empty($link['p1']) && $link['p1'] != $link['mlid'] && ($root_tokens = token_find_with_prefix($tokens, 'root')) && $root = token_menu_link_load($link['p1'])) {
       $replacements += token_generate('menu-link', $root_tokens, array('menu-link' => $root), $options);
     }
+    if ($url_tokens = token_find_with_prefix($tokens, 'url')) {
+      $replacements += token_generate('url', $url_tokens, array('path' => $link['href']), $options);
+    }
   }
 
   // Current page tokens.
@@ -421,10 +520,6 @@ function token_tokens($type, $tokens, array $data = array(), array $options = ar
       switch ($name) {
         case 'title':
           $replacements[$original] = drupal_get_title();
-          break;
-        case 'path':
-          $alias = drupal_get_path_alias($current_path, $language_code);
-          $replacements[$original] = $sanitize ? check_plain($alias) : $alias;
           break;
         case 'url':
           $replacements[$original] = url($current_path, $url_options);
@@ -448,6 +543,42 @@ function token_tokens($type, $tokens, array $data = array(), array $options = ar
         }
       }
     }
+
+    // Chained token relationships.
+    if ($url_tokens = token_find_with_prefix($tokens, 'url')) {
+      $replacements += token_generate('url', $url_tokens, array('path' => $current_path), $options);
+    }
+  }
+
+  // URL tokens.
+  if ($type == 'url' && !empty($data['path'])) {
+    $path = $data['path'];
+
+    if (isset($data['options'])) {
+      // Merge in the URL options if available.
+      $url_options = $data['options'] + $url_options;
+    }
+
+    foreach ($tokens as $name => $original) {
+      switch ($name) {
+        case 'path':
+          $replacements[$original] = $sanitize ? check_plain($path) : $path;
+          break;
+        case 'alias':
+          $alias = drupal_get_path_alias($path, $language_code);
+          $replacements[$original] = $sanitize ? check_plain($alias) : $alias;
+          break;
+        case 'absolute':
+          $replacements[$original] = url($path, $url_options);
+          break;
+        case 'relative':
+          $replacements[$original] = url($path, array('absolute' => FALSE) + $url_options);
+          break;
+        case 'brief':
+          $replacements[$original] = preg_replace(array('!^https?://!', '!/$!'), '', url($path, $url_options));
+          break;
+      }
+    }
   }
 
   // Entity tokens.
@@ -462,22 +593,76 @@ function token_tokens($type, $tokens, array $data = array(), array $options = ar
 
     foreach ($tokens as $name => $original) {
       switch ($name) {
-        // @todo Support entity:label
-        // @todo Support entity:url
-        case 'path':
-          $token_info = token_get_info($type, $name);
-          if (!isset($token_info['module']) || $token_info['module'] != 'token') {
-            // We must check that this token was added by token.module itself
-            // otherwise we may cause an array to be returned.
-            continue;
-          }
-          if ($uri = entity_uri($entity_type, $entity)) {
-            $alias = drupal_get_path_alias($uri['path'], $language_code);
-            $replacements[$original] = $sanitize ? check_plain($alias) : $alias;
+        case 'url':
+          if (_token_module($type, 'url') == 'token' && $uri = entity_uri($entity_type, $entity)) {
+            $replacements[$original] = url($uri['path'], $uri['options']);
           }
           break;
       }
     }
+
+    // Chained token relationships.
+    if (($url_tokens = token_find_with_prefix($tokens, 'url')) && _token_module($type, 'url') == 'token') {
+      $replacements += token_generate('url', $url_tokens, entity_uri($entity_type, $entity), $options);
+    }
+  }
+
+  // Array tokens.
+  if ($type == 'array' && !empty($data['array']) && is_array($data['array'])) {
+    $array = $data['array'];
+
+    foreach ($tokens as $name => $original) {
+      switch ($name) {
+        case 'first':
+          $first = reset($array);
+          $replacements[$original] = token_render_array_value($first, $options);
+          reset($array);
+          break;
+        case 'last':
+          $last = end($array);
+          $replacements[$original] = token_render_array_value($last, $options);
+          reset($array);
+          break;
+        case 'count':
+          $replacements[$original] = count($array);
+          break;
+        case 'keys':
+          $keys = array_keys($array);
+          $replacements[$original] = token_render_array($keys, $options);
+          break;
+        case 'reversed':
+          $reversed = array_reverse($array, TRUE);
+          $replacements[$original] = token_render_array($reversed, $options);
+          break;
+        case 'join':
+          $replacements[$original] = token_render_array($array, array('join' => '') + $options);
+          break;
+      }
+    }
+
+    // Dynamic tokens.
+    if ($value_tokens = token_find_with_prefix($tokens, 'value')) {
+      foreach ($value_tokens as $key => $original) {
+        if (isset($array[$key])) {
+          $replacements[$original] = token_render_array_value($array[$key], $options);
+        }
+      }
+    }
+    if ($join_tokens = token_find_with_prefix($tokens, 'join')) {
+      foreach ($join_tokens as $join => $original) {
+        $replacements[$original] = token_render_array($array, array('join' => $join) + $options);
+      }
+    }
+
+    // Chained token relationships.
+    if ($key_tokens = token_find_with_prefix($tokens, 'keys')) {
+      $replacements += token_generate('array', $key_tokens, array('array' => array_keys($array)), $options);
+    }
+    if ($reversed_tokens = token_find_with_prefix($tokens, 'reversed')) {
+      $replacements += token_generate('array', $reversed_tokens, array('array' => array_reverse($array, TRUE)), $options);
+    }
+
+    // @todo Handle if the array values are not strings and could be chained.
   }
 
   // If $type is a token type, $data[$type] is empty but $data[$entity_type] is
@@ -776,9 +961,10 @@ function _token_profile_fields() {
   $fields = &drupal_static(__FUNCTION__);
 
   if (!isset($fields)) {
+    $fields = array();
     $results = db_query("SELECT name, title, category, type FROM {profile_field}");
     foreach ($results as $field) {
-      $field->token_name = strtr($field->name, '_', '-');
+      $field->token_name = token_clean_token_name($field->name);
       $fields[$field->token_name] = $field;
     }
   }

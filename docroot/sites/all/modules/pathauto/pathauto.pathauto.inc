@@ -1,5 +1,5 @@
 <?php
-// $Id: pathauto.pathauto.inc,v 1.5 2010/12/20 17:55:21 davereid Exp $
+// $Id: pathauto.pathauto.inc,v 1.7 2011/01/13 03:27:23 davereid Exp $
 
 /**
  * @file
@@ -53,12 +53,11 @@ function node_pathauto($op) {
       $settings = array();
       $settings['module'] = 'node';
       $settings['token_type'] = 'node';
-      $settings['groupheader'] = t('Node paths');
-      $settings['patterndescr'] = t('Default path pattern (applies to all node types with blank patterns below)');
+      $settings['groupheader'] = t('Content paths');
+      $settings['patterndescr'] = t('Default path pattern (applies to all content types with blank patterns below)');
       $settings['patterndefault'] = 'content/[node:title]';
       $settings['batch_update_callback'] = 'node_pathauto_bulk_update_batch_process';
       $settings['batch_file'] = drupal_get_path('module', 'pathauto') . '/pathauto.pathauto.inc';
-      $settings['supportsfeeds'] = 'feed';
 
       $languages = array();
       if (module_exists('locale')) {
@@ -67,7 +66,7 @@ function node_pathauto($op) {
 
       foreach (node_type_get_names() as $node_type => $node_name) {
         if (count($languages) && variable_get('language_content_type_' . $node_type, 0)) {
-          $settings['patternitems'][$node_type] = t('Default path pattern for @node_type (applies to all @node_type node types with blank patterns below)', array('@node_type' => $node_name));
+          $settings['patternitems'][$node_type] = t('Default path pattern for @node_type (applies to all @node_type content types with blank patterns below)', array('@node_type' => $node_name));
           foreach ($languages as $lang_code => $lang_name) {
             $settings['patternitems'][$node_type . '_' . $lang_code] = t('Pattern for all @language @node_type paths', array('@node_type' => $node_name, '@language' => $lang_name));
           }
@@ -137,7 +136,6 @@ function taxonomy_pathauto($op) {
       $settings['groupheader'] = t('Taxonomy term paths');
       $settings['patterndescr'] = t('Default path pattern (applies to all vocabularies with blank patterns below)');
       $settings['patterndefault'] = '[term:vocabulary]/[term:name]';
-      $settings['supportsfeeds'] = 'feed';
       $settings['batch_update_callback'] = 'taxonomy_pathauto_bulk_update_batch_process';
       $settings['batch_file'] = drupal_get_path('module', 'pathauto') . '/pathauto.pathauto.inc';
 
@@ -216,7 +214,6 @@ function forum_pathauto($op) {
       $settings['groupheader'] = t('Forum paths');
       $settings['patterndescr'] = t('Pattern for forums and forum containers');
       $settings['patterndefault'] = '[term:vocabulary]/[term:name]';
-      $settings['supportsfeeds'] = 'feed';
       $settings['batch_update_callback'] = 'forum_pathauto_bulk_update_batch_process';
       $settings['batch_file'] = drupal_get_path('module', 'pathauto') . '/pathauto.pathauto.inc';
       return (object) $settings;
@@ -343,7 +340,6 @@ function blog_pathauto($op) {
       $settings['groupheader'] = t('Blog paths');
       $settings['patterndescr'] = t('Pattern for blog page paths');
       $settings['patterndefault'] = 'blogs/[user:name]';
-      $settings['supportsfeeds'] = 'feed';
       $settings['batch_update_callback'] = 'blog_pathauto_bulk_update_batch_process';
       $settings['batch_file'] = drupal_get_path('module', 'pathauto') . '/pathauto.pathauto.inc';
       return (object) $settings;

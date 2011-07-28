@@ -1,5 +1,5 @@
 <?php
-// $Id: schema.module,v 1.43.2.9.2.11 2010/05/17 18:37:55 mikeryan Exp $
+// $Id: schema.module,v 1.43.2.9.2.10 2010/03/20 22:26:53 mikeryan Exp $
 
 /**
  * @file
@@ -620,7 +620,7 @@ function schema_compare() {
   $form['extra'] = array(
     '#type' => 'fieldset',
     '#title' => t('Extra (@count)',
-        array('@count' => isset($info['extra']) ? count($info['extra']) : 0)),
+        array('@count' => count($info['extra']))),
     '#description' => t('Tables in the database that are not present in the schema.  This
         indicates previously installed modules that are disabled but not un-installed or
         modules that do not use the Schema API.'),

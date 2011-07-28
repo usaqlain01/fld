@@ -4,6 +4,9 @@
  * Provides configurable blocks of menu items.
  */
 
+// A core bug in Drupal 7.0 requires this fix.
+module_load_include('inc', 'menu_block', 'custom_menu_active_trail');
+
 /**
  * Denotes that the tree should use the menu picked by the curent page.
  */
@@ -47,7 +50,7 @@ function menu_block_ctools_plugin_directory($module, $plugin) {
  */
 function menu_block_help($path, $arg) {
   switch ($path) {
-    case 'admin/structure/block/configure':
+    case 'admin/structure/block/manage/%/%':
       if ($arg[4] != 'menu_block') {
         break;
       }
@@ -66,7 +69,13 @@ function menu_block_block_view($delta = '') {
   $data = menu_tree_build($config);
   // Add contextual links for this block.
   if (!empty($data['content'])) {
-    $data['content']['#contextual_links']['menu_block'] = array('admin/structure/menu/manage', array($config['menu_name']));
+    if (in_array($config['menu_name'], array_keys(menu_get_menus()))) {
+      $data['content']['#contextual_links']['menu_block'] = array('admin/structure/menu/manage', array($config['menu_name']));
+    }
+    elseif (strpos($config['menu_name'], 'book-toc-') === 0) {
+      $node = str_replace('book-toc-', '', $config['menu_name']);
+      $data['content']['#contextual_links']['menu_block'] = array('admin/content/book', array($node));
+    }
   }
   return $data;
 }
@@ -93,16 +102,23 @@ function menu_block_get_all_menus() {
   $all_menus = &drupal_static(__FUNCTION__);
 
   if (!$all_menus) {
-    // Include book support.
-    if (module_exists('book')) {
-      module_load_include('inc', 'menu_block', 'menu_block.book');
+    if ($cached = cache_get('menu_block_menus', 'cache_menu')) {
+      $all_menus = $cached->data;
     }
-    // We're generalizing menu's menu_get_menus() by making it into a hook.
-    // Retrieve all the menu names provided by hook_get_menus().
-    $all_menus = module_invoke_all('get_menus');
-    // Add an option to use the menu for the active menu item.
-    $all_menus[MENU_TREE__CURRENT_PAGE_MENU] = '<' . t('the menu selected by the page') . '>';
-    asort($all_menus);
+    else {
+      // Retrieve core's menus.
+      $all_menus = menu_get_menus();
+      // Include book support.
+      if (module_exists('book')) {
+        module_load_include('inc', 'menu_block', 'menu_block.book');
+      }
+      // Retrieve all the menu names provided by hook_menu_block_get_menus().
+      $all_menus = array_merge($all_menus, module_invoke_all('menu_block_get_menus'));
+      // Add an option to use the menu for the active menu item.
+      $all_menus[MENU_TREE__CURRENT_PAGE_MENU] = '<' . t('the menu selected by the page') . '>';
+      asort($all_menus);
+      cache_set('menu_block_menus', $all_menus, 'cache_menu');
+    }
   }
   return $all_menus;
 }
@@ -191,7 +207,15 @@ function menu_tree_build($config) {
   // Retrieve the active menu item from the database.
   if ($config['menu_name'] == MENU_TREE__CURRENT_PAGE_MENU) {
     // Retrieve the list of available menus.
-    $menu_order = variable_get('menu_block_menu_order', array('main-menu' => '', 'secondary-menu' => ''));
+    $menu_order = variable_get('menu_block_menu_order', array('main-menu' => '', 'user-menu' => ''));
+
+    // Check for regular expressions as menu keys.
+    $patterns = array();
+    foreach (array_keys($menu_order) as $pattern) {
+      if ($pattern[0] == '/') {
+        $patterns[$pattern] = NULL;
+      }
+    }
 
     // Retrieve all the menus containing a link to the current page.
     $result = db_query("SELECT menu_name FROM {menu_links} WHERE link_path = :link_path", array(':link_path' => $_GET['q'] ? $_GET['q'] : '<front>'));
@@ -201,9 +225,24 @@ function menu_tree_build($config) {
         // Mark the menu.
         $menu_order[$item->menu_name] = MENU_TREE__CURRENT_PAGE_MENU;
       }
+      else {
+        // Check if the menu matches one of the available patterns.
+        foreach (array_keys($patterns) as $pattern) {
+          if (preg_match($pattern, $item['menu_name'])) {
+            // Mark the menu.
+            $menu_order[$pattern] = MENU_TREE__CURRENT_PAGE_MENU;
+            // Store the actual menu name.
+            $patterns[$pattern] = $item['menu_name'];
+          }
+        }
+      }
     }
     // Find the first marked menu.
     $config['menu_name'] = array_search(MENU_TREE__CURRENT_PAGE_MENU, $menu_order);
+    // If a pattern was matched, use the actual menu name instead of the pattern.
+    if (!empty($patterns[$config['menu_name']])) {
+      $config['menu_name'] = $patterns[$config['menu_name']];
+    }
     $config['parent_mlid'] = 0;
 
     // If no menu link was found, don't display the block.
@@ -216,6 +255,9 @@ function menu_tree_build($config) {
   $menu_names = menu_block_get_all_menus();
   menu_block_set_title(t($menu_names[$config['menu_name']]));
 
+  // @TODO: Remove work-around for core bug #942782.
+  __menu_block_set_menu_trail($config['menu_name']);
+
   if ($config['expanded'] || $config['parent_mlid']) {
     // Get the full, un-pruned tree.
     $tree = menu_tree_all_data($config['menu_name']);
@@ -226,6 +268,9 @@ function menu_tree_build($config) {
     // Get the tree pruned for just the active trail.
     $tree = menu_tree_page_data($config['menu_name']);
   }
+
+  // @TODO: Remove work-around for core bug #942782.
+  __menu_block_set_menu_trail();
 
   // Allow alteration of the tree and config before we begin operations on it.
   drupal_alter('menu_block_tree', $tree, $config);
@@ -274,7 +319,7 @@ function menu_tree_build($config) {
   $data['content']['#content'] = menu_block_tree_output($tree, $config);
   if (!empty($data['content']['#content'])) {
     $data['content']['#theme'] = array(
-      'menu_block_wrapper__' . $config['delta'],
+      'menu_block_wrapper__' . str_replace('-', '_', $config['delta']),
       'menu_block_wrapper__' . str_replace('-', '_', $config['menu_name']),
       'menu_block_wrapper'
     );

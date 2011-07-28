@@ -118,7 +118,7 @@
 
 /* fixing gap on slideshow from above selector */
 .views_slideshow_slide .field-type-file .field-items .field-item img
-										{ padding:8px 0 7px; }
+										{ padding:0px 0 7px; }
 
 .field-type-file .field-items .field-item a
 										{ display:block; width:auto; margin-left:20px; padding:8px 4px 7px; color:#1F2818; font-size:0.875em; font-weight:bold; }
@@ -264,12 +264,49 @@
 										{ font-size:12px; line-height:8px; }
 
 										
-/* Fields for department featured links*/
-.section-explore .field-name-field-department-links .field-label
+/* Fields for department homepage & subsection homepage featured links*/
+.section-explore .field-name-field-department-links .field-label,
+.section-explore .node-subsection-homepage .field-name-field-link .field-label,
+.section-explore .node-subsection-homepage .field-name-field-additional-information .field-label
 										{ border-bottom:2px solid #92B40A; }
 
-.section-explore .field-name-field-department-links .field-items .field-item
+.section-explore .field-name-field-department-links .field-items .field-item,
+.section-explore .node-subsection-homepage .field-name-field-link .field-items .field-item
 										{ margin-bottom:2px; padding-bottom:2px; border-bottom:1px dashed #BFBFBF; }
 
-.section-explore .field-name-field-department-links .field-items .field-item a
+.section-explore .field-name-field-department-links .field-items .field-item a,
+.section-explore .node-subsection-homepage .field-name-field-link .field-items .field-item a
 										{ font-size:.9em; }
+										
+/* This field can't be hidden with field formatters due to how Contextual Menu Block module works, hiding with css instead */
+.field-name-field-subsections			{ display:none; }
+
+
+
+/* User Profile Collapsible Fields */
+.section-users .collapsible.collapsed:hover .field-label
+										{ background:url('../images/field-collapsible-arrows.png') #92B40A no-repeat 4px -24px; color:#fff; }
+
+.section-users .collapsible .field-label
+										{ margin:0px; }
+
+.section-users .collapsible .field-items ul
+										{ margin:0; }
+
+.section-users .field-name-field-bio-sketch
+										{ border-top:1px solid #DDD; padding-top:15px; margin-top:15px; }
+
+
+/* Newsletter Node Type */
+.node-type-newsletter .field-type-media
+										{ float:left; margin:0px 10px 10px 0; }
+
+.node-type-newsletter .field-type-text-long
+										{ margin-bottom:10px; padding-bottom:10px; border-bottom:1px solid #888; }
+
+.node-type-newsletter .field-type-text-long .field-label
+										{ font-family:helvetica, arial; font-weight:bold; font-style:normal; color:#000; }
+										
+.node-type-newsletter .field-name-field-image-header
+										{ padding-bottom:10px; margin-bottom:10px; border-bottom:1px solid #888; }
+										

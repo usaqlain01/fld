@@ -11,6 +11,7 @@ $view->disabled = FALSE; /* Edit this to true to make a default view disabled in
 
 /* Display: Defaults */
 $handler = $view->new_display('default', 'Defaults', 'default');
+$handler->display->display_options['title'] = 'Welcome';
 $handler->display->display_options['access']['type'] = 'none';
 $handler->display->display_options['cache']['type'] = 'none';
 $handler->display->display_options['query']['type'] = 'views_query';
@@ -122,6 +123,7 @@ $handler->display->display_options['sorts']['field_weight_value']['table'] = 'fi
 $handler->display->display_options['sorts']['field_weight_value']['field'] = 'field_weight_value';
 $translatables['widgets'] = array(
   t('Defaults'),
+  t('Welcome'),
   t('more'),
   t('Apply'),
   t('Reset'),
@@ -136,4 +138,3 @@ $translatables['widgets'] = array(
   t('Learn more'),
   t('Block: Section front widgets'),
 );
-

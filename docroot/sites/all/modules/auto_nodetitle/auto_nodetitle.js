@@ -1,9 +1,8 @@
-// $Id: auto_nodetitle.js,v 1.1.2.1 2010/04/14 09:47:13 fago Exp $
 (function ($) {
 
 Drupal.behaviors.auto_nodetitleFieldsetSummaries = {
   attach: function (context) {
-    $('fieldset#edit-auto-nodetitle', context).setSummary(function (context) {
+    $('fieldset#edit-auto-nodetitle', context).drupalSetSummary(function (context) {
 
       // Retrieve the value of the selected radio button
       var ant = $("input[@name=#edit-auto-nodetitle-ant]:checked").val();

@@ -160,6 +160,8 @@ $handler->display->display_options['filters']['field_surname_value']['operator']
 
 /* Display: Page: Staff List */
 $handler = $view->new_display('page', 'Page: Staff List', 'page_1');
+$handler->display->display_options['defaults']['title'] = FALSE;
+$handler->display->display_options['title'] = 'Our Staff';
 $handler->display->display_options['defaults']['query'] = FALSE;
 $handler->display->display_options['query']['type'] = 'views_query';
 $handler->display->display_options['query']['options']['distinct'] = TRUE;
@@ -206,6 +208,6 @@ $translatables['staff_directory'] = array(
   t('user/[uid]'),
   t('Department'),
   t('Page: Staff List'),
+  t('Our Staff'),
   t('Page: Executive Staff'),
 );
-

@@ -60,11 +60,10 @@ $handler->display->display_options['style_options']['views_slideshow_cycle']['ad
 $handler->display->display_options['style_options']['views_slideshow_cycle']['advanced_rev'] = '0';
 $handler->display->display_options['style_options']['mode'] = 'views_slideshow_cycle';
 $handler->display->display_options['row_plugin'] = 'fields';
-/* Relationship: Fields: field_imagefrontref */
+/* Relationship: Fields: field_imagefrontref (field_imagefrontref) - nid */
 $handler->display->display_options['relationships']['field_imagefrontref_nid']['id'] = 'field_imagefrontref_nid';
 $handler->display->display_options['relationships']['field_imagefrontref_nid']['table'] = 'field_data_field_imagefrontref';
 $handler->display->display_options['relationships']['field_imagefrontref_nid']['field'] = 'field_imagefrontref_nid';
-$handler->display->display_options['relationships']['field_imagefrontref_nid']['label'] = 'field_imagefrontref';
 $handler->display->display_options['relationships']['field_imagefrontref_nid']['required'] = 1;
 /* Field: Fields: field_homepage_image_link */
 $handler->display->display_options['fields']['entity_id_3']['id'] = 'entity_id_3';

@@ -13,11 +13,29 @@
  *   The completed form definition.
  */
 function addthis_admin_settings() {
-  $form['addthis_username'] = array(
+  $form = array();
+
+  $form['addthis_general_settings'] = array(
+    '#type'  => 'fieldset',
+    '#title' => t('General settings'),
+  );
+  $form['addthis_general_settings']['addthis_username'] = array(
     '#type'          => 'textfield',
     '#title'         => t('Username'),
     '#default_value' => variable_get('addthis_username', 'my-username'),
     '#description'   => t('Your username for <a href="http://www.addthis.com/">addthis.com</a>. Example: my-username'),
+  );
+  $form['addthis_general_settings']['addthis_display_in_links'] = array(
+    '#type'          => 'checkbox',
+    '#title'         => t('Display on node pages'),
+    '#default_value' => variable_get('addthis_display_in_links', '0'),
+    '#description'   => t('Display an AddThis button always on a node page\'s links section.'),
+  );
+  $form['addthis_general_settings']['addthis_display_in_teasers'] = array(
+    '#type'          => 'checkbox',
+    '#title'         => t('Display in node teasers'),
+    '#default_value' => variable_get('addthis_display_in_teasers', '0'),
+    '#description'   => t('Display an AddThis button in the node teasers.'),
   );
 
   $form['addthis_button_settings'] = array(
@@ -37,6 +55,24 @@ function addthis_admin_settings() {
     '#title'         => t('Button image url for secure https connection'),
     '#default_value' => variable_get('addthis_image_secure', 'https://secure.addthis.com/button1-share.gif'),
     '#description'   => t('This is only required if your site uses secure https connections. Example: https://secure.addthis.com/button1-share.gif'),
+  );
+  $form['addthis_button_settings']['addthis_image_width'] = array(
+    '#type'          => 'textfield',
+    '#title'         => t('Button image width'),
+    '#default_value' => variable_get('addthis_image_width', '125'),
+    '#description'   => t('Width for button image. Example: 125'),
+  );
+  $form['addthis_button_settings']['addthis_image_height'] = array(
+    '#type'          => 'textfield',
+    '#title'         => t('Button image height'),
+    '#default_value' => variable_get('addthis_image_height', '16'),
+    '#description'   => t('Height for button image. Example: 16'),
+  );
+  $form['addthis_button_settings']['addthis_image_attributes'] = array(
+    '#type'          => 'textfield',
+    '#title'         => t('Button image HTML attributes'),
+    '#default_value' => variable_get('addthis_image_attributes', 'alt=""'),
+    '#description'   => t('Extra HTML attributes for img tag. Example: alt=""'),
   );
 
   $form['addthis_widget_settings'] = array(

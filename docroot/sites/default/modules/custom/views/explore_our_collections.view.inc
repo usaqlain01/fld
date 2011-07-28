@@ -97,14 +97,6 @@ $handler = $view->new_display('block', 'Block: Anthropology', 'block_1');
 $handler->display->display_options['defaults']['title'] = FALSE;
 $handler->display->display_options['title'] = 'Anthropology';
 $handler->display->display_options['defaults']['header'] = FALSE;
-/* Header: Global: Text area */
-$handler->display->display_options['header']['area']['id'] = 'area';
-$handler->display->display_options['header']['area']['table'] = 'views';
-$handler->display->display_options['header']['area']['field'] = 'area';
-$handler->display->display_options['header']['area']['label'] = 'View label.';
-$handler->display->display_options['header']['area']['empty'] = TRUE;
-$handler->display->display_options['header']['area']['content'] = 'view all collections';
-$handler->display->display_options['header']['area']['format'] = '1';
 $handler->display->display_options['defaults']['filters'] = FALSE;
 /* Filter: Taxonomy: Vocabulary */
 $handler->display->display_options['filters']['vid']['id'] = 'vid';
@@ -767,8 +759,6 @@ $translatables['explore_our_collections'] = array(
   t('node/[nid]'),
   t('Block: Anthropology'),
   t('Anthropology'),
-  t('View label.'),
-  t('view all collections'),
   t('Block: Botany'),
   t('Botany'),
   t('Block: ECCo'),
@@ -787,4 +777,3 @@ $translatables['explore_our_collections'] = array(
   t('Attachment: Zoology'),
   t('Attachment: Library / Archives'),
 );
-

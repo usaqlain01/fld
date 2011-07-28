@@ -2,14 +2,15 @@
 name = AddThis
 description = Creates AddThis button as a block, to be used in themes and to node links.
 core = 7.x
-files[] = addthis.module
-files[] = addthis.admin.inc
-configure = admin/config/system/addthis
-stylesheets[all][] = addthis.css
+project = "addthis"
+datestamp = "1242663607"
+files[] = "addthis.module"
+files[] = "addthis.admin.inc"
 
 
-; Information added by drupal.org packaging script on 2010-03-03
-version = "7.x-2.1-alpha2"
+; Information added by drupal.org packaging script on 2010-10-21
+version = "7.x-2.1-beta1"
 core = "7.x"
 project = "addthis"
-datestamp = "1267638604"
+datestamp = "1287691291"
+

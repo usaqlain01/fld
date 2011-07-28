@@ -64,6 +64,7 @@ $handler->display->display_options['style_options']['info'] = array(
 );
 $handler->display->display_options['style_options']['override'] = 1;
 $handler->display->display_options['style_options']['sticky'] = 0;
+$handler->display->display_options['style_options']['order'] = 'desc';
 /* Empty text: Global: Text area */
 $handler->display->display_options['empty']['area']['id'] = 'area';
 $handler->display->display_options['empty']['area']['table'] = 'views';
@@ -154,11 +155,6 @@ $handler->display->display_options['fields']['edit_node']['alter']['html'] = 0;
 $handler->display->display_options['fields']['edit_node']['hide_empty'] = 0;
 $handler->display->display_options['fields']['edit_node']['empty_zero'] = 0;
 $handler->display->display_options['fields']['edit_node']['text'] = 'edit';
-/* Sort criterion: Node: Updated date */
-$handler->display->display_options['sorts']['changed']['id'] = 'changed';
-$handler->display->display_options['sorts']['changed']['table'] = 'node';
-$handler->display->display_options['sorts']['changed']['field'] = 'changed';
-$handler->display->display_options['sorts']['changed']['order'] = 'DESC';
 /* Filter: Node: Title */
 $handler->display->display_options['filters']['title']['id'] = 'title';
 $handler->display->display_options['filters']['title']['table'] = 'node';
@@ -227,4 +223,3 @@ $translatables['workbench_recent_content'] = array(
   t('more'),
   t('Block'),
 );
-

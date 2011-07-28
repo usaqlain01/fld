@@ -15,9 +15,9 @@ files[] = menu_block.install
 
 configure = admin/config/user-interface/menu-block
 
-; Information added by drupal.org packaging script on 2010-09-28
-version = "7.x-2.0-beta4"
+; Information added by drupal.org packaging script on 2011-03-09
+version = "7.x-2.2"
 core = "7.x"
 project = "menu_block"
-datestamp = "1285708861"
+datestamp = "1299683174"
 

@@ -38,6 +38,17 @@ function _menu_block_menu() {
 }
 
 /**
+ * Implements hook_menu_alter().
+ */
+function menu_block_menu_alter(&$items) {
+  // Fake the necessary menu attributes necessary for a contextual link.
+  $items['admin/content/book/%node']['title'] = 'Edit book outline';
+  $items['admin/content/book/%node']['type'] = MENU_LOCAL_TASK;
+  $items['admin/content/book/%node']['context'] = (MENU_CONTEXT_PAGE | MENU_CONTEXT_INLINE);
+  $items['admin/content/book/%node']['tab_root'] = 'admin/content/book';
+}
+
+/**
  * Implements hook_theme().
  */
 function _menu_block_theme(&$existing, $type, $theme, $path) {
@@ -141,15 +152,19 @@ function _menu_block_form_block_admin_display_form_alter(&$form, $form_state) {
   $blocks = module_invoke_all('menu_block_blocks');
   foreach (variable_get('menu_block_ids', array()) AS $delta) {
     if (empty($blocks[$delta])) {
-      $form['menu_block_' . $delta]['delete'] = array('#type' => 'link', '#title' => t('delete'), '#href' => 'admin/structure/block/delete-menu-block/' . $delta);
+      $form['blocks']['menu_block_' . $delta]['delete'] = array('#type' => 'link', '#title' => t('delete'), '#href' => 'admin/structure/block/delete-menu-block/' . $delta);
     }
   }
   if (variable_get('menu_block_suppress_core')) {
     foreach (array_keys(menu_get_menus(FALSE)) AS $delta) {
-      unset($form['menu_' . $delta]);
+      if (empty($form['blocks']['menu_' . $delta]['region']['#default_value'])) {
+        unset($form['blocks']['menu_' . $delta]);
+      }
     }
     foreach (array_keys(menu_list_system_menus()) AS $delta) {
-      unset($form['system_' . $delta]);
+      if (empty($form['blocks']['system_' . $delta]['region']['#default_value'])) {
+        unset($form['blocks']['system_' . $delta]);
+      }
     }
   }
 }
@@ -309,62 +324,11 @@ function menu_block_configure_form($form, &$form_state) {
     return $form;
   }
 
-  // Get the list of menus.
-  $menus = menu_block_get_all_menus();
-
-  // Build the standard and jquery versions of the parent item options.
-  $parent_options = $parent_options_js = array();
-  foreach ($menus AS $menu_name => $title) {
-    if ($menu_name == MENU_TREE__CURRENT_PAGE_MENU) {
-      $options = array($menu_name . ':0' => $title);
-      $parent_options += $options;
-      // For the js options, replace the root item option with better help text.
-      $options[$menu_name . ':0'] = '<' . t('root of menu') . '>';
-    }
-    else {
-      // Retrieve the entire tree of each menu.
-      $options = menu_parent_options(array($menu_name => $title), array('mlid' => 0));
-      $parent_options += $options;
-      $options[$menu_name . ':0'] = '<' . t('root of @menu_name', array('@menu_name' => $title)) . '>';
-    }
-    // Render the options as <option> elements.
-    $parent_options_js[$menu_name] = form_select_options(array('#value' => NULL), $options);
-  }
-  // Build a select element that is only needed for the jquery version.
-  $menus_select = theme('select', array(
-    'element' => array(
-      '#title' => t('Menu'),
-      '#value' => $config['menu_name'],
-      '#options' => $menus,
-      '#name' => 'parent_menu',
-      '#id' => 'edit-parent-menu',
-      '#attributes' => array('class' => array('menu-block-parent-menu')),
-      '#size' => 1,
-      '#required' => FALSE,
-      '#multiple' => FALSE,
-      '#parents' => array('parent_menu'),
-    )
-  ));
-  // Load the javascript data.
-  $form['#attached']['js'][] = array(
-    'data' => array(
-      'menu_block' => array(
-        'menus_label_text' => t('Menu'),
-        'menus' => $menus_select,
-        'parent_wrapper' => '<div class="menu-block-parent-wrapper"></div>',
-        'parent_label' => '<label id="item-label">' . t('Parent item') . '</label>',
-        'menus_default' => $config['menu_name'],
-        'parent_options' => $parent_options_js,
-        'parent_default' => $config['menu_name'] . ':' . $config['parent_mlid'],
-      ),
-    ),
-    'type' => 'setting',
-  );
-  $form['#attached']['js'][] = drupal_get_path('module', 'menu_block') . '/menu-block.js';
-
   // Build the standard form.
+  $form['#attached']['js'][] = drupal_get_path('module', 'menu_block') . '/menu-block.js';
   $form['#attached']['css'][] = drupal_get_path('module', 'menu_block') . '/menu-block-admin.css';
   $form['#attached']['library'][] = array('system', 'ui.button');
+
   $form['menu-block-wrapper-start'] = array(
     '#markup' => '<div id="menu-block-settings">',
     '#weight' => -20,
@@ -405,14 +369,14 @@ function menu_block_configure_form($form, &$form_state) {
     '#title' => t('Administrative title'),
     '#description' => t('This title will be used administratively to identify this block. If blank, the regular title will be used.'),
   );
-  $form['parent'] = array(
+  $menus = menu_block_get_all_menus();
+  $form['menu_name'] = array(
     '#type' => 'select',
-    '#title' => t('Parent item'),
-    '#default_value' => $config['menu_name'] . ':' . $config['parent_mlid'],
-    '#options' => $parent_options,
-    '#description' => t('The tree of links will only contain children of the selected menu item. Using <em>&lt;the menu selected by the page&gt;</em> can be customized on the <a href="!url">Menu block settings page</a>.', array('!url' => url('admin/config/user-interface/menu-block'))),
-    '#attributes' => array('class' => array('menu-block-parent')),
-    '#element_validate' => array('menu_block_configure_form_parent_validate'),
+    '#title' => t('Menu'),
+    '#default_value' => $config['menu_name'],
+    '#options' => $menus,
+    '#description' => t('The preferred menus used by <em>&lt;the menu selected by the page&gt;</em> can be customized on the <a href="!url">Menu block settings page</a>.', array('!url' => url('admin/config/user-interface/menu-block'))),
+    '#attributes' => array('class' => array('menu-block-menu-name')),
   );
   $form['level'] = array(
     '#type' => 'select',
@@ -491,13 +455,23 @@ function menu_block_configure_form($form, &$form_state) {
     '#default_value' => $config['sort'],
     '#description' => t('Sort each item in the active trail to the top of its level. When used on a deep or wide menu tree, the active menu item’s children will be easier to see when the page is reloaded.'),
   );
+  $form['parent_mlid'] = array(
+    '#type' => 'select',
+    '#title' => t('Fixed parent item'),
+    '#default_value' => $config['menu_name'] . ':' . $config['parent_mlid'],
+    '#options' => menu_parent_options($menus, array('mlid' => 0)),
+    '#description' => t('Alter the “starting level” and “maximum depth” options to be relative to the fixed parent item. The tree of links will only contain children of the selected menu item.'),
+    '#attributes' => array('class' => array('menu-block-parent-mlid')),
+    '#element_validate' => array('menu_block_configure_form_parent_validate'),
+  );
+  $form['parent_mlid']['#options'][MENU_TREE__CURRENT_PAGE_MENU . ':0'] = '<' . t('the menu selected by the page') . '>';
   $form['menu-block-wrapper-close'] = array('#markup' => '</div>');
 
   // Set visibility of advanced options.
-  foreach (array('title_link', 'follow', 'follow_parent', 'expanded', 'sort') as $key) {
+  foreach (array('title_link', 'follow', 'follow_parent', 'expanded', 'sort', 'parent_mlid') as $key) {
     $form[$key]['#states']['visible'][':input[name=display_options]'] = array('value' => 'advanced');
   }
-  if ($config['title_link'] || $follow || $config['expanded'] || $config['sort']) {
+  if ($config['title_link'] || $follow || $config['expanded'] || $config['sort'] || $config['parent_mlid']) {
     $form['display_options']['#default_value'] = 'advanced';
   }
 
@@ -508,9 +482,19 @@ function menu_block_configure_form($form, &$form_state) {
  * Validates the parent element of the block configuration form.
  */
 function menu_block_configure_form_parent_validate($element, &$form_state) {
-  // The "Menu block" config has the "parent" value split into "menu_name" and
-  // "parent_mlid" values. The value of "parent" stored in the database/config array is either FALSE
-  list($form_state['values']['menu_name'], $form_state['values']['parent_mlid']) = explode(':', $form_state['values']['parent']);
+  // Determine the fixed parent item's menu and mlid.
+  list($menu_name, $parent_mlid) = explode(':', $form_state['values']['parent_mlid']);
+  if ($parent_mlid) {
+    // If mlid is set, its menu overrides the menu_name option.
+    $form_state['values']['menu_name'] = $menu_name;
+  }
+  else {
+    // Otherwise the menu_name overrides the parent item option.
+    $form_state['values']['parent_mlid'] = $menu_name . ':0';
+  }
+  // The value of "parent" stored in the database/config array is the menu name
+  // combined with the optional parent menu item's mlid.
+  $form_state['values']['parent'] = $form_state['values']['parent_mlid'];
 }
 
 /**
@@ -559,13 +543,24 @@ function menu_block_admin_settings_form($form, &$form_state) {
     '#description' => t('On the blocks admin page, hide Drupal’s standard blocks of menus.'),
   );
 
-  // Grab all the menus.
-  $menus = menu_block_get_all_menus();
-  unset($menus[MENU_TREE__CURRENT_PAGE_MENU]);
-  $total_menus = count($menus);
+  // Retrieve core's menus.
+  $menus = menu_get_menus();
+  // Include book support.
+  if (module_exists('book')) {
+    module_load_include('inc', 'menu_block', 'menu_block.book');
+  }
+  // Retrieve all the menu names provided by hook_menu_block_get_sort_menus().
+  $menus = array_merge($menus, module_invoke_all('menu_block_get_sort_menus'));
+  asort($menus);
 
   // Load stored configuration.
-  $menu_order = variable_get('menu_block_menu_order', array('main-menu' => '', 'secondary-menu' => ''));
+  $menu_order = variable_get('menu_block_menu_order', array('main-menu' => '', 'user-menu' => ''));
+  // Remove any menus no longer in the list of all menus.
+  foreach (array_keys($menu_order) as $menu) {
+    if (!isset($menus[$menu])) {
+      unset($menu_order[$menu]);
+    }
+  }
 
   // Merge the saved configuration with any un-configured menus.
   $all_menus = $menu_order + $menus;
@@ -581,6 +576,7 @@ function menu_block_admin_settings_form($form, &$form_state) {
   );
 
   $order = 0;
+  $total_menus = count($all_menus);
   foreach (array_keys($all_menus) as $menu_name) {
     $form['menu_order'][$menu_name] = array(
       'title' => array(

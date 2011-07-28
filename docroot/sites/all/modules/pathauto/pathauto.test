@@ -1,5 +1,5 @@
 <?php
-// $Id: pathauto.test,v 1.35 2010/12/20 19:54:47 davereid Exp $
+// $Id: pathauto.test,v 1.38 2011/01/13 03:27:24 davereid Exp $
 
 /**
  * @file
@@ -183,30 +183,6 @@ class PathautoUnitTestCase extends PathautoTestHelper {
   }
 
   /**
-   * Test the feed alias functionality of pathauto_create_alias().
-   */
-  function testFeedAliases() {
-    variable_set('pathauto_node_pattern', '[node:title]');
-    variable_set('pathauto_node_applytofeeds', '');
-
-    // Create a node with an empty title, which should not create an alias.
-    $node = $this->drupalCreateNode(array('title' => ''));
-    $this->assertNoAliasExists(array('source' => "node/{$node->nid}"));
-    $this->assertNoAliasExists(array('source' => "node/{$node->nid}/feed"));
-
-    // Add a title to the node. This should still not generate a feed alias.
-    $node->title = 'Node title';
-    pathauto_node_update($node);
-    $this->assertAliasExists(array('source' => "node/{$node->nid}", 'alias' => 'node-title'));
-    $this->assertNoAliasExists(array('source' => "node/{$node->nid}/feed"));
-
-    // Enable feeds for nodes. A feed alias should now be generated.
-    variable_set('pathauto_node_applytofeeds', ' feed ');
-    pathauto_node_update($node);
-    $this->assertAliasExists(array('source' => "node/{$node->nid}/feed", 'alias' => 'node-title/feed'));
-  }
-
-  /**
    * Test pathauto_path_delete_multiple().
    */
   function testPathDeleteMultiple() {
@@ -289,7 +265,7 @@ class PathautoUnitTestCase extends PathautoTestHelper {
    * Test the handling of path vs non-path tokens in pathauto_clean_token_values().
    */
   function testPathTokens() {
-    variable_set('pathauto_taxonomy_term_pattern', '[term:parent:path]/[term:name]');
+    variable_set('pathauto_taxonomy_term_pattern', '[term:parent:url:alias]/[term:name]');
     $vocab = $this->addVocabulary();
 
     $term1 = $this->addTerm($vocab, array('name' => 'Parent term'));
@@ -489,7 +465,7 @@ class PathautoFunctionalTestCase extends PathautoFunctionalTestHelper {
     $edit['pathauto_node_pattern'] = '[node:title]/[user:name]/[term:name]';
     $edit['pathauto_node_page_pattern'] = 'page';
     $this->drupalPost('admin/config/search/path/patterns', $edit, 'Save configuration');
-    $this->assertText('The Default path pattern (applies to all node types with blank patterns below) is using the following invalid tokens: [user:name], [term:name].');
+    $this->assertText('The Default path pattern (applies to all content types with blank patterns below) is using the following invalid tokens: [user:name], [term:name].');
     $this->assertText('The Pattern for all Basic page paths cannot contain fewer than one token.');
     $this->assertNoText('The configuration options have been saved.');
 

@@ -12,6 +12,8 @@ CONFIGURING MENU BLOCKS
 When adding or configuring a menu block, several configuration options are
 available:
 
+Basic Options:
+
 Block title
   For menu trees that start with the 1st level, the default block title will be
   the menu name. For menu trees that start with the 2nd level or deeper, the
@@ -34,24 +36,25 @@ Administrative title
   unique title to be used on that page. If blank, the regular title will be
   used.
 
-Parent item
-  First select the menu. Then select the parent item from that menu. The tree of
-  links will only contain children of the selected parent item.
+Menu name
+  Select the menu to use for the tree of links.
 
 Starting level
   Blocks that start with the 1st level will always be visible. Blocks that start
   with the 2nd level or deeper will only be visible when the trail to the active
   menu item is in the block's tree.
 
-Make the starting level follow the active menu item
-  If the active menu item is deeper than the level specified above, the starting
-  level will follow the active menu item. Otherwise, the starting level of the
-  tree will remain fixed.
-
 Maximum depth
   From the starting level, specify the maximum depth of the tree. Blocks with a
   maximum depth of 1 will just be a single un-nested list of links with none of
   those links' children displayed.
+
+Advanced options:
+
+Make the starting level follow the active menu item
+  If the active menu item is deeper than the level specified above, the starting
+  level will follow the active menu item. Otherwise, the starting level of the
+  tree will remain fixed.
 
 Expand
   All children of this menu will be expanded.
@@ -60,6 +63,11 @@ Sort
   Sort each item in the active trail to the top of its level. When used on a
   deep or wide menu tree, the active menu item's children will be easier to see
   when the page is reloaded.
+
+Fixed parent item
+  If you select a specific menu item, you alter the "starting level" and
+  "maximum depth" options to be relative to the fixed parent item. The tree of
+  links will only contain children of the selected parent item.
 
 
 STYLING MENU BLOCKS
@@ -114,7 +122,7 @@ called by it.
   - [theme]_menu_link__menu_block__[block id number]()
 
 For example, if you created a bartik_menu_tree__menu_block() function, it would
-override theme_menu_block() any time it was used by this module, but not when
+override theme_menu_tree() any time it was used by this module, but not when
 used by any other module. Similarly, a bartik_menu_link__menu_block__1()
 function would override theme_menu_link(), but only for the first menu block in
 your system (the menu block with an ID of 1).
@@ -127,5 +135,6 @@ Developers can use the API of this module to create their own menu trees outside
 the confines of blocks. All of the publicly available API functions are
 documented in the menu_block.module file.
 
-In addition, Menu block implements HOOK_get_menus() and
-HOOK_menu_block_tree_alter(). See menu_block.api.php for documentation.
+In addition, Menu block implements HOOK_menu_block_get_menus(),
+HOOK_menu_block_get_sort_menus() and HOOK_menu_block_tree_alter(). See
+menu_block.api.php for documentation.

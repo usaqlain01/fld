@@ -6,7 +6,7 @@
 function contextual_menu_block_block_info() {
   $info['contextual-menu-block'] = array(
     'info' => 'Contextual Menu Block',
-    'cache' => DRUPAL_CACHE_GLOBAL,
+    'cache' => DRUPAL_NO_CACHE,
   );
 
   return $info;

@@ -1,4 +1,4 @@
-/* $Id: README.txt,v 1.2 2009/11/13 22:25:54 wesku Exp $ */
+/* $Id: README.txt,v 1.2.2.1 2010/10/21 14:38:41 wesku Exp $ */
 
 -- SUMMARY --
 
@@ -30,18 +30,20 @@ For link sharing statistics registration at http://addthis.com/ is required, but
 There are two ways of using the module:
 
 1) Display AddThis button in node links.
-* Go to Administer / Site configuration / AddThis.
+* Go to Configure / System / AddThis.
 * Check Display on node pages.
 * Optionally check Display in node teasers.
-* If you want to limit AddThis visibility by content type go to Administer / Content management / Content types and choose a content type. Visibility can be set for each content type under Workflow settings.
+* If you want to limit AddThis visibility by content type, go to
+  Structure / Content types and click the Edit link next to a content type.
+  Visibility can be set for each content type in the "AddThis settings" section.
 
 2) Use AddThis as a block.
-* Go to Site building / Blocks and make AddThis button block visible.
+* Go to Structure / Blocks and make the AddThis button block visible.
 
 -- CUSTOMIZATION --
 
-You have a number of options available at Administer / Site configuration / Addthis under Button image settings
- and Widget settings. Image settings control the button image and widget controls the drop down and window that is opened when user clicks on a link sharing service. More information on how to customize your AddThis button can be found at http://addthis.com/help/customize/custom-button/
+You have a number of options available at Configure / System / AddThis under Button image settings
+and Widget settings. Image settings control the button image and widget controls the drop down and window that is opened when user clicks on a link sharing service. More information on how to customize your AddThis button can be found at http://addthis.com/help/customize/custom-button/
  
 If configuration options are not flexible enough for you it is also possible to override theme_addthis_button in your own theme.
 
