@@ -1,6 +1,10 @@
 <?php
 // $Id: index.php,v 1.99 2009/10/15 14:07:25 dries Exp $
 
+error_reporting(E_ALL);
+ini_set('display_errors', TRUE);
+ini_set('display_startup_errors', TRUE);
+
 /**
  * @file
  * The PHP page that serves all page requests on a Drupal installation.
