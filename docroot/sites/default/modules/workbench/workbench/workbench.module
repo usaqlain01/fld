@@ -1,0 +1,133 @@
+<?php
+// $Id$
+
+/**
+ * @file
+ *   Workbench module file for editorial workspaces.
+ *
+ * @copyright (C) Copyright 2010 Palantir.net
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function workbench_menu() {
+  $items = array();
+
+  $items['admin/config/workbench'] = array(
+    'title' => 'Workbench',
+    'description' => 'Workbench',
+    'page callback' => 'system_admin_menu_block_page',
+    'access arguments' => array('access workbench'),
+    'position' => 'right',
+    'file' => 'system.admin.inc',
+    'file path' => drupal_get_path('module', 'system'),
+  );
+  $items['admin/config/workbench/page'] = array(
+    'title' => 'My Workbench',
+    'description' => 'My Workbench area',
+    'page callback' => 'workbench_content',
+    'access arguments' => array('access workbench'),
+    'weight' => -20,
+    'file' => 'workbench.pages.inc',
+  );
+  /*
+  $items['admin/config/workbench/page/overview'] = array(
+    'title' => 'Workbench',
+    'page callback' => 'workbench_page',
+    'access arguments' => array('access workbench'),
+    'weight' => -25,
+    'type' => MENU_DEFAULT_LOCAL_TASK,
+    'file' => 'workbench.pages.inc',
+  );*/
+  $items['admin/config/workbench/page/content'] = array(
+    'title' => 'My content',
+    'page callback' => 'workbench_content',
+    'access arguments' => array('access workbench'),
+    'weight' => -20,
+    'type' => MENU_DEFAULT_LOCAL_TASK,
+    'file' => 'workbench.pages.inc',
+  );
+  $items['admin/config/workbench/page/create'] = array(
+    'title' => 'Create content',
+    'page callback' => 'workbench_create',
+    'access arguments' => array('access workbench'),
+    'weight' => -15,
+    'type' => MENU_LOCAL_TASK,
+    'file' => 'workbench.pages.inc',
+  );
+  return $items;
+}
+
+/**
+ * Implements hook_permission().
+ */
+function workbench_permission() {
+  $permissions = array(
+    'administer workbench' => array(
+      'title' => t('Administer Workbench settings'),
+    ),
+    'access workbench' => array(
+      'title' => t('Access a personal Workbench page'),
+    ),
+    'view all unpublished content' => array(
+      'title' => 'View all unpublished content',
+    ),
+  );
+  return $permissions;
+}
+
+/**
+ * Implements hook_node_access().
+ *
+ * Allow users with the 'view all unpublished content' permission to do just that.
+ */
+function workbench_node_access($node, $op, $account) {
+  if ($op == 'view' && !$node->status && user_access('view all unpublished content', $account)) {
+    return NODE_ACCESS_ALLOW;
+  }
+  return NODE_ACCESS_IGNORE;
+}
+
+/**
+ * Implements hook_theme().
+ *
+ * Provides a theme function for use with the RenderAPI that uses the #title and #attributes
+ * properties of a render array, if they're present.
+ */
+function workbench_theme($existing, $type, $theme, $path) {
+  return array(
+    'workbench_element' => array(
+      'render element' => 'element',
+    ),
+  );
+}
+
+/**
+ * Generic theme function for use with RenderAPI. Renders the #title and #attributes properties
+ * if they are present.
+ */
+function theme_workbench_element($vars) {
+  $element = $vars['element'];
+
+  // Use the #title attribute.
+  $title = '';
+  if (!empty($element['#title'])) {
+    $title = '<h3>' . check_plain($element['#title']) . '</h3>';
+  }
+
+  // Use #attributes to customize a wrapper <div>.
+  $attributes = '';
+  if (!empty($element['#attributes'])) {
+    $attributes = drupal_attributes($element['#attributes']);
+  }
+
+  // Render any child items.
+  if (!$element['#children']) {
+    $element['#children'] = drupal_render_children($element);
+  }
+
+  // Build simple output.
+  $output = "<div{$attributes}>{$title}{$element['#children']}</div>";
+  return $output;
+}

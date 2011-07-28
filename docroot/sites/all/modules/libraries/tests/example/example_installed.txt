@@ -1,0 +1,7 @@
+; $Id: example_installed.txt,v 1.2 2010/07/23 12:57:01 tstoeckler Exp $
+
+Example library
+
+Version 2
+
+This file is an example file to test version detection.

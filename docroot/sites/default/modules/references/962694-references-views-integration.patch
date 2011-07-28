@@ -1,0 +1,49 @@
+diff --git node_reference/node_reference.module node_reference/node_reference.module
+index 8c78bc0..b563bfc 100644
+--- node_reference/node_reference.module
++++ node_reference/node_reference.module
+@@ -827,3 +827,44 @@ function node_reference_content_migrate_instance_alter(&$instance_value) {
+       break;
+   }
+ }
++
++/**
++ * Implements hook_views_api().
++ */
++function node_reference_views_api() {
++  return array(
++    'api' => '3.0',
++  );
++}
++
++/**
++ * Implements hook_field_views_data().
++ *
++ * In addition to the default field information we add the relationship for
++ * views to connect back to the node table.
++ */
++function node_reference_field_views_data($field) {
++  // No module_load_include(): this hook is invoked from
++  // views/modules/field.views.inc, which is where that function is defined.
++  $data = field_views_field_default_views_data($field);
++
++  // Build The entities and bundles this appears on.
++  $appears_on = array();
++  foreach ($field['bundles'] as $entity => $bundles) {
++    $appears_on[] = $entity . ' (' . implode(', ', $bundles) . ')';
++  }
++  $appears_on = implode(', ', $appears_on);
++  foreach ($data as $table_name => $table_data) {
++    if (isset($field['storage']['details']['sql'][FIELD_LOAD_CURRENT][$table_name]['nid'])) {
++      $data[$table_name][$field['storage']['details']['sql'][FIELD_LOAD_CURRENT][$table_name]['nid']]['relationship'] = array(
++        'base' => 'node',
++        'field' => 'nid',
++        'base field' => 'nid',
++        'title' => $field['field_name'],
++        'help' => t('Node Reference appears on: !details', array('!details' => $appears_on)),
++      );
++    }
++  }
++
++  return $data;
++}

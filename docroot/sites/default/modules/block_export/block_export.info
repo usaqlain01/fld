@@ -1,0 +1,6 @@
+; $Id$
+name = Block export
+description = Provides an API for managing block settings in code.
+core = 7.x
+dependencies[] = block
+files[] = block.module

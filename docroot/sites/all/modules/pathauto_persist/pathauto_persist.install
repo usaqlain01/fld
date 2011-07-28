@@ -1,0 +1,35 @@
+<?php
+// $Id: pathauto_persist.install,v 1.2 2010/10/10 20:52:38 davereid Exp $
+
+/**
+ * Implements hook_schema().
+ */
+function pathauto_persist_schema() {
+  $schema['pathauto_persist'] = array(
+    'description' => '',
+    'fields' => array(
+      'entity_type' => array(
+        'type' => 'varchar',
+        'length' => 128,
+        'not null' => TRUE,
+        'description' => 'An entity type.',
+      ),
+      'entity_id' => array(
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'description' => 'An entity ID.',
+      ),
+      'pathauto' => array(
+        'type' => 'int',
+        'size' => 'tiny',
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => 'The automatic alias status of the entity.',
+      ),
+    ),
+    'primary key' => array('entity_type', 'entity_id'),
+  );
+
+  return $schema;
+}

@@ -1,0 +1,9 @@
+@CHARSET "UTF-8";
+
+.current-revision td {
+  background-color: #faafbe;
+}
+
+.published-revision td {
+  background-color: #aaffaa;
+}

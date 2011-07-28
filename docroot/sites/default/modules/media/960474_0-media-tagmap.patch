@@ -1,0 +1,100 @@
+diff --git media.filter.inc media.filter.inc
+index ce00afc..6edfb02 100644
+--- media.filter.inc
++++ media.filter.inc
+@@ -175,8 +175,14 @@ function _media_markup($match, $wysiwyg = FALSE) {
+  * Process a text format widget to load and attach editors.
+  *
+  * The element's #id is used as reference to attach client-side editors.
++ *
++ * This function may be called several times--once for each textarea that with the media tag input
++ * filter. $full_tagmap is built as a set of all the media filter tags, but for each call of this
++ * function only the new filter tags are passed to JS.
+  */
+ function media_pre_render_text_format($element) {
++  static $full_tagmap;
++
+   // filter_process_format() copies properties to the expanded 'value' child
+   // element.
+   if (!isset($element['format'])) {
+@@ -189,48 +194,52 @@ function media_pre_render_text_format($element) {
+     'field' => $field['#id'],
+   );
+ 
+-  $tagmap = _media_generate_tagMap($field['#value']);
+-
+-  if (isset($tagmap)) {
+-    drupal_add_js(array('tagmap' => array_unique($tagmap)), 'setting');
++  // Get a list of media filter tags in the content, and the markup to output for each tag.
++  if ($tagmap = _media_generate_tagMap($field['#value'])) {
++    // Filter out tags we've already set.
++    if (!isset($full_tagmap)) {
++      $full_tagmap = $tagmap;
++    }
++    else {
++      foreach ($tagmap as $key => $val) {
++        if (!isset($full_tagmap[$key])) {
++          $full_tagmap[$key] = $val;
++        }
++        else {
++          unset($tagmap[$key]);
++        }
++      }
++    }
++    if (!empty($tagmap)) {
++      // Pass any new filter tags and markup to JS.
++      drupal_add_js(array('tagmap' => array_unique($tagmap)), 'setting');
++    }
+   }
++
+   return $element;
+ }
+ 
+ /**
+  * Generates an array of [inline tags] => <html> to be used in filter
+  * replacement and to add the mapping to JS.
++ *
+  * @param
+- * The String containing text and html markup of textarea
++ *   The String containing text and html markup of textarea
+  * @return
+- * An associative array with tag code as key and html markup as the value.
++ *   An associative array with tag code as key and html markup as the value.
+  *
+- * @see
+- * media_process_form
+- * _media_markup
++ * @see media_process_form()
++ * @see _media_markup()
+  */
+ function _media_generate_tagMap($text) {
+-  // Making $tagmap static as this function is called many times and
+-  // adds duplicate markup for each tag code in Drupal.settings JS,
+-  // so in media_process_form it adds something like tagCode:<markup>,
+-  // <markup> and when we replace in attach see two duplicate images
+-  // for one tagCode. Making static would make function remember value
+-  // between function calls. Since media_process_form is multiple times
+-  // with same form, this function is also called multiple times.
+-  static $tagmap = array();
++  $tagmap = array();
+   preg_match_all("/\[\[.*?]]/s", $text, $matches, PREG_SET_ORDER);
+   foreach($matches as $match) {
+-    // We see if tagContent is already in $tagMap, if not we add it
+-    // to $tagmap.  If we return an empty array, we break embeddings of the same
+-    // media multiple times.
+-    if(empty($tagmap[$match[0]])) {
+-      // @TODO: Total HACK, but better than nothing.
+-      // We should find a better way of cleaning this up.
+-      if ($markup_for_media = _media_markup($match, TRUE)) {
+-        $tagmap[$match[0]] = $markup_for_media;
+-      } else {
+-        $tagmap[$match[0]] = '<div><img src="/broken.jpg" height="50px" width="100px"/></div>';
+-      }
++    if ($markup_for_media = _media_markup($match, TRUE)) {
++      $tagmap[$match[0]] = $markup_for_media;
++    }
++    else {
++      $tagmap[$match[0]] = '<div><img src="/broken.jpg" height="50px" width="100px"/></div>';
+     }
+   }
+   return $tagmap;

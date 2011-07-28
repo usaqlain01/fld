@@ -1,0 +1,6 @@
+<?php
+// $Id: libraries_info_example.module,v 1.1 2010/10/15 16:11:08 sun Exp $
+
+// Testbot gets confused and breaks when encountering an .info file without
+// .module file. Until the testbot is corrected, we need to resolve this by
+// supplying a fake .module file for the libraries_example.info library.

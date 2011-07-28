@@ -1,0 +1,29 @@
+Index: link.module
+===================================================================
+RCS file: /cvs/drupal-contrib/contributions/modules/link/link.module,v
+retrieving revision 1.25.2.10
+diff -u -p -r1.25.2.10 link.module
+--- link.module	16 Jan 2011 05:11:22 -0000	1.25.2.10
++++ link.module	24 Jan 2011 17:55:27 -0000
+@@ -541,7 +541,7 @@ function link_field_process($element, $f
+       '#type' => 'textfield',
+       '#maxlength' => '255',
+       '#title' => t('Title'),
+-      '#required' => ($settings['title'] == 'required' && !empty($element['#value']['url'])) ? TRUE : FALSE,
++      '#required' => ($settings['title'] == 'required' && (($element['#delta'] == 0 && $element['#required']) || !empty($element['#value']['url']))) ? TRUE : FALSE,
+       '#default_value' => isset($element['#value']['title']) ? $element['#value']['title'] : NULL,
+     );
+   }
+@@ -561,6 +561,11 @@ function link_field_process($element, $f
+       '#default_value' => isset($attributes['target']) ? $attributes['target'] : FALSE,
+     );
+   }
++
++  // To prevent an extra required indicator, disable the required flag on the
++  // base element since all the sub-fields are already required if desired.
++  $element['#required'] = FALSE;
++
+   return $element;
+ }
+ 
+

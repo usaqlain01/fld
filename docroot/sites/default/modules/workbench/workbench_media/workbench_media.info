@@ -1,0 +1,8 @@
+;$Id$
+name = Workbench Media
+description = Media features for the Workbench editorial suite.
+package = Workbench
+core = 7.x
+dependencies[] = workbench
+dependencies[] = media
+files[] = workbench_media.module

@@ -1,0 +1,12 @@
+--- includes/utility.inc	2010-12-07 14:22:18.000000000 -0500
++++ includes/utility.inc	2010-12-07 14:23:11.000000000 -0500
+@@ -21,6 +21,9 @@
+ function _ctools_passthrough(&$items, $type = 'theme') {
+   $files = drupal_system_listing('/\.' . $type . '\.inc$/', drupal_get_path('module', 'ctools') . '/includes', 'name', 0);
+   foreach ($files as $file) {
++    if($file->name == 'stylizer.theme' && !module_exists('stylizer')) {
++      continue;
++    }  
+     require_once DRUPAL_ROOT . '/' . $file->uri;
+     list($tool) = explode('.', $file->name, 2);
+ 

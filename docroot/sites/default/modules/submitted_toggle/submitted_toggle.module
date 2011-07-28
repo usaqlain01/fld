@@ -1,0 +1,136 @@
+<?php
+
+/**
+ * Implements hook_permission().
+ */
+function submitted_toggle_permission() {
+  $permission['edit submitted display'] = array(
+    'title' => t('Edit the submitted display for content'),
+  );
+  return $permission;
+}
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ */
+function submitted_toggle_form_node_form_alter(&$form, $form_state) {
+  $node = $form['#node'];
+
+  if (!isset($form['display_settings'])) {
+    $form['display_settings'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('Display settings'),
+      '#weight' => 30,
+      '#group' => 'additional_settings',
+      '#after_build' => array('submitted_toggle_display_settings_fieldset_after_build'),
+    );
+  }
+
+  $form['display_settings']['submitted_toggle'] = array(
+    '#type' => 'container',
+    '#tree' => TRUE,
+    '#access' => user_access('edit submitted display') && variable_get('node_submitted_' . $node->type, TRUE),
+  );
+  $form['display_settings']['submitted_toggle']['show_author'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Show author'),
+    '#default_value' => isset($node->submitted_toggle['show_author']) ? $node->submitted_toggle['show_author'] : 0,
+  );
+  $form['display_settings']['submitted_toggle']['show_date'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Show date'),
+    '#default_value' => isset($node->submitted_toggle['show_date']) ? $node->submitted_toggle['show_date'] : 0,
+    '#access' => user_access('edit submitted display') && variable_get('node_submitted_' . $node->type, TRUE),
+  );
+}
+
+/**
+ * After build callback for the display settings fieldset.
+ *
+ * Hide itself if there are no sub-elements to display.
+ */
+function submitted_toggle_display_settings_fieldset_after_build($form_element, &$form_state) {
+  if (!element_get_visible_children($form_element)) {
+    $form_element['#access'] = FALSE;
+  }
+  return $form_element;
+}
+
+/**
+ * Implements hook_node_load().
+ */
+function submitted_toggle_node_load($nodes, $types) {
+  $toggles = db_query("SELECT nid, show_author, show_date FROM {submitted_toggle} WHERE nid IN (:nids)", array(':nids' => array_keys($nodes)))->fetchAllAssoc('nid');
+  foreach ($toggles as $nid => $toggle) {
+    $nodes[$nid]->submitted_toggle = (array) $toggle;
+  }
+}
+
+/**
+ * Implements hook_node_update().
+ */
+function submitted_toggle_node_insert($node) {
+  submitted_toggle_node_update($node);
+}
+
+/**
+ * Implements hook_node_update().
+ */
+function submitted_toggle_node_update($node) {
+  if (isset($node->submitted_toggle)) {
+    db_merge('submitted_toggle')
+      ->fields(array(
+        'show_author' => $node->submitted_toggle['show_author'],
+        'show_date' => $node->submitted_toggle['show_date'],
+      ))
+      ->key(array('nid' => $node->nid))
+      ->execute();
+  }
+}
+
+/**
+ * Implements hook_node_delete().
+ */
+function submitted_toggle_node_delete($node) {
+  db_delete('submitted_toggle')
+    ->condition('nid', $node->nid)
+    ->execute();
+}
+
+/**
+ * Implements hook_preprocess_node().
+ */
+function submitted_toggle_preprocess_node(&$variables) {
+  if (isset($variables['node']->submitted_toggle) && !empty($variables['display_submitted'])) {
+    $toggle = $variables['node']->submitted_toggle;
+    if ($toggle['show_author'] && $toggle['show_date']) {
+      // Do nothing, this is the default (show author and date).
+    }
+    elseif ($toggle['show_author'] && !$toggle['show_date']) {
+      // Show author, but not the date.
+      $variables['display_submitted'] = t('<span class="prefix">by</span> !username', array('!username' => $variables['name']));
+    }
+    elseif (!$toggle['show_author'] && $toggle['show_date']) {
+      // Show date, but not the author.
+      $variables['display_submitted'] = t('<span class="prefix">posted</span> !date', array('!date' => $variables['date']));
+    }
+    else {
+      // Neither author nor date to be displayed, set to FALSE.
+      $variables['display_submitted'] = FALSE;
+    }
+  }
+}
+
+/**
+ * Implements hook_field_extra_fields().
+ */
+function submitted_toggle_field_extra_fields() {
+  $extras = array();
+  foreach (node_type_get_names() as $type => $name) {
+    $extras['node'][$type]['form']['display_settings'] = array(
+      'label' => t('Display settings fieldset'),
+      'weight' => 30,
+    );
+  }
+  return $extras;
+}

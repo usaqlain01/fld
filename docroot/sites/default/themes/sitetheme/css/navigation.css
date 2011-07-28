@@ -1,0 +1,223 @@
+/* $Id: navigation.css,v 1.7 2010/04/01 11:42:16 johnalbin Exp $ */
+
+/**
+ * @file
+ * Navigation Styling
+ */
+
+
+/*
+ * The active item in a Drupal menu
+ */
+li a.active 								{ color:#000; }
+
+/*
+ * Navigation bar
+ */
+#navigation 								{ overflow:hidden; /* Sometimes you want to prevent overlapping with main div. */ background-color:#000; line-height:42px; margin-bottom:24px; }
+
+#navigation .block 							{ margin:0; }
+#navigation .content ul /* Main menu and secondary menu links */ { margin:0; padding:0; text-align:left; /* LTR */ }
+#navigation .content li /* A simple method to get navigation links to appear in one line. */ { float:left; /* LTR */ /*padding: 0 10px 0 0;  LTR */ list-style:none; }
+#navigation .content li a 					{ /*color:#fff;*/ text-decoration:none; }
+
+
+.region-navigation 							{  }
+
+/*
+ * Main menu and Secondary menu links
+ */
+#main-menu 									{  }
+#secondary-menu 							{  }
+
+/*
+ * Menu blocks
+ */
+.block-menu 								{  }
+
+/*
+ * "Menu block" blocks. See http://drupal.org/project/menu_block
+ */
+.block-menu-block 							{  }
+.block-menu-block h2.block-title 			{ border-bottom:none !important; }
+
+.region-sidebar-first .block-menu-block ul.menu,
+.region-footer .block ul.menu,
+.region-header .block ul.menu 				{ margin:0; padding:0; overflow:hidden; }
+
+.region-footer .block ul.menu li,
+.region-header .block ul.menu li,
+.block-menu-block ul.menu li 				{ list-style:none; list-style-image:none; }
+
+.region-footer .block ul.menu li,
+.region-header .block ul.menu li 			{ float:left; padding-right:10px; margin-right:10px; }
+.region-footer .block ul.menu li 			{ border-right:1px solid #fff; }
+.region-footer .block ul.menu li.last 		{ border-right:none; }
+.region-header .block ul.menu li a 			{ font-weight:bold; font-size:0.9230em; }
+.region-header .block ul.menu li span.ext  	{ display:none; }
+.region-footer .block ul.menu li a 			{ font-weight:bold; font-size:0.9230em; }
+.region-header .block ul.menu li a 			{ color:#3f3f3f; }
+.region-footer .block ul.menu li a 			{ color:#fff; }
+.region-footer .block ul.menu li ul li a 	{ font-size:11px; }
+
+.region-sidebar-first .block-menu-block ul.menu li
+											{ border-bottom:1px solid #000; padding:7px 0; }
+											
+.region-sidebar-first .block-menu-block ul.menu ul
+											{ margin-top:5px; }
+
+.region-sidebar-first .block-menu-block ul.menu li li
+											{ border-bottom:none; font-size:12px; line-height:13px; padding:0 0 0 8px; margin-bottom:6px; }
+
+.region-sidebar-first .block-menu-block ul.menu li li li
+											{ font-size:11px; }
+											
+.region-sidebar-first .block-menu-block ul.menu li li.last
+											{ margin-bottom:0px; }
+											
+.region-sidebar-first .block-menu-block ul.menu li a
+											{ font-weight:bold; }
+											
+.region-sidebar-first .block-menu-block ul.menu li a.active
+											{ color:#fff; }
+											
+.region-sidebar-first .block-menu-block ul.menu li.active-trail a.active-trail
+											{ color:#fff; }
+
+/* Main nav */
+#navigation .menu-block-wrapper li 			{ text-align:center; }
+#navigation .menu-block-wrapper li a 		{ font:italic normal 14px Georgia; text-transform:lowercase; }
+#navigation .menu-block-wrapper .first-word { text-transform:uppercase; font:17px Arial; font-family: neutra; }
+#navigation .menu-block-wrapper li ul li a 	{ font-style:normal; }
+
+#navigation .menu-block-wrapper li ul .first-word
+											{ text-transform:none; font-weight:normal; }
+											
+#navigation #navigation .first-word 		{ font-size:13px; }
+#navigation .menu-block-wrapper ul.menu li 	{ margin-right:23px; }
+
+#navigation .menu-block-wrapper ul.menu li.first
+											{ margin-left:19px; }
+
+#navigation .menu-block-wrapper ul.menu li.last
+											{ margin:0; }
+
+.region-footer .menu-block-main-menu-footer-links
+											{ border-bottom:1px dashed #42382E; margin-top:20px; margin-bottom:10px; padding-bottom:10px; }
+											
+.region-footer .menu-block-main-menu-footer-links ul.menu
+											{  }
+											
+.region-footer .menu-block-main-menu-footer-links ul.menu li
+											{ border:none; margin:0; padding:0; width:160px; }
+
+.region-footer .menu-block-main-menu-footer-links ul.menu li a
+											{ text-align:left; font-weight:bold; display:block; padding:4px 0 4px 19px; background-color:#000; }
+
+.region-footer .menu-block-main-menu-footer-links ul.menu ul.menu
+											{  }
+											
+.region-footer .menu-block-main-menu-footer-links ul.menu ul.menu li
+											{  }
+											
+.region-footer .menu-block-main-menu-footer-links ul.menu ul.menu li a
+											{ color:#fff; font-weight:normal; background:none; }
+
+/* we might put this in colors.css */
+#navigation .menu-block-wrapper ul.menu li a{ color:#fff; }
+
+#navigation .menu-block-wrapper li .first-word,
+.region-footer .menu-block-wrapper ul.menu li a
+											{ color:#EEE; }
+
+#navigation .menu-block-wrapper .visit .first-word,
+.region-footer .menu-block-wrapper ul.menu li .visit
+											{ color:#CE3E05; }
+
+/* 
+  Hover effects for the main menu -- uncomment as needed.
+*/ 
+#navigation .content li.menu-mlid-2671 a:hover
+											{ border-bottom:2px solid #ce3e05; }
+
+
+#navigation .menu-block-wrapper .happening .first-word,
+.region-footer .menu-block-wrapper ul.menu li .happening
+											{ color:#2EA9C6; }
+
+#navigation .content li.menu-mlid-2656 a:hover
+											{ border-bottom: 2px solid #2ea9c6; }
+
+#navigation .menu-block-wrapper .support .first-word,
+.region-footer .menu-block-wrapper ul.menu li .support
+											{ color:#0F8A5A; }
+
+#navigation .content li.menu-mlid-3261 a:hover
+											{ border-bottom:2px solid #0F8A5A; }
+
+#navigation .menu-block-wrapper .education .first-word,
+.region-footer .menu-block-wrapper ul.menu .education
+											{ color:#934E9B; }
+
+#navigation .content li.menu-mlid-3660 a:hover
+											{ border-bottom:2px solid #934E9B; }
+
+#navigation .menu-block-wrapper .explore .first-word,
+.region-footer .menu-block-wrapper ul.menu .explore
+											{ color:#92B40A; }
+
+#navigation .content li.menu-mlid-2269 a:hover
+											{ border-bottom:2px solid #92B40A; }
+
+#navigation .menu-block-wrapper .about .first-word,
+.region-footer .menu-block-wrapper ul.menu .about
+											{ color:#4F4FCF; }
+
+#navigation .content li.menu-mlid-2670 a:hover
+											{ border-bottom: 2px solid #4F4FCF; }
+
+.region-content-top .menu-block-wrapper ul.menu,
+.region-content-top .block-contextual-menu-block ul li ul.menu
+											{ margin:0; padding:0 10px; background-color:#92B40A; overflow:hidden; }
+
+.region-content-top .menu-block-wrapper ul li,
+.region-content-top .block-contextual-menu-block ul li ul.menu li
+											{ float:left; margin:10px 0 0; white-space:nowrap; padding-top:3px; }
+
+.region-content-top .menu-block-wrapper ul li.active,
+.region-content-top .block-contextual-menu-block ul li ul li.active-trail
+											{ background:url("../images/icon-arrow-down.png") no-repeat scroll center top #FFFFFF; border-top:3px solid #536712 !important; padding-top:0; }
+
+.region-content-top .menu-block-wrapper ul li a,
+.region-content-top .block-contextual-menu-block ul li ul li a
+											{ float:left; font-size:13px; font-weight:bold; padding:5px 20px; cursor:pointer; }
+
+
+/* Secondary Block Navigation: Drop Down Code */
+
+.region-content-top .menu-block-wrapper ul li ul.menu,
+.region-content-top .block-contextual-menu-block ul li ul li ul.menu
+											{ position:absolute; z-index:10; background:#add316; margin:27px 0 0 0; padding:0; visibility:hidden; max-width:200px; border-bottom:3px solid #92B40A; }
+
+.region-content-top .menu-block-wrapper ul li:hover ul,
+.region-content-top .block-contextual-menu-block ul li ul li:hover ul
+											{ visibility:visible; }
+
+.region-content-top .menu-block-wrapper ul li ul.menu li,
+.region-content-top .block-contextual-menu-block ul li ul li ul.menu li
+											{ background:none; margin:0; white-space:normal; float:none; padding-top:0; }
+
+.region-content-top .menu-block-wrapper ul li ul.menu li a,
+.region-content-top .block-contextual-menu-block ul li ul li ul.menu li a
+											{ float:none; display:block; text-decoration:none; }
+
+.region-content-top .menu-block-wrapper ul li ul.menu li a:hover,
+.region-content-top .block-contextual-menu-block ul li ul li ul.menu li a:hover
+											{ background:#eee;  }
+
+.region-content-top .menu-block-wrapper ul li ul.menu li.active,
+.region-content-top .block-contextual-menu-block ul li ul li ul.menu li.active
+											{ border-top:none!important; }
+											
+/* Hide border on microsite nav */
+.block-contextual-menu-block 				{ border-bottom:none!important; }

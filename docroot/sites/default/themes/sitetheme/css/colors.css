@@ -1,0 +1,701 @@
+/* 
+  Every SECTION on the site has an assigned accent color.
+  The left rail, section headers, and in-page widgets, along
+  with other elements on the page correspond with this accent
+  color and shift depending on which SECTION of the site the
+  page lives in.
+*/
+
+/* Default colors if not in a SECTION 
+#92B40A (lighter)
+#536712 (darker)
+*/
+body.sidebar-second #main-inner-wrapper { background:#fff; }
+
+body.sidebar-first #main-inner-wrapper,
+body.two-sidebars #main-inner-wrapper 	{ background: url('../images/background-body-explore.png') repeat-y; }
+
+/*
+ * Faq view
+ */
+
+
+.section-explore h1.title#page-title   { color:#92B40A; }
+
+.view-wp-09-featured-content .views-row,
+.view-related-content .views-row .views-row-inner,
+#EmailSignup .form-inner-inner 			{ background-color:#92B40A; }
+
+.view-related-content .field-name-field-image
+										{ border-bottom:3px solid #536712; }
+
+.view-our-collections .field-name-field-image-header
+										{ border-bottom-color: #92B40A; }
+
+/*.field-label,*/
+h1.title span,
+h2.block-title,
+h2.node-title
+/*.views-field-title*/ 					{ border-bottom:2px solid #92B40A; }
+
+.section-search .region-sidebar-first h2.block-title
+										{ border-bottom-color:#536712; }
+
+.field-name-field-body-link a,
+.field-name-field-description-link a,
+.field-name-field-lede a,
+.page-views .views-row-last,
+/*.field-name-field-description,*/
+.field-name-field-map,
+.field-name-field-link,
+.view-featured-content,
+.view-related-content-widget,
+h1.title,
+.field-name-field-featured-content .field-item,
+.region-content-top #block-system-main,
+#content .block,
+.region-sidebar-second .block 			{ border-bottom:1px solid #92B40A; }
+
+.mep-container .mep-controls > div 		{ background-color:#92B40A; }
+
+.field-name-field-podcast-file .mep-container .mep-controls .mep-playpause-button
+										{  }
+
+.view-featured-content 					{ border-top:2px solid #92B40A; }
+
+#EmailSignup 							{ border-top:3px solid #536712; }
+
+.view-featured-content
+.field-name-field-image 				{ border: 3px solid #92B40A; }
+
+.view-widgets
+.field-name-field-widget-image 			{  }
+
+/* Tabs */
+.page-views div.tabs 					{ background-color:#92B40A; }
+
+.page-views ul.primary li.active 		{ background-image:url("../images/icon-arrow-down.png"); border-top-color:#536712; }
+
+/*
+ * Faq view
+ */
+.section-explore #block-views-FAQ-related_questions .views-row-odd a:link,
+.section-explore #block-views-FAQ-related_questions .views-row-odd a:visited,
+.section-explore .field-type-file .field-items .odd,
+.section-explore #block-field_events-event-list tr.odd,
+.section-explore .view-news .views-row-odd,
+.section-explore .view-blogs-block .views-row-odd
+										{ background-color:#eaeddc; }
+
+.section-explore #block-views-FAQ-related_questions .views-row a:hover,
+.section-explore .field-type-file .field-items .field-item:hover,
+.section-explore #block-field_events-event-list tr:hover,
+.section-explore #block-field_events-event-list tr:hover a,
+.section-explore .view-news .views-row:hover,
+.section-explore .view-news .views-row:hover a,
+.section-explore .view-blogs-block .views-row:hover,
+.section-explore .view-blogs-block .views-row:hover a
+										{ background-color:#92b40a; color:#fff; text-decoration:none; }
+
+
+/* Homepage */
+body.sidebar-first.front #main-inner-wrapper,
+body.two-sidebars.front #main-inner-wrapper
+										{ background:url('../images/background-body-home.png') repeat-y; }
+
+.front #block-custom-plan_your_visit h2.block-title
+										{ border-bottom:2px solid #CE3E05; }
+
+/* Plan your visit 
+#CE3E05 (lighter)
+#932D14 (darker)
+*/
+body.sidebar-first.section-contact #main-inner-wrapper,
+body.two-sidebars.section-contact #main-inner-wrapper,
+body.sidebar-first.section-visit #main-inner-wrapper,
+body.two-sidebars.section-visit #main-inner-wrapper
+										{ background:url('../images/background-body-plan.png') repeat-y; }
+
+.section-visit h1.title#page-title
+										{ color:#CD3D05; }
+
+.section-visit .view-wr-05-promo-content .field-name-field-description,
+.section-visit .mep-container .mep-controls > div,
+.section-visit .view-wp-09-featured-content .views-row,
+.section-visit .view-related-content .views-row .views-row-inner,
+.section-visit #EmailSignup .form-inner-inner,
+.section-visit .region-sidebar-first .section
+										{ background-color:#CE3E05; }
+
+.section-visit .field-label,
+.section-visit. h1.title#page-title span,
+.section-visit h2.block-title,
+.section-visit h2.node-title,
+.section-visit .views-field-title,
+.region-sidebar-second .region-count-1	{ border-bottom-color:#CE3E05; }
+
+.section-visit .field-name-field-map,
+.section-visit .view-featured-content,
+.section-visit .view-related-content-widget,
+.section-visit h1.title#page-title,
+.section-visit #content .block,
+.section-visit #block-views-wp_09_featured_content-block_1,
+.section-visit .field-name-field-featured-content .field-item,
+.section-visit .region-sidebar-second .block,
+.section-visit .field-label,
+.section-visit h1.title#page-title span,
+.section-visit h2.block-title,
+.section-visit h2.node-title,
+.section-visit .views-field-title
+.section-faq-related h1.title#page-title,
+.section-faq-related h1.title#page-title span
+								 		{ border-bottom-color:#CE3E05; }
+
+								 		
+.section-visit .view-featured-content 	{ border-top-color:#CE3E05; }
+
+
+.section-visit .view-related-content .field-name-field-image
+										{ border-bottom-color:#932D14; }
+
+.section-visit .view-wr-05-promo-content .field-name-field-promo-image
+										{ border-right-color:#932D14; }
+
+
+.section-visit #block-views-related_content-block .views-field-title
+										{ background-image:url("../images/icon-arrow-down-plan.png"); }
+
+.section-visit #EmailSignup 			{ border-top-color:#932D14; }
+
+.section-visit #block-views-wp_09_featured_content-block_1 h2.block-title
+										{ background:#CE3E05; color:#932D14; border-left-color:#932D14; }
+
+.section-visit .view-widgets .field-name-field-widget-image,
+.section-visit .view-featured-content .field-name-field-image,
+.section-visit .view-wp-09-featured-content .field-name-field-image
+										{ border-color:#932D14; }
+
+.section-visit .view-wp-09-featured-content .views-field-title
+				 						{ background-image:url("../images/icon-arrow-down-plan.png") }
+
+.section-visit .field-name-field-quote 	{ background:url('../images/background-quote-arrow-visit.png') no-repeat top left; }
+
+.page-views.section-visit div.tabs 		{ background-color:#CE3E05; }
+
+.page-views.section-visit ul.primary li.active
+					 					{ background-image:url("../images/icon-arrow-down-plan.png"); border-top-color:#932D14; }
+
+/*
+ * Faq view
+ */
+.section-visit #block-views-FAQ-related_questions .views-row-odd a:link,
+.section-visit #block-views-FAQ-related_questions .views-row-odd a:visited,
+.section-visit .field-type-file .field-items .odd,
+.section-visit #block-field_events-event-list tr.odd,
+.section-visit .view-news .views-row-odd{ background-color:#ede1dc; }
+
+.section-visit #block-views-FAQ-related_questions .views-row a:hover,
+.section-visit .field-type-file .field-items .field-item:hover,
+.section-visit #block-field_events-event-list tr:hover,
+.section-visit #block-field_events-event-list tr:hover a,
+.section-visit .view-news .views-row:hover,
+.section-visit .view-news .views-row:hover a
+										{ background-color:#CE3E05; color:#fff; text-decoration:none; }
+
+
+/*
+ * Contact Us
+ */
+.section-contact h1#page-title,
+.section-contact h1#page-title span,
+.section-visit h1#page-title,
+.section-visit h1#page-title span,
+.section-faq-related h1#page-title,
+.section-faq-related h1.title#page-title span,
+.front #block-block-31 h2.block-title
+										{ border-bottom-color:#CE3E05; }
+										
+.section-contact h1#page-title			{ color:#CE3E05; }
+
+.section-contact h2.block-title,
+#block-block-31.region-count-1 			{ border-bottom-color:#CE3E05; }
+
+.section-contact #content .block,
+.section-contact .region-sidebar-second .block
+	 									{ border-bottom-color:#CE3E05; }
+
+/* Happening at the field */
+.section-happening h1.title#page-title span,
+.section-happening .field-name-field-body-link a, 
+.section-happening .field-name-field-description-link a,
+.section-happening .view-section-front-widget .field-name-field-imageactionlinks .field-item,
+.section-happening .views-field-title,
+.section-happening h2.block-title,
+.section-happening h2.node-title,
+.section-happening #block-views-wp_09_featured_content-block_1,
+.front .block-quicktabs,
+.front .block-quicktabs h2.block-title,
+.section-happening .view-section-front-widget .field-name-file,
+.front #block-block-61 h2.block-title,
+.front #block-block-61
+										{ border-bottom-color:#2CA7C6; }
+
+.section-happening .view-related-content .views-row .views-row-inner, 
+.section-happening #EmailSignup .form-inner-inner,
+.section-happening .region-sidebar-first .section,
+.section-happening .view-wp-09-featured-content .views-row
+										{ background-color:#2EA9C6; }
+
+.section-happening h1.title#page-title,
+.front #block-quicktabs-8.block-quicktabs
+										{ color:#2EA9C6; border-color:#2EA9C6; }
+
+.section-happening #block-views-wp_09_featured_content-block_1 h2.block-title
+										{ background:#2ea9c6; color:#175463; border-left:3px solid #175463; }
+										
+.section-happening.page-views .views-row-last,
+.section-happening .field-name-field-map,
+.section-happening .view-featured-content,
+.section-happening .view-related-content-widget,
+.section-happening h1.title#page-title,
+.section-happening h1.title#page-title span,
+.section-happening #content .block,
+.section-happening .field-name-field-featured-content .field-item,
+.section-happening .region-sidebar-second .block
+										{ border-bottom-color:#2EA9C6; }
+
+
+body.sidebar-first.section-happening #main-inner-wrapper, body.two-sidebars.section-happening #main-inner-wrapper
+										{ background:url('../images/background-body-happening.png') repeat-y; }
+
+.section-happening #EmailSignup 		{ border-top-color:#175463; }
+										
+.section-happening .view-featured-content .field-name-field-image,
+.section-happening .view-widgets .field-name-field-widget-image
+										{ border-color:#175463; }
+
+.section-happening .view-related-content .field-name-field-image,
+.section-happening .view-wp-09-featured-content .field-name-field-image
+										{ border-bottom-color:#175463; }
+
+.section-happening .view-wp-09-featured-content .views-field-title
+										{ background-image:url("../images/icon-arrow-down-happening.png"); }
+
+.section-happening .field-name-field-quote
+										{ background:url('../images/background-quote-arrow-happening.png') no-repeat top left; }
+
+.section-happening .view-featured-content
+					 					{ border-top-color:#2EA9C6; }
+
+.section-happening #block-views-related_content-block .views-field-title
+				 						{ background-image:url(../images/icon-arrow-down-happening.png); }
+
+/* Tabs */
+.page-views.section-happening div.tabs 	{ background-color:#2EA9C6; }
+
+.page-views.section-happening ul.primary li.active
+										{ background-image:url("../images/icon-arrow-down-happening.png"); border-top-color:#175463; }
+
+
+/*
+ * Faq/events/news view
+ */
+.section-happening #block-views-FAQ-related_questions .views-row-odd a:link,
+.section-happening #block-views-FAQ-related_questions .views-row-odd a:visited,
+.section-happening .field-type-file .field-items .odd,
+.section-happening #block-field_events-event-list tr.odd,
+.section-happening #block-field_events-full-list tr.odd,
+.section-happening .view-news .views-row-odd,
+.block-field-events .odd
+										{ background-color:#e0ecef; }
+
+.block-field-events .even
+										{ background-color:#fff; }
+.block-field-events td					{ padding:3px 0; }
+
+.section-happening #block-views-FAQ-related_questions .views-row a:hover,
+.section-happening .field-type-file .field-items .field-item:hover,
+.section-happening #block-field_events-event-list tr:hover,
+.section-happening #block-field_events-full-list tr:hover,
+.section-happening #block-field_events-event-list tr:hover a,
+.section-happening #block-field_events-full-list tr:hover a,
+.section-happening .view-news .views-row:hover,
+.section-happening .view-news .views-row:hover a
+										{ background-color:#2EA9C6; color:#fff; text-decoration:none; }
+
+
+/* Support the museum */
+body.sidebar-first.section-support #main-inner-wrapper,
+body.two-sidebars.section-support #main-inner-wrapper
+										{ background:url('../images/background-body-support.png') repeat-y; }
+
+.section-support .view-featured-content .field-name-field-image,
+.section-support .view-widgets .field-name-field-widget-image
+										{ border-color:#074F33; }
+
+.section-support #EmailSignup 			{ border-top-color:#074F33; }
+
+.section-support h1.title#page-title span,
+.section-support #block-views-wp_09_featured_content-block_1,
+.section-support .view-section-front-widget .field-name-file,
+.section-support .view-section-front-widget .field-name-field-imageactionlinks .field-item
+										{ border-bottom-color:#0F8A5A }
+
+.section-support h1.title#page-title	{ color:#074F33; }
+
+.section-support #block-views-wp_09_featured_content-block_1 h2.block-title
+										{ background:#0F8A5A; color:#074F33; border-left:3px solid #074F33; }
+
+.section-support .view-wp-09-featured-content .views-row, .section-support .view-related-content .views-row .views-row-inner,
+.section-support #EmailSignup .form-inner-inner,
+.section-support .view-wp-09-featured-content .views-row
+										{ background-color:#0F8A5A; }
+
+.section-support h2.block-title, 
+.section-support h2.node-title,
+.section-support .views-field-title 	{ border-bottom-color:#0F8A5A; }
+
+.section-support .view-related-content .field-name-field-image,
+.section-support .view-wp-09-featured-content .field-name-field-image
+										{ border-bottom-color:#074F33; }
+
+.section-support .view-wp-09-featured-content .views-field-title
+										{ background-image:url("../images/icon-arrow-down-support.png") }
+
+.section-support .field-name-field-quote{ background:url('../images/background-quote-arrow-support.png') no-repeat top left; }
+
+.section-support.page-views .views-row-last,
+.section-support .field-name-field-map,
+.section-support .view-featured-content,
+.section-support .view-related-content-widget,
+.section-support h1.title#page-title,
+.section-support #content .block,
+.section-support .field-name-field-featured-content .field-item,
+.section-support .region-sidebar-second .block
+										{ border-bottom:1px solid #0F8A5A; }
+
+/* Tabs */
+.page-views.section-support div.tabs 	{ background-color:#0F8A5A; }
+
+.page-views.section-support ul.primary li.active
+										{ background-image:url("../images/icon-arrow-down-support.png"); border-top-color:#074F33; }
+
+/*
+ * Faq view
+ */
+.section-support #block-views-FAQ-related_questions .views-row-odd a:link,
+.section-support #block-views-FAQ-related_questions .views-row-odd a:visited,
+.section-support .field-type-file .field-items .odd,
+.section-support #block-field_events-event-list tr.odd,
+.section-support .view-news .views-row-odd
+										{ background-color:#d8e8e2; }
+
+.section-support #block-views-FAQ-related_questions .views-row a:hover,
+.section-support .field-type-file .field-items .field-item:hover,
+.section-support #block-field_events-event-list tr:hover,
+.section-support #block-field_events-event-list tr:hover a,
+.section-support .view-news .views-row:hover,
+.section-support .view-news .views-row:hover a
+										{ background-color:#0F8A5A; color:#fff; text-decoration:none; }
+
+
+/* Schools & education */
+body.sidebar-first.section-schools #main-inner-wrapper,
+body.two-sidebars.section-schools #main-inner-wrapper
+										{ background:url('../images/background-body-schools.png') repeat-y; }
+
+.section-schools h1.title#page-title	{ color:#934E9B; }
+
+.section-schools h2.block-title, 
+.section-schools h2.node-title,
+.section-schools h1.title#page-title span,
+.section-schools .views-field-title,
+.section-schools .view-section-front-widget .field-name-file,
+.section-schools .view-section-front-widget .field-name-field-imageactionlinks .field-item,
+.section-schools #block-views-wp_09_featured_content-block_1
+										{ border-bottom-color:#934E9B; }
+
+.section-schools #EmailSignup 			{ border-top-color:#59215B; }
+
+.section-schools .view-wp-09-featured-content .views-row, 
+.section-schools .view-related-content .views-row .views-row-inner, 
+.section-schools #EmailSignup .form-inner-inner,
+.section-schools .view-featured-content .field-name-field-image,
+.section-schools .view-widgets .field-name-field-widget-image
+										{ border-color:#59215B; }
+
+.section-schools #block-views-wp_09_featured_content-block_1 h2.block-title
+										{ background:#934E9B; color:#59215B; border-left-color:#59215B; }
+
+.section-schools .view-related-content .views-row .views-row-inner, 
+.section-schools #EmailSignup .form-inner-inner,
+.section-schools .view-wr-05-promo-content .field-name-field-description,
+.section-schools .view-wp-09-featured-content .views-row
+										{ background-color:#934E9B; }
+
+.section-schools .view-related-content .field-name-field-image,
+.section-schools .view-wp-09-featured-content .field-name-field-image
+										{ border-bottom-color:#59215B; }
+
+.section-schools .view-wr-05-promo-content .field-name-field-promo-image
+										{ border-right-color:#59215B; }
+
+.section-schools .view-wp-09-featured-content .views-field-title
+										{ background-image:url("../images/icon-arrow-down-schools.png"); }
+
+.section-schools .field-name-field-quote{ background:url('../images/background-quote-arrow-schools.png') no-repeat top left; }
+
+.section-schools.page-views .views-row-last,
+.section-schools .field-name-field-map,
+.section-schools .view-featured-content,
+.section-schools .view-related-content-widget,
+.section-schools h1.title#page-title,
+.section-schools #content .block,
+.section-schools .field-name-field-featured-content .field-item,
+.section-schools .region-sidebar-second .block
+										{ border-bottom:1px solid #934D9B; }
+
+/* Tabs */
+.page-views.section-schools div.tabs 	{ background-color:#934E9B; }
+
+.page-views.section-schools ul.primary li.active
+										{ background-image:url("../images/icon-arrow-down-schools.png"); border-top-color:#59215B; }
+
+/*
+ * Faq view
+ */
+.section-schools #block-views-FAQ-related_questions .views-row-odd a:link,
+.section-schools #block-views-FAQ-related_questions .views-row-odd a:visited,
+.section-schools .field-type-file .field-items .odd,
+.section-schools #block-field_events-event-list tr.odd,
+.section-schools .view-news .views-row-odd
+										{ background-color:#e6d8e8; }
+
+.section-schools #block-views-FAQ-related_questions .views-row a:hover,
+.section-schools .field-type-file .field-items .field-item:hover,
+.section-schools #block-field_events-event-list tr:hover,
+.section-schools #block-field_events-event-list tr:hover a,
+.section-schools .view-news .views-row:hover,
+.section-schools .view-news .views-row:hover a
+										{ background-color:#934E9B; color:#fff; text-decoration:none; }
+
+
+/* Explore & learn */
+body.sidebar-first.section-explore #main-inner-wrapper,
+body.two-sidebars.section-explore #main-inner-wrapper
+										{ background:url('../images/background-body-explore.png') repeat-y; }
+
+.section-explore #block-views-wp_09_featured_content-block_1
+										{ border-bottom-color:#92B40A; }
+
+.section-explore #block-views-wp_09_featured_content-block_1 h2.block-title
+										{ background:#92B40A; color:#536712; border-left-color:#536712; }
+
+.section-explore .view-wp-09-featured-content .views-row
+										{ background-color:#92B40A; }
+
+.section-explore .view-section-front-widget .field-name-file,
+.section-explore .view-section-front-widget .field-name-field-imageactionlinks .field-item
+										{ border-bottom-color:#91B309; }
+
+.section-explore .view-wp-09-featured-content .field-name-field-image
+										{ border-bottom-color:#536712; }
+
+.section-explore .view-wp-09-featured-content .views-field-title
+										{ background-image:url("../images/icon-arrow-down.png"); }
+
+.section-explore .field-name-field-quote{ background:url('../images/background-quote-arrow-explore.png') no-repeat top left; }
+
+/* Tabs */
+.page-views.section-explore div.tabs 	{ background-color:#92B40A; }
+
+.page-views.section-explore ul.primary li.active
+										{ background-image:url("../images/icon-arrow-down.png"); border-top-color:#536712; }
+
+/* About us / User Profiles */
+body.sidebar-first.section-about #main-inner-wrapper,
+body.two-sidebars.section-about #main-inner-wrapper,
+body.sidebar-first.section-users #main-inner-wrapper,
+body.two-sidebars.section-users #main-inner-wrapper
+										{ background:url('../images/background-body-about.png') repeat-y; }
+
+.section-about h1.title#page-title,
+.section-about h1.title#page-title span,
+.section-users h1.title#page-title,
+.section-users h1.title#page-title span,
+.section-users .profile h3
+										{ color:#4F4FCF; }
+
+.section-about .section-users .view tr.odd,
+.section-users #block-field_events-event-list tr.odd,
+.section-users .field-type-file .field-items .odd
+										{ background-color:#ededfa; }
+
+.section-users .view tr.even 			{ background:none; }
+
+.section-about .view-featured-content .field-name-field-image,
+.section-about .view-widgets .field-name-field-widget-image
+										{ border-color:#272767; }
+
+.section-about h2.block-title, 
+.section-about h2.node-title, 
+.section-about .views-field-title,
+.section-users .field-type-file,
+.section-users h2.block-title,
+.section-users h2.node-title,
+.section-users .views-field-title,
+.section-about h2.block-title,
+.section-users #content .block,
+.section-about .region-sidebar-second .block,
+.section-users .region-sidebar-second .block,
+.section-about h1.title#page-title span,
+.section-users h1.title#page-title span,
+.section-about #block-views-wp_09_featured_content-block_1,
+.section-users #block-views-wp_09_featured_content-block_1,
+.section-user #block-views-wp_09_featured_content-block_1,
+.section-about .view-section-front-widget .field-name-file,
+.section-about .view-section-front-widget .field-name-field-imageactionlinks .field-item
+										{ border-bottom-color:#4f4fcf; }
+
+.section-about #block-views-wp_09_featured_content-block_1 h2.block-title,
+.section-users #block-views-wp_09_featured_content-block_1 h2.block-title,
+.section-user #block-views-wp_09_featured_content-block_1 h2.block-title
+										{ background:#4F4FCF; color:#272767; border-left-color:#4F4FCF; }
+
+.section-about .view-wp-09-featured-content .views-row, 
+.section-about .view-related-content .views-row .views-row-inner, 
+.section-about #EmailSignup .form-inner-inner,
+.section-users .mep-container .mep-controls > div,
+.section-about .view-wp-09-featured-content .views-row,
+.section-users .view-wp-09-featured-content .views-row,
+.section-user .view-wp-09-featured-content .views-row
+										{ background-color:#4F4FCF; }
+
+.section-about .view-related-content .field-name-field-image,
+.section-about .view-wp-09-featured-content .field-name-field-image,
+.section-users .view-wp-09-featured-content .field-name-field-image,
+.section-user .view-wp-09-featured-content .field-name-field-image
+										{ border-bottom-color:#272767; }
+
+.section-about #EmailSignup 			{ border-top-color:#272767; }
+
+.section-about #block-views-related_content-block .views-field-title,
+.section-about .view-wp-09-featured-content .views-field-title,
+.section-users .view-wp-09-featured-content .views-field-title,
+.section-user .view-wp-09-featured-content .views-field-title
+										{ background-image:url("../images/icon-arrow-down-272767.png") }
+
+.section-about .field-name-field-quote,
+.section-user .field-name-field-quote,
+.section-users .field-name-field-quote 	{ background:url('../images/background-quote-arrow-about.png') no-repeat top left; }
+
+.section-about.page-views .views-row-last,
+.section-user.page-views .views-row-last,
+.section-about .field-name-field-map,
+.section-user .field-name-field-map,
+.section-about .view-featured-content,
+.section-user .view-featured-content,
+.section-about .view-related-content-widget,
+.section-user .view-related-content-widget,
+.section-users h1.title#page-title,
+.section-about h1.title#page-title,
+.section-about #content .block,
+.section-user #content .block,
+.section-about .field-name-field-featured-content .field-item,
+.section-user .field-name-field-featured-content .field-item,
+.section-about .region-sidebar-second .block,
+.section-user .region-sidebar-second .block
+										{ border-bottom:1px solid #4F4FCF; }
+
+
+/* Tabs */
+.page-views.section-user div.tabs,
+.page-views.section-about div.tabs		{ background-color:#4F4FCF; }
+
+.page-views.section-user ul.primary li.active,
+.page-views.section-about ul.primary li.active
+										{ background-image:url("../images/icon-arrow-down-support.png"); border-top-color:#272767; }
+
+
+/* Unpublished links on articles' related multimedia field */
+.item-list .unpublished-links 			{ background-color:#EEE; padding-top:10px; padding-bottom:10px; display:block; margin:0; color:#999; }
+
+.unpublished-links li a:link 			{ color:#FF8112; font-weight:bold; }
+.unpublished-links li a:visited 		{ color:#DD9A56; }
+.unpublished-links span 				{ color:red; }
+
+
+/*
+ * Faq view
+ */
+.section-about #block-views-FAQ-related_questions .views-row-odd a:link,
+.section-about #block-views-FAQ-related_questions .views-row-odd a:visited,
+.section-about .field-type-file .field-items .odd,
+.section-about #block-field_events-event-list tr.odd,
+.section-about .view-news .views-row-odd,
+.front #block-views-FAQ-related_questions .views-row-odd a:link,
+.front #block-views-FAQ-related_questions .views-row-odd a:visited,
+.front .field-type-file .field-items .odd,
+.front #block-field_events-event-list tr.odd,
+.front .view-news .views-row-odd,
+.front .view-homepage.view-id-homepage.view-display-id-block_2.contextual-links-region .views-row-odd
+										{ background-color:#dddded; }
+
+.section-about #block-views-FAQ-related_questions .views-row a:hover,
+.section-about .field-type-file .field-items .field-item:hover,
+.section-about #block-field_events-event-list tr:hover,
+.section-about #block-field_events-event-list tr:hover a,
+.section-about .view-news .views-row:hover,
+.section-about .view-news .views-row:hover a,
+.front #block-views-FAQ-related_questions .views-row a:hover,
+.front .field-type-file .field-items .field-item:hover,
+.front #block-field_events-event-list tr:hover,
+.front #block-field_events-event-list tr:hover a,
+.front .view-news .views-row:hover,
+.front .view-news .views-row:hover a,
+.front .view-homepage.view-id-homepage.view-display-id-block_2.contextual-links-region .views-row:hover
+										{ background-color:#4F4FCF; color:#fff; text-decoration:none; }
+
+/* User Page */			
+.view-staff-directory .views-field-entity-id-1 a:link,
+.view-staff-directory .views-field-entity-id-1 a:visited
+										{ color:#FF8112; font-weight:bold; }
+										
+.view-staff-directory .field-name-field-dept-division-tags a:link,
+.view-staff-directory .field-name-field-dept-division-tags a:visited
+										{ color:#888; }
+
+
+/* Faq View: News font size */
+.section-visit .view-news .views-row a,
+.section-happening .view-news .views-row a,
+.section-support .view-news .views-row a,
+.section-schools .view-news .views-row a, 
+.section-explore .view-news .views-row a,
+.section-about .view-news .views-row a,
+.view-blogs-block .views-row a,
+.block-field-events td					{ font-size:11px; }
+
+
+
+#block-views-FAQ-related_questions .views-row-odd a:link,
+#block-views-FAQ-related_questions .views-row-odd a:visited,
+.field-type-file .field-items a,
+#block-field_events-event-list tr a,
+#block-field_events-full-list tr a,
+.view-news a,
+.block-field-events td a				{ color:#000; font-size:11px; font-weight:bold; }
+
+
+/* Tables */
+.field-name-body table					{ border:0px none; border-collapse:separate; }
+.field-name-body table tr				{ border:none; }
+
+.field-name-body table tr td,
+.field-name-body table tr th
+										{ text-align:left; padding-bottom:0px; margin:0; padding:0; border-top:1px dotted #888; border-left:none; border-right:none; border-bottom:none; padding:10px; }
+										
+.field-name-body table tr th			{ background:#eee; }
+
+.field-name-body table tr td p:first-child,
+.field-name-body table tr th p:first-child { margin:0; }
