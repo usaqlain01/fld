@@ -71,7 +71,7 @@ $handler->display->display_options['row_options']['inline'] = array(
   'entity_id_1' => 'entity_id_1',
 );
 $handler->display->display_options['row_options']['hide_empty'] = 0;
-/* Relationship: Fields: field_imagefrontref */
+/* Relationship: Fields: field_imagefrontref (field_imagefrontref) - nid */
 $handler->display->display_options['relationships']['field_imagefrontref_nid']['id'] = 'field_imagefrontref_nid';
 $handler->display->display_options['relationships']['field_imagefrontref_nid']['table'] = 'field_data_field_imagefrontref';
 $handler->display->display_options['relationships']['field_imagefrontref_nid']['field'] = 'field_imagefrontref_nid';
@@ -156,6 +156,10 @@ $handler->display->display_options['fields']['fid']['alter']['strip_tags'] = 0;
 $handler->display->display_options['fields']['fid']['alter']['html'] = 0;
 $handler->display->display_options['fields']['fid']['hide_empty'] = 0;
 $handler->display->display_options['fields']['fid']['empty_zero'] = 0;
+/* Sort criterion: Fields: field_weight (field_weight) */
+$handler->display->display_options['sorts']['field_weight_value']['id'] = 'field_weight_value';
+$handler->display->display_options['sorts']['field_weight_value']['table'] = 'field_data_field_weight';
+$handler->display->display_options['sorts']['field_weight_value']['field'] = 'field_weight_value';
 /* Argument: Node: Nid */
 $handler->display->display_options['arguments']['nid']['id'] = 'nid';
 $handler->display->display_options['arguments']['nid']['table'] = 'node';
