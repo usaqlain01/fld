@@ -4,3 +4,4 @@ docroot/sites/*/files
 .svn
 .DS_Store
 settings.local.php
+docroot/backup
