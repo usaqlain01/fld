@@ -567,7 +567,7 @@ function manualMetaTags($path) {
   // determine the path of the page
   if (drupal_is_front_page()) {
 
-      $description = "From Dinosaurs to DNA, take a journey that spans millions of years at the Field Museum.";
+      $description = "From Dinosaurs to DNA, take a journey that spans billions of years at the Field Museum in Chicago.";
       $keywords    = "chicago, Field Museum, field, museum, campus, natural, history, dinosaurs, egypt, evolution, ancient, americas, conservation, research, dna, fossils, animals ";
 
       print "<meta name='description' content='".$description."' />\n";
