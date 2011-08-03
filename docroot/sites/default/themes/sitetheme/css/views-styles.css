@@ -36,7 +36,7 @@
 .views-exposed-widget 					{ padding:0; }
 .views-exposed-form
 .views-exposed-widget .form-submit 		{ margin:0; }
-.views-field-title 						{ font:italic normal 1.0769em Georgia; margin-bottom:5px; }
+.views-field-title 						{ margin-bottom:5px; }
 
 .region-sidebar-first
 .views-field-title 						{ border-bottom:none !important; }

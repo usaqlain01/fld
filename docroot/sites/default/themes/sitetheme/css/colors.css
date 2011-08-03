@@ -682,11 +682,14 @@ body.two-sidebars.section-users #main-inner-wrapper
 
 #block-views-FAQ-related_questions .views-row-odd a:link,
 #block-views-FAQ-related_questions .views-row-odd a:visited,
+#block-views-FAQ-related_questions .views-row-even a:link,
+#block-views-FAQ-related_questions .views-row-even a:visited,
 .field-type-file .field-items a,
 #block-field_events-event-list tr a,
 #block-field_events-full-list tr a,
 .view-news a,
 .block-field-events td a,
+.view-blogs-block,
 #block-views-c_r_newsletter-block_1 a:link
 										{ color:#000; font-size:11px; font-weight:bold; }
 
