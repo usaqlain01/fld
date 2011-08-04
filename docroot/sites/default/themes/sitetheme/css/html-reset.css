@@ -215,6 +215,17 @@ a:focus 								{ text-decoration:underline; color:#000; }
 
 a:active 								{ text-decoration:none; color:#000; }
 
+/*for the "back to explore science" link*/
+.view-empty a:link 						{ text-decoration:none; color:#FF7B06; display: block; margin-bottom: 10px;}
+
+.view-empty a:visited 					{ text-decoration:none; color:#FF7B06; display: block; margin-bottom: 10px;}
+
+.view-empty a:hover,
+a:focus 								{ text-decoration:underline; color:#FF7B06; display: block; margin-bottom: 10px;}
+
+.view-empty a:active 					{ text-decoration:none; color:#FF7B06; display: block; margin-bottom: 10px;}
+
+
 /*
  * Tables
  *
