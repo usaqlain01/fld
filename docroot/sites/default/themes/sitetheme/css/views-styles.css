@@ -307,7 +307,7 @@
 .view-ecco-news .views-row,
 .view-education-programs .views-row,
 .page-user-blog .view-blog .views-row,
-#block-views-c_r_newsletter-block_1 .views-row
+#block-views-c_r_weekly_newsletter-block_1 .views-row
 										{ padding:5px 4px; }
 
 #block-views-FAQ-related_questions .views-row
@@ -330,7 +330,7 @@
 										{ background-color:#fff; }
 
 #block-views-FAQ-related_questions .views-row a:hover,
-#block-views-c_r_newsletter-block_1 .views-row a:hover
+#block-views-c_r_weekly_newsletter-block_1 .views-row a:hover
 										{ background-color:#92b40a; color:#fff; text-decoration:none; }
 										
 #block-views-FAQ-related_questions .views-row-inner .views-field-title
