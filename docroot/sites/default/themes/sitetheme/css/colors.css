@@ -85,7 +85,8 @@ h1.title,
 .section-explore #block-field_events-event-list tr.odd,
 .section-explore .view-news .views-row-odd,
 .section-explore .view-blogs-block .views-row-odd,
-.section-explore #block-views-c_r_newsletter-block_1  .views-row-odd
+.section-explore #block-views-363e9aa45e38d72e259300c8c2408c08 .views-row-odd,
+.section-explore #block-views-c_r_weekly_newsletter-block_1 .views-row-odd
 										{ background-color:#eaeddc; }
 
 .section-explore #block-views-FAQ-related_questions .views-row a:hover,
@@ -96,8 +97,10 @@ h1.title,
 .section-explore .view-news .views-row:hover a,
 .section-explore .view-blogs-block .views-row:hover,
 .section-explore .view-blogs-block .views-row:hover a,
-.section-explore #block-views-c_r_newsletter-block_1 .views-row:hover,
-.section-explore #block-views-c_r_newsletter-block_1 .views-row:hover a
+.section-explore #block-views-363e9aa45e38d72e259300c8c2408c08 .views-row:hover,
+.section-explore #block-views-363e9aa45e38d72e259300c8c2408c08 .views-row:hover a,
+.section-explore #block-views-c_r_weekly_newsletter-block_1 .views-row:hover,
+.section-explore #block-views-c_r_weekly_newsletter-block_1 .views-row:hover a
 										{ background-color:#92b40a; color:#fff; text-decoration:none; }
 
 
@@ -690,7 +693,8 @@ body.two-sidebars.section-users #main-inner-wrapper
 .view-news a,
 .block-field-events td a,
 .view-blogs-block,
-#block-views-c_r_newsletter-block_1 a:link
+#block-views-363e9aa45e38d72e259300c8c2408c08 a:link,
+#block-views-c_r_weekly_newsletter-block_1 a:link
 										{ color:#000; font-size:11px; font-weight:bold; }
 
 

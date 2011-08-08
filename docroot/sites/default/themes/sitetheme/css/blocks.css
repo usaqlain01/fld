@@ -224,12 +224,12 @@
 /*
  * Explore our collections blocks 
  */
-.node-type-explore-our-collections #content .block-views
+.node-type-explore-our-collections #content #block-views-explore_our_collections-block_1,
+.node-type-explore-our-collections #content #block-views-explore_our_collections-block_2,
+.node-type-explore-our-collections #content #block-views-explore_our_collections-block_3,
+.node-type-explore-our-collections #content #block-views-explore_our_collections-block_4,
+.node-type-explore-our-collections #content #block-views-explore_our_collections-block_5
 										{ border-bottom:0px none; }
-
-/* The Library / Archives block needs a border-bottom on the block */
-.node-type-explore-our-collections #content #block-views-explore_our_collections-block_6
-										{ padding-bottom:3px; border-bottom:1px solid #92B40A; }
 
 #block-views-explore_our_collections-block_1,
 #block-views-explore_our_collections-block_2,
@@ -309,7 +309,8 @@
 .region-content #block-views-news-block_1,
 .region-content #block-views-blogs_block-block_1,
 .region-content #block-custom-email_signup,
-.region-content #block-views-c_r_newsletter-block_1
+.region-content #block-views-363e9aa45e38d72e259300c8c2408c08,
+.region-content #block-views-c_r_weekly_newsletter-block_1
 										{ width:308px; display:inline-block; margin-right:10px; vertical-align:top; }
 
 #block-views-blogs_block-block_1 .views-field-title, #block-views-blogs_block-block_1 .views-field-name
@@ -323,6 +324,7 @@ This is for pages with first sidebar that have widgets at the bottom.
 */
 .not-front.node-type-department-division-page .region-content,
 .not-front.node-type-secondary-section-front .region-content,
+.not-front.node-type-explore-our-collections .region-content,
 .not-front.node-type-section-front .region-content
 										{ width:640px; }
 /*
@@ -357,8 +359,7 @@ For pages with a second sidebar, lets use full width and not hard code it
 #block-field_events-full-list tr 		{ font:normal italic normal 0.875em/normal Arial; }
 
 #block-field_events-event-list tr a,
-#block-field_events-full-list tr a,
-#block-views-c_r_newsletter-block_1 a	{ font-weight:bold; font-style:normal; display:block; color:#1F2818; font-family:helvetica, arial; }
+#block-field_events-full-list tr a		{ font-weight:bold; font-style:normal; display:block; color:#1F2818; font-family:helvetica, arial; }
 
 /*
 .node-type-section-front .region-content .block.region-odd
