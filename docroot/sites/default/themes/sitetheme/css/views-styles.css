@@ -307,8 +307,7 @@
 .view-ecco-news .views-row,
 .view-education-programs .views-row,
 .page-user-blog .view-blog .views-row,
-#block-views-363e9aa45e38d72e259300c8c2408c08 .views-row,
-#block-views-c_r_weekly_newsletter-block_1 .views-row
+#block-views-c_r_newsletter-block_1 .views-row
 										{ padding:5px 4px; }
 
 #block-views-FAQ-related_questions .views-row
@@ -331,8 +330,7 @@
 										{ background-color:#fff; }
 
 #block-views-FAQ-related_questions .views-row a:hover,
-#block-views-363e9aa45e38d72e259300c8c2408c08 .views-row a:hover,
-#block-views-c_r_weekly_newsletter-block_1 .views-row a:hover
+#block-views-c_r_newsletter-block_1 .views-row a:hover
 										{ background-color:#92b40a; color:#fff; text-decoration:none; }
 										
 #block-views-FAQ-related_questions .views-row-inner .views-field-title
@@ -945,6 +943,7 @@
 .page-user-blog .view-blog .views-row-odd,
 .page-happening .view-education-programs .views-row-odd
 										{ background:#eee; border:1px solid #eee; }
+										
 
 .page-about-news .view-news.view-id-news .views-row:hover,
 .page-explore-blogs .view-blogs-block.view-id-blogs_block .views-row:hover,
@@ -1047,4 +1046,21 @@
 .view-user-profile-contact .views-field-entity-id-2 .field-content .field-items
 										{ margin-bottom:10px; padding-bottom:10px; border-bottom:none; }
 										
+/*styling for back to links*/
+.view-blogs-block.view-id-blogs_block.view-display-id-attachment_1 .views-row-odd{background:#ffffff; border:none; padding:0; margin-bottom:0}
+.view-blogs-block.view-id-blogs_block.view-display-id-attachment_1 .views-row-odd:hover{background:#ffffff; border:none; padding:0; margin-bottom:0}
+
+
+.view-blogs-block .attachment a:link, 
+.view-blogs-block .attachment .views-field-title .field-content a:link { text-decoration:none; color:#FF7B06; display: block; margin-bottom: 10px; font-size:11px; font-weight:bold;}
+
+.view-blogs-block .attachment a:visited, 
+.view-blogs-block .attachment .views-field-title .field-content a:visited { text-decoration:none; color:#FF7B06; display: block; margin-bottom: 10px; font-size:11px; font-weight:bold;}
+
+.view-blogs-block .attachment a:hover, 
+.view-blogs-block .attachment .views-field-title .field-content a:hover { text-decoration:underline; color:#FF7B06; display: block; margin-bottom: 10px; font-size:11px; font-weight:bold;}
+
+.view-blogs-block .attachment a:active, 
+.view-blogs-block .attachment .views-field-title .field-content a:active { text-decoration:none; color:#FF7B06; display: block; margin-bottom: 10px; font-size:11px; font-weight:bold;}
+
 										
