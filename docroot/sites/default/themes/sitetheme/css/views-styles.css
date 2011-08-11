@@ -1078,23 +1078,4 @@ font-size: 14px;
 .view-blogs-block .attachment a:active, 
 .view-blogs-block .attachment .views-field-title .field-content a:active { text-decoration:none; color:#FF7B06; display: block; margin-bottom: 10px; font-size:11px; font-weight:bold;}
 
-/*** Reflections on 9/11 ***/
-.view-reflections-on-9-11 .views-row	{ color:#000; background:#eee; padding:10px; -moz-border-radius-topleft:.6em; -webkit-border-top-left-radius:.6em; border-top-left-radius:.6em; -moz-border-radius-topright:.6em; -webkit-border-top-right-radius:.6em; border-top-right-radius:.6em; -moz-border-radius-bottomleft:.6em; -webkit-border-bottom-left-radius:.6em; border-bottom-left-radius:.6em; -moz-border-radius-bottomright:.6em; -webkit-border-bottom-right-radius:.6em; border-bottom-right-radius:.6em; }
-
-.view-reflections-on-9-11 .views-field-edit-node		{ float: right; }
-
-.view-reflections-on-9-11 .field-name-field-question 	{ font-size: 15px; font-style: italic; border-style:solid; border-width:1px; border-top-color:#eee; border-right-color:#eee; border-left-color:#eee; border-bottom-color:#FFFFFF; }
-
-.view-reflections-on-9-11 .left-quote 					{ position:absolute; margin-top:20px; margin-left:-35px; color:#999999; font-size: 80px; }
-
-.view-reflections-on-9-11 .right-quote 					{ position:absolute; margin-top:5px; right:50px; color:#999999; font-size: 80px; }
-
-.view-reflections-on-9-11 .views-field-entity-id-1 		{ padding-top:8px; text-indent: 35px; color:#333333; }
-
-.view-reflections-on-9-11 .views-field-entity-id-2 		{ padding-top:20px; text-align: right; font-size: 16px; color:#000; }
-
-.view-reflections-on-9-11 .views-field-entity-id-3		{ font-size: 12px; text-align: right; color:#333333; }
-.view-reflections-on-9-11 .views-field-entity-id-4		{ margin-top:-3px; font-size: 12px; text-align: right; color:#333333; }
-
-.view-reflections-on-9-11 .views-row.views-row-last		{ border-bottom-color: #FFFFFF !important; }
-
+										
