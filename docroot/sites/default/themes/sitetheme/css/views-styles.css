@@ -911,7 +911,7 @@
 										{ display:table-row; background:none; margin:0; padding:0; font-size:12px; border-bottom:1px dotted #888; display:block; }
 
 .view-press-room.view-id-press_room .views-row span
-										{ padding:2px 0; display:block; }
+										{ padding:2px 0px 2px 2px; display:block; }
 
 .view-press-room.view-id-press_room tr.odd:hover,
 .view-press-room.view-id-press_room tr.even:hover,
@@ -926,8 +926,23 @@
 
 .view-press-room.view-id-press_room table
 										{ margin-bottom:20px; }
+										
+.view-press-room .item-list h3  {
+	text-transform:uppercase;
+	font-size: 13px;
+	display: block;
+	border-bottom: 1px solid #000000;
+}
 
+.view-press-room .item-list ul {
+    padding: 0 0 0 0px;
+	margin-top: -10px;
+	margin-bottom: 20px;
+}
 
+.view-press-room .view-header p {
+font-size: 14px;
+}
 /* News + Blog Page + User Blog List */
 
 .page-about-news .view-news.view-id-news .views-row,
