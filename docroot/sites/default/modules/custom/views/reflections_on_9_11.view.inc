@@ -65,7 +65,8 @@ $handler->display->display_options['fields']['entity_id_1']['id'] = 'entity_id_1
 $handler->display->display_options['fields']['entity_id_1']['table'] = 'field_data_body';
 $handler->display->display_options['fields']['entity_id_1']['field'] = 'entity_id';
 $handler->display->display_options['fields']['entity_id_1']['label'] = '';
-$handler->display->display_options['fields']['entity_id_1']['alter']['alter_text'] = 0;
+$handler->display->display_options['fields']['entity_id_1']['alter']['alter_text'] = 1;
+$handler->display->display_options['fields']['entity_id_1']['alter']['text'] = '<div class="quotes">&ldquo;</div>[entity_id_1]<div class="quotes">&rdquo;</div>';
 $handler->display->display_options['fields']['entity_id_1']['alter']['make_link'] = 0;
 $handler->display->display_options['fields']['entity_id_1']['alter']['absolute'] = 0;
 $handler->display->display_options['fields']['entity_id_1']['alter']['trim'] = 0;
@@ -170,6 +171,7 @@ $translatables['reflections_on_9_11'] = array(
   t('Items per page'),
   t('- All -'),
   t('Offset'),
+  t('<div class="quotes">&ldquo;</div>[entity_id_1]<div class="quotes">&rdquo;</div>'),
   t('[entity_id_2][entity_id_3][entity_id_4]'),
   t('No name given'),
   t(', [entity_id_3]'),
