@@ -12,10 +12,7 @@ $view->disabled = FALSE; /* Edit this to true to make a default view disabled in
 /* Display: Defaults */
 $handler = $view->new_display('default', 'Defaults', 'default');
 $handler->display->display_options['title'] = 'Reflections on 9/11';
-$handler->display->display_options['access']['type'] = 'role';
-$handler->display->display_options['access']['role'] = array(
-  3 => '3',
-);
+$handler->display->display_options['access']['type'] = 'none';
 $handler->display->display_options['cache']['type'] = 'none';
 $handler->display->display_options['query']['type'] = 'views_query';
 $handler->display->display_options['exposed_form']['type'] = 'basic';
@@ -26,6 +23,13 @@ $handler->display->display_options['pager']['options']['id'] = '0';
 $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all'] = 0;
 $handler->display->display_options['style_plugin'] = 'default';
 $handler->display->display_options['row_plugin'] = 'fields';
+/* Header: Global: Text area */
+$handler->display->display_options['header']['area']['id'] = 'area';
+$handler->display->display_options['header']['area']['table'] = 'views';
+$handler->display->display_options['header']['area']['field'] = 'area';
+$handler->display->display_options['header']['area']['empty'] = FALSE;
+$handler->display->display_options['header']['area']['content'] = '<img src="/sites/default/files/9-11_Reflections_C.jpg" />';
+$handler->display->display_options['header']['area']['format'] = '3';
 /* Field: Node: Edit link */
 $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
 $handler->display->display_options['fields']['edit_node']['table'] = 'node';
@@ -66,7 +70,7 @@ $handler->display->display_options['fields']['entity_id_1']['table'] = 'field_da
 $handler->display->display_options['fields']['entity_id_1']['field'] = 'entity_id';
 $handler->display->display_options['fields']['entity_id_1']['label'] = '';
 $handler->display->display_options['fields']['entity_id_1']['alter']['alter_text'] = 1;
-$handler->display->display_options['fields']['entity_id_1']['alter']['text'] = '<div class="quotes">&ldquo;</div>[entity_id_1]<div class="quotes">&rdquo;</div>';
+$handler->display->display_options['fields']['entity_id_1']['alter']['text'] = '<div class="left-quote quotes">&ldquo;</div>[entity_id_1]<div class="right-quote quotes">&rdquo;</div>';
 $handler->display->display_options['fields']['entity_id_1']['alter']['make_link'] = 0;
 $handler->display->display_options['fields']['entity_id_1']['alter']['absolute'] = 0;
 $handler->display->display_options['fields']['entity_id_1']['alter']['trim'] = 0;
@@ -94,7 +98,7 @@ $handler->display->display_options['fields']['entity_id_2']['alter']['strip_tags
 $handler->display->display_options['fields']['entity_id_2']['alter']['html'] = 0;
 $handler->display->display_options['fields']['entity_id_2']['element_label_colon'] = 1;
 $handler->display->display_options['fields']['entity_id_2']['element_default_classes'] = 1;
-$handler->display->display_options['fields']['entity_id_2']['empty'] = 'No name given';
+$handler->display->display_options['fields']['entity_id_2']['empty'] = 'Anonymous';
 $handler->display->display_options['fields']['entity_id_2']['hide_empty'] = 1;
 $handler->display->display_options['fields']['entity_id_2']['empty_zero'] = 0;
 $handler->display->display_options['fields']['entity_id_2']['type'] = 'text_plain';
@@ -171,9 +175,10 @@ $translatables['reflections_on_9_11'] = array(
   t('Items per page'),
   t('- All -'),
   t('Offset'),
-  t('<div class="quotes">&ldquo;</div>[entity_id_1]<div class="quotes">&rdquo;</div>'),
+  t('<img src="/sites/default/files/9-11_Reflections_C.jpg" />'),
+  t('<div class="left-quote quotes">&ldquo;</div>[entity_id_1]<div class="right-quote quotes">&rdquo;</div>'),
   t('[entity_id_2][entity_id_3][entity_id_4]'),
-  t('No name given'),
+  t('Anonymous'),
   t(', [entity_id_3]'),
   t(', [entity_id_4]'),
   t('Page'),
