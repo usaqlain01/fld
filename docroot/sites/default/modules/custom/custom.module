@@ -214,13 +214,6 @@ function custom_menu_alter(&$items) {
     'type' => 140,
     'weight' => -10,
   );
-  $items['admin/config/workbench/page/content/dashboard'] = array(
-    'title' => 'Dashboard',
-    'type' => MENU_DEFAULT_LOCAL_TASK,
-    'weight' => -99,
-  );
-  $items['admin/config/workbench/page/content/edited']['type'] = MENU_LOCAL_TASK;
-  $items['admin/config/workbench/page/content/all']['type'] = MENU_LOCAL_TASK;
 }
 
 
@@ -1103,65 +1096,6 @@ function custom_field_attach_view_alter(&$output, $context) {
 }
 
 /**
- * Implements hook_workbench_content_alter().
- *
- * Shows the view we need for the Workbench front page.
- */
-function custom_workbench_content_alter(&$output) {
-  $output['#attributes'] = array('class' => array('admin'));
-  $output['#theme'] = 'workbench_element';
-
-  $output['field_workbench_current_user'] = array(
-    '#title' => t('My Profile'),
-    '#markup' => views_embed_view('workbench_current_user'),
-    '#attributes' => array('class' => array('left', 'clearfix')),
-    '#theme' => 'workbench_element',
-  );
-  $output['field_workbench_edited'] = array(
-    '#title' => t('Content I\'ve Edited'),
-    '#markup' => views_embed_view('workbench_edited', 'block_1'),
-    '#attributes' => array('class' => array('right', 'clearfix')),
-    '#theme' => 'workbench_element',
-  );
-  $output['field_workbench_recent_content'] = array(
-    '#title' => t('All Recent Content'),
-    '#markup' => views_embed_view('workbench_recent_content', 'block_1'),
-    '#attributes' => array('class' => array('clearfix'), 'style' => array('clear: both;')),
-    '#theme' => 'workbench_element',
-  );
-}
-
-/**
- * Implements hook_page_alter().
- *
- * Add a pre-render function to the toolbar so that we can add links to it.
- */
-function custom_page_alter(&$page) {
-  if (isset($page['page_top']['toolbar']) && module_exists('workbench') && user_access('access workbench')) {
-    $page['page_top']['toolbar']['#pre_render'][] = 'custom_toolbar_pre_render';
-  }
-}
-
-/**
- * Pre-render function for the toolbar, added in hook_page_alter(). Adds a 'My Workbench' link
- * between the 'Hello Username' and 'Log out' links.
- */
-function custom_toolbar_pre_render($toolbar) {
-  $links = &$toolbar['toolbar_user']['#links'];
-
-  $logout = $links['logout'];
-  $workbench = array(
-    'title' => t('My Workbench'),
-    'href' => 'admin/config/workbench/page',
-  );
-
-  unset($links['logout']);
-  array_push($links, $workbench, $logout);
-
-  return $toolbar;
-}
-
-/**
  * Add a submit function to the user login form so we can redirect users when they log in.
  */
 function custom_form_user_login_alter(&$form, &$form_state) {
@@ -1173,7 +1107,7 @@ function custom_form_user_login_alter(&$form, &$form_state) {
  */
 function custom_user_login_submit($form, &$form_state) {
   if (module_exists('workbench') && user_access('access workbench')) {
-    $form_state['redirect'] = 'admin/config/workbench/page';
+    $form_state['redirect'] = 'admin/workbench';
   }
 }
 

@@ -1,15 +1,25 @@
 <?php
+
+/**
+ * @file
+ * Default View for information about the current user.
+ */
+
 $view = new view;
 $view->name = 'workbench_current_user';
-$view->description = '';
-$view->tag = '';
+$view->description = 'Information about the current user.';
+$view->tag = 'Workbench';
 $view->base_table = 'users';
-$view->api_version = '3.0-alpha1';
+$view->human_name = '';
+$view->core = 7;
+$view->api_version = 3;
 $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
 
 /* Display: Defaults */
 $handler = $view->new_display('default', 'Defaults', 'default');
-$handler->display->display_options['access']['type'] = 'none';
+$handler->display->display_options['use_ajax'] = FALSE;
+$handler->display->display_options['access']['type'] = 'perm';
+$handler->display->display_options['access']['perm'] = 'access workbench';
 $handler->display->display_options['cache']['type'] = 'none';
 $handler->display->display_options['query']['type'] = 'views_query';
 $handler->display->display_options['exposed_form']['type'] = 'basic';
@@ -34,23 +44,23 @@ $handler->display->display_options['fields']['uid']['alter']['html'] = 0;
 $handler->display->display_options['fields']['uid']['hide_empty'] = 0;
 $handler->display->display_options['fields']['uid']['empty_zero'] = 0;
 $handler->display->display_options['fields']['uid']['link_to_user'] = 0;
-/* Field: Fields: field_image */
-$handler->display->display_options['fields']['entity_id_1']['id'] = 'entity_id_1';
-$handler->display->display_options['fields']['entity_id_1']['table'] = 'field_data_field_image';
-$handler->display->display_options['fields']['entity_id_1']['field'] = 'entity_id';
-$handler->display->display_options['fields']['entity_id_1']['label'] = '';
-$handler->display->display_options['fields']['entity_id_1']['alter']['alter_text'] = 0;
-$handler->display->display_options['fields']['entity_id_1']['alter']['make_link'] = 1;
-$handler->display->display_options['fields']['entity_id_1']['alter']['path'] = 'user/[uid]';
-$handler->display->display_options['fields']['entity_id_1']['alter']['absolute'] = 0;
-$handler->display->display_options['fields']['entity_id_1']['alter']['trim'] = 0;
-$handler->display->display_options['fields']['entity_id_1']['alter']['word_boundary'] = 0;
-$handler->display->display_options['fields']['entity_id_1']['alter']['ellipsis'] = 0;
-$handler->display->display_options['fields']['entity_id_1']['alter']['strip_tags'] = 0;
-$handler->display->display_options['fields']['entity_id_1']['alter']['html'] = 0;
-$handler->display->display_options['fields']['entity_id_1']['hide_empty'] = 0;
-$handler->display->display_options['fields']['entity_id_1']['empty_zero'] = 0;
-$handler->display->display_options['fields']['entity_id_1']['type'] = 'custom_profile';
+/* Field: User: Picture */
+$handler->display->display_options['fields']['picture']['id'] = 'picture';
+$handler->display->display_options['fields']['picture']['table'] = 'users';
+$handler->display->display_options['fields']['picture']['field'] = 'picture';
+$handler->display->display_options['fields']['picture']['label'] = '';
+$handler->display->display_options['fields']['picture']['alter']['alter_text'] = 0;
+$handler->display->display_options['fields']['picture']['alter']['make_link'] = 0;
+$handler->display->display_options['fields']['picture']['alter']['absolute'] = 0;
+$handler->display->display_options['fields']['picture']['alter']['trim'] = 0;
+$handler->display->display_options['fields']['picture']['alter']['word_boundary'] = 1;
+$handler->display->display_options['fields']['picture']['alter']['ellipsis'] = 1;
+$handler->display->display_options['fields']['picture']['alter']['strip_tags'] = 0;
+$handler->display->display_options['fields']['picture']['alter']['html'] = 0;
+$handler->display->display_options['fields']['picture']['element_label_colon'] = 0;
+$handler->display->display_options['fields']['picture']['element_default_classes'] = 1;
+$handler->display->display_options['fields']['picture']['hide_empty'] = 0;
+$handler->display->display_options['fields']['picture']['empty_zero'] = 0;
 /* Field: User: Name */
 $handler->display->display_options['fields']['name']['id'] = 'name';
 $handler->display->display_options['fields']['name']['table'] = 'users';
@@ -92,3 +102,14 @@ $handler->display->display_options['filters']['uid_current']['value'] = '1';
 
 /* Display: Block */
 $handler = $view->new_display('block', 'Block', 'block_1');
+$translatables['workbench_current_user'] = array(
+  t('Defaults'),
+  t('more'),
+  t('Apply'),
+  t('Reset'),
+  t('Sort By'),
+  t('Asc'),
+  t('Desc'),
+  t('edit my profile'),
+  t('Block'),
+);

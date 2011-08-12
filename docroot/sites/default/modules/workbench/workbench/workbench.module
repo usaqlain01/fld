@@ -1,11 +1,8 @@
 <?php
-// $Id$
 
 /**
  * @file
- *   Workbench module file for editorial workspaces.
- *
- * @copyright (C) Copyright 2010 Palantir.net
+ * Workbench module file for editorial workspaces.
  */
 
 /**
@@ -23,7 +20,7 @@ function workbench_menu() {
     'file' => 'system.admin.inc',
     'file path' => drupal_get_path('module', 'system'),
   );
-  $items['admin/config/workbench/page'] = array(
+  $items['admin/workbench'] = array(
     'title' => 'My Workbench',
     'description' => 'My Workbench area',
     'page callback' => 'workbench_content',
@@ -31,16 +28,7 @@ function workbench_menu() {
     'weight' => -20,
     'file' => 'workbench.pages.inc',
   );
-  /*
-  $items['admin/config/workbench/page/overview'] = array(
-    'title' => 'Workbench',
-    'page callback' => 'workbench_page',
-    'access arguments' => array('access workbench'),
-    'weight' => -25,
-    'type' => MENU_DEFAULT_LOCAL_TASK,
-    'file' => 'workbench.pages.inc',
-  );*/
-  $items['admin/config/workbench/page/content'] = array(
+  $items['admin/workbench/content'] = array(
     'title' => 'My content',
     'page callback' => 'workbench_content',
     'access arguments' => array('access workbench'),
@@ -48,7 +36,7 @@ function workbench_menu() {
     'type' => MENU_DEFAULT_LOCAL_TASK,
     'file' => 'workbench.pages.inc',
   );
-  $items['admin/config/workbench/page/create'] = array(
+  $items['admin/workbench/create'] = array(
     'title' => 'Create content',
     'page callback' => 'workbench_create',
     'access arguments' => array('access workbench'),
@@ -68,66 +56,134 @@ function workbench_permission() {
       'title' => t('Administer Workbench settings'),
     ),
     'access workbench' => array(
-      'title' => t('Access a personal Workbench page'),
-    ),
-    'view all unpublished content' => array(
-      'title' => 'View all unpublished content',
+      'title' => t('Access My Workbench'),
     ),
   );
   return $permissions;
 }
 
 /**
- * Implements hook_node_access().
+ * Implements hook_block_info().
  *
- * Allow users with the 'view all unpublished content' permission to do just that.
+ * Register a block that other modules may hook into.
  */
-function workbench_node_access($node, $op, $account) {
-  if ($op == 'view' && !$node->status && user_access('view all unpublished content', $account)) {
-    return NODE_ACCESS_ALLOW;
+function workbench_block_info() {
+  $blocks['block'] = array(
+    'info' => t('Workbench information'),
+    'weight' => -99,
+    'status' => 1,
+    'region' => 'content',
+    'cache' => DRUPAL_NO_CACHE,
+  );
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function workbench_block_view($delta = '') {
+  $items = module_invoke_all('workbench_block');
+  if (empty($items)) {
+    return;
   }
-  return NODE_ACCESS_IGNORE;
+  $block = array(
+    'subject' => '',
+    'content' => array(
+      '#markup' => theme('container', array('element' => array('#children' => implode('<br />', $items), '#attributes' => array('class' => 'workbench-info-block')))),
+      '#attached' => array(
+        'css' => array(drupal_get_path('module', 'workbench') . '/css/workbench.block.css'),
+      ),
+    ),
+  );
+  return $block;
+}
+
+/**
+ * Implements hook_views_api().
+ */
+function workbench_views_api() {
+  return array('api' => 2);
+}
+
+/**
+ * Implements hook_views_default_views().
+ */
+function workbench_views_default_views() {
+  return workbench_load_all_exports('workbench', 'views', 'view.inc', 'view');
+}
+
+/**
+ * Fetches an array of exportables from files.
+ *
+ * @param $module
+ *   The module invoking this request. (Can be called by other modules.)
+ * @param $directory
+ *   The subdirectory in the custom module.
+ * @param $extension
+ *   The file extension.
+ * @param $name
+ *   The name of the variable found in each file. Defaults to the same as
+ *   $extension.
+ *
+ * @return
+ *   Array of $name objects.
+ */
+function workbench_load_all_exports($module, $directory, $extension, $name = NULL) {
+  if (!$name) {
+    $name = $extension;
+  }
+
+  $return = array();
+  // Find all the files in the directory with the correct extension.
+  $files = file_scan_directory(drupal_get_path('module', $module) . "/$directory", "/\.{$extension}$/");
+  foreach ($files as $path => $file) {
+    require $path;
+    if (isset($$name)) {
+      $return[$$name->name] = $$name;
+    }
+  }
+
+  return $return;
 }
 
 /**
  * Implements hook_theme().
  *
- * Provides a theme function for use with the RenderAPI that uses the #title and #attributes
- * properties of a render array, if they're present.
+ * Provides a theme function for use with the RenderAPI that uses the #title and
+ * #attributes properties of a render array, if they're present.
  */
 function workbench_theme($existing, $type, $theme, $path) {
   return array(
     'workbench_element' => array(
       'render element' => 'element',
+      'file' => 'workbench.theme.inc',
     ),
   );
 }
 
+
+
+
+
+
 /**
- * Generic theme function for use with RenderAPI. Renders the #title and #attributes properties
- * if they are present.
+ * Implementation of hook_preprocess_views_view_table().
+ *
+ * This is done to convert the "type" field to a thumbnail for image files.
+ *
  */
-function theme_workbench_element($vars) {
-  $element = $vars['element'];
+function workbench_preprocess_views_view_field(&$variables) {
+  $view = $variables['view'];
 
-  // Use the #title attribute.
-  $title = '';
-  if (!empty($element['#title'])) {
-    $title = '<h3>' . check_plain($element['#title']) . '</h3>';
+  if ($view->name == 'workbench_current_user'  && $variables['field']->definition['handler'] == 'views_handler_field_user_picture') {
+    if (empty($variables['output'])) {
+      // We could put the default picture here
+      $variables['output'] = theme('image', array(
+        'path' => drupal_get_path('module', 'workbench') . '/images/profile_default.jpg',
+        'attributes' => array(
+          'width' => '100px',
+         ),
+      ));
+    }
   }
-
-  // Use #attributes to customize a wrapper <div>.
-  $attributes = '';
-  if (!empty($element['#attributes'])) {
-    $attributes = drupal_attributes($element['#attributes']);
-  }
-
-  // Render any child items.
-  if (!$element['#children']) {
-    $element['#children'] = drupal_render_children($element);
-  }
-
-  // Build simple output.
-  $output = "<div{$attributes}>{$title}{$element['#children']}</div>";
-  return $output;
 }

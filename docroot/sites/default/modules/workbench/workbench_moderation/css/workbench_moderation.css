@@ -7,3 +7,13 @@
 .published-revision td {
   background-color: #aaffaa;
 }
+
+.width-auto {
+  width: auto;
+}
+
+form.workbench-moderation-moderate-form,
+form.workbench-moderation-moderate-form div,
+form.workbench-moderation-moderate-form label {
+  display: inline;
+}

@@ -2,9 +2,11 @@
 
 /**
  * @file
- *  Views integration for Workbench.
+ *  Views integration for Workbench Access.
  *
- * @copyright (C) Copyright 2010 Palantir.net
+ * Provides a sort option for sections.
+ *
+ * @TODO: Support multiple selections.
  */
 
 class workbench_access_handler_sort_section extends views_handler_sort {
@@ -16,10 +18,13 @@ class workbench_access_handler_sort_section extends views_handler_sort {
     $order = $this->options['order'];
     foreach ($active['access_scheme']['sort'] as $sort) {
       $table = $this->query->ensure_table($sort['table']);
-      $this->query->add_orderby($table, $sort['field'], (isset($sort['order'])) ? $sort['order'] : $order);
+      if (!empty($table)) {
+        $this->query->add_orderby($table, $sort['field'], (isset($sort['order'])) ? $sort['order'] : $order);
+      }
     }
-    // Logic to remove JOIN to the default table, which causes duplicate results.
-    if (isset($active['access_scheme']['adjust_join'])) {
+    // Logic to remove JOIN to the default table, which can cause duplicate results.
+    $base_table = $this->view->base_table;
+    if ($base_table == 'node' && isset($active['access_scheme']['adjust_join'])) {
       foreach ($active['access_scheme']['adjust_join'] as $table => $replace) {
         $join = $this->query->get_join_data($table, 'node');
         if ($join->left_table == $replace['original_table']) {

@@ -1,11 +1,8 @@
 <?php
-// $Id$
 
 /**
  * @file
- *   Workbench Media module file for workbench-specific media features.
- *
- * @copyright (C) Copyright 2010 Palantir.net
+ * Workbench Media module file for workbench-specific media features.
  */
 
 /**
@@ -16,14 +13,14 @@
 function workbench_media_menu() {
   $items = array();
 
-  $items['admin/config/workbench/media/add'] = array(
+  $items['admin/workbench/media/add'] = array(
     'title' => 'Add Media',
     'page callback' => 'drupal_get_form',
     'page arguments' => array('workbench_media_add'),
     'access arguments' => array('use workbench_media add form'),
-    'file' => 'media.pages.inc',
+    'file' => 'includes/media.pages.inc',
     'file path' => drupal_get_path('module', 'media'),
-    'type' => MENU_CALLBACK,
+    'type' => MENU_VISIBLE_IN_BREADCRUMB,
   );
 
   return $items;
@@ -42,19 +39,22 @@ function workbench_media_permission() {
 
 /**
  * Implements hook_workbench_create_alter().
+ *
  * Add a media creation section to the workbench "Create Content" tab.
  */
 function workbench_media_workbench_create_alter(&$output) {
   if (user_access('use workbench_media add form')) {
-   // Ape node_add_page() theming.
-    $items = array(array(
-      'title' => t('Upload Media'),
-      'href' => 'admin/config/workbench/media/add',
-      'localized_options' => array(),
-      'description' => t('Add photos, videos, audio, or other files to the site.'),
-    ));
+   // Mimic node_add_page() theming.
+    $items = array(
+      array(
+        'title' => t('Upload Media'),
+        'href' => 'admin/workbench/media/add',
+        'localized_options' => array(),
+        'description' => t('Add photos, videos, audio, or other files to the site.'),
+      )
+    );
     $output['field_workbench_create_media'] = array(
-      '#title' => t('Create Media'),
+      '#title' => t('Create media'),
       '#markup' => theme('node_add_list', array('content' => $items)),
       '#theme' => 'workbench_element',
       '#weight' => -1,
@@ -63,12 +63,14 @@ function workbench_media_workbench_create_alter(&$output) {
 }
 
 /**
- * Form callback for adding media. This uses Media's own upload form and adds a submit function.
+ * Form callback for adding media.
+ *
+ * Uses Media's own upload form and adds a submit function.
  *
  * A wrapper function is used because:
- * 1. Using hook_form_alter() would require fragile logic to figure out when to alter the upload
- *    form.
- * 2. We may want to extend the media form functionality in the future.
+ *   1. Using hook_form_alter() would require fragile logic to figure out when
+ *   to alter the upload form.
+ *   2. We may want to extend the media form functionality in the future.
  */
 function workbench_media_add($form, &$form_state) {
   $form = drupal_get_form('media_add_upload', $form, $form_state);
@@ -77,11 +79,13 @@ function workbench_media_add($form, &$form_state) {
 }
 
 /**
- * Submit function for the media add form; redirects to the uploaded media's edit form so that you
- * can intuitively edit fields on the new media item.
+ * Submit function for the media add form.
+ *
+ * Redirects to the uploaded media's edit form so that you can intuitively edit
+ * fields on the new media item.
  */
 function workbench_media_add_submit($form, &$form_state) {
-  $dest = 'admin/config/workbench/page/files';
+  $dest = 'admin/workbench/files';
 
   // Was a file successfully uploaded?
   if (!empty($form_state['values']['upload']->fid)) {
