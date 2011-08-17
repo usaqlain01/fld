@@ -925,7 +925,7 @@ function custom_update_7036() {
  * Fix db schema
  */
 function custom_update_7037() {
-/*  db_add_index('workbench_moderation_node_history', 'nid', array('nid'));
+  db_add_index('workbench_moderation_node_history', 'nid', array('nid'));
   db_add_index('workbench_moderation_node_history', 'vid', array('vid'));
 
   $spec = array(
@@ -939,10 +939,10 @@ function custom_update_7037() {
 
   db_drop_field('views_view', 'view_php');
   db_drop_field('views_view', 'is_cacheable');
-*/
+
   $spec = array('description' => "The entity revision id this data is attached to, or NULL if the entity type is not versioned", 'type' => 'int', 'length' => 10, 'not null' => TRUE, 'unsigned' => TRUE);
   $keys = array('primary key' => array('entity_type', 'entity_id', 'revision_id', 'deleted', 'delta', 'language'), 'indexes' => array('revision_id' => array('revision_id')));
-/*  
+ 
   db_drop_primary_key('field_revision_field_subtitle');
   db_drop_index('field_revision_field_subtitle', 'revision_id');
   db_change_field('field_revision_field_subtitle', 'revision_id', 'revision_id', $spec, $keys);
@@ -1119,7 +1119,7 @@ function custom_update_7037() {
 
   db_drop_index('field_revision_field_sortorder', 'field_sortorder_value');
   db_change_field('field_revision_field_sortorder', 'field_sortorder_value', 'field_sortorder_value', $spec, $keys);
-*/
+
   db_drop_table('draggableviews_collapsed');
   db_drop_table('draggableviews_structure');
   db_drop_table('faq_questions');
