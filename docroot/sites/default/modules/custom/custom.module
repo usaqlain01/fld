@@ -214,6 +214,9 @@ function custom_menu_alter(&$items) {
     'type' => 140,
     'weight' => -10,
   );
+  
+  //THIS IS NEEDED UNTIL WE UPGRADE MEDIA MODULE
+  $items['admin/workbench/media/add']['file'] = 'media.pages.inc';
 }
 
 
