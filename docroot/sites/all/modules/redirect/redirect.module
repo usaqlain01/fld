@@ -956,7 +956,7 @@ function redirect_goto($redirect) {
     drupal_add_http_header('X-Redirect-ID', $redirect->rid);
   }
 
-  if (!variable_get('redirect_page_cache', 0) || !variable_get('cache', 0) || !drupal_page_is_cacheable() || empty($redirect['cache'])) {
+  if (!variable_get('redirect_page_cache', 0) || !variable_get('cache', 0) || !drupal_page_is_cacheable() || empty($redirect->cache)) {
     drupal_exit($url);
   }
 
