@@ -158,6 +158,17 @@ $handler->display->display_options['filters']['tid']['expose']['single'] = TRUE;
 $handler->display->display_options['filters']['tid']['reduce_duplicates'] = 0;
 $handler->display->display_options['filters']['tid']['type'] = 'select';
 $handler->display->display_options['filters']['tid']['vocabulary'] = 'article_type';
+/* Filter: Taxonomy: Term */
+$handler->display->display_options['filters']['tid_1']['id'] = 'tid_1';
+$handler->display->display_options['filters']['tid_1']['table'] = 'taxonomy_index';
+$handler->display->display_options['filters']['tid_1']['field'] = 'tid';
+$handler->display->display_options['filters']['tid_1']['operator'] = 'not';
+$handler->display->display_options['filters']['tid_1']['value'] = array(
+  461 => '461',
+);
+$handler->display->display_options['filters']['tid_1']['reduce_duplicates'] = 0;
+$handler->display->display_options['filters']['tid_1']['type'] = 'select';
+$handler->display->display_options['filters']['tid_1']['vocabulary'] = 'topic';
 
 /* Display: Block: News by tags (WP-07) */
 $handler = $view->new_display('block', 'Block: News by tags (WP-07)', 'block_1');
