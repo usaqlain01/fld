@@ -28,7 +28,7 @@ $handler->display->display_options['header']['area']['id'] = 'area';
 $handler->display->display_options['header']['area']['table'] = 'views';
 $handler->display->display_options['header']['area']['field'] = 'area';
 $handler->display->display_options['header']['area']['empty'] = FALSE;
-$handler->display->display_options['header']['area']['content'] = '<img src="/sites/default/files/9-11_Reflections_C.jpg" />';
+$handler->display->display_options['header']['area']['content'] = '<img src="/sites/default/files/9-11_Reflections_Cops.jpg" />';
 $handler->display->display_options['header']['area']['format'] = '3';
 /* Field: Node: Edit link */
 $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
@@ -175,7 +175,7 @@ $translatables['reflections_on_9_11'] = array(
   t('Items per page'),
   t('- All -'),
   t('Offset'),
-  t('<img src="/sites/default/files/9-11_Reflections_C.jpg" />'),
+  t('<img src="/sites/default/files/9-11_Reflections_Cops.jpg" />'),
   t('<div class="left-quote quotes">&ldquo;</div>[entity_id_1]<div class="right-quote quotes">&rdquo;</div>'),
   t('[entity_id_2][entity_id_3][entity_id_4]'),
   t('Anonymous'),
