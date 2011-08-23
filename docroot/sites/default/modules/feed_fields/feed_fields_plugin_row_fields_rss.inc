@@ -66,7 +66,7 @@ class feed_fields_plugin_row_fields_rss extends views_plugin_row_fields {
   }
 
   function options_submit(&$form, &$form_state) {
-    parent::options_submit(&$form, &$form_state);
+    parent::options_submit($form, $form_state);
     $form_state['values']['row_options']['rss_elements'] = array_filter($form_state['values']['row_options']['rss_elements']);
   }
 
