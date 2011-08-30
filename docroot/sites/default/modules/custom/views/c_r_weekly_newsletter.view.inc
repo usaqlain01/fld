@@ -11,6 +11,8 @@ $view->disabled = FALSE; /* Edit this to true to make a default view disabled in
 
 /* Display: Defaults */
 $handler = $view->new_display('default', 'Defaults', 'default');
+$handler->display->display_options['use_more_always'] = TRUE;
+$handler->display->display_options['use_more_text'] = 'view all';
 $handler->display->display_options['access']['type'] = 'none';
 $handler->display->display_options['cache']['type'] = 'none';
 $handler->display->display_options['query']['type'] = 'views_query';
@@ -55,7 +57,6 @@ $handler->display->display_options['defaults']['title'] = FALSE;
 $handler->display->display_options['title'] = 'C&R Weekly News';
 $handler->display->display_options['defaults']['use_more'] = FALSE;
 $handler->display->display_options['use_more'] = TRUE;
-$handler->display->display_options['use_more_text'] = 'View All';
 $handler->display->display_options['defaults']['pager'] = FALSE;
 $handler->display->display_options['pager']['type'] = 'some';
 $handler->display->display_options['pager']['options']['items_per_page'] = '5';
@@ -167,7 +168,7 @@ $handler->display->display_options['displays'] = array(
 );
 $translatables['c_r_weekly_newsletter'] = array(
   t('Defaults'),
-  t('more'),
+  t('view all'),
   t('Apply'),
   t('Reset'),
   t('Sort By'),
@@ -182,6 +183,7 @@ $translatables['c_r_weekly_newsletter'] = array(
   t('C&R Newsletter'),
   t('Page'),
   t('Collections & Research Weekly Newsletters'),
+  t('more'),
   t('< Back to Follow Our Research'),
   t('node/[nid]'),
   t('Feed'),
