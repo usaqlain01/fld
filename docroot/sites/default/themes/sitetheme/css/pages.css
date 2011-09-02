@@ -15,10 +15,10 @@
  */
 body 									{ margin:0; padding:0 0 20px 0; background:#6F5544 url(../images/bk1.jpg) no-repeat center top; }
 
-body.bk2 								{ background-image:url(../images/bk2.jpg); }
+/*body.bk2 								{ background-image:url(../images/bk2.jpg); }
 body.bk3 								{ background-image:url(../images/bk3.jpg); }
 body.bk4 								{ background-image:url(../images/bk4.jpg); }
-body.bk5 								{ background-image:url(../images/bk5.jpg); }
+body.bk5 								{ background-image:url(../images/bk5.jpg); }*/
 
 hr 										{ height:0; border:1px solid #ccc; color:#aaa; }
 
