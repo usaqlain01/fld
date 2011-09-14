@@ -568,7 +568,7 @@ function manualMetaTags($path) {
   if (drupal_is_front_page()) {
 
       $description = "From Dinosaurs to DNA, take a journey that spans billions of years at the Field Museum in Chicago.";
-      $keywords    = "chicago, Field Museum, field, museum, campus, natural, history, dinosaurs, egypt, evolution, ancient, americas, conservation, research, dna, fossils, animals ";
+      $keywords    = "chicago, Field Museum, field, museum, campus, natural, history, dinosaurs, egypt, evolution, ancient, americas, conservation, research, dna, fossils, animals, family, field trip, vacation ";
 
       print "<meta name='description' content='".$description."' />\n";
       print "<meta name='keywords' content='".$keywords."' />\n";
