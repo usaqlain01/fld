@@ -648,16 +648,19 @@ function link_field_formatter_view($entity_type, $entity, $field, $instance, $la
  * Theme function for 'default' text field formatter.
  */
 function theme_link_formatter_default($vars) {
+  $link_options = $vars['element'];
+  unset($link_options['title']);
+  unset($link_options['url']);
   // Display a normal link if both title and URL are available.
   if (!empty($vars['element']['title']) && !empty($vars['element']['url'])) {
-    return l($vars['element']['title'], $vars['element']['url'], array('attributes' => $vars['element']['attributes']));
+    return l($vars['element']['title'], $vars['element']['url'], $link_options);
   }
   // If only a title, display the title.
   elseif (!empty($vars['element']['title'])) {
     return check_plain($vars['element']['title']);
   }
   elseif (!empty($vars['element']['url'])) {
-    return l($vars['element']['title'], $vars['element']['url'], array('attributes' => $vars['element']['attributes']));
+    return l($vars['element']['title'], $vars['element']['url'], $link_options);
   }
 }
 
@@ -665,28 +668,40 @@ function theme_link_formatter_default($vars) {
  * Theme function for 'plain' text field formatter.
  */
 function theme_link_formatter_plain($vars) {
-  return empty($vars['element']['url']) ? check_plain($vars['element']['title']) : url($vars['element']['url'], array('attributes' => $vars['element']['attributes']));
+  $link_options = $vars['element'];
+  unset($link_options['title']);
+  unset($link_options['url']);
+  return empty($vars['element']['url']) ? check_plain($vars['element']['title']) : url($vars['element']['url'], $link_options);
 }
 
 /**
  * Theme function for 'url' text field formatter.
  */
 function theme_link_formatter_url($vars) {
-  return $vars['element']['url'] ? l($vars['element']['display_url'], $vars['element']['url'], array('attributes' => $vars['element']['attributes'])) : '';
+  $link_options = $vars['element'];
+  unset($link_options['title']);
+  unset($link_options['url']);
+  return $vars['element']['url'] ? l($vars['element']['display_url'], $vars['element']['url'], $link_options) : '';
 }
 
 /**
  * Theme function for 'short' text field formatter.
  */
 function theme_link_formatter_short($vars) {
-  return $vars['element']['url'] ? l(t('Link'), $vars['element']['url'], array('attributes' => $vars['element']['attributes'])) : '';
+  $link_options = $vars['element'];
+  unset($link_options['title']);
+  unset($link_options['url']);
+  return $vars['element']['url'] ? l(t('Link'), $vars['element']['url'], $link_options) : '';
 }
 
 /**
  * Theme function for 'label' text field formatter.
  */
 function theme_link_formatter_label($vars) {
-  return $vars['element']['url'] ? l($vars['field']['label'], $vars['element']['url'], array('attributes' => $vars['element']['attributes'])) : '';
+  $link_options = $vars['element'];
+  unset($link_options['title']);
+  unset($link_options['url']);
+  return $vars['element']['url'] ? l($vars['field']['label'], $vars['element']['url'], $link_options) : '';
 }
 
 /**
@@ -697,13 +712,16 @@ function theme_link_formatter_separate($vars) {
   $class = empty($vars['element']['attributes']['class']) ? '' : ' '. $vars['element']['attributes']['class'];
   unset($vars['element']['attributes']['class']);
   $title = empty($vars['element']['title']) ? '' : check_plain($vars['element']['title']);
+  $link_options = $vars['element'];
+  unset($link_options['title']);
+  unset($link_options['url']);
 
   $output = '';
   $output .= '<div class="link-item '. $class .'">';
   if (!empty($title)) {
     $output .= '<div class="link-title">'. $title .'</div>';
   }
-  $output .= '<div class="link-url">'. l($vars['element']['url'], $vars['element']['url'], array('attributes' => $vars['element']['attributes'])) .'</div>';
+  $output .= '<div class="link-url">'. l($vars['element']['url'], $vars['element']['url'], $link_options) .'</div>';
   $output .= '</div>';
   return $output;
 }
