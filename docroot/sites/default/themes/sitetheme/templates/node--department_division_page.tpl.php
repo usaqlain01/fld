@@ -102,7 +102,10 @@
     <?php print render($content['field_subtitle']); ?>
   <?php endif; ?>
     
-
+  <?php // FEATURED CONTENT NODEREF THEMING ?>
+  <?php if ($teaser): ?>
+    <a href="<?php print $node_url; ?>"><?php print render($content['field_image']); ?></a>
+  <?php endif; ?>
 
   <?php if ($display_submitted || !empty($content['links']['terms'])): ?>
     <div class="meta">
