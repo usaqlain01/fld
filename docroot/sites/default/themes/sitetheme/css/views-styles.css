@@ -1031,7 +1031,10 @@ font-size: 14px;
 .page-explore-blogs .view-id-blogs_block.view-display-id-attachment_1 .views-row .views-field-title a,
 										{ font-size:12px; font-weight:bold; color:#FF7B06; display:block; margin-bottom:10px; background:none; border:0; }
 
-										
+/*** Dept/Div Project Tab ***/
+.view-department-peoples-header .attachment-before .views-row-last
+										{ border-bottom: 0; padding-bottom:0; }
+
 /*** PODCAST VIEWS ***/
 .view-podcasts .views-row-first			{ clear:both; }
 .view-podcasts .views-row				{ border-top:1px solid #888; padding:10px 0px; }
