@@ -1202,7 +1202,7 @@ function nodequeue_queue_swap($subqueue, $pos1, $pos2) {
     ->execute();
 
   // notify other modules of the swap
-  module_invoke_all('nodequeue_swap', $sqid, $nid);
+  module_invoke_all('nodequeue_swap', $subqueue->sqid, $nid);
 
 }
 
@@ -1636,7 +1636,7 @@ function nodequeue_load_random_node($sqid) {
  * Get the position of a node in a subqueue, or FALSE if not found.
  */
 function nodequeue_subqueue_position($sqid, $nid) {
-  return db_query("SELECT position FROM {nodequeue_nodes} WHERE sqid = %d AND nid = %d", $sqid, $nid)->fetchField();
+  return db_query("SELECT position FROM {nodequeue_nodes} WHERE sqid = :sqid AND nid = :nid", array(':sqid' => $sqid, ':nid' => $nid))->fetchField();
 }
 
 /**
@@ -1767,9 +1767,12 @@ function nodequeue_api_autocomplete($queue, $subqueue, $string) {
 
   $query = db_select('node', 'n')
     ->addTag('node_access')
-    ->fields('n', array('nid', 'title'))
-    ->condition('n.type', $queue->types, 'IN')
+    ->fields('n', array('nid', 'tnid', 'title'))
     ->range(0, variable_get('nodequeue_autocomplete_limit', 10));
+
+  if (!empty($queue->types)) {
+    $query->condition('n.type', $queue->types, 'IN');
+  }
 
   $where_args = array();
   global $user;
@@ -1799,10 +1802,12 @@ function nodequeue_api_autocomplete($queue, $subqueue, $string) {
     return $function($queue, $subqueue, $string, $where, $where_args);
   }
   else {
+    $query->addTag('i18n_select');
     $result = $query->execute();
 
     foreach ($result as $node) {
-      $matches[$node->nid] = check_plain($node->title) . " [nid: $node->nid]";
+      $id = nodequeue_get_content_id($queue, $node);
+      $matches[$node->nid] = check_plain($node->title) . " [nid: $id]";
     }
   }
 
@@ -2061,6 +2066,11 @@ function nodequeue_nids_visible($sqid = -1, $account = NULL) {
 
   if (!user_access('administer nodes', $account)) {
     $query->condition(db_or()->condition('n.status', 1)->condition('n.uid', $account->uid));
+  }
+
+  // Disable i18n_select for this query.
+  if (arg(0) == 'admin') {
+    $query->addTag('i18n_select');
   }
 
   $query_restricted = $query->execute();
