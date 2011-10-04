@@ -28,12 +28,14 @@ function contextual_menu_block_block_view($delta = '') {
       if (empty($field)) {
         break;
       }
-      $taxo = $node->{$field}['und'][0]['taxonomy_term']->name;
+      $field = field_get_items('node', $node, $field);
+      $taxo = $field[0]['taxonomy_term']->name;
 
       // Search the menu for the menu title with the same name as the taxonomy term.
       $top = db_select('menu_links')
       ->fields('menu_links', array('menu_name', 'mlid'))
       ->condition('link_title', $taxo)
+      ->condition('menu_name', 'menu-subsections')
       ->execute()->fetchAssoc();
       
       // Get menu item based on nid.
