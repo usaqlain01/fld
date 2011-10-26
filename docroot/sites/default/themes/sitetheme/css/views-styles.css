@@ -1042,7 +1042,7 @@ font-size: 14px;
 }
 .view-podcasts .views-row,
 .view-explore-science-home-page-list .views-row {
-  border-top:1px solid #888; padding:10px 0px;
+  border-top:1px solid #888; padding:10px 0px;clear:both;
 }
 #block-views-podcasts-block_2 .view-podcasts .views-row-last,
 #block-views-f4f695a1f748c24a7ce32e38ab5b619d .view-explore-science-home-page-list .views-row-last {
@@ -1100,6 +1100,14 @@ font-size: 14px;
 
 .view-c-r-weekly-newsletter.view-display-id-page_1 .view-header
 														{ margin-bottom: 0; }
+
+/*** Subsection Homepage views ***/
+.view-subsection-homepage-news .field-name-field-logo .field-items
+														{ display:block; }
+.view-subsection-homepage-news .field-name-field-logo .field-item
+														{ float:left; width:100px; min-height:120px; margin-right:4px; text-align:center; }
+.view-subsection-homepage-news .field-name-field-logo a
+														{ color:#FF8112; font-weight:bold; }
 
 /*** Reflections on 9/11 ***/
 .view-reflections-on-9-11 .views-row					{ color:#000; background:#eee; padding:10px; -moz-border-radius-topleft:.6em; -webkit-border-top-left-radius:.6em; border-top-left-radius:.6em; -moz-border-radius-topright:.6em; -webkit-border-top-right-radius:.6em; border-top-right-radius:.6em; -moz-border-radius-bottomleft:.6em; -webkit-border-bottom-left-radius:.6em; border-bottom-left-radius:.6em; -moz-border-radius-bottomright:.6em; -webkit-border-bottom-right-radius:.6em; border-bottom-right-radius:.6em; }
