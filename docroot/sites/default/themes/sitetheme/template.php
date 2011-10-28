@@ -549,7 +549,7 @@ function sitetheme_preprocess_views_view_row_rss(&$vars, $hook) {
  * Adjust feed icon
  */
 function sitetheme_feed_icon($variables) {
-  $text = t('Subscribe to @feed-title', array('@feed-title' => $variables['title']));
+  $text = t('RSS');
   if ($image = theme('image', array('path' => 'sites/default/themes/sitetheme/images/feed.png', 'alt' => $text))) {
     return l($image . t('Subscribe'), $variables['url'], array('html' => TRUE, 'attributes' => array('class' => array('feed-icon'), 'title' => $text)));
   }

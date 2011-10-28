@@ -989,6 +989,7 @@ font-size: 14px;
 .page-explore .view-ecco-news .views-row .views-field-entity-id-1,
 .page-user-blog .view-blog .views-row .views-field-entity-id-1,
 .view-c-r-weekly-newsletter.view-display-id-page_1 .views-field-entity-id,
+.view-c-r-weekly-newsletter.view-display-id-page_1 .views-field-entity-id-2,
 .page-happening .view-education-programs .views-row .views-field-entity-id-1
 										{ float:left; margin-right:10px; overflow:hidden; }
 

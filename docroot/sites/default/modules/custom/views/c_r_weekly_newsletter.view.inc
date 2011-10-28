@@ -105,6 +105,7 @@ $handler->display->display_options['fields']['entity_id']['id'] = 'entity_id';
 $handler->display->display_options['fields']['entity_id']['table'] = 'field_data_field_research_publications_img';
 $handler->display->display_options['fields']['entity_id']['field'] = 'entity_id';
 $handler->display->display_options['fields']['entity_id']['label'] = '';
+$handler->display->display_options['fields']['entity_id']['exclude'] = TRUE;
 $handler->display->display_options['fields']['entity_id']['alter']['alter_text'] = 0;
 $handler->display->display_options['fields']['entity_id']['alter']['make_link'] = 1;
 $handler->display->display_options['fields']['entity_id']['alter']['path'] = 'node/[nid]';
@@ -120,6 +121,26 @@ $handler->display->display_options['fields']['entity_id']['hide_empty'] = 0;
 $handler->display->display_options['fields']['entity_id']['empty_zero'] = 0;
 $handler->display->display_options['fields']['entity_id']['click_sort_column'] = 'fid';
 $handler->display->display_options['fields']['entity_id']['type'] = 'custom_content-third';
+/* Field: Fields: field_crnews_staff_student_img */
+$handler->display->display_options['fields']['entity_id_2']['id'] = 'entity_id_2';
+$handler->display->display_options['fields']['entity_id_2']['table'] = 'field_data_field_crnews_staff_student_img';
+$handler->display->display_options['fields']['entity_id_2']['field'] = 'entity_id';
+$handler->display->display_options['fields']['entity_id_2']['label'] = '';
+$handler->display->display_options['fields']['entity_id_2']['alter']['alter_text'] = 0;
+$handler->display->display_options['fields']['entity_id_2']['alter']['make_link'] = 1;
+$handler->display->display_options['fields']['entity_id_2']['alter']['path'] = 'node/[nid]';
+$handler->display->display_options['fields']['entity_id_2']['alter']['absolute'] = 0;
+$handler->display->display_options['fields']['entity_id_2']['alter']['trim'] = 0;
+$handler->display->display_options['fields']['entity_id_2']['alter']['word_boundary'] = 1;
+$handler->display->display_options['fields']['entity_id_2']['alter']['ellipsis'] = 1;
+$handler->display->display_options['fields']['entity_id_2']['alter']['strip_tags'] = 0;
+$handler->display->display_options['fields']['entity_id_2']['alter']['html'] = 0;
+$handler->display->display_options['fields']['entity_id_2']['element_label_colon'] = 1;
+$handler->display->display_options['fields']['entity_id_2']['element_default_classes'] = 1;
+$handler->display->display_options['fields']['entity_id_2']['hide_empty'] = 0;
+$handler->display->display_options['fields']['entity_id_2']['empty_zero'] = 0;
+$handler->display->display_options['fields']['entity_id_2']['click_sort_column'] = 'fid';
+$handler->display->display_options['fields']['entity_id_2']['type'] = 'custom_content-third';
 /* Field: Node: Title */
 $handler->display->display_options['fields']['title']['id'] = 'title';
 $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -184,11 +205,10 @@ $translatables['c_r_weekly_newsletter'] = array(
   t('Offset'),
   t('Block'),
   t('C&R Weekly News'),
-  t('View All'),
+  t('more'),
   t('C&R Newsletter'),
   t('Page'),
   t('Collections & Research Weekly Newsletters'),
-  t('more'),
   t('< Back to Follow Our Research'),
   t('node/[nid]'),
   t('Feed'),
