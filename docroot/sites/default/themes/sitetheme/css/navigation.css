@@ -179,55 +179,63 @@ li a.active 								{ color:#000; }
 .region-content-top .menu-block-wrapper ul li,
 .region-content-top .block-contextual-menu-block ul li ul.menu li
 											{ float:left; margin:10px 0 0; white-space:nowrap; padding-top:3px; }
+
 /*--microsite menus--*/
+.region-content-top .menu-block-wrapper ul.menu,
+.region-content-top .block-contextual-menu-block ul li ul.menu
+											{ margin:0; padding:0 10px; background-color:#92B40A; overflow:hidden; }
 
 .section-visit .region-content-top .menu-block-wrapper ul.menu,
 .section-visit .region-content-top .block-contextual-menu-block ul li ul.menu
-											{ margin:0; padding:0 10px; background-color:#CE3E05; overflow:hidden; }
+											{ background-color:#CE3E05; }
 								
 .section-happening .region-content-top .menu-block-wrapper ul.menu,
 .section-happening .region-content-top .block-contextual-menu-block ul li ul.menu
-											{ margin:0; padding:0 10px; background-color:#2EA9C6; overflow:hidden; }
+											{ background-color:#2EA9C6; }
 											
 .section-support .region-content-top .menu-block-wrapper ul.menu,
 .section-support .region-content-top .block-contextual-menu-block ul li ul.menu
-											{ margin:0; padding:0 10px; background-color:#0F8959; overflow:hidden; }
+											{ background-color:#0F8959; }
 
 .section-schools .region-content-top .menu-block-wrapper ul.menu,
 .section-schools .region-content-top .block-contextual-menu-block ul li ul.menu
-											{ margin:0; padding:0 10px; background-color:#0F8959; overflow:hidden; }
+											{ background-color:#934E9B; }
 
-.region-content-top .menu-block-wrapper ul.menu,
+.section-explore .region-content-top .menu-block-wrapper ul.menu,
 .section-explore .region-content-top .block-contextual-menu-block ul li ul.menu
-											{ margin:0; padding:0 10px; background-color:#92B40A; overflow:hidden; }
+											{ background-color:#92B40A; }
 
 .section-about .region-content-top .menu-block-wrapper ul.menu,
 .section-about .region-content-top .block-contextual-menu-block ul li ul.menu
-											{ margin:0; padding:0 10px; background-color:#4F4FCF; overflow:hidden; }
-											
+											{ background-color:#4F4FCF; }
+
+.region-content-top .menu-block-wrapper ul li.active,
+.region-content-top .block-contextual-menu-block ul li ul li.active-trail
+											{ background:url("../images/icon-arrow-down.png") no-repeat scroll center top #FFFFFF; border-top:3px solid #536712 !important; padding-top:0; }
+
 .section-visit .region-content-top .menu-block-wrapper ul li.active,
 .section-visit .region-content-top .block-contextual-menu-block ul li ul li.active-trail
-											{ background:url("../images/icon-arrow-down-plan.png") no-repeat scroll center top #FFFFFF; border-top:3px solid #932D14 !important; padding-top:0; }
+											{ background:url("../images/icon-arrow-down-plan.png") no-repeat scroll center top #FFFFFF; border-top:3px solid #932D14 !important; }
 											
 .section-happening .region-content-top .menu-block-wrapper ul li.active,
 .section-happening .region-content-top .block-contextual-menu-block ul li ul li.active-trail
-											{ background:url("../images/icon-arrow-down-happening.png") no-repeat scroll center top #FFFFFF; border-top:3px solid #175463 !important; padding-top:0; }
+											{ background:url("../images/icon-arrow-down-happening.png") no-repeat scroll center top #FFFFFF; border-top:3px solid #175463 !important; }
 
 .section-support .region-content-top .menu-block-wrapper ul li.active,
 .section-support .region-content-top .block-contextual-menu-block ul li ul li.active-trail
-											{ background:url("../images/icon-arrow-down-support.png") no-repeat scroll center top #FFFFFF; border-top:3px solid #074F33 !important; padding-top:0; }
+											{ background:url("../images/icon-arrow-down-support.png") no-repeat scroll center top #FFFFFF; border-top:3px solid #074F33 !important; }
 
 .section-schools .region-content-top .menu-block-wrapper ul li.active,
 .section-schools .region-content-top .block-contextual-menu-block ul li ul li.active-trail
-											{ background:url("../images/icon-arrow-down-schools.png") no-repeat scroll center top #FFFFFF; border-top:3px solid #59215B !important; padding-top:0; }
+											{ background:url("../images/icon-arrow-down-schools.png") no-repeat scroll center top #FFFFFF; border-top:3px solid #59215B !important; }
 
-.region-content-top .menu-block-wrapper ul li.active,
+.section-explore .region-content-top .menu-block-wrapper ul li.active,
 .section-explore .region-content-top .block-contextual-menu-block ul li ul li.active-trail
-											{ background:url("../images/icon-arrow-down.png") no-repeat scroll center top #FFFFFF; border-top:3px solid #536712 !important; padding-top:0; }
+											{ background:url("../images/icon-arrow-down.png") no-repeat scroll center top #FFFFFF; border-top:3px solid #536712 !important; }
 
 .section-about .region-content-top .menu-block-wrapper ul li.active,
 .section-about .region-content-top .block-contextual-menu-block ul li ul li.active-trail
-											{ background:url("../images/icon-arrow-down-272767.png") no-repeat scroll center top #FFFFFF; border-top:3px solid #272767 !important; padding-top:0; }
+											{ background:url("../images/icon-arrow-down-272767.png") no-repeat scroll center top #FFFFFF; border-top:3px solid #272767 !important; }
 
 .region-content-top .menu-block-wrapper ul li a,
 .region-content-top .block-contextual-menu-block ul li ul li a
@@ -236,29 +244,149 @@ li a.active 								{ color:#000; }
 
 /* Secondary Block Navigation: Drop Down Code */
 
-.region-content-top .menu-block-wrapper ul li ul.menu,
-.region-content-top .block-contextual-menu-block ul li ul li ul.menu
-											{ position:absolute; z-index:10; background:#add316; margin:27px 0 0 0; padding:0; visibility:hidden; max-width:200px; border-bottom:3px solid #92B40A; }
+.section-visit .region-content-top .menu-block-wrapper ul li ul.menu,
+.section-visit .region-content-top .block-contextual-menu-block ul li ul li ul.menu
+											{ position:absolute; z-index:10; background:#df4f16; margin:27px 0 0 0; padding:0; visibility:hidden; max-width:200px; border-bottom:3px solid #CE3E05; }
 
-.region-content-top .menu-block-wrapper ul li:hover ul,
-.region-content-top .block-contextual-menu-block ul li ul li:hover ul
+.section-visit .region-content-top .menu-block-wrapper ul li:hover ul,
+.section-visit .region-content-top .block-contextual-menu-block ul li ul li:hover ul
 											{ visibility:visible; }
 
-.region-content-top .menu-block-wrapper ul li ul.menu li,
-.region-content-top .block-contextual-menu-block ul li ul li ul.menu li
+.section-visit .region-content-top .menu-block-wrapper ul li ul.menu li,
+.section-visit .region-content-top .block-contextual-menu-block ul li ul li ul.menu li
 											{ background:none; margin:0; white-space:normal; float:none; padding-top:0; }
 
-.region-content-top .menu-block-wrapper ul li ul.menu li a,
-.region-content-top .block-contextual-menu-block ul li ul li ul.menu li a
+.section-visit .region-content-top .menu-block-wrapper ul li ul.menu li a,
+.section-visit .region-content-top .block-contextual-menu-block ul li ul li ul.menu li a
 											{ float:none; display:block; text-decoration:none; }
 
-.region-content-top .menu-block-wrapper ul li ul.menu li a:hover,
-.region-content-top .block-contextual-menu-block ul li ul li ul.menu li a:hover
+.section-visit .region-content-top .menu-block-wrapper ul li ul.menu li a:hover,
+.section-visit .region-content-top .block-contextual-menu-block ul li ul li ul.menu li a:hover
 											{ background:#eee;  }
 
-.region-content-top .menu-block-wrapper ul li ul.menu li.active,
-.region-content-top .block-contextual-menu-block ul li ul li ul.menu li.active
+.section-visit .region-content-top .menu-block-wrapper ul li ul.menu li.active-trail,
+.section-visit .region-content-top .block-contextual-menu-block ul li ul li ul.menu li.active-trail
 											{ border-top:none!important; }
-											
+																						
+.section-happening .region-content-top .menu-block-wrapper ul li ul.menu,
+.section-happening .region-content-top .block-contextual-menu-block ul li ul li ul.menu
+											{ position:absolute; z-index:10; background:#3fc0d7; margin:27px 0 0 0; padding:0; visibility:hidden; max-width:200px; border-bottom:3px solid #2EA9C6; }
+
+.section-happening .region-content-top .menu-block-wrapper ul li:hover ul,
+.section-happening .region-content-top .block-contextual-menu-block ul li ul li:hover ul
+											{ visibility:visible; }
+
+.section-happening .region-content-top .menu-block-wrapper ul li ul.menu li,
+.section-happening .region-content-top .block-contextual-menu-block ul li ul li ul.menu li
+											{ background:none; margin:0; white-space:normal; float:none; padding-top:0; }
+
+.section-happening .region-content-top .menu-block-wrapper ul li ul.menu li a,
+.section-happening .region-content-top .block-contextual-menu-block ul li ul li ul.menu li a
+											{ float:none; display:block; text-decoration:none; }
+
+.section-happening .region-content-top .menu-block-wrapper ul li ul.menu li a:hover,
+.section-happening .region-content-top .block-contextual-menu-block ul li ul li ul.menu li a:hover
+											{ background:#eee;  }
+
+.section-happening .region-content-top .menu-block-wrapper ul li ul.menu li.active-trail,
+.section-happening .region-content-top .block-contextual-menu-block ul li ul li ul.menu li.active-trail
+											{ border-top:none!important; }
+																						
+.section-support .region-content-top .menu-block-wrapper ul li ul.menu,
+.section-support .region-content-top .block-contextual-menu-block ul li ul li ul.menu
+											{ position:absolute; z-index:10; background:#20aa6a; margin:27px 0 0 0; padding:0; visibility:hidden; max-width:200px; border-bottom:3px solid #0F8959; }
+
+.section-support .region-content-top .menu-block-wrapper ul li:hover ul,
+.section-support .region-content-top .block-contextual-menu-block ul li ul li:hover ul
+											{ visibility:visible; }
+
+.section-support .region-content-top .menu-block-wrapper ul li ul.menu li,
+.section-support .region-content-top .block-contextual-menu-block ul li ul li ul.menu li
+											{ background:none; margin:0; white-space:normal; float:none; padding-top:0; }
+
+.section-support .region-content-top .menu-block-wrapper ul li ul.menu li a,
+.section-support .region-content-top .block-contextual-menu-block ul li ul li ul.menu li a
+											{ float:none; display:block; text-decoration:none; }
+
+.section-support .region-content-top .menu-block-wrapper ul li ul.menu li a:hover,
+.section-support .region-content-top .block-contextual-menu-block ul li ul li ul.menu li a:hover
+											{ background:#eee;  }
+
+.section-support .region-content-top .menu-block-wrapper ul li ul.menu li.active-trail,
+.section-support .region-content-top .block-contextual-menu-block ul li ul li ul.menu li.active-trail
+											{ border-top:none!important; }
+																						
+.section-schools .region-content-top .menu-block-wrapper ul li ul.menu,
+.section-schools .region-content-top .block-contextual-menu-block ul li ul li ul.menu
+											{ position:absolute; z-index:10; background:#a46fac; margin:27px 0 0 0; padding:0; visibility:hidden; max-width:200px; border-bottom:3px solid #934E9B; }
+
+.section-schools .region-content-top .menu-block-wrapper ul li:hover ul,
+.section-schools .region-content-top .block-contextual-menu-block ul li ul li:hover ul
+											{ visibility:visible; }
+
+.section-schools .region-content-top .menu-block-wrapper ul li ul.menu li,
+.section-schools .region-content-top .block-contextual-menu-block ul li ul li ul.menu li
+											{ background:none; margin:0; white-space:normal; float:none; padding-top:0; }
+
+.section-schools .region-content-top .menu-block-wrapper ul li ul.menu li a,
+.section-schools .region-content-top .block-contextual-menu-block ul li ul li ul.menu li a
+											{ float:none; display:block; text-decoration:none; }
+
+.section-schools .region-content-top .menu-block-wrapper ul li ul.menu li a:hover,
+.section-schools .region-content-top .block-contextual-menu-block ul li ul li ul.menu li a:hover
+											{ background:#eee;  }
+
+.section-schools .region-content-top .menu-block-wrapper ul li ul.menu li.active-trail,
+.section-schools .region-content-top .block-contextual-menu-block ul li ul li ul.menu li.active-trail
+											{ border-top:none!important; }
+																						
+.section-explore .region-content-top .menu-block-wrapper ul li ul.menu,
+.section-explore .region-content-top .block-contextual-menu-block ul li ul li ul.menu
+											{ position:absolute; z-index:10; background:#add316; margin:27px 0 0 0; padding:0; visibility:hidden; max-width:200px; border-bottom:3px solid #92B40A; }
+
+.section-explore .region-content-top .menu-block-wrapper ul li:hover ul,
+.section-explore .region-content-top .block-contextual-menu-block ul li ul li:hover ul
+											{ visibility:visible; }
+
+.section-explore .region-content-top .menu-block-wrapper ul li ul.menu li,
+.section-explore .region-content-top .block-contextual-menu-block ul li ul li ul.menu li
+											{ background:none; margin:0; white-space:normal; float:none; padding-top:0; }
+
+.section-explore .region-content-top .menu-block-wrapper ul li ul.menu li a,
+.section-explore .region-content-top .block-contextual-menu-block ul li ul li ul.menu li a
+											{ float:none; display:block; text-decoration:none; }
+
+.section-explore .region-content-top .menu-block-wrapper ul li ul.menu li a:hover,
+.section-explore .region-content-top .block-contextual-menu-block ul li ul li ul.menu li a:hover
+											{ background:#eee;  }
+
+.section-explore .region-content-top .menu-block-wrapper ul li ul.menu li.active-trail,
+.section-explore .region-content-top .block-contextual-menu-block ul li ul li ul.menu li.active-trail
+											{ border-top:none!important; }
+																						
+.section-about .region-content-top .menu-block-wrapper ul li ul.menu,
+.section-about .region-content-top .block-contextual-menu-block ul li ul li ul.menu
+											{ position:absolute; z-index:10; background:#6070e0; margin:27px 0 0 0; padding:0; visibility:hidden; max-width:200px; border-bottom:3px solid #4F4FCF; }
+
+.section-about .region-content-top .menu-block-wrapper ul li:hover ul,
+.section-about .region-content-top .block-contextual-menu-block ul li ul li:hover ul
+											{ visibility:visible; }
+
+.section-about .region-content-top .menu-block-wrapper ul li ul.menu li,
+.section-about .region-content-top .block-contextual-menu-block ul li ul li ul.menu li
+											{ background:none; margin:0; white-space:normal; float:none; padding-top:0; }
+
+.section-about .region-content-top .menu-block-wrapper ul li ul.menu li a,
+.section-about .region-content-top .block-contextual-menu-block ul li ul li ul.menu li a
+											{ float:none; display:block; text-decoration:none; }
+
+.section-about .region-content-top .menu-block-wrapper ul li ul.menu li a:hover,
+.section-about .region-content-top .block-contextual-menu-block ul li ul li ul.menu li a:hover
+											{ background:#eee;  }
+
+.section-about .region-content-top .menu-block-wrapper ul li ul.menu li.active-trail,
+.section-about .region-content-top .block-contextual-menu-block ul li ul li ul.menu li.active-trail
+											{ border-top:none!important; }
+																						
 /* Hide border on microsite nav */
 .block-contextual-menu-block 				{ border-bottom:none!important; }

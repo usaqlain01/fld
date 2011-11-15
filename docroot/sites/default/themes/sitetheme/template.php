@@ -218,7 +218,7 @@ function sitetheme_page_alter(&$page) {
     $node = reset($page['content']['system_main']['nodes']);
     $type = $node['#node']->type;
   }
-  if(drupal_match_path($path, '*/department/*') || ((drupal_match_path($path, 'about/traveling-exhibitions/*') || drupal_match_path($path, 'explore/*')) && $type == 'article')) {
+  if(drupal_match_path($path, '*/department/*') || drupal_match_path($path, 'happening/mountmakers*') || ((drupal_match_path($path, 'about/traveling-exhibitions/*') || drupal_match_path($path, 'explore/*')) && $type == 'article')) {
     unset($page['sidebar_second']);
   }
   if(drupal_match_path($path, 'about/traveling-exhibitions')) {
