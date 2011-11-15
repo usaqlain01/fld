@@ -176,17 +176,58 @@ li a.active 								{ color:#000; }
 #navigation .content li.menu-mlid-2670 a:hover
 											{ border-bottom: 2px solid #4F4FCF; }
 
-.region-content-top .menu-block-wrapper ul.menu,
-.region-content-top .block-contextual-menu-block ul li ul.menu
-											{ margin:0; padding:0 10px; background-color:#92B40A; overflow:hidden; }
-
 .region-content-top .menu-block-wrapper ul li,
 .region-content-top .block-contextual-menu-block ul li ul.menu li
 											{ float:left; margin:10px 0 0; white-space:nowrap; padding-top:3px; }
+/*--microsite menus--*/
+
+.section-visit .region-content-top .menu-block-wrapper ul.menu,
+.section-visit .region-content-top .block-contextual-menu-block ul li ul.menu
+											{ margin:0; padding:0 10px; background-color:#CE3E05; overflow:hidden; }
+								
+.section-happening .region-content-top .menu-block-wrapper ul.menu,
+.section-happening .region-content-top .block-contextual-menu-block ul li ul.menu
+											{ margin:0; padding:0 10px; background-color:#2EA9C6; overflow:hidden; }
+											
+.section-support .region-content-top .menu-block-wrapper ul.menu,
+.section-support .region-content-top .block-contextual-menu-block ul li ul.menu
+											{ margin:0; padding:0 10px; background-color:#0F8959; overflow:hidden; }
+
+.section-schools .region-content-top .menu-block-wrapper ul.menu,
+.section-schools .region-content-top .block-contextual-menu-block ul li ul.menu
+											{ margin:0; padding:0 10px; background-color:#0F8959; overflow:hidden; }
+
+.region-content-top .menu-block-wrapper ul.menu,
+.section-explore .region-content-top .block-contextual-menu-block ul li ul.menu
+											{ margin:0; padding:0 10px; background-color:#92B40A; overflow:hidden; }
+
+.section-about .region-content-top .menu-block-wrapper ul.menu,
+.section-about .region-content-top .block-contextual-menu-block ul li ul.menu
+											{ margin:0; padding:0 10px; background-color:#4F4FCF; overflow:hidden; }
+											
+.section-visit .region-content-top .menu-block-wrapper ul li.active,
+.section-visit .region-content-top .block-contextual-menu-block ul li ul li.active-trail
+											{ background:url("../images/icon-arrow-down-plan.png") no-repeat scroll center top #FFFFFF; border-top:3px solid #932D14 !important; padding-top:0; }
+											
+.section-happening .region-content-top .menu-block-wrapper ul li.active,
+.section-happening .region-content-top .block-contextual-menu-block ul li ul li.active-trail
+											{ background:url("../images/icon-arrow-down-happening.png") no-repeat scroll center top #FFFFFF; border-top:3px solid #175463 !important; padding-top:0; }
+
+.section-support .region-content-top .menu-block-wrapper ul li.active,
+.section-support .region-content-top .block-contextual-menu-block ul li ul li.active-trail
+											{ background:url("../images/icon-arrow-down-support.png") no-repeat scroll center top #FFFFFF; border-top:3px solid #074F33 !important; padding-top:0; }
+
+.section-schools .region-content-top .menu-block-wrapper ul li.active,
+.section-schools .region-content-top .block-contextual-menu-block ul li ul li.active-trail
+											{ background:url("../images/icon-arrow-down-schools.png") no-repeat scroll center top #FFFFFF; border-top:3px solid #59215B !important; padding-top:0; }
 
 .region-content-top .menu-block-wrapper ul li.active,
-.region-content-top .block-contextual-menu-block ul li ul li.active-trail
+.section-explore .region-content-top .block-contextual-menu-block ul li ul li.active-trail
 											{ background:url("../images/icon-arrow-down.png") no-repeat scroll center top #FFFFFF; border-top:3px solid #536712 !important; padding-top:0; }
+
+.section-about .region-content-top .menu-block-wrapper ul li.active,
+.section-about .region-content-top .block-contextual-menu-block ul li ul li.active-trail
+											{ background:url("../images/icon-arrow-down-272767.png") no-repeat scroll center top #FFFFFF; border-top:3px solid #272767 !important; padding-top:0; }
 
 .region-content-top .menu-block-wrapper ul li a,
 .region-content-top .block-contextual-menu-block ul li ul li a
