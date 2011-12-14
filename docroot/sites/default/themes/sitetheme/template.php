@@ -226,7 +226,7 @@ function sitetheme_page_alter(&$page) {
   }
   
   /* Remove FAQ block from the FAQ page */
-  if(drupal_match_path($path, 'visit/faq')) {
+  if(drupal_match_path($path, 'visit/faq') || drupal_match_path($path, 'support/auxiliary-groups/*')) {
     unset($page['content']['views_FAQ-related_questions']);
   }
   
