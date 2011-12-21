@@ -133,10 +133,12 @@
 /*
  * Contact Us
  */
-#block-custom-contact_us 				{ overflow:visible; white-space:nowrap; }
-#block-custom-contact_us h3 			{ color:#CE3E05; text-transform:uppercase; margin-bottom:6px; }
-#block-custom-contact_us p 				{ margin-top:0px; }
-#block-custom-contact_us a 				{ white-space:nowrap; }
+#block-block-16 				{ overflow:visible; white-space:nowrap; }
+#block-block-16 h3 				{ color:#CE3E05; text-transform:uppercase; margin-bottom:6px; }
+#block-block-16 p 				{ margin-top:0px; }
+#block-block-16 a 				{ white-space:nowrap; }
+.follow-us-links				{ line-height:2.2em; }
+.follow-us-links img			{ margin-top:5px;margin-right:5px;}
 
 /*
  * WR - 04 Related Content Multiple 
