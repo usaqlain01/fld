@@ -218,7 +218,13 @@ function sitetheme_page_alter(&$page) {
     $node = reset($page['content']['system_main']['nodes']);
     $type = $node['#node']->type;
   }
-  if(drupal_match_path($path, '*/department/*') || drupal_match_path($path, 'happening/mountmakers*') || ((drupal_match_path($path, 'about/traveling-exhibitions/*') || drupal_match_path($path, 'explore/*')) && $type == 'article')) {
+  if(drupal_match_path($path, '*/department/*') || 
+     drupal_match_path($path, 'happening/mountmakers*') || 
+     drupal_match_path($path, 'support/auxiliary-groups/*') || 
+     drupal_match_path($path, 'support/field-museum-travel/*') ||
+     drupal_match_path($path, 'support/individual-giving/*') ||
+     drupal_match_path($path, 'support/corporate-giving/*') ||
+     ((drupal_match_path($path, 'about/traveling-exhibitions/*') || drupal_match_path($path, 'explore/*')) && $type == 'article')) {
     unset($page['sidebar_second']);
   }
   if(drupal_match_path($path, 'about/traveling-exhibitions')) {
@@ -226,7 +232,11 @@ function sitetheme_page_alter(&$page) {
   }
   
   /* Remove FAQ block from the FAQ page */
-  if(drupal_match_path($path, 'visit/faq') || drupal_match_path($path, 'support/auxiliary-groups/*')) {
+  if(drupal_match_path($path, 'visit/faq') || 
+     drupal_match_path($path, 'support/auxiliary-groups/*') ||
+     drupal_match_path($path, 'support/individual-giving/*') ||
+     drupal_match_path($path, 'support/corporate-giving/*') ||
+     drupal_match_path($path, 'support/field-museum-travel/*')) {
     unset($page['content']['views_FAQ-related_questions']);
   }
   
