@@ -153,7 +153,7 @@ function apachesolr_node_to_document($node, $namespace) {
  */
 function apachesolr_term_reference_indexing_callback($node, $field_name, $index_key, $field_info) {
   // Keep ancestors cached
-  static $ancestors = array();
+  $ancestors = &drupal_static(__FUNCTION__, array());
 
   $fields = array();
   $vocab_names = array();
@@ -213,7 +213,7 @@ function apachesolr_term_reference_indexing_callback($node, $field_name, $index_
  * Helper function - return a safe (PHP identifier) vocabulary name.
  */
 function apachesolr_vocab_name($vid) {
-  static $names = array();
+  $names = &drupal_static(__FUNCTION__, array());
 
   if (!isset($names[$vid])) {
     $vocab_name = db_query('SELECT v.name FROM {taxonomy_vocabulary} v WHERE v.vid = :vid', array(':vid' => $vid))->fetchField();
@@ -230,15 +230,35 @@ function apachesolr_vocab_name($vid) {
 /**
  * Callback that converts list module field into an array
  */
-function apachesolr_fields_list_indexing_callback($entity, $field_name, $index_key, $field_info) {
+function apachesolr_fields_default_indexing_callback($entity, $field_name, $index_key, $field_info) {
   $fields = array();
   if (!empty($entity->{$field_name})) {
     $field = $entity->$field_name;
     list($lang, $values) = each($field);
+    switch ($field_info['index_type']) {
+      case 'integer':
+      case 'half-int':
+      case 'sint':
+      case 'tint':
+      case 'thalf-int':
+      case 'boolean':
+        $function = 'intval';
+        break;
+      case 'float':
+      case 'double':
+      case 'sfloat':
+      case 'sdouble':
+      case 'tfloat':
+      case 'tdouble':
+        $function = 'apachesolr_floatval';
+        break;
+      default:
+        $function = 'apachesolr_clean_text';
+    }
     foreach ($values as $fval) {
       $fields[] = array(
         'key' => $index_key,
-        'value' => apachesolr_clean_text($fval['value']),
+        'value' => $function($fval['value']),
       );
     }
   }
@@ -246,16 +266,70 @@ function apachesolr_fields_list_indexing_callback($entity, $field_name, $index_k
 }
 
 /**
- *  @see http://drupal.org/node/1059372
+ * This function is used during indexing to normalize the DATE and DATETIME
+ * fields into the appropriate format for Apache Solr.
  */
-function apachesolr_cck_nodereference_indexing_callback($node, $field_name, $index_key, $cck_info) {
+function apachesolr_date_default_indexing_callback($entity, $field_name, $index_key, $field_info) {
   $fields = array();
-  if (!empty($node->{$field_name})) {
-    $index_key = apachesolr_index_key($cck_info);
-    foreach ($node->$field_name as $field) {
-      if ($index_value = (isset($field['nid']) && strlen($field['nid'])) ? $field['nid'] : FALSE) {
+  if (!empty($entity->{$field_name})) {
+    $field = $entity->$field_name;
+    list($lang, $values) = each($field);
+    // Construct a Solr-ready date string in UTC time zone based on the field's date string and time zone.
+    $tz = new DateTimeZone(isset($field['timezone']) ? $field['timezone'] : 'UTC');
+
+    // $fields may end up having two values; one for the start date
+    // and one for the end date.
+    foreach ($values as $value) {
+      if ($date = date_create($value['value'], $tz)) {
+        $index_value = apachesolr_date_iso($date->format('U'));
         $fields[] = array(
           'key' => $index_key,
+          'value' => $index_value,
+        );
+      }
+
+      if (isset($value['value2'])) {
+        if ($date = date_create($value['value2'], $tz)) {
+          $index_value = apachesolr_date_iso($date->format('U'));
+          $fields[] = array(
+            // The value2 element is the end date. Therefore it gets indexed
+            // into its own Solr field.
+            'key' => $index_key . '_end',
+            'value' => $index_value,
+          );
+        }
+      }
+    }
+  }
+  return $fields;
+}
+
+/**
+ * This function is used during indexing to normalize the DATESTAMP fields
+ * into the appropriate format for Apache Solr.
+ */
+function apachesolr_datestamp_default_indexing_callback($entity, $field_name, $index_key, $field_info) {
+  $fields = array();
+  if (!empty($entity->{$field_name})) {
+    // $fields may end up having two values; one for the start date
+    // and one for the end date.
+    $field = $entity->$field_name;
+    list($lang, $values) = each($field);
+
+    foreach ($values as $value) {
+      if (isset($value['value']) && $value['value'] != 0) {
+        $index_value = apachesolr_date_iso($value['value']);
+        $fields[] = array(
+          'key' => $index_key,
+          'value' => $index_value,
+        );
+      }
+      if (isset($value['value2']) && $value['value'] != 0) {
+        $index_value = apachesolr_date_iso($value['value2']);
+        $fields[] = array(
+          // The value2 element is the end date. Therefore it gets indexed
+          // into its own Solr field.
+          'key' => $index_key . '_end',
           'value' => $index_value,
         );
       }
@@ -264,19 +338,48 @@ function apachesolr_cck_nodereference_indexing_callback($node, $field_name, $ind
   return $fields;
 }
 
+function apachesolr_floatval($value) {
+  return sprintf('%0.20f', $value);
+}
+
 /**
- *  @see http://drupal.org/node/1059372
+ *  Indexing callback for the node_reference module
+ *  by the references module
  */
-function apachesolr_cck_userreference_indexing_callback($node, $field_name, $index_key, $cck_info) {
+function apachesolr_nodereference_indexing_callback($entity, $field_name, $index_key, $field_info) {
   $fields = array();
-  if (!empty($node->$field_name)) {
-    $index_key = apachesolr_index_key($cck_info);
-    foreach ($node->{$field_name} as $field) {
-      if ($index_value = (isset($field['uid']) && strlen($field['uid'])) ? $field['uid'] : FALSE) {
-        $fields[] = array(
-          'key' => $index_key,
-          'value' => $index_value,
-        );
+  if (!empty($entity->{$field_name})) {
+    $index_key = apachesolr_index_key($field_info);
+    foreach ($entity->$field_name as $field_references) {
+      foreach ($field_references as $reference) {
+        if ($index_value = (!empty($reference['nid'])) ? $reference['nid'] : FALSE) {
+          $fields[] = array(
+            'key' => $index_key,
+            'value' => $index_value,
+          );
+        }
+      }
+    }
+  }
+  return $fields;
+}
+
+/**
+ *  Indexing callback for the user_reference module
+ *  by the references module
+ */
+function apachesolr_userreference_indexing_callback($entity, $field_name, $index_key, $field_info) {
+  $fields = array();
+  if (!empty($entity->$field_name)) {
+    $index_key = apachesolr_index_key($field_info);
+    foreach ($entity->$field_name as $field_references) {
+      foreach ($field_references as $reference) {
+        if ($index_value = (isset($reference['uid']) && strlen($reference['uid'])) ? $reference['uid'] : FALSE) {
+          $fields[] = array(
+            'key' => $index_key,
+            'value' => $index_value,
+          );
+        }
       }
     }
   }

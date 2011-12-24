@@ -61,12 +61,11 @@ function apachesolr_requirements($phase) {
  */
 function apachesolr_install() {
   // Create one MLT block.
-  require_once(drupal_get_path('module', 'apachesolr') . '/apachesolr.admin.inc');
-  apachesolr_mlt_save_block(array('name' => st('More like this')));
+  require_once(drupal_get_path('module', 'apachesolr') . '/apachesolr_search.admin.inc');
+  apachesolr_search_mlt_save_block(array('name' => st('More like this')));
   db_insert('apachesolr_environment')->fields(array('env_id' => 'solr', 'name' => 'localhost server', 'url' => 'http://localhost:8983/solr'))->execute();
-  drupal_set_message(st('Apache Solr is enabled. Visit the <a href="!settings_link">settings page</a>.', array('!settings_link' => url('admin/config/search/apachesolr'))));
+  drupal_set_message(st('Apache Solr is enabled. Visit the <a href="@settings_link">settings page</a>.', array('@settings_link' => url('admin/config/search/apachesolr'))));
 }
-
 /**
  * Implements hook_enable().
  */
@@ -111,8 +110,18 @@ function apachesolr_schema() {
 
   $schema['apachesolr_environment'] = array(
     'description' => 'The Solr search environment table.',
+    'export' => array(
+      'key' => 'env_id',
+      'identifier' => 'name',
+      'api' => array(
+        'owner' => 'apachesolr',
+        'api' => 'default_apachesolr_environments',
+        'minimum_version' => 1,
+        'current_version' => 1,
+      ),
+    ),
     'fields' => array(
-     'env_id' => array(
+      'env_id' => array(
         'description' => 'Unique identifier for the environment',
         'type' => 'varchar',
         'length' => 64,
@@ -143,8 +152,19 @@ function apachesolr_schema() {
   );
   $schema['apachesolr_environment_variable'] = array(
     'description' => 'Variable values for each Solr search environment.',
+    'export' => array(
+      'key' => 'name',
+      'identifier' => 'name',
+      'default hook' => 'default_apachesolr_environment_variable',
+      'api' => array(
+        'owner' => 'apachesolr',
+        'api' => 'default_apachesolr_environment_variables',
+        'minimum_version' => 1,
+        'current_version' => 1,
+       ),
+     ),
     'fields' => array(
-     'env_id' => array(
+      'env_id' => array(
         'description' => 'Unique identifier for the environment',
         'type' => 'varchar',
         'length' => 64,
@@ -179,7 +199,7 @@ function apachesolr_uninstall() {
   variable_del('apachesolr_rows');
   variable_del('apachesolr_site_hash');
   variable_del('apachesolr_index_last');
-  variable_del('apachesolr_mlt_blocks');
+  variable_del('apachesolr_search_mlt_blocks');
   variable_del('apachesolr_cron_limit');
   variable_del('apachesolr_exclude_nodeapi_types');
   variable_del('apachesolr_failure');
@@ -450,4 +470,58 @@ function apachesolr_update_7008() {
   variable_del('apachesolr_facet_query_sorts');
   variable_del('apachesolr_facet_sort_active');
   variable_del('apachesolr_operator');
+}
+
+/**
+ * Update Facet API block deltas to account for removal of numeric ID from field names.
+ */
+function apachesolr_update_7009() {
+  // Only run when facetapi is available and/or installed
+  if (module_exists('facetapi')) {
+    module_load_include('inc', 'facetapi', 'facetapi.block');
+    // Get all searchers
+    $searchers = facetapi_get_searcher_info();
+    $realms = facetapi_get_realm_info();
+    foreach ($searchers as $searcher_id => $searcher) {
+      foreach ($realms as $realm_id => $realm) {
+        foreach (field_info_fields() as $field_name => $field) {
+          // Generate the old delta
+          $facet_name_old = $field['id'] . '_' . $field['field_name'];
+          $delta_old = facetapi_build_delta($searcher['name'], $realm['name'], $facet_name_old);
+          $delta_old = substr(drupal_hash_base64($delta_old), 0, 32);
+          // Generate the new delta
+          $facet_name = $field['field_name'];
+          $delta = facetapi_build_delta($searcher['name'], $realm['name'], $facet_name);
+          $delta = substr(drupal_hash_base64($delta), 0, 32);
+          db_update('block')
+            ->fields(array('delta' => $delta))
+            ->condition('module', 'facetapi')
+            ->condition('delta', $delta_old)
+            ->execute();
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Update cache table schema for Drupal 7.
+ */
+function apachesolr_update_7010() {
+  db_drop_field('cache_apachesolr', 'headers');
+  return 'Updated cache table schema for Drupal 7.';
+}
+
+/**
+ * Change the namespace for the indexer from apachesolr_search to apachesolr
+ */
+function apachesolr_update_7011() {
+  $stored = variable_get('apachesolr_index_last', array());
+  if (isset($stored['apachesolr_search'])) {
+    $stored['apachesolr'] = $stored['apachesolr_search'];
+    unset($stored['apachesolr_search']);
+    variable_del('apachesolr_index_last');
+    variable_set('apachesolr_index_last', $stored);
+  }
+  return 'Updated the namespace variable for the index process.';
 }
