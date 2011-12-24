@@ -123,6 +123,22 @@ function sitetheme_preprocess_html(&$vars, $hook) {
   if(!empty($vars['page']['content_top'])){
     $vars['classes_array'][] = 'content-top';
   }
+
+  // Add script only for front page, Pomberg's CCTB pixels
+  $vars['pixels'] = '';
+  if ($vars['is_front']) {
+    $vars['pixels'] = <<<PIXELS
+<!-- Adbuyer.com Landing Pixel for ChooseChi ,Field Museum-->
+<script type="text/javascript">
+   var SWJsHost = (("https:" == document.location.protocol) ? "https://" : "http://");
+   document.write(unescape("%3Cscript src='" + SWJsHost + "pixel.adbuyer.com/landing?id=8482' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<noscript>
+   <img height='1' width='1' alt='' src='http://pixel.adbuyer.com/landing?id=8482&noscript=1'/>
+</noscript>
+PIXELS;
+  }
+	
 }
 
 /**
@@ -147,7 +163,7 @@ function sitetheme_preprocess_page(&$vars, $hook) {
   } else {
     $vars['has_content_top'] = TRUE;
   }
-	
+  
 /* //renaming 'view' tab
 	if ($hook == 'page') {
 		if (arg(0) == 'user') {
