@@ -1,5 +1,4 @@
 <?php
-// $Id: pathauto_persist.install,v 1.2 2010/10/10 20:52:38 davereid Exp $
 
 /**
  * Implements hook_schema().
@@ -10,7 +9,7 @@ function pathauto_persist_schema() {
     'fields' => array(
       'entity_type' => array(
         'type' => 'varchar',
-        'length' => 128,
+        'length' => 32,
         'not null' => TRUE,
         'description' => 'An entity type.',
       ),
@@ -32,4 +31,17 @@ function pathauto_persist_schema() {
   );
 
   return $schema;
+}
+
+/**
+ * Reduce the entity_type column to 32 characters.
+ */
+function pathauto_persist_update_6000() {
+  db_drop_primary_key('pathauto_persist');
+  db_change_field('pathauto_persist', 'entity_type', 'entity_type', array(
+    'type' => 'varchar',
+    'length' => 32,
+    'not null' => TRUE,
+  ));
+  db_add_primary_key('pathauto_persist', array('entity_type', 'entity_id'));
 }
