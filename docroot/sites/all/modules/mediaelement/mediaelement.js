@@ -1,4 +1,3 @@
-// $Id: mediaelement.js,v 1.7 2010/11/29 19:57:05 mfer Exp $
 (function($, Drupal, undefined){
   /**
    * When set to enable mediaelement for all audio/video files add it to the page.

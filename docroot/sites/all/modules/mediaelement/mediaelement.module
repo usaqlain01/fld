@@ -1,5 +1,4 @@
 <?php
-// $Id: mediaelement.module,v 1.16 2010/11/29 19:57:05 mfer Exp $
 
 /**
  * @file
@@ -32,9 +31,14 @@ function mediaelement_library() {
   $libraries['mediaelement'] = array(
     'title' => 'Media Element',
     'website' => 'http://mediaelementjs.com/',
-    'version' => '7.x',
+    'version' => '2.1.6',
     'js' => array(
-      $path . '/build/mediaelement-and-player.min.js' => array('group' => JS_LIBRARY, 'cache' => FALSE),
+      // The mediaelement script detects the path to itself to call other files
+      // in the same location. With preprocessing this is problematic as the
+      // script is no longer in the same directory as its other assets. There
+      // is an option that can be passed into the script with its location.
+      // @todo Update all calls to mediaelement to pass in the assets location.
+      $path . '/build/mediaelement-and-player.min.js' => array('group' => JS_LIBRARY, 'preprocess' => FALSE),
     ),
     'css' => array(
       $path . '/build/mediaelementplayer.min.css' => array('group' => CSS_SYSTEM),
@@ -78,7 +82,7 @@ function mediaelement_field_formatter_info() {
     'label' => t('MediaElement Audio'),
     'field types' => array('file', 'link_field'),
     'settings' => array(
-      'controls' => variable_get('mediaelement_audio_default_contorls', TRUE),
+      'controls' => variable_get('mediaelement_audio_default_controls', TRUE),
       'width' => variable_get('mediaelement_audio_default_width', '300'),
       'height' => variable_get('mediaelement_audio_default_height', '30'),
       'download_link' => variable_get('mediaelement_audio_default_download_link', FALSE),
@@ -99,8 +103,6 @@ function mediaelement_field_formatter_view($entity_type, $entity, $field, $insta
   $element = array();
   $path = drupal_get_path('module', 'mediaelement');
   foreach ($items as $delta => $item) {
-    // file and link_field keep the path/link in a different property name.
-    $path_name = ($field['type'] == 'file') ? 'uri' : 'url';
     $settings = $display['settings'];
     $js_settings = array();
     $js_settings['opts'] = array();
@@ -117,7 +119,7 @@ function mediaelement_field_formatter_view($entity_type, $entity, $field, $insta
     $class = 'mediaelement-formatter-identifier-' . time() . '-' . $id++;
     $element[$delta] = array(
       '#attributes' => array(
-        'src' => file_create_url($item[$path_name]),
+        'src' => file_create_url($item['uri']),
         'class' => $class,
       ),
       '#settings' => $settings,

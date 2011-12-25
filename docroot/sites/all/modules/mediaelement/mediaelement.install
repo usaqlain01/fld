@@ -1,5 +1,4 @@
 <?php
-// $Id: mediaelement.install,v 1.3 2010/10/18 21:08:03 mfer Exp $
 
 /**
  * @file
@@ -11,13 +10,13 @@
  */
 function mediaelement_uninstall() {
   variable_del('mediaelement_sitewide');
-  variable_del('mediaelement_audio_default_contorls');
+  variable_del('mediaelement_audio_default_controls');
   variable_del('mediaelement_audio_default_width');
   variable_del('mediaelement_audio_default_height');
   variable_del('mediaelement_audio_default_class');
   variable_del('mediaelement_audio_default_download_link');
   variable_del('mediaelement_audio_default_download_text');
-  variable_del('mediaelement_video_default_contorls');
+  variable_del('mediaelement_video_default_controls');
   variable_del('mediaelement_video_default_width');
   variable_del('mediaelement_video_default_height');
   variable_del('mediaelement_video_default_class');

@@ -1,5 +1,4 @@
 <?php
-// $Id: mediaelement.admin.inc,v 1.5 2010/11/22 16:13:55 mfer Exp $
 
 /**
  * @file

@@ -1,4 +1,3 @@
-$Id: README.txt,v 1.7 2010/11/29 19:59:17 mfer Exp $
 Media Element
 --------------------------------------------------------------------------------
  
@@ -47,6 +46,9 @@ For more details on the MediaElement API see http://mediaelementjs.com
 
 Changelog
 --------------------------------------------------------------------------------
+7.x-1.0:
+- #1026050 Fixed issue with Preprocessing problems.
+
 7.x-1.0 Beta 3:
 - Fixed bug where mediaelement js was having options passed in that were not its
   own and were causing the script to break.
