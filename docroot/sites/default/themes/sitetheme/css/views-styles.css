@@ -1047,10 +1047,6 @@ font-size: 14px;
 .view-what-the-fish .views-row {
   border-top:1px solid #888; padding:10px 0px;clear:both;
 }
-#block-views-what_the_fish-block_2 #content .block,
-#block-views-what_the_fish-block_3 #content .block {
-  border-bottom:none;
-}
 #block-views-podcasts-block_2 .view-podcasts .views-row-last,
 #block-views-f4f695a1f748c24a7ce32e38ab5b619d .view-explore-science-home-page-list .views-row-last,
 #block-views-what_the_fish-block_3 .view-what-the-fish .views-row-last {
