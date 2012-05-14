@@ -1036,29 +1036,35 @@ font-size: 14px;
 .view-department-peoples-header .attachment-before .views-row-last
 										{ border-bottom: 0; padding-bottom:0; }
 
-/*** SCIENCE @ FMNH & FIELD REVEALED PODCAST VIEWS ***/
+/*** SCIENCE @ FMNH, WHAT THE FISH, & FIELD REVEALED PODCAST VIEWS ***/
 .view-podcasts .views-row-first,
-.view-explore-science-home-page-list .views-row-first {
+.view-explore-science-home-page-list .views-row-first,
+.view-what-the-fish .views-row-first {
   clear:both;
 }
 .view-podcasts .views-row,
-.view-explore-science-home-page-list .views-row {
+.view-explore-science-home-page-list .views-row,
+.view-what-the-fish .views-row {
   border-top:1px solid #888; padding:10px 0px;clear:both;
 }
 #block-views-podcasts-block_2 .view-podcasts .views-row-last,
-#block-views-f4f695a1f748c24a7ce32e38ab5b619d .view-explore-science-home-page-list .views-row-last {
+#block-views-f4f695a1f748c24a7ce32e38ab5b619d .view-explore-science-home-page-list .views-row-last,
+#block-views-what_the_fish-block_3 .view-what-the-fish .views-row-last {
   border-bottom:1px solid #888;
 }
 .view-podcasts .title a,
-.view-explore-science-home-page-list .views-field-title a {
+.view-explore-science-home-page-list .views-field-title a,
+.view-what-the-fish .views-field-title a {
   font-family:helvetica; font-style:normal; font-weight:bold;
 }
 .view-podcasts .views-field-title,
-.view-explore-science-home-page-list .views-field-title {
+.view-explore-science-home-page-list .views-field-title,
+.view-what-the-fish .views-field-title {
   margin:0;
 }
 .view-podcasts .views-field-created,
-.view-explore-science-home-page-list .views-field-created {
+.view-explore-science-home-page-list .views-field-created,
+.view-what-the-fish .views-field-created {
   font-family:helvetica; font-style:normal;
 }
 
