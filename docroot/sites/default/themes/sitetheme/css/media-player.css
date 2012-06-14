@@ -160,13 +160,21 @@
 }
 
 .podcast-audio-download-link {
-  text-align:right;
+  text-align:left;
   margin-bottom:10px;
+  width:100px;
+  margin-left:-23px;
 }
 
 .podcast-audio-download-link a {
   padding-right:20px;
   font-weight:bold;
   font-size:0.7692em;
-  background:url(../images/icon-download.png) no-repeat right center;
+  /*background:url(../images/icon-download.png) no-repeat left center;*/
 }
+
+.mejs-inner,	
+.field-name-field-podcast-file .field-item.even {
+	width:350px;
+	height:30px;
+	}
