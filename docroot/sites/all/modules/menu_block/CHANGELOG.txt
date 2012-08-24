@@ -1,7 +1,3 @@
-Menu Block 7.x-3.x-dev, xxxx-xx-xx (development release)
-----------------------------------
--
-
 Menu Block 7.x-2.3, 2012-02-04
 ------------------------------
 - #1105372 by mikl, fabsor and JohnAlbin: Add menu tree ctools content type to D7
