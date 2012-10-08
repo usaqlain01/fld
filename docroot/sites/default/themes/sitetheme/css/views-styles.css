@@ -1092,7 +1092,28 @@ font-size: 14px;
 										
 .view-user-profile-contact .views-field-entity-id-2 .field-content .field-items
 														{ margin-bottom:10px; padding-bottom:10px; border-bottom:none; }
-										
+				
+
+.view-user-profile-contact .field-name-field-givenname {
+	float:left;
+	clear:both;
+	padding-right:3px;
+	font-weight: normal;
+	font-family: 'neutra';
+	text-transform: uppercase;
+	color: #4F4FCF;
+	font-size: 1.2em;
+	}
+
+.view-user-profile-contact .field-name-field-surname {
+	margin-bottom:10px;
+	font-weight: normal;
+	font-family: 'neutra';
+	text-transform: uppercase;
+	color: #4F4FCF;
+	font-size: 1.2em;
+	}
+											
 /*styling for back to links*/
 .view-blogs-block.view-display-id-page_1 .view-blogs-block.view-display-id-attachment_1 .views-row,
 .view-blogs-block.view-display-id-page_1 .view-blogs-block.view-display-id-attachment_1 .views-row:hover
