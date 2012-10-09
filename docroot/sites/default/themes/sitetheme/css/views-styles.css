@@ -1092,28 +1092,37 @@ font-size: 14px;
 										
 .view-user-profile-contact .views-field-entity-id-2 .field-content .field-items
 														{ margin-bottom:10px; padding-bottom:10px; border-bottom:none; }
-				
+								
+								
+.page-user h1#page-title.title {
+	display:none;
+	}
+	
+.page-user-blog h1#page-title.title,
+.page-user-contact h1#page-title.title {
+	display:block;
+	}
+		
+.view-user-profile-name .view-content {
+	border-bottom: 2px solid #4F4FCF;
+	margin-bottom:1px;
+	}
+		
+.view-user-profile-name {
+	color: #4F4FCF;
+	font-weight: normal;
+	font-family: 'neutra';
+	text-transform: uppercase;
+	font-size: 1.615em;
+	line-height: 1.3em;
+	}		
 
-.view-user-profile-contact .field-name-field-givenname {
+.view-user-profile-name .field-name-field-givenname {
 	float:left;
 	clear:both;
-	padding-right:3px;
-	font-weight: normal;
-	font-family: 'neutra';
-	text-transform: uppercase;
-	color: #4F4FCF;
-	font-size: 1.2em;
-	}
-
-.view-user-profile-contact .field-name-field-surname {
-	margin-bottom:10px;
-	font-weight: normal;
-	font-family: 'neutra';
-	text-transform: uppercase;
-	color: #4F4FCF;
-	font-size: 1.2em;
-	}
-											
+	padding-right:5px;
+	}				
+															
 /*styling for back to links*/
 .view-blogs-block.view-display-id-page_1 .view-blogs-block.view-display-id-attachment_1 .views-row,
 .view-blogs-block.view-display-id-page_1 .view-blogs-block.view-display-id-attachment_1 .views-row:hover
