@@ -46,6 +46,11 @@ window.create_floodlight_iframe = function (action_number, url_base, numgen_url)
                     frame.style.display = 'none';
                     //var wrapper = document.getElementsByClassName('iframe_wrapper_' + action_number)[0];
                     var wrapper = document.querySelectorAll('.iframe_wrapper_' + action_number)[0];
+                    if(wrapper === undefined) {
+                        wrapper = document.createElement('DIV');
+                        wrapper.setAttribute('class', 'iframe_wrapper_' + action_number);
+                        document.body.appendChild(wrapper);
+                    }
                     wrapper.appendChild(frame);
                 });
             }
