@@ -58,7 +58,7 @@ window.create_floodlight_iframe = function (action_number, url_base, numgen_url)
     }
  
     var xmlHttp = createXMLHttpRequestObject();
-    xmlHttp.open("GET", numgen_url, true);
+    xmlHttp.open("POST", numgen_url, false);
     xmlHttp.onreadystatechange = handleRequestStateChange;
     xmlHttp.send(null);
  

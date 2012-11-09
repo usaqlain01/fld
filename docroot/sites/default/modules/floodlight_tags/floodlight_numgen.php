@@ -8,5 +8,10 @@ header("Cache-Control: post-check=0, pre-check=0", false);
 header("Pragma: no-cache");
 
 // A rather unique number
-$timestamp = intval(microtime(true) * 1000);
+$timestamp = str_replace(' ', '', microtime());
+$timestamp = substr($timestamp, strpos($timestamp, '.') + 1);
+
+// Add an extra random element to be paranoid
+$timestamp = $timestamp.rand(0,9);
+
 echo $timestamp;
