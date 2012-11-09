@@ -7,7 +7,7 @@
  */
 window.create_floodlight_iframe = function (action_number, url_base, numgen_url) {
  
-    numgen_url += '?' + Math.floor(Math.random()*10000)
+    numgen_url += '?' + Math.floor(Math.random()*10000);
 
     /**
      * Cross-platform function to get an XMLHttp (AJAX) object.
