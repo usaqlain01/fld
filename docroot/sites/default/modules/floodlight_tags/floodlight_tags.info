@@ -1,0 +1,6 @@
+name = Floodlight Tags
+description = Dynamically bulid unique URLs for Doubleclick's Floodlight iframe
+core = 7.x
+package = Straight North
+files[] = floodlight_tags.module
+scripts[] = floodlight_tags.js
