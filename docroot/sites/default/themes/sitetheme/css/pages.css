@@ -45,8 +45,6 @@ hr 										{ height:0; border:1px solid #ccc; color:#aaa; }
 #header .section 						{  }
 #logo /* Wrapping link for logo */ 		{ float:left; /* LTR */ margin:0; padding:0; }
 #logo img 								{ vertical-align:bottom; padding:15px 20px;  }
-#block-block-84							{ float:left; margin-bottom:0em; margin-right:170px; margin-top:-3px;}
-#block-block-87							{ float:left; margin-bottom:0em; margin-right:170px; margin-top:-3px;}
 #block-block-91							{ float:left; margin-bottom:0em; margin-right:170px; margin-top:-3px;}
 
 #name-and-slogan /* Wrapper for website name and slogan */ {  }
