@@ -5,8 +5,4 @@ package = Testing
 version = VERSION
 hidden = TRUE
 
-; Information added by drupal.org packaging script on 2011-12-05
-version = "7.10"
-project = "drupal"
-datestamp = "1323125439"
 
