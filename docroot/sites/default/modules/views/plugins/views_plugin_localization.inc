@@ -1,4 +1,5 @@
 <?php
+// $Id: views_plugin_localization.inc,v 1.1.4.2 2010/12/01 20:05:06 dereine Exp $
 
 /**
  * @file
@@ -6,15 +7,9 @@
  */
 
 /**
- * @defgroup views_localization_plugins Views localization plugins
- * @{
- * @todo.
- *
- * @see hook_views_plugins()
- */
-
-/**
  * The base plugin to handle localization of Views strings.
+ *
+ * @ingroup views_localization_plugins
  */
 class views_plugin_localization extends views_plugin {
   // Store for exported strings
@@ -49,7 +44,7 @@ class views_plugin_localization extends views_plugin {
   function translate($source) {
     // Allow other modules to make changes to the string before and after translation
     $source['pre_process'] = $this->invoke_translation_process($source, 'pre');
-    $source['translation'] = $this->translate_string($source['value'], $source['keys'], $source['format']);
+    $source['translation'] = $this->translate_string($source['value'], $source['keys']);
     $source['post_process'] = $this->invoke_translation_process($source, 'post');
     return $source['translation'];
   }
@@ -62,10 +57,8 @@ class views_plugin_localization extends views_plugin {
    * @param $keys
    *   An array of keys to identify the string. Generally constructed from
    *   view name, display_id, and a property, e.g., 'header'.
-   * @param $format
-   *   The input format of the string. This is optional.
    */
-  function translate_string($string, $keys = array(), $format = '') {}
+  function translate_string($string, $keys = array()) {}
 
   /**
    * Save string source for translation.
@@ -76,7 +69,7 @@ class views_plugin_localization extends views_plugin {
   function save($source) {
     // Allow other modules to make changes to the string before saving
     $source['pre_process'] = $this->invoke_translation_process($source, 'pre');
-    $this->save_string($source['value'], $source['keys'], isset($source['format']) ? $source['format'] : '');
+    $this->save_string($source['value'], $source['keys']);
   }
 
   /**
@@ -87,10 +80,8 @@ class views_plugin_localization extends views_plugin {
    * @param $keys
    *   An array of keys to identify the string. Generally constructed from
    *   view name, display_id, and a property, e.g., 'header'.
-   * @param $format
-   *   The input format of the string. This is optional.
    */
-  function save_string($string, $keys = array(), $format = '') {}
+  function save_string($string, $keys = array()) {}
 
   /**
    * Delete a string.
@@ -145,9 +136,7 @@ class views_plugin_localization extends views_plugin {
         $translatable[] = array('value' => $display->display_title, 'keys' => array('display_title'));
       }
       // Unpack handlers.
-      if (is_object($this->view->display[$display_id]->handler)) {
-        $this->view->display[$display_id]->handler->unpack_translatables($translatable);
-      }
+      $this->view->display[$display_id]->handler->unpack_translatables($translatable);
       foreach ($translatable as $data) {
         $data['keys'] = array_merge(array($this->view->name, $display_id), $data['keys']);
         switch ($op) {
@@ -165,7 +154,3 @@ class views_plugin_localization extends views_plugin {
     }
   }
 }
-
-/**
- * @}
- */

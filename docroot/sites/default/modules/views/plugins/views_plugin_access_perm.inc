@@ -1,14 +1,8 @@
 <?php
-
-/**
- * @file
- * Definition of views_plugin_access_perm.
- */
+// $Id: views_plugin_access_perm.inc,v 1.3.6.3 2010/03/10 21:03:19 merlinofchaos Exp $
 
 /**
  * Access plugin that provides permission-based access control.
- *
- * @ingroup views_access_plugins
  */
 class views_plugin_access_perm extends views_plugin_access {
   function access($account) {
@@ -20,11 +14,6 @@ class views_plugin_access_perm extends views_plugin_access {
   }
 
   function summary_title() {
-    $permissions = module_invoke_all('permission');
-    if (isset($permissions[$this->options['perm']])) {
-      return $permissions[$this->options['perm']]['title'];
-    }
-
     return t($this->options['perm']);
   }
 
@@ -37,20 +26,14 @@ class views_plugin_access_perm extends views_plugin_access {
   }
 
   function options_form(&$form, &$form_state) {
-    parent::options_form($form, $form_state);
     $perms = array();
-    $module_info = system_get_info('module');
-
     // Get list of permissions
     foreach (module_implements('permission') as $module) {
       $permissions = module_invoke($module, 'permission');
       foreach ($permissions as $name => $perm) {
-        $perms[$module_info[$module]['name']][$name] = strip_tags($perm['title']);
+        $perms[$module][$name] = $perm['title'];
       }
     }
-
-    ksort($perms);
-
     $form['perm'] = array(
       '#type' => 'select',
       '#options' => $perms,

@@ -1,18 +1,11 @@
 <?php
+// $Id: views_handler_field_counter.test,v 1.1.2.2 2010/12/27 08:43:31 dereine Exp $
 
-/**
- * @file
- * Definition of ViewsHandlerFilterCounterTest.
- */
-
-/**
- * Tests the views_handler_field_counter handler.
- */
-class ViewsHandlerFilterCounterTest extends ViewsSqlTest {
+class viewsHandlerFilterCounterTest extends ViewsSqlTest {
   public static function getInfo() {
     return array(
       'name' => 'Field: Counter',
-      'description' => 'Tests the views_handler_field_counter handler.',
+      'description' => 'Tests the views_handler_field_counter handler',
       'group' => 'Views Handlers',
     );
   }

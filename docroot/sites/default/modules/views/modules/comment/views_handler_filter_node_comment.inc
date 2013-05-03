@@ -1,14 +1,8 @@
 <?php
+// $Id: views_handler_filter_node_comment.inc,v 1.1.6.1 2010/12/19 10:31:18 dereine Exp $
 
 /**
- * @file
- * Definition of views_handler_filter_node_comment.
- */
-
-/**
- * Filter based on comment node status.
- *
- * @ingroup views_filter_handlers
+ * Filter based on comment node status
  */
 class views_handler_filter_node_comment extends views_handler_filter_in_operator {
   function get_value_options() {

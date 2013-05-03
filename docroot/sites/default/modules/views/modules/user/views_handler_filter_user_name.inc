@@ -1,17 +1,11 @@
 <?php
+// $Id: views_handler_filter_user_name.inc,v 1.2.6.2 2010/08/26 09:41:55 dereine Exp $
 
 /**
- * @file
- * Definition of views_handler_filter_user_name.
- */
-
-/**
- * Filter handler for usernames.
- *
- * @ingroup views_filter_handlers
+ * Filter handler for usernames
  */
 class views_handler_filter_user_name extends views_handler_filter_in_operator {
-  var $always_multiple = TRUE;
+  var $no_single = TRUE;
 
   function value_form(&$form, &$form_state) {
     $values = array();
@@ -74,21 +68,9 @@ class views_handler_filter_user_name extends views_handler_filter_in_operator {
     }
 
     $identifier = $this->options['expose']['identifier'];
-    $input = $form_state['values'][$identifier];
+    $values = drupal_explode_tags($form_state['values'][$identifier]);
 
-    if ($this->options['is_grouped'] && isset($this->options['group_info']['group_items'][$input])) {
-      $this->operator = $this->options['group_info']['group_items'][$input]['operator'];
-      $input = $this->options['group_info']['group_items'][$input]['value'];
-    }
-
-    $values = drupal_explode_tags($input);
-
-    if (!$this->options['is_grouped'] || ($this->options['is_grouped'] && ($input != 'All'))) {
-      $uids = $this->validate_user_strings($form[$identifier], $values);
-    }
-    else {
-      $uids = FALSE;
-    }
+    $uids = $this->validate_user_strings($form[$identifier], $values);
 
     if ($uids) {
       $this->validated_exposed_input = $uids;
@@ -133,7 +115,7 @@ class views_handler_filter_user_name extends views_handler_filter_in_operator {
     return $uids;
   }
 
-  function value_submit($form, &$form_state) {
+  function value_submit() {
     // prevent array filter from removing our anonymous user.
   }
 

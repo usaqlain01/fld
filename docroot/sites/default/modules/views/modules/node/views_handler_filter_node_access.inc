@@ -1,14 +1,7 @@
 <?php
-
-/**
- * @file
- * Definition of views_handler_filter_node_access.
- */
-
+// $Id: views_handler_filter_node_access.inc,v 1.2.4.2 2010/08/26 09:41:55 dereine Exp $
 /**
  * Filter by node_access records.
- *
- * @ingroup views_filter_handlers
  */
 class views_handler_filter_node_access extends views_handler_filter {
   function admin_summary() { }
@@ -21,7 +14,7 @@ class views_handler_filter_node_access extends views_handler_filter {
    * See _node_access_where_sql() for a non-views query based implementation.
    */
   function query() {
-    if (!user_access('administer nodes') && module_implements('node_grants')) {
+    if (!user_access('administer nodes')) {
       $table = $this->ensure_my_table();
       $grants = db_or();
       foreach (node_access_grants('view') as $realm => $gids) {

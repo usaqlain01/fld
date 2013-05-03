@@ -1,7 +1,8 @@
 <?php
-
+// $Id: views-exposed-form.tpl.php,v 1.4.6.6 2010/08/13 21:45:25 merlinofchaos Exp $
 /**
- * @file
+ * @file views-exposed-form.tpl.php
+ *
  * This template handles the layout of the views exposed filter form.
  *
  * Variables available:
@@ -28,8 +29,8 @@
 <?php endif; ?>
 <div class="views-exposed-form">
   <div class="views-exposed-widgets clearfix">
-    <?php foreach ($widgets as $id => $widget): ?>
-      <div id="<?php print $widget->id; ?>-wrapper" class="views-exposed-widget views-widget-<?php print $id; ?>">
+    <?php foreach($widgets as $id => $widget): ?>
+      <div class="views-exposed-widget views-widget-<?php print $id ?>">
         <?php if (!empty($widget->label)): ?>
           <label for="<?php print $widget->id; ?>">
             <?php print $widget->label; ?>
@@ -43,33 +44,28 @@
         <div class="views-widget">
           <?php print $widget->widget; ?>
         </div>
-        <?php if (!empty($widget->description)): ?>
-          <div class="description">
-            <?php print $widget->description; ?>
-          </div>
-        <?php endif; ?>
       </div>
     <?php endforeach; ?>
     <?php if (!empty($sort_by)): ?>
-      <div class="views-exposed-widget views-widget-sort-by">
+      <div class="views-exposed-widget">
         <?php print $sort_by; ?>
       </div>
-      <div class="views-exposed-widget views-widget-sort-order">
+      <div class="views-exposed-widget">
         <?php print $sort_order; ?>
       </div>
     <?php endif; ?>
     <?php if (!empty($items_per_page)): ?>
-      <div class="views-exposed-widget views-widget-per-page">
+      <div class="views-exposed-widget">
         <?php print $items_per_page; ?>
       </div>
     <?php endif; ?>
     <?php if (!empty($offset)): ?>
-      <div class="views-exposed-widget views-widget-offset">
+      <div class="views-exposed-widget">
         <?php print $offset; ?>
       </div>
     <?php endif; ?>
     <div class="views-exposed-widget views-submit-button">
-      <?php print $button; ?>
+      <?php print $button ?>
     </div>
     <?php if (!empty($reset_button)): ?>
       <div class="views-exposed-widget views-reset-button">

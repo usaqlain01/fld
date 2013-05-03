@@ -1,14 +1,19 @@
 <?php
-
+// $Id: search.views.inc,v 1.18.4.3 2010/07/19 09:18:42 dereine Exp $
 /**
  * @file
- * Provide views data and handlers for search.module.
- *
- * @ingroup views_module_handlers
+ * Provide views data and handlers for search.module
  */
 
 /**
- * Implements hook_views_data().
+ * @defgroup views_search_module search.module handlers
+ *
+ * Includes the tables 'search_index'
+ * @{
+ */
+
+/**
+ * Implements hook_views_data()
  */
 function search_views_data() {
   // Basic table information.
@@ -66,12 +71,10 @@ function search_views_data() {
       'handler' => 'views_handler_field_search_score',
       'click sortable' => TRUE,
       'float' => TRUE,
-      'no group by' => TRUE,
     ),
     // Information for sorting on a search score.
     'sort' => array(
       'handler' => 'views_handler_sort_search_score',
-      'no group by' => TRUE,
     ),
   );
 
@@ -118,11 +121,9 @@ function search_views_data() {
     // Information for searching terms using the full search syntax
     'filter' => array(
       'handler' => 'views_handler_filter_search',
-      'no group by' => TRUE,
     ),
     'argument' => array(
       'handler' => 'views_handler_argument_search',
-      'no group by' => TRUE,
     ),
   );
 
@@ -130,7 +131,7 @@ function search_views_data() {
 }
 
 /**
- * Implements hook_views_plugins().
+ * Implements hook_views_plugins
  */
 function search_views_plugins() {
   return;
@@ -164,7 +165,6 @@ function template_preprocess_views_view_row_search(&$vars) {
     return;
   }
 
-  // @todo: Once the search row is fixed this node_load should be replace by a node_load_multiple
   $node = node_load($nid);
 
   if (empty($node)) {
@@ -200,3 +200,8 @@ function template_preprocess_views_view_row_search(&$vars) {
 //$vars['score'] = $item->score;
   $vars['snippet'] = search_excerpt($vars['view']->value, $node->body);
 }
+
+
+/**
+ * @}
+ */
