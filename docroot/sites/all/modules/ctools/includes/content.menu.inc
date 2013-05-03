@@ -1,5 +1,4 @@
 <?php
-// $Id: content.menu.inc,v 1.9 2011/01/05 20:34:46 merlinofchaos Exp $
 
 /**
  * @file
@@ -51,7 +50,25 @@ function ctools_content_autocomplete_entity($type, $string = '') {
 
     $matches = array();
     if ($type == 'node') {
+      if (!user_access('bypass node access')) {
+        // If the user is able to view their own unpublished nodes, allow them
+        // to see these in addition to published nodes.
+        if (user_access('view own unpublished content')) {
+          $query->condition(db_or()
+            ->condition('b.status', NODE_PUBLISHED)
+            ->condition('b.uid', $GLOBALS['user']->uid)
+          );
+        }
+        else {
+          // If not, restrict the query to published nodes.
+          $query->condition('b.status', NODE_PUBLISHED);
+        }
+      }
+
       $query->addTag('node_access');
+      $query->join('users', 'u', 'b.uid = u.uid');
+      $query->addField('u', 'name', 'name');
+
       foreach ($query->execute() as $nodeish) {
         $name = empty($nodeish->name) ? variable_get('anonymous', t('Anonymous')) : check_plain($nodeish->name);
         $matches[$nodeish->title . " [id: $nodeish->nid]"] = '<span class="autocomplete_title">' . check_plain($nodeish->title) . '</span> <span class="autocomplete_user">(' . t('by @user', array('@user' => $name)) . ')</span>';

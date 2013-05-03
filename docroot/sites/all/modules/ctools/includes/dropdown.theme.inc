@@ -1,9 +1,11 @@
 <?php
-// $Id: dropdown.theme.inc,v 1.7 2010/10/11 22:18:22 sdboyer Exp $
 
 /**
  * @file
  * Provide a javascript based dropdown menu.
+ *
+ * An example are the dropdown settings in the panels ui, like for adding
+ * new panes.
  *
  * The dropdown menu will show up as a clickable link; when clicked,
  * a small menu will slide down beneath it, showing the list of links.

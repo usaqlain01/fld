@@ -1,5 +1,4 @@
 <?php
-// $Id: string.inc,v 1.8 2010/01/29 20:18:02 merlinofchaos Exp $
 
 /**
  * @file
@@ -16,7 +15,7 @@ $plugin = array(
   'description' => t('A context that is just a string.'),
   'context' => 'ctools_context_create_string',
   'keyword' => 'string',
-  'no ui' => TRUE,
+  'no ui' => FALSE,
   'context name' => 'string',
   'convert list' => array(
     'raw' => t('Raw string'),
@@ -46,7 +45,7 @@ function ctools_context_create_string($empty, $data = NULL, $conf = FALSE) {
 
   if ($data !== FALSE ) {
     $context->data = $data;
-    $context->title = check_plain($data);
+    $context->title = ($conf) ? check_plain($data['identifier']) : check_plain($data);
     return $context;
   }
 }
