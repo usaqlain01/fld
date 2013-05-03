@@ -1,11 +1,16 @@
 <?php
-//$Id: contact.views.inc,v 1.1.6.2 2010/07/19 09:18:42 dereine Exp $
+
 /**
  * @file
- * Provide views data and handlers for contact.module
+ * Provide views data and handlers for contact.module.
+ *
+ * @ingroup views_module_handlers
  */
 
-function contact_views_data() {
+/**
+ * Implements hook_views_data_alter().
+ */
+function contact_views_data_alter(&$data) {
   $data['users']['contact'] = array(
     'field' => array(
       'title' => t('Link to contact page'),
@@ -13,6 +18,4 @@ function contact_views_data() {
       'handler' => 'views_handler_field_contact_link',
     ),
   );
-  return $data;
 }
-
