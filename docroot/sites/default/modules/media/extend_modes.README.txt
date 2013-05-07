@@ -1,0 +1,4 @@
+This patch allows anyone to add more Media Type View Modes beyond the basic:  
+Link, Preview, Small, Large, Original.  In this instance, we want to mirror all
+of the Image Styles we have and automatically create matching view modes.  
+See custom_media_field_view_modes_alter() in custom.module
