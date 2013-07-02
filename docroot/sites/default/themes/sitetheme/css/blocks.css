@@ -472,7 +472,7 @@ For pages with a second sidebar, lets use full width and not hard code it
 										{ background:#93b40b; padding:5px 3px; }
 
 .view-id-explore_our_collections_header .views-field-name a
-										{ font-family:'neutrabold'; color:#fff; text-transform:uppercase; font-size:.85em; }
+										{ font-family:'neutra'; color:#fff; text-transform:uppercase; font-size:9px; }
 
 .node-type-explore-our-collections #page-title
 										{ clear:both; }
