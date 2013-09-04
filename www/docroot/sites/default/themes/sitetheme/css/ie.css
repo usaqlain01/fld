@@ -1,0 +1,68 @@
+/* $Id: ie.css,v 1.3 2010/03/31 00:43:16 johnalbin Exp $ */
+
+/**
+ * @file
+ * CSS targeted specifically for Internet Explorer for Windows.
+ *
+ * Any CSS in this file will apply to all versions of IE. You can target
+ * specific versions of IE by using conditional comments. See your sub-theme's
+ * .info file for an easy way to use them.
+ *
+ * While building your theme, you should be aware that IE limits Drupal to 31
+ * stylesheets total. The work-around for the bug is to enable CSS aggregation
+ * under: admin / settings / performance.
+ */
+
+#views-exposed-form-multimedia-gallery-gallery-page-display .views-submit-button
+										{ margin-top:20px; }
+
+.region-sidebar-first .block-menu-block h2, 
+.region-sidebar-first .block-system h2 {
+  /*behavior: url(/sites/default/themes/sitetheme/PIE.htc);
+    filter: 
+        progid:DXImageTransform.Microsoft.Shadow(color=#000000,direction=0,strength=2)
+        progid:DXImageTransform.Microsoft.Shadow(color=#000000,direction=90,strength=2)
+        progid:DXImageTransform.Microsoft.Shadow(color=#000000,direction=180,strength=2)
+        progid:DXImageTransform.Microsoft.Shadow(color=#000000,direction=270,strength=2);*/
+}
+
+
+/* jcarousel needs these dims in for IE */
+.view-homepage-centerstage .views_slideshow_cycle_slide
+										{ width:960px; }
+
+.view-homepage-centerstage .views_slideshow_cycle_slide img
+										{ width:960px; }
+
+.view-homepage.view-display-id-block_3 .jcarousel-item,
+.view-homepage.view-display-id-block_4 .jcarousel-item
+										{ width:205px; }
+
+.view-homepage.view-display-id-block_3 .jcarousel-item img,
+.view-homepage.view-display-id-block_4 .jcarousel-item img
+										{ width:195px; }
+
+/*
+ * Tabs
+ */
+
+ul.primary li a,
+ul.primary li a .tab,
+ul.secondary li a,
+ul.secondary li a .tab 					{ cursor:pointer; }
+
+/*
+ * Drupal nodes
+ */
+
+.node-unpublished .node-inner>* 		{ position:relative; /* Otherwise these elements will appear below the "Unpublished" text. */ }
+
+/*
+ * Drupal admin tables
+ */
+tr.even th,
+tr.even td,
+tr.odd th,
+tr.odd td 								{ border-bottom:1px solid #ccc; /* IE doesn't display borders on table rows */ }
+
+.front h1.title 						{ display:none; }

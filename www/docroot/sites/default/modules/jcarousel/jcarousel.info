@@ -1,0 +1,8 @@
+; $Id$
+name = jCarousel
+description = Create jQuery-based carousel rotators.
+package = User interface
+core = 7.x
+files[] = jcarousel.module
+files[] = jcarousel.views.inc
+files[] = jcarousel_style_plugin.inc

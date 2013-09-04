@@ -1,0 +1,8 @@
+name = "Node module tests"
+description = "Support module for node related testing."
+package = Testing
+version = VERSION
+core = 7.x
+hidden = TRUE
+
+

@@ -1,0 +1,8 @@
+name = Contextual Menu Block
+description = "Provides a block for related taxonomy nodes into a contextual menu."
+package = Field Museum
+core = 7.x
+dependencies[] = menu
+dependencies[] = block
+dependencies[] = taxonomy
+files[] = contextual_menu_block.module

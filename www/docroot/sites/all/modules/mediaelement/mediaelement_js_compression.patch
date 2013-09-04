@@ -1,0 +1,11 @@
+--- mediaelement.module	2011-01-13 13:52:27.000000000 -0600
++++ mediaelement.module-forpatch	2011-01-13 13:53:06.000000000 -0600
+@@ -34,7 +34,7 @@ function mediaelement_library() {
+     'website' => 'http://mediaelementjs.com/',
+     'version' => '7.x',
+     'js' => array(
+-      $path . '/build/mediaelement-and-player.min.js' => array('group' => JS_LIBRARY),
++      $path . '/build/mediaelement-and-player.min.js' => array('group' => JS_LIBRARY, 'cache' => FALSE),
+     ),
+     'css' => array(
+       $path . '/build/mediaelementplayer.min.css' => array('group' => CSS_SYSTEM),

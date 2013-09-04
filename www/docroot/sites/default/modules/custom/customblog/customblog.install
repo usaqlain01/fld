@@ -1,0 +1,12 @@
+<?php
+
+/**
+ * Disable and remove blog feed aliases.
+ */
+function customblog_update_7000() {
+  variable_del('pathauto_customblog_supportsfeeds');
+  variable_del('pathauto_customblog_applytofeeds');
+  db_delete('url_alias')
+    ->condition('source', 'user/%/blog/feed', 'LIKE')
+    ->execute();
+}
