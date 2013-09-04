@@ -1,0 +1,107 @@
+diff --git integerdate.module integerdate.module
+index 98703cb..a6559e6 100644
+--- integerdate.module
++++ integerdate.module
+@@ -73,10 +73,7 @@ function integerdate_field_info() {
+  * Implements hook_field_is_empty().
+  */
+ function integerdate_field_is_empty($item, $field) {
+-  if (empty($item['value']) && (string) $item['value'] !== '0') {
+-    return TRUE;
+-  }
+-  return FALSE;
++  return empty($item['value']);
+ }
+ 
+ /**
+@@ -211,47 +208,52 @@ function integerdate_field_formatter_format_date($timestamp, $op, $custom = '')
+    );
+  }
+ 
+- /**
+-  * Implements hook_field_widget_form().
++/**
++ * Implements hook_field_widget_form().
+  */
+- function integerdate_field_widget_form(&$form, &$form_state, $field, $instance, $langcode, $items, $delta, $element) {
+-   $default_value = (!empty($items[$delta]['value'])) ? $items[$delta]['value'] : REQUEST_TIME;
+-
+-   $element += array(
+-     '#type' => 'textfield',
+-     '#default_value' => $default_value,
+-     '#theme' => 'integerdate_date_textfield',
+-     '#value_callback' => 'integerdate_date_textfield_field_widget_value',
+-     '#element_validate' => array('integerdate_date_textfield_field_widget_validate'),
+-   );
++function integerdate_field_widget_form(&$form, &$form_state, $field, $instance, $langcode, $items, $delta, $element) {
++  $default_value = (!empty($items[$delta])) ? $items[$delta] : $instance['default_value'][$delta];
++
++  // When setting the default field value on the widget settings form, leave the default value
++  // alone. When the field appears on create and edit forms, render the default value string as a
++  // date. This means that fields won't have stale default dates when the default is relative, like
++  // 'now' or 'last year'.
++  if ($default_value && !isset($form['#field'])) {
++    // value_string is empty for saved field values, but not for default field values.
++    if (!empty($default_value['value_string'])) {
++      $default_value['value'] = strtotime($default_value['value_string']);
++    }
++    $default_value['value_string'] = date(DATE_RSS, $default_value['value']);
++  }
+ 
+-   return $element;
+- }
++  $element += array(
++   '#type' => 'textfield',
++   '#default_value' => $default_value,
++   '#theme' => 'integerdate_date_textfield',
++   '#value_callback' => 'integerdate_date_textfield_field_widget_value',
++   '#element_validate' => array('integerdate_date_textfield_field_widget_validate'),
++  );
+ 
+- /**
+-  * Value callback for 'integerdate_date_textfield'.
++  return $element;
++}
++
++/**
++ * Value callback for 'integerdate_date_textfield'.
+  */
+-function integerdate_date_textfield_field_widget_value($element, $input = FALSE) {
++function integerdate_date_textfield_field_widget_value($element, $input, $form_state) {
+   if ($input) {
+-    $value_string = $input;
+-    $value = strtotime($value_string);
+-  }
+-  else {
+-    $value = $element['#default_value'];
+-    $value_string = date(DATE_RSS, $value);
++    return array(
++      'value' => strtotime($input),
++      'value_string' => $input,
++    );
+   }
+-
+-  return array(
+-    'value' => $value,
+-    'value_string' => $value_string,
+-  );
+ }
+ 
+ /**
+  * Validate integerdate_date field widget.
+  */
+ function integerdate_date_textfield_field_widget_validate($element, &$form_state) {
+-  if (empty($element['#value']['value'])) {
++  if (empty($element['#value']['value']) && !empty($element['#value']['value_string'])) {
+     form_error($element, t('Enter a valid date.'));
+   }
+ }
+@@ -273,7 +275,7 @@ function integerdate_theme() {
+ function theme_integerdate_date_textfield($variables) {
+   $element = $variables['element'];
+   $element['#attributes']['type'] = 'text';
+-  $element['#value'] = $element['#value']['value_string'];
++  $element['#value'] = (!empty($element['#value']['value_string']) ? $element['#value']['value_string'] : '');
+   element_set_attributes($element, array('id', 'name', 'value', 'size', 'maxlength'));
+   _form_set_class($element, array('form-text', 'form-integerdate-date-text'));
+ 

@@ -1,0 +1,29 @@
+/* Email Signup Widget */
+#EmailSignup {
+  margin-bottom:4px;
+  color:#fff;
+  overflow:hidden;
+}
+
+#EmailSignup p {
+  margin:0;
+}
+
+#EmailSignup .form-inner {
+  border-bottom:1px dashed #BFBFBF;
+  margin-bottom:4px;
+  padding-bottom:10px;
+}
+
+#EmailSignup .form-inner-inner {
+  background-color:#eee;
+  padding:4px;
+}
+
+#EmailSignup .form-text {
+  width:98%;
+}
+
+#EmailSignup .image-submit {
+  float:right;
+}
