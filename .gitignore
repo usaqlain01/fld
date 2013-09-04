@@ -1,0 +1,9 @@
+.vagrant
+.bundle
+vendor
+build/ref_db/files*
+build/ref_db/*.sql*
+build/ref_db
+Berksfile.lock
+www/docroot/sites/default/settings.php
+www/docroot/sites/default/settings.conf.d/
