@@ -2,16 +2,16 @@
   display: none;
 }
 
-ul.quicktabs_tabs {
+ul.quicktabs-tabs {
   margin-top: 0;
 }
-ul.quicktabs_tabs li {
+ul.quicktabs-tabs li {
   display: inline;
   background: none;
   list-style-type: none;
   padding: 2px;
   white-space: nowrap;
 }
-ul.quicktabs_tabs li a:focus {
+ul.quicktabs-tabs li a:focus {
   outline: none;
 }
