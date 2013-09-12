@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Original Aspect Thumbnail Image Style feature.
+ */
+
+include_once 'original_aspect_thumbnail_image_style.features.inc';

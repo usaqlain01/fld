@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Homepage Centerstage Image Style feature.
+ */
+
+include_once 'homepage_centerstage_image_style.features.inc';

@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Content Third Image Style feature.
+ */
+
+include_once 'content_third_image_style.features.inc';
