@@ -566,7 +566,7 @@ function media_update_7201() {
  */
 function media_update_7202() {
   module_enable(array('views'));
-  if (module_exists('views')) {
+  if (!module_exists('views')) {
     throw new DrupalUpdateException('The <a href="https://drupal.org/project/views">Views module</a> must be downloaded and available for Media updates to proceed.');
   }
 }
