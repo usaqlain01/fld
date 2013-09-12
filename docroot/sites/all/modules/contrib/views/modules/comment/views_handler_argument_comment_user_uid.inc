@@ -1,15 +1,9 @@
 <?php
-
-/**
- * @file
- * Definition of views_handler_argument_comment_user_uid.
- */
+// $Id: views_handler_argument_comment_user_uid.inc,v 1.2.4.4 2010/12/09 23:36:00 dereine Exp $
 
 /**
  * Argument handler to accept a user id to check for nodes that
  * user posted or commented on.
- *
- * @ingroup views_argument_handlers
  */
 class views_handler_argument_comment_user_uid extends views_handler_argument {
   function title() {
@@ -40,22 +34,23 @@ class views_handler_argument_comment_user_uid extends views_handler_argument {
     }
   }
 
-  function query($group_by = FALSE) {
+  function query() {
     $this->ensure_my_table();
+
+    $nid_alias = $this->query->add_field('node', 'nid');
 
     $subselect = db_select('comment', 'c');
     $subselect->addField('c', 'cid');
-    $subselect->condition('c.uid', $this->argument);
-    $subselect->where("c.nid = $this->table_alias.nid");
+    // @TODO: Figure out why condition/placeholders doesn't work here.
+    $subselect->where("c.uid =  $this->argument");
+    $subselect->where("c.nid = $nid_alias");
+    $subselect = $subselect->countQuery();
+    $subselect->preExecute();
 
     $condition = db_or()
       ->condition("$this->table_alias.uid", $this->argument, '=')
-      ->exists($subselect);
+      ->where("0 < (" . (string) $subselect . ")");
 
     $this->query->add_where(0, $condition);
-  }
-
-  function get_sort_name() {
-    return t('Numerical', array(), array('context' => 'Sort order'));
   }
 }

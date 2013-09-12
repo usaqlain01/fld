@@ -1,5 +1,5 @@
 <?php
-
+// $Id: views_plugin_style_summary_jump_menu.inc,v 1.1.6.6 2010/12/14 00:47:26 merlinofchaos Exp $
 /**
  * @file
  * Contains the default summary style plugin, which displays items in an HTML list.
@@ -15,27 +15,25 @@ class views_plugin_style_summary_jump_menu extends views_plugin_style {
     $options = parent::option_definition();
 
     $options['base_path'] = array('default' => '');
-    $options['count'] = array('default' => TRUE, 'bool' => TRUE);
-    $options['hide'] = array('default' => FALSE, 'bool' => TRUE);
+    $options['count'] = array('default' => TRUE);
+    $options['hide'] = array('default' => FALSE);
     $options['text'] = array('default' => 'Go', 'translatable' => TRUE);
-    $options['label'] = array('default' => '', 'translatable' => TRUE);
     $options['choose'] = array('default' => '- Choose -', 'translatable' => TRUE);
-    $options['inline'] = array('default' => TRUE, 'bool' => TRUE);
-    $options['default_value'] = array('default' => FALSE, 'bool' => TRUE);
+    $options['default_value'] = array('default' => FALSE);
 
     return $options;
   }
 
   function query() {
-    // Copy the offset option.
     $pager = array(
       'type' => 'none',
-      'options' => $this->display->handler->options['pager']['options'],
+      'options' => array(),
     );
     $this->display->handler->set_option('pager', $pager);
   }
 
   function options_form(&$form, &$form_state) {
+    parent::options_form($form, $form_state);
     $form['base_path'] = array(
       '#type' => 'textfield',
       '#title' => t('Base path'),
@@ -54,7 +52,7 @@ class views_plugin_style_summary_jump_menu extends views_plugin_style {
 
     $form['hide'] = array(
       '#type' => 'checkbox',
-      '#title' => t('Hide the "Go" button'),
+      '#title' => t('Hide the "Go" button.'),
       '#default_value' => !empty($this->options['hide']),
       '#description' => t('If hidden, this button will only be hidden for users with javascript and the page will automatically jump when the select is changed.'),
     );
@@ -65,13 +63,6 @@ class views_plugin_style_summary_jump_menu extends views_plugin_style {
       '#default_value' => $this->options['text'],
     );
 
-    $form['label'] = array(
-      '#type' => 'textfield',
-      '#title' => t('Selector label'),
-      '#default_value' => $this->options['label'],
-      '#description' => t('The text that will appear as the the label of the selector element. If blank no label tag will be used.'),
-    );
-
     $form['choose'] = array(
       '#type' => 'textfield',
       '#title' => t('Choose text'),
@@ -79,17 +70,11 @@ class views_plugin_style_summary_jump_menu extends views_plugin_style {
       '#description' => t('The text that will appear as the selected option in the jump menu.'),
     );
 
-    $form['inline'] = array(
-      '#type' => 'checkbox',
-      '#title' => t('Set this field to display inline'),
-      '#default_value' => !empty($this->options['inline']),
-    );
-
     $form['default_value'] = array(
       '#type' => 'checkbox',
-      '#title' => t('Select the current contextual filter value'),
+      '#title' => t('Select the current argument.'),
       '#default_value' => !empty($this->options['default_value']),
-      '#description' => t('If checked, the current contextual filter value will be displayed as the default option in the jump menu, if applicable.'),
+      '#description' => t('If checked, the current argument setting will be displayed as the default option in the jump menu, if applicable.'),
     );
   }
 
@@ -104,29 +89,21 @@ class views_plugin_style_summary_jump_menu extends views_plugin_style {
 
     $options = array();
     $default_value = '';
-    $row_args = array();
-    foreach ($this->view->result as $id => $row) {
-      $row_args[$id] = $argument->summary_argument($row);
-    }
-    $argument->process_summary_arguments($row_args);
-
     foreach ($this->view->result as $id => $row) {
       $args = $this->view->args;
-      $args[$argument->position] = $row_args[$id];
+      $args[$argument->position] = $argument->summary_argument($row);
       $base_path = NULL;
-      if (!empty($argument->options['summary_options']['base_path'])) {
-        $base_path = $argument->options['summary_options']['base_path'];
+      if (!empty($argument->options['style_options']['base_path'])) {
+        $base_path = $argument->options['style_options']['base_path'];
       }
       $path = url($this->view->get_url($args, $base_path), $url_options);
-      $summary_value = strip_tags($argument->summary_name($row));
-      $key = md5($path . $summary_value) . "::" . $path;
 
-      $options[$key] = $summary_value;
+      $options[$path] = strip_tags($argument->summary_name($row));
       if (!empty($this->options['count'])) {
-        $options[$key] .= ' (' . intval($row->{$argument->count_alias}) . ')';
+        $options[$path] .= ' (' . intval($row->{$argument->count_alias}) . ')';
       }
       if ($this->options['default_value'] && $_GET['q'] == $this->view->get_url($args)) {
-        $default_value = $key;
+        $default_value = $path;
       }
     }
 
@@ -134,13 +111,11 @@ class views_plugin_style_summary_jump_menu extends views_plugin_style {
     $settings = array(
       'hide' => $this->options['hide'],
       'button' => $this->options['text'],
-      'title' => $this->options['label'],
       'choose' => $this->options['choose'],
-      'inline' => $this->options['inline'],
       'default_value' => $default_value,
     );
 
-    $form = drupal_get_form('ctools_jump_menu', $options, $settings);
-    return drupal_render($form);
+    return drupal_get_form('ctools_jump_menu', $options, $settings);
   }
 }
+

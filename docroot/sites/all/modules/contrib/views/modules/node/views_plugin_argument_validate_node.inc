@@ -1,5 +1,5 @@
 <?php
-
+// $Id: views_plugin_argument_validate_node.inc,v 1.2.4.3 2010/05/15 08:11:14 dereine Exp $
 /**
  * @file
  * Contains the 'node' argument validator plugin.
@@ -12,8 +12,7 @@ class views_plugin_argument_validate_node extends views_plugin_argument_validate
   function option_definition() {
     $options = parent::option_definition();
     $options['types'] = array('default' => array());
-    $options['access'] = array('default' => FALSE, 'bool' => TRUE);
-    $options['access_op'] = array('default' => 'view');
+    $options['access'] = array('default' => FALSE);
     $options['nid_type'] = array('default' => 'nid');
 
     return $options;
@@ -21,35 +20,27 @@ class views_plugin_argument_validate_node extends views_plugin_argument_validate
 
   function options_form(&$form, &$form_state) {
     $types = node_type_get_types();
-    $options = array();
     foreach ($types as $type => $info) {
       $options[$type] = check_plain(t($info->name));
     }
 
     $form['types'] = array(
       '#type' => 'checkboxes',
-      '#title' => t('Content types'),
+      '#title' => t('Types'),
       '#options' => $options,
       '#default_value' => $this->options['types'],
-      '#description' => t('Choose one or more content types to validate with.'),
+      '#description' => t('If you wish to validate for specific node types, check them; if none are checked, all nodes will pass.'),
     );
 
     $form['access'] = array(
       '#type' => 'checkbox',
-      '#title' => t('Validate user has access to the content'),
+      '#title' => t('Validate user has access to the node'),
       '#default_value' => $this->options['access'],
-    );
-    $form['access_op'] = array(
-      '#type' => 'radios',
-      '#title' => t('Access operation to check'),
-      '#options' => array('view' => t('View'), 'update' => t('Edit'), 'delete' => t('Delete')),
-      '#default_value' => $this->options['access_op'],
-      '#dependency' => array('edit-options-validate-options-node-access' => array(TRUE)),
     );
 
     $form['nid_type'] = array(
       '#type' => 'select',
-      '#title' => t('Filter value format'),
+      '#title' => t('Argument type'),
       '#options' => array(
         'nid' => t('Node ID'),
         'nids' => t('Node IDs separated by , or +'),
@@ -58,16 +49,15 @@ class views_plugin_argument_validate_node extends views_plugin_argument_validate
     );
   }
 
-  function options_submit(&$form, &$form_state, &$options = array()) {
+  function options_submit(&$form, &$form_state, &$options) {
     // filter trash out of the options so we don't store giant unnecessary arrays
     $options['types'] = array_filter($options['types']);
   }
 
   function convert_options(&$options) {
     if (!isset($options['types']) && !empty($this->argument->options['validate_argument_node_type'])) {
-      $options['types'] = isset($this->argument->options['validate_argument_node_type']) ? $this->argument->options['validate_argument_node_type'] : array();
+      $options['types'] = $this->argument->options['validate_argument_node_type'];
       $options['access'] = !empty($this->argument->options['validate_argument_node_access']);
-      $options['access_op'] = isset($this->argument->options['validate_argument_node_access_op']) ? $this->argument->options['validate_argument_node_access_op'] : 'view';
       $options['nid_type'] = isset($this->argument->options['validate_argument_nid_type']) ? $this->argument->options['validate_argument_nid_type'] : array();
     }
   }
@@ -86,7 +76,7 @@ class views_plugin_argument_validate_node extends views_plugin_argument_validate
         }
 
         if (!empty($this->options['access'])) {
-          if (!node_access($this->options['access_op'], $node)) {
+          if (!node_access('view', $node)) {
             return FALSE;
           }
         }
@@ -103,8 +93,8 @@ class views_plugin_argument_validate_node extends views_plugin_argument_validate
       case 'nids':
         $nids = new stdClass();
         $nids->value = array($argument);
-        $nids = views_break_phrase($argument, $nids);
-        if ($nids->value == array(-1)) {
+        $nids = views_nid_type($argument, $nids);
+        if ($nids->value == -1) {
           return FALSE;
         }
 
@@ -118,7 +108,7 @@ class views_plugin_argument_validate_node extends views_plugin_argument_validate
           }
 
           if (!empty($this->options['access'])) {
-            if (!node_access($this->options['access_op'], $node)) {
+            if (!node_access('view', $node)) {
               return FALSE;
             }
           }
@@ -133,3 +123,4 @@ class views_plugin_argument_validate_node extends views_plugin_argument_validate
     }
   }
 }
+

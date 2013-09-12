@@ -1,9 +1,5 @@
 <?php
-
-/**
- * @file
- * Definition of views_handler_field_custom.
- */
+// $Id: views_handler_field_custom.inc,v 1.1.6.2 2010/11/05 07:20:54 dereine Exp $
 
 /**
  * A handler to provide a field that is completely custom by the administrator.
@@ -19,8 +15,7 @@ class views_handler_field_custom extends views_handler_field {
     $options = parent::option_definition();
 
     // Override the alter text option to always alter the text.
-    $options['alter']['contains']['alter_text'] = array('default' => TRUE, 'bool' => TRUE);
-    $options['hide_alter_empty'] = array('default' => FALSE, 'bool' => TRUE);
+    $options['alter']['contains']['alter_text'] = array('default' => TRUE);
     return $options;
   }
 
@@ -31,25 +26,10 @@ class views_handler_field_custom extends views_handler_field {
     unset($form['alter']['alter_text']);
     unset($form['alter']['text']['#dependency']);
     unset($form['alter']['text']['#process']);
-    unset($form['alter']['help']['#dependency']);
-    unset($form['alter']['help']['#process']);
-    $form['#pre_render'][] = 'views_handler_field_custom_pre_render_move_text';
   }
 
   function render($values) {
-    // Return the text, so the code never thinks the value is empty.
-    return $this->options['alter']['text'];
+    // Nothing to render.
+    return '';
   }
-}
-
-/**
- * Prerender function to move the textarea to the top.
- */
-function views_handler_field_custom_pre_render_move_text($form) {
-  $form['text'] = $form['alter']['text'];
-  $form['help'] = $form['alter']['help'];
-  unset($form['alter']['text']);
-  unset($form['alter']['help']);
-
-  return $form;
 }

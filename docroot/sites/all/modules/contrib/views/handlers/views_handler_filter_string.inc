@@ -1,27 +1,13 @@
 <?php
-
-/**
- * @file
- * Definition of views_handler_filter_string.
- */
+// $Id: views_handler_filter_string.inc,v 1.8.4.6 2011/01/05 18:18:40 dereine Exp $
 
 /**
  * Basic textfield filter to handle string filtering commands
  * including equality, like, not like, etc.
- *
- * @ingroup views_filter_handlers
  */
 class views_handler_filter_string extends views_handler_filter {
   // exposed filter options
-  var $always_multiple = TRUE;
-
-  function option_definition() {
-    $options = parent::option_definition();
-
-    $options['expose']['contains']['required'] = array('default' => FALSE, 'bool' => TRUE);
-
-    return $options;
-  }
+  var $no_single = TRUE;
 
   /**
    * This kind of construct makes it relatively easy for a child class
@@ -120,17 +106,6 @@ class views_handler_filter_string extends views_handler_filter {
         ),
       );
     }
-    // Add regexp support for MySQL.
-    if (Database::getConnection()->databaseType() == 'mysql') {
-      $operators += array(
-        'regular_expression' => array(
-          'title' => t('Regular expression'),
-          'short' => t('regex'),
-          'method' => 'op_regex',
-          'values' => 1,
-        ),
-      );
-    }
 
     return $operators;
   }
@@ -148,18 +123,12 @@ class views_handler_filter_string extends views_handler_filter {
   }
 
   function admin_summary() {
-    if ($this->is_a_group()) {
-      return t('grouped');
-    }
     if (!empty($this->options['exposed'])) {
       return t('exposed');
     }
 
     $options = $this->operator_options('short');
-    $output = '';
-    if(!empty($options[$this->operator])) {
-      $output = check_plain($options[$this->operator]);
-    }
+    $output = check_plain($options[$this->operator]);
     if (in_array($this->operator, $this->operator_values(1))) {
       $output .= ' ' . check_plain($this->value);
     }
@@ -192,12 +161,12 @@ class views_handler_filter_string extends views_handler_filter {
     if (!empty($form_state['exposed'])) {
       $identifier = $this->options['expose']['identifier'];
 
-      if (empty($this->options['expose']['use_operator']) || empty($this->options['expose']['operator_id'])) {
+      if (empty($this->options['expose']['use_operator']) || empty($this->options['expose']['operator'])) {
         // exposed and locked.
         $which = in_array($this->operator, $this->operator_values(1)) ? 'value' : 'none';
       }
       else {
-        $source = 'edit-' . drupal_html_id($this->options['expose']['operator_id']);
+        $source = 'edit-' . drupal_html_id($this->options['expose']['operator']);
       }
     }
 
@@ -214,6 +183,7 @@ class views_handler_filter_string extends views_handler_filter {
 
       if ($which == 'all') {
         $form['value'] += array(
+          '#process' => array('ctools_dependent_process'),
           '#dependency' => array($source => $this->operator_values(1)),
         );
       }
@@ -254,16 +224,12 @@ class views_handler_filter_string extends views_handler_filter {
   }
 
   function op_contains($field) {
-    $this->query->add_where($this->options['group'], $field, '%' . db_like($this->value) . '%', 'LIKE');
+    $placeholder = $this->placeholder();
+    $this->query->add_where($this->options['group'], "$field LIKE $placeholder", array($placeholder => '%' . db_like($this->value) . '%'), 'formula');
   }
 
   function op_word($field) {
     $where = $this->operator == 'word' ? db_or() : db_and();
-
-    // Don't filter on empty strings.
-    if (empty($this->value)) {
-      return;
-    }
 
     preg_match_all('/ (-?)("[^"]+"|[^" ]+)/i', ' ' . $this->value, $matches, PREG_SET_ORDER);
     foreach ($matches as $match) {
@@ -277,7 +243,7 @@ class views_handler_filter_string extends views_handler_filter {
       $words = $phrase ? array($words) : preg_split('/ /', $words, -1, PREG_SPLIT_NO_EMPTY);
       foreach ($words as $word) {
         $placeholder = $this->placeholder();
-        $where->condition($field, '%' . db_like(trim($word, " ,!?")) . '%', 'LIKE');
+        $where->where("$field LIKE $placeholder", array($placeholder => '%' . db_like(trim($word, " ,!?")) . '%'));
       }
     }
 
@@ -291,37 +257,38 @@ class views_handler_filter_string extends views_handler_filter {
   }
 
   function op_starts($field) {
-    $this->query->add_where($this->options['group'], $field, db_like($this->value) . '%', 'LIKE');
+    $placeholder = $this->placeholder();
+    $this->query->add_where($this->options['group'], "$field LIKE $placeholder", array($placeholder => db_like($this->value) . '%'), 'formula');
   }
 
   function op_not_starts($field) {
-    $this->query->add_where($this->options['group'], $field, db_like($this->value) . '%', 'NOT LIKE');
+    $placeholder = $this->placeholder();
+    $this->query->add_where($this->options['group'], "$field NOT LIKE $placeholder", array($placeholder => db_like($this->value) . '%'), 'formula');
   }
 
   function op_ends($field) {
-    $this->query->add_where($this->options['group'], $field, '%' . db_like($this->value), 'LIKE');
+    $placeholder = $this->placeholder();
+    $this->query->add_where($this->options['group'], "$field LIKE $placeholder", array($placeholder => '%' . db_like($this->value)), 'formula');
   }
 
   function op_not_ends($field) {
-    $this->query->add_where($this->options['group'], $field, '%' . db_like($this->value), 'NOT LIKE');
+    $placeholder = $this->placeholder();
+    $this->query->add_where($this->options['group'], "$field NOT LIKE $placeholder", array($placeholder => '%' . db_like($this->value)), 'formula');
   }
 
   function op_not($field) {
-    $this->query->add_where($this->options['group'], $field, '%' . db_like($this->value) . '%', 'NOT LIKE');
+    $placeholder = $this->placeholder();
+    $this->query->add_where($this->options['group'], "$field NOT LIKE $placeholder", array($placeholder => '%' . db_like($this->value) . '%'), 'formula');
   }
 
   function op_shorter($field) {
     $placeholder = $this->placeholder();
-    $this->query->add_where_expression($this->options['group'], "LENGTH($field) < $placeholder", array($placeholder => $this->value));
+    $this->query->add_where($this->options['group'], "LENGTH($field) < $placeholder", array($placeholder => $this->value), 'formula');
   }
 
   function op_longer($field) {
     $placeholder = $this->placeholder();
-    $this->query->add_where_expression($this->options['group'], "LENGTH($field) > $placeholder", array($placeholder => $this->value));
-  }
-
-  function op_regex($field) {
-    $this->query->add_where($this->options['group'], $field, $this->value, 'RLIKE');
+    $this->query->add_where($this->options['group'], "LENGTH($field) > $placeholder", array($placeholder => $this->value), 'formula');
   }
 
   function op_empty($field) {

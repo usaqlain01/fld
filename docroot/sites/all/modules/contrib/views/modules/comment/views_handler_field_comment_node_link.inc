@@ -1,16 +1,9 @@
 <?php
-
+// $Id: views_handler_field_comment_node_link.inc,v 1.1.6.4 2010/11/16 17:01:44 dereine Exp $
 /**
- * @file
- * Definition of views_handler_field_comment_node_link.
+* Handler for showing comment module's node link.
  */
-
-/**
- * Handler for showing comment module's node link.
- *
- * @ingroup views_field_handlers
- */
-class views_handler_field_comment_node_link extends views_handler_field_entity {
+class views_handler_field_comment_node_link extends views_handler_field {
   function construct() {
     parent::construct();
 
@@ -28,11 +21,13 @@ class views_handler_field_comment_node_link extends views_handler_field_entity {
 
   function option_definition() {
     $options = parent::option_definition();
-    $options['teaser'] = array('default' => FALSE, 'bool' => TRUE);
+    $options['teaser'] = array('default' => 0);
     return $options;
   }
 
   function options_form(&$form, &$form_state) {
+    parent::options_form($form, $form_state);
+
     $form['teaser'] = array(
       '#type' => 'checkbox',
       '#title' => t('Show teaser-style link'),
@@ -40,7 +35,6 @@ class views_handler_field_comment_node_link extends views_handler_field_entity {
       '#description' => t('Show the comment link in the form used on standard node teasers, rather than the full node form.'),
     );
 
-    parent::options_form($form, $form_state);
   }
 
   function query() {
@@ -50,7 +44,10 @@ class views_handler_field_comment_node_link extends views_handler_field_entity {
 
   function render($values) {
     // Build fake $node.
-    $node = $this->get_value($values);
+    $node = new stdClass();
+    $node->nid      = $values->{$this->aliases['nid']};
+    $node->type     = $values->{$this->aliases['type']};
+    $node->comment  = $values->{$this->aliases['comment']};
 
     // Call comment.module's hook_link: comment_link($type, $node = NULL, $teaser = FALSE)
     // Call node by reference so that something is changed here
@@ -62,3 +59,4 @@ class views_handler_field_comment_node_link extends views_handler_field_entity {
     return !empty($node->content['links']['comment']) ? drupal_render($node->content['links']['comment']) : '';
   }
 }
+

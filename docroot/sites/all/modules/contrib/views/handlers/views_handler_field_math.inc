@@ -1,16 +1,11 @@
 <?php
-
-/**
- * @file
- * Definition of views_handler_field_math.
- */
-
+// $Id: views_handler_field_math.inc,v 1.1.2.3 2010/11/05 07:20:54 dereine Exp $
 /**
  * Render a mathematical expression as a numeric value
  *
  * Definition terms:
  * - float: If true this field contains a decimal value. If unset this field
- *   will be assumed to be integer.
+ *          will be assumed to be integer.
  *
  * @ingroup views_field_handlers
  */
@@ -26,7 +21,7 @@ class views_handler_field_math extends views_handler_field_numeric {
     $form['expression'] = array(
       '#type' => 'textarea',
       '#title' => t('Expression'),
-      '#description' => t('Enter mathematical expressions such as 2 + 2 or sqrt(5). You may assign variables and create mathematical functions and evaluate them. Use the ; to separate these. For example: f(x) = x + 2; f(2).'),
+      '#description' => t('Enter mathematical expressions such as 2 + 2 or sqrt(5). You my assign variables and create mathematical functions and evaluate them. Use the ; to separate these. For example: f(x) = x + 2; f(2).'),
       '#default_value' => $this->options['expression'],
     );
 
@@ -37,13 +32,13 @@ class views_handler_field_math extends views_handler_field_numeric {
     // Then move the existing help:
     $form['expression_help'] = $form['alter']['help'];
     unset($form['expression_help']['#dependency']);
+    unset($form['expression_help']['#process']);
     unset($form['alter']['help']);
   }
 
   function render($values) {
     ctools_include('math-expr');
-    $tokens = array_map('floatval', $this->get_render_tokens(array()));
-    $value = strtr($this->options['expression'], $tokens);
+    $value = strtr($this->options['expression'], $this->get_render_tokens(array()));
     $expressions = explode(';', $value);
     $math = new ctools_math_expr;
     foreach ($expressions as $expression) {
@@ -72,12 +67,7 @@ class views_handler_field_math extends views_handler_field_numeric {
       return '';
     }
 
-    // Should we format as a plural.
-    if (!empty($this->options['format_plural']) && ($value != 0 || !$this->options['empty_zero'])) {
-      $value = format_plural($value, $this->options['format_plural_singular'], $this->options['format_plural_plural']);
-    }
-
-    return $this->sanitize_value($this->options['prefix'] . $value . $this->options['suffix']);
+    return check_plain($this->options['prefix'] . $value . $this->options['suffix']);
   }
 
   function query() { }
