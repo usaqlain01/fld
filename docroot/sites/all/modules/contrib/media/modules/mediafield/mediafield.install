@@ -6,6 +6,75 @@
  */
 
 /**
+ * Implements hook_requirements().
+ */
+function mediafield_requirements($phase) {
+  if ($phase == 'runtime') {
+    $requirements = array();
+    // Ensure translations don't break during installation.
+    $t = get_t();
+
+    $instances = field_info_instances();
+    $field_types = field_info_field_types();
+    $bundles = field_info_bundles();
+
+    $modules = system_rebuild_module_data();
+
+    $header = array($t('Field name'), $t('Field type'), $t('Used in'), $t('Actions'));
+    $rows = array();
+    foreach ($instances as $entity_type => $type_bundles) {
+      foreach ($type_bundles as $bundle => $bundle_instances) {
+        foreach ($bundle_instances as $field_name => $instance) {
+          $field = field_info_field($field_name);
+
+          if ($field['type'] == 'media') {
+            // Initialize the row if we encounter the field for the first time.
+            if (!isset($rows[$field_name])) {
+              $rows[$field_name]['class'] = $field['locked'] ? array('menu-disabled') : array('');
+              $rows[$field_name]['data'][0] = $field['locked'] ? t('@field_name (Locked)', array('@field_name' => $field_name)) : $field_name;
+              $module_name = $field_types[$field['type']]['module'];
+              $rows[$field_name]['data'][1] = $field_types[$field['type']]['label'] . ' ' . t('(module: !module)', array('!module' => $modules[$module_name]->info['name']));
+            }
+
+            // Add the current instance.
+            $admin_path = _field_ui_bundle_admin_path($entity_type, $bundle);
+            if (!empty($admin_path)) {
+              $rows[$field_name]['data'][2][] = l($bundles[$entity_type][$bundle]['label'], $admin_path . '/fields');
+              $rows[$field_name]['data'][3] = l('Upgrade', $admin_path . '/fields/' . $field_name . '/mediafield_upgrade');
+            }
+            else {
+              $rows[$field_name]['data'][2][] = $bundles[$entity_type][$bundle]['label'];
+              $rows[$field_name]['data'][3] = '';
+            }
+          }
+        }
+      }
+    }
+    foreach ($rows as $field_name => $cell) {
+      $rows[$field_name]['data'][2] = implode(', ', $cell['data'][2]);
+    }
+    if (empty($rows)) {
+      $message = $t('No Media Field fields have been defined, the Media Field module may be safely disabled.');
+      $output = '';
+    }
+    else {
+      // Sort rows by field name.
+      ksort($rows);
+      $message = $t('The following Media Field fields have been defined. Each field should be upgraded and then the Media Field module should be disabled.');
+      $output = theme('table', array('header' => $header, 'rows' => $rows));
+    }
+
+    $requirements['mediafield'] = array(
+      'title' => $t('Media Field'),
+      'value' => $message,
+      'description' => $output,
+      'severity' => REQUIREMENT_WARNING,
+    );
+    return $requirements;
+  }
+}
+
+/**
  * Implements hook_field_schema().
  */
 function mediafield_field_schema($field) {
