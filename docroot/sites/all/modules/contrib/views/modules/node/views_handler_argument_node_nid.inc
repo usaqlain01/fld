@@ -1,5 +1,5 @@
 <?php
-// $Id: views_handler_argument_node_nid.inc,v 1.1.6.1 2009/11/02 22:01:26 merlinofchaos Exp $
+
 /**
  * @file
  * Provide node nid argument handler.
@@ -22,4 +22,3 @@ class views_handler_argument_node_nid extends views_handler_argument_numeric {
     return $titles;
   }
 }
-
