@@ -1348,7 +1348,7 @@ function custom_field_extra_fields() {
 /**
  * Implements hook_image_default_styles().
  */
-function custom_image_default_styles() {
+/**function custom_image_default_styles() {
   $styles = array();
 
   $styles['thumbnail'] = array(
@@ -1534,3 +1534,4 @@ function custom_image_default_styles() {
 
   return $styles;
 }
+*/
