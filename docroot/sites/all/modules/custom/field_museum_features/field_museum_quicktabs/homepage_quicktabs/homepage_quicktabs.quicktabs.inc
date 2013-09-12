@@ -35,7 +35,7 @@ function homepage_quicktabs_quicktabs_default_quicktabs() {
     ),
   );
   $quicktabs->renderer = 'quicktabs';
-  $quicktabs->style = 'tabs-field-custom.css';
+  $quicktabs->style = 'Garland';
   $quicktabs->options = array();
 
   // Translatables
