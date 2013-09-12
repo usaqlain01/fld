@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Medium File Style feature.
+ */
+
+include_once 'medium_file_style.features.inc';

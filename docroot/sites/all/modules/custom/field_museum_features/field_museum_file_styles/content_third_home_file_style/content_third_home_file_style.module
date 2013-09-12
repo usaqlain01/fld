@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Content Third Home File Style feature.
+ */
+
+include_once 'content_third_home_file_style.features.inc';
