@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Dept/Div Collections Landing Content Type feature.
+ */
+
+include_once 'dept_div_collections_landing_content_type.features.inc';
