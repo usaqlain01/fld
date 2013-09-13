@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Podcast Content Type feature.
+ */
+
+include_once 'podcast_content_type.features.inc';
