@@ -370,45 +370,6 @@ function newsletter_content_type_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-newsletter-field_lede'
-  $field_instances['node-newsletter-field_lede'] = array(
-    'bundle' => 'newsletter',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => 'Lightweight description of this week\'s content, this gets used for pulling this content into auto-generated lists.',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 10,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_lede',
-    'label' => 'Lede',
-    'required' => 1,
-    'settings' => array(
-      'text_processing' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'rows' => 5,
-      ),
-      'type' => 'text_textarea',
-      'weight' => 3,
-    ),
-  );
-
   // Exported field_instance: 'node-newsletter-field_public_education'
   $field_instances['node-newsletter-field_public_education'] = array(
     'bundle' => 'newsletter',
@@ -719,8 +680,6 @@ function newsletter_content_type_field_default_field_instances() {
   t('Fieldwork & Collections Image');
   t('Header Image');
   t('Hero graphic for the week\'s newsletter.');
-  t('Lede');
-  t('Lightweight description of this week\'s content, this gets used for pulling this content into auto-generated lists.');
   t('Public Education & Media Coverage');
   t('Public Education & Media Coverage Image');
   t('Research & Publications');
