@@ -10,6 +10,10 @@ drush="drush $drush_flags"
 
 build_path="../promet-utils"
 
+cd
+$drush dl registry_rebuild -y
+cd $drupal_path
+$drush rr
 echo "updatedb";
 $drush updatedb -y
 echo "clear cache";
