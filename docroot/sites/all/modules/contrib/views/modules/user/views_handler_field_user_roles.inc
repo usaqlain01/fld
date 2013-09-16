@@ -1,14 +1,7 @@
 <?php
-
-/**
- * @file
- * Definition of views_handler_field_user_roles.
- */
-
+// $Id: views_handler_field_user_roles.inc,v 1.2.4.2 2010/12/03 20:46:32 dereine Exp $
 /**
  * Field handler to provide a list of roles.
- *
- * @ingroup views_field_handlers
  */
 class views_handler_field_user_roles extends views_handler_field_prerender_list {
   function construct() {
@@ -26,7 +19,7 @@ class views_handler_field_user_roles extends views_handler_field_prerender_list 
     $this->items = array();
 
     foreach ($values as $result) {
-      $uids[] = $this->get_value($result, NULL, TRUE);
+      $uids[] = $result->{$this->aliases['uid']};
     }
 
     if ($uids) {
@@ -49,9 +42,7 @@ class views_handler_field_user_roles extends views_handler_field_prerender_list 
   }
 
   function add_self_tokens(&$tokens, $item) {
-    if (!empty($item['role'])) {
-      $tokens['[' . $this->options['id'] . '-role' . ']'] = $item['role'];
-      $tokens['[' . $this->options['id'] . '-rid' . ']'] = $item['rid'];
-    }
+    $tokens['[' . $this->options['id'] . '-role' . ']'] = $item['role'];
+    $tokens['[' . $this->options['id'] . '-rid' . ']'] = $item['rid'];
   }
 }

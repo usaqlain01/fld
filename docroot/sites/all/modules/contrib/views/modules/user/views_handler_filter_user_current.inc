@@ -1,14 +1,8 @@
 <?php
+// $Id: views_handler_filter_user_current.inc,v 1.2.4.2 2010/09/24 05:34:15 dereine Exp $
 
 /**
- * @file
- * Definition of views_handler_filter_user_current.
- */
-
-/**
- * Filter handler for the current user.
- *
- * @ingroup views_filter_handlers
+ * Filter handler for the current user
  */
 class views_handler_filter_user_current extends views_handler_filter_boolean_operator {
   function construct() {

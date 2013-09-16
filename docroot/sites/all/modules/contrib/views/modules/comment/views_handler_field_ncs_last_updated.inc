@@ -1,13 +1,7 @@
 <?php
-
+// $Id: views_handler_field_ncs_last_updated.inc,v 1.1 2008/09/03 19:21:29 merlinofchaos Exp $
 /**
- * @file
- * Definition of views_handler_field_ncs_last_updated.
- */
-/**
- * Field handler to display the newer of last comment / node updated.
- *
- * @ingroup views_field_handlers
+ * Field handler to display the newer of last comment / node updated
  */
 class views_handler_field_ncs_last_updated extends views_handler_field_date {
   function query() {

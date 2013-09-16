@@ -1,14 +1,8 @@
 <?php
-
-/**
- * @file
- * Definition of views_handler_argument_locale_group.
- */
+// $Id: views_handler_argument_locale_group.inc,v 1.1 2009/02/20 23:02:09 merlinofchaos Exp $
 
 /**
  * Argument handler to accept a language.
- *
- * @ingroup views_argument_handlers
  */
 class views_handler_argument_locale_group extends views_handler_argument {
   function construct() {
@@ -38,3 +32,4 @@ class views_handler_argument_locale_group extends views_handler_argument {
     return isset($groups[$group]) ? $groups[$group] : t('Unknown group');
   }
 }
+

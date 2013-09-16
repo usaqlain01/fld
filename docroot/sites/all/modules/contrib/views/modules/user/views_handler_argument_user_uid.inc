@@ -1,21 +1,16 @@
 <?php
-
+// $Id: views_handler_argument_user_uid.inc,v 1.1.6.1 2009/11/02 22:01:27 merlinofchaos Exp $
 /**
  * @file
- * Definition of views_handler_argument_user_uid.
+ * Provide user uid argument handler.
  */
 
 /**
  * Argument handler to accept a user id.
- *
- * @ingroup views_argument_handlers
  */
 class views_handler_argument_user_uid extends views_handler_argument_numeric {
   /**
    * Override the behavior of title(). Get the name of the user.
-   *
-   * @return array
-   *    A list of usernames.
    */
   function title_query() {
     if (!$this->argument) {
@@ -31,3 +26,4 @@ class views_handler_argument_user_uid extends views_handler_argument_numeric {
     return $titles;
   }
 }
+
