@@ -1,8 +1,8 @@
 <?php
-
+// $Id: views_plugin_row_search_view.inc,v 1.1.6.1 2009/11/02 22:01:26 merlinofchaos Exp $
 /**
  * @file
- * Definition of views_plugin_row_search_view.
+ * Contains the search row style plugin.
  */
 
 /**
@@ -12,7 +12,7 @@ class views_plugin_row_search_view extends views_plugin_row {
   function option_definition() {
     $options = parent::option_definition();
 
-    $options['score'] = array('default' => TRUE, 'bool' => TRUE);
+    $options['score'] = array('default' => TRUE);
 
     return $options;
   }

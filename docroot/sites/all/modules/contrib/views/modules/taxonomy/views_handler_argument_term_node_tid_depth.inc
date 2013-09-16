@@ -1,31 +1,25 @@
 <?php
-
-/**
- * @file
- * Definition of views_handler_argument_term_node_tid_depth.
- */
-
+// $Id: views_handler_argument_term_node_tid_depth.inc,v 1.3.4.7 2010/11/27 20:53:28 dereine Exp $
 /**
  * Argument handler for taxonomy terms with depth.
  *
  * This handler is actually part of the node table and has some restrictions,
- * because it uses a subquery to find nodes with.
- *
- * @ingroup views_argument_handlers
+ * because it uses a subquery to find nodes with
  */
 class views_handler_argument_term_node_tid_depth extends views_handler_argument {
   function option_definition() {
     $options = parent::option_definition();
 
     $options['depth'] = array('default' => 0);
-    $options['break_phrase'] = array('default' => FALSE, 'bool' => TRUE);
-    $options['set_breadcrumb'] = array('default' => FALSE, 'bool' => TRUE);
-    $options['use_taxonomy_term_path'] = array('default' => FALSE, 'bool' => TRUE);
+    $options['break_phrase'] = array('default' => FALSE);
+    $options['set_breadcrumb'] = array('default' => FALSE);
+    $options['use_taxonomy_term_path'] = array('default' => FALSE);
 
     return $options;
   }
 
   function options_form(&$form, &$form_state) {
+    parent::options_form($form, $form_state);
     $form['depth'] = array(
       '#type' => 'weight',
       '#title' => t('Depth'),
@@ -35,8 +29,8 @@ class views_handler_argument_term_node_tid_depth extends views_handler_argument 
 
     $form['break_phrase'] = array(
       '#type' => 'checkbox',
-      '#title' => t('Allow multiple values'),
-      '#description' => t('If selected, users can enter multiple values in the form of 1+2+3. Due to the number of JOINs it would require, AND will be treated as OR with this filter.'),
+      '#title' => t('Allow multiple terms per argument'),
+      '#description' => t('If selected, users can enter multiple arguments in the form of 1+2+3. Due to the number of JOINs it would require, AND will be treated as OR with this argument.'),
       '#default_value' => !empty($this->options['break_phrase']),
     );
 
@@ -52,9 +46,9 @@ class views_handler_argument_term_node_tid_depth extends views_handler_argument 
       '#title' => t("Use Drupal's taxonomy term path to create breadcrumb links"),
       '#description' => t('If selected, the links in the breadcrumb trail will be created using the standard drupal method instead of the custom views method. This is useful if you are using modules like taxonomy redirect to modify your taxonomy term links.'),
       '#default_value' => !empty($this->options['use_taxonomy_term_path']),
+      '#process' => array('form_process_checkbox', 'ctools_dependent_process'),
       '#dependency' => array('edit-options-set-breadcrumb' => array(TRUE)),
     );
-    parent::options_form($form, $form_state);
   }
 
   function set_breadcrumb(&$breadcrumb) {
@@ -78,19 +72,17 @@ class views_handler_argument_term_node_tid_depth extends views_handler_argument 
     $actions = parent::default_actions();
     unset($actions['summary asc']);
     unset($actions['summary desc']);
-    unset($actions['summary asc by count']);
-    unset($actions['summary desc by count']);
     return $actions;
   }
 
-  function query($group_by = FALSE) {
+  function query() {
     $this->ensure_my_table();
 
     if (!empty($this->options['break_phrase'])) {
       $tids = new stdClass();
       $tids->value = $this->argument;
       $tids = views_break_phrase($this->argument, $tids);
-      if ($tids->value == array(-1)) {
+      if ($tids->value == -1) {
         return FALSE;
       }
 
@@ -105,7 +97,7 @@ class views_handler_argument_term_node_tid_depth extends views_handler_argument 
     }
     else {
       $operator = "=";
-      $tids = $this->argument;
+      $tids = array($this->argument);
     }
     // Now build the subqueries.
     $subquery = db_select('taxonomy_index', 'tn');

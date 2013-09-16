@@ -1,14 +1,18 @@
 <?php
-
+//$Id: user.views.inc,v 1.59.4.13 2010/09/22 21:31:29 dereine Exp $
 /**
  * @file
- * Provide views data and handlers for user.module.
- *
- * @ingroup views_module_handlers
+ * Provide views data and handlers for user.module
  */
 
 /**
- * Implements hook_views_data().
+ * @defgroup views_user_module user.module handlers
+ *
+ * @{
+ */
+
+/**
+ * Implements hook_views_data()
  */
 function user_views_data() {
   // ----------------------------------------------------------------
@@ -24,21 +28,19 @@ function user_views_data() {
     'help' => t('Users who have created accounts on your site.'),
     'access query tag' => 'user_access',
   );
-  $data['users']['table']['entity type'] = 'user';
 
-
-  $data['users']['table']['default_relationship'] = array(
+  $data['users']['table']['join'] = array(
     'node' => array(
-      'table' => 'node',
+      'left_field' => 'uid',
       'field' => 'uid',
+      'type' => 'INNER', // all nodes have an author.
     ),
-    'node_revision' => array(
-      'table' => 'node_revision',
+    // This goes to the node so that we have consistent authorship.
+    'node_revisions' => array(
+      'left_table' => 'node',
+      'left_field' => 'uid',
       'field' => 'uid',
-    ),
-    'file' => array(
-      'table' => 'file',
-      'field' => 'uid',
+      'type' => 'INNER', // all nodes have an author.
     ),
   );
 
@@ -62,39 +64,13 @@ function user_views_data() {
       'handler' => 'views_handler_sort',
     ),
     'relationship' => array(
-      'title' => t('Content authored'),
-      'help' => t('Relate content to the user who created it. This relationship will create one record for each content item created by the user.'),
+      'title' => t('Nodes authored'),
+      'help' => t('Relate nodes to the user who created it. This relationship will create one record for every node created by the user.'),
       'handler' => 'views_handler_relationship',
       'base' => 'node',
       'base field' => 'uid',
       'field' => 'uid',
       'label' => t('nodes'),
-    ),
-  );
-
-  // uid_raw
-  $data['users']['uid_raw'] = array(
-    'help' => t('The raw numeric user ID.'),
-    'real field' => 'uid',
-    'filter' => array(
-      'title' => t('The user ID'),
-      'handler' => 'views_handler_filter_numeric',
-    ),
-  );
-
-  // uid
-  $data['users']['uid_representative'] = array(
-    'relationship' => array(
-      'title' => t('Representative node'),
-      'label'  => t('Representative node'),
-      'help' => t('Obtains a single representative node for each user, according to a chosen sort criterion.'),
-      'handler' => 'views_handler_relationship_groupwise_max',
-      'relationship field' => 'uid',
-      'outer field' => 'users.uid',
-      'argument table' => 'users',
-      'argument field' =>  'uid',
-      'base'   => 'node',
-      'field'  => 'nid',
     ),
   );
 
@@ -170,7 +146,6 @@ function user_views_data() {
   );
 
   // picture
-  $data['users']['picture_fid']['moved to'] = array('users', 'picture');
   $data['users']['picture'] = array(
     'title' => t('Picture'),
     'help' => t("The user's picture, if allowed."), // The help that appears on the UI,
@@ -183,22 +158,13 @@ function user_views_data() {
       'handler' => 'views_handler_sort',
     ),
     'filter' => array(
-      'handler' => 'views_handler_filter_boolean_operator',
+      'handler' => 'views_handler_filter_boolean_operator_string',
       'label' => t('Has Avatar'),
       'type' => 'yes-no',
     ),
   );
 
-  // link
-  $data['users']['view_user'] = array(
-    'field' => array(
-      'title' => t('Link'),
-      'help' => t('Provide a simple link to the user.'),
-      'handler' => 'views_handler_field_user_link',
-    ),
-  );
-
-  // created field
+    // created field
   $data['users']['created'] = array(
     'title' => t('Created date'), // The item it appears as on the UI,
     'help' => t('The date the user was created.'), // The help that appears on the UI,
@@ -211,61 +177,6 @@ function user_views_data() {
     ),
     'filter' => array(
       'handler' => 'views_handler_filter_date',
-    ),
-  );
-
-  $data['users']['created_fulldate'] = array(
-    'title' => t('Created date'),
-    'help' => t('Date in the form of CCYYMMDD.'),
-    'argument' => array(
-      'field' => 'created',
-      'handler' => 'views_handler_argument_node_created_fulldate',
-    ),
-  );
-
-  $data['users']['created_year_month'] = array(
-    'title' => t('Created year + month'),
-    'help' => t('Date in the form of YYYYMM.'),
-    'argument' => array(
-      'field' => 'created',
-      'handler' => 'views_handler_argument_node_created_year_month',
-    ),
-  );
-
-  $data['users']['timestamp_year']['moved to'] = array('users', 'created_year');
-  $data['users']['created_year'] = array(
-    'title' => t('Created year'),
-    'help' => t('Date in the form of YYYY.'),
-    'argument' => array(
-      'field' => 'created',
-      'handler' => 'views_handler_argument_node_created_year',
-    ),
-  );
-
-  $data['users']['created_month'] = array(
-    'title' => t('Created month'),
-    'help' => t('Date in the form of MM (01 - 12).'),
-    'argument' => array(
-      'field' => 'created',
-      'handler' => 'views_handler_argument_node_created_month',
-    ),
-  );
-
-  $data['users']['created_day'] = array(
-    'title' => t('Created day'),
-    'help' => t('Date in the form of DD (01 - 31).'),
-    'argument' => array(
-      'field' => 'created',
-      'handler' => 'views_handler_argument_node_created_day',
-    ),
-  );
-
-  $data['users']['created_week'] = array(
-    'title' => t('Created week'),
-    'help' => t('Date in the form of WW (01 - 53).'),
-    'argument' => array(
-      'field' => 'created',
-      'handler' => 'views_handler_argument_node_created_week',
     ),
   );
 
@@ -309,9 +220,6 @@ function user_views_data() {
     'field' => array(
       'handler' => 'views_handler_field_boolean',
       'click sortable' => TRUE,
-      'output formats' => array(
-        'active-blocked' => array(t('Active'), t('Blocked')),
-      ),
     ),
     'filter' => array(
       'handler' => 'views_handler_filter_boolean_operator',
@@ -345,19 +253,11 @@ function user_views_data() {
     ),
   );
 
-  $data['users']['cancel_node'] = array(
+  $data['users']['delete_node'] = array(
     'field' => array(
-      'title' => t('Cancel link'),
-      'help' => t('Provide a simple link to cancel the user.'),
-      'handler' => 'views_handler_field_user_link_cancel',
-    ),
-  );
-
-  $data['users']['data'] = array(
-    'title' => t('Data'),
-    'help' => t('Provide serialized data of the user'),
-    'field' => array(
-      'handler' => 'views_handler_field_serialized',
+      'title' => t('Delete link'),
+      'help' => t('Provide a simple link to delete the user.'),
+      'handler' => 'views_handler_field_user_link_delete',
     ),
   );
 
@@ -373,15 +273,13 @@ function user_views_data() {
       'left_field' => 'uid',
       'field' => 'uid',
     ),
-  );
-
-  $data['users_roles']['table']['default_relationship'] = array(
     'node' => array(
-      'table' => 'node',
+      'left_field' => 'uid',
       'field' => 'uid',
     ),
-    'node_revision' => array(
-      'table' => 'node_revision',
+    'node_revisions' => array(
+      'left_table' => 'node',
+      'left_field' => 'uid',
       'field' => 'uid',
     ),
   );
@@ -396,7 +294,6 @@ function user_views_data() {
     'filter' => array(
       'handler' => 'views_handler_filter_user_roles',
       'numeric' => TRUE,
-      'allow empty' => TRUE,
     ),
     'argument' => array(
       'handler' => 'views_handler_argument_users_roles_rid',
@@ -423,39 +320,15 @@ function user_views_data() {
       'left_field' => 'rid',
       'field' => 'rid',
     ),
-  );
-
-  $data['role']['table']['default_relationship'] = array(
     'node' => array(
-      'table' => 'node',
-      'field' => 'uid',
-    ),
-    'node_revision' => array(
-      'table' => 'node_revision',
-      'field' => 'uid',
-    ),
-  );
-
-  // permission table
-  $data['role_permission']['table']['group']  = t('User');
-  $data['role_permission']['table']['join'] = array(
-     // Directly links to users table.
-    'users' => array(
       'left_table' => 'users_roles',
       'left_field' => 'rid',
       'field' => 'rid',
     ),
-  );
-
-  $data['role_permission']['permission'] = array(
-    'title' => t('Permission'),
-    'help' => t('The user permissions.'),
-    'field' => array(
-      'handler' => 'views_handler_field_user_permissions',
-      'no group by' => TRUE,
-    ),
-    'filter' => array(
-      'handler' => 'views_handler_filter_user_permissions',
+    'node_revisions' => array(
+      'left_table' => 'users_roles',
+      'left_field' => 'rid',
+      'field' => 'rid',
     ),
   );
 
@@ -469,19 +342,12 @@ function user_views_data() {
       'left_field' => 'uid',
       'field' => 'uid',
     ),
-  );
-
-  $data['authmap']['table']['default_relationship'] = array(
     'node' => array(
-      'table' => 'node',
-      'field' => 'uid',
-    ),
-    'node_revision' => array(
-      'table' => 'node_revision',
+      'left_table' => 'users',
+      'left_field' => 'uid',
       'field' => 'uid',
     ),
   );
-
   $data['authmap']['aid'] = array(
     'title' => t('Authmap ID'),
     'help' => t('The Authmap ID.'),
@@ -528,22 +394,11 @@ function user_views_data() {
 }
 
 /**
- * Implements hook_views_plugins().
+ * Implements hook_views_plugins
  */
 function user_views_plugins() {
   return array(
     'module' => 'views', // This just tells our themes are elsewhere.
-    'row' => array(
-      'user' => array(
-        'title' => t('User'),
-        'help' => t('Display the user with standard user view.'),
-        'handler' => 'views_plugin_row_user_view',
-        'base' => array('users'), // only works with 'users' as base.
-        'uses options' => TRUE,
-        'type' => 'normal',
-        'help topic' => 'style-users',
-      ),
-    ),
     'argument default' => array(
       'user' => array(
         'title' => t('User ID from URL'),
@@ -573,3 +428,7 @@ function user_views_query_substitutions($view) {
   global $user;
   return array('***CURRENT_USER***' => intval($user->uid));
 }
+
+/**
+ * @}
+ */

@@ -1,14 +1,19 @@
 <?php
-
+// $Id: statistics.views.inc,v 1.9.6.3 2010/07/19 09:18:42 dereine Exp $
 /**
  * @file
- * Provide views data and handlers for statistics.module.
- *
- * @ingroup views_module_handlers
+ * Provide views data and handlers for statistics.module
  */
 
 /**
- * Implements hook_views_data().
+ * @defgroup views_statistics_module statistics.module handlers
+ *
+ * Includes the ability to create views of just the statistics table.
+ * @{
+ */
+
+/**
+ * Implements hook_views_data()
  */
 function statistics_views_data() {
   // Basic table information.
@@ -16,7 +21,7 @@ function statistics_views_data() {
   // ----------------------------------------------------------------
   // node_counter table
 
-  $data['node_counter']['table']['group']  = t('Content statistics');
+  $data['node_counter']['table']['group']  = t('Node statistics');
 
   $data['node_counter']['table']['join'] = array(
     // ...to the node table
@@ -97,27 +102,6 @@ function statistics_views_data() {
       'field' => 'uid',
       'left_field' => 'uid',
      ),
-  );
-
-  // accesslog.aid
-  $data['accesslog']['aid'] = array(
-    'title' => t('Aid'),
-    'help' => t('Unique access event ID.'),
-    'field' => array(
-      'handler' => 'views_handler_field_numeric',
-      'click sortable' => TRUE,
-    ),
-    'argument' => array(
-      'handler' => 'views_handler_argument_numeric',
-      'name field' => 'wid',
-      'numeric' => TRUE,
-    ),
-    'filter' => array(
-      'handler' => 'views_handler_filter_numeric',
-    ),
-    'sort' => array(
-      'handler' => 'views_handler_sort',
-    ),
   );
 
   // session id
@@ -261,3 +245,7 @@ function statistics_views_data() {
 
   return $data;
 }
+
+/**
+ * @}
+ */

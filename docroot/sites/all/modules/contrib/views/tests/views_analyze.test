@@ -1,14 +1,11 @@
 <?php
-
+// $Id: views_analyze.test,v 1.1.2.1 2010/11/20 21:40:58 dereine Exp $
 /**
  * @file
- * Definition of ViewsAnalyzeTest.
+ * Tests the views analyse system.
  */
 
-/**
- * Tests the views analyze system.
- */
-class ViewsAnalyzeTest extends ViewsSqlTest {
+class ViewsAnalyzeTest extends viewsSqlTest {
   public static function getInfo() {
     return array(
       'name' => 'Views Analyze',
@@ -21,7 +18,7 @@ class ViewsAnalyzeTest extends ViewsSqlTest {
     parent::setUp('views_ui');
     module_enable(array('views_ui'));
     // @TODO Figure out why it's required to clear the cache here.
-    views_module_include('views_default', TRUE);
+    views_module_include('views_default.inc', TRUE);
     views_get_all_views(TRUE);
     menu_rebuild();
 
@@ -30,19 +27,19 @@ class ViewsAnalyzeTest extends ViewsSqlTest {
   }
 
   /**
-   * Tests that analyze works in general.
+   * Tests that analyse works in general.
    */
-  function testAnalyzeBasic() {
+  function testAnalyseBasic() {
     $this->drupalLogin($this->admin);
     // Enable the frontpage view and click the analyse button.
     $view = views_get_view('frontpage');
     $view->save();
 
-    $this->drupalGet('admin/structure/views/view/frontpage/edit');
-    $this->assertLink(t('analyze view'));
+    $this->drupalGet('admin/structure/views/edit/frontpage');
+    $this->helperButtonHasLabel('edit-submit', t('Analyze'));
 
     // This redirects the user to the form.
-    $this->clickLink(t('analyze view'));
+    $this->drupalPost(NULL, array(), t('Analyze'));
     $this->assertText(t('View analysis'));
 
     // This redirects the user back to the main views edit page.

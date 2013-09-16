@@ -1,19 +1,15 @@
 <?php
+// $Id: views_argument_default.test,v 1.1.2.3 2010/05/24 19:58:36 dereine Exp $
 
 /**
- * @file
- * Definition of ViewsArgumentDefaultTest.
- */
-
-/**
- * Basic test for pluggable argument default.
- */
+* Basic test for pluggable argument default.
+*/
 class ViewsArgumentDefaultTest extends ViewsSqlTest {
   public static function getInfo() {
     return array(
-      'name' => 'Argument_default',
-      'description' => 'Tests pluggable argument_default for views.',
-      'group' => 'Views Plugins'
+      'name' => t('Argument_default'),
+      'description' => t('Tests pluggable argument_default for views.'),
+      'group' => t('Views Plugins')
     );
   }
 
@@ -24,52 +20,25 @@ class ViewsArgumentDefaultTest extends ViewsSqlTest {
   }
 
   /**
-   * Tests the use of a default argument plugin that provides no options.
-   */
-  function testArgumentDefaultNoOptions() {
-    module_enable(array('views_ui', 'views_test'));
-    $admin_user = $this->drupalCreateUser(array('administer views', 'administer site configuration'));
-    $this->drupalLogin($admin_user);
-
-    // The current_user plugin has no options form, and should pass validation.
-    $argument_type = 'current_user';
-    $edit = array(
-      'options[default_argument_type]' => $argument_type,
-    );
-    $this->drupalPost('admin/structure/views/nojs/config-item/test_argument_default_current_user/default/argument/uid', $edit, t('Apply'));
-
-    // Note, the undefined index error has two spaces after it.
-    $error = array(
-      '%type' => 'Notice',
-      '!message' => 'Undefined index:  ' . $argument_type,
-      '%function' => 'views_handler_argument->options_validate()',
-    );
-    $message = t('%type: !message in %function', $error);
-    $this->assertNoRaw($message, t('Did not find error message: !message.', array('!message' => $message)));
-  }
-
-  /**
-   * Tests fixed default argument.
+   * Test fixed default argument.
    */
   function testArgumentDefaultFixed() {
     $view = $this->view_argument_default_fixed();
 
     $view->set_display('default');
-    $view->pre_execute();
-    $view->init_handlers();
-
-    $this->assertEqual($view->argument['null']->get_default_argument(), $this->random, 'Fixed argument should be used by default.');
-
+    $view->execute_display();
     $view->destroy();
 
-    // Make sure that a normal argument provided is used
+    $this->assertEqual($view->args[0], $this->random, t('Fixed argument should be used by default.'));
+
+    // Take sure that a normal argument provided is used
     $view = $this->view_argument_default_fixed();
 
     $view->set_display('default');
     $random_string = $this->randomString();
     $view->execute_display('default', array($random_string));
 
-    $this->assertEqual($view->args[0], $random_string, 'Provided argument should be used.');
+    $this->assertEqual($view->args[0], $random_string, t('Provided argumetn should be used.'));
   }
 
   /**
@@ -97,8 +66,8 @@ class ViewsArgumentDefaultTest extends ViewsSqlTest {
     $view->api_version = 2;
     $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
 
-    /* Display: Master */
-    $handler = $view->new_display('default', 'Master', 'default');
+    /* Display: Defaults */
+    $handler = $view->new_display('default', 'Defaults', 'default');
     $handler->display->display_options['access']['type'] = 'none';
     $handler->display->display_options['cache']['type'] = 'none';
     $handler->display->display_options['exposed_form']['type'] = 'basic';
@@ -108,7 +77,7 @@ class ViewsArgumentDefaultTest extends ViewsSqlTest {
     $handler->display->display_options['pager']['options']['id'] = '0';
     $handler->display->display_options['style_plugin'] = 'default';
     $handler->display->display_options['row_plugin'] = 'fields';
-    /* Field: Content: Title */
+    /* Field: Node: Title */
     $handler->display->display_options['fields']['title']['id'] = 'title';
     $handler->display->display_options['fields']['title']['table'] = 'node';
     $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -135,3 +104,4 @@ class ViewsArgumentDefaultTest extends ViewsSqlTest {
     return $view;
   }
 }
+
