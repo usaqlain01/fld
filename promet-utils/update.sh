@@ -9,7 +9,7 @@ done
 drush="drush $drush_flags"
 
 build_path="../promet-utils"
-drupal_path=$(dirname $0)
+drupal_path=`pwd`
 
 cd ~
 $drush dl registry_rebuild -y
