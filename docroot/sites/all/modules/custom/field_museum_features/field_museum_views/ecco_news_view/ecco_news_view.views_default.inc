@@ -1,4 +1,6 @@
 <?php
+function ecco_news_view_views_default_views() {
+$export = array();
 $view = new view;
 $view->name = 'ecco_news';
 $view->description = 'News Views for ECCo';
@@ -429,3 +431,7 @@ $translatables['ecco_news'] = array(
   t('Andes/Amazon Conservation News'),
   t('Feed: Amazon/Andes News'),
 );
+
+$export[ecco_news] = $view;
+return $export;
+}
