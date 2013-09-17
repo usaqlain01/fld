@@ -1,5 +1,4 @@
 <?php
-// $Id: views_slideshow_cycle.module,v 1.1.2.6 2010/09/29 03:07:49 redndahead Exp $
 
 /**
  * @file
@@ -7,107 +6,26 @@
  */
 
 /**
- * Implements hook_init().
- */
-function views_slideshow_cycle_init() {
-  // If the jQ module is installed, use that to add the jQuery Cycle plugin.
-  // This allows different versions of the plugin to be used.
-  $js = FALSE;
-  if (module_exists('jq')) {
-    $loaded_plugins = jq_plugins();
-    if (!empty($loaded_plugins['cycle'])) {
-      $js = jq_add('cycle');
-    }
-  }
-
-  // Otherwise, we'll add the version included with this module.
-  if (!$js) {
-    drupal_add_js(drupal_get_path('module', 'views_slideshow') . '/js/jquery.cycle.all.min.js', array('group' => JS_LIBRARY));
-  }
-
-  $module_path = drupal_get_path('module', 'views_slideshow_cycle');
-  drupal_add_js($module_path . '/views_slideshow_cycle.js');
-  drupal_add_css($module_path . '/views_slideshow_cycle.css');
-}
-
-/**
  * Implements hook_theme().
  */
 function views_slideshow_cycle_theme($existing, $type, $theme, $path) {
   return array(
     'views_slideshow_cycle' => array(
-      'variables' => array('view' => NULL, 'options' => array(), 'rows' => array(), 'title' => ''),
+      'variables' => array('view' => NULL, 'settings' => array(), 'rows' => array(), 'title' => ''),
       'template' => 'theme/views-slideshow-cycle',
       'file' => 'theme/views_slideshow_cycle.theme.inc',
     ),
-    'views_slideshow_cycle_controls' => array(
-      'variables' => array('vss_id' => '', 'view' => NULL, 'options' => array()),
-      'template' => 'theme/views-slideshow-cycle-controls',
-      'file' => 'theme/views_slideshow_cycle.theme.inc',
-    ),
-    'views_slideshow_cycle_control_previous' => array(
-      'variables' => array('vss_id' => '', 'view' => NULL, 'options' => array()),
-      'template' => 'theme/views-slideshow-cycle-control-previous',
-      'file' => 'theme/views_slideshow_cycle.theme.inc',
-    ),
-    'views_slideshow_cycle_control_pause' => array(
-      'variables' => array('vss_id' => '', 'view' => NULL, 'options' => array()),
-      'template' => 'theme/views-slideshow-cycle-control-pause',
-      'file' => 'theme/views_slideshow_cycle.theme.inc',
-    ),
-    'views_slideshow_cycle_control_next' => array(
-      'variables' => array('vss_id' => '', 'view' => NULL, 'options' => array()),
-      'template' => 'theme/views-slideshow-cycle-control-next',
-      'file' => 'theme/views_slideshow_cycle.theme.inc',
-    ),
-    'views_slideshow_cycle_pager' => array(
-      'variables' => array('vss_id' => '', 'view' => NULL, 'options' => array()),
-      'file' => 'theme/views_slideshow_cycle.theme.inc',
-    ),
-    'views_slideshow_cycle_pager_numbered' => array(
-      'variables' => array('view' => NULL, 'attributes_array' => NULL, 'options' => array()),
-      'template' => 'theme/views-slideshow-cycle-pager-numbered',
-      'file' => 'theme/views_slideshow_cycle.theme.inc',
-    ),
-    'views_slideshow_cycle_pager_thumbnails' => array(
-      'variables' => array('view' => NULL, 'attributes_array' => NULL, 'options' => array()),
-      'template' => 'theme/views-slideshow-cycle-pager-thumbnails',
-      'file' => 'theme/views_slideshow_cycle.theme.inc',
-    ),
-    'views_slideshow_cycle_pager_field' => array(
-      'variables' => array('view' => NULL, 'attributes_array' => NULL, 'options' => array()),
-      'template' => 'theme/views-slideshow-cycle-pager-field',
-      'file' => 'theme/views_slideshow_cycle.theme.inc',
-    ),
-    'views_slideshow_cycle_pager_field_field' => array(
-      'variables' => array('view' => NULL, 'field' => NULL, 'count' => NULL),
-      'template' => 'theme/views-slideshow-cycle-pager-field-field',
-      'file' => 'theme/views_slideshow_cycle.theme.inc',
-    ),
-    'views_slideshow_cycle_pager_field_item' => array(
-      'variables' => array('item' => NULL, 'vss_id' => NULL, 'count' => NULL),
-      'template' => 'theme/views-slideshow-cycle-pager-field-item',
-      'file' => 'theme/views_slideshow_cycle.theme.inc',
-    ),
-    'views_slideshow_cycle_slide_counter' => array(
-      'variables' => array('vss_id' => '', 'view' => NULL, 'options' => array()),
-      'template' => 'theme/views-slideshow-cycle-slide-counter',
-      'file' => 'theme/views_slideshow_cycle.theme.inc',
-    ),
     'views_slideshow_cycle_main_frame' => array(
-      'variables' => array('view' => NULL, 'rows' => NULL, 'vss_id' => NULL, 'mode' => NULL),
+      'variables' => array('vss_id' => NULL, 'view' => NULL, 'settings' => NULL, 'rows' => NULL),
       'template' => 'theme/views-slideshow-cycle-main-frame',
-      'file' => 'theme/views_slideshow_cycle.theme.inc',
     ),
     'views_slideshow_cycle_main_frame_row' => array(
-      'variables' => array('items' => NULL, 'vss_id' => NULL, 'count' => NULL),
+      'variables' => array('vss_id' => NULL, 'items' => NULL, 'count' => NULL, 'view' => NULL),
       'template' => 'theme/views-slideshow-cycle-main-frame-row',
-      'file' => 'theme/views_slideshow_cycle.theme.inc',
     ),
     'views_slideshow_cycle_main_frame_row_item' => array(
-      'variables' => array('item' => NULL, 'item_count' => NULL),
+      'variables' => array('item' => NULL, 'item_count' => NULL, 'view' => NULL),
       'template' => 'theme/views-slideshow-cycle-main-frame-row-item',
-      'file' => 'theme/views_slideshow_cycle.theme.inc',
     ),
   );
 }
@@ -119,7 +37,7 @@ function views_slideshow_cycle_help($path, $arg) {
   switch ($path) {
     case 'admin/help#views_slideshow_cycle':
       if (module_exists('advanced_help')) {
-        $output = '<p>' . l(t('Click here to view the documentation for Views Slideshow Cycle.'),  'admin/advanced_help/views_slideshow_cycle') . '</p>';
+        $output = '<p>' . l('Click here to view the documentation for Views Slideshow Cycle.',  'admin/advanced_help/views_slideshow_cycle') . '</p>';
       }
       else {
         $output = '<p>' . t('Views Slideshow Cycle help can be found by installing and enabling the !advanced_help',  array('!advanced_help' => l('Advanced Help module', 'http://drupal.org/project/advanced_help'))) . '</p>';
@@ -129,12 +47,53 @@ function views_slideshow_cycle_help($path, $arg) {
 }
 
 /**
- * Implements hook_views_cycle_skins().
+ * Gets the path to the jQuery cycle library.
+ *
+ * @return
+ *   The path to the cycle library js file, or FALSE if not found.
  */
-function views_slideshow_cycle_views_slideshow_cycle_skins() {
-  $skins['default'] = array(
-    'title' => t('Default'),
-  );
+function _views_slideshow_cycle_library_path() {
+  $cycle_path = libraries_get_path('jquery.cycle');
 
-  return $skins;
+  if (!empty($cycle_path)) {
+    // Attempt to use minified version of jQuery cycle plugin.
+    if (file_exists($cycle_path . '/jquery.cycle.all.min.js')) {
+      $cycle_path .= '/jquery.cycle.all.min.js';
+    }
+    // Otherwise use non-minified version if available.
+    elseif (file_exists($cycle_path . '/jquery.cycle.all.js')) {
+      $cycle_path .= '/jquery.cycle.all.js';
+    }
+    else {
+      $cycle_path = FALSE;
+    }
+  }
+  else {
+    $cycle_path = FALSE;
+  }
+
+  return $cycle_path;
+}
+
+/**
+ * Need to have preprocess functions here because drupal doesn't cache them 
+ * correctly in the theme.inc file.
+ * 
+ * If you would like to override the preprocess functions make sure to look at
+ * the associated function in theme.inc.
+ */
+
+// Trying to make sure the theme.inc get's loaded.
+include_once('theme/views_slideshow_cycle.theme.inc');
+
+function template_preprocess_views_slideshow_cycle_main_frame(&$vars) {
+  _views_slideshow_cycle_preprocess_views_slideshow_cycle_main_frame($vars);
+}
+
+function template_preprocess_views_slideshow_cycle_main_frame_row(&$vars) {
+  _views_slideshow_cycle_preprocess_views_slideshow_cycle_main_frame_row($vars);
+}
+
+function template_preprocess_views_slideshow_cycle_main_frame_row_item(&$vars) {
+  _views_slideshow_cycle_preprocess_views_slideshow_cycle_main_frame_row_item($vars);
 }
