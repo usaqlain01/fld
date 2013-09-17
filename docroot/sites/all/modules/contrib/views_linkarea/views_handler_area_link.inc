@@ -1,5 +1,4 @@
 <?php
-// $Id: views_handler_area_link.inc,v 1.1.2.2.2.1 2010/11/18 20:17:19 crell Exp $
 
 class views_handler_area_link extends views_handler_area {
 
@@ -83,6 +82,18 @@ class views_handler_area_link extends views_handler_area {
     if (!$empty || !empty($this->options['empty'])) {
 
       $tokens = $this->get_render_tokens();
+
+      // Replace any tokens in the path.
+      $path = strtr($this->options['path'], $tokens);
+
+      // Check that the user has access to the menu router item, but only if the
+      // path is for a valid menu router item, so that external URLs or paths not
+      // handled by Drupal's menu router are always permitted.
+      $router_item = menu_get_item($path);
+      if ($router_item && !$router_item['access']) {
+        return '';
+      }
+
       $link_options = array();
       if (!empty($this->options['querystring'])) {
         // This is an ugly way to do it, but Drupal 7 now takes an array for
@@ -99,7 +110,7 @@ class views_handler_area_link extends views_handler_area {
         $link_options['attributes'] = array('class' => explode(' ', strtr($this->options['class'], $tokens)));
       }
 
-      return l(strtr($this->options['text'], $tokens), strtr($this->options['path'], $tokens), $link_options);
+      return l(strtr($this->options['text'], $tokens), $path, $link_options);
     }
     return '';
   }
