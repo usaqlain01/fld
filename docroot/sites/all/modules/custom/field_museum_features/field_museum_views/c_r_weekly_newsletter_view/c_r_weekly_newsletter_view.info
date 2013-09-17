@@ -5,5 +5,5 @@ dependencies[] = ctools
 dependencies[] = custom
 dependencies[] = views
 features[ctools][] = views:views_default:3.0
-features[views_view][] = c_r_weekly_newsletter
 features[features_api][] = api:2
+features[views_view][] = c_r_weekly_newsletter
