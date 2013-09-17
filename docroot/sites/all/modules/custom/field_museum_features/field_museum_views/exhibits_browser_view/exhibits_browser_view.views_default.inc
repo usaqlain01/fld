@@ -1,4 +1,6 @@
 <?php
+function exhibits_browser_view_views_default_views() {
+$export = array();
 $view = new view;
 $view->name = 'exhibits_browser';
 $view->description = 'Based on Single Column List View';
@@ -1207,3 +1209,7 @@ $translatables['exhibits_browser'] = array(
   t('Current Exhibitions'),
   t('From Gold to the Ancient Americas, there are so many reasons to visit the Field Museum. Learn more below:'),
 );
+
+$export[exhibits_browser] = $view;
+return $export;
+}

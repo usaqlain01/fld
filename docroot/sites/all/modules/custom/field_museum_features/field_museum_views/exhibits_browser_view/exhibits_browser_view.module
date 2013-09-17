@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the exhibits_browser_view feature.
+ */
+
+include_once 'exhibits_browser_view.features.inc';
