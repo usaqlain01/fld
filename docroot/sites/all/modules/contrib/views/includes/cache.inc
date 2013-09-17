@@ -1,61 +1,114 @@
 <?php
-// $Id: cache.inc,v 1.25.4.8 2010/10/26 19:06:26 dereine Exp $
-/**
- * @file cache.inc
- *
- * Functions to load Views' data so that it knows what is available to
- * build queries from.
- */
 
 /**
- * Load views files on behalf of modules.
+ * @file
+ * Load Views' data so that it knows what is available to build queries from.
  */
-function _views_include_handlers() {
-  views_module_include('views.inc');
-}
-
-/**
- * Load default views files on behalf of modules.
- */
-function _views_include_default_views() {
-  views_module_include('views_default.inc');
-}
 
 /**
  * Fetch Views' data from the cache
+ *
+ * @param $move
+ *   Under certain circumstances it makes sense to not get the moved table, but the old one.
+ *   One example is views_get_handler.
  */
-function _views_fetch_data($table = NULL, $reset = FALSE) {
-  static $cache = NULL;
-  if (!isset($cache) || $reset) {
-    $start = microtime(TRUE);
-    // NOTE: This happens whether we retrieve them from cache or otherwise.
-
-    $data = views_cache_get('views_data', TRUE);
-    if (!empty($data->data)) {
-      $cache = $data->data;
+function _views_fetch_data($table = NULL, $move = TRUE, $reset = FALSE) {
+  $cache = &drupal_static(__FUNCTION__ . '_cache');
+  $recursion_protection = &drupal_static(__FUNCTION__ . '_recursion_protected');
+  $fully_loaded = &drupal_static(__FUNCTION__ . '_fully_loaded');
+  if ($reset) {
+    $cache = NULL;
+    $fully_loaded = FALSE;
+  }
+  if ($table) {
+    if (!isset($cache[$table])) {
+      $cid = 'views_data:' . $table;
+      $data = views_cache_get($cid, TRUE);
+      if (!empty($data->data)) {
+        $cache[$table] = $data->data;
+      }
+      else {
+        if (!$fully_loaded) {
+          // No cache entry, rebuild.
+          $cache = _views_fetch_data_build();
+          $fully_loaded = TRUE;
+        }
+      }
     }
-
-    if (empty($cache)) {
-      views_include_handlers();
-      $cache = module_invoke_all('views_data');
-      foreach (module_implements('views_data_alter') as $module) {
-        $function = $module . '_views_data_alter';
-        $function($cache);
+    if (isset($cache[$table])) {
+      if (isset($cache[$table]['moved to']) && $move) {
+        $moved_table = $cache[$table]['moved to'];
+        if (!empty($recursion_protection[$table])) {
+          // recursion detected!
+          return NULL;
+        }
+        $recursion_protection[$table] = TRUE;
+        $data = _views_fetch_data($moved_table);
+        $recursion_protection = array();
+        return $data;
+      }
+      return $cache[$table];
+    }
+  }
+  else {
+    if (!$fully_loaded) {
+      $data = views_cache_get('views_data', TRUE);
+      if (!empty($data->data)) {
+        $cache = $data->data;
       }
 
-      views_cache_set('views_data', $cache, TRUE);
+      if (empty($cache)) {
+        $cache = _views_fetch_data_build();
+      }
+      $fully_loaded = TRUE;
     }
-  }
-
-  if (!$table) {
     return $cache;
   }
-  if (isset($cache[$table])) {
-    return $cache[$table];
-  }
-
   // Return an empty array if there is no match.
   return array();
+}
+
+/**
+ * Build and set the views data cache if empty.
+ */
+function _views_fetch_data_build() {
+  views_include_handlers();
+  $cache = module_invoke_all('views_data');
+  foreach (module_implements('views_data_alter') as $module) {
+    $function = $module . '_views_data_alter';
+    $function($cache);
+  }
+  _views_data_process_entity_types($cache);
+
+  // Keep a record with all data.
+  views_cache_set('views_data', $cache, TRUE);
+  // Save data in seperate cache entries.
+  foreach ($cache as $key => $data) {
+    $cid = 'views_data:' . $key;
+    views_cache_set($cid, $data, TRUE);
+  }
+  return $cache;
+}
+
+/**
+ * Links tables having an 'entity type' specified to the respective generic entity-type tables.
+ */
+function _views_data_process_entity_types(&$data) {
+  foreach ($data as $table_name => $table_info) {
+    // Add in a join from the entity-table if an entity-type is given.
+    if (!empty($table_info['table']['entity type'])) {
+      $entity_table = 'views_entity_' . $table_info['table']['entity type'];
+
+      $data[$entity_table]['table']['join'][$table_name] = array(
+        'left_table' => $table_name,
+      );
+      $data[$entity_table]['table']['entity type'] = $table_info['table']['entity type'];
+      // Copy over the default table group if we have none yet.
+      if (!empty($table_info['table']['group']) && empty($data[$entity_table]['table']['group'])) {
+        $data[$entity_table]['table']['group'] = $table_info['table']['group'];
+      }
+    }
+  }
 }
 
 /**
@@ -90,68 +143,6 @@ function _views_fetch_plugin_data($type = NULL, $plugin = NULL, $reset = FALSE) 
 }
 
 /**
- * Scan all modules for default views and rebuild the default views cache.
- *
- * @return An associative array of all known default views.
- */
-function _views_discover_default_views($reset = FALSE) {
-  static $cache = NULL;
-
-  if (!isset($cache) || $reset) {
-    $index = views_cache_get('views_default_views_index', TRUE);
-
-    // Retrieve each cached default view
-    if (!$reset && isset($index->data) && is_array($index->data)) {
-      $cache = array();
-      foreach ($index->data as $view_name) {
-        $data = views_cache_get('views_default:' . $view_name, TRUE);
-        if (isset($data->data) && is_object($data->data)) {
-          $cache[$view_name] = $data->data;
-        }
-      }
-    }
-    // If missing index, rebuild the cache
-    else {
-      views_include_default_views();
-      $cache = array();
-
-      foreach (module_implements('views_default_views') as $module) {
-        $results = call_user_func($module . "_views_default_views");
-        if (!empty($results) && is_array($results)) {
-          foreach($results as $name => $view) {
-            // Only views with a sufficiently high api version are eligible.
-            if (!empty($view->api_version) && $view->api_version >= 2) {
-              // Do not cache dead handlers.
-              $view->destroy();
-              if (!isset($cache[$name])) {
-                $cache[$name] = $view;
-              }
-              else {
-                watchdog('view', "View name '@name' is already taken", array('@name' => $name), WATCHDOG_ERROR);
-              }
-            }
-          }
-        }
-      }
-
-      // Allow modules to modify default views before they are cached.
-      drupal_alter('views_default_views', $cache);
-
-      // Cache the index
-      $index = array_keys($cache);
-      views_cache_set('views_default_views_index', $index, TRUE);
-
-      // Cache each view
-      foreach ($cache as $name => $view) {
-        views_cache_set('views_default:' . $name, $view, TRUE);
-      }
-    }
-  }
-
-  return $cache;
-}
-
-/**
  * Set a cached item in the views cache.
  *
  * This is just a convenience wrapper around cache_set().
@@ -182,16 +173,19 @@ function views_cache_set($cid, $data, $use_language = FALSE) {
  *
  * This is just a convenience wrapper around cache_get().
  *
- * @param $cid
+ * @param int $cid
  *   The cache ID of the data to retrieve.
- * @param $use_language
+ * @param bool $use_language
  *   If TRUE, the data will be requested specific to the currently active language.
+ *
+ * @return stdClass|bool
+ *   The cache or FALSE on failure.
  */
 function views_cache_get($cid, $use_language = FALSE) {
   global $language;
 
   if (variable_get('views_skip_cache', FALSE)) {
-    return 0;
+    return FALSE;
   }
   if ($use_language) {
     $cid .= ':' . $language->language;

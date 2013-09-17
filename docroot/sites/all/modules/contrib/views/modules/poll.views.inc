@@ -1,19 +1,14 @@
 <?php
-// $Id: poll.views.inc,v 1.4.6.1 2009/11/02 22:01:26 merlinofchaos Exp $
+
 /**
  * @file
- * Provide views data and handlers for poll.module
- */
-
-/**
- * @defgroup views_poll_module poll.module handlers
+ * Provide views data and handlers for poll.module.
  *
- * Includes only the core 'poll' table for now.
- * @{
+ * @ingroup views_module_handlers
  */
 
 /**
- * Implements hook_views_data()
+ * Implements hook_views_data().
  */
 function poll_views_data() {
   // Basic table information.
@@ -50,7 +45,3 @@ function poll_views_data() {
 
   return $data;
 }
-
-/**
- * @}
- */

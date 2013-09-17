@@ -1,8 +1,14 @@
 <?php
-// $Id: views_handler_argument_aggregator_fid.inc,v 1.1.6.2 2010/10/23 06:30:12 dereine Exp $
+
+/**
+ * @file
+ * Definition of views_handler_argument_aggregator_fid.
+ */
 
 /**
  * Argument handler to accept an aggregator feed id.
+ *
+ * @ingroup views_argument_handlers
  */
 class views_handler_argument_aggregator_fid extends views_handler_argument_numeric {
   /**
