@@ -1,4 +1,6 @@
 <?php
+function c_r_weekly_newsletter_view_views_default_views() {
+$export = array();
 $view = new view;
 $view->name = 'c_r_weekly_newsletter';
 $view->description = '';
@@ -213,3 +215,6 @@ $translatables['c_r_weekly_newsletter'] = array(
   t('node/[nid]'),
   t('Feed'),
 );
+$export['c_r_weekly_newsletter_view'] = $view;
+return $export;
+}
