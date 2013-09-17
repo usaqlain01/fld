@@ -1,20 +1,10 @@
 <?php
-
-/**
- * @file
- * Definition of views_plugin_pager.
- */
-
-/**
- * @defgroup views_pager_plugins Views pager plugins
- * @{
- * @todo.
- *
- * @see hook_views_plugins()
- */
+// $Id: views_plugin_pager.inc,v 1.1.4.7 2010/04/29 18:39:26 merlinofchaos Exp $
 
 /**
  * The base plugin to handle pager.
+ *
+ * @ingroup views_pager_plugins
  */
 class views_plugin_pager extends views_plugin {
   var $current_page = NULL;
@@ -88,9 +78,6 @@ class views_plugin_pager extends views_plugin {
    *   the page number will be set from the global page array.
    */
   function set_current_page($number = NULL) {
-    if (!is_numeric($number) || $number < 0) {
-      $number = 0;
-    }
     $this->current_page = $number;
   }
 
@@ -186,11 +173,6 @@ class views_plugin_pager extends views_plugin {
   function post_execute(&$result) { }
 
   /**
-   * Perform any needed actions just before rendering.
-   */
-  function pre_render(&$result) { }
-
-  /**
    * Render the pager.
    *
    * Called during the view render process, this will render the
@@ -230,7 +212,3 @@ class views_plugin_pager extends views_plugin {
     return FALSE;
   }
 }
-
-/**
- * @}
- */

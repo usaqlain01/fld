@@ -1,15 +1,12 @@
 <?php
-
+// $Id: views_plugin_argument_default_taxonomy_tid.inc,v 1.1.2.9 2010/12/03 20:17:14 dereine Exp $
 /**
  * @file
- * Definition of views_plugin_argument_default_taxonomy_tid.
+ *   Taxonomy tid default argument.
  */
 
-/**
- * Taxonomy tid default argument.
- */
 class views_plugin_argument_default_taxonomy_tid extends views_plugin_argument_default {
-  function init(&$view, &$argument, $options) {
+  function init(&$view, &$argument, &$options) {
     parent::init($view, $argument, $options);
 
     // Convert legacy vids option to machine name vocabularies.
@@ -26,10 +23,9 @@ class views_plugin_argument_default_taxonomy_tid extends views_plugin_argument_d
   function option_definition() {
     $options = parent::option_definition();
 
-    $options['term_page'] = array('default' => TRUE, 'bool' => TRUE);
-    $options['node'] = array('default' => FALSE, 'bool' => TRUE);
-    $options['anyall'] = array('default' => ',');
-    $options['limit'] = array('default' => FALSE, 'bool' => TRUE);
+    $options['term_page'] = array('default' => TRUE);
+    $options['node'] = array('default' => FALSE);
+    $options['limit'] = array('default' => FALSE);
     $options['vocabularies'] = array('default' => array());
 
     return $options;
@@ -38,12 +34,12 @@ class views_plugin_argument_default_taxonomy_tid extends views_plugin_argument_d
   function options_form(&$form, &$form_state) {
     $form['term_page'] = array(
       '#type' => 'checkbox',
-      '#title' => t('Load default filter from term page'),
+      '#title' => t('Load default argument from term page'),
       '#default_value' => $this->options['term_page'],
     );
     $form['node'] = array(
       '#type' => 'checkbox',
-      '#title' => t('Load default filter from node page, that\'s good for related taxonomy blocks'),
+      '#title' => t('Load default argument from node page, thats good for related taxonomy blocks.'),
       '#default_value' => $this->options['node'],
     );
 
@@ -76,24 +72,10 @@ class views_plugin_argument_default_taxonomy_tid extends views_plugin_argument_d
         'edit-options-argument-default-taxonomy-tid-node' => array(1),
       ),
     );
-
-    $form['anyall'] = array(
-      '#type' => 'radios',
-      '#title' => t('Multiple-value handling'),
-      '#default_value'=> $this->options['anyall'],
-      '#process' => array('form_process_radios', 'ctools_dependent_process'),
-      '#options' => array(
-        ',' => t('Filter to items that share all terms'),
-        '+' => t('Filter to items that share any term'),
-      ),
-      '#dependency' => array(
-        'edit-options-argument-default-taxonomy-tid-node' => array(1),
-      ),
-    );
   }
 
-  function options_submit(&$form, &$form_state, &$options = array()) {
-    // Filter unselected items so we don't unnecessarily store giant arrays.
+  function options_submit(&$form, &$form_state, &$options) {
+    // Clear checkbox values.
     $options['vocabularies'] = array_filter($options['vocabularies']);
   }
 
@@ -135,20 +117,14 @@ class views_plugin_argument_default_taxonomy_tid extends views_plugin_argument_d
               $tids[] = $tid;
             }
           }
-          return implode($this->options['anyall'], $tids);
+          return implode(",", $tids);
         }
         // Return all tids.
         else {
-          return implode($this->options['anyall'], array_keys($taxonomy));
+          return implode(",", array_keys($taxonomy));
         }
       }
     }
-
-    // If the current page is a view that takes tid as an argument,
-    // find the tid argument and return it.
-    $views_page = views_get_page_view();
-    if ($views_page && isset($views_page->argument['tid'])) {
-      return $views_page->argument['tid']->argument;
-    }
   }
 }
+

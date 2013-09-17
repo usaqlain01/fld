@@ -1,14 +1,8 @@
 <?php
-
-/**
- * @file
- * Definition of views_handler_filter_locale_group.
- */
+// $Id: views_handler_filter_locale_group.inc,v 1.1 2009/02/20 23:02:09 merlinofchaos Exp $
 
 /**
  * Filter by locale group.
- *
- * @ingroup views_filter_handlers
  */
 class views_handler_filter_locale_group extends views_handler_filter_in_operator {
   function get_value_options() {
@@ -21,3 +15,4 @@ class views_handler_filter_locale_group extends views_handler_filter_in_operator
     }
   }
 }
+

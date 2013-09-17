@@ -1,25 +1,16 @@
 <?php
-
+// $Id: views_handler_field_user_language.inc,v 1.1.6.1 2009/11/02 22:01:27 merlinofchaos Exp $
 /**
  * @file
- * Definition of views_handler_field_user_language.
+ *   Views field handler for userlanguage.
  */
 
-/**
- * Views field handler for user language.
- *
- * @ingroup views_field_handlers
- */
 class views_handler_field_user_language extends views_handler_field_user {
 
   function render_link($data, $values) {
-    $uid = $this->get_value($values, 'uid');
-    if (!empty($this->options['link_to_user'])) {
-      $uid = $this->get_value($values, 'uid');
-      if (user_access('access user profiles') && $uid) {
-        $this->options['alter']['make_link'] = TRUE;
-        $this->options['alter']['path'] = 'user/' . $uid;
-      }
+    if (!empty($this->options['link_to_user']) && user_access('access user profiles') && $values->{$this->aliases['uid']}) {
+      $this->options['alter']['make_link'] = TRUE;
+      $this->options['alter']['path'] = 'user/' . $values->{$this->aliases['uid']};
     }
     if (empty($data)) {
       $lang = language_default();
@@ -29,11 +20,10 @@ class views_handler_field_user_language extends views_handler_field_user {
       $lang = $lang[$data];
     }
 
-    return $this->sanitize_value($lang->name);
+    return check_plain($lang->name);
   }
 
   function render($values) {
-    $value = $this->get_value($values);
-    return $this->render_link($this->sanitize_value($value), $values);
+    return $this->render_link(check_plain($values->{$this->field_alias}), $values);
   }
 }

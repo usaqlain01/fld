@@ -1,0 +1,16 @@
+Index: handlers/views_handler_filter.inc
+===================================================================
+RCS file: /cvs/drupal-contrib/contributions/modules/views/handlers/views_handler_filter.inc,v
+retrieving revision 1.10.4.9
+diff -u -p -r1.10.4.9 views_handler_filter.inc
+--- handlers/views_handler_filter.inc	26 Aug 2010 09:41:55 -0000	1.10.4.9
++++ handlers/views_handler_filter.inc	14 Oct 2010 19:04:07 -0000
+@@ -52,7 +52,7 @@ class views_handler_filter extends views
+       'contains' => array(
+         'operator' => array('default' => FALSE),
+         'label' => array('default' => '', 'translatable' => TRUE),
+-        'use_operator' => array('default' => 0),
++        'use_operator' => array('default' => FALSE),
+         'operator' => array('default' => ''),
+         'identifier' => array('default' => ''),
+         'optional' => array('default' => 1),

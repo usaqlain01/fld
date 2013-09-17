@@ -1,20 +1,10 @@
 <?php
-
-/**
- * @file
- * Definition of views_plugin_cache.
- */
-
-/**
- * @defgroup views_cache_plugins Views cache plugins
- * @{
- * @todo.
- *
- * @see hook_views_plugins()
- */
+// $Id: views_plugin_cache.inc,v 1.5.4.5 2010/10/12 23:23:52 merlinofchaos Exp $
 
 /**
  * The base plugin to handle caching.
+ *
+ * @ingroup views_cache_plugins
  */
 class views_plugin_cache extends views_plugin {
   /**
@@ -63,7 +53,7 @@ class views_plugin_cache extends views_plugin {
    *   The cache type, either 'query', 'result' or 'output'.
    */
    function cache_expire($type) { }
-
+   
    /**
     * Determine expiration time in the cache table of the cache type
     * or CACHE_PERMANENT if item shouldn't be removed automatically from cache.
@@ -123,7 +113,7 @@ class views_plugin_cache extends views_plugin {
           if (!$cutoff || $cache->created > $cutoff) {
             $this->view->result = $cache->data['result'];
             $this->view->total_rows = $cache->data['total_rows'];
-            $this->view->set_current_page($cache->data['current_page']);
+            $this->view->set_current_page = $cache->data['current_page'];
             $this->view->execute_time = 0;
             return TRUE;
           }
@@ -183,9 +173,13 @@ class views_plugin_cache extends views_plugin {
    */
   function cache_start() {
     $this->storage['head'] = drupal_add_html_head();
-    $this->storage['css'] = drupal_add_css();
-    $this->storage['js'] = drupal_add_js();
-    $this->storage['headers'] = drupal_get_http_header();
+    $this->storage['css'] = drupal_add_css();  
+    $js = drupal_add_js();
+    foreach ($js as $key => $data) {
+      if ($data['scope'] == 'header' || $data['scope'] == 'footer') {
+        $this->storage['js'][$data['scope']][$key] = $data;
+      }
+    }
   }
 
   /**
@@ -202,23 +196,31 @@ class views_plugin_cache extends views_plugin {
 
     // Slightly less simple for CSS:
     $css = drupal_add_css();
-    $css_start = isset($this->storage['css']) ? $this->storage['css'] : array();
-    $this->storage['css'] = array_diff_assoc($css, $css_start);
+    $start = isset($this->storage['css']) ? $this->storage['css'] : array();
+    $this->storage['css'] = array();
 
-    // Get javascript after/before views renders.
-    $js = drupal_add_js();
-    $js_start = isset($this->storage['js']) ? $this->storage['js'] : array();
-    // If there are any differences between the old and the new javascript then
-    // store them to be added later.
-    $this->storage['js'] = array_diff_assoc($js, $js_start);
+    foreach ($css as $file => $data) {
+      if (!isset($this->storage['css'][$file])) {
+        $this->storage['css'][$file] = $data;
+      }
+    }
 
-    // Special case the settings key and get the difference of the data.
-    $settings = isset($js['settings']['data']) ? $js['settings']['data'] : array();
-    $settings_start = isset($js_start['settings']['data']) ? $js_start['settings']['data'] : array();
-    $this->storage['js']['settings'] = array_diff_assoc($settings, $settings_start);
+    $js = array();
+    // A little less simple for js
+    foreach (array('header', 'footer') as $scope) {
+      $js[$scope] = drupal_add_js(NULL, NULL, $scope);
+    }
 
-    // Get difference of HTTP headers.
-    $this->storage['headers'] = array_diff_assoc(drupal_get_http_header(), $this->storage['headers']);
+    $start = isset($this->storage['js']) ? $this->storage['js'] : array();
+    $this->storage['js'] = array();
+
+return; // @TODO: fixme
+
+    foreach ($js as $key => $data) {
+      if (!isset($start[$key][$data['scope']][$key]) && ($data['scope'] == 'header' || $data['scope'] == 'footer')) {
+        $this->storage['js'][$data['scope']][$key] = $data;
+      }
+    }
   }
 
   /**
@@ -230,24 +232,12 @@ class views_plugin_cache extends views_plugin {
     }
     if (!empty($this->storage['css'])) {
       foreach ($this->storage['css'] as $args) {
-        drupal_add_css($args['data'], $args);
+        call_user_func_array('drupal_add_css', $args);
       }
     }
     if (!empty($this->storage['js'])) {
-      foreach ($this->storage['js'] as $key => $args) {
-        if ($key !== 'settings') {
-          drupal_add_js($args['data'], $args);
-        }
-        else {
-          foreach ($args as $setting) {
-            drupal_add_js($setting, 'setting');
-          }
-        }
-      }
-    }
-    if (!empty($this->storage['headers'])) {
-      foreach ($this->storage['headers'] as $name => $value) {
-        drupal_add_http_header($name, $value);
+      foreach ($this->storage['js'] as $args) {
+        drupal_add_js($data);
       }
     }
   }
@@ -256,28 +246,21 @@ class views_plugin_cache extends views_plugin {
     global $user;
 
     if (!isset($this->_results_key)) {
-
+      
       $build_info = $this->view->build_info;
-
-      $query_plugin = $this->view->display_handler->get_plugin('query');
-
-      foreach (array('query','count_query') as $index) {
-        // If the default query back-end is used generate SQL query strings from
-        // the query objects.
-        if ($build_info[$index] instanceof SelectQueryInterface) {
-          $query = clone $build_info[$index];
-          $query->preExecute();
-          $build_info[$index] = (string) $query;
-        }
+      
+      foreach (array('query', 'count_query') as $index) {
+        $query = clone $build_info[$index];
+        $query->preExecute();
+        $build_info[$index] = (string)$query;
       }
       $key_data = array(
         'build_info' => $build_info,
         'roles' => array_keys($user->roles),
         'super-user' => $user->uid == 1, // special caching for super user.
-        'language' => $GLOBALS['language']->language,
-        'base_url' => $GLOBALS['base_url'],
+        'language' => $GLOBALS['language'],
       );
-      foreach (array('exposed_info', 'page', 'sort', 'order', 'items_per_page', 'offset') as $key) {
+      foreach (array('exposed_info', 'page', 'sort', 'order') as $key) {
         if (isset($_GET[$key])) {
           $key_data[$key] = $_GET[$key];
         }
@@ -297,8 +280,7 @@ class views_plugin_cache extends views_plugin {
         'roles' => array_keys($user->roles),
         'super-user' => $user->uid == 1, // special caching for super user.
         'theme' => $GLOBALS['theme'],
-        'language' => $GLOBALS['language']->language,
-        'base_url' => $GLOBALS['base_url'],
+        'language' => $GLOBALS['language'],
       );
 
       $this->_output_key = $this->view->name . ':' . $this->display->id . ':output:' . md5(serialize($key_data));
@@ -306,8 +288,5 @@ class views_plugin_cache extends views_plugin {
 
     return $this->_output_key;
   }
-}
 
-/**
- * @}
- */
+}

@@ -1,20 +1,10 @@
 <?php
-
-/**
- * @file
- * Definition of views_plugin_access.
- */
-
-/**
- * @defgroup views_access_plugins Views access plugins
- * @{
- * @todo.
- *
- * @see hook_views_plugins()
- */
+// $Id: views_plugin_access.inc,v 1.1.6.1 2009/11/13 23:19:22 dereine Exp $
 
 /**
  * The base plugin to handle access control.
+ *
+ * @ingroup views_access_plugins
  */
 class views_plugin_access extends views_plugin {
   /**
@@ -90,7 +80,3 @@ class views_plugin_access extends views_plugin {
     return TRUE;
   }
 }
-
-/**
- * @}
- */

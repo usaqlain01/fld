@@ -1,14 +1,13 @@
 <?php
+// $Id: ajax.inc,v 1.20.4.17 2011/01/03 22:56:39 merlinofchaos Exp $
 
 /**
- * @file
+ * @file ajax.inc
+ *
  * Handles the server side AJAX interactions of Views.
- */
-
-/**
- * @defgroup ajax Views AJAX library
+ *
+ * @defgroup ajax Views ajax library
  * @{
- * Handles the server side AJAX interactions of Views.
  */
 
 /**
@@ -19,24 +18,13 @@ function views_ajax() {
     $name = $_REQUEST['view_name'];
     $display_id = $_REQUEST['view_display_id'];
     $args = isset($_REQUEST['view_args']) && $_REQUEST['view_args'] !== '' ? explode('/', $_REQUEST['view_args']) : array();
-    $path = isset($_REQUEST['view_path']) ? rawurldecode($_REQUEST['view_path']) : NULL;
-    $dom_id = isset($_REQUEST['view_dom_id']) ? preg_replace('/[^a-zA-Z0-9_-]+/', '-', $_REQUEST['view_dom_id']) : NULL;
+    $path = isset($_REQUEST['view_path']) ? $_REQUEST['view_path'] : NULL;
+    $dom_id = isset($_REQUEST['view_dom_id']) ? intval($_REQUEST['view_dom_id']) : NULL;
     $pager_element = isset($_REQUEST['pager_element']) ? intval($_REQUEST['pager_element']) : NULL;
 
     $commands = array();
 
-    // Remove all of this stuff from $_GET so it doesn't end up in pagers and tablesort URLs.
-    foreach (array('view_name', 'view_display_id', 'view_args', 'view_path', 'view_dom_id', 'pager_element', 'view_base_path', 'ajax_html_ids', 'ajax_page_state') as $key) {
-      if (isset($_GET[$key])) {
-        unset($_GET[$key]);
-      }
-      if (isset($_REQUEST[$key])) {
-        unset($_REQUEST[$key]);
-      }
-      if (isset($_POST[$key])) {
-        unset($_POST[$key]);
-      }
-    }
+    $arg = explode('/', $_REQUEST['view_path']);
 
     // Load the view.
     $view = views_get_view($name);
@@ -48,29 +36,25 @@ function views_ajax() {
 
       // Add all $_POST data, because AJAX is always a post and many things,
       // such as tablesorts, exposed filters and paging assume $_GET.
-      $_GET = $_POST + $_GET;
-
-      // Overwrite the destination.
-      // @see drupal_get_destination()
-      $origin_destination = $path;
-      $query = drupal_http_build_query($_REQUEST);
-      if ($query != '') {
-        $origin_destination .= '?' . $query;
-      }
-      $destination = &drupal_static('drupal_get_destination');
-      $destination = array('destination' => $origin_destination);
+      $_GET += $_POST;
 
       // Override the display's pager_element with the one actually used.
       if (isset($pager_element)) {
-        $commands[] = views_ajax_command_scroll_top('.view-dom-id-' . $dom_id);
         $view->display[$display_id]->handler->set_option('pager_element', $pager_element);
       }
       // Reuse the same DOM id so it matches that in Drupal.settings.
       $view->dom_id = $dom_id;
 
-      $commands[] = ajax_command_replace('.view-dom-id-' . $dom_id, $view->preview($display_id, $args));
+      $errors = $view->validate();
+      if ($errors === TRUE) {
+        $commands[] = ajax_command_replace('.view-dom-id-' . $dom_id, $view->preview($display_id, $args));
+      }
+      else {
+        foreach ($errors as $error) {
+          drupal_set_message($error, 'error');
+        }
+      }
     }
-    drupal_alter('views_ajax_data', $commands, $view);
     return array('#type' => 'ajax', '#commands' => $commands);
   }
 }
@@ -153,28 +137,27 @@ function views_ajax_command_add_tab($id, $title, $body) {
 }
 
 /**
- * Scroll to top of the current view.
+ * Disables Save, Cancel, and Delete buttons.
  *
  * @return
  *   An array suitable for use with the ajax_render() function.
  */
-function views_ajax_command_scroll_top($selector) {
+function views_ajax_command_disable_buttons() {
   $command = array(
-    'command' => 'viewsScrollTop',
-    'selector' => $selector,
+    'command' => 'viewsDisableButtons',
   );
   return $command;
 }
 
 /**
- * Shows Save and Cancel buttons.
+ * Enables Save, Cancel, and Delete buttons.
  *
  * @return
  *   An array suitable for use with the ajax_render() function.
  */
-function views_ajax_command_show_buttons() {
+function views_ajax_command_enable_buttons() {
   $command = array(
-    'command' => 'viewsShowButtons',
+    'command' => 'viewsEnableButtons',
   );
   return $command;
 }
@@ -188,21 +171,6 @@ function views_ajax_command_show_buttons() {
 function views_ajax_command_trigger_preview() {
   $command = array(
     'command' => 'viewsTriggerPreview',
-  );
-  return $command;
-}
-
-/**
- * Replace the page title.
- *
- * @return
- *   An array suitable for use with the ajax_render() function.
- */
-function views_ajax_command_replace_title($title) {
-  $command = array(
-    'command' => 'viewsReplaceTitle',
-    'title' => $title,
-    'siteName' => variable_get('site_name', 'Drupal'),
   );
   return $command;
 }
@@ -239,7 +207,6 @@ function views_ajax_form_wrapper($form_id, &$form_state) {
   // These forms have the title built in, so set the title here:
   if (empty($form_state['ajax']) && !empty($form_state['title'])) {
     drupal_set_title($form_state['title']);
-    drupal_add_css(drupal_get_path('module', 'views_ui') . '/css/views-admin.css');
   }
 
   if (!empty($form_state['ajax']) && (empty($form_state['executed']) || !empty($form_state['rerender']))) {
@@ -264,6 +231,9 @@ function views_ajax_form_wrapper($form_id, &$form_state) {
     $url = empty($form_state['url']) ? url($_GET['q'], array('absolute' => TRUE)) : $form_state['url'];
 
     $commands[] = views_ajax_command_set_form($display, $title, $url);
+    if (!empty($form_state['js settings'])) {
+      $commands[] = ajax_command_settings($form_state['js settings']);
+    }
 
     if (!empty($form_state['#section'])) {
       $commands[] = views_ajax_command_hilite('.' . drupal_clean_css_identifier($form_state['#section']));
@@ -285,10 +255,10 @@ function views_ajax_form_wrapper($form_id, &$form_state) {
  * Page callback for views user autocomplete
  */
 function views_ajax_autocomplete_user($string = '') {
-  // The user enters a comma-separated list of user name. We only autocomplete the last name.
+  // The user enters a comma-separated list of tags. We only autocomplete the last tag.
   $array = drupal_explode_tags($string);
 
-  // Fetch last name
+  // Fetch last tag
   $last_string = trim(array_pop($array));
   $matches = array();
   if ($last_string != '') {
@@ -297,21 +267,19 @@ function views_ajax_autocomplete_user($string = '') {
     if (strpos('anonymous', strtolower($last_string)) !== FALSE) {
       $matches[$prefix . 'Anonymous'] = 'Anonymous';
     }
-
-    $result = db_select('users', 'u')
-      ->fields('u', array('uid', 'name'))
-      ->condition('u.name', db_like($last_string) . '%', 'LIKE')
-      ->range(0, 10)
-      ->execute()
-      ->fetchAllKeyed();
+    $result = db_query_range("SELECT name FROM {users} WHERE name = :string",
+      0, 1,
+      array(
+        ':string' => $last_string
+      ));
 
     foreach ($result as $account) {
-      $n = $account;
+      $n = $account->name;
       // Commas and quotes in terms are special cases, so encode 'em.
-      if (strpos($account, ',') !== FALSE || strpos($account, '"') !== FALSE) {
-        $n = '"' . str_replace('"', '""', $account) . '"';
+      if (strpos($account->name, ',') !== FALSE || strpos($account->name, '"') !== FALSE) {
+        $n = '"' . str_replace('"', '""', $account->name) . '"';
       }
-      $matches[$prefix . $n] = check_plain($account);
+      $matches[$prefix . $n] = check_plain($account->name);
     }
   }
 
@@ -354,7 +322,7 @@ function views_ajax_autocomplete_taxonomy($vid, $tags_typed = '') {
       ->execute()
       ->fetchAllKeyed();
 
-    $prefix = count($tags_typed) ? drupal_implode_tags($tags_typed) . ', ' : '';
+    $prefix = count($tags_typed) ? implode(', ', $tags_typed) . ', ' : '';
 
     $term_matches = array();
     foreach ($tags_return as $tid => $name) {
@@ -363,8 +331,9 @@ function views_ajax_autocomplete_taxonomy($vid, $tags_typed = '') {
       if (strpos($name, ',') !== FALSE || strpos($name, '"') !== FALSE) {
         $n = '"' . str_replace('"', '""', $name) . '"';
       }
-      // Add term name to list of matches.
-      $term_matches[$prefix . $n] = check_plain($name);
+      else {
+        $term_matches[$prefix . $n] = check_plain($name);
+      }
     }
   }
 

@@ -1,14 +1,8 @@
 <?php
-
-/**
- * @file
- * Definition of views_handler_argument_aggregator_category_cid.
- */
+// $Id: views_handler_argument_aggregator_category_cid.inc,v 1.1.6.2 2009/11/13 12:36:05 dereine Exp $
 
 /**
  * Argument handler to accept an aggregator category id.
- *
- * @ingroup views_argument_handlers
  */
 class views_handler_argument_aggregator_category_cid extends views_handler_argument_numeric {
   /**

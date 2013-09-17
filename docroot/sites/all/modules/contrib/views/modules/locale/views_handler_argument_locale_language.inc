@@ -1,14 +1,8 @@
 <?php
-
-/**
- * @file
- * Definition of views_handler_argument_locale_language.
- */
+// $Id: views_handler_argument_locale_language.inc,v 1.1 2009/02/20 23:02:09 merlinofchaos Exp $
 
 /**
  * Argument handler to accept a language.
- *
- * @ingroup views_argument_handlers
  */
 class views_handler_argument_locale_language extends views_handler_argument {
   function construct() {
@@ -32,7 +26,8 @@ class views_handler_argument_locale_language extends views_handler_argument {
   }
 
   function locale_language($langcode) {
-    $languages = views_language_list();
+    $languages = locale_language_list();
     return isset($languages[$langcode]) ? $languages[$langcode] : t('Unknown language');
   }
 }
+

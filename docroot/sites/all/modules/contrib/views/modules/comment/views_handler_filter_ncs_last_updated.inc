@@ -1,14 +1,7 @@
 <?php
-
+// $Id: views_handler_filter_ncs_last_updated.inc,v 1.1 2008/09/03 19:21:29 merlinofchaos Exp $
 /**
- * @file
- * Definition of views_handler_filter_ncs_last_updated.
- */
-
-/**
- * Filter handler for the newer of last comment / node updated.
- *
- * @ingroup views_filter_handlers
+ * Filter handler for the newer of last comment / node updated
  */
 class views_handler_filter_ncs_last_updated extends views_handler_filter_date {
   function query() {

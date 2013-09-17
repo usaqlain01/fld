@@ -1,9 +1,5 @@
 <?php
-
-/**
- * @file
- * Definition of ViewsAccessTest.
- */
+// $Id: views_access.test,v 1.1.4.6 2011/01/04 21:26:47 dereine Exp $
 
 /**
  * Basic test for pluggable access.
@@ -11,9 +7,9 @@
 class ViewsAccessTest extends ViewsSqlTest {
   public static function getInfo() {
     return array(
-      'name' => 'Access',
-      'description' => 'Tests pluggable access for views.',
-      'group' => 'Views Plugins'
+      'name' => t('Access'),
+      'description' => t('Tests pluggable access for views.'),
+      'group' => t('Views Plugins')
     );
   }
 
@@ -53,7 +49,7 @@ class ViewsAccessTest extends ViewsSqlTest {
   }
 
   /**
-   * Tests none access plugin.
+   * Test none access plugin.
    */
   function testAccessNone() {
     $view = $this->view_access_none();
@@ -66,7 +62,7 @@ class ViewsAccessTest extends ViewsSqlTest {
   }
 
   /**
-   * Tests perm access plugin.
+   * Test perm access plugin.
    */
   function testAccessPerm() {
     $view = $this->view_access_perm();
@@ -80,7 +76,7 @@ class ViewsAccessTest extends ViewsSqlTest {
   }
 
   /**
-   * Tests role access plugin.
+   * Test role access plugin.
    */
   function testAccessRole() {
     $view = $this->view_access_role();
@@ -98,7 +94,7 @@ class ViewsAccessTest extends ViewsSqlTest {
    */
 
   /**
-   * Tests static access check.
+   * Test static access check.
    */
   function testStaticAccessPlugin() {
     $view = $this->view_access_static();
@@ -125,7 +121,7 @@ class ViewsAccessTest extends ViewsSqlTest {
   }
 
   /**
-   * Tests dynamic access plugin.
+   * Test dynamic access plugin.
    */
   function testDynamicAccessPlugin() {
     $view = $this->view_access_dynamic();
@@ -169,8 +165,8 @@ class ViewsAccessTest extends ViewsSqlTest {
     $view->api_version = 2;
     $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
 
-    /* Display: Master */
-    $handler = $view->new_display('default', 'Master', 'default');
+    /* Display: Defaults */
+    $handler = $view->new_display('default', 'Defaults', 'default');
     $handler->display->display_options['access']['type'] = 'none';
     $handler->display->display_options['cache']['type'] = 'none';
     $handler->display->display_options['exposed_form']['type'] = 'basic';
@@ -192,8 +188,8 @@ class ViewsAccessTest extends ViewsSqlTest {
     $view->api_version = 2;
     $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
 
-    /* Display: Master */
-    $handler = $view->new_display('default', 'Master', 'default');
+    /* Display: Defaults */
+    $handler = $view->new_display('default', 'Defaults', 'default');
     $handler->display->display_options['access']['type'] = 'perm';
     $handler->display->display_options['access']['perm'] = 'views_test test permission';
     $handler->display->display_options['cache']['type'] = 'none';
@@ -216,8 +212,8 @@ class ViewsAccessTest extends ViewsSqlTest {
     $view->api_version = 2;
     $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
 
-    /* Display: Master */
-    $handler = $view->new_display('default', 'Master', 'default');
+    /* Display: Defaults */
+    $handler = $view->new_display('default', 'Defaults', 'default');
     $handler->display->display_options['access']['type'] = 'role';
     $handler->display->display_options['access']['role'] = array(
       $this->normal_role => $this->normal_role,
@@ -242,8 +238,8 @@ class ViewsAccessTest extends ViewsSqlTest {
     $view->api_version = 2;
     $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
 
-    /* Display: Master */
-    $handler = $view->new_display('default', 'Master', 'default');
+    /* Display: Defaults */
+    $handler = $view->new_display('default', 'Defaults', 'default');
     $handler->display->display_options['access']['type'] = 'test_dynamic';
     $handler->display->display_options['cache']['type'] = 'none';
     $handler->display->display_options['exposed_form']['type'] = 'basic';
@@ -268,8 +264,8 @@ class ViewsAccessTest extends ViewsSqlTest {
     $view->api_version = 2;
     $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
 
-    /* Display: Master */
-    $handler = $view->new_display('default', 'Master', 'default');
+    /* Display: Defaults */
+    $handler = $view->new_display('default', 'Defaults', 'default');
     $handler->display->display_options['access']['type'] = 'test_static';
     $handler->display->display_options['cache']['type'] = 'none';
     $handler->display->display_options['exposed_form']['type'] = 'basic';

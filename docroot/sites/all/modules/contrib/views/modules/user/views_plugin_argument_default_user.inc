@@ -1,12 +1,12 @@
 <?php
-
+// $Id: views_plugin_argument_default_user.inc,v 1.1.6.2 2010/12/14 00:00:52 merlinofchaos Exp $
 /**
  * @file
  * Contains the user from URL argument default plugin.
  */
 
 /**
- * Default argument plugin to extract a user via menu_get_object.
+ * Default argument plugin to extract a user via menu_get_object
  */
 class views_plugin_argument_default_user extends views_plugin_argument_default {
   function option_definition() {
@@ -66,12 +66,6 @@ class views_plugin_argument_default_user extends views_plugin_argument_default {
         }
       }
     }
-
-    // If the current page is a view that takes uid as an argument, return the uid.
-    $view = views_get_page_view();
-
-    if ($view && isset($view->argument['uid'])) {
-      return $view->argument['uid']->argument;
-    }
   }
 }
+

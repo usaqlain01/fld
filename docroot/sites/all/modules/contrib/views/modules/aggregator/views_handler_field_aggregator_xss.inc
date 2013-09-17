@@ -1,18 +1,14 @@
 <?php
-
+// $Id: views_handler_field_aggregator_xss.inc,v 1.1.2.2 2010/11/16 00:01:25 merlinofchaos Exp $
 /**
  * @file
- * Definition of views_handler_field_aggregator_xss.
+ *   Filters htmls tags from item.
  */
 
-/**
- * Filters htmls tags from item.
- *
- * @ingroup views_field_handlers
- */
 class views_handler_field_aggregator_xss extends views_handler_field {
   function render($values) {
-    $value = $this->get_value($values);
+    $value = $values->{$this->field_alias};
     return aggregator_filter_xss($value);
   }
+
 }
