@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the department_peoples_view feature.
+ */
+
+include_once 'department_peoples_view.features.inc';

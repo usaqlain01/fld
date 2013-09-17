@@ -1,4 +1,6 @@
 <?php
+function department_peoples_view_views_default_views() {
+$export = array();
 $view = new view;
 $view->name = 'department_peoples';
 $view->description = 'People Tab on Department/Division Pages, Ticket 446';
@@ -324,3 +326,7 @@ $translatables['department_peoples'] = array(
   t('Page - Div'),
 );
 
+
+$export[department_peoples] = $view;
+return $export;
+}
