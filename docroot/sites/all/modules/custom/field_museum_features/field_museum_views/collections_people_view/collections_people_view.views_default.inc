@@ -1,4 +1,6 @@
 <?php
+function collections_people_view_views_default_views() {
+$export = array();
 $view = new view;
 $view->name = 'collections_people';
 $view->description = '';
@@ -121,3 +123,6 @@ $translatables['collections_people'] = array(
   t('- [entity_id_2]'),
   t('All'),
 );
+$export['collections_people'] = $view;
+return $export;
+}
