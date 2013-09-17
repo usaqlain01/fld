@@ -1,4 +1,6 @@
 <?php
+function browse_collections_view_views_default_views() {
+$export = array();
 $view = new view;
 $view->name = 'browse_collections';
 $view->description = 'List of Dept/Divisions for the About Our Collections page';
@@ -184,6 +186,43 @@ $handler->display->display_options['filters']['term_node_tid_depth']['vocabulary
 $handler->display->display_options['filters']['term_node_tid_depth']['hierarchy'] = 1;
 $handler->display->display_options['filters']['term_node_tid_depth']['depth'] = '2';
 
+/* Display: Block: ECCo */
+$handler = $view->new_display('block', 'Block: ECCo', 'block_6');
+$handler->display->display_options['defaults']['title'] = FALSE;
+$handler->display->display_options['title'] = 'ECCo';
+$handler->display->display_options['defaults']['filters'] = FALSE;
+/* Filter: Node: Published */
+$handler->display->display_options['filters']['status']['id'] = 'status';
+$handler->display->display_options['filters']['status']['table'] = 'node';
+$handler->display->display_options['filters']['status']['field'] = 'status';
+$handler->display->display_options['filters']['status']['value'] = '1';
+/* Filter: Taxonomy: Vocabulary */
+$handler->display->display_options['filters']['vid']['id'] = 'vid';
+$handler->display->display_options['filters']['vid']['table'] = 'taxonomy_term_data';
+$handler->display->display_options['filters']['vid']['field'] = 'vid';
+$handler->display->display_options['filters']['vid']['value'] = array(
+  5 => '5',
+);
+/* Filter: Node: Type */
+$handler->display->display_options['filters']['type']['id'] = 'type';
+$handler->display->display_options['filters']['type']['table'] = 'node';
+$handler->display->display_options['filters']['type']['field'] = 'type';
+$handler->display->display_options['filters']['type']['value'] = array(
+  'dept_div_collections_landing' => 'dept_div_collections_landing',
+);
+/* Filter: Taxonomy: Term ID (with depth) */
+$handler->display->display_options['filters']['term_node_tid_depth']['id'] = 'term_node_tid_depth';
+$handler->display->display_options['filters']['term_node_tid_depth']['table'] = 'node';
+$handler->display->display_options['filters']['term_node_tid_depth']['field'] = 'term_node_tid_depth';
+$handler->display->display_options['filters']['term_node_tid_depth']['value'] = array(
+  85 => '85',
+);
+$handler->display->display_options['filters']['term_node_tid_depth']['reduce_duplicates'] = 0;
+$handler->display->display_options['filters']['term_node_tid_depth']['type'] = 'select';
+$handler->display->display_options['filters']['term_node_tid_depth']['vocabulary'] = 'department_division';
+$handler->display->display_options['filters']['term_node_tid_depth']['hierarchy'] = 1;
+$handler->display->display_options['filters']['term_node_tid_depth']['depth'] = '2';
+
 /* Display: Block: Geology */
 $handler = $view->new_display('block', 'Block: Geology', 'block_3');
 $handler->display->display_options['defaults']['title'] = FALSE;
@@ -361,6 +400,8 @@ $translatables['browse_collections'] = array(
   t('<h2>Browse Our Collections</h2>'),
   t('Block: Botany'),
   t('Botany'),
+  t('Block: ECCo'),
+  t('ECCo'),
   t('Block: Geology'),
   t('Geology'),
   t('Block: Zoology'),
@@ -369,3 +410,6 @@ $translatables['browse_collections'] = array(
   t('Library/Archives'),
   t('Feed'),
 );
+$export['browse_collections'] = $view;
+return $export;
+}
