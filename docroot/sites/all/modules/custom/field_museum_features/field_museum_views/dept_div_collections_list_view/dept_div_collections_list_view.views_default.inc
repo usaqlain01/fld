@@ -1,4 +1,6 @@
 <?php
+function dept_div_collections_list_view_views_default_views() {
+$export = array();
 $view = new view;
 $view->name = 'dept_div_collections_list';
 $view->description = 'Displays Individual Collections associated with the Department/Division Collection landing page.';
@@ -398,3 +400,7 @@ $translatables['dept_div_collections_list'] = array(
   t('Block: Dept/Div Collections List'),
   t('Feed'),
 );
+
+$export[dept_div_collections_list] = $view;
+return $export;
+}
