@@ -1,4 +1,6 @@
 <?php
+function base_list_single_column_view_views_default_views() {
+  $export = array();
 $view = new view;
 $view->name = 'base_list_single_column';
 $view->description = 'Base View for Single Column Views. Not for use; clone and extend to build derivative views.';
@@ -84,3 +86,7 @@ $handler->display->display_options['fields']['entity_id']['alter']['strip_tags']
 $handler->display->display_options['fields']['entity_id']['alter']['html'] = 0;
 $handler->display->display_options['fields']['entity_id']['hide_empty'] = 0;
 $handler->display->display_options['fields']['entity_id']['empty_zero'] = 0;
+  $export['base_list_single_column'] = $view;
+
+  return $export;
+}
