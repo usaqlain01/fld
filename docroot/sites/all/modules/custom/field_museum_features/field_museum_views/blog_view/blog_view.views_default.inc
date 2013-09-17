@@ -1,4 +1,6 @@
 <?php
+function blog_view_views_default_views() {
+$export = array();
 $view = new view;
 $view->name = 'blog';
 $view->description = 'My blog';
@@ -671,3 +673,6 @@ $translatables['blog'] = array(
   t('Field Museum Blogs - %1'),
   t('Block: News'),
 );
+$export['blog'] = $view;
+return $export;
+}
