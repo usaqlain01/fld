@@ -1,4 +1,6 @@
 <?php
+function education_programs_view_views_default_views() {
+$export = array();
 $view = new view;
 $view->name = 'education_programs';
 $view->description = 'Program Views for Education';
@@ -795,3 +797,7 @@ $translatables['education_programs'] = array(
   t('Teen Programs'),
   t('Feed: Teen Programs'),
 );
+
+$export[education_programs] = $view;
+return $export;
+}
