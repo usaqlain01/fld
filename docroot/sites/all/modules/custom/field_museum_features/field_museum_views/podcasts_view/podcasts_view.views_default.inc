@@ -1,4 +1,6 @@
 <?php
+function podcasts_view_views_default_views() {
+$export = array();
 $view = new view;
 $view->name = 'podcasts';
 $view->description = 'Podcast view';
@@ -450,3 +452,7 @@ $translatables['podcasts'] = array(
   t('The Field Museum'),
   t('Feed'),
 );
+
+$export[podcasts] = $view;
+return $export;
+}
