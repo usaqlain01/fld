@@ -1,4 +1,6 @@
 <?php
+function feeds_for_microsites_view_views_default_views() {
+$export = array();
 $view = new view;
 $view->name = 'feeds_for_microsites';
 $view->description = 'Feeds for Microsites';
@@ -103,3 +105,7 @@ $handler->display->display_options['filters']['type']['value'] = array(
   'individual_collection' => 'individual_collection',
   'podcast' => 'podcast',
 );
+
+$export[feeds_for_microsites] = $view;
+return $export;
+}
