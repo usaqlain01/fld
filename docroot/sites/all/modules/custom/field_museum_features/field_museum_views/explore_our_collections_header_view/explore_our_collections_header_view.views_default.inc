@@ -1,4 +1,6 @@
 <?php
+function explore_our_collections_header_view_views_default_views() {
+$export = array();
 $view = new view;
 $view->name = 'explore_our_collections_header';
 $view->description = 'Header for the Explore Our Collections department landing page.';
@@ -131,3 +133,7 @@ $translatables['explore_our_collections_header'] = array(
   t('<a href="[path]/collections">[name]</a>'),
   t('Block'),
 );
+
+$export[explore_our_collections_header] = $view;
+return $export;
+}
