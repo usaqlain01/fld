@@ -1,4 +1,6 @@
 <?php
+function photo_gallery_view_views_default_views() {
+$export = array();
 $view = new view;
 $view->name = 'photo_gallery';
 $view->description = 'A gallery of the photos on a photo gallery';
@@ -153,3 +155,7 @@ $translatables['photo_gallery'] = array(
   t('All'),
   t('Gallery'),
 );
+
+$export[photo_gallery] = $view;
+return $export;
+}
