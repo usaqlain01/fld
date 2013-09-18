@@ -1,4 +1,6 @@
 <?php
+function press_room_view_views_default_views() {
+$export = array();
 $view = new view;
 $view->name = 'press_room';
 $view->description = '';
@@ -618,3 +620,7 @@ $translatables['press_room'] = array(
   t('[entity_id_1] Exhibitions'),
   t('Scientific Releases'),
 );
+
+$export[press_room] = $view;
+return $export;
+}
