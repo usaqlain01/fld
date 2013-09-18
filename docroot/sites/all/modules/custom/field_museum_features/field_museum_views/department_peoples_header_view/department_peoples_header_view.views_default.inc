@@ -1,4 +1,6 @@
 <?php
+function department_peoples_header_view_views_default_views() {
+$export = array();
 $view = new view;
 $view->name = 'department_peoples_header';
 $view->description = '';
@@ -473,3 +475,7 @@ $translatables['department_peoples_header'] = array(
   t('Projects - Div'),
   t('Projects Header - Div'),
 );
+
+$export['department_peoples_header'] = $view;
+return $export;
+}
