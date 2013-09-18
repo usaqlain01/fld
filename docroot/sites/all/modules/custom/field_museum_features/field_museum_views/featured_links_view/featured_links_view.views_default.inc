@@ -1,4 +1,6 @@
 <?php
+function featured_links_view_views_default_views() {
+$export = array();
 $view = new view;
 $view->name = 'featured_links';
 $view->description = 'Featured links block for the sidebar on "Secondary section front" and "Explore Our Collections" content type pages. The content comes from the \'field_links\' or \'field_featured_links\' fields of the current content.';
@@ -84,3 +86,7 @@ $handler->display->display_options['filters']['field_link_url']['case'] = 1;
 
 /* Display: Featured Links Block */
 $handler = $view->new_display('block', 'Featured Links Block', 'block_1');
+
+$export[featured_links] = $view;
+return $export;
+}
