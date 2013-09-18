@@ -1,4 +1,6 @@
 <?php
+function photos_tab_view_views_default_views() {
+$export = array();
 $view = new view;
 $view->name = 'photos_tab';
 $view->description = 'Contents of the \'photos\' tab on Photo Gallery and Section Front node types.';
@@ -135,3 +137,7 @@ $handler->display->display_options['empty']['area']['field'] = 'area';
 $handler->display->display_options['empty']['area']['empty'] = FALSE;
 $handler->display->display_options['empty']['area']['content'] = 'There are not yet any photos associated with this home page.';
 $handler->display->display_options['empty']['area']['format'] = '1';
+
+$export[photos_tab] = $view;
+return $export;
+}
