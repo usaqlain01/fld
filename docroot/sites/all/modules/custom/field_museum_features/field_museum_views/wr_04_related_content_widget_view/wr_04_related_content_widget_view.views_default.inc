@@ -1,4 +1,6 @@
-<?php 
+<?php
+function wr_04_related_content_widget_view_views_default_views() {
+$export = array();
 $view = new view;
 $view->name = 'wr_04_related_content_widget';
 $view->description = 'WR-04 Related Content Multiple (2)';
@@ -224,3 +226,7 @@ $translatables['wr_04_related_content_widget'] = array(
   t('Related Multimedia'),
 );
 
+
+$export[wr_04_related_content_widget] = $view;
+return $export;
+}
