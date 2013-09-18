@@ -1,4 +1,6 @@
 <?php
+function news_view_views_default_views() {
+$export = array();
 $view = new view;
 $view->name = 'news';
 $view->description = 'News';
@@ -327,3 +329,7 @@ $translatables['news'] = array(
   t('node/[nid]'),
   t('Feed: Page - no argument'),
 );
+
+$export[news] = $view;
+return $export;
+}
