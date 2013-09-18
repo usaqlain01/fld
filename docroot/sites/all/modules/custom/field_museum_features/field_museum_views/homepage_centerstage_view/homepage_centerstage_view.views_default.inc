@@ -1,4 +1,6 @@
 <?php
+function homepage_centerstage_view_views_default_views() {
+$export = array();
 $view = new view;
 $view->name = 'homepage_centerstage';
 $view->description = 'Homepage centerstage media files view';
@@ -213,3 +215,7 @@ $translatables['homepage_centerstage'] = array(
   t('[entity_id_3]'),
   t('Block: Homepage centerstage'),
 );
+
+$export[homepage_centerstage] = $view;
+return $export;
+}
