@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the staff_directory_view feature.
+ */
+
+include_once 'staff_directory_view.features.inc';

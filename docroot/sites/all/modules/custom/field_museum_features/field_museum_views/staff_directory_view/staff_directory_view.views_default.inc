@@ -1,4 +1,6 @@
 <?php
+function staff_directory_view_views_default_views() {
+$export = array();
 $view = new view;
 $view->name = 'staff_directory';
 $view->description = '';
@@ -211,3 +213,7 @@ $translatables['staff_directory'] = array(
   t('Our Staff'),
   t('Page: Executive Staff'),
 );
+
+$export[staff_directory] = $view;
+return $export;
+}
