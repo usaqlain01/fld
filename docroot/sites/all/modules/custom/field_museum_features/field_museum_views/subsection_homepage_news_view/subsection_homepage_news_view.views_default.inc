@@ -1,4 +1,6 @@
 <?php
+function subsection_homepage_news_view_views_default_views() {
+$export = array();
 $view = new view;
 $view->name = 'subsection_homepage_news';
 $view->description = 'News listing for Subsection Homepages';
@@ -420,3 +422,7 @@ $translatables['subsection_homepage_news'] = array(
   t('Partners'),
   t('Subsection: Associated Logos'),
 );
+
+$export[subsection_homepage_news] = $view;
+return $export;
+}

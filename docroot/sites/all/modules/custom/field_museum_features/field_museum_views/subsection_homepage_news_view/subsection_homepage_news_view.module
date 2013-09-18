@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the subsection_homepage_news_view feature.
+ */
+
+include_once 'subsection_homepage_news_view.features.inc';
