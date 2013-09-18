@@ -1,4 +1,6 @@
 <?php
+function homepage_view_views_default_views() {
+$export = array();
 $view = new view;
 $view->name = 'homepage';
 $view->description = 'Homepage views';
@@ -659,3 +661,7 @@ $translatables['homepage'] = array(
   t('Page: Homepage coming soon'),
   t('Coming soon'),
 );
+
+$export[homepage] = $view;
+return $export;
+}
