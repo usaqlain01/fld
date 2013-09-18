@@ -1,4 +1,6 @@
 <?php
+function related_content_view_views_default_views() {
+$export = array();
 $view = new view;
 $view->name = 'related_content';
 $view->description = 'WP-11 Related Content Multiple (3)';
@@ -211,3 +213,7 @@ $translatables['related_content'] = array(
   t('Block: Related content sidebar'),
 );
 
+
+$export[related_content] = $view;
+return $export;
+}
