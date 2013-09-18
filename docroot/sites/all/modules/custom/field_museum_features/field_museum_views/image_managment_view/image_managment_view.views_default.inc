@@ -1,4 +1,6 @@
 <?php
+function image_managment_view_views_default_views() {
+$export = array();
 $view = new view;
 $view->name = 'image_managment';
 $view->description = 'A bulk operations view for images/files';
@@ -212,3 +214,6 @@ $translatables['image_managment'] = array(
   t('Page'),
 );
 
+$export['image_managment'] = $view;
+return $export;
+}
