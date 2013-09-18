@@ -1,4 +1,6 @@
 <?php
+function wr_05_promo_content_view_views_default_views() {
+$export = array();
 $view = new view;
 $view->name = 'wr_05_promo_content';
 $view->description = 'Second sidebar - Content tagged with at least one of the same tag elements associated with the page will display.';
@@ -142,3 +144,7 @@ $translatables['wr_05_promo_content'] = array(
   t('All'),
   t('Block: Promo widget'),
 );
+
+$export[wr_05_promo_content] = $view;
+return $export;
+}
