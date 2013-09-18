@@ -1,4 +1,6 @@
 <?php
+function explore_science_home_page_list_view_views_default_views() {
+$export = array();
 $view = new view;
 $view->name = 'explore_science_home_page_list';
 $view->description = '';
@@ -319,3 +321,7 @@ $translatables['explore_science_home_page_list'] = array(
   t('Feed'),
   t('Featured Science Block'),
 );
+
+$export[explore_science_home_page_list] = $view;
+return $export;
+}
