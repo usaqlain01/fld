@@ -1,4 +1,6 @@
 <?php
+function widgets_view_views_default_views() {
+$export = array();
 $view = new view;
 $view->name = 'widgets';
 $view->description = 'Widgets on Section front and Secondary section front';
@@ -138,3 +140,7 @@ $translatables['widgets'] = array(
   t('Learn more'),
   t('Block: Section front widgets'),
 );
+
+$export[widgets] = $view;
+return $export;
+}

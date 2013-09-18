@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the widgets_view feature.
+ */
+
+include_once 'widgets_view.features.inc';
