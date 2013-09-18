@@ -1,4 +1,6 @@
 <?php
+function microsite_widgets_view_views_default_views() {
+$export = array();
 $view = new view;
 $view->name = 'microsite_widgets';
 $view->description = 'Feeds of related content widgets for microsites.';
@@ -190,3 +192,7 @@ $handler->display->display_options['row_options']['rss_elements'] = array(
 );
 $handler->display->display_options['path'] = 'microsite-widgets';
 $handler->display->display_options['sitename_title'] = 0;
+
+$export[microsite_widgets] = $view;
+return $export;
+}

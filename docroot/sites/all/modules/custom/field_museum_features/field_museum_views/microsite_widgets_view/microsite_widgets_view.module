@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the microsite_widgets_view feature.
+ */
+
+include_once 'microsite_widgets_view.features.inc';
