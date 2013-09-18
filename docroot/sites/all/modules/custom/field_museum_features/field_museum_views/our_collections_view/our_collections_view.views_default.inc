@@ -1,4 +1,6 @@
 <?php
+function our_collections_view_views_default_views() {
+$export = array();
 $view = new view;
 $view->name = 'our_collections';
 $view->description = 'Block with image and lede (pulled from Dept/Div Collections Landing content type) that links to one Dept/Div Collections Landing page.';
@@ -192,3 +194,7 @@ $translatables['our_collections'] = array(
   t('View Our Collections Widget'),
   t('more'),
 );
+
+$export[our_collections] = $view;
+return $export;
+}
