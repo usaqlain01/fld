@@ -1,4 +1,6 @@
 <?php
+function explore_our_collections_view_views_default_views() {
+$export = array();
 $view = new view;
 $view->name = 'explore_our_collections';
 $view->description = 'Display expandable/collapsible lists of available Department/Division Collection Landing Pages organized by Department';
@@ -777,3 +779,7 @@ $translatables['explore_our_collections'] = array(
   t('Attachment: Zoology'),
   t('Attachment: Library / Archives'),
 );
+
+$export[explore_our_collections] = $view;
+return $export;
+}
