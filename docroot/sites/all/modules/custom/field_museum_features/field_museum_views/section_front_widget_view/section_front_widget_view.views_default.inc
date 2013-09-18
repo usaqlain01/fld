@@ -1,4 +1,6 @@
 <?php
+function section_front_widget_view_views_default_views() {
+$export = array();
 $view = new view;
 $view->name = 'section_front_widget';
 $view->description = '';
@@ -243,3 +245,7 @@ $translatables['section_front_widget'] = array(
   t('All'),
   t('Section Front Block'),
 );
+
+$export[section_front_widget] = $view;
+return $export;
+}
