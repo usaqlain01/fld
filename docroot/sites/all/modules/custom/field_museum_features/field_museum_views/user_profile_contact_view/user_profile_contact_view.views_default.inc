@@ -1,4 +1,6 @@
 <?php
+function user_profile_contact_view_views_default_views() {
+$export = array();
 $view = new view;
 $view->name = 'user_profile_contact';
 $view->description = 'Contact box in user profile pages.';
@@ -107,3 +109,7 @@ $translatables['user_profile_contact'] = array(
   t('All'),
   t('Block'),
 );
+
+$export['user_profile_contact'] = $view;
+return $export;
+}
