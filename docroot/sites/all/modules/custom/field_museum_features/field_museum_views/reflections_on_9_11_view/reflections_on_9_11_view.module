@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the reflections_on_9_11_view feature.
+ */
+
+include_once 'reflections_on_9_11_view.features.inc';

@@ -1,4 +1,6 @@
 <?php
+function reflections_on_9_11_view_views_default_views() {
+$export = array();
 $view = new view;
 $view->name = 'reflections_on_9_11';
 $view->description = '';
@@ -183,3 +185,7 @@ $translatables['reflections_on_9_11'] = array(
   t(', [entity_id_4]'),
   t('Page'),
 );
+
+$export[reflections_on_9_11] = $view;
+return $export;
+}
