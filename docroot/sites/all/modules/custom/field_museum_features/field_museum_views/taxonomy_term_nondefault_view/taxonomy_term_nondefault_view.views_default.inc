@@ -1,4 +1,6 @@
 <?php
+function taxonomy_term_nondefault_view_views_default_views() {
+$export = array();
 $view = new view;
 $view->name = 'taxonomy_term_nondefault';
 $view->description = 'A view to emulate Drupal core\'s handling of taxonomy/term; it also emulates Views 1\'s handling by having two possible feeds.';
@@ -164,3 +166,7 @@ $handler->display->display_options['style_plugin'] = 'rss';
 $handler->display->display_options['style_options']['mission_description'] = FALSE;
 $handler->display->display_options['row_plugin'] = 'node_rss';
 $handler->display->display_options['path'] = 'taxonomy/term/%/feed';
+
+$export[taxonomy_term_nondefault] = $view;
+return $export;
+}

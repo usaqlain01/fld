@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the taxonomy_term_nondefault_view feature.
+ */
+
+include_once 'taxonomy_term_nondefault_view.features.inc';
