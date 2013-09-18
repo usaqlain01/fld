@@ -1,4 +1,6 @@
 <?php
+function multimedia_gallery_view_views_default_views() {
+$export = array();
 $view = new view;
 $view->name = 'multimedia_gallery';
 $view->description = 'This view creates the general multimedia gallery under \'Explore and Learn\'';
@@ -201,3 +203,7 @@ $translatables['multimedia_gallery'] = array(
   t('Learn more about the Field Museum\'s collections, exhibits, events, and archives. Explore our image, video and podcast repository.'),
   t('Feed'),
 );
+
+$export[multimedia_gallery] = $view;
+return $export;
+}
