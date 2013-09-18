@@ -1,4 +1,6 @@
 <?php
+function wp_09_featured_content_view_views_default_views() {
+$export = array();
 $view = new view;
 $view->name = 'wp_09_featured_content';
 $view->description = 'WP-09 Featured Content - "More on Fieldmuseum.org"';
@@ -176,3 +178,7 @@ $translatables['wp_09_featured_content'] = array(
   t('WP-09 Featured Content - "More on Fieldmuseum.org"'),
 );
 
+
+$export[wp_09_featured_content] = $view;
+return $export;
+}
