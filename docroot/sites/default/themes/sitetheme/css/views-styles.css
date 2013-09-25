@@ -50,8 +50,10 @@
 
 .page-views .views-row .views-field-picture,
 .page-views .views-row .field-name-field-image,
+.page-views .views-row .views-field-field-thumbnail-image,
 .page-user-blog .view-blog .views-row .field-name-field-image
 										{ float:left; overflow:hidden; margin-right:10px; }
+
 
 .page-views
 .views-row .field-name-field-branding-image { float:left; overflow:hidden; margin-right:10px; width: 100px; text-align:center; }
