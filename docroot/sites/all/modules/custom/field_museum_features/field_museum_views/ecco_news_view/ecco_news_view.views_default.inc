@@ -65,6 +65,39 @@ function ecco_news_view_views_default_views() {
   $handler->display->display_options['fields']['field_thumbnail_image']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_thumbnail_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_thumbnail_image']['type'] = 'styles_file_content-third-home';
+  /* Field: Content: Image */
+  $handler->display->display_options['fields']['field_photo_gallery_image']['id'] = 'field_photo_gallery_image';
+  $handler->display->display_options['fields']['field_photo_gallery_image']['table'] = 'field_data_field_photo_gallery_image';
+  $handler->display->display_options['fields']['field_photo_gallery_image']['field'] = 'field_photo_gallery_image';
+  $handler->display->display_options['fields']['field_photo_gallery_image']['label'] = '';
+  $handler->display->display_options['fields']['field_photo_gallery_image']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_photo_gallery_image']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_photo_gallery_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_photo_gallery_image']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_photo_gallery_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_photo_gallery_image']['type'] = 'styles_file_content-third-home';
+  /* Field: Content: Image */
+  $handler->display->display_options['fields']['field_podcast_image']['id'] = 'field_podcast_image';
+  $handler->display->display_options['fields']['field_podcast_image']['table'] = 'field_data_field_podcast_image';
+  $handler->display->display_options['fields']['field_podcast_image']['field'] = 'field_podcast_image';
+  $handler->display->display_options['fields']['field_podcast_image']['label'] = '';
+  $handler->display->display_options['fields']['field_podcast_image']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_podcast_image']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_podcast_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_podcast_image']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_podcast_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_podcast_image']['type'] = 'styles_file_content-third-home';
+  /* Field: Content: Thumbnail Image */
+  $handler->display->display_options['fields']['field_video_thumbnail_image']['id'] = 'field_video_thumbnail_image';
+  $handler->display->display_options['fields']['field_video_thumbnail_image']['table'] = 'field_data_field_video_thumbnail_image';
+  $handler->display->display_options['fields']['field_video_thumbnail_image']['field'] = 'field_video_thumbnail_image';
+  $handler->display->display_options['fields']['field_video_thumbnail_image']['label'] = '';
+  $handler->display->display_options['fields']['field_video_thumbnail_image']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_video_thumbnail_image']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_video_thumbnail_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_video_thumbnail_image']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_video_thumbnail_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_video_thumbnail_image']['type'] = 'styles_file_content-third-home';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
