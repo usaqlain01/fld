@@ -644,6 +644,12 @@
 										{ padding:20px 44px; }
 
 /* Homepage */
+.view-homepage img {
+  float: left;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
 .view-homepage .views-field-title 		{ border-bottom:none; margin-bottom:0; font:normal normal 12px Arial; }
 
 .view-homepage .field-name-field-lede p { margin:0; }
