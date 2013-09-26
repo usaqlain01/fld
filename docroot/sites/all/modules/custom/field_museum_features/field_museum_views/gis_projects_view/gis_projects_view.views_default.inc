@@ -26,10 +26,10 @@ function gis_projects_view_views_default_views() {
   $handler->display->display_options['use_more'] = TRUE;
   $handler->display->display_options['use_more_always'] = TRUE;
   $handler->display->display_options['use_more_text'] = 'View all';
-  $handler->display->display_options['group_by'] = TRUE;
   $handler->display->display_options['access']['type'] = 'none';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['query']['options']['distinct'] = TRUE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '25';
@@ -43,16 +43,28 @@ function gis_projects_view_views_default_views() {
   $handler->display->display_options['fields']['nid']['field'] = 'nid';
   $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nid']['link_to_node'] = TRUE;
-  /* Field: Field: Image */
-  $handler->display->display_options['fields']['entity_id_1']['id'] = 'entity_id_1';
-  $handler->display->display_options['fields']['entity_id_1']['table'] = 'field_data_field_image';
-  $handler->display->display_options['fields']['entity_id_1']['field'] = 'field_image';
-  $handler->display->display_options['fields']['entity_id_1']['label'] = '';
-  $handler->display->display_options['fields']['entity_id_1']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['entity_id_1']['alter']['path'] = 'node/[nid]';
-  $handler->display->display_options['fields']['entity_id_1']['hide_empty'] = TRUE;
-  $handler->display->display_options['fields']['entity_id_1']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['entity_id_1']['type'] = 'custom_content-third-home';
+  /* Field: Content: Image */
+  $handler->display->display_options['fields']['field_blog_image']['id'] = 'field_blog_image';
+  $handler->display->display_options['fields']['field_blog_image']['table'] = 'field_data_field_blog_image';
+  $handler->display->display_options['fields']['field_blog_image']['field'] = 'field_blog_image';
+  $handler->display->display_options['fields']['field_blog_image']['label'] = '';
+  $handler->display->display_options['fields']['field_blog_image']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_blog_image']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_blog_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_blog_image']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_blog_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_blog_image']['type'] = 'styles_file_content-third-home';
+  /* Field: Content: Thumbnail Image */
+  $handler->display->display_options['fields']['field_thumbnail_image']['id'] = 'field_thumbnail_image';
+  $handler->display->display_options['fields']['field_thumbnail_image']['table'] = 'field_data_field_thumbnail_image';
+  $handler->display->display_options['fields']['field_thumbnail_image']['field'] = 'field_thumbnail_image';
+  $handler->display->display_options['fields']['field_thumbnail_image']['label'] = '';
+  $handler->display->display_options['fields']['field_thumbnail_image']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_thumbnail_image']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_thumbnail_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_thumbnail_image']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_thumbnail_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_thumbnail_image']['type'] = 'styles_file_content-third-home';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -104,7 +116,7 @@ function gis_projects_view_views_default_views() {
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page_1');
-  $handler->display->display_options['path'] = 'explore/gis-science-and-education/projects';
+  $handler->display->display_options['path'] = 'explore/mapping/projects';
   $handler->display->display_options['menu']['type'] = 'normal';
   $handler->display->display_options['menu']['title'] = 'Projects';
   $handler->display->display_options['menu']['weight'] = '0';
