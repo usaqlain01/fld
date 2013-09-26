@@ -38,7 +38,7 @@
 										{   width:95%; margin: auto 0;}
 
 .view-homepage-centerstage .views-slideshow-pager-fields .views-slideshow-pager-field-item
-										{ margin: auto 0; width:150px; padding-right:10px; }
+										{ float: left; margin: auto 0; width:150px; padding-right:10px; }
 
 .view-homepage-centerstage .views-slideshow-pager-fields .views-slideshow-pager-field-item img
 										{ opacity:.4; filter:alpha(opacity=40); width:150px; height:35px; }
