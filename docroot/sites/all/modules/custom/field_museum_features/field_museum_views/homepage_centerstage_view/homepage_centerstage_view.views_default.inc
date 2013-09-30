@@ -49,29 +49,39 @@ function homepage_centerstage_view_views_default_views() {
   $handler->display->display_options['fields']['entity_id_3']['id'] = 'entity_id_3';
   $handler->display->display_options['fields']['entity_id_3']['table'] = 'field_data_field_homepage_image_link';
   $handler->display->display_options['fields']['entity_id_3']['field'] = 'field_homepage_image_link';
-  $handler->display->display_options['fields']['entity_id_3']['label'] = 'field_homepage_image_link';
+  $handler->display->display_options['fields']['entity_id_3']['label'] = '';
   $handler->display->display_options['fields']['entity_id_3']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['entity_id_3']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['entity_id_3']['click_sort_column'] = 'url';
   $handler->display->display_options['fields']['entity_id_3']['type'] = 'link_plain';
   $handler->display->display_options['fields']['entity_id_3']['group_column'] = 'url';
-  /* Field: File: Rendered File */
-  $handler->display->display_options['fields']['rendered_entity']['id'] = 'rendered_entity';
-  $handler->display->display_options['fields']['rendered_entity']['table'] = 'views_entity_file';
-  $handler->display->display_options['fields']['rendered_entity']['field'] = 'rendered_entity';
-  $handler->display->display_options['fields']['rendered_entity']['label'] = '';
-  $handler->display->display_options['fields']['rendered_entity']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['rendered_entity']['alter']['path'] = '[entity_id_3]';
-  $handler->display->display_options['fields']['rendered_entity']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['rendered_entity']['link_to_entity'] = 1;
-  $handler->display->display_options['fields']['rendered_entity']['display'] = 'view';
-  $handler->display->display_options['fields']['rendered_entity']['view_mode'] = 'media_original';
+  /* Field: File: Rendered */
+  $handler->display->display_options['fields']['rendered']['id'] = 'rendered';
+  $handler->display->display_options['fields']['rendered']['table'] = 'file_managed';
+  $handler->display->display_options['fields']['rendered']['field'] = 'rendered';
+  $handler->display->display_options['fields']['rendered']['label'] = '';
+  $handler->display->display_options['fields']['rendered']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['rendered']['alter']['path'] = '[entity_id_3]';
+  $handler->display->display_options['fields']['rendered']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['rendered']['file_view_mode'] = 'media_original';
+  /* Field: File: Rendered */
+  $handler->display->display_options['fields']['rendered_1']['id'] = 'rendered_1';
+  $handler->display->display_options['fields']['rendered_1']['table'] = 'file_managed';
+  $handler->display->display_options['fields']['rendered_1']['field'] = 'rendered';
+  $handler->display->display_options['fields']['rendered_1']['label'] = '';
+  $handler->display->display_options['fields']['rendered_1']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['rendered_1']['alter']['path'] = '[entity_id_3]';
+  $handler->display->display_options['fields']['rendered_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['rendered_1']['file_view_mode'] = 'media_original';
   /* Field: File: Name */
   $handler->display->display_options['fields']['entity_id_1']['id'] = 'entity_id_1';
   $handler->display->display_options['fields']['entity_id_1']['table'] = 'field_data_field_imagename';
   $handler->display->display_options['fields']['entity_id_1']['field'] = 'field_imagename';
   $handler->display->display_options['fields']['entity_id_1']['label'] = '';
+  $handler->display->display_options['fields']['entity_id_1']['exclude'] = TRUE;
   $handler->display->display_options['fields']['entity_id_1']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['entity_id_1']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['entity_id_1']['element_label_colon'] = FALSE;
   /* Field: Field: Description */
   $handler->display->display_options['fields']['entity_id_2']['id'] = 'entity_id_2';
   $handler->display->display_options['fields']['entity_id_2']['table'] = 'field_data_field_description';
@@ -111,9 +121,9 @@ function homepage_centerstage_view_views_default_views() {
   $handler->display->display_options['style_options']['widgets']['top']['views_slideshow_pager']['type'] = 'views_slideshow_pager_fields';
   $handler->display->display_options['style_options']['widgets']['top']['views_slideshow_pager']['views_slideshow_pager_fields_fields'] = array(
     'entity_id_3' => 0,
-    'rendered_entity' => 0,
     'entity_id_1' => 0,
     'entity_id_2' => 0,
+    'rendered' => 0,
   );
   $handler->display->display_options['style_options']['widgets']['top']['views_slideshow_controls']['enable'] = 1;
   $handler->display->display_options['style_options']['widgets']['top']['views_slideshow_controls']['weight'] = '1';
@@ -123,7 +133,7 @@ function homepage_centerstage_view_views_default_views() {
   $handler->display->display_options['style_options']['widgets']['bottom']['views_slideshow_pager']['weight'] = '1';
   $handler->display->display_options['style_options']['widgets']['bottom']['views_slideshow_pager']['type'] = 'views_slideshow_pager_fields';
   $handler->display->display_options['style_options']['widgets']['bottom']['views_slideshow_pager']['views_slideshow_pager_fields_fields'] = array(
-    'rendered_entity' => 'rendered_entity',
+    'rendered' => 'rendered',
     'entity_id_3' => 0,
     'entity_id_1' => 0,
     'entity_id_2' => 0,
