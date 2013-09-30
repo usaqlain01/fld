@@ -28,5 +28,5 @@ $drush en $(cat $buildpath/mods_enabled | tr '\n' ' ') -y &&
 $drush cc all
 $drush updatedb -y
 $drush cc all
-#$drush fra -y &&
-#$drush cc all -y &&
+$drush fra -y
+$drush cc all -y
