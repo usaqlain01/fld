@@ -707,8 +707,6 @@
 .view-homepage.view-display-id-block_4 .field-name-field-image img
 										{ /*border:1px solid #32AFC1;*/ border:1px solid #ddd; padding:2px; display:block; }
 
-.view-homepage.view-display-id-block_3,
-.view-homepage.view-display-id-block_4 	{  }
 
 .view-homepage.view-display-id-block_3 ul,
 .view-homepage.view-display-id-block_4 ul {  }
@@ -735,10 +733,9 @@
 .view-homepage.view-display-id-block_4 .views-field-entity-id-1
 										{ padding:0 5px; }
 
-.view-homepage .jcarousel-container 	{ position:static !important; }
+.view-homepage .jcarousel-container 	{ position:relative; !important; padding: 10px; width:615px;}
 
-.view-homepage .jcarousel-container,
-.view-homepage .jcarousel-clip  		{ width:615px; /*width:615px !important; height:190px !important;*/ }
+.jcarousel-clip-horizontal { overflow: hidden; }
 
 .view-homepage .jcarousel-item 			{ width:205px !important; height:190px !important; }
 
