@@ -107,6 +107,7 @@
 .view-featured-content .views-row-last .views-row-inner
 										{ margin-right:0; }
 
+.view-related-content img { min-width: 100%; height: auto;}
 .view-featured-content .field-name-field-image img
 										{ display:block; }
 
@@ -744,8 +745,6 @@
 #block-views-c6118504e75e57e50cd80f4d968847d5 .views_slideshow_pause
 										{ display:none; }
 
-#block-views-c6118504e75e57e50cd80f4d968847d5 .view-section-front-widget .skin-default
-										{  }
 
 #block-views-c6118504e75e57e50cd80f4d968847d5 .views-slideshow-controls-top
 										{ position:relative; /* This z-index is only to fix a stupid IE8 bug. */ z-index: 60; }
@@ -810,11 +809,23 @@
 										{ width:634px; }
 
 .view-section-front-widget .field-name-field-imagename,
-.view-section-front-widget .field-name-field-description,
 .view-section-front-widget .field-name-field-imageactionlinks
 										{ padding:10px; }
 
-.view-section-front-widget .views-row 	{ background-color:#000; }
+.view-section-front-widget .views-row 	{ background-color:#fff; }
+
+.view-section-front-widget .field-name-field-description {background-color: #000; width: 630px; margin: 0; }
+
+.view-section-front-widget .field-name-field-description p { padding: 20px 10px; margin:0;}
+
+.view-section-front-widget img {
+	height: 235px;
+	border-bottom: 2px solid #92b40a;
+	background: white;
+	outline: none;
+	margin-bottom: 40px;
+}
+
 
 .view-section-front-widget .field-name-file
 										{ border-bottom:3px solid #CE3E05; }
@@ -828,9 +839,6 @@
 .view-section-front-widget .field-name-field-description,
 .view-section-front-widget .field-name-field-imageactionlinks
 										{ color:#fff; }
-
-.view-section-front-widget .field-name-field-description
-										{ margin-bottom:0; }
 
 .view-section-front-widget .field-name-field-imageactionlinks
 										{ float:right; border-left: 1px dashed #fff; margin:10px; }
@@ -1176,3 +1184,4 @@ font-size: 14px;
 .view-reflections-on-9-11 .views-field-entity-id-4		{ margin-top:-3px; font-size: 12px; text-align: right; color:#333333; }
 
 .view-reflections-on-9-11 .views-row.views-row-last		{ border-bottom-color: #FFFFFF !important; }
+
