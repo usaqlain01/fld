@@ -73,8 +73,15 @@
 	height:30px; 
 	color:#bbb; 
 }
-										
-.view-homepage-centerstage .active { 
+
+.view-homepage-centerstage .views-slideshow-pager-fields .views-slideshow-pager-field-item.active,
+.view-homepage-centerstage .views-slideshow-pager-fields .views-slideshow-pager-field-item:first-child.active,
+.view-homepage-centerstage .views-slideshow-pager-fields .views-slideshow-pager-field-item:last-child.active { 
+	margin-top: -1px;
+	padding-top: 18px;
+}
+
+.view-homepage-centerstage .views-slideshow-pager-fields .views-slideshow-pager-field-item.active { 
 	background:url('../images/centerstagePointer.gif') center top no-repeat;
 }
 
