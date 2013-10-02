@@ -1,11 +1,11 @@
 <?php
-// $Id: user_roles.action.inc,v 1.1.2.1.4.1 2010/03/11 04:28:31 kratib Exp $
 
 function views_bulk_operations_user_roles_action_info() {
   return array('views_bulk_operations_user_roles_action' => array(
     'type' => 'user',
     'label' => t('Modify user roles'),
     'configurable' => TRUE,
+    'triggers' => array('any'),
   ));
 }
 
@@ -66,4 +66,3 @@ function views_bulk_operations_user_roles_action(&$user, $context) {
   }
   user_save($user, array('roles' => $roles));
 }
-
