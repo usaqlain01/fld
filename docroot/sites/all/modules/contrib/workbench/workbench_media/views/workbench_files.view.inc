@@ -17,11 +17,12 @@ $view->disabled = FALSE; /* Edit this to true to make a default view disabled in
 
 /* Display: Defaults */
 $handler = $view->new_display('default', 'Defaults', 'default');
-$handler->display->display_options['use_ajax'] = FALSE;
+$handler->display->display_options['title'] = 'Files';
 $handler->display->display_options['access']['type'] = 'perm';
 $handler->display->display_options['access']['perm'] = 'access workbench';
 $handler->display->display_options['cache']['type'] = 'none';
 $handler->display->display_options['query']['type'] = 'views_query';
+$handler->display->display_options['query']['options']['query_comment'] = FALSE;
 $handler->display->display_options['exposed_form']['type'] = 'basic';
 $handler->display->display_options['pager']['type'] = 'full';
 $handler->display->display_options['pager']['options']['items_per_page'] = '25';
@@ -73,7 +74,7 @@ $handler->display->display_options['style_options']['info'] = array(
 );
 $handler->display->display_options['style_options']['override'] = 1;
 $handler->display->display_options['style_options']['sticky'] = 0;
-/* Relationship: File Usage: Node */
+/* Relationship: File Usage: Content */
 $handler->display->display_options['relationships']['file_to_node']['id'] = 'file_to_node';
 $handler->display->display_options['relationships']['file_to_node']['table'] = 'file_usage';
 $handler->display->display_options['relationships']['file_to_node']['field'] = 'file_to_node';
@@ -86,10 +87,10 @@ $handler->display->display_options['fields']['filemime']['label'] = 'Type';
 $handler->display->display_options['fields']['filemime']['alter']['alter_text'] = 0;
 $handler->display->display_options['fields']['filemime']['alter']['make_link'] = 0;
 $handler->display->display_options['fields']['filemime']['alter']['absolute'] = 0;
-$handler->display->display_options['fields']['filemime']['alter']['trim'] = 0;
 $handler->display->display_options['fields']['filemime']['alter']['word_boundary'] = 1;
 $handler->display->display_options['fields']['filemime']['alter']['ellipsis'] = 1;
 $handler->display->display_options['fields']['filemime']['alter']['strip_tags'] = 0;
+$handler->display->display_options['fields']['filemime']['alter']['trim'] = 0;
 $handler->display->display_options['fields']['filemime']['alter']['html'] = 0;
 $handler->display->display_options['fields']['filemime']['hide_empty'] = 0;
 $handler->display->display_options['fields']['filemime']['empty_zero'] = 0;
@@ -102,10 +103,10 @@ $handler->display->display_options['fields']['filename']['field'] = 'filename';
 $handler->display->display_options['fields']['filename']['alter']['alter_text'] = 0;
 $handler->display->display_options['fields']['filename']['alter']['make_link'] = 0;
 $handler->display->display_options['fields']['filename']['alter']['absolute'] = 0;
-$handler->display->display_options['fields']['filename']['alter']['trim'] = 0;
 $handler->display->display_options['fields']['filename']['alter']['word_boundary'] = 1;
 $handler->display->display_options['fields']['filename']['alter']['ellipsis'] = 1;
 $handler->display->display_options['fields']['filename']['alter']['strip_tags'] = 0;
+$handler->display->display_options['fields']['filename']['alter']['trim'] = 0;
 $handler->display->display_options['fields']['filename']['alter']['html'] = 0;
 $handler->display->display_options['fields']['filename']['hide_empty'] = 0;
 $handler->display->display_options['fields']['filename']['empty_zero'] = 0;
@@ -117,10 +118,10 @@ $handler->display->display_options['fields']['uri']['field'] = 'uri';
 $handler->display->display_options['fields']['uri']['alter']['alter_text'] = 0;
 $handler->display->display_options['fields']['uri']['alter']['make_link'] = 0;
 $handler->display->display_options['fields']['uri']['alter']['absolute'] = 0;
-$handler->display->display_options['fields']['uri']['alter']['trim'] = 0;
 $handler->display->display_options['fields']['uri']['alter']['word_boundary'] = 1;
 $handler->display->display_options['fields']['uri']['alter']['ellipsis'] = 1;
 $handler->display->display_options['fields']['uri']['alter']['strip_tags'] = 0;
+$handler->display->display_options['fields']['uri']['alter']['trim'] = 0;
 $handler->display->display_options['fields']['uri']['alter']['html'] = 0;
 $handler->display->display_options['fields']['uri']['hide_empty'] = 0;
 $handler->display->display_options['fields']['uri']['empty_zero'] = 0;
@@ -138,17 +139,17 @@ $handler->display->display_options['fields']['timestamp']['label'] = 'Uploaded';
 $handler->display->display_options['fields']['timestamp']['alter']['alter_text'] = 0;
 $handler->display->display_options['fields']['timestamp']['alter']['make_link'] = 0;
 $handler->display->display_options['fields']['timestamp']['alter']['absolute'] = 0;
-$handler->display->display_options['fields']['timestamp']['alter']['trim'] = 0;
 $handler->display->display_options['fields']['timestamp']['alter']['word_boundary'] = 1;
 $handler->display->display_options['fields']['timestamp']['alter']['ellipsis'] = 1;
 $handler->display->display_options['fields']['timestamp']['alter']['strip_tags'] = 0;
+$handler->display->display_options['fields']['timestamp']['alter']['trim'] = 0;
 $handler->display->display_options['fields']['timestamp']['alter']['html'] = 0;
 $handler->display->display_options['fields']['timestamp']['element_label_colon'] = 1;
 $handler->display->display_options['fields']['timestamp']['element_default_classes'] = 1;
 $handler->display->display_options['fields']['timestamp']['hide_empty'] = 0;
 $handler->display->display_options['fields']['timestamp']['empty_zero'] = 0;
 $handler->display->display_options['fields']['timestamp']['date_format'] = 'time ago';
-/* Field: Node: Title */
+/* Field: Content: Title */
 $handler->display->display_options['fields']['title']['id'] = 'title';
 $handler->display->display_options['fields']['title']['table'] = 'node';
 $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -157,10 +158,10 @@ $handler->display->display_options['fields']['title']['label'] = 'On Node';
 $handler->display->display_options['fields']['title']['alter']['alter_text'] = 0;
 $handler->display->display_options['fields']['title']['alter']['make_link'] = 0;
 $handler->display->display_options['fields']['title']['alter']['absolute'] = 0;
-$handler->display->display_options['fields']['title']['alter']['trim'] = 0;
 $handler->display->display_options['fields']['title']['alter']['word_boundary'] = 1;
 $handler->display->display_options['fields']['title']['alter']['ellipsis'] = 1;
 $handler->display->display_options['fields']['title']['alter']['strip_tags'] = 0;
+$handler->display->display_options['fields']['title']['alter']['trim'] = 0;
 $handler->display->display_options['fields']['title']['alter']['html'] = 0;
 $handler->display->display_options['fields']['title']['hide_empty'] = 1;
 $handler->display->display_options['fields']['title']['empty_zero'] = 0;
@@ -173,10 +174,10 @@ $handler->display->display_options['fields']['uri_1']['label'] = 'filepath';
 $handler->display->display_options['fields']['uri_1']['alter']['alter_text'] = 0;
 $handler->display->display_options['fields']['uri_1']['alter']['make_link'] = 0;
 $handler->display->display_options['fields']['uri_1']['alter']['absolute'] = 0;
-$handler->display->display_options['fields']['uri_1']['alter']['trim'] = 0;
 $handler->display->display_options['fields']['uri_1']['alter']['word_boundary'] = 1;
 $handler->display->display_options['fields']['uri_1']['alter']['ellipsis'] = 1;
 $handler->display->display_options['fields']['uri_1']['alter']['strip_tags'] = 0;
+$handler->display->display_options['fields']['uri_1']['alter']['trim'] = 0;
 $handler->display->display_options['fields']['uri_1']['alter']['html'] = 0;
 $handler->display->display_options['fields']['uri_1']['hide_empty'] = 0;
 $handler->display->display_options['fields']['uri_1']['empty_zero'] = 0;
@@ -187,7 +188,7 @@ $handler->display->display_options['sorts']['timestamp']['id'] = 'timestamp';
 $handler->display->display_options['sorts']['timestamp']['table'] = 'file_managed';
 $handler->display->display_options['sorts']['timestamp']['field'] = 'timestamp';
 $handler->display->display_options['sorts']['timestamp']['order'] = 'DESC';
-/* Filter: File: Name */
+/* Filter criterion: File: Name */
 $handler->display->display_options['filters']['filename']['id'] = 'filename';
 $handler->display->display_options['filters']['filename']['table'] = 'file_managed';
 $handler->display->display_options['filters']['filename']['field'] = 'filename';
@@ -205,16 +206,17 @@ $handler->display->display_options['menu']['description'] = 'List of all files u
 $handler->display->display_options['menu']['weight'] = '0';
 $translatables['workbench_files'] = array(
   t('Defaults'),
+  t('Files'),
   t('more'),
   t('Apply'),
   t('Reset'),
-  t('Sort By'),
+  t('Sort by'),
   t('Asc'),
   t('Desc'),
   t('Items per page'),
   t('- All -'),
   t('Offset'),
-  t('Node'),
+  t('Content'),
   t('Type'),
   t('Name'),
   t('Path'),

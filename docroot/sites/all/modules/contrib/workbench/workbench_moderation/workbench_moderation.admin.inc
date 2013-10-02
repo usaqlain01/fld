@@ -28,6 +28,12 @@ function workbench_moderation_admin_states_form($form, &$form_state) {
       '#value' => $state->name,
     );
     $form['states'][$state->name]['label'] = array(
+      '#type' => 'textfield',
+      '#default_value' => $state->label,
+      '#maxlength' => 255,
+      '#size' => 30,
+    );
+    $form['states'][$state->name]['machine_name'] = array(
       '#markup' => check_plain($state->name),
     );
     $form['states'][$state->name]['description'] = array(
@@ -50,18 +56,28 @@ function workbench_moderation_admin_states_form($form, &$form_state) {
   }
 
   // Provide fields to create a new state.
-  $new_state['name'] = array(
-    '#type' => 'textfield',
-    '#size' => 30,
-    '#maxlength' => 255,
+  $new_state['label'] = array(
     '#title' => t('New state'),
-    '#description' => t('Enter name of the new state.')
+    '#type' => 'textfield',
+    '#description' => t('Enter a name for the new state.'),
+    '#maxlength' => 255,
+    '#size' => 30,
+  );
+  $new_state['name'] = array(
+    '#type' => 'machine_name',
+    '#maxlength' => 255,
+    '#size' => 30,
+    '#required' => FALSE,
+    '#machine_name' => array(
+      'exists' => 'workbench_moderation_state_load',
+      'source' => array('states', '0', 'label'),
+    ),
   );
   $new_state['description'] = array(
     '#type' => 'textfield',
     '#maxlength' => 255,
     '#title' => '&nbsp;',
-    '#description' => 'Enter a description of the new state.'
+    '#description' => t('Enter a description of the new state.')
   );
   $new_state['weight'] = array(
     '#type' => 'weight',
@@ -86,6 +102,7 @@ function theme_workbench_moderation_admin_states_form($variables) {
 
   $header = array(
     t('Name'),
+    t('Machine name'),
     t('Description'),
     array('data' => t('Delete'), 'class' => array('checkbox')),
     t('Weight'),
@@ -99,7 +116,8 @@ function theme_workbench_moderation_admin_states_form($variables) {
       'data' => array(),
       'class' => array('draggable'),
     );
-    $row['data']['name'] = drupal_render($element['name']) . drupal_render($element['label']);
+    $row['data']['label'] = drupal_render($element['label']);
+    $row['data']['name'] = drupal_render($element['name']) . drupal_render($element['machine_name']);
     $row['data']['description'] = drupal_render($element['description']);
     $row['data']['delete'] = drupal_render($element['delete']);
 
@@ -122,11 +140,12 @@ function workbench_moderation_admin_states_form_submit($form, &$form_state) {
   foreach ($form_state['values']['states'] as $key => $info) {
     if (!empty($info['delete'])) {
       workbench_moderation_state_delete($info['state']);
-      drupal_set_message(t('%state has been deleted.', array('%state' => $key)));
+      drupal_set_message(t('Moderation state %label (%name) has been deleted.', array('%label' => $info['label'], '%name' => $info['name'])));
     }
     elseif (!empty($info['name'])) {
       $state = (object) array(
         'name' => $info['name'],
+        'label' => $info['label'],
         'description' => $info['description'],
         'weight' => $info['weight'],
       );
@@ -137,7 +156,7 @@ function workbench_moderation_admin_states_form_submit($form, &$form_state) {
   drupal_set_message(t('Your settings have been saved.'));
 
   // Warn users that changes here may need require reconfiguring Views that use Workbench.
-  $views_message = t('Depending on the changes you have made it may be necessary to <a href="@views" target="_blank">reconfigure Views</a> that leverage Workbench Moderation such as <a href="@workbench_moderation" target="_blank">workbench_moderation</a>', array('@views' => url('admin/structure/views'), '@workbench_moderation' => url('admin/structure/views/edit/workbench_moderation')));
+  $views_message = t('Depending on the changes you have made it may be necessary to <a href="@views">reconfigure Views</a> that leverage Workbench Moderation such as <a href="@workbench_moderation">workbench_moderation</a>', array('@views' => url('admin/structure/views'), '@workbench_moderation' => url('admin/structure/views/edit/workbench_moderation')));
   drupal_set_message($views_message, $type = 'warning', $repeat = FALSE);
 }
 
@@ -153,6 +172,7 @@ function workbench_moderation_admin_transitions_form($form, &$form_state) {
 
   // List existing states.
   $transitions = workbench_moderation_transitions();
+
   foreach ($transitions as $transition) {
     $element = array();
 
@@ -161,10 +181,10 @@ function workbench_moderation_admin_transitions_form($form, &$form_state) {
       '#value' => $transition,
     );
     $element['from_name'] = array(
-      '#markup' => check_plain($transition->from_name),
+      '#markup' => check_plain(workbench_moderation_state_label($transition->from_name)),
     );
     $element['to_name'] = array(
-      '#markup' => check_plain($transition->to_name),
+      '#markup' => check_plain(workbench_moderation_state_label($transition->to_name)),
     );
     $element['delete'] = array(
       '#type' => 'checkbox',
@@ -177,7 +197,8 @@ function workbench_moderation_admin_transitions_form($form, &$form_state) {
   }
 
   // Provide fields to create a new transition.
-  $options = drupal_map_assoc(array_keys(workbench_moderation_states()));
+  $options = workbench_moderation_state_labels();
+
   array_unshift($options, t('- Choose state -'));
   $element = array();
   $element['from_name'] = array(
@@ -185,7 +206,6 @@ function workbench_moderation_admin_transitions_form($form, &$form_state) {
     '#title' => t('New transition'),
     '#options' => $options,
   );
-  unset($element['from_name']['#options'][workbench_moderation_state_published()]);
   $element['to_name'] = array(
     '#type' => 'select',
     '#title' => '&nbsp;',
@@ -259,7 +279,7 @@ function workbench_moderation_admin_transitions_form_submit($form, &$form_state)
   foreach ($form_state['values']['transitions'] as $transition) {
     if (!empty($transition['delete'])) {
       workbench_moderation_transition_delete($transition['transition']);
-      drupal_set_message(t('%from --&gt; %to has been deleted.', array('%from' => $transition['transition']->from_name, '%to' => $transition['transition']->to_name)));
+      drupal_set_message(t('%from --&gt; %to has been deleted.', array('%from' => workbench_moderation_state_label($transition['transition']->from_name), '%to' => workbench_moderation_state_label($transition['transition']->to_name))));
     }
     elseif (!empty($transition['from_name']) && !empty($transition['to_name'])) {
       $new_transition = (object) array(
@@ -267,7 +287,7 @@ function workbench_moderation_admin_transitions_form_submit($form, &$form_state)
         'to_name' => $transition['to_name'],
       );
       workbench_moderation_transition_save($new_transition);
-      drupal_set_message(t('%from --&gt; %to has been created.', array('%from' => $new_transition->from_name, '%to' => $new_transition->to_name)));
+      drupal_set_message(t('%from --&gt; %to has been created.',array('%from' => workbench_moderation_state_label($new_transition->from_name), '%to' => workbench_moderation_state_label($new_transition->to_name))));
     }
   }
 }
@@ -284,14 +304,14 @@ function workbench_moderation_admin_check_role_form($form, &$form_state) {
   $roles = user_roles();
   $form['role'] = array(
     '#type' => 'select',
-    '#title' => t('Drupal role:'),
+    '#title' => t('Drupal role'),
     '#description' => t('Select a role to check.'),
     '#options' => $roles,
   );
 
   $form['moderation_task'] = array(
     '#type' => 'select',
-    '#title' => t('Moderation task:'),
+    '#title' => t('Moderation task'),
     '#description' => t('Select a moderation task that the role should be able to perform.'),
     '#options' => array(
       'author' => t('Author moderated content'),
@@ -308,14 +328,14 @@ function workbench_moderation_admin_check_role_form($form, &$form_state) {
   }
   $form['types'] = array(
     '#type' => 'checkboxes',
-    '#title' => t('Content types:'),
+    '#title' => t('Content types'),
     '#description' => t('Select any content types on which the user should have the ability to perform the moderation task.'),
     '#options' => $types,
   );
 
   $form['submit'] = array(
     '#type' => 'submit',
-    '#value' => t('Check'),
+    '#value' => t('Check permissions'),
   );
 
   if (empty($types)) {
@@ -366,7 +386,7 @@ function workbench_moderation_admin_check_role_form_submit($form, &$form_state) 
       drupal_set_message(t('The @role role may need the "!permission_label" permission in order to be a qualified @moderation_task of @types content.', array(
         '@role' => $role->name,
         '@moderation_task' => $moderation_task,
-        '@types' => implode(' and ', array(implode(', ', array_slice($types, 0, -1)), end($types))),
+        '@types' => implode(t(' and '), array(implode(', ', array_slice($types, 0, -1)), end($types))), // @TODO: Context senstive translation bug
         '!permission_label' => $all_permissions[$permission]['title'],
       )), 'error');
     }
@@ -385,7 +405,7 @@ function workbench_moderation_admin_check_role_form_submit($form, &$form_state) 
   }
 
   // Note that we don't cover all configurations.
-  drupal_set_message(t('You must check manually that this role has the appropriate transition permissions for your workflow. <a href="@moderation_permission_link">View moderation permissions for this role.</a>', array('@moderation_permissions_link' => url('admin/people/permissions/' . $rid, array('fragment' => 'module-workbench_moderation')))), 'warning');
+  drupal_set_message(t('You must check manually that this role has the appropriate transition permissions for your workflow. <a href="@moderation_permissions_link">View moderation permissions for this role.</a>', array('@moderation_permissions_link' => url('admin/people/permissions/' . $rid, array('fragment' => 'module-workbench_moderation')))), 'warning');
 
   // Repopulate the form with the submitted values.
   $form_state['rebuild'] = TRUE;
@@ -451,7 +471,6 @@ function workbench_moderation_recommended_permissions($types = array()) {
       "view moderation messages",
       "view moderation history",
       "use workbench_moderation needs review tab",
-      "unpublish live revision",
     ),
   );
 
