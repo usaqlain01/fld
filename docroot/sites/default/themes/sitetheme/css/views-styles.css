@@ -278,18 +278,13 @@
 										{ background:none; padding:0 0 0 0; }
 
 /*
- * WP - 09 Related Content
+ * WP-09 Layout Related Content 
  */
 
 .view-wp-09-featured-content .views-row,
 #block-views-wp_09_featured_content-block_1 .view-wp-09-featured-content img,
 .view-wp-09-featured-content .views-field-entity-id {
 	width: 123px;
-}
-.view-wp-09-featured-content .views-field-entity-id .article-thumb a{
-	width: 123px;
-	height: 74px;
-	background:url(../images/overlay-article.png) no-repeat center; 
 }
 
 .view-wp-09-featured-content .views-row { 
