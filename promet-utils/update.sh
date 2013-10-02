@@ -29,4 +29,6 @@ $drush cc all
 $drush updatedb -y
 $drush cc all
 $drush fra -y
-$drush cc all -y
+$drush cc all
+$drush fra -y
+$drush cc all
