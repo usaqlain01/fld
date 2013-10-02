@@ -7,25 +7,16 @@
  * @param $form_state
  *   A keyed array containing the current state of the form.
  */
-function zen_form_system_theme_settings_alter(&$form, $form_state) {
+function zen_form_system_theme_settings_alter(&$form, $form_state, $form_id = NULL) {
+  // Work-around for a core bug affecting admin themes. See issue #943212.
+  if (isset($form_id)) {
+    return;
+  }
 
-  // Add the form's CSS
-  drupal_add_css(drupal_get_path('theme', 'zen') . '/zen-internals/css/theme-settings.css', 'theme');
-
-  // Add javascript to show/hide optional settings
-  drupal_add_js(drupal_get_path('theme', 'zen') . '/zen-internals/js/theme-settings.js', 'theme');
-
-  /*
-   * Create the form using Forms API
-   */
-  $form['zen-div-opening'] = array(
-    '#value'         => '<div id="zen-settings">',
-  );
-
+  // Create the form using Forms API
   $form['breadcrumb'] = array(
     '#type'          => 'fieldset',
     '#title'         => t('Breadcrumb settings'),
-    '#attributes'    => array('id' => 'zen-breadcrumb'),
   );
   $form['breadcrumb']['zen_breadcrumb'] = array(
     '#type'          => 'select',
@@ -37,66 +28,81 @@ function zen_form_system_theme_settings_alter(&$form, $form_state) {
                           'no'    => t('No'),
                         ),
   );
-  $form['breadcrumb']['zen_breadcrumb_separator'] = array(
+  $form['breadcrumb']['breadcrumb_options'] = array(
+    '#type' => 'container',
+    '#states' => array(
+      'invisible' => array(
+        ':input[name="zen_breadcrumb"]' => array('value' => 'no'),
+      ),
+    ),
+  );
+  $form['breadcrumb']['breadcrumb_options']['zen_breadcrumb_separator'] = array(
     '#type'          => 'textfield',
     '#title'         => t('Breadcrumb separator'),
     '#description'   => t('Text only. Don’t forget to include spaces.'),
     '#default_value' => theme_get_setting('zen_breadcrumb_separator'),
     '#size'          => 5,
     '#maxlength'     => 10,
-    '#prefix'        => '<div id="div-zen-breadcrumb-collapse">', // jquery hook to show/hide optional widgets
   );
-  $form['breadcrumb']['zen_breadcrumb_home'] = array(
+  $form['breadcrumb']['breadcrumb_options']['zen_breadcrumb_home'] = array(
     '#type'          => 'checkbox',
     '#title'         => t('Show home page link in breadcrumb'),
     '#default_value' => theme_get_setting('zen_breadcrumb_home'),
   );
-  $form['breadcrumb']['zen_breadcrumb_trailing'] = array(
+  $form['breadcrumb']['breadcrumb_options']['zen_breadcrumb_trailing'] = array(
     '#type'          => 'checkbox',
     '#title'         => t('Append a separator to the end of the breadcrumb'),
     '#default_value' => theme_get_setting('zen_breadcrumb_trailing'),
     '#description'   => t('Useful when the breadcrumb is placed just before the title.'),
+    '#states' => array(
+      'disabled' => array(
+        ':input[name="zen_breadcrumb_title"]' => array('checked' => TRUE),
+      ),
+    ),
   );
-  $form['breadcrumb']['zen_breadcrumb_title'] = array(
+  $form['breadcrumb']['breadcrumb_options']['zen_breadcrumb_title'] = array(
     '#type'          => 'checkbox',
     '#title'         => t('Append the content title to the end of the breadcrumb'),
     '#default_value' => theme_get_setting('zen_breadcrumb_title'),
     '#description'   => t('Useful when the breadcrumb is not placed just before the title.'),
-    '#suffix'        => '</div>', // #div-zen-breadcrumb
   );
 
   $form['themedev'] = array(
     '#type'          => 'fieldset',
     '#title'         => t('Theme development settings'),
-    '#attributes'    => array('id' => 'zen-themedev'),
   );
   $form['themedev']['zen_rebuild_registry'] = array(
     '#type'          => 'checkbox',
     '#title'         => t('Rebuild theme registry on every page.'),
     '#default_value' => theme_get_setting('zen_rebuild_registry'),
     '#description'   => t('During theme development, it can be very useful to continuously <a href="!link">rebuild the theme registry</a>. WARNING: this is a huge performance penalty and must be turned off on production websites.', array('!link' => 'http://drupal.org/node/173880#theme-registry')),
-    '#prefix'        => '<div id="div-zen-registry"><strong>' . t('Theme registry:') . '</strong>',
-    '#suffix'        => '</div>',
   );
   $form['themedev']['zen_layout'] = array(
     '#type'          => 'radios',
     '#title'         => t('Layout method'),
     '#options'       => array(
-                          'zen-columns-liquid' => t('Liquid layout') . ' <small>(layout-liquid.css)</small>',
                           'zen-columns-fixed' => t('Fixed layout') . ' <small>(layout-fixed.css)</small>',
+                          'zen-columns-liquid' => t('Liquid layout') . ' <small>(layout-liquid.css)</small>',
                         ),
     '#default_value' => theme_get_setting('zen_layout'),
   );
+  $form['themedev']['zen_jump_link_target'] = array(
+    '#type'          => 'textfield',
+    '#title'         => t('Anchor ID for the “skip link”'),
+    '#default_value' => theme_get_setting('zen_jump_link_target'),
+    '#field_prefix'  => '#',
+    '#description'   => t('Specify the HTML ID of the element that the accessible-but-hidden “skip link” should link to. (<a href="!link">Read more about skip links</a>.)', array('!link' => 'http://drupal.org/node/467976')),
+  );
+  $form['themedev']['zen_jump_link_text'] = array(
+    '#type'          => 'textfield',
+    '#title'         => t('Text for the “skip link”'),
+    '#default_value' => theme_get_setting('zen_jump_link_text'),
+    '#description'   => t('For example: <em>Jump to navigation</em>, <em>Skip to content</em>'),
+  );
   $form['themedev']['zen_wireframes'] = array(
     '#type'          => 'checkbox',
-    '#title'         => t('Display borders around main layout elements'),
+    '#title'         => t('Add wireframes around main layout elements'),
     '#default_value' => theme_get_setting('zen_wireframes'),
     '#description'   => t('<a href="!link">Wireframes</a> are useful when prototyping a website.', array('!link' => 'http://www.boxesandarrows.com/view/html_wireframes_and_prototypes_all_gain_and_no_pain')),
-    '#prefix'        => '<div id="div-zen-wireframes"><strong>' . t('Wireframes:') . '</strong>',
-    '#suffix'        => '</div>',
-  );
-
-  $form['zen-div-closing'] = array(
-    '#value'         => '</div>',
   );
 }
