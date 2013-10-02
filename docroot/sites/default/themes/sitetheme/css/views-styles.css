@@ -64,7 +64,6 @@
 .view-browse-collections .views-field-name a,
 .view-our-collections .views-field-view-node a,
 .view-explore-our-collections .views-field-name a,
-.view-wr-04-related-content-widget .views-field-title a,
 .view-dept-div-collections-list .views-field-view-node a,
 .view-dept-div-collections-list .field-name-field-link .field-item a,
 .page-user-blog .view-blog .views-field-title a,
@@ -182,62 +181,6 @@
 										{ background:url(../images/overlay-event.png) no-repeat center; }
 
 /*
- * Wr-04 Related Content Widget
- */
-
-
-.view-wr-04-related-content-widget .views-field-nothing .event,
-.view-wr-04-related-content-widget .views-field-nothing .article,
-.view-wr-04-related-content-widget .views-field-nothing .podcast,
-.view-wr-04-related-content-widget .views-field-nothing .video,
-.view-wr-04-related-content-widget .views-field-nothing .exhibit,
-.view-wr-04-related-content-widget .views-field-nothing .photo_gallery
-										{ position:absolute; width:80px; height:47px; top:12px; left:0; }
-
-
-.view-wr-04-related-content-widget .views-field-nothing .event
-										{ background:url(../images/overlay-event-small.png) no-repeat center; }
-
-.view-wr-04-related-content-widget .views-field-nothing .podcast
-										{ background:url(../images/overlay-podcast-small.png) no-repeat center; }
-
-.view-wr-04-related-content-widget .views-field-nothing .video
-										{ background:url(../images/overlay-video-small.png) no-repeat center; }
-
-/*.view-wp-09-featured-content .views-field-nothing .article
-*/.view-wr-04-related-content-widget .views-field-nothing .article
-										{ background:url(../images/overlay-article-small.png) no-repeat center; }
-
-.view-wr-04-related-content-widget .views-field-nothing .exhibit
-										{ background:url(../images/overlay-exhibit-small.png) no-repeat center; }
-
-.view-wr-04-related-content-widget .views-field-nothing .photo_gallery
-										{ background:url(../images/overlay-gallery-small.png) no-repeat center; }
-
-.view-wr-04-related-content-widget .views-field-nothing a
-										{ border-top: 0px none; }
-
-.view-wr-04-related-content-widget .views-row-inner
-										{ position:relative; overflow:hidden; background-color:#eee; margin-bottom:3px; }
-
-.view-wr-04-related-content-widget .views-field-title
-										{ padding:3px 3px 0px 3px; border-bottom:none !important; }
-
-.view-multimedia-gallery .views-field-title a,
-.view-wr-04-related-content-widget .views-field-title a
-										{ font:normal bold 12px/14px Arial; }
-
-.view-multimedia-gallery .views-field-title a
-										{ color:inherit; }
-
-.view-multimedia-gallery .field-name-field-image,
-.view-wr-04-related-content-widget .field-name-field-image
-										{ margin-bottom:0px; }
-
-.view-wr-04-related-content-widget .field-name-field-image img
-										{ width:80px; }
-
-/*
  * Wr-05 Promo Widget
  */
 .view-wr-05-promo-content .field-name-field-promo-image
@@ -263,23 +206,23 @@
  * WP-09 Layout Related Content 
  */
 
-.view-wp-09-featured-content .views-row,
-#block-views-wp_09_featured_content-block_1 .view-wp-09-featured-content img,
-.view-wp-09-featured-content .views-field-entity-id {
+.features--thumbnails .views-row,
+#block-views-wp_09_featured_content-block_1 .features--thumbnails img,
+.features--thumbnails .views-field-entity-id {
 	width: 123px;
 }
 
-.view-wp-09-featured-content .views-row { 
+.features--thumbnails .views-row { 
 	float:left;  
 	height:118px; 
 	margin-right:18px; 
 	overflow:hidden; }
 
-.view-wp-09-featured-content .views-row-last { 
+.features--thumbnails .views-row-last { 
 	margin-right:0px; 
 }
 
-.view-wp-09-featured-content .views-field-title a { 
+.features--thumbnails .views-field-title a { 
 	color:#fff; 
 	font:bold 11px Arial; 
 	line-height:16px; }
@@ -287,15 +230,15 @@
 #block-views-wp_09_featured_content-block_1 .content {
 	margin-left: 0;
 }
-#block-views-wp_09_featured_content-block_1 .view-wp-09-featured-content{
+#block-views-wp_09_featured_content-block_1 .features--thumbnails{
 	width: 688px;
 	margin-left: 272px;
 }
-#block-views-wp_09_featured_content-block_1 .view-wp-09-featured-content img {
+#block-views-wp_09_featured_content-block_1 .features--thumbnails img {
 	border-bottom: 3px solid #175463;
 	height: 74px;
 }
-.section-happening .view-wp-09-featured-content .views-field-title {
+.section-happening .features--thumbnails .views-field-title {
 	background:url("../images/icon-arrow-down.png") no-repeat scroll center top transparent; 
 	bottom: 13px;
 	overflow: hidden;
