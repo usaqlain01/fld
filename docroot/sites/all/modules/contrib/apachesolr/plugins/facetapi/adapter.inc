@@ -9,18 +9,29 @@
  * Facet API adapter for the Apache Solr Search Integration module.
  */
 class ApacheSolrFacetapiAdapter extends FacetapiAdapter {
+
   /**
    * Returns the path to the admin settings for a given realm.
    *
-   * @param $realm_name
+   * @param string $realm_name
    *   The name of the realm.
    *
-   * @return
+   * @return string
    *   The path to the admin settings.
    */
   public function getPath($realm_name) {
-    $base_path = 'admin/config/search/apachesolr';
-    return $base_path . '/facets/' . $realm_name;
+    $path = 'admin/config/search/apachesolr/settings';
+    // $adapter will be an instance of class FacetapiAdapter
+    if ($adapter = menu_get_object('facetapi_adapter', 4)) {
+      // Get the environment ID from the machine name of the searcher.
+      $env_id = ltrim(strstr($adapter->getSearcher(), '@'), '@');
+      $path .= '/' . $env_id . '/facets';
+      // Add the realm name to the path if it is not the first one in the list.
+      if (key(facetapi_get_realm_info()) != $realm_name) {
+        $path .= '/' . $realm_name;
+      }
+    }
+    return $path;
   }
 
   /**
@@ -51,6 +62,14 @@ class ApacheSolrFacetapiAdapter extends FacetapiAdapter {
     return $this_has_searched;
   }
 
+  /**
+   * Suppress output of the realm
+   *
+   * @param string $realm_name
+   *
+   * @return bool $flag
+   *   Returns if it was suppressed or not
+   */
   public function suppressOutput($realm_name) {
     $flag = FALSE;
     if ($realm_name == 'block') {
@@ -62,6 +81,8 @@ class ApacheSolrFacetapiAdapter extends FacetapiAdapter {
 
   /**
    * Returns the search keys.
+   *
+   * @return string
    */
   public function getSearchKeys() {
     if (NULL === $this->keys) {
@@ -73,6 +94,7 @@ class ApacheSolrFacetapiAdapter extends FacetapiAdapter {
     else {
       return $this->keys;
     }
+    return FALSE;
   }
 
   /**
@@ -86,7 +108,7 @@ class ApacheSolrFacetapiAdapter extends FacetapiAdapter {
   public function getSearchPath() {
     $env_id = $this->info['instance'];
     $query = apachesolr_current_query($env_id);
-    if (NULL === $this->searchPath && NULL === $query->getPath()) {
+    if (!$query || (NULL === $this->searchPath && NULL === $query->getPath())) {
       if ($path = module_invoke($this->info['module'] . '_search', 'search_info')) {
         $this->searchPath = 'search/' . $path['path'];
         if (!isset($_GET['keys']) && ($keys = $this->getSearchKeys())) {
@@ -94,8 +116,8 @@ class ApacheSolrFacetapiAdapter extends FacetapiAdapter {
         }
       }
     }
-    if (NULL === $query->getPath()) {
-       return $this->searchPath;
+    if (!$query || NULL === $query->getPath()) {
+      return $this->searchPath;
     }
     else {
       return $query->getPath();
@@ -105,16 +127,23 @@ class ApacheSolrFacetapiAdapter extends FacetapiAdapter {
 
   /**
    * Returns the number of total results found for the current search.
+   *
+   * @return bool|int
+   *   Number of results or false if no search response was found
    */
   public function getResultCount() {
     $response = apachesolr_static_response_cache($this->getSearcher());
     if ($response) {
       return $response->response->numFound;
     }
+    return FALSE;
   }
 
   /**
    * Allows for backend specific overrides to the settings form.
+   *
+   * @param array $form
+   * @param array $form_state
    */
   public function settingsForm(&$form, &$form_state) {
     $form['#validate'][] = 'apachesolr_facet_form_validate';
