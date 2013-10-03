@@ -1,5 +1,4 @@
 <?php
-// $Id: file_styles.module,v 1.1.2.8 2010/01/25 22:26:51 aaron Exp $
 
 /**
  *  @file
@@ -188,7 +187,6 @@ function file_styles_styles_styles() {
       ),
     ),
   );
-  $all_styles['image'] = $all_styles['file'];
   $all_styles['file']['containers']['video'] = array('styles' => file_styles_video_default_effects());
   $all_styles['file']['containers']['default'] = array('styles' => $default_styles);
   return $all_styles;

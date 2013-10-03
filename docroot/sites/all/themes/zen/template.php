@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Contains theme override functions and preprocess functions for the Zen theme.
+ * Contains functions to alter Drupal's markup for the Zen theme.
  *
  * IMPORTANT WARNING: DO NOT MODIFY THIS FILE.
  *
@@ -12,8 +12,11 @@
  */
 
 // Auto-rebuild the theme registry during theme development.
-if (theme_get_setting('zen_rebuild_registry')) {
+if (theme_get_setting('zen_rebuild_registry') && !defined('MAINTENANCE_MODE')) {
+  // Rebuild .info data.
   system_rebuild_theme_data();
+  // Rebuild theme registry.
+  drupal_theme_rebuild();
 }
 
 
@@ -28,13 +31,19 @@ function zen_theme(&$existing, $type, $theme, $path) {
 /**
  * Return a themed breadcrumb trail.
  *
- * @param $breadcrumb
- *   An array containing the breadcrumb links.
+ * @param $variables
+ *   - title: An optional string to be used as a navigational heading to give
+ *     context for breadcrumb links to screen-reader users.
+ *   - title_attributes_array: Array of HTML attributes for the title. It is
+ *     flattened into a string within the theme function.
+ *   - breadcrumb: An array containing the breadcrumb links.
  * @return
  *   A string containing the breadcrumb output.
  */
 function zen_breadcrumb($variables) {
   $breadcrumb = $variables['breadcrumb'];
+  $output = '';
+
   // Determine if we are to display the breadcrumb.
   $show_breadcrumb = theme_get_setting('zen_breadcrumb');
   if ($show_breadcrumb == 'yes' || $show_breadcrumb == 'admin' && arg(0) == 'admin') {
@@ -47,21 +56,41 @@ function zen_breadcrumb($variables) {
 
     // Return the breadcrumb with separators.
     if (!empty($breadcrumb)) {
-      $breadcrumb_separator = theme_get_setting('zen_breadcrumb_separator');
+      $breadcrumb_separator = filter_xss_admin(theme_get_setting('zen_breadcrumb_separator'));
       $trailing_separator = $title = '';
       if (theme_get_setting('zen_breadcrumb_title')) {
-        if ($title = drupal_get_title()) {
-          $trailing_separator = $breadcrumb_separator;
+        $item = menu_get_item();
+        if (!empty($item['tab_parent'])) {
+          // If we are on a non-default tab, use the tab's title.
+          $breadcrumb[] = check_plain($item['title']);
+        }
+        else {
+          $breadcrumb[] = drupal_get_title();
         }
       }
       elseif (theme_get_setting('zen_breadcrumb_trailing')) {
         $trailing_separator = $breadcrumb_separator;
       }
-      return '<div class="breadcrumb">' . implode($breadcrumb_separator, $breadcrumb) . "$trailing_separator$title</div>";
+
+      // Provide a navigational heading to give context for breadcrumb links to
+      // screen-reader users.
+      if (empty($variables['title'])) {
+        $variables['title'] = t('You are here');
+      }
+      // Unless overridden by a preprocess function, make the heading invisible.
+      if (!isset($variables['title_attributes_array']['class'])) {
+        $variables['title_attributes_array']['class'][] = 'element-invisible';
+      }
+
+      // Build the breadcrumb trail.
+      $output = '<div class="breadcrumb">';
+      $output .= '<h2' . drupal_attributes($variables['title_attributes_array']) . '>' . $variables['title'] . '</h2>';
+      $output .= implode($breadcrumb_separator, $breadcrumb) . $trailing_separator;
+      $output .= '</div>';
     }
   }
-  // Otherwise, return an empty string.
-  return '';
+
+  return $output;
 }
 
 /**
@@ -70,17 +99,13 @@ function zen_breadcrumb($variables) {
 function zen_menu_local_tasks(&$variables) {
   $output = '';
 
-  if (!empty($variables['primary'])) {
-    $variables['primary']['#prefix'] = '<h2 class="element-invisible">' . t('Primary tabs') . '</h2>';
-    $variables['primary']['#prefix'] .= '<ul class="tabs primary clearfix">';
-    $variables['primary']['#suffix'] = '</ul>';
-    $output .= drupal_render($variables['primary']);
+  if ($primary = drupal_render($variables['primary'])) {
+    $output .= '<h2 class="element-invisible">' . t('Primary tabs') . '</h2>';
+    $output .= '<ul class="tabs primary clearfix">' . $primary . '</ul>';
   }
-  if (!empty($variables['secondary'])) {
-    $variables['secondary']['#prefix'] = '<h2 class="element-invisible">' . t('Secondary tabs') . '</h2>';
-    $variables['secondary']['#prefix'] .= '<ul class="tabs secondary clearfix">';
-    $variables['secondary']['#suffix'] = '</ul>';
-    $output .= drupal_render($variables['secondary']);
+  if ($secondary = drupal_render($variables['secondary'])) {
+    $output .= '<h2 class="element-invisible">' . t('Secondary tabs') . '</h2>';
+    $output .= '<ul class="tabs secondary clearfix">' . $secondary . '</ul>';
   }
 
   return $output;
@@ -102,209 +127,304 @@ function zen_preprocess_menu_local_task(&$variables) {
 }
 
 /**
- * Override or insert variables into the html template.
+ * Adds conditional CSS from the .info file.
  *
- * @param $vars
- *   An array of variables to pass to the theme template.
- * @param $hook
- *   The name of the template being rendered ("html" in this case.)
+ * Copy of conditional_styles_preprocess_html().
  */
-function zen_preprocess_html(&$vars, $hook) {
-  // If the user is silly and enables Zen as the theme, add some styles.
-  if ($GLOBALS['theme'] == 'zen') {
-    include_once './' . drupal_get_path('theme', 'zen') . '/zen-internals/template.zen.inc';
-    _zen_preprocess_html($vars, $hook);
-  }
-
-  // Classes for body element. Allows advanced theming based on context
-  // (home page, node of certain type, etc.)
-  if (!$vars['is_front']) {
-    // Add unique class for each page.
-    $path = drupal_get_path_alias($_GET['q']);
-    // Add unique class for each website section.
-    list($section, ) = explode('/', $path, 2);
-    if (arg(0) == 'node') {
-      if (arg(1) == 'add') {
-        $section = 'node-add';
-      }
-      elseif (is_numeric(arg(1)) && (arg(2) == 'edit' || arg(2) == 'delete')) {
-        $section = 'node-' . arg(2);
+function zen_add_conditional_styles() {
+  // Make a list of base themes and the current theme.
+  $themes = $GLOBALS['base_theme_info'];
+  $themes[] = $GLOBALS['theme_info'];
+  foreach (array_keys($themes) as $key) {
+    $theme_path = dirname($themes[$key]->filename) . '/';
+    if (isset($themes[$key]->info['stylesheets-conditional'])) {
+      foreach (array_keys($themes[$key]->info['stylesheets-conditional']) as $condition) {
+        foreach (array_keys($themes[$key]->info['stylesheets-conditional'][$condition]) as $media) {
+          foreach ($themes[$key]->info['stylesheets-conditional'][$condition][$media] as $stylesheet) {
+            // Add each conditional stylesheet.
+            drupal_add_css(
+              $theme_path . $stylesheet,
+              array(
+                'group' => CSS_THEME,
+                'browsers' => array(
+                  'IE' => $condition,
+                  '!IE' => FALSE,
+                ),
+                'weight' => 999,
+                'every_page' => TRUE,
+              )
+            );
+          }
+        }
       }
     }
-    $vars['classes_array'][] = drupal_html_class('section-' . $section);
-  }
-  if (theme_get_setting('zen_wireframes')) {
-    $vars['classes_array'][] = 'with-wireframes'; // Optionally add the wireframes style.
-  }
-  // Store the menu item since it has some useful information.
-  $vars['menu_item'] = menu_get_item();
-  switch ($vars['menu_item']['page_callback']) {
-    case 'views_page':
-      // Is this a Views page?
-      $vars['classes_array'][] = 'page-views';
-      break;
-    case 'page_manager_page_execute':
-    case 'page_manager_node_view':
-    case 'page_manager_contact_site':
-      // Is this a Panels page?
-      $vars['classes_array'][] = 'page-panels';
-      break;
   }
 }
 
 /**
  * Override or insert variables into the html template.
  *
- * @param $vars
+ * @param $variables
  *   An array of variables to pass to the theme template.
  * @param $hook
- *   The name of the template being rendered ("html" in this case.)
+ *   The name of the template being rendered. This is usually "html", but can
+ *   also be "maintenance_page" since zen_preprocess_maintenance_page() calls
+ *   this function to have consistent variables.
  */
-function zen_process_html(&$vars, $hook) {
-  // Add conditional stylesheets.
+function zen_preprocess_html(&$variables, $hook) {
+  // If the user is silly and enables Zen as the theme, add some styles.
   if ($GLOBALS['theme'] == 'zen') {
-    _zen_process_html($vars, $hook);
+    include_once './' . drupal_get_path('theme', 'zen') . '/zen-internals/template.zen.inc';
+    _zen_preprocess_html($variables, $hook);
   }
   elseif (!module_exists('conditional_styles')) {
-    $vars['styles'] .= $vars['conditional_styles'] = variable_get('conditional_styles_' . $GLOBALS['theme'], '');
+    zen_add_conditional_styles();
+  }
+
+  $variables['jump_link_target'] = theme_get_setting('zen_jump_link_target');
+  $variables['jump_link_text'] = theme_get_setting('zen_jump_link_text');
+
+  // Return early, so the maintenance page does not call any of the code below.
+  if ($hook != 'html') {
+    return;
+  }
+
+  // Classes for body element. Allows advanced theming based on context
+  // (home page, node of certain type, etc.)
+  if (!$variables['is_front']) {
+    // Add unique class for each page.
+    $path = drupal_get_path_alias($_GET['q']);
+    // Add unique class for each website section.
+    list($section, ) = explode('/', $path, 2);
+    $arg = explode('/', $_GET['q']);
+    if ($arg[0] == 'node' && isset($arg[1])) {
+      if ($arg[1] == 'add') {
+        $section = 'node-add';
+      }
+      elseif (isset($arg[2]) && is_numeric($arg[1]) && ($arg[2] == 'edit' || $arg[2] == 'delete')) {
+        $section = 'node-' . $arg[2];
+      }
+    }
+    $variables['classes_array'][] = drupal_html_class('section-' . $section);
+  }
+  if (theme_get_setting('zen_wireframes')) {
+    $variables['classes_array'][] = 'with-wireframes'; // Optionally add the wireframes style.
+  }
+  // Store the menu item since it has some useful information.
+  $variables['menu_item'] = menu_get_item();
+  if ($variables['menu_item']) {
+    switch ($variables['menu_item']['page_callback']) {
+      case 'views_page':
+        // Is this a Views page?
+        $variables['classes_array'][] = 'page-views';
+        break;
+      case 'page_manager_page_execute':
+      case 'page_manager_node_view':
+      case 'page_manager_contact_site':
+        // Is this a Panels page?
+        $variables['classes_array'][] = 'page-panels';
+        break;
+    }
+  }
+}
+
+/**
+ * Override or insert variables into the page template.
+ *
+ * @param $variables
+ *   An array of variables to pass to the theme template.
+ * @param $hook
+ *   The name of the template being rendered ("page" in this case.)
+ */
+function zen_preprocess_page(&$variables, $hook) {
+  // Find the title of the menu used by the secondary links.
+  $secondary_links = variable_get('menu_secondary_links_source', 'user-menu');
+  if ($secondary_links) {
+    $menus = function_exists('menu_get_menus') ? menu_get_menus() : menu_list_system_menus();
+    $variables['secondary_menu_heading'] = $menus[$secondary_links];
+  }
+  else {
+    $variables['secondary_menu_heading'] = '';
   }
 }
 
 /**
  * Override or insert variables into the maintenance page template.
  *
- * @param $vars
+ * @param $variables
  *   An array of variables to pass to the theme template.
  * @param $hook
  *   The name of the template being rendered ("maintenance_page" in this case.)
  */
-function zen_process_maintenance_page(&$vars, $hook) {
-  // If Zen is the maintenance theme, add some styles.
-  if ($GLOBALS['theme'] == 'zen') {
-    include_once './' . drupal_get_path('theme', 'zen') . '/zen-internals/template.zen.inc';
-    _zen_preprocess_html($vars, $hook);
-    _zen_process_html($vars, $hook);
-  }
-  // Add conditional stylesheets.
-  elseif (!module_exists('conditional_styles')) {
-    $vars['styles'] .= $vars['conditional_styles'] = variable_get('conditional_styles_' . $GLOBALS['theme'], '');
+function zen_preprocess_maintenance_page(&$variables, $hook) {
+  zen_preprocess_html($variables, $hook);
+}
+
+/**
+ * Override or insert variables into the maintenance page template.
+ *
+ * @param $variables
+ *   An array of variables to pass to the theme template.
+ * @param $hook
+ *   The name of the template being rendered ("maintenance_page" in this case.)
+ */
+function zen_process_maintenance_page(&$variables, $hook) {
+  // Ensure default regions get a variable. Theme authors often forget to remove
+  // a deleted region's variable in maintenance-page.tpl.
+  foreach (array('header', 'navigation', 'highlighted', 'help', 'content', 'sidebar_first', 'sidebar_second', 'footer', 'bottom') as $region) {
+    if (!isset($variables[$region])) {
+      $variables[$region] = '';
+    }
   }
 }
 
 /**
  * Override or insert variables into the node templates.
  *
- * @param $vars
+ * @param $variables
  *   An array of variables to pass to the theme template.
  * @param $hook
  *   The name of the template being rendered ("node" in this case.)
  */
-function zen_preprocess_node(&$vars, $hook) {
-  if (isset($vars['node_title'])) {
-    // $node_title is idiotic. Fixed in Alpha 4.
-    $vars['title'] = $vars['node_title'];
+function zen_preprocess_node(&$variables, $hook) {
+  // Add $unpublished variable.
+  $variables['unpublished'] = (!$variables['status']) ? TRUE : FALSE;
+
+  // Add a class for the view mode.
+  if (!$variables['teaser']) {
+    $variables['classes_array'][] = 'view-mode-' . $variables['view_mode'];
   }
 
-  // Special classes for nodes.
-  // Class for node type: "node-type-page", "node-type-story", "node-type-my-custom-type", etc.
-  $vars['classes_array'][] = drupal_html_class('node-type-' . $vars['type']);
-  if ($vars['promote']) {
-    $vars['classes_array'][] = 'node-promoted';
-  }
-  if ($vars['sticky']) {
-    $vars['classes_array'][] = 'node-sticky';
-  }
-  if (!$vars['status']) {
-    $vars['classes_array'][] = 'node-unpublished';
-    $vars['unpublished'] = TRUE;
-  }
-  else {
-    $vars['unpublished'] = FALSE;
-  }
-  if ($vars['uid'] && $vars['uid'] == $GLOBALS['user']->uid) {
-    $vars['classes_array'][] = 'node-by-viewer'; // Node is authored by current user.
-  }
-  if ($vars['teaser']) {
-    $vars['classes_array'][] = 'node-teaser'; // Node is displayed as teaser.
-  }
-  if (isset($vars['preview'])) {
-    $vars['classes_array'][] = 'node-preview';
+  // Add a class to show node is authored by current user.
+  if ($variables['uid'] && $variables['uid'] == $GLOBALS['user']->uid) {
+    $variables['classes_array'][] = 'node-by-viewer';
   }
 
-  $vars['title_attributes_array']['class'][] = 'node-title';
+  $variables['title_attributes_array']['class'][] = 'node-title';
 }
 
 /**
  * Override or insert variables into the comment templates.
  *
- * @param $vars
+ * @param $variables
  *   An array of variables to pass to the theme template.
  * @param $hook
  *   The name of the template being rendered ("comment" in this case.)
  */
-function zen_preprocess_comment(&$vars, $hook) {
+function zen_preprocess_comment(&$variables, $hook) {
   // If comment subjects are disabled, don't display them.
-  if (variable_get('comment_subject_field_' . $vars['node']->type, 1) == 0) {
-    $vars['title'] = '';
+  if (variable_get('comment_subject_field_' . $variables['node']->type, 1) == 0) {
+    $variables['title'] = '';
   }
 
   // Zebra striping.
-  if ($vars['id'] == 1) {
-    $vars['classes_array'][] = 'first';
+  if ($variables['id'] == 1) {
+    $variables['classes_array'][] = 'first';
   }
-  if ($vars['id'] == $vars['node']->comment_count) {
-    $vars['classes_array'][] = 'last';
+  if ($variables['id'] == $variables['node']->comment_count) {
+    $variables['classes_array'][] = 'last';
   }
-  $vars['classes_array'][] = $vars['zebra'];
+  $variables['classes_array'][] = $variables['zebra'];
 
-  $vars['title_attributes_array']['class'][] = 'comment-title';
+  $variables['title_attributes_array']['class'][] = 'comment-title';
 }
 
 /**
  * Preprocess variables for region.tpl.php
  *
- * Prepare the values passed to the theme_region function to be passed into a
- * pluggable template engine. Uses the region name to generate a template file
- * suggestions. If none are found, the default region.tpl.php is used.
- *
- * @see region.tpl.php
+ * @param $variables
+ *   An array of variables to pass to the theme template.
+ * @param $hook
+ *   The name of the template being rendered ("region" in this case.)
  */
-function zen_preprocess_region(&$vars, $hook) {
+function zen_preprocess_region(&$variables, $hook) {
   // Sidebar regions get some extra classes and a common template suggestion.
-  if (strpos($vars['region'], 'sidebar_') === 0) {
-    $vars['classes_array'][] = 'column';
-    $vars['classes_array'][] = 'sidebar';
-    $vars['theme_hook_suggestions'][] = 'region__sidebar';
+  if (strpos($variables['region'], 'sidebar_') === 0) {
+    $variables['classes_array'][] = 'column';
+    $variables['classes_array'][] = 'sidebar';
     // Allow a region-specific template to override Zen's region--sidebar.
-    $vars['theme_hook_suggestions'][] = 'region__' . $vars['region'];
+    array_unshift($variables['theme_hook_suggestions'], 'region__sidebar');
   }
 }
 
 /**
  * Override or insert variables into the block templates.
  *
- * @param $vars
+ * @param $variables
  *   An array of variables to pass to the theme template.
  * @param $hook
  *   The name of the template being rendered ("block" in this case.)
  */
-function zen_preprocess_block(&$vars, $hook) {
-  // Special classes for blocks.
-  $vars['classes_array'][] = 'region-' . $vars['block_zebra'];
-  $vars['classes_array'][] = 'region-count-' . $vars['block_id'];
+function zen_preprocess_block(&$variables, $hook) {
+  // Classes describing the position of the block within the region.
+  if ($variables['block_id'] == 1) {
+    $variables['classes_array'][] = 'first';
+  }
+  // The last_in_region property is set in zen_page_alter().
+  if (isset($variables['block']->last_in_region)) {
+    $variables['classes_array'][] = 'last';
+  }
+  $variables['classes_array'][] = $variables['block_zebra'];
 
-  $vars['title_attributes_array']['class'][] = 'block-title';
+  $variables['title_attributes_array']['class'][] = 'block-title';
 }
 
 /**
  * Override or insert variables into the block templates.
  *
- * @param $vars
+ * @param $variables
  *   An array of variables to pass to the theme template.
  * @param $hook
  *   The name of the template being rendered ("block" in this case.)
  */
-function zen_process_block(&$vars, $hook) {
+function zen_process_block(&$variables, $hook) {
   // Drupal 7 should use a $title variable instead of $block->subject.
-  $vars['title'] = $vars['block']->subject;
+  $variables['title'] = $variables['block']->subject;
+}
+
+/**
+ * Implements hook_page_alter().
+ *
+ * Look for the last block in the region. This is impossible to determine from
+ * within a preprocess_block function.
+ *
+ * @param $page
+ *   Nested array of renderable elements that make up the page.
+ */
+function zen_page_alter(&$page) {
+  // Look in each visible region for blocks.
+  foreach (system_region_list($GLOBALS['theme'], REGIONS_VISIBLE) as $region => $name) {
+    if (!empty($page[$region])) {
+      // Find the last block in the region.
+      $blocks = array_reverse(element_children($page[$region]));
+      while ($blocks && !isset($page[$region][$blocks[0]]['#block'])) {
+        array_shift($blocks);
+      }
+      if ($blocks) {
+        $page[$region][$blocks[0]]['#block']->last_in_region = TRUE;
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ *
+ * Prevent user-facing field styling from screwing up node edit forms by
+ * renaming the classes on the node edit form's field wrappers.
+ */
+function zen_form_node_form_alter(&$form, &$form_state, $form_id) {
+  // Remove if #1245218 is backported to D7 core.
+  foreach (array_keys($form) as $item) {
+    if (strpos($item, 'field_') === 0) {
+      if (!empty($form[$item]['#attributes']['class'])) {
+        foreach ($form[$item]['#attributes']['class'] as &$class) {
+          if (strpos($class, 'field-type-') === 0 || strpos($class, 'field-name-') === 0) {
+            // Make the class different from that used in theme_field().
+            $class = 'form-' . $class;
+          }
+        }
+      }
+    }
+  }
 }

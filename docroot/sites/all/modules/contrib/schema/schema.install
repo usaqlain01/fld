@@ -1,5 +1,4 @@
 <?php
-// $Id: schema.install,v 1.6.2.2.2.3 2010/02/25 04:08:19 mikeryan Exp $
 
 /**
 * @file
@@ -78,4 +77,11 @@ function schema_requirements($phase) {
 function schema_uninstall() {
   variable_del('schema_status_report');
   variable_del('schema_suppress_type_warnings');
+}
+
+/**
+ * Moved menu callbacks to include files.
+ */
+function schema_update_7100() {
+  variable_set('menu_rebuild_needed', TRUE);
 }

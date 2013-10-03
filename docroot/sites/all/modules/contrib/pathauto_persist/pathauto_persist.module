@@ -16,11 +16,10 @@ function pathauto_persist_entity_load($entities, $type) {
  * Implements hook_entity_presave().
  */
 function pathauto_persist_entity_presave($entity, $type) {
-  if (isset($entity->path['pathauto']) && is_array($entity->path) && count($entity->path) == 1) {
-    // We cannot have just $entity->path['pathauto'] as this will cause
-    // path_save() to get invoked since path.module is dumb and only checks
-    // if isset($entity->path).
-    unset($entity->path);
+  if (isset($entity->path['pathauto']) && is_array($entity->path)) {
+    // We must set an empty alias string for the path to prevent path.module
+    // from saving an alias.
+    $entity->path += array('alias' => '');
   }
 }
 

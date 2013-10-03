@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Theme implementation to display a block.
+ * Zen theme's implementation to display a block.
  *
  * Available variables:
  * - $title: Block title.
@@ -17,16 +17,10 @@
  *   - block-[module]: The module generating the block. For example, the user
  *     module is responsible for handling the default user navigation block. In
  *     that case the class would be "block-user".
- *   - region-count-[x]: The position of the block in the list of blocks in the
- *     current region.
- *   - region-odd: An odd-numbered block of the list of blocks in the current
- *     region.
- *   - region-even: An even-numbered block of the list of blocks in the current
- *     region.
- *   - count-[x]: The position of the block in the list of blocks on the current
- *     page.
- *   - odd: An odd-numbered block of the list of blocks on the current page.
- *   - even: An even-numbered block of the list of blocks on the current page.
+ *   - first: The first block in the region.
+ *   - last: The last block in the region.
+ *   - odd: An odd-numbered block in the region's list of blocks.
+ *   - even: An even-numbered block in the region's list of blocks.
  * - $title_prefix (array): An array containing additional output populated by
  *   modules, intended to be displayed in front of the main title tag that
  *   appears in the template.
@@ -44,14 +38,16 @@
  * - $is_front: Flags true when presented in the front page.
  * - $logged_in: Flags true when the current user is a logged-in member.
  * - $is_admin: Flags true when the current user is an administrator.
+ * - $block_html_id: A valid HTML ID and guaranteed unique.
  *
  * @see template_preprocess()
  * @see template_preprocess_block()
  * @see zen_preprocess_block()
  * @see template_process()
+ * @see zen_process_block()
  */
 ?>
-<div id="block-<?php print $block->module . '-' . $block->delta; ?>" class="<?php print $classes; ?>"<?php print $attributes; ?>>
+<div id="<?php print $block_html_id; ?>" class="<?php print $classes; ?>"<?php print $attributes; ?>>
 
   <?php print render($title_prefix); ?>
   <?php if ($title): ?>
@@ -63,4 +59,4 @@
     <?php print $content; ?>
   </div>
 
-</div> <!-- /.block -->
+</div><!-- /.block -->
