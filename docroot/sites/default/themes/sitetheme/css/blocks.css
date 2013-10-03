@@ -412,7 +412,6 @@ For pages with a second sidebar, lets use full width and not hard code it
 /* Menu Block for microsites */
 .region-content-top h2.block-title		{ display:none; }
 
-.region-content-top .first.last a		{ display:none; }
 .region-content-top .first.last .menu a	{ display:block; }
 
 
@@ -429,8 +428,10 @@ For pages with a second sidebar, lets use full width and not hard code it
 /* links */
 .node-type-subsection-homepage #block-views-3afabfca216af126d8c09eb6bb83fd25
 										{ width:33%; float:right; border-bottom:none!important; }
-.node-type-subsection-homepage #block-views-3afabfca216af126d8c09eb6bb83fd25 .field-item
-										{ margin-bottom:2px; padding-bottom:2px; border-bottom:1px dashed #BFBFBF; }
+.block-news--links {
+	border-bottom: 1px solid #92B40A;
+	padding-bottom: 10px;
+}
 .node-type-subsection-homepage #block-views-3afabfca216af126d8c09eb6bb83fd25 .field-name-field-link
 										{ width:100%; }
 /* news */

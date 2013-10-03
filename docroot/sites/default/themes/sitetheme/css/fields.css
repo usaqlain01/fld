@@ -148,9 +148,15 @@
 .node-type-photo-gallery .field-name-field-description
 										{ border-bottom:0; }
 
-.field-name-field-link .field-item a,
-.field-name-field-department-links .field-item a
-										{ font-weight:bold; color:#FF8112; }
+.news--links a,
+.field-name-field-department-links .field-item a { 
+	display: block;
+	font-weight:bold; 
+	color:#FF8112; 
+	margin-bottom: 2px;
+	padding-bottom: 2px;
+	border-bottom: 1px dashed #BFBFBF;
+}
 
 .field-name-field-link .field-items,
 .field-name-field-department-links .field-items
