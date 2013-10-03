@@ -155,12 +155,12 @@ function subsection_homepage_content_type_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'hidden',
-        'module' => 'file',
+        'module' => 'styles',
         'settings' => array(
           'custom_collapsible' => 0,
           'custom_collapsible_collapsed' => 0,
         ),
-        'type' => 'file_default',
+        'type' => 'styles_file_content-full',
         'weight' => 0,
       ),
       'teaser' => array(
