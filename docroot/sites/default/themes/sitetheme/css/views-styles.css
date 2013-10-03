@@ -369,6 +369,8 @@
 .view-exhibits-browser .field-content .exhibit-type-Temporary .show-text
 										{ display: none; }
 
+.view-exhibits-browser img { float: left; margin-right: 10px; }
+
 /*
  * Dept / Div Collections list
  */
