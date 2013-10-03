@@ -15,7 +15,7 @@ function workbench_menu() {
     'title' => 'Workbench',
     'description' => 'Workbench',
     'page callback' => 'system_admin_menu_block_page',
-    'access arguments' => array('access workbench'),
+    'access arguments' => array('administer workbench'),
     'position' => 'right',
     'file' => 'system.admin.inc',
     'file path' => drupal_get_path('module', 'system'),
@@ -44,6 +44,22 @@ function workbench_menu() {
     'type' => MENU_LOCAL_TASK,
     'file' => 'workbench.pages.inc',
   );
+
+  // Create redirect urls for node add pages.
+  // This is helpful for the admin_menu module and could have other uses.
+  foreach (node_type_get_types() as $type) {
+    $type_url_str = str_replace('_', '-', $type->type);
+    $items['admin/workbench/create/node/add/' . $type_url_str] = array(
+      'title' => $type->name,
+      'title callback' => 'check_plain',
+      'page callback' => 'drupal_goto',
+      'page arguments' => array('node/add/' . $type_url_str),
+      'access callback' => 'node_access',
+      'access arguments' => array('create', $type->type),
+      'description' => $type->description,
+    );
+  }
+
   return $items;
 }
 
@@ -161,11 +177,6 @@ function workbench_theme($existing, $type, $theme, $path) {
   );
 }
 
-
-
-
-
-
 /**
  * Implementation of hook_preprocess_views_view_table().
  *
@@ -179,11 +190,32 @@ function workbench_preprocess_views_view_field(&$variables) {
     if (empty($variables['output'])) {
       // We could put the default picture here
       $variables['output'] = theme('image', array(
-        'path' => drupal_get_path('module', 'workbench') . '/images/profile_default.jpg',
+        'path' => drupal_get_path('module', 'workbench') . '/images/profile_default.png',
         'attributes' => array(
           'width' => '100px',
          ),
       ));
     }
+  }
+}
+
+/**
+ * Implements hook_ctools_plugin_directory() to let the system know
+ * where our task and task_handler plugins are.
+ */
+function workbench_ctools_plugin_directory($owner, $plugin_type) {
+  if ($owner == 'page_manager') {
+    return 'plugins/page_manager/' . $plugin_type;
+  }
+}
+
+/**
+ * Implements hook_ctools_plugin_api().
+ */
+function workbench_ctools_plugin_api($module, $api) {
+  // This includes a check for whether Panels is enabled since the Page Manager
+  // export is for Panels.
+  if ($module == 'page_manager' && $api == 'pages_default' && module_exists('panels')) {
+    return array('version' => 1);
   }
 }

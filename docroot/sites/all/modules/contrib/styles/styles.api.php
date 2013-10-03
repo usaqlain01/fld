@@ -1,5 +1,4 @@
 <?php
-// $Id: styles.api.php,v 1.1.2.3 2009/11/14 02:30:39 aaron Exp $
 
 /**
  *  @file
