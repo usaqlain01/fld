@@ -23,6 +23,7 @@ function subsection_homepage_news_view_views_default_views() {
   /* Display: Defaults */
   $handler = $view->new_display('default', 'Defaults', 'default');
   $handler->display->display_options['title'] = 'News';
+  $handler->display->display_options['css_class'] = 'news--links';
   $handler->display->display_options['use_more'] = TRUE;
   $handler->display->display_options['use_more_always'] = TRUE;
   $handler->display->display_options['use_more_text'] = 'View all';
@@ -205,9 +206,13 @@ if ($node && !empty($node->field_subsections[LANGUAGE_NONE])) {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['row_class'] = 'block-news--links';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['inline'] = array(
+    'entity_id_1' => 'entity_id_1',
+  );
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Featured Links */

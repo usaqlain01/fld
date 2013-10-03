@@ -62,7 +62,7 @@
 	height:35px; 
 }
 
-.view-homepage-centerstage .views-slideshow-pager-fields .views-slideshow-page-field-item.active img { 
+.view-homepage-centerstage .views-slideshow-pager-fields .views-slideshow-pager-field-item.active img { 
 	opacity:1; 
 	filter:alpha(opacity=100); 
 } 
