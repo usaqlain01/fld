@@ -1212,141 +1212,258 @@ font-size: 14px;
 /* Wr-04/Related Content and Wr-05/Promotion*/
 
 .row-related-content .views-row-inner {
- 	background-color: #eee;
-	margin-bottom: 3px;
-	height: 75px;
-	overflow: hidden;
+  background-color: #eee;
+  margin-bottom: 3px;
+  height: 75px;
+  overflow: hidden;
 }
 
 .row-related-content .views-field-entity-id,
 .row-promotion img {
-	float: left;
-	margin-right: 10px;
-	overflow: hidden;
-	width: 80px;
+  float: left;
+  margin-right: 10px;
+  overflow: hidden;
+  width: 80px;
 }
 
 .row-promotion img {
-	border-right: 2px solid #932D14;
+  border-right: 2px solid #932D14;
 }
 
 .row-related-content .views-field-title {
-	float: left;
-	padding: 3px 3px 0px 3px;
-	width: 90px;
+  float: left;
+  padding: 3px 3px 0px 3px;
+  width: 90px;
 }
 
 .row-related-content a,
 .row-promotion a {
-	border-top: none;
-	color: #FF8112;
-	font-weight: bold;
+  border-top: none;
+  color: #FF8112;
+  font-weight: bold;
 }
 
 .row-promotion a {
-	display: block;
-	background: url(../images/icon-learn-more.png) no-repeat right center;
-	border-top: 1px dashed #bfbfbf;
-	font: italic bold 11px/22px Arial;
-	text-align: right;
-	text-transform: uppercase;
-	margin-top: 3px;
-	padding-right: 12px;
+  display: block;
+  background: url(../images/icon-learn-more.png) no-repeat right center;
+  border-top: 1px dashed #bfbfbf;
+  font: italic bold 11px/22px Arial;
+  text-align: right;
+  text-transform: uppercase;
+  margin-top: 3px;
+  padding-right: 12px;
 }
 
 .row-promotion .blue-back {
-	background:#2EA9C6 url('../images/icon-arrow-side-happening.png') no-repeat; 
-	background-position:80px center; 
-	color:#fff;
-	font:bold 11px Arial; 
-	margin:0 0 0 0;
-	padding:6px 3px 0; 
-	height:69px; 
+  background:#2EA9C6 url('../images/icon-arrow-side-happening.png') no-repeat; 
+  background-position:80px center; 
+  color:#fff;
+  font:bold 11px Arial; 
+  margin:0 0 0 0;
+  padding:6px 3px 0; 
+  height:69px; 
 }
+/*******************************
+*Wr-05/Related Content and Wr-04/Promotion section colors
+********************************/
+
+
+
 /*
  * WP-09/Featured Content Layout 
  */
 
 #block-views-wp-09-featured-content-block-1 {
-	height: 125px;
-	width: 100%;
-	border-bottom: 3px #2CA7C6 solid;
+  height: 125px;
+  width: 100%;
+  border-bottom: 3px #2CA7C6 solid;
 }
 
 .views-featured-content .views-row,
 .views-featured-content .views-field-entity-id {
-	width: 123px;
+  width: 123px;
 }
 
 #block-views-wp-09-featured-content-block-1 .content {
-	margin-left: 0;
+  margin-left: 0;
 }
 #block-views-wp-09-featured-content-block-1 h2 {
-	position: relative;
-	background: #2ea9c6;
-	border-bottom: none 0px;
-	border-left: 3px solid #175463;
-	color: #175463;
-	float: left;
-	font: 41px neutra;
-	line-height: 21px;
-	margin: 0px -242px 10px 0px;
-	padding: 13px 16px 3px;
-	text-transform: uppercase;
-	width: 203px;
-	height: 53px;	
+  position: relative;
+  background: #2ea9c6;
+  border-bottom: none 0px;
+  border-left: 3px solid #175463;
+  color: #175463;
+  float: left;
+  font: 41px neutra;
+  line-height: 21px;
+  margin: 0px -242px 10px 0px;
+  padding: 13px 16px 3px;
+  text-transform: uppercase;
+  width: 203px;
+  height: 53px; 
 }
+
 #block-views-wp-09-featured-content-block-1 h2 .smaller {
-	display: block;
-	font: 20px neutra;
-	margin-top: 4px;
+  display: block;
+  font: 20px neutra;
+  margin-top: 4px;
 }
 #block-views-wp-09-featured-content-block-1 h2 .triangle {
-	position: absolute;
-	background: url('../images/background-wp-09-rightarrow.png') no-repeat;
-	background-position: left -69px;
-	right: -26px;
-	top: 0px;
-	width: 26px;
-	height: 69px
+  position: absolute;
+  background: url('../images/background-wp-09-rightarrow.png') no-repeat;
+  background-position: left -69px;
+  right: -26px;
+  top: 0px;
+  width: 26px;
+  height: 69px
 }
+
 #block-views-wp_09_featured_content-block-1 .views-featured-content{
-	width: 688px;
+  width: 688px;
 }
 .row-featured-content:first-child {
-	margin-left: 272px;
+  margin-left: 272px;
 }
 
 .views-featured-content .views-row { 
-	position: relative;
-	float:left;  
-	height:118px; 
-	margin-right:18px; 
-	overflow:hidden; 
+  position: relative;
+  float:left;  
+  height:118px; 
+  margin-right:18px; 
+  overflow:hidden; 
 }
 
 .views-featured-content .views-row-last { 
-	margin-right:0px; 
+  margin-right:0px; 
 }
 
 .views-featured-content .views-field-title a { 
-	color:#fff; 
-	font:bold 11px Arial; 
-	line-height:16px; }
+  color:#fff; 
+  font:bold 11px Arial; 
+  line-height:16px; }
 
 .views-featured-content .views-field-title {
-	position: absolute;
-	background:url("../images/icon-arrow-down.png") no-repeat scroll center top transparent; 
-	padding: 5px;
-	overflow: hidden;
-	text-align: left;
-	width: 113px;
-	height: 23px;
+  position: absolute;
+  background:url("../images/icon-arrow-down.png") no-repeat scroll center top transparent; 
+  padding: 5px;
+  overflow: hidden;
+  text-align: left;
+  width: 113px;
+  height: 23px;
 }
 
 .row-featured-content img {
-	border-bottom: 3px solid #175463;
-	overflow: hidden;
-	width: 100%;
-	height: 72px;
+  border-bottom: 3px solid #175463;
+  overflow: hidden;
+  width: 100%;
+  height: 72px;
+}
+
+/*******************************
+*WP-09/Featured content colors 
+********************************/
+
+/*Default Colors--Apply to Happening Section*/
+
+#block-views-wp-09-featured-content-block-1 h2 {
+  background: #2CA7C6;
+  color: #175463;
+}
+
+/*Visit Colors*/
+.section-visit #block-views-wp-09-featured-content-block-1 {
+  border-bottom-color: #CE3E05;
+}
+
+.section-visit #block-views-wp-09-featured-content-block-1 h2 .triangle { 
+  background-position:left 0px; 
+}
+
+.section-visit #block-views-wp-09-featured-content-block-1 h2 {
+  background: #CE3E05;
+  color: #932D14;
+  border-left-color: #932D14;
+}
+
+.section-visit .row-featured-content img {
+  border-bottom-color: #932D14;
+}
+/*Support Colors*/
+ 
+.section-support #block-views-wp-09-featured-content-block-1 {
+  border-bottom-color: #0F8A5A;
+}
+
+.section-support #block-views-wp-09-featured-content-block-1 h2 .triangle { 
+  background-position:left -138px; 
+}
+
+.section-support #block-views-wp-09-featured-content-block-1 h2 {
+  background: #0F8A5A;
+  border-left-color: #074F33;
+  color: #074F33;
+}
+
+.section-support .row-featured-content img {
+  border-bottom-color: #074F33;
+}
+
+/*Schools Colors*/
+.section-schools #block-views-wp-09-featured-content-block-1 {
+  border-bottom-color: #934E9B;
+}
+
+.section-schools #block-views-wp-09-featured-content-block-1 h2 .triangle { 
+  background-position:left -207px; 
+}
+
+.section-schools #block-views-wp-09-featured-content-block-1 h2 {
+  background: #934E9B;
+  border-left-color: #59215B;
+  color: #59215B;
+}
+
+.section-schools .row-featured-content img {
+  border-bottom-color: #59215B;
+}
+
+/*Explore Colors*/
+.section-explore #block-views-wp-09-featured-content-block-1 {
+  border-bottom-color: #92B40A;
+}
+
+.section-explore #block-views-wp-09-featured-content-block-1 h2 .triangle { 
+  background-position:left -207px; 
+}
+
+.section-explore #block-views-wp-09-featured-content-block-1 h2 {
+  background: #92B40A;
+  border-left-color: #536712;
+  color: #536712;
+}
+
+.section-explore .row-featured-content img {
+  border-bottom-color: #536712;
+}
+/*About and Users Colors*/
+.section-about #block-views-wp-09-featured-content-block-1,
+.section-users #block-views-wp-09-featured-content-block-1 {
+  border-bottom-color: #4F4FCF;
+}
+
+.section-about #block-views-wp-09-featured-content-block-1 h2 .triangle,
+.section-users #block-views-wp-09-featured-content-block-1 h2 .triangle { 
+  background-position:left -345px; 
+}
+
+.section-about #block-views-wp-09-featured-content-block-1 h2,
+.section-users #block-views-wp-09-featured-content-block-1 h2 {
+  background: #4F4FCF;
+  border-left-color: #272767;
+  color: #272767;
+}
+
+.section-about .row-featured-content img,
+.section-users .row-featured-content img {
+  border-bottom-color: #272767;
 }

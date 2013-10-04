@@ -41,7 +41,6 @@ stylesheets[all][]   = css/comments.css
 stylesheets[all][]   = css/forms.css
 stylesheets[all][]   = css/fields.css
 stylesheets[all][]   = css/media-player.css
-stylesheets[all][]   = css/widgets.css
 stylesheets[all][]   = css/colors.css
 stylesheets[all][]   = css/tabs-field-custom.css
 stylesheets[all][]   = css/collapsible.css
