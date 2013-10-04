@@ -1298,7 +1298,9 @@ function custom_theme_file_styles_styles_default($variables) {
   // @TODO Certainly can be more elegant than this.
   if ($style_name == 'original') {
     $vars['getsize'] = FALSE;
-    return theme('image', $vars);
+    $return  = theme('image', $vars);
+    kpr($return);
+    return $return;
   }
 
   $vars['style_name'] = $style_name;
@@ -1322,3 +1324,11 @@ function custom_field_extra_fields() {
   );
   return $extra;
 }
+
+function custom_preprocess_image(&$vars) {
+  // This is to compensate for the stuff that the old media module stuck in to the content. 
+  // The format of the tokens aren't quite the same anymore
+  $vars['width'] = $vars['attributes']['attributes']['width'];
+  $vars['height'] = $vars['attributes']['attributes']['height'];
+}
+
