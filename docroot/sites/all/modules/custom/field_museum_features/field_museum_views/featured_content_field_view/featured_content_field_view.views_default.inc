@@ -96,16 +96,6 @@ function featured_content_field_view_views_default_views() {
   $handler->display->display_options['fields']['field_blog_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_blog_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_blog_image']['type'] = 'styles_file_content-half';
-  /* Field: Content: Image */
-  $handler->display->display_options['fields']['field_exhibit_image_1']['id'] = 'field_exhibit_image_1';
-  $handler->display->display_options['fields']['field_exhibit_image_1']['table'] = 'field_data_field_exhibit_image';
-  $handler->display->display_options['fields']['field_exhibit_image_1']['field'] = 'field_exhibit_image';
-  $handler->display->display_options['fields']['field_exhibit_image_1']['label'] = '';
-  $handler->display->display_options['fields']['field_exhibit_image_1']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['field_exhibit_image_1']['alter']['path'] = 'node/[nid]';
-  $handler->display->display_options['fields']['field_exhibit_image_1']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_exhibit_image_1']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_exhibit_image_1']['type'] = 'styles_file_content-half';
   /* Field: Content: Image Header */
   $handler->display->display_options['fields']['field_collection_image_header']['id'] = 'field_collection_image_header';
   $handler->display->display_options['fields']['field_collection_image_header']['table'] = 'field_data_field_collection_image_header';
