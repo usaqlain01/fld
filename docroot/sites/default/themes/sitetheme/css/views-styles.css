@@ -1209,42 +1209,25 @@ font-size: 14px;
 	text-transform:uppercase; 
 }
 
-/*
- * Wr-05 Promo Widget
- */
-.view-wr-05-promo-content .field-name-field-promo-image
-										{ float:left; margin-right:10px; border-right:3px solid #175463; }
-
-.view-wr-05-promo-content .field-name-field-promo-image img
-										{ width:80px; }
-
-.view-wr-05-promo-content .field-name-field-description,
-.view-wr-05-promo-content .blue-back 	{ background:#2EA9C6 url('../images/icon-arrow-side-happening.png') no-repeat; background-position:83px center; font:bold 11px Arial; color:#fff; width:inherit; height:74px; padding:6px 3px 0; margin:0 0 0 0;
-}
-
-.view-wr-05-promo-content .field-name-field-link
-										{ display:block; float:none; clear:both; background:url(../images/icon-learn-more.png) no-repeat right center; font:italic bold 11px/22px Arial; color:#212121; text-align:right; text-transform:uppercase; width:inherit; margin-top:3px; padding-right:12px; border-top:1px dashed #bfbfbf; border-bottom:0px none; }
-
-.view-wr-05-promo-content .field-name-field-link .field-items
-										{ padding:0 0 0 0; }
-
-.view-wr-05-promo-content .field-name-field-link span.ext
-										{ background:none; padding:0 0 0 0; }
-
-/* Wr-05 related content */
+/* Wr-04/Related Content and Wr-05/Promotion*/
 
 .row-related-content .views-row-inner {
-	background-color: #eee;
+ 	background-color: #eee;
 	margin-bottom: 3px;
+	height: 75px;
 	overflow: hidden;
 }
 
-.row-related-content .views-field-entity-id {
+.row-related-content .views-field-entity-id,
+.row-promotion img {
 	float: left;
 	margin-right: 10px;
-	height: 75px;
-	width: 80px;
 	overflow: hidden;
+	width: 80px;
+}
+
+.row-promotion img {
+	border-right: 2px solid #932D14;
 }
 
 .row-related-content .views-field-title {
@@ -1253,13 +1236,35 @@ font-size: 14px;
 	width: 90px;
 }
 
-.row-related-content a {
+.row-related-content a,
+.row-promotion a {
 	border-top: none;
-	color:#FF8112;
+	color: #FF8112;
 	font-weight: bold;
 }
+
+.row-promotion a {
+	display: block;
+	background: url(../images/icon-learn-more.png) no-repeat right center;
+	border-top: 1px dashed #bfbfbf;
+	font: italic bold 11px/22px Arial;
+	text-align: right;
+	text-transform: uppercase;
+	margin-top: 3px;
+	padding-right: 12px;
+}
+
+.row-promotion .blue-back {
+	background:#2EA9C6 url('../images/icon-arrow-side-happening.png') no-repeat; 
+	background-position:80px center; 
+	color:#fff;
+	font:bold 11px Arial; 
+	margin:0 0 0 0;
+	padding:6px 3px 0; 
+	height:69px; 
+}
 /*
- * WP-09 Layout Related Content 
+ * WP-09/Featured Content Layout 
  */
 
 #block-views-wp-09-featured-content-block-1 {
