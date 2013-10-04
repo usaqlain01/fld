@@ -19,14 +19,9 @@ function photo_gallery_content_type_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'mediafield',
-        'settings' => array(
-          'custom_collapsible' => 0,
-          'custom_collapsible_collapsed' => 0,
-          'file_view_mode' => 'full',
-        ),
-        'type' => 'media',
-        'weight' => 7,
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 5,
       ),
       'full' => array(
         'label' => 'above',
@@ -98,14 +93,13 @@ function photo_gallery_content_type_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'mediafield',
+        'module' => 'file',
         'settings' => array(
           'custom_collapsible' => 0,
           'custom_collapsible_collapsed' => 0,
-          'file_view_mode' => 'full',
         ),
-        'type' => 'media',
-        'weight' => 7,
+        'type' => 'file_default',
+        'weight' => 1,
       ),
       'full' => array(
         'label' => 'above',

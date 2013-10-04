@@ -112,12 +112,14 @@ function exhibit_content_type_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'hidden',
-        'module' => 'styles',
+        'module' => 'image',
         'settings' => array(
           'custom_collapsible' => 0,
           'custom_collapsible_collapsed' => 0,
+          'image_link' => '',
+          'image_style' => 'article-original-aspect',
         ),
-        'type' => 'styles_image_article-original-aspect',
+        'type' => 'image',
         'weight' => 5,
       ),
       'teaser' => array(
