@@ -38,11 +38,19 @@ function featured_content_field_view_views_default_views() {
   $handler->display->display_options['fields']['title']['element_type'] = 'h2';
   $handler->display->display_options['fields']['title']['element_class'] = 'node-title';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
   /* Field: Content: Image */
   $handler->display->display_options['fields']['field_exhibit_image']['id'] = 'field_exhibit_image';
   $handler->display->display_options['fields']['field_exhibit_image']['table'] = 'field_data_field_exhibit_image';
   $handler->display->display_options['fields']['field_exhibit_image']['field'] = 'field_exhibit_image';
   $handler->display->display_options['fields']['field_exhibit_image']['label'] = '';
+  $handler->display->display_options['fields']['field_exhibit_image']['alter']['text'] = '<a href="[path]">[field_exhibit_image]</a>';
   $handler->display->display_options['fields']['field_exhibit_image']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['field_exhibit_image']['alter']['path'] = 'node/[nid]';
   $handler->display->display_options['fields']['field_exhibit_image']['element_label_colon'] = FALSE;
