@@ -160,30 +160,6 @@
 										{ background:url('../images/icon-featured.png') no-repeat right; }
 
 /*
- * WP - 09 Featured Content Block
- */
-
-#block-views-wp_09_featured_content-block-1 h2.block-title span.triangle
-										{ position:absolute; background:url('../images/background-wp-09-rightarrow.png') no-repeat; background-position:left -276px; right:-26px; top:0px; width:26px; height:69px; }
-
-.section-visit #block-views-wp_09_featured_content-block-1 h2.block-title span.triangle
-										{ background-position:left 0px; }
-
-.section-happening #block-views-wp_09_featured_content-block-1 h2.block-title span.triangle
-										{ background-position:left -69px; }
-
-.section-support #block-views-wp_09_featured_content-block-1 h2.block-title span.triangle
-										{ background-position:left -138px; }
-
-.section-schools #block-views-wp_09_featured_content-block-1 h2.block-title span.triangle
-										{ background-position:left -207px; }
-
-.section-about #block-views-wp_09_featured_content-block-1 h2.block-title span.triangle,
-.section-users #block-views-wp_09_featured_content-block-1 h2.block-title span.triangle 
-										{ background-position:left -345px; }
-
-
-/*
  * Dept / Div page
  */
 .node-type-department-division-page #content .block

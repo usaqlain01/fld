@@ -417,12 +417,10 @@ body.two-sidebars.section-schools #main-inner-wrapper
 .section-schools .views-field-title,
 .section-schools .view-section-front-widget .field-name-file,
 .section-schools .view-section-front-widget .field-name-field-imageactionlinks .field-item,
-.section-schools #block-views-wp_09_featured_content-block_1
 										{ border-bottom-color:#934E9B; }
 
 .section-schools #EmailSignup 			{ border-top-color:#59215B; }
 
-.section-schools .view-wp-09-featured-content .views-row, 
 .section-schools .view-related-content .views-row .views-row-inner, 
 .section-schools #EmailSignup .form-inner-inner,
 .section-schools .view-featured-content .field-name-field-image,
@@ -435,11 +433,9 @@ body.two-sidebars.section-schools #main-inner-wrapper
 .section-schools .view-related-content .views-row .views-row-inner, 
 .section-schools #EmailSignup .form-inner-inner,
 .section-schools .view-wr-05-promo-content .field-name-field-description,
-.section-schools .view-wp-09-featured-content .views-row
 										{ background-color:#934E9B; }
 
 .section-schools .view-related-content .field-name-field-image,
-.section-schools .view-wp-09-featured-content .field-name-field-image
 										{ border-bottom-color:#59215B; }
 
 .section-schools .view-wr-05-promo-content .field-name-field-promo-image
@@ -489,15 +485,6 @@ body.two-sidebars.section-schools #main-inner-wrapper
 body.sidebar-first.section-explore #main-inner-wrapper,
 body.two-sidebars.section-explore #main-inner-wrapper
 										{ background:url('../images/background-body-explore.png') repeat-y; }
-
-.section-explore #block-views-wp_09_featured_content-block_1
-										{ border-bottom-color:#92B40A; }
-
-.section-explore #block-views-wp_09_featured_content-block_1 h2.block-title
-										{ background:#92B40A; color:#536712; border-left-color:#536712; }
-
-.section-explore .view-wp-09-featured-content .views-row
-										{ background-color:#92B40A; }
 
 .section-explore .view-section-front-widget .field-name-file,
 .section-explore .view-section-front-widget .field-name-field-imageactionlinks .field-item
@@ -555,39 +542,22 @@ body.two-sidebars.section-users #main-inner-wrapper
 .section-users .region-sidebar-second .block,
 .section-about h1.title#page-title span,
 .section-users h1.title#page-title span,
-.section-about #block-views-wp_09_featured_content-block_1,
-.section-users #block-views-wp_09_featured_content-block_1,
-.section-user #block-views-wp_09_featured_content-block_1,
 .section-about .view-section-front-widget .field-name-file,
 .section-about .view-section-front-widget .field-name-field-imageactionlinks .field-item
 										{ border-bottom-color:#4f4fcf; }
-
-.section-about #block-views-wp_09_featured_content-block_1 h2.block-title,
-.section-users #block-views-wp_09_featured_content-block_1 h2.block-title,
-.section-user #block-views-wp_09_featured_content-block_1 h2.block-title
-										{ background:#4F4FCF; color:#272767; border-left-color:#4F4FCF; }
 
 .section-about .view-wp-09-featured-content .views-row, 
 .section-about .view-related-content .views-row .views-row-inner, 
 .section-about #EmailSignup .form-inner-inner,
 .section-users .mep-container .mep-controls > div,
-.section-about .view-wp-09-featured-content .views-row,
-.section-users .view-wp-09-featured-content .views-row,
-.section-user .view-wp-09-featured-content .views-row
 										{ background-color:#4F4FCF; }
 
 .section-about .view-related-content .field-name-field-image,
-.section-about .view-wp-09-featured-content .field-name-field-image,
-.section-users .view-wp-09-featured-content .field-name-field-image,
-.section-user .view-wp-09-featured-content .field-name-field-image
 										{ border-bottom-color:#272767; }
 
 .section-about #EmailSignup 			{ border-top-color:#272767; }
 
 .section-about #block-views-related_content-block .views-field-title,
-.section-about .view-wp-09-featured-content .views-field-title,
-.section-users .view-wp-09-featured-content .views-field-title,
-.section-user .view-wp-09-featured-content .views-field-title
 										{ background-image:url("../images/icon-arrow-down-272767.png") }
 
 .section-about .field-name-field-quote,
