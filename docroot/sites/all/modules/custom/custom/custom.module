@@ -1344,3 +1344,11 @@ function custom_field_extra_fields() {
   );
   return $extra;
 }
+
+function custom_preprocess_image(&$vars) {
+  // This is to compensate for the stuff that the old media module stuck in to the content. 
+  // The format of the tokens aren't quite the same anymore
+  $vars['width'] = $vars['attributes']['attributes']['width'];
+  $vars['height'] = $vars['attributes']['attributes']['height'];
+}
+
