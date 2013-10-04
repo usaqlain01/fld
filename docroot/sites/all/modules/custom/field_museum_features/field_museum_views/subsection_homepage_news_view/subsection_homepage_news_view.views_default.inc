@@ -23,6 +23,7 @@ function subsection_homepage_news_view_views_default_views() {
   /* Display: Defaults */
   $handler = $view->new_display('default', 'Defaults', 'default');
   $handler->display->display_options['title'] = 'News';
+  $handler->display->display_options['css_class'] = 'news--links';
   $handler->display->display_options['use_more'] = TRUE;
   $handler->display->display_options['use_more_always'] = TRUE;
   $handler->display->display_options['use_more_text'] = 'View all';
@@ -210,7 +211,7 @@ if ($node && !empty($node->field_subsections[LANGUAGE_NONE])) {
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Featured Links */
+  /* Field: Content: Link */
   $handler->display->display_options['fields']['entity_id_1']['id'] = 'entity_id_1';
   $handler->display->display_options['fields']['entity_id_1']['table'] = 'field_data_field_link';
   $handler->display->display_options['fields']['entity_id_1']['field'] = 'field_link';
@@ -233,7 +234,7 @@ if ($node && !empty($node->field_subsections[LANGUAGE_NONE])) {
   $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Featured Links (field_link:url) */
+  /* Filter criterion: Content: Link (field_link:url) */
   $handler->display->display_options['filters']['field_link_url_1']['id'] = 'field_link_url_1';
   $handler->display->display_options['filters']['field_link_url_1']['table'] = 'field_data_field_link';
   $handler->display->display_options['filters']['field_link_url_1']['field'] = 'field_link_url';
