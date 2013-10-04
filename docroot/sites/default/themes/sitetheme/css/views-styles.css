@@ -60,6 +60,7 @@
 
 .page-views .views-field-title 			{ font:normal bold 1.0769em Arial; margin-bottom:0; }
 
+
 .view-FAQ .views-field-title,
 .view-browse-collections .views-field-name a,
 .view-our-collections .views-field-view-node a,
@@ -180,74 +181,6 @@
 .view-related-content .views-field-nothing .event
 										{ background:url(../images/overlay-event.png) no-repeat center; }
 
-/*
- * Wr-05 Promo Widget
- */
-.view-wr-05-promo-content .field-name-field-promo-image
-										{ float:left; margin-right:10px; border-right:3px solid #175463; }
-
-.view-wr-05-promo-content .field-name-field-promo-image img
-										{ width:80px; }
-
-.view-wr-05-promo-content .field-name-field-description,
-.view-wr-05-promo-content .blue-back 	{ background:#2EA9C6 url('../images/icon-arrow-side-happening.png') no-repeat; background-position:83px center; font:bold 11px Arial; color:#fff; width:inherit; height:74px; padding:6px 3px 0; margin:0 0 0 0;
-}
-
-.view-wr-05-promo-content .field-name-field-link
-										{ display:block; float:none; clear:both; background:url(../images/icon-learn-more.png) no-repeat right center; font:italic bold 11px/22px Arial; color:#212121; text-align:right; text-transform:uppercase; width:inherit; margin-top:3px; padding-right:12px; border-top:1px dashed #bfbfbf; border-bottom:0px none; }
-
-.view-wr-05-promo-content .field-name-field-link .field-items
-										{ padding:0 0 0 0; }
-
-.view-wr-05-promo-content .field-name-field-link span.ext
-										{ background:none; padding:0 0 0 0; }
-
-/*
- * WP-09 Layout Related Content 
- */
-
-.features--thumbnails .views-row,
-#block-views-wp_09_featured_content-block_1 .features--thumbnails img,
-.features--thumbnails .views-field-entity-id {
-	width: 123px;
-}
-
-.features--thumbnails .views-row { 
-	float:left;  
-	height:118px; 
-	margin-right:18px; 
-	overflow:hidden; }
-
-.features--thumbnails .views-row-last { 
-	margin-right:0px; 
-}
-
-.features--thumbnails .views-field-title a { 
-	color:#fff; 
-	font:bold 11px Arial; 
-	line-height:16px; }
-
-#block-views-wp_09_featured_content-block_1 .content {
-	margin-left: 0;
-}
-#block-views-wp_09_featured_content-block_1 .features--thumbnails{
-	width: 688px;
-	margin-left: 272px;
-}
-#block-views-wp_09_featured_content-block_1 .features--thumbnails img {
-	border-bottom: 3px solid #175463;
-	height: 74px;
-}
-.section-happening .features--thumbnails .views-field-title {
-	background:url("../images/icon-arrow-down.png") no-repeat scroll center top transparent; 
-	bottom: 13px;
-	overflow: hidden;
-	padding: 5px;
-	position: absolute;
-	text-align: left;
-	height: 23px;
-	width: 113px;
-}
 
 
 /*
@@ -1274,4 +1207,141 @@ font-size: 14px;
 	color:#fff; 
 	font-size:10px; 
 	text-transform:uppercase; 
+}
+
+/*
+ * Wr-05 Promo Widget
+ */
+.view-wr-05-promo-content .field-name-field-promo-image
+										{ float:left; margin-right:10px; border-right:3px solid #175463; }
+
+.view-wr-05-promo-content .field-name-field-promo-image img
+										{ width:80px; }
+
+.view-wr-05-promo-content .field-name-field-description,
+.view-wr-05-promo-content .blue-back 	{ background:#2EA9C6 url('../images/icon-arrow-side-happening.png') no-repeat; background-position:83px center; font:bold 11px Arial; color:#fff; width:inherit; height:74px; padding:6px 3px 0; margin:0 0 0 0;
+}
+
+.view-wr-05-promo-content .field-name-field-link
+										{ display:block; float:none; clear:both; background:url(../images/icon-learn-more.png) no-repeat right center; font:italic bold 11px/22px Arial; color:#212121; text-align:right; text-transform:uppercase; width:inherit; margin-top:3px; padding-right:12px; border-top:1px dashed #bfbfbf; border-bottom:0px none; }
+
+.view-wr-05-promo-content .field-name-field-link .field-items
+										{ padding:0 0 0 0; }
+
+.view-wr-05-promo-content .field-name-field-link span.ext
+										{ background:none; padding:0 0 0 0; }
+
+/* Wr-05 related content */
+
+.row-related-content .views-row-inner {
+	background-color: #eee;
+	margin-bottom: 3px;
+	overflow: hidden;
+}
+
+.row-related-content .views-field-entity-id {
+	float: left;
+	margin-right: 10px;
+	height: 75px;
+	width: 80px;
+	overflow: hidden;
+}
+
+.row-related-content .views-field-title {
+	float: left;
+	padding: 3px 3px 0px 3px;
+	width: 90px;
+}
+
+.row-related-content a {
+	border-top: none;
+	color:#FF8112;
+	font-weight: bold;
+}
+/*
+ * WP-09 Layout Related Content 
+ */
+
+#block-views-wp-09-featured-content-block-1 {
+	height: 125px;
+	width: 100%;
+	border-bottom: 3px #2CA7C6 solid;
+}
+
+.views-featured-content .views-row,
+.views-featured-content .views-field-entity-id {
+	width: 123px;
+}
+
+#block-views-wp-09-featured-content-block-1 .content {
+	margin-left: 0;
+}
+#block-views-wp-09-featured-content-block-1 h2 {
+	position: relative;
+	background: #2ea9c6;
+	border-bottom: none 0px;
+	border-left: 3px solid #175463;
+	color: #175463;
+	float: left;
+	font: 41px neutra;
+	line-height: 21px;
+	margin: 0px -242px 10px 0px;
+	padding: 13px 16px 3px;
+	text-transform: uppercase;
+	width: 203px;
+	height: 53px;	
+}
+#block-views-wp-09-featured-content-block-1 h2 .smaller {
+	display: block;
+	font: 20px neutra;
+	margin-top: 4px;
+}
+#block-views-wp-09-featured-content-block-1 h2 .triangle {
+	position: absolute;
+	background: url('../images/background-wp-09-rightarrow.png') no-repeat;
+	background-position: left -69px;
+	right: -26px;
+	top: 0px;
+	width: 26px;
+	height: 69px
+}
+#block-views-wp_09_featured_content-block-1 .views-featured-content{
+	width: 688px;
+}
+.row-featured-content:first-child {
+	margin-left: 272px;
+}
+
+.views-featured-content .views-row { 
+	position: relative;
+	float:left;  
+	height:118px; 
+	margin-right:18px; 
+	overflow:hidden; 
+}
+
+.views-featured-content .views-row-last { 
+	margin-right:0px; 
+}
+
+.views-featured-content .views-field-title a { 
+	color:#fff; 
+	font:bold 11px Arial; 
+	line-height:16px; }
+
+.views-featured-content .views-field-title {
+	position: absolute;
+	background:url("../images/icon-arrow-down.png") no-repeat scroll center top transparent; 
+	padding: 5px;
+	overflow: hidden;
+	text-align: left;
+	width: 113px;
+	height: 23px;
+}
+
+.row-featured-content img {
+	border-bottom: 3px solid #175463;
+	overflow: hidden;
+	width: 100%;
+	height: 72px;
 }
