@@ -1298,9 +1298,7 @@ function custom_theme_file_styles_styles_default($variables) {
   // @TODO Certainly can be more elegant than this.
   if ($style_name == 'original') {
     $vars['getsize'] = FALSE;
-    $return  = theme('image', $vars);
-    kpr($return);
-    return $return;
+    return theme('image', $vars);
   }
 
   $vars['style_name'] = $style_name;
