@@ -162,36 +162,26 @@
 /*
  * WP - 09 Featured Content Block
  */
-#block-views-wp_09_featured_content-block_1
-										{ float:left; width:100%; border-bottom:3px #92B40A solid; }
 
-#block-views-wp_09_featured_content-block_1 h2.block-title
-										{ position:relative; background:#92B40A; float:left; font:41px neutra; line-height:21px; text-transform:uppercase; color:#536712; width:203px; height:53px; padding:13px 16px 3px; margin:0px -242px 10px 0px; border-left:3px solid #536712; border-bottom:none 0px; }
-
-#block-views-wp_09_featured_content-block_1 h2.block-title span.smaller
-										{ display:block; font:20px neutra; margin-top:4px; }
-
-#block-views-wp_09_featured_content-block_1 h2.block-title span.triangle
+#block-views-wp_09_featured_content-block-1 h2.block-title span.triangle
 										{ position:absolute; background:url('../images/background-wp-09-rightarrow.png') no-repeat; background-position:left -276px; right:-26px; top:0px; width:26px; height:69px; }
 
-.section-visit #block-views-wp_09_featured_content-block_1 h2.block-title span.triangle
+.section-visit #block-views-wp_09_featured_content-block-1 h2.block-title span.triangle
 										{ background-position:left 0px; }
 
-.section-happening #block-views-wp_09_featured_content-block_1 h2.block-title span.triangle
+.section-happening #block-views-wp_09_featured_content-block-1 h2.block-title span.triangle
 										{ background-position:left -69px; }
 
-.section-support #block-views-wp_09_featured_content-block_1 h2.block-title span.triangle
+.section-support #block-views-wp_09_featured_content-block-1 h2.block-title span.triangle
 										{ background-position:left -138px; }
 
-.section-schools #block-views-wp_09_featured_content-block_1 h2.block-title span.triangle
+.section-schools #block-views-wp_09_featured_content-block-1 h2.block-title span.triangle
 										{ background-position:left -207px; }
 
-.section-about #block-views-wp_09_featured_content-block_1 h2.block-title span.triangle,
-.section-users #block-views-wp_09_featured_content-block_1 h2.block-title span.triangle 
+.section-about #block-views-wp_09_featured_content-block-1 h2.block-title span.triangle,
+.section-users #block-views-wp_09_featured_content-block-1 h2.block-title span.triangle 
 										{ background-position:left -345px; }
 
-#block-views-wp_09_featured_content-block_1 .content
-										{ float:left; padding-bottom:10px; }
 
 /*
  * Dept / Div page
