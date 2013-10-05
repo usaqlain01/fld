@@ -45,8 +45,8 @@ function explore_our_collections_header_view_views_default_views() {
   $handler->display->display_options['fields']['field_dept_div_header_image']['table'] = 'field_data_field_dept_div_header_image';
   $handler->display->display_options['fields']['field_dept_div_header_image']['field'] = 'field_dept_div_header_image';
   $handler->display->display_options['fields']['field_dept_div_header_image']['label'] = '';
-  $handler->display->display_options['fields']['field_dept_div_header_image']['alter']['text'] = '<a href="[path]/collections">[entity_id]</a>';
-  $handler->display->display_options['fields']['field_dept_div_header_image']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_dept_div_header_image']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_dept_div_header_image']['alter']['text'] = '<a href="[path]/collections">[field_dept_div_header_image]</a>';
   $handler->display->display_options['fields']['field_dept_div_header_image']['alter']['path'] = '[path]/collections';
   $handler->display->display_options['fields']['field_dept_div_header_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_dept_div_header_image']['click_sort_column'] = 'fid';
