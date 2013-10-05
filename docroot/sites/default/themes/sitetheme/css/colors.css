@@ -680,3 +680,230 @@ body.two-sidebars.section-users #main-inner-wrapper
 .field-name-body table tr td p:first-child,
 .field-name-body table tr th p:first-child
 										{ margin:0; }
+
+/*******************************
+*WP-09/Featured content colors 
+********************************/
+
+/*Apply to Happening Section*/
+.section-happening h1.title span,
+.section-happening h2,
+.section-happening #block-views-wp-09-featured-content-block-1 {
+	border-bottom-color: #2CA7C6;
+}
+
+.section-happening .views-featured-content .views-row,
+.section-happening .row-related-content--main .views-row-inner,
+.section-happening #block-views-wp-09-featured-content-block-1 h2 {
+  background: #2CA7C6;
+}
+
+.section-happening #block-views-wp-09-featured-content-block-1 h2 {
+  background: #2CA7C6;
+  color: #175463;
+}
+
+.section-happening .row-promotion img {
+	border-right-color: #175463;
+}
+
+.section-happening .row-related-content--main img,
+.section-happening .row-featured-content img {
+  border-bottom-color: #175463;
+}
+
+.section-happening .views-featured-content .views-field-title,
+.section-happening .row-related-content--main .views-field-title {
+	background: url(../images/icon-arrow-down-happening.png) no-repeat center top;
+}
+
+/*Visit Colors*/
+.section-visit h1.title span, 
+.section-visit h2,
+.section-visit #block-views-wp-09-featured-content-block-1 {
+  border-bottom-color: #CE3E05;
+}
+
+.section-visit #block-views-wp-09-featured-content-block-1 h2 .triangle { 
+  background-position:left 0px; 
+}
+
+.section-visit .row-related-content--main .views-row-inner,
+.section-visit #block-views-wp-09-featured-content-block-1 h2 {
+  background: #CE3E05;
+}
+
+.section-visit #block-views-wp-09-featured-content-block-1 h2 {
+  color: #932D14;
+  border-left-color: #932D14;
+}
+
+.section-visit .row-promotion img {
+	border-right-color: #932D14;
+}
+
+.section-visit .row-related-content--main img,
+.section-visit .row-featured-content img {
+  border-bottom-color: #932D14;
+}
+
+.section-visit .views-featured-content .views-field-title,
+.section-visit .row-related-content--main .views-field-title {
+	background: url(../images/icon-arrow-down-plan.png) no-repeat center top;
+}
+
+/*Support Colors*/
+.section-support h1.title span,
+.section-support h2, 
+.section-support #block-views-wp-09-featured-content-block-1 {
+  border-bottom-color: #0F8A5A;
+}
+
+.section-support #block-views-wp-09-featured-content-block-1 h2 .triangle { 
+  background-position:left -138px; 
+}
+
+.section-support .views-featured-content .views-row,
+.section-support .row-related-content--main .views-row-inner,
+.section-support #block-views-wp-09-featured-content-block-1 h2 {
+  background: #0F8A5A;
+}
+
+.section-support #block-views-wp-09-featured-content-block-1 h2 {
+  border-left-color: #074F33;
+  color: #074F33;
+}
+
+.section-support .row-promotion img {
+	border-right-color: #074F33;
+}
+
+.section-support .row-related-content--main img,
+.section-support .row-featured-content img {
+  border-bottom-color: #074F33;
+}
+
+.section-support .views-featured-content .views-field-title,
+.section-support .row-related-content--main .views-field-title {
+	background: url(../images/icon-arrow-down-support.png) no-repeat center top;
+}
+
+/*Schools Colors*/
+.section-schools h1.title span,
+.section-schools h2,
+.section-schools #block-views-wp-09-featured-content-block-1 {
+  border-bottom-color: #934E9B;
+}
+
+.section-schools #block-views-wp-09-featured-content-block-1 h2 .triangle { 
+  background-position:left -207px; 
+}
+
+.section-schools .views-featured-content .views-row,
+.section-schools .row-related-content--main .views-row-inner,
+.section-schools #block-views-wp-09-featured-content-block-1 h2 {
+  background: #934E9B;
+}
+
+.section-schools #block-views-wp-09-featured-content-block-1 h2 {
+  border-left-color: #59215B;
+  color: #59215B;
+}
+
+.section-schools .row-promotion img {
+	border-right-color: #59215B;
+}
+
+.section-schools .row-related-content--main img,
+.section-schools .row-featured-content img {
+  border-bottom-color: #59215B;
+}
+
+.section-schools .views-featured-content .views-field-title,
+.section-schools .row-related-content--main .views-field-title {
+	background: url(../images/icon-arrow-down-schools.png) no-repeat center top;
+}
+
+/*Explore Colors*/
+.section-explore h1.title span,
+.section-explore h2,
+.section-explore #block-views-wp-09-featured-content-block-1 {
+  border-bottom-color: #92B40A;
+}
+
+.section-explore #block-views-wp-09-featured-content-block-1 h2 .triangle { 
+  background-position:left -207px; 
+}
+
+.section-explore .views-featured-content .views-row,
+.section-explore .row-related-content--main .views-row-inner,
+.section-explore #block-views-wp-09-featured-content-block-1 h2 {
+	background: #92B40A;
+}
+.section-explore #block-views-wp-09-featured-content-block-1 h2 {
+  border-left-color: #536712;
+  color: #536712;
+}
+
+.section-explore .row-promotion img {
+	border-right-color: #536712;
+}
+
+.section-explore .row-related-content--main img,
+.section-explore .row-featured-content img {
+  border-bottom-color: #536712;
+}
+
+.section-explore .views-featured-content .views-field-title
+.section-explore .row-related-content--main .views-field-title {
+	background: url(../images/icon-arrow-down.png) no-repeat center top;
+}
+
+/*About and Users Colors*/
+.section-about h1.title span,
+.section-users h1.title span,
+.section-about h2,
+.section-users h2,
+.section-about #block-views-wp-09-featured-content-block-1,
+.section-users #block-views-wp-09-featured-content-block-1 {
+  border-bottom-color: #4F4FCF;
+}
+
+.section-about #block-views-wp-09-featured-content-block-1 h2 .triangle,
+.section-users #block-views-wp-09-featured-content-block-1 h2 .triangle { 
+  background-position:left -345px; 
+}
+
+.section-about .views-featured-content .views-row,
+.section-users .views-featured-content .views-row,
+.section-about .row-related-content--main .views-row-inner,
+.section-users .row-related-content--main .views-row-inner,
+.section-about #block-views-wp-09-featured-content-block-1 h2,
+.section-users #block-views-wp-09-featured-content-block-1 h2 {
+  background: #4F4FCF;
+}
+.section-about #block-views-wp-09-featured-content-block-1 h2,
+.section-users #block-views-wp-09-featured-content-block-1 h2 {
+  background: #4F4FCF;
+  border-left-color: #272767;
+  color: #272767;
+}
+
+.section-about .row-promotion img, 
+.section-users .row-promotion img {
+	border-right-color: #272767;
+}
+
+.section-about .row-related-content--main img,
+.section-users .row-related-content--main img,
+.section-about .row-featured-content img,
+.section-users .row-featured-content img {
+  border-bottom-color: #272767;
+}
+
+.section-about .views-featured-content .views-field-title,
+.section-about .row-related-content--main .views-field-title,
+.section-users .views-featured-content .views-field-title,
+.section-users .row-related-content--main .views-field-title  {
+	background: url(../images/icon-arrow-down.png) no-repeat center top;
+}

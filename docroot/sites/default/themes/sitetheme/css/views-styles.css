@@ -1210,6 +1210,23 @@ font-size: 14px;
 }
 
 /* Wr-04/Related Content and Wr-05/Promotion*/
+.row-related-content--main img {
+	height: 122px;
+	border-bottom: 3px solid #932D14;
+}
+
+.row-related-content--main .views-field-title {
+	background: url(../images/icon-arrow-down.png) no-repeat center top;
+	padding: 5px;
+	height: 33px;
+	overflow: hidden;
+}
+
+.row-related-content--main .views-field-title a {
+	color: #fff;
+	font: normal bold 11px Arial;
+	line-height: 16px;
+}
 
 .row-related-content .views-row-inner {
   background-color: #eee;
@@ -1359,111 +1376,3 @@ font-size: 14px;
   height: 72px;
 }
 
-/*******************************
-*WP-09/Featured content colors 
-********************************/
-
-/*Default Colors--Apply to Happening Section*/
-
-#block-views-wp-09-featured-content-block-1 h2 {
-  background: #2CA7C6;
-  color: #175463;
-}
-
-/*Visit Colors*/
-.section-visit #block-views-wp-09-featured-content-block-1 {
-  border-bottom-color: #CE3E05;
-}
-
-.section-visit #block-views-wp-09-featured-content-block-1 h2 .triangle { 
-  background-position:left 0px; 
-}
-
-.section-visit #block-views-wp-09-featured-content-block-1 h2 {
-  background: #CE3E05;
-  color: #932D14;
-  border-left-color: #932D14;
-}
-
-.section-visit .row-featured-content img {
-  border-bottom-color: #932D14;
-}
-/*Support Colors*/
- 
-.section-support #block-views-wp-09-featured-content-block-1 {
-  border-bottom-color: #0F8A5A;
-}
-
-.section-support #block-views-wp-09-featured-content-block-1 h2 .triangle { 
-  background-position:left -138px; 
-}
-
-.section-support #block-views-wp-09-featured-content-block-1 h2 {
-  background: #0F8A5A;
-  border-left-color: #074F33;
-  color: #074F33;
-}
-
-.section-support .row-featured-content img {
-  border-bottom-color: #074F33;
-}
-
-/*Schools Colors*/
-.section-schools #block-views-wp-09-featured-content-block-1 {
-  border-bottom-color: #934E9B;
-}
-
-.section-schools #block-views-wp-09-featured-content-block-1 h2 .triangle { 
-  background-position:left -207px; 
-}
-
-.section-schools #block-views-wp-09-featured-content-block-1 h2 {
-  background: #934E9B;
-  border-left-color: #59215B;
-  color: #59215B;
-}
-
-.section-schools .row-featured-content img {
-  border-bottom-color: #59215B;
-}
-
-/*Explore Colors*/
-.section-explore #block-views-wp-09-featured-content-block-1 {
-  border-bottom-color: #92B40A;
-}
-
-.section-explore #block-views-wp-09-featured-content-block-1 h2 .triangle { 
-  background-position:left -207px; 
-}
-
-.section-explore #block-views-wp-09-featured-content-block-1 h2 {
-  background: #92B40A;
-  border-left-color: #536712;
-  color: #536712;
-}
-
-.section-explore .row-featured-content img {
-  border-bottom-color: #536712;
-}
-/*About and Users Colors*/
-.section-about #block-views-wp-09-featured-content-block-1,
-.section-users #block-views-wp-09-featured-content-block-1 {
-  border-bottom-color: #4F4FCF;
-}
-
-.section-about #block-views-wp-09-featured-content-block-1 h2 .triangle,
-.section-users #block-views-wp-09-featured-content-block-1 h2 .triangle { 
-  background-position:left -345px; 
-}
-
-.section-about #block-views-wp-09-featured-content-block-1 h2,
-.section-users #block-views-wp-09-featured-content-block-1 h2 {
-  background: #4F4FCF;
-  border-left-color: #272767;
-  color: #272767;
-}
-
-.section-about .row-featured-content img,
-.section-users .row-featured-content img {
-  border-bottom-color: #272767;
-}
