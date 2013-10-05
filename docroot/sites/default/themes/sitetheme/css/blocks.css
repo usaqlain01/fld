@@ -368,8 +368,8 @@ For pages with a second sidebar, lets use full width and not hard code it
 #google_translate_element				{ float:right; margin:-5px 0 10px 0; padding-bottom:30px; }
 
 /* Homepage left rail menu block */
-#block-menu_block-9						{ /*margin-bottom: -15px;*/ }
-#block-menu_block-9 div.content			{ display:none; }
+#block-menu-block-9						{ /*margin-bottom: -15px;*/ }
+#block-menu-block-9 div.content			{ display:none; }
 
 .front #block-block-62					{ margin-bottom:0; color:#fff; }
 .front #block-block-62 a				{ color:#fff; }
