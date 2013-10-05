@@ -35,21 +35,20 @@ function what_the_fish_view_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Field: Content: Nid */
-  $handler->display->display_options['fields']['nid']['id'] = 'nid';
-  $handler->display->display_options['fields']['nid']['table'] = 'node';
-  $handler->display->display_options['fields']['nid']['field'] = 'nid';
-  $handler->display->display_options['fields']['nid']['group_type'] = 'count';
-  $handler->display->display_options['fields']['nid']['label'] = '';
-  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['nid']['link_to_node'] = TRUE;
+  /* Field: Content: Path */
+  $handler->display->display_options['fields']['path']['id'] = 'path';
+  $handler->display->display_options['fields']['path']['table'] = 'node';
+  $handler->display->display_options['fields']['path']['field'] = 'path';
+  $handler->display->display_options['fields']['path']['label'] = '';
+  $handler->display->display_options['fields']['path']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['path']['element_label_colon'] = FALSE;
   /* Field: Content: Header Image */
   $handler->display->display_options['fields']['field_dept_div_header_image']['id'] = 'field_dept_div_header_image';
   $handler->display->display_options['fields']['field_dept_div_header_image']['table'] = 'field_data_field_dept_div_header_image';
   $handler->display->display_options['fields']['field_dept_div_header_image']['field'] = 'field_dept_div_header_image';
   $handler->display->display_options['fields']['field_dept_div_header_image']['label'] = '';
   $handler->display->display_options['fields']['field_dept_div_header_image']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['field_dept_div_header_image']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_dept_div_header_image']['alter']['path'] = '[path]';
   $handler->display->display_options['fields']['field_dept_div_header_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_dept_div_header_image']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_dept_div_header_image']['click_sort_column'] = 'fid';
@@ -60,7 +59,7 @@ function what_the_fish_view_views_default_views() {
   $handler->display->display_options['fields']['field_dept_div_header_image_1']['field'] = 'field_dept_div_header_image';
   $handler->display->display_options['fields']['field_dept_div_header_image_1']['label'] = '';
   $handler->display->display_options['fields']['field_dept_div_header_image_1']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['field_dept_div_header_image_1']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_dept_div_header_image_1']['alter']['path'] = '[path]';
   $handler->display->display_options['fields']['field_dept_div_header_image_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_dept_div_header_image_1']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_dept_div_header_image_1']['click_sort_column'] = 'fid';
@@ -71,7 +70,7 @@ function what_the_fish_view_views_default_views() {
   $handler->display->display_options['fields']['field_blog_image']['field'] = 'field_blog_image';
   $handler->display->display_options['fields']['field_blog_image']['label'] = '';
   $handler->display->display_options['fields']['field_blog_image']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['field_blog_image']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_blog_image']['alter']['path'] = '[path]';
   $handler->display->display_options['fields']['field_blog_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_blog_image']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_blog_image']['click_sort_column'] = 'fid';
@@ -82,7 +81,7 @@ function what_the_fish_view_views_default_views() {
   $handler->display->display_options['fields']['field_exhibit_image']['field'] = 'field_exhibit_image';
   $handler->display->display_options['fields']['field_exhibit_image']['label'] = '';
   $handler->display->display_options['fields']['field_exhibit_image']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['field_exhibit_image']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_exhibit_image']['alter']['path'] = '[path]';
   $handler->display->display_options['fields']['field_exhibit_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_exhibit_image']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_exhibit_image']['click_sort_column'] = 'fid';
@@ -93,7 +92,7 @@ function what_the_fish_view_views_default_views() {
   $handler->display->display_options['fields']['field_promotion_widget_image']['field'] = 'field_promotion_widget_image';
   $handler->display->display_options['fields']['field_promotion_widget_image']['label'] = '';
   $handler->display->display_options['fields']['field_promotion_widget_image']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['field_promotion_widget_image']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_promotion_widget_image']['alter']['path'] = '[path]';
   $handler->display->display_options['fields']['field_promotion_widget_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_promotion_widget_image']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_promotion_widget_image']['click_sort_column'] = 'fid';
@@ -104,7 +103,7 @@ function what_the_fish_view_views_default_views() {
   $handler->display->display_options['fields']['field_podcast_image']['field'] = 'field_podcast_image';
   $handler->display->display_options['fields']['field_podcast_image']['label'] = '';
   $handler->display->display_options['fields']['field_podcast_image']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['field_podcast_image']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_podcast_image']['alter']['path'] = '[path]';
   $handler->display->display_options['fields']['field_podcast_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_podcast_image']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_podcast_image']['click_sort_column'] = 'fid';
@@ -115,7 +114,7 @@ function what_the_fish_view_views_default_views() {
   $handler->display->display_options['fields']['field_photo_gallery_image']['field'] = 'field_photo_gallery_image';
   $handler->display->display_options['fields']['field_photo_gallery_image']['label'] = '';
   $handler->display->display_options['fields']['field_photo_gallery_image']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['field_photo_gallery_image']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_photo_gallery_image']['alter']['path'] = '[path]';
   $handler->display->display_options['fields']['field_photo_gallery_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_photo_gallery_image']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_photo_gallery_image']['click_sort_column'] = 'fid';
@@ -126,7 +125,7 @@ function what_the_fish_view_views_default_views() {
   $handler->display->display_options['fields']['field_collection_image_header']['field'] = 'field_collection_image_header';
   $handler->display->display_options['fields']['field_collection_image_header']['label'] = '';
   $handler->display->display_options['fields']['field_collection_image_header']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['field_collection_image_header']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_collection_image_header']['alter']['path'] = '[path]';
   $handler->display->display_options['fields']['field_collection_image_header']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_collection_image_header']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_collection_image_header']['click_sort_column'] = 'fid';
@@ -137,7 +136,7 @@ function what_the_fish_view_views_default_views() {
   $handler->display->display_options['fields']['field_dept_div_coll_image_header']['field'] = 'field_dept_div_coll_image_header';
   $handler->display->display_options['fields']['field_dept_div_coll_image_header']['label'] = '';
   $handler->display->display_options['fields']['field_dept_div_coll_image_header']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['field_dept_div_coll_image_header']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_dept_div_coll_image_header']['alter']['path'] = '[path]';
   $handler->display->display_options['fields']['field_dept_div_coll_image_header']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_dept_div_coll_image_header']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_dept_div_coll_image_header']['click_sort_column'] = 'fid';
@@ -148,7 +147,7 @@ function what_the_fish_view_views_default_views() {
   $handler->display->display_options['fields']['field_video_thumbnail_image']['field'] = 'field_video_thumbnail_image';
   $handler->display->display_options['fields']['field_video_thumbnail_image']['label'] = '';
   $handler->display->display_options['fields']['field_video_thumbnail_image']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['field_video_thumbnail_image']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_video_thumbnail_image']['alter']['path'] = '[path]';
   $handler->display->display_options['fields']['field_video_thumbnail_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_video_thumbnail_image']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_video_thumbnail_image']['click_sort_column'] = 'fid';
@@ -159,7 +158,7 @@ function what_the_fish_view_views_default_views() {
   $handler->display->display_options['fields']['field_thumbnail_image']['field'] = 'field_thumbnail_image';
   $handler->display->display_options['fields']['field_thumbnail_image']['label'] = '';
   $handler->display->display_options['fields']['field_thumbnail_image']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['field_thumbnail_image']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_thumbnail_image']['alter']['path'] = '[path]';
   $handler->display->display_options['fields']['field_thumbnail_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_thumbnail_image']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_thumbnail_image']['click_sort_column'] = 'fid';
@@ -207,32 +206,42 @@ function what_the_fish_view_views_default_views() {
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['defaults']['use_more'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Nid */
-  $handler->display->display_options['fields']['nid']['id'] = 'nid';
-  $handler->display->display_options['fields']['nid']['table'] = 'node';
-  $handler->display->display_options['fields']['nid']['field'] = 'nid';
-  $handler->display->display_options['fields']['nid']['group_type'] = 'count';
-  $handler->display->display_options['fields']['nid']['label'] = '';
-  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['nid']['link_to_node'] = TRUE;
+  /* Field: Content: Path */
+  $handler->display->display_options['fields']['path']['id'] = 'path';
+  $handler->display->display_options['fields']['path']['table'] = 'node';
+  $handler->display->display_options['fields']['path']['field'] = 'path';
+  $handler->display->display_options['fields']['path']['label'] = '';
+  $handler->display->display_options['fields']['path']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['path']['element_label_colon'] = FALSE;
   /* Field: Content: Header Image */
   $handler->display->display_options['fields']['field_dept_div_header_image']['id'] = 'field_dept_div_header_image';
   $handler->display->display_options['fields']['field_dept_div_header_image']['table'] = 'field_data_field_dept_div_header_image';
   $handler->display->display_options['fields']['field_dept_div_header_image']['field'] = 'field_dept_div_header_image';
   $handler->display->display_options['fields']['field_dept_div_header_image']['label'] = '';
   $handler->display->display_options['fields']['field_dept_div_header_image']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['field_dept_div_header_image']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_dept_div_header_image']['alter']['path'] = '[path]';
   $handler->display->display_options['fields']['field_dept_div_header_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_dept_div_header_image']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_dept_div_header_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_dept_div_header_image']['type'] = 'styles_file_content-half';
+  /* Field: Content: Header Image */
+  $handler->display->display_options['fields']['field_dept_div_header_image_1']['id'] = 'field_dept_div_header_image_1';
+  $handler->display->display_options['fields']['field_dept_div_header_image_1']['table'] = 'field_data_field_dept_div_header_image';
+  $handler->display->display_options['fields']['field_dept_div_header_image_1']['field'] = 'field_dept_div_header_image';
+  $handler->display->display_options['fields']['field_dept_div_header_image_1']['label'] = '';
+  $handler->display->display_options['fields']['field_dept_div_header_image_1']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_dept_div_header_image_1']['alter']['path'] = '[path]';
+  $handler->display->display_options['fields']['field_dept_div_header_image_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_dept_div_header_image_1']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_dept_div_header_image_1']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_dept_div_header_image_1']['type'] = 'styles_file_content-half';
   /* Field: Content: Image */
   $handler->display->display_options['fields']['field_blog_image']['id'] = 'field_blog_image';
   $handler->display->display_options['fields']['field_blog_image']['table'] = 'field_data_field_blog_image';
   $handler->display->display_options['fields']['field_blog_image']['field'] = 'field_blog_image';
   $handler->display->display_options['fields']['field_blog_image']['label'] = '';
   $handler->display->display_options['fields']['field_blog_image']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['field_blog_image']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_blog_image']['alter']['path'] = '[path]';
   $handler->display->display_options['fields']['field_blog_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_blog_image']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_blog_image']['click_sort_column'] = 'fid';
@@ -243,29 +252,29 @@ function what_the_fish_view_views_default_views() {
   $handler->display->display_options['fields']['field_exhibit_image']['field'] = 'field_exhibit_image';
   $handler->display->display_options['fields']['field_exhibit_image']['label'] = '';
   $handler->display->display_options['fields']['field_exhibit_image']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['field_exhibit_image']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_exhibit_image']['alter']['path'] = '[path]';
   $handler->display->display_options['fields']['field_exhibit_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_exhibit_image']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_exhibit_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_exhibit_image']['type'] = 'styles_file_content-half';
   /* Field: Content: Image */
-  $handler->display->display_options['fields']['field_secondary_section_image']['id'] = 'field_secondary_section_image';
-  $handler->display->display_options['fields']['field_secondary_section_image']['table'] = 'field_data_field_secondary_section_image';
-  $handler->display->display_options['fields']['field_secondary_section_image']['field'] = 'field_secondary_section_image';
-  $handler->display->display_options['fields']['field_secondary_section_image']['label'] = '';
-  $handler->display->display_options['fields']['field_secondary_section_image']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['field_secondary_section_image']['alter']['path'] = 'node/[nid]';
-  $handler->display->display_options['fields']['field_secondary_section_image']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_secondary_section_image']['hide_empty'] = TRUE;
-  $handler->display->display_options['fields']['field_secondary_section_image']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_secondary_section_image']['type'] = 'styles_file_content-half';
+  $handler->display->display_options['fields']['field_promotion_widget_image']['id'] = 'field_promotion_widget_image';
+  $handler->display->display_options['fields']['field_promotion_widget_image']['table'] = 'field_data_field_promotion_widget_image';
+  $handler->display->display_options['fields']['field_promotion_widget_image']['field'] = 'field_promotion_widget_image';
+  $handler->display->display_options['fields']['field_promotion_widget_image']['label'] = '';
+  $handler->display->display_options['fields']['field_promotion_widget_image']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_promotion_widget_image']['alter']['path'] = '[path]';
+  $handler->display->display_options['fields']['field_promotion_widget_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_promotion_widget_image']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_promotion_widget_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_promotion_widget_image']['type'] = 'styles_file_content-half';
   /* Field: Content: Image */
   $handler->display->display_options['fields']['field_podcast_image']['id'] = 'field_podcast_image';
   $handler->display->display_options['fields']['field_podcast_image']['table'] = 'field_data_field_podcast_image';
   $handler->display->display_options['fields']['field_podcast_image']['field'] = 'field_podcast_image';
   $handler->display->display_options['fields']['field_podcast_image']['label'] = '';
   $handler->display->display_options['fields']['field_podcast_image']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['field_podcast_image']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_podcast_image']['alter']['path'] = '[path]';
   $handler->display->display_options['fields']['field_podcast_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_podcast_image']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_podcast_image']['click_sort_column'] = 'fid';
@@ -276,29 +285,18 @@ function what_the_fish_view_views_default_views() {
   $handler->display->display_options['fields']['field_photo_gallery_image']['field'] = 'field_photo_gallery_image';
   $handler->display->display_options['fields']['field_photo_gallery_image']['label'] = '';
   $handler->display->display_options['fields']['field_photo_gallery_image']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['field_photo_gallery_image']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_photo_gallery_image']['alter']['path'] = '[path]';
   $handler->display->display_options['fields']['field_photo_gallery_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_photo_gallery_image']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_photo_gallery_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_photo_gallery_image']['type'] = 'styles_file_content-half';
-  /* Field: Content: Image */
-  $handler->display->display_options['fields']['field_widget_left_rail_image']['id'] = 'field_widget_left_rail_image';
-  $handler->display->display_options['fields']['field_widget_left_rail_image']['table'] = 'field_data_field_widget_left_rail_image';
-  $handler->display->display_options['fields']['field_widget_left_rail_image']['field'] = 'field_widget_left_rail_image';
-  $handler->display->display_options['fields']['field_widget_left_rail_image']['label'] = '';
-  $handler->display->display_options['fields']['field_widget_left_rail_image']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['field_widget_left_rail_image']['alter']['path'] = 'node/[nid]';
-  $handler->display->display_options['fields']['field_widget_left_rail_image']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_widget_left_rail_image']['hide_empty'] = TRUE;
-  $handler->display->display_options['fields']['field_widget_left_rail_image']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_widget_left_rail_image']['type'] = 'styles_file_content-half';
   /* Field: Content: Image Header */
   $handler->display->display_options['fields']['field_collection_image_header']['id'] = 'field_collection_image_header';
   $handler->display->display_options['fields']['field_collection_image_header']['table'] = 'field_data_field_collection_image_header';
   $handler->display->display_options['fields']['field_collection_image_header']['field'] = 'field_collection_image_header';
   $handler->display->display_options['fields']['field_collection_image_header']['label'] = '';
   $handler->display->display_options['fields']['field_collection_image_header']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['field_collection_image_header']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_collection_image_header']['alter']['path'] = '[path]';
   $handler->display->display_options['fields']['field_collection_image_header']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_collection_image_header']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_collection_image_header']['click_sort_column'] = 'fid';
@@ -309,7 +307,7 @@ function what_the_fish_view_views_default_views() {
   $handler->display->display_options['fields']['field_dept_div_coll_image_header']['field'] = 'field_dept_div_coll_image_header';
   $handler->display->display_options['fields']['field_dept_div_coll_image_header']['label'] = '';
   $handler->display->display_options['fields']['field_dept_div_coll_image_header']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['field_dept_div_coll_image_header']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_dept_div_coll_image_header']['alter']['path'] = '[path]';
   $handler->display->display_options['fields']['field_dept_div_coll_image_header']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_dept_div_coll_image_header']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_dept_div_coll_image_header']['click_sort_column'] = 'fid';
@@ -320,7 +318,7 @@ function what_the_fish_view_views_default_views() {
   $handler->display->display_options['fields']['field_video_thumbnail_image']['field'] = 'field_video_thumbnail_image';
   $handler->display->display_options['fields']['field_video_thumbnail_image']['label'] = '';
   $handler->display->display_options['fields']['field_video_thumbnail_image']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['field_video_thumbnail_image']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_video_thumbnail_image']['alter']['path'] = '[path]';
   $handler->display->display_options['fields']['field_video_thumbnail_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_video_thumbnail_image']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_video_thumbnail_image']['click_sort_column'] = 'fid';
@@ -331,7 +329,7 @@ function what_the_fish_view_views_default_views() {
   $handler->display->display_options['fields']['field_thumbnail_image']['field'] = 'field_thumbnail_image';
   $handler->display->display_options['fields']['field_thumbnail_image']['label'] = '';
   $handler->display->display_options['fields']['field_thumbnail_image']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['field_thumbnail_image']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_thumbnail_image']['alter']['path'] = '[path]';
   $handler->display->display_options['fields']['field_thumbnail_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_thumbnail_image']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_thumbnail_image']['click_sort_column'] = 'fid';
@@ -341,15 +339,11 @@ function what_the_fish_view_views_default_views() {
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['element_type'] = '0';
-  $handler->display->display_options['fields']['title']['element_class'] = 'title';
   /* Field: Content: Post date */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'node';
   $handler->display->display_options['fields']['created']['field'] = 'created';
   $handler->display->display_options['fields']['created']['label'] = '';
-  $handler->display->display_options['fields']['created']['date_format'] = 'custom';
-  $handler->display->display_options['fields']['created']['custom_date_format'] = 'F j, o';
   /* Field: Content: Lede */
   $handler->display->display_options['fields']['entity_id']['id'] = 'entity_id';
   $handler->display->display_options['fields']['entity_id']['table'] = 'field_data_field_lede';
