@@ -312,6 +312,20 @@ function exhibits_browser_view_views_default_views() {
   $handler->display->display_options['filters']['in_queue']['relationship'] = 'nodequeue_rel';
   $handler->display->display_options['filters']['in_queue']['value'] = '1';
   $handler->display->display_options['path'] = 'happening/exhibits/browse/current';
+  /* Filter criterion: Content: End Date (field_enddate) */
+  $handler->display->display_options['filters']['field_enddate_value']['id'] = 'field_enddate_value';
+  $handler->display->display_options['filters']['field_enddate_value']['table'] = 'field_data_field_enddate';
+  $handler->display->display_options['filters']['field_enddate_value']['field'] = 'field_enddate_value';
+  $handler->display->display_options['filters']['field_enddate_value']['operator'] = '>=';
+  $handler->display->display_options['filters']['field_enddate_value']['value']['value'] = 'now';
+  $handler->display->display_options['filters']['field_enddate_value']['value']['type'] = 'offset';
+  /* Filter criterion: Content: Start Date (field_startdate) */
+  $handler->display->display_options['filters']['field_startdate_value']['id'] = 'field_startdate_value';
+  $handler->display->display_options['filters']['field_startdate_value']['table'] = 'field_data_field_startdate';
+  $handler->display->display_options['filters']['field_startdate_value']['field'] = 'field_startdate_value';
+  $handler->display->display_options['filters']['field_startdate_value']['operator'] = '<=';
+  $handler->display->display_options['filters']['field_startdate_value']['value']['value'] = 'now';
+  $handler->display->display_options['filters']['field_startdate_value']['value']['type'] = 'offset';
   $handler->display->display_options['menu']['type'] = 'default tab';
   $handler->display->display_options['menu']['title'] = 'Current Exhibitions';
   $handler->display->display_options['menu']['weight'] = '-5';
