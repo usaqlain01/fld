@@ -330,10 +330,10 @@ For pages with a second sidebar, lets use full width and not hard code it
 
 
 #block-field_events-event-list tr,
-#block-field_events-full-list tr 		{ font:normal italic normal 0.875em/normal Arial; }
+#block-field-events-full-list tr 		{ font:normal italic normal 0.875em/normal Arial; }
 
 #block-field_events-event-list tr a,
-#block-field_events-full-list tr a		{ font-weight:bold; font-style:normal; display:block; color:#1F2818; font-family:helvetica, arial; }
+#block-field-events-full-list tr a		{ font-weight:bold; font-style:normal; display:block; color:#1F2818; font-family:helvetica, arial; }
 
 /*
 .node-type-section-front .region-content .block.region-odd
@@ -354,15 +354,15 @@ For pages with a second sidebar, lets use full width and not hard code it
 										{ background:url('../images/icon-upcoming-events.png') no-repeat right; }
 
 #block-field_events-event-list table,
-#block-field_events-full-list table 	{ margin-top:0; }
+#block-field-events-full-list table 	{ margin-top:0; }
 #block-field_events-event-list tr,
-#block-field_events-full-list tr 		{ border:none; }
+#block-field-events-full-list tr 		{ border:none; }
 #block-field_events-event-list tr.odd,
-#block-field_events-full-list tr.odd 	{ background-color:#E0ECEF; }
+#block-field-events-full-list tr.odd 	{ background-color:#E0ECEF; }
 #block-field_events-event-list tr.even,
-#block-field_events-full-list tr.even 	{ background:none; }
+#block-field-events-full-list tr.even 	{ background:none; }
 #block-field_events-event-list tr td,
-#block-field_events-full-list tr td 	{ padding:7px 0 7px 10px; }
+#block-field-events-full-list tr td 	{ padding:7px 0 7px 10px; }
 
 
 #google_translate_element				{ float:right; margin:-5px 0 10px 0; padding-bottom:30px; }

@@ -310,7 +310,7 @@ body.sidebar-first.section-happening #main-inner-wrapper, body.two-sidebars.sect
 .section-happening #block-views-FAQ-related_questions .views-row-odd a:visited,
 .section-happening .field-type-file .field-items .odd,
 .section-happening #block-field_events-event-list tr.odd,
-.section-happening #block-field_events-full-list tr.odd,
+.section-happening #block-field-events-full-list tr.odd,
 .section-happening .view-news .views-row-odd
 										{ background-color:#e0ecef; }
 
@@ -321,9 +321,9 @@ body.sidebar-first.section-happening #main-inner-wrapper, body.two-sidebars.sect
 .section-happening #block-views-FAQ-related_questions .views-row a:hover,
 .section-happening .field-type-file .field-items .field-item:hover,
 .section-happening #block-field_events-event-list tr:hover,
-.section-happening #block-field_events-full-list tr:hover,
+.section-happening #block-field-events-full-list tr:hover,
 .section-happening #block-field_events-event-list tr:hover a,
-.section-happening #block-field_events-full-list tr:hover a,
+.section-happening #block-field-events-full-list tr:hover a,
 .section-happening .view-news .views-row:hover,
 .section-happening .view-news .views-row:hover a
 										{ background-color:#2EA9C6; color:#fff; text-decoration:none; }
@@ -658,7 +658,7 @@ body.two-sidebars.section-users #main-inner-wrapper
 #block-views-FAQ-related_questions .views-row-even a:visited,
 .field-type-file .field-items a,
 #block-field_events-event-list tr a,
-#block-field_events-full-list tr a,
+#block-field-events-full-list tr a,
 .view-news a,
 .block-field-events td a,
 #block-views-363e9aa45e38d72e259300c8c2408c08 a:link,
