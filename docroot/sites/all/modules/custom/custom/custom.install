@@ -1129,3 +1129,14 @@ function custom_update_7037() {
   // This table was supposed to be dropped in field_sql_storage_update_7001()
   db_drop_table('field_config_entity_type');
 }
+/**
+ * Changing media token instances in content to have the right view_mode.
+ */
+function custom_update_7038() {
+  $nodes = node_load_multiple(array(13696,3311));
+  foreach($nodes as $node) {
+    $node->body[$node->language][0]['value'] = str_replace(array('custom_article-original-aspect','custom_content-full'), 'media_original', $node->body[$node->language][0]['value']);
+    $node->field_description[$node->language][0]['value'] = str_replace(array('custom_article-original-aspect','custom_content-full'), 'media_original', $node->field_description[$node->language][0]['value']);
+    node_save($node);
+  }
+}
