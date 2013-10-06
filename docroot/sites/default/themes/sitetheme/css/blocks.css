@@ -165,7 +165,7 @@
 .node-type-department-division-page #content .block
 										{  }
 
-.node-type-department-division-page #content #block-views-our_collections-main_block
+.node-type-department-division-page #content #block-views-our-collections-main-block
 										{ clear:none; }
 
 /*
@@ -310,22 +310,22 @@ For pages with a second sidebar, lets use full width and not hard code it
 
 .not-front.node-type-secondary-section-front #block-system-main .field-name-field-image,
 .not-front.node-type-department-division-page #block-system-main, 
-.not-front.node-type-department-division-page #block-views-related_content-block,
+.not-front.node-type-department-division-page #block-views-related-content-block,
 .not-front.node-type-secondary-section-front #block-system-main, 
-.not-front.node-type-secondary-section-front #block-views-related_content-block,
+.not-front.node-type-secondary-section-front #block-views-related-content-block,
 .not-front.node-type-section-front #block-system-main, 
-.not-front.node-type-section-front #block-views-related_content-block
+.not-front.node-type-section-front #block-views-related-content-block
 										{ width:630px; }
 
 .not-front.node-type-secondary-section-front #block-system-main .field-name-field-image,
 .not-front.node-type-secondary-section-front #block-system-main, 
-.not-front.node-type-secondary-section-front #block-views-related_content-block,
+.not-front.node-type-secondary-section-front #block-views-related-content-block,
 .not-front.node-type-section-front #block-system-main, 
-.not-front.node-type-section-front #block-views-related_content-block
+.not-front.node-type-section-front #block-views-related-content-block
 										{ overflow:hidden; }
 
 .not-front.two-sidebars #block-system-main,
-.not-front.two-sidebars #block-views-related_content-block
+.not-front.two-sidebars #block-views-related-content-block
 										{ width:auto; }
 
 

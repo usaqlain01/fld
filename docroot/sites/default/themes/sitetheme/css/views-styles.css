@@ -343,15 +343,15 @@
  * Our Collections
  */
  
-#block-views-our_collections-main_block {  }
+#block-views-our_collections-main-block {  }
 
-#block-views-our_collections-main_block h2
+#block-views-our_collections-main-block h2
 										{ margin-top:0; }
 
-#block-views-our_collections-main_block.links-present
+#block-views-our_collections-main-block.
 										{ float:right; width:64.6%; /* About 410px */ }
 
-#block-views-our_collections-main_block.people-present
+#block-views-our_collections-main-block.
 										{ float:right; width:64.6%; /* About 410px */ }
 
 .view-our-collections .views-field-entity-id,
@@ -1374,5 +1374,22 @@ font-size: 14px;
   overflow: hidden;
   width: 100%;
   height: 72px;
+}
+
+.field-name-field-department-links .field-items{
+		display: block;
+}
+
+/* Collections */ 
+
+#block-views-our-collections-main-block {
+	float: left;
+	top: 0;
+
+}
+#block-views-our-collections-main-block .row-collections img {
+	width: 160px;
+	height: 160px;
+	float: right;
 }
 
