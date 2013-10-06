@@ -954,6 +954,14 @@ font-size: 14px;
   font-family:helvetica; font-style:normal;
 }
 
+.view-what-the-fish .feed-icon {
+	margin-top: 3px;
+	padding-right: 0px;
+}
+.view-what-the-fish .feed-icon img {
+	margin: 0;
+	float: none;
+}
 
 /*** User Profile Page ***/
 .section-users #block-views-user_profile_contact-block_1

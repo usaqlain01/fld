@@ -127,7 +127,7 @@
 
 .block .view div.feed-icon 				{ margin-top:3px; padding-right:0px; }
 
-#block-views-explore_our_collections-block_1 .view div.grouped-feed-icon
+#block-views-explore-our-collections-block-1 .view div.grouped-feed-icon
 										{ position:absolute; top:-75px; right:0px; }
 
 #block-inline-field-related-multimedia 	{ width:190px !important; }
@@ -198,43 +198,43 @@
 /*
  * Explore our collections blocks 
  */
-.node-type-explore-our-collections #content #block-views-explore_our_collections-block_1,
-.node-type-explore-our-collections #content #block-views-explore_our_collections-block_2,
-.node-type-explore-our-collections #content #block-views-explore_our_collections-block_3,
-.node-type-explore-our-collections #content #block-views-explore_our_collections-block_4,
-.node-type-explore-our-collections #content #block-views-explore_our_collections-block_5
+.node-type-explore-our-collections #content #block-views-explore-our-collections-block-1,
+.node-type-explore-our-collections #content #block-views-explore-our-collections-block-2,
+.node-type-explore-our-collections #content #block-views-explore-our-collections-block-3,
+.node-type-explore-our-collections #content #block-views-explore-our-collections-block-4,
+.node-type-explore-our-collections #content #block-views-explore-our-collections-block-5
 										{ border-bottom:0px none; }
 
-#block-views-explore_our_collections-block_1,
-#block-views-explore_our_collections-block_2,
-#block-views-explore_our_collections-block_3,
-#block-views-explore_our_collections-block_4,
-#block-views-explore_our_collections-block_5,
-#block-views-explore_our_collections-block_6
+#block-views-explore-our-collections-block-1,
+#block-views-explore-our-collections-block-2,
+#block-views-explore-our-collections-block-3,
+#block-views-explore-our-collections-block-4,
+#block-views-explore-our-collections-block-5,
+#block-views-explore-our-collections-block-6
 										{ margin-bottom:0px; }
 
-#block-views-explore_our_collections-block_1 .content,
-#block-views-explore_our_collections-block_2 .content,
-#block-views-explore_our_collections-block_3 .content,
-#block-views-explore_our_collections-block_4 .content,
-#block-views-explore_our_collections-block_6 .content,
-#block-views-explore_our_collections-block_5 .content
+#block-views-explore-our-collections-block-1 .content,
+#block-views-explore-our-collections-block-2 .content,
+#block-views-explore-our-collections-block-3 .content,
+#block-views-explore-our-collections-block-4 .content,
+#block-views-explore-our-collections-block-6 .content,
+#block-views-explore-our-collections-block-5 .content
 										{ position:relative; }
 
-#block-views-explore_our_collections-block_1 h2.block-title,
-#block-views-explore_our_collections-block_2 h2.block-title,
-#block-views-explore_our_collections-block_3 h2.block-title,
-#block-views-explore_our_collections-block_4 h2.block-title,
-#block-views-explore_our_collections-block_6 h2.block-title,
-#block-views-explore_our_collections-block_5 h2.block-title
+#block-views-explore-our-collections-block-1 h2.block-title,
+#block-views-explore-our-collections-block-2 h2.block-title,
+#block-views-explore-our-collections-block-3 h2.block-title,
+#block-views-explore-our-collections-block-4 h2.block-title,
+#block-views-explore-our-collections-block-6 h2.block-title,
+#block-views-explore-our-collections-block-5 h2.block-title
 										{ background-color:#92B40A; background-image:url('../images/field-collapsible-arrows.png'); background-position:4px -24px; background-repeat:no-repeat; font-family:Helvetica, Arial, "Nimbus Sans L", sans-serif; font-style:normal; font-size:13px; color:#fff; cursor:pointer; padding:4px 6px 4px 20px; margin-bottom:4px; border-bottom:0px none; }
 
-#block-views-explore_our_collections-block_1 h2.block-title.collapsed,
-#block-views-explore_our_collections-block_2 h2.block-title.collapsed,
-#block-views-explore_our_collections-block_3 h2.block-title.collapsed,
-#block-views-explore_our_collections-block_4 h2.block-title.collapsed,
-#block-views-explore_our_collections-block_6 h2.block-title.collapsed,
-#block-views-explore_our_collections-block_5 h2.block-title.collapsed
+#block-views-explore-our-collections-block-1 h2.block-title.collapsed,
+#block-views-explore-our-collections-block-2 h2.block-title.collapsed,
+#block-views-explore-our-collections-block-3 h2.block-title.collapsed,
+#block-views-explore-our-collections-block-4 h2.block-title.collapsed,
+#block-views-explore-our-collections-block-6 h2.block-title.collapsed,
+#block-views-explore-our-collections-block-5 h2.block-title.collapsed
 										{ background-position:4px 6px; background-color:#EEEEEE; color:#000000; }
 
 /*
