@@ -100,22 +100,6 @@ function exhibits_browser_view_views_default_views() {
     'format_option' => 'custom',
     'format_custom_string' => 'M j, Y',
   );
-  /* Field: Broken/missing handler */
-  $handler->display->display_options['fields']['tid']['id'] = 'tid';
-  $handler->display->display_options['fields']['tid']['table'] = 'taxonomy_index';
-  $handler->display->display_options['fields']['tid']['field'] = 'tid';
-  $handler->display->display_options['fields']['tid']['label'] = 'Recommended for';
-  $handler->display->display_options['fields']['tid']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['tid']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['tid']['alter']['ellipsis'] = FALSE;
-  /* Field: Broken/missing handler */
-  $handler->display->display_options['fields']['tid_1']['id'] = 'tid_1';
-  $handler->display->display_options['fields']['tid_1']['table'] = 'taxonomy_index';
-  $handler->display->display_options['fields']['tid_1']['field'] = 'tid';
-  $handler->display->display_options['fields']['tid_1']['label'] = 'Topics';
-  $handler->display->display_options['fields']['tid_1']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['tid_1']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['tid_1']['alter']['ellipsis'] = FALSE;
   /* Field: Content: Lede */
   $handler->display->display_options['fields']['entity_id']['id'] = 'entity_id';
   $handler->display->display_options['fields']['entity_id']['table'] = 'field_data_field_lede';
@@ -266,22 +250,6 @@ function exhibits_browser_view_views_default_views() {
     'format_option' => 'custom',
     'format_custom_string' => 'M j, Y',
   );
-  /* Field: Broken/missing handler */
-  $handler->display->display_options['fields']['tid']['id'] = 'tid';
-  $handler->display->display_options['fields']['tid']['table'] = 'taxonomy_index';
-  $handler->display->display_options['fields']['tid']['field'] = 'tid';
-  $handler->display->display_options['fields']['tid']['label'] = 'Recommended for';
-  $handler->display->display_options['fields']['tid']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['tid']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['tid']['alter']['ellipsis'] = FALSE;
-  /* Field: Broken/missing handler */
-  $handler->display->display_options['fields']['tid_1']['id'] = 'tid_1';
-  $handler->display->display_options['fields']['tid_1']['table'] = 'taxonomy_index';
-  $handler->display->display_options['fields']['tid_1']['field'] = 'tid';
-  $handler->display->display_options['fields']['tid_1']['label'] = 'Topics';
-  $handler->display->display_options['fields']['tid_1']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['tid_1']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['tid_1']['alter']['ellipsis'] = FALSE;
   /* Field: Content: Lede */
   $handler->display->display_options['fields']['entity_id']['id'] = 'entity_id';
   $handler->display->display_options['fields']['entity_id']['table'] = 'field_data_field_lede';
@@ -311,7 +279,6 @@ function exhibits_browser_view_views_default_views() {
   $handler->display->display_options['filters']['in_queue']['field'] = 'in_queue';
   $handler->display->display_options['filters']['in_queue']['relationship'] = 'nodequeue_rel';
   $handler->display->display_options['filters']['in_queue']['value'] = '1';
-  $handler->display->display_options['path'] = 'happening/exhibits/browse/current';
   /* Filter criterion: Content: End Date (field_enddate) */
   $handler->display->display_options['filters']['field_enddate_value']['id'] = 'field_enddate_value';
   $handler->display->display_options['filters']['field_enddate_value']['table'] = 'field_data_field_enddate';
@@ -326,6 +293,7 @@ function exhibits_browser_view_views_default_views() {
   $handler->display->display_options['filters']['field_startdate_value']['operator'] = '<=';
   $handler->display->display_options['filters']['field_startdate_value']['value']['value'] = 'now';
   $handler->display->display_options['filters']['field_startdate_value']['value']['type'] = 'offset';
+  $handler->display->display_options['path'] = 'happening/exhibits/browse/current';
   $handler->display->display_options['menu']['type'] = 'default tab';
   $handler->display->display_options['menu']['title'] = 'Current Exhibitions';
   $handler->display->display_options['menu']['weight'] = '-5';
