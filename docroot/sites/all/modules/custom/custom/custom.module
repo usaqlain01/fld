@@ -638,28 +638,6 @@ function custom_field_formatter_settings_form($field, $instance, $view_mode, $fo
   return $element;
 }
 
-/**
- * Implementation of field_formatter_settings' hook_field_formatter_settings_form_alter().
- *
- * Add checkboxes to configure 'collapsible' field displays to all field formatter settings forms.
- *
- * @see custom_field_formatter_info_alter()
- * @see custom_field_formatter_settings_summary_alter()
- * @see custom_field_attach_view_alter()
- */
-function custom_field_formatter_settings_form_alter(array &$settings_form, array $context) {
-  $settings_form['custom_collapsible'] = array(
-    '#type' => 'checkbox',
-    '#title' => t('Custom: make this field collapsible'),
-    '#default_value' => $context['formatter']['settings']['custom_collapsible'],
-  );
-  $settings_form['custom_collapsible_collapsed'] = array(
-    '#type' => 'checkbox',
-    '#title' => t('Custom: initially collapsed'),
-    '#default_value' => $context['formatter']['settings']['custom_collapsible_collapsed'],
-  );
-}
-
 function custom_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
   $element = array();
 
@@ -1344,3 +1322,11 @@ function custom_field_extra_fields() {
   );
   return $extra;
 }
+
+function custom_preprocess_image(&$vars) {
+  // This is to compensate for the stuff that the old media module stuck in to the content. 
+  // The format of the tokens aren't quite the same anymore
+  $vars['width'] = $vars['attributes']['attributes']['width'];
+  $vars['height'] = $vars['attributes']['attributes']['height'];
+}
+

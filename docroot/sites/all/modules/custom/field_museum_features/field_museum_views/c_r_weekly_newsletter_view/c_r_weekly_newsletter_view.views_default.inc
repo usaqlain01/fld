@@ -86,26 +86,26 @@ function c_r_weekly_newsletter_view_views_default_views() {
   $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nid']['link_to_node'] = TRUE;
   /* Field: Content: Research & Publications Image */
-  $handler->display->display_options['fields']['entity_id']['id'] = 'entity_id';
-  $handler->display->display_options['fields']['entity_id']['table'] = 'field_data_field_research_publications_img';
-  $handler->display->display_options['fields']['entity_id']['field'] = 'field_research_publications_img';
-  $handler->display->display_options['fields']['entity_id']['label'] = '';
-  $handler->display->display_options['fields']['entity_id']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['entity_id']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['entity_id']['alter']['path'] = 'node/[nid]';
-  $handler->display->display_options['fields']['entity_id']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['entity_id']['type'] = 'custom_content-third';
-  $handler->display->display_options['fields']['entity_id']['group_column'] = 'fid';
+  $handler->display->display_options['fields']['field_research_pubs_image']['id'] = 'field_research_pubs_image';
+  $handler->display->display_options['fields']['field_research_pubs_image']['table'] = 'field_data_field_research_pubs_image';
+  $handler->display->display_options['fields']['field_research_pubs_image']['field'] = 'field_research_pubs_image';
+  $handler->display->display_options['fields']['field_research_pubs_image']['label'] = '';
+  $handler->display->display_options['fields']['field_research_pubs_image']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_research_pubs_image']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_research_pubs_image']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_research_pubs_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_research_pubs_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_research_pubs_image']['type'] = 'styles_file_content-third';
   /* Field: Content: Staff & Student News Image */
-  $handler->display->display_options['fields']['entity_id_2']['id'] = 'entity_id_2';
-  $handler->display->display_options['fields']['entity_id_2']['table'] = 'field_data_field_crnews_staff_student_img';
-  $handler->display->display_options['fields']['entity_id_2']['field'] = 'field_crnews_staff_student_img';
-  $handler->display->display_options['fields']['entity_id_2']['label'] = '';
-  $handler->display->display_options['fields']['entity_id_2']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['entity_id_2']['alter']['path'] = 'node/[nid]';
-  $handler->display->display_options['fields']['entity_id_2']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['entity_id_2']['type'] = 'custom_content-third';
-  $handler->display->display_options['fields']['entity_id_2']['group_column'] = 'fid';
+  $handler->display->display_options['fields']['field_crnews_staff_student_image']['id'] = 'field_crnews_staff_student_image';
+  $handler->display->display_options['fields']['field_crnews_staff_student_image']['table'] = 'field_data_field_crnews_staff_student_image';
+  $handler->display->display_options['fields']['field_crnews_staff_student_image']['field'] = 'field_crnews_staff_student_image';
+  $handler->display->display_options['fields']['field_crnews_staff_student_image']['label'] = '';
+  $handler->display->display_options['fields']['field_crnews_staff_student_image']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_crnews_staff_student_image']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_crnews_staff_student_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_crnews_staff_student_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_crnews_staff_student_image']['type'] = 'styles_file_content-third';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';

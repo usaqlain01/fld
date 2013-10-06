@@ -4,6 +4,6 @@ package = Features
 dependencies[] = ctools
 dependencies[] = custom
 dependencies[] = views
-features[views_view][] = blog
 features[ctools][] = views:views_default:3.0
 features[features_api][] = api:2
+features[views_view][] = blog

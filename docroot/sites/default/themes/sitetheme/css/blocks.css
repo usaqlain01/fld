@@ -368,8 +368,8 @@ For pages with a second sidebar, lets use full width and not hard code it
 #google_translate_element				{ float:right; margin:-5px 0 10px 0; padding-bottom:30px; }
 
 /* Homepage left rail menu block */
-#block-menu_block-9						{ /*margin-bottom: -15px;*/ }
-#block-menu_block-9 div.content			{ display:none; }
+#block-menu-block-9						{ /*margin-bottom: -15px;*/ }
+#block-menu-block-9 div.content			{ display:none; }
 
 .front #block-block-62					{ margin-bottom:0; color:#fff; }
 .front #block-block-62 a				{ color:#fff; }
@@ -397,6 +397,9 @@ For pages with a second sidebar, lets use full width and not hard code it
 .block-news--links {
 	border-bottom: 1px solid #92B40A;
 	padding-bottom: 10px;
+}
+.region-content-top #block-contextual-menu-block-contextual-menu-block ul > li.first.last > a {
+    display: none;
 }
 .node-type-subsection-homepage #block-views-3afabfca216af126d8c09eb6bb83fd25 .field-name-field-link
 										{ width:100%; }

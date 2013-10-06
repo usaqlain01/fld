@@ -19,13 +19,15 @@ function node_reference_shared_fields_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'hidden',
-        'module' => 'node_reference',
+        'module' => 'custom',
         'settings' => array(
           'custom_collapsible' => 0,
           'custom_collapsible_collapsed' => 0,
-          'node_reference_view_mode' => 'teaser',
+          'display' => 'default',
+          'group_values' => 0,
+          'view' => 'featured_content_field',
         ),
-        'type' => 'node_reference_node',
+        'type' => 'custom_field_as_view',
         'weight' => 3,
       ),
       'full' => array(
@@ -88,13 +90,15 @@ function node_reference_shared_fields_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'hidden',
-        'module' => 'node_reference',
+        'module' => 'custom',
         'settings' => array(
           'custom_collapsible' => 0,
           'custom_collapsible_collapsed' => 0,
-          'node_reference_view_mode' => 'teaser',
+          'display' => 'default',
+          'group_values' => 0,
+          'view' => 'featured_content_field',
         ),
-        'type' => 'node_reference_node',
+        'type' => 'custom_field_as_view',
         'weight' => 2,
       ),
       'full' => array(
