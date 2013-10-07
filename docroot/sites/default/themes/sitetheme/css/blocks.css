@@ -122,7 +122,7 @@
 #block-block-3 							{ overflow:hidden; }
 #block-views-news-block_1 				{  }
 
-#block-views-featured_links-block_1 h2.block-title
+#block-views-featured-links-block-1 h2.block-title
 										{ color:#fff; font:bold normal 1.0769em/1.3em Arial; }
 
 .block .view div.feed-icon 				{ margin-top:3px; padding-right:0px; }
@@ -276,18 +276,18 @@
 /*
  * Section front widgets
  */
-.region-content #block-field_events-event-list,
+.region-content #block-field-events-event-list,
 .region-content #block-custom-get_directions,
-.region-content #block-views-homepage-block_2,
-.region-content #block-views-FAQ-related_questions,
-.region-content #block-views-news-block_1,
-.region-content #block-views-blogs_block-block_1,
+.region-content #block-views-homepage-block-2,
+.region-content #block-views-faq-related-questions,
+.region-content #block-views-news-block-1,
+.region-content #block-views-blogs-block-block-1,
 .region-content #block-custom-email_signup,
 .region-content #block-views-363e9aa45e38d72e259300c8c2408c08,
-.region-content #block-views-c_r_weekly_newsletter-block_1
+.region-content #block-views-c_r_weekly_newsletter-block-1
 										{ width:308px; display:inline-block; margin-right:10px; vertical-align:top; }
 
-#block-views-blogs_block-block_1 .views-field-title, #block-views-blogs_block-block_1 .views-field-name
+#block-views-blogs-block-block-1 .views-field-title, #block-views-blogs-block-block-1 .views-field-name
 										{ display:inline; }
 
 .front .region-content  #block-views-homepage-block_2
@@ -329,10 +329,10 @@ For pages with a second sidebar, lets use full width and not hard code it
 										{ width:auto; }
 
 
-#block-field_events-event-list tr,
+#block-field-events-event-list tr,
 #block-field-events-full-list tr 		{ font:normal italic normal 0.875em/normal Arial; }
 
-#block-field_events-event-list tr a,
+#block-field-events-event-list tr a,
 #block-field-events-full-list tr a		{ font-weight:bold; font-style:normal; display:block; color:#1F2818; font-family:helvetica, arial; }
 
 /*
@@ -347,21 +347,21 @@ For pages with a second sidebar, lets use full width and not hard code it
 .section-visit .region-content  #block-views-news-block_1
 										{ float:right; }
 
-.node-type-section-front .region-content #block-field_events-event-list
+.node-type-section-front .region-content #block-field-events-event-list
 										{ clear:left; }
 */
-.sidebar #block-field_events-event-list h2.block-title
+.sidebar #block-field-events-event-list h2.block-title
 										{ background:url('../images/icon-upcoming-events.png') no-repeat right; }
 
-#block-field_events-event-list table,
+#block-field-events-event-list table,
 #block-field-events-full-list table 	{ margin-top:0; }
-#block-field_events-event-list tr,
+#block-field-events-event-list tr,
 #block-field-events-full-list tr 		{ border:none; }
-#block-field_events-event-list tr.odd,
+#block-field-events-event-list tr.odd,
 #block-field-events-full-list tr.odd 	{ background-color:#E0ECEF; }
-#block-field_events-event-list tr.even,
+#block-field-events-event-list tr.even,
 #block-field-events-full-list tr.even 	{ background:none; }
-#block-field_events-event-list tr td,
+#block-field-events-event-list tr td,
 #block-field-events-full-list tr td 	{ padding:7px 0 7px 10px; }
 
 

@@ -199,7 +199,7 @@
 .view-news .views-field-title,
 .view-blogs-block .views-field-title,
 .page-user-blog .view-blog .views-field-title,
-#block-views-FAQ-related_questions .views-field-title
+#block-views-faq-related-questions .views-field-title
 										{ border: 0; font: bold 12px Arial; }
 
 .view-display-id-block_6 .views-row,
@@ -212,28 +212,28 @@
 #block-views-c_r_weekly_newsletter-block_1 .views-row
 										{ padding:5px 4px; }
 
-#block-views-FAQ-related_questions .views-row
+#block-views-faq-related-questions .views-row
 										{ padding:0px 0px; }
 
 .view-display-id-block_6 .views-row-odd	{ background-color:#eee; }
 
 /* I think the news widget view should actually be themed like the faq below */
-#block-views-FAQ-related_questions .views-row a:link,
-#block-views-FAQ-related_questions .views-row a:visited
+#block-views-faq-related-questions .views-row a:link,
+#block-views-faq-related-questions .views-row a:visited
 										{ padding:8px 4px 7px; display:block; color:#1f2818; font-size:.875em; }
 										
-#block-views-FAQ-related_questions .views-row-odd a:link,
-#block-views-FAQ-related_questions .views-row-odd a:visited
+#block-views-faq-related-questions .views-row-odd a:link,
+#block-views-faq-related-questions .views-row-odd a:visited
 										{ background-color:#eaeddc; }
 										
-#block-views-FAQ-related_questions .views-row-even a:link,
-#block-views-FAQ-related_questions .views-row-even a:visited
+#block-views-faq-related-questions .views-row-even a:link,
+#block-views-faq-related-questions .views-row-even a:visited
 										{ background-color:#fff; }
 
-#block-views-FAQ-related_questions .views-row a:hover
+#block-views-faq-related-questions .views-row a:hover
 										{ background-color:#92b40a; color:#fff; text-decoration:none; }
 										
-#block-views-FAQ-related_questions .views-row-inner .views-field-title
+#block-views-faq-related-questions .views-row-inner .views-field-title
 										{ border-width:0 0 0 0; margin-bottom:0; }
 										
 #block-views-related_content-block,
