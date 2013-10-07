@@ -236,13 +236,13 @@
 #block-views-faq-related-questions .views-row-inner .views-field-title
 										{ border-width:0 0 0 0; margin-bottom:0; }
 										
-#block-views-related_content-block,
-#block-views-featured_content-block_1 	{ float:none; clear:both; }
+#block-views-related-content-block,
+#block-views-featured-content-block-1 	{ float:none; clear:both; }
 
-#block-views-related_content-block .views-field-title
+#block-views-related-content-block .views-field-title
 										{ background:url(../images/icon-arrow-down.png) no-repeat center top; padding:5px; height:33px; overflow:hidden; }
 
-#block-views-related_content-block .views-field-title a
+#block-views-related-content-block .views-field-title a
 										{ color:#fff; font:normal bold 11px Arial; line-height:16px; }
 
 .view-our-collections .field-name-field-image-header
@@ -348,10 +348,10 @@
 #block-views-our_collections-main-block h2
 										{ margin-top:0; }
 
-#block-views-our_collections-main-block.
+#block-views-our-collections-main-block.links-present
 										{ float:right; width:64.6%; /* About 410px */ }
 
-#block-views-our_collections-main-block.
+#block-views-our_collections-main-block.people-present
 										{ float:right; width:64.6%; /* About 410px */ }
 
 .view-our-collections .views-field-entity-id,
@@ -367,9 +367,13 @@
 .view-our-collections .views-field-view-node a
 										{ background-image:url("../images/background-collections-learn-more.png"); background-position:right 3px; background-repeat:no-repeat; clear:none; display:inline; font:inherit !important; font-weight:bold !important; color:#FF8112 !important; text-align:left !important; text-transform:none; padding-right:10px; border-top:0px none; }
 
-.view-our-collections .field-name-field-image-header
-										{ border-bottom:3px solid; }
-
+.view-our-collections .field-name-field-image-header { 
+	border-bottom:3px solid; 
+}
+.view-our-collections .field-name-field-image-header img {
+	width: 160px;
+	height: 160px;
+}
 /*
  * Browse Exhibits
  */

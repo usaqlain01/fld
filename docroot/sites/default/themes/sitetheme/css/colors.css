@@ -53,8 +53,8 @@ h2.node-title
 h1.title,
 .field-name-field-featured-content .field-item,
 .region-content-top #block-system-main,
-/*#content .block,
-*/.region-sidebar-second .block 			{ border-bottom:1px solid #92B40A; }
+#content .block,
+.region-sidebar-second .block 			{ border-bottom:1px solid #92B40A; }
 
 .mep-container .mep-controls > div 		{ background-color:#92B40A; }
 
@@ -831,7 +831,7 @@ body.two-sidebars.section-users #main-inner-wrapper
 }
 
 .section-explore #block-views-wp-09-featured-content-block-1 h2 .triangle { 
-  background-position:left -207px; 
+  background-position:left -276px; 
 }
 
 .section-explore .views-featured-content .views-row,

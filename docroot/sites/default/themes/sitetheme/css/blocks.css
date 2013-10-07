@@ -54,7 +54,7 @@
 
 
 #content .block h2.block-title /* Block titles in main content pane are all lowercase */
-										{ text-transform:lowercase; }
+										{ text-transform:lowercase; margin-top: 0;}
 
 .block .content /* Block's content wrapper */
 										{  }
