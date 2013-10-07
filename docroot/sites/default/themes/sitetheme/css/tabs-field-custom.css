@@ -28,7 +28,29 @@ ul.quicktabs-tabs.quicktabs-style-garland li.active a {
   color: #fff !important;
 }
 
+#block-quicktabs-profile-blog-quicktabs .quicktabs-wrapper .item-list {
+  border: 1px solid #aaaaaa;
+}
 
+#block-quicktabs-profile-blog-quicktabs ul.quicktabs-tabs.quicktabs-style-garland{
+  height: 38px;
+  background-color: #4F4FCF;
+}
+
+#block-quicktabs-profile-blog-quicktabs li {
+  margin-top: 19px;
+}
+
+#block-quicktabs-profile-blog-quicktabs li a{
+  color: #fff;
+  padding: 5px 20px 3px 20px;
+}
+
+#block-quicktabs-profile-blog-quicktabs li.active a {
+  color: #000 !important;
+  border-top: 3px solid #272767 !important;
+  background: #fff url(../images/icon-arrow-down-272767.png) no-repeat center top;
+}
 
 
 
