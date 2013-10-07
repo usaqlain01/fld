@@ -140,52 +140,12 @@
 						 				{ margin-bottom:0; }
 
 .view-multimedia-gallery .views-field-nothing a
-										{ background:none; border:none; padding:0; }
+										{ border:none; padding:0; }
 
 .view-multimedia-gallery .views-field-title a {
 	color: #000;
 	font: normal bold 11px Arial;
 }
-
-/* Overlays */
-
-.view-multimedia-gallery .views-field-nothing .event,
-.view-multimedia-gallery .views-field-nothing .article,
-.view-multimedia-gallery .views-field-nothing .podcast,
-.view-multimedia-gallery .views-field-nothing .video,
-.view-multimedia-gallery .views-field-nothing .exhibit,
-.view-multimedia-gallery .views-field-nothing .photo_gallery,
-.view-related-content .views-field-nothing .event,
-.view-related-content .views-field-nothing .article,
-.view-related-content .views-field-nothing .podcast,
-.view-related-content .views-field-nothing .video,
-.view-related-content .views-field-nothing .exhibit,
-.view-related-content .views-field-nothing .photo_gallery
-										{ position:absolute; width:201px; height:122px; top:0; left:0; }
-
-.view-multimedia-gallery .views-field-nothing .article,
-.view-related-content .views-field-nothing .article
-										{ background:url(../images/overlay-article.png) no-repeat center; }
-
-.view-multimedia-gallery .views-field-nothing .podcast,
-.view-related-content .views-field-nothing .podcast
-										{ background:url(../images/overlay-podcast.png) no-repeat center; }
-
-.view-multimedia-gallery .views-field-nothing .video,
-.view-related-content .views-field-nothing .video
-										{ background:url(../images/overlay-video.png) no-repeat center; }
-
-.view-multimedia-gallery .views-field-nothing .exhibit,
-.view-related-content .views-field-nothing .exhibit
-										{ background:url(../images/overlay-exhibit.png) no-repeat center; }
-
-.view-multimedia-gallery .views-field-nothing .photo_gallery,
-.view-related-content .views-field-nothing .photo_gallery
-										{ background:url(../images/overlay-gallery.png) no-repeat center; }
-
-.view-multimedia-gallery .views-field-nothing .event,
-.view-related-content .views-field-nothing .event
-										{ background:url(../images/overlay-event.png) no-repeat center; }
 
 
 
@@ -1251,6 +1211,16 @@ font-size: 14px;
 	font: normal bold 11px Arial;
 }
 
+.row-related-content {
+	position: relative;
+}
+
+.view-wr-04-related-content-widget .views-field-field-exhibit-image
+.view-wr-04-related-content-widget .views-field-title {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
 .row-related-content .views-row-inner {
   background-color: #eee;
   margin-bottom: 3px;
@@ -1423,3 +1393,87 @@ font-size: 14px;
 	float: right;
 }
 
+/* Overlays */
+
+.view .views-field-nothing .event,
+.view .views-field-nothing .article,
+.view .views-field-nothing .podcast,
+.view .views-field-nothing .video,
+.view .views-field-nothing .exhibit,
+.view .views-field-nothing .photo_gallery {
+ 	position:absolute; top:0; left:0; 
+}
+
+.view-multimedia-gallery .views-field-nothing .event,
+.view-multimedia-gallery .views-field-nothing .article,
+.view-multimedia-gallery .views-field-nothing .podcast,
+.view-multimedia-gallery .views-field-nothing .video,
+.view-multimedia-gallery .views-field-nothing .exhibit,
+.view-multimedia-gallery .views-field-nothing .photo_gallery,
+.view-related-content .views-field-nothing .event,
+.view-related-content .views-field-nothing .article,
+.view-related-content .views-field-nothing .podcast,
+.view-related-content .views-field-nothing .video,
+.view-related-content .views-field-nothing .exhibit,
+.view-related-content .views-field-nothing .photo_gallery{
+	width:201px; 
+	height:122px;
+}
+.view-wp-09-featured-content .views-field-nothing .event,
+.view-wp-09-featured-content .views-field-nothing .article,
+.view-wp-09-featured-content .views-field-nothing .podcast,
+.view-wp-09-featured-content .views-field-nothing .video,
+.view-wp-09-featured-content .views-field-nothing .exhibit,
+.view-wp-09-featured-content .views-field-nothing .photo_gallery{
+	width:123px; 
+	height:75px;
+}
+.view-wr-04-related-content-widget .views-field-nothing .event,
+.view-wr-04-related-content-widget .views-field-nothing .article,
+.view-wr-04-related-content-widget .views-field-nothing .podcast,
+.view-wr-04-related-content-widget .views-field-nothing .video,
+.view-wr-04-related-content-widget .views-field-nothing .exhibit,
+.view-wr-04-related-content-widget .views-field-nothing .photo_gallery {
+	width: 80px;
+	height: 75px;
+}
+
+.views-field-nothing .event
+										{ background:url(../images/overlay-event.png) no-repeat center; }
+.view-wp-09-featured-content .views-field-nothing .event,
+.view-wr-04-related-content-widget .views-field-nothing .event
+										{ background:url(../images/overlay-event-small.png) no-repeat center; }
+
+.views-field-nothing .article
+										{ background:url(../images/overlay-article.png) no-repeat center; }
+.view-wp-09-featured-content .views-field-nothing .article,
+.view-wr-04-related-content-widget .views-field-nothing .article
+										{ background:url(../images/overlay-article-small.png) no-repeat center; }
+
+
+.views-field-nothing .podcast
+										{ background:url(../images/overlay-podcast.png) no-repeat center; }
+.view-wp-09-featured-content .views-field-nothing .podcast,
+.view-wr-04-related-content-widget .views-field-nothing .podcast
+										{ background:url(../images/overlay-article-small.png) no-repeat center; }
+
+
+.views-field-nothing .video
+										{ background:url(../images/overlay-video.png) no-repeat center; }
+.view-wp-09-featured-content .views-field-nothing .video,
+.view-wr-04-related-content-widget .views-field-nothing .video
+										{ background:url(../images/overlay-video-small.png) no-repeat center; }										
+
+
+.views-field-nothing .exhibit
+										{ background:url(../images/overlay-exhibit.png) no-repeat center; }
+.view-wp-09-featured-content .views-field-nothing .exhibit,
+.view-wr-04-related-content-widget .views-field-nothing .exhibit
+										{ background:url(../images/overlay-exhibit-small.png) no-repeat center; }										
+
+
+.views-field-nothing .photo_gallery
+										{ background:url(../images/overlay-gallery.png) no-repeat center; }
+.view-wp-09-featured-content .views-field-nothing .photo_gallery,
+.view-wr-04-related-content-widget .views-field-nothing .photo_gallery
+										{ background:url(../images/overlay-gallery-small.png) no-repeat center; }
