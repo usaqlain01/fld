@@ -215,6 +215,9 @@ function exhibits_browser_view_views_default_views() {
   $handler->display->display_options['fields']['entity_id_1']['table'] = 'field_data_field_branding_image';
   $handler->display->display_options['fields']['entity_id_1']['field'] = 'field_branding_image';
   $handler->display->display_options['fields']['entity_id_1']['label'] = '';
+  $handler->display->display_options['fields']['entity_id_1']['element_type'] = 'div';
+  $handler->display->display_options['fields']['entity_id_1']['element_class'] = 'field-name-field-branding-image';
+  $handler->display->display_options['fields']['entity_id_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['entity_id_1']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['entity_id_1']['settings'] = array(
     'image_style' => 'original-aspect-thumbnail',
@@ -247,6 +250,8 @@ function exhibits_browser_view_views_default_views() {
   $handler->display->display_options['fields']['entity_id_3']['alter']['text'] = '[entity_id_3]';
   $handler->display->display_options['fields']['entity_id_3']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['entity_id_3']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['entity_id_3']['element_type'] = 'div';
+  $handler->display->display_options['fields']['entity_id_3']['element_class'] = 'field-name-field-enddate';
   $handler->display->display_options['fields']['entity_id_3']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['entity_id_3']['settings'] = array(
     'format_option' => 'custom',
@@ -261,6 +266,9 @@ function exhibits_browser_view_views_default_views() {
   $handler->display->display_options['fields']['entity_id_2']['alter']['text'] = '<div class="exhibit-type-[entity_id_4]"><div class="show-dates">[entity_id_2] [entity_id_3]</div><div class="show-text">[entity_id_4] Exhibition</div></div>';
   $handler->display->display_options['fields']['entity_id_2']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['entity_id_2']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['entity_id_2']['element_type'] = 'div';
+  $handler->display->display_options['fields']['entity_id_2']['element_class'] = 'field-name-field-startdate';
+  $handler->display->display_options['fields']['entity_id_2']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['entity_id_2']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['entity_id_2']['settings'] = array(
     'format_option' => 'custom',
@@ -290,6 +298,9 @@ function exhibits_browser_view_views_default_views() {
   $handler->display->display_options['fields']['entity_id']['alter']['max_length'] = '500';
   $handler->display->display_options['fields']['entity_id']['alter']['trim'] = TRUE;
   $handler->display->display_options['fields']['entity_id']['alter']['html'] = TRUE;
+  $handler->display->display_options['fields']['entity_id']['element_type'] = 'div';
+  $handler->display->display_options['fields']['entity_id']['element_class'] = 'field-name-field-lede';
+  $handler->display->display_options['fields']['entity_id']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   /* Sort criterion: Nodequeue: Position */
   $handler->display->display_options['sorts']['position']['id'] = 'position';
@@ -311,7 +322,6 @@ function exhibits_browser_view_views_default_views() {
   $handler->display->display_options['filters']['in_queue']['field'] = 'in_queue';
   $handler->display->display_options['filters']['in_queue']['relationship'] = 'nodequeue_rel';
   $handler->display->display_options['filters']['in_queue']['value'] = '1';
-  $handler->display->display_options['path'] = 'happening/exhibits/browse/current';
   /* Filter criterion: Content: End Date (field_enddate) */
   $handler->display->display_options['filters']['field_enddate_value']['id'] = 'field_enddate_value';
   $handler->display->display_options['filters']['field_enddate_value']['table'] = 'field_data_field_enddate';
@@ -326,6 +336,7 @@ function exhibits_browser_view_views_default_views() {
   $handler->display->display_options['filters']['field_startdate_value']['operator'] = '<=';
   $handler->display->display_options['filters']['field_startdate_value']['value']['value'] = 'now';
   $handler->display->display_options['filters']['field_startdate_value']['value']['type'] = 'offset';
+  $handler->display->display_options['path'] = 'happening/exhibits/browse/current';
   $handler->display->display_options['menu']['type'] = 'default tab';
   $handler->display->display_options['menu']['title'] = 'Current Exhibitions';
   $handler->display->display_options['menu']['weight'] = '-5';
