@@ -32,9 +32,7 @@ function related_content_view_views_default_views() {
   $handler->display->display_options['pager']['options']['items_per_page'] = '3';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'default';
-
   $handler->display->display_options['style_options']['row_class'] = 'row-related-content--main';
-
   $handler->display->display_options['row_plugin'] = 'fields';
   /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
@@ -64,17 +62,6 @@ function related_content_view_views_default_views() {
   $handler->display->display_options['fields']['nothing']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['nothing']['alter']['path'] = 'node/[nid]';
   $handler->display->display_options['fields']['nothing']['alter']['link_class'] = 'node-[type]';
-
-  /* Field: Field: Image */
-  $handler->display->display_options['fields']['entity_id']['id'] = 'entity_id';
-  $handler->display->display_options['fields']['entity_id']['table'] = 'field_data_field_image';
-  $handler->display->display_options['fields']['entity_id']['field'] = 'field_image';
-  $handler->display->display_options['fields']['entity_id']['label'] = '';
-  $handler->display->display_options['fields']['entity_id']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['entity_id']['alter']['path'] = 'node/[nid]';
-  $handler->display->display_options['fields']['entity_id']['alter']['link_class'] = '[type]-thumb';
-  $handler->display->display_options['fields']['entity_id']['type'] = 'custom_content-third';
-
   /* Field: Content: Image */
   $handler->display->display_options['fields']['field_photo_gallery_image']['id'] = 'field_photo_gallery_image';
   $handler->display->display_options['fields']['field_photo_gallery_image']['table'] = 'field_data_field_photo_gallery_image';
@@ -135,7 +122,6 @@ function related_content_view_views_default_views() {
   $handler->display->display_options['fields']['field_video_thumbnail_image']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_video_thumbnail_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_video_thumbnail_image']['type'] = 'styles_file_content-third';
-
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
