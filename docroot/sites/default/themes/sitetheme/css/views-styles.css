@@ -1239,7 +1239,6 @@ font-size: 14px;
 .row-related-content--main .views-field-title a {
 	color: #fff;
 	font: normal bold 11px Arial;
-	line-height: 16px;
 }
 
 .row-related-content .views-row-inner {
@@ -1249,17 +1248,17 @@ font-size: 14px;
   overflow: hidden;
 }
 
-.row-related-content .views-field-entity-id,
+.row-related-content img,
 .row-promotion img {
   float: left;
   margin-right: 10px;
   overflow: hidden;
   width: 80px;
+  height: 75px;
 }
 
 .row-promotion img {
   border-right: 2px solid #932D14;
-  height: 75px;
 }
 
 .row-related-content .views-field-title {
