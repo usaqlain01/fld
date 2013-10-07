@@ -1166,33 +1166,30 @@ font-size: 14px;
 	z-index:8; 
 }
 
-.view-section-front-widget .field-name-field-description,
-.view-section-front-widget .field-name-field-imageactionlinks { 
+.view-section-front-widget .field-name-field-description{ 
 	color:#fff; 
 }
 
 .view-section-front-widget .field-name-field-imageactionlinks { 
-	float:right; border-left: 
-	1px dashed #fff; 
+	border-left: 1px dashed #fff; 
+	float:right; 
 	margin:10px; 
 }
 
-.view-section-front-widget .field-name-field-imageactionlinks .field-item { 
-	float:left; 
-	width:70px; 
-	border-bottom:4px solid #CE3E05; 
-}
-
-.view-section-front-widget .field-name-field-imageactionlinks .field-item.odd { 
-	margin:0 25px; 
-}
-
-.view-section-front-widget .field-name-field-imageactionlinks .field-item a { 
+.view-section-front-widget .field-name-field-imageactionlinks  a { 
+	border-bottom:3px solid #CE3E05; 
 	color:#fff; 
 	font-size:10px; 
+	margin-right: 25px;
 	text-transform:uppercase; 
+	width:70px; 
+	display: inline-block;
+	vertical-align: top;
 }
 
+.view-section-front-widget .field-name-field-imageactionlinks  a:last-child {
+	margin-right: 0;
+}
 /* Wr-04/Related Content and Wr-05/Promotion*/
 .row-related-content--main img {
 	height: 122px;
@@ -1201,9 +1198,9 @@ font-size: 14px;
 
 .row-related-content--main .views-field-title {
 	background: url(../images/icon-arrow-down.png) no-repeat center top;
+	overflow: hidden;
 	padding: 5px;
 	height: 33px;
-	overflow: hidden;
 }
 
 .row-related-content--main .views-field-title a {
