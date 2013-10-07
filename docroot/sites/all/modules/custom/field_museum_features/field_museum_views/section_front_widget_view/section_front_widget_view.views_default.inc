@@ -76,7 +76,12 @@ function section_front_widget_view_views_default_views() {
   $handler->display->display_options['fields']['entity_id_1']['label'] = '';
   $handler->display->display_options['fields']['entity_id_1']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['entity_id_1']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['entity_id_1']['element_type'] = 'div';
+  $handler->display->display_options['fields']['entity_id_1']['element_class'] = 'field-name-field-imageactionlinks';
+  $handler->display->display_options['fields']['entity_id_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['entity_id_1']['click_sort_column'] = 'url';
   $handler->display->display_options['fields']['entity_id_1']['group_column'] = 'attributes';
+  $handler->display->display_options['fields']['entity_id_1']['delta_offset'] = '0';
   /* Field: Field: Description */
   $handler->display->display_options['fields']['entity_id']['id'] = 'entity_id';
   $handler->display->display_options['fields']['entity_id']['table'] = 'field_data_field_description';

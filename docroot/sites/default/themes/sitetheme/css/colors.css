@@ -234,7 +234,7 @@ body.two-sidebars.section-visit #main-inner-wrapper
 .section-happening h1.title#page-title span,
 .section-happening .field-name-field-body-link a, 
 .section-happening .field-name-field-description-link a,
-.section-happening .view-section-front-widget .field-name-field-imageactionlinks .field-item,
+.section-happening .view-section-front-widget .field-name-field-imageactionlinks a,
 .section-happening .views-field-title,
 .section-happening h2.block-title,
 .section-happening h2.node-title,
@@ -343,7 +343,7 @@ body.two-sidebars.section-support #main-inner-wrapper
 .section-support h1.title#page-title span,
 .section-support #block-views-wp_09_featured_content-block_1,
 .section-support .view-section-front-widget .field-name-file,
-.section-support .view-section-front-widget .field-name-field-imageactionlinks .field-item
+.section-support .view-section-front-widget .field-name-field-imageactionlinks a
 										{ border-bottom-color:#0F8A5A }
 
 .section-support h1.title#page-title	{ color:#074F33; }
@@ -416,7 +416,7 @@ body.two-sidebars.section-schools #main-inner-wrapper
 .section-schools h1.title#page-title span,
 .section-schools .views-field-title,
 .section-schools .view-section-front-widget .field-name-file,
-.section-schools .view-section-front-widget .field-name-field-imageactionlinks .field-item,
+.section-schools .view-section-front-widget .field-name-field-imageactionlinks a,
 										{ border-bottom-color:#934E9B; }
 
 .section-schools #EmailSignup 			{ border-top-color:#59215B; }
@@ -487,7 +487,7 @@ body.two-sidebars.section-explore #main-inner-wrapper
 										{ background:url('../images/background-body-explore.png') repeat-y; }
 
 .section-explore .view-section-front-widget .field-name-file,
-.section-explore .view-section-front-widget .field-name-field-imageactionlinks .field-item
+.section-explore .view-section-front-widget .field-name-field-imageactionlinks a
 										{ border-bottom-color:#91B309; }
 
 .section-explore .view-wp-09-featured-content .field-name-field-image
@@ -546,7 +546,7 @@ body.two-sidebars.section-users #main-inner-wrapper
 .section-about h1.title#page-title span,
 .section-users h1.title#page-title span,
 .section-about .view-section-front-widget .field-name-file,
-.section-about .view-section-front-widget .field-name-field-imageactionlinks .field-item
+.section-about .view-section-front-widget .field-name-field-imageactionlinks a
 										{ border-bottom-color:#4f4fcf; }
 
 .section-about .view-wp-09-featured-content .views-row, 
