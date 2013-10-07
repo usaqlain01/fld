@@ -116,6 +116,11 @@
 .field-type-file .field-items .field-item img
 										{ float:left; padding:8px 4px 7px; }
 
+.field-name-field-secondary-section-image .field-items .field-item img {
+	float: none;
+	padding: 0;
+}
+
 /* fixing gap on slideshow from above selector */
 .views_slideshow_slide .field-type-file .field-items .field-item img
 										{ padding:0px 0 7px; }
