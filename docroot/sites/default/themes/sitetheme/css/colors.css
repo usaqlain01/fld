@@ -498,6 +498,9 @@ body.two-sidebars.section-explore #main-inner-wrapper
 
 .section-explore .field-name-field-quote{ background:url('../images/background-quote-arrow-explore.png') no-repeat top left; }
 
+#block-views-what-the-fish-block-2.block {
+	border-bottom: none;
+}
 /* Tabs */
 .page-views.section-explore div.tabs 	{ background-color:#92B40A; }
 

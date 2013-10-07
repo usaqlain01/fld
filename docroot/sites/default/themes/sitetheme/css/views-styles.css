@@ -1259,6 +1259,7 @@ font-size: 14px;
 
 .row-promotion img {
   border-right: 2px solid #932D14;
+  height: 75px;
 }
 
 .row-related-content .views-field-title {
@@ -1313,6 +1314,8 @@ font-size: 14px;
 .views-featured-content .views-row,
 .views-featured-content .views-field-entity-id {
   width: 123px;
+  padding-bottom: 0;
+  border-bottom: 0;
 }
 
 #block-views-wp-09-featured-content-block-1 .content {
@@ -1380,7 +1383,7 @@ font-size: 14px;
   overflow: hidden;
   text-align: left;
   width: 113px;
-  height: 23px;
+  height: 26px;
 }
 
 .row-featured-content img {
@@ -1390,8 +1393,12 @@ font-size: 14px;
   height: 72px;
 }
 
+.page-views .row-featured-content .views-field-field-thumbnail-image {
+	float: none;
+	margin-right: 0;
+}
 .field-name-field-department-links .field-items{
-		display: block;
+	display: block;
 }
 
 /* Collections */ 
