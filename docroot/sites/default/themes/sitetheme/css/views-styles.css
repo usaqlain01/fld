@@ -401,14 +401,11 @@
 .region-sidebar-first .view-featured-links .field-name-field-link
 										{ width:auto; }
  
-.region-sidebar-first .view-featured-links .field-name-field-link .field-items
-										{ padding:0 0 0 10px; }
-
 .region-sidebar-first .view-featured-links .field-name-field-link .field-item
 										{ margin-bottom:3px; }
 
 .region-sidebar-first .view-featured-links .field-name-field-link a
-										{ color:#000; }
+										{ font-weight: bold; color:#000; padding: 0 0 0 10px;}
 
 /* Photo Gallery views. */
 #block-views-photo_gallery-photo_gallery .views-slideshow-controls-top
