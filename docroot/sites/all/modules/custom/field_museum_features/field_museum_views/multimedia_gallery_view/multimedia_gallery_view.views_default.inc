@@ -58,11 +58,6 @@ function multimedia_gallery_view_views_default_views() {
   $handler->display->display_options['fields']['nothing']['alter']['link_class'] = '[type]';
   $handler->display->display_options['fields']['nothing']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['nothing']['alter']['ellipsis'] = FALSE;
-  /* Field: Content: Title */
-  $handler->display->display_options['fields']['title']['id'] = 'title';
-  $handler->display->display_options['fields']['title']['table'] = 'node';
-  $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = '';
   /* Field: Content: Image */
   $handler->display->display_options['fields']['field_photo_gallery_image']['id'] = 'field_photo_gallery_image';
   $handler->display->display_options['fields']['field_photo_gallery_image']['table'] = 'field_data_field_photo_gallery_image';
@@ -102,6 +97,11 @@ function multimedia_gallery_view_views_default_views() {
   $handler->display->display_options['fields']['field_video_thumbnail_image']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_video_thumbnail_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_video_thumbnail_image']['type'] = 'styles_file_content-third';
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
   /* Sort criterion: Content: Updated date */
   $handler->display->display_options['sorts']['changed']['id'] = 'changed';
   $handler->display->display_options['sorts']['changed']['table'] = 'node';
