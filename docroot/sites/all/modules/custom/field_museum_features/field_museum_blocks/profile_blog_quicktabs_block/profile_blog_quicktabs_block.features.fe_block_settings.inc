@@ -13,7 +13,7 @@ function profile_blog_quicktabs_block_default_fe_block_settings() {
   $export['version'] = '2.0';
 
   $export['quicktabs-profile_blog_quicktabs'] = array(
-    'cache' => 1,
+    'cache' => -1,
     'custom' => 0,
     'delta' => 'profile_blog_quicktabs',
     'module' => 'quicktabs',
