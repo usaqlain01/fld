@@ -142,7 +142,13 @@
 .view-multimedia-gallery .views-field-nothing a
 										{ background:none; border:none; padding:0; }
 
+.view-multimedia-gallery .views-field-title a {
+	color: #000;
+	font: normal bold 11px Arial;
+}
+
 /* Overlays */
+
 .view-multimedia-gallery .views-field-nothing .event,
 .view-multimedia-gallery .views-field-nothing .article,
 .view-multimedia-gallery .views-field-nothing .podcast,
@@ -743,6 +749,10 @@
 
 .view-multimedia-gallery .views-exposed-form label, 
 .view-multimedia-gallery .views-widget 	{ float:none; margin-right:20px; }
+
+.view-multimedia-gallery .views-field-field-video-thumbnail-image img {
+	width:201px; height:122px;
+}
 
 .view-staff-directory 					{  }
 
