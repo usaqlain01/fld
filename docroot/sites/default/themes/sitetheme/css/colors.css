@@ -53,8 +53,8 @@ h2.node-title
 h1.title,
 .field-name-field-featured-content .field-item,
 .region-content-top #block-system-main,
-#content .block,
-.region-sidebar-second .block 			{ border-bottom:1px solid #92B40A; }
+/*#content .block,
+*/.region-sidebar-second .block 			{ border-bottom:1px solid #92B40A; }
 
 .mep-container .mep-controls > div 		{ background-color:#92B40A; }
 
@@ -79,20 +79,20 @@ h1.title,
 /*
  * Faq view
  */
-.section-explore #block-views-FAQ-related_questions .views-row-odd a:link,
-.section-explore #block-views-FAQ-related_questions .views-row-odd a:visited,
+.section-explore #block-views-faq-related-questions .views-row-odd a:link,
+.section-explore #block-views-faq-related-questions .views-row-odd a:visited,
 .section-explore .field-type-file .field-items .odd,
-.section-explore #block-field_events-event-list tr.odd,
+.section-explore #block-field-events-event-list tr.odd,
 .section-explore .view-news .views-row-odd,
 .section-explore .view-blogs-block .views-row-odd,
 .section-explore #block-views-363e9aa45e38d72e259300c8c2408c08 .views-row-odd,
 .section-explore #block-views-c_r_weekly_newsletter-block_1 .views-row-odd
 										{ background-color:#eaeddc; }
 
-.section-explore #block-views-FAQ-related_questions .views-row a:hover,
+.section-explore #block-views-faq-related-questions .views-row a:hover,
 .section-explore .field-type-file .field-items .field-item:hover,
-.section-explore #block-field_events-event-list tr:hover,
-.section-explore #block-field_events-event-list tr:hover a,
+.section-explore #block-field-events-event-list tr:hover,
+.section-explore #block-field-events-event-list tr:hover a,
 .section-explore .view-news .views-row:hover,
 .section-explore .view-news .views-row:hover a,
 .section-explore .view-blogs-block .views-row:hover,
@@ -168,7 +168,7 @@ body.two-sidebars.section-visit #main-inner-wrapper
 										{ border-right-color:#932D14; }
 
 
-.section-visit #block-views-related_content-block .views-field-title
+.section-visit #block-views-related-content-block .views-field-title
 										{ background-image:url("../images/icon-arrow-down-plan.png"); }
 
 .section-visit #EmailSignup 			{ border-top-color:#932D14; }
@@ -194,16 +194,16 @@ body.two-sidebars.section-visit #main-inner-wrapper
 /*
  * Faq view
  */
-.section-visit #block-views-FAQ-related_questions .views-row-odd a:link,
-.section-visit #block-views-FAQ-related_questions .views-row-odd a:visited,
+.section-visit #block-views-faq-related-questions .views-row-odd a:link,
+.section-visit #block-views-faq-related-questions .views-row-odd a:visited,
 .section-visit .field-type-file .field-items .odd,
-.section-visit #block-field_events-event-list tr.odd,
+.section-visit #block-field-events-event-list tr.odd,
 .section-visit .view-news .views-row-odd{ background-color:#ede1dc; }
 
-.section-visit #block-views-FAQ-related_questions .views-row a:hover,
+.section-visit #block-views-faq-related-questions .views-row a:hover,
 .section-visit .field-type-file .field-items .field-item:hover,
-.section-visit #block-field_events-event-list tr:hover,
-.section-visit #block-field_events-event-list tr:hover a,
+.section-visit #block-field-events-event-list tr:hover,
+.section-visit #block-field-events-event-list tr:hover a,
 .section-visit .view-news .views-row:hover,
 .section-visit .view-news .views-row:hover a
 										{ background-color:#CE3E05; color:#fff; text-decoration:none; }
@@ -293,7 +293,7 @@ body.sidebar-first.section-happening #main-inner-wrapper, body.two-sidebars.sect
 .section-happening .view-featured-content
 					 					{ border-top-color:#2EA9C6; }
 
-.section-happening #block-views-related_content-block .views-field-title
+.section-happening #block-views-related-content-block .views-field-title
 				 						{ background-image:url(../images/icon-arrow-down-happening.png); }
 
 /* Tabs */
@@ -306,11 +306,11 @@ body.sidebar-first.section-happening #main-inner-wrapper, body.two-sidebars.sect
 /*
  * Faq/events/news view
  */
-.section-happening #block-views-FAQ-related_questions .views-row-odd a:link,
-.section-happening #block-views-FAQ-related_questions .views-row-odd a:visited,
+.section-happening #block-views-faq-related-questions .views-row-odd a:link,
+.section-happening #block-views-faq-related-questions .views-row-odd a:visited,
 .section-happening .field-type-file .field-items .odd,
-.section-happening #block-field_events-event-list tr.odd,
-.section-happening #block-field_events-full-list tr.odd,
+.section-happening #block-field-events-event-list tr.odd,
+.section-happening #block-field-events-full-list tr.odd,
 .section-happening .view-news .views-row-odd
 										{ background-color:#e0ecef; }
 
@@ -318,12 +318,12 @@ body.sidebar-first.section-happening #main-inner-wrapper, body.two-sidebars.sect
 										{ background-color:#fff; }
 .block-field-events td					{ padding:3px 0; }
 
-.section-happening #block-views-FAQ-related_questions .views-row a:hover,
+.section-happening #block-views-faq-related-questions .views-row a:hover,
 .section-happening .field-type-file .field-items .field-item:hover,
-.section-happening #block-field_events-event-list tr:hover,
-.section-happening #block-field_events-full-list tr:hover,
-.section-happening #block-field_events-event-list tr:hover a,
-.section-happening #block-field_events-full-list tr:hover a,
+.section-happening #block-field-events-event-list tr:hover,
+.section-happening #block-field-events-full-list tr:hover,
+.section-happening #block-field-events-event-list tr:hover a,
+.section-happening #block-field-events-full-list tr:hover a,
 .section-happening .view-news .views-row:hover,
 .section-happening .view-news .views-row:hover a
 										{ background-color:#2EA9C6; color:#fff; text-decoration:none; }
@@ -388,17 +388,17 @@ body.two-sidebars.section-support #main-inner-wrapper
 /*
  * Faq view
  */
-.section-support #block-views-FAQ-related_questions .views-row-odd a:link,
-.section-support #block-views-FAQ-related_questions .views-row-odd a:visited,
+.section-support #block-views-faq-related-questions .views-row-odd a:link,
+.section-support #block-views-faq-related-questions .views-row-odd a:visited,
 .section-support .field-type-file .field-items .odd,
-.section-support #block-field_events-event-list tr.odd,
+.section-support #block-field-events-event-list tr.odd,
 .section-support .view-news .views-row-odd
 										{ background-color:#d8e8e2; }
 
-.section-support #block-views-FAQ-related_questions .views-row a:hover,
+.section-support #block-views-faq-related-questions .views-row a:hover,
 .section-support .field-type-file .field-items .field-item:hover,
-.section-support #block-field_events-event-list tr:hover,
-.section-support #block-field_events-event-list tr:hover a,
+.section-support #block-field-events-event-list tr:hover,
+.section-support #block-field-events-event-list tr:hover a,
 .section-support .view-news .views-row:hover,
 .section-support .view-news .views-row:hover a
 										{ background-color:#0F8A5A; color:#fff; text-decoration:none; }
@@ -465,17 +465,17 @@ body.two-sidebars.section-schools #main-inner-wrapper
 /*
  * Faq view
  */
-.section-schools #block-views-FAQ-related_questions .views-row-odd a:link,
-.section-schools #block-views-FAQ-related_questions .views-row-odd a:visited,
+.section-schools #block-views-faq-related-questions .views-row-odd a:link,
+.section-schools #block-views-faq-related-questions .views-row-odd a:visited,
 .section-schools .field-type-file .field-items .odd,
-.section-schools #block-field_events-event-list tr.odd,
+.section-schools #block-field-events-event-list tr.odd,
 .section-schools .view-news .views-row-odd
 										{ background-color:#e6d8e8; }
 
-.section-schools #block-views-FAQ-related_questions .views-row a:hover,
+.section-schools #block-views-faq-related-questions .views-row a:hover,
 .section-schools .field-type-file .field-items .field-item:hover,
-.section-schools #block-field_events-event-list tr:hover,
-.section-schools #block-field_events-event-list tr:hover a,
+.section-schools #block-field-events-event-list tr:hover,
+.section-schools #block-field-events-event-list tr:hover a,
 .section-schools .view-news .views-row:hover,
 .section-schools .view-news .views-row:hover a
 										{ background-color:#934E9B; color:#fff; text-decoration:none; }
@@ -519,7 +519,7 @@ body.two-sidebars.section-users #main-inner-wrapper
 										{ color:#4F4FCF; }
 
 .section-about .section-users .view tr.odd,
-.section-users #block-field_events-event-list tr.odd,
+.section-users #block-field-events-event-list tr.odd,
 .section-users .field-type-file .field-items .odd
 										{ background-color:#ededfa; }
 
@@ -557,7 +557,7 @@ body.two-sidebars.section-users #main-inner-wrapper
 
 .section-about #EmailSignup 			{ border-top-color:#272767; }
 
-.section-about #block-views-related_content-block .views-field-title,
+.section-about #block-views-related-content-block .views-field-title,
 										{ background-image:url("../images/icon-arrow-down-272767.png") }
 
 .section-about .field-name-field-quote,
@@ -603,32 +603,31 @@ body.two-sidebars.section-users #main-inner-wrapper
 /*
  * Faq view
  */
-.section-about #block-views-FAQ-related_questions .views-row-odd a:link,
-.section-about #block-views-FAQ-related_questions .views-row-odd a:visited,
+.section-about #block-views-faq-related-questions .views-row-odd a:link,
+.section-about #block-views-faq-related-questions .views-row-odd a:visited,
 .section-about .field-type-file .field-items .odd,
-.section-about #block-field_events-event-list tr.odd,
+.section-about #block-field-events-event-list tr.odd,
 .section-about .view-news .views-row-odd,
-.front #block-views-FAQ-related_questions .views-row-odd a:link,
-.front #block-views-FAQ-related_questions .views-row-odd a:visited,
+.front #block-views-faq-related-questions .views-row-odd a:link,
+.front #block-views-faq-related-questions .views-row-odd a:visited,
 .front .field-type-file .field-items .odd,
-.front #block-field_events-event-list tr.odd,
+.front #block-field-events-event-list tr.odd,
 .front .view-news .views-row-odd,
-.front .view-homepage.view-id-homepage.view-display-id-block_2.contextual-links-region .views-row-odd
+.front .view-homepage.view-id-homepage.view-display-id-block-2.contextual-links-region .views-row-odd
 										{ background-color:#dddded; }
 
-.section-about #block-views-FAQ-related_questions .views-row a:hover,
+.section-about #block-views-faq-related-questions .views-row a:hover,
 .section-about .field-type-file .field-items .field-item:hover,
-.section-about #block-field_events-event-list tr:hover,
-.section-about #block-field_events-event-list tr:hover a,
-.section-about .view-news .views-row:hover,
+.section-about #block-field-events-event-list tr:hover,
+.section-about #block-field-events-event-list tr:hover a,
 .section-about .view-news .views-row:hover a,
-.front #block-views-FAQ-related_questions .views-row a:hover,
+.front #block-views-faq-related-questions .views-row a:hover,
 .front .field-type-file .field-items .field-item:hover,
-.front #block-field_events-event-list tr:hover,
-.front #block-field_events-event-list tr:hover a,
+.front #block-field-events-event-list tr:hover,
+.front #block-field-events-event-list tr:hover a,
 .front .view-news .views-row:hover,
 .front .view-news .views-row:hover a,
-.front .view-homepage.view-id-homepage.view-display-id-block_2.contextual-links-region .views-row:hover
+.front .view-homepage.view-id-homepage.view-display-id-block-2.contextual-links-region .views-row:hover
 										{ background-color:#4F4FCF; color:#fff; text-decoration:none; }
 
 /* User Page */			
@@ -653,13 +652,13 @@ body.two-sidebars.section-users #main-inner-wrapper
 
 
 
-#block-views-FAQ-related_questions .views-row-odd a:link,
-#block-views-FAQ-related_questions .views-row-odd a:visited,
-#block-views-FAQ-related_questions .views-row-even a:link,
-#block-views-FAQ-related_questions .views-row-even a:visited,
+#block-views-faq-related-questions .views-row-odd a:link,
+#block-views-faq-related-questions .views-row-odd a:visited,
+#block-views-faq-related-questions .views-row-even a:link,
+#block-views-faq-related-questions .views-row-even a:visited,
 .field-type-file .field-items a,
-#block-field_events-event-list tr a,
-#block-field_events-full-list tr a,
+#block-field-events-event-list tr a,
+#block-field-events-full-list tr a,
 .view-news a,
 .block-field-events td a,
 #block-views-363e9aa45e38d72e259300c8c2408c08 a:link,

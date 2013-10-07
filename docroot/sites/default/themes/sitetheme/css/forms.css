@@ -46,6 +46,7 @@ a.feed-icon,
   font:italic bold 11px Arial !important;
   cursor:pointer;
   padding:3px;
+  line-height: 1.2em;
 }
 
 .container-inline div,

@@ -238,7 +238,7 @@ li a.active 								{ color:#000; }
 
 .region-content-top .menu-block-wrapper ul li.active,
 .region-content-top .block-contextual-menu-block ul li ul li.active-trail
-											{ background:url("../images/icon-arrow-down.png") no-repeat scroll center top #FFFFFF; border-top:3px solid #536712 !important; padding-top:0; }
+											{ background:url("../images/icon-arrow-down.png") no-repeat scroll center top #FFFFFF; border-bottom: 1px solid #fff; border-top:3px solid #536712 !important; padding-top:0; }
 
 .section-visit .region-content-top .menu-block-wrapper ul li.active,
 .section-visit .region-content-top .block-contextual-menu-block ul li ul li.active-trail
