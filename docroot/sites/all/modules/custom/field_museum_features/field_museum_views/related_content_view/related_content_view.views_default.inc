@@ -135,7 +135,7 @@ function related_content_view_views_default_views() {
   $handler->display->display_options['fields']['field_video_thumbnail_image']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_video_thumbnail_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_video_thumbnail_image']['type'] = 'styles_file_content-third';
->>>>>>> e84cdc2682e30f0e6069c683c0d8607a8026cec2
+
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
