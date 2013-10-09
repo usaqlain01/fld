@@ -252,6 +252,13 @@
 .view-dept-div-collections-list .views-field-title
 										{ font:inherit; font-weight:bold; color:#444; border-bottom:0px none; }
 
+.view-dept-page-collections-list .views-field-field-collection-thumbnail-image {
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
 .view-dept-div-collections-list .field-name-field-image
 										{ margin-bottom:0px; }
 
