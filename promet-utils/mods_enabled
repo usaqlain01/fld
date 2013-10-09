@@ -8,6 +8,7 @@ context_ui
 block
 contact
 contextual
+dblog
 field
 field_sql_storage
 field_ui

@@ -24,7 +24,7 @@ echo "Enable Modules" &&
 # isn't a known way to fix it.
 $drush en file_entity -y
 $drush cc all
-$drush en $(cat $buildpath/mods_enabled | tr '\n' ' ') -y &&
+$drush en $(cat $build_path/mods_enabled | tr '\n' ' ') -y &&
 #echo "Disable Modules" &&
 #$drush dis $(cat $build_path/mods_purge | tr '\n' ' ') -y &&
 #echo "Uninstall Modules" &&
