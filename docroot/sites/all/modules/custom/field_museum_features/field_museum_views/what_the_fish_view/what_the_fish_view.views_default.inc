@@ -69,8 +69,8 @@ function what_the_fish_view_views_default_views() {
   $handler->display->display_options['fields']['field_blog_image']['table'] = 'field_data_field_blog_image';
   $handler->display->display_options['fields']['field_blog_image']['field'] = 'field_blog_image';
   $handler->display->display_options['fields']['field_blog_image']['label'] = '';
-  $handler->display->display_options['fields']['field_blog_image']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['field_blog_image']['alter']['path'] = '[path]';
+  $handler->display->display_options['fields']['field_blog_image']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_blog_image']['alter']['text'] = '<a href=\'[path]\'>[field_blog_image]</a>';
   $handler->display->display_options['fields']['field_blog_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_blog_image']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_blog_image']['click_sort_column'] = 'fid';
@@ -80,7 +80,8 @@ function what_the_fish_view_views_default_views() {
   $handler->display->display_options['fields']['field_exhibit_image']['table'] = 'field_data_field_exhibit_image';
   $handler->display->display_options['fields']['field_exhibit_image']['field'] = 'field_exhibit_image';
   $handler->display->display_options['fields']['field_exhibit_image']['label'] = '';
-  $handler->display->display_options['fields']['field_exhibit_image']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_exhibit_image']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_exhibit_image']['alter']['text'] = '<a href=\'[path]\'>[field_exhibit_image]</a>';
   $handler->display->display_options['fields']['field_exhibit_image']['alter']['path'] = '[path]';
   $handler->display->display_options['fields']['field_exhibit_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_exhibit_image']['hide_empty'] = TRUE;
@@ -91,7 +92,8 @@ function what_the_fish_view_views_default_views() {
   $handler->display->display_options['fields']['field_promotion_widget_image']['table'] = 'field_data_field_promotion_widget_image';
   $handler->display->display_options['fields']['field_promotion_widget_image']['field'] = 'field_promotion_widget_image';
   $handler->display->display_options['fields']['field_promotion_widget_image']['label'] = '';
-  $handler->display->display_options['fields']['field_promotion_widget_image']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_promotion_widget_image']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_promotion_widget_image']['alter']['text'] = '<a href=\'[path]\'>[field_promotion_widget_image]</a>';
   $handler->display->display_options['fields']['field_promotion_widget_image']['alter']['path'] = '[path]';
   $handler->display->display_options['fields']['field_promotion_widget_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_promotion_widget_image']['hide_empty'] = TRUE;
@@ -102,7 +104,8 @@ function what_the_fish_view_views_default_views() {
   $handler->display->display_options['fields']['field_podcast_image']['table'] = 'field_data_field_podcast_image';
   $handler->display->display_options['fields']['field_podcast_image']['field'] = 'field_podcast_image';
   $handler->display->display_options['fields']['field_podcast_image']['label'] = '';
-  $handler->display->display_options['fields']['field_podcast_image']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_podcast_image']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_podcast_image']['alter']['text'] = '<a href=\'[path]\'>[field_podcast_image]</a>';
   $handler->display->display_options['fields']['field_podcast_image']['alter']['path'] = '[path]';
   $handler->display->display_options['fields']['field_podcast_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_podcast_image']['hide_empty'] = TRUE;
@@ -113,7 +116,8 @@ function what_the_fish_view_views_default_views() {
   $handler->display->display_options['fields']['field_photo_gallery_image']['table'] = 'field_data_field_photo_gallery_image';
   $handler->display->display_options['fields']['field_photo_gallery_image']['field'] = 'field_photo_gallery_image';
   $handler->display->display_options['fields']['field_photo_gallery_image']['label'] = '';
-  $handler->display->display_options['fields']['field_photo_gallery_image']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_photo_gallery_image']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_photo_gallery_image']['alter']['text'] = '<a href=\'[path]\'>[field_photo_gallery_image]</a>';
   $handler->display->display_options['fields']['field_photo_gallery_image']['alter']['path'] = '[path]';
   $handler->display->display_options['fields']['field_photo_gallery_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_photo_gallery_image']['hide_empty'] = TRUE;
