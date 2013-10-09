@@ -8,6 +8,7 @@ context_ui
 block
 contact
 contextual
+database_logging
 field
 field_sql_storage
 field_ui
