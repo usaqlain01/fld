@@ -41,16 +41,15 @@ function our_collections_view_views_default_views() {
   $handler->display->display_options['fields']['nid']['label'] = '';
   $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
   /* Field: Content: Image Header */
-  $handler->display->display_options['fields']['entity_id_1']['id'] = 'entity_id_1';
-  $handler->display->display_options['fields']['entity_id_1']['table'] = 'field_data_field_image_header';
-  $handler->display->display_options['fields']['entity_id_1']['field'] = 'field_image_header';
-  $handler->display->display_options['fields']['entity_id_1']['label'] = '';
-  $handler->display->display_options['fields']['entity_id_1']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['entity_id_1']['alter']['path'] = 'node/[nid]';
-  $handler->display->display_options['fields']['entity_id_1']['element_type'] = 'div';
-  $handler->display->display_options['fields']['entity_id_1']['element_class'] = 'field-name-field-image-header';
-  $handler->display->display_options['fields']['entity_id_1']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['entity_id_1']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_dept_div_coll_image_header']['id'] = 'field_dept_div_coll_image_header';
+  $handler->display->display_options['fields']['field_dept_div_coll_image_header']['table'] = 'field_data_field_dept_div_coll_image_header';
+  $handler->display->display_options['fields']['field_dept_div_coll_image_header']['field'] = 'field_dept_div_coll_image_header';
+  $handler->display->display_options['fields']['field_dept_div_coll_image_header']['label'] = '';
+  $handler->display->display_options['fields']['field_dept_div_coll_image_header']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_dept_div_coll_image_header']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_dept_div_coll_image_header']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_dept_div_coll_image_header']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_dept_div_coll_image_header']['type'] = 'styles_file_medium';
   /* Field: Content: Lede */
   $handler->display->display_options['fields']['entity_id']['id'] = 'entity_id';
   $handler->display->display_options['fields']['entity_id']['table'] = 'field_data_field_lede';
