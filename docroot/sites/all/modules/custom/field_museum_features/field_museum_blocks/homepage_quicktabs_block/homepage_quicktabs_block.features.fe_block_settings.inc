@@ -13,7 +13,7 @@ function homepage_quicktabs_block_default_fe_block_settings() {
   $export['version'] = '2.0';
 
   $export['quicktabs-homepage_quicktabs'] = array(
-    'cache' => 1,
+    'cache' => -1,
     'custom' => 0,
     'delta' => 'homepage_quicktabs',
     'module' => 'quicktabs',
