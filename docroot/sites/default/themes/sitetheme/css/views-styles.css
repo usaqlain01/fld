@@ -957,9 +957,9 @@ font-size: 14px;
 .view-user-profile-contact .views-label-entity-id-1,
 .view-user-profile-contact .views-label-entity-id-2		{ padding:5px 0 0 10px; margin:0; margin-top:0; color:#888; }
 
-.view-user-profile-contact .views-field-entity-id .field-content .field-items,										
-.view-user-profile-contact .views-field-entity-id-1 .field-content .field-items,
-.view-user-profile-contact .views-field-entity-id-2 .field-content .field-items
+.view-user-profile-contact .views-field-entity-id .field-content,										
+.view-user-profile-contact .views-field-entity-id-1 .field-content,
+.view-user-profile-contact .views-field-entity-id-2 .field-content
 														{ padding:0 0 5px 10px; border-bottom:#888 dotted 1px; }
 										
 .view-user-profile-contact .views-field-entity-id-2 .field-content .field-items
