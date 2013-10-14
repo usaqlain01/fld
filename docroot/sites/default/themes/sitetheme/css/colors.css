@@ -56,10 +56,12 @@ h1.title,
 #content .block,
 .region-sidebar-second .block 			{ border-bottom:1px solid #92B40A; }
 
+#block-views-podcasts-block-1.block{
+	border-bottom: none;
+}
+
 .mep-container .mep-controls > div 		{ background-color:#92B40A; }
 
-.field-name-field-podcast-file .mep-container .mep-controls .mep-playpause-button
-										{  }
 
 .view-featured-content 					{ border-top:2px solid #92B40A; }
 
