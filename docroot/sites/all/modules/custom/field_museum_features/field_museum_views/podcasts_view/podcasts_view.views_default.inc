@@ -47,6 +47,8 @@ function podcasts_view_views_default_views() {
   $handler->display->display_options['fields']['field_podcast_image']['label'] = '';
   $handler->display->display_options['fields']['field_podcast_image']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['field_podcast_image']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_podcast_image']['element_type'] = 'div';
+  $handler->display->display_options['fields']['field_podcast_image']['element_class'] = 'field-name-field-image';
   $handler->display->display_options['fields']['field_podcast_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_podcast_image']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_podcast_image']['click_sort_column'] = 'fid';
@@ -58,6 +60,8 @@ function podcasts_view_views_default_views() {
   $handler->display->display_options['fields']['field_video_thumbnail_image']['label'] = '';
   $handler->display->display_options['fields']['field_video_thumbnail_image']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['field_video_thumbnail_image']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_video_thumbnail_image']['element_type'] = 'div';
+  $handler->display->display_options['fields']['field_video_thumbnail_image']['element_class'] = 'field-name-field-image';
   $handler->display->display_options['fields']['field_video_thumbnail_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_video_thumbnail_image']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_video_thumbnail_image']['click_sort_column'] = 'fid';
@@ -84,6 +88,9 @@ function podcasts_view_views_default_views() {
   $handler->display->display_options['fields']['entity_id_2']['alter']['max_length'] = '300';
   $handler->display->display_options['fields']['entity_id_2']['alter']['trim'] = TRUE;
   $handler->display->display_options['fields']['entity_id_2']['alter']['html'] = TRUE;
+  $handler->display->display_options['fields']['entity_id_2']['element_type'] = 'div';
+  $handler->display->display_options['fields']['entity_id_2']['element_class'] = 'field-name-field-lede';
+  $handler->display->display_options['fields']['entity_id_2']['element_label_colon'] = FALSE;
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -135,6 +142,8 @@ function podcasts_view_views_default_views() {
   $handler->display->display_options['fields']['field_podcast_image']['label'] = '';
   $handler->display->display_options['fields']['field_podcast_image']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['field_podcast_image']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_podcast_image']['element_type'] = 'div';
+  $handler->display->display_options['fields']['field_podcast_image']['element_class'] = 'field-name-field-image';
   $handler->display->display_options['fields']['field_podcast_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_podcast_image']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_podcast_image']['click_sort_column'] = 'fid';
@@ -146,6 +155,8 @@ function podcasts_view_views_default_views() {
   $handler->display->display_options['fields']['field_video_thumbnail_image']['label'] = '';
   $handler->display->display_options['fields']['field_video_thumbnail_image']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['field_video_thumbnail_image']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_video_thumbnail_image']['element_type'] = 'div';
+  $handler->display->display_options['fields']['field_video_thumbnail_image']['element_class'] = 'field-name-field-image';
   $handler->display->display_options['fields']['field_video_thumbnail_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_video_thumbnail_image']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_video_thumbnail_image']['click_sort_column'] = 'fid';
@@ -172,6 +183,9 @@ function podcasts_view_views_default_views() {
   $handler->display->display_options['fields']['entity_id_2']['alter']['max_length'] = '300';
   $handler->display->display_options['fields']['entity_id_2']['alter']['trim'] = TRUE;
   $handler->display->display_options['fields']['entity_id_2']['alter']['html'] = TRUE;
+  $handler->display->display_options['fields']['entity_id_2']['element_type'] = 'div';
+  $handler->display->display_options['fields']['entity_id_2']['element_class'] = 'field-name-field-lede';
+  $handler->display->display_options['fields']['entity_id_2']['element_label_colon'] = FALSE;
 
   /* Display: iTunes Feed */
   $handler = $view->new_display('feed', 'iTunes Feed', 'feed_1');
