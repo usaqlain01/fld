@@ -74,7 +74,7 @@
 .view-our-collections .views-field-view-node a,
 .view-explore-our-collections .views-field-name a,
 .view-dept-div-collections-list .views-field-view-node a,
-.view-dept-div-collections-list .field-name-field-link .field-item a,
+.view-dept-div-collections-list .field-name-field-link a,
 .page-user-blog .view-blog .views-field-title a,
 .page-views .views-field-title a
 										{ color:#FF8112; }
@@ -268,12 +268,22 @@
 .view-dept-div-collections-list .field-name-field-image
 										{ margin-bottom:0px; }
 
+.view-dept-div-collections-list .field-name-field-lede {
+	padding-bottom: 0;
+}
 .view-dept-div-collections-list .field-name-field-lede p
-										{ margin-top:0px; }
+										{ margin:0px;}
 
 .view-dept-div-collections-list .views-field-view-node a
 										{ background:none; clear:none; display:inline; font:inherit !important; font-weight:bold !important; color:#FF8112 !important; text-transform:none; text-align:left !important; border-top:0px none; }
 
+.view-dept-div-collections-list .field-name-field-link ul {
+	margin: 0;
+}
+.view-dept-div-collections-list .field-name-field-link li {
+	font-weight: bold;
+	list-style: none;
+}
 /*
  * Explore our collections
  */
