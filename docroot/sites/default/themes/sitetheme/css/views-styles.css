@@ -35,6 +35,9 @@
 .views-exposed-form
 .views-exposed-widget .form-submit 		{ margin:0; }
 .views-field-title 						{ margin-bottom:5px; }
+.view-subsection-homepage-news .views-field-title {
+	margin-bottom: 0;
+}
 
 .region-sidebar-first
 .views-field-title 						{ border-bottom:none !important; }
