@@ -52,7 +52,10 @@
 .field-name-field-audio-file 			{ float:left; }
 .field-name-field-audio-file-description{ float:right; }
 
-.field-name-body .field-name-file 		{ margin:1em 10px; }
+.field-name-body .field-name-file,
+.field-name-body img { 
+	margin:1em 10px; 
+}
 
 .field-name-field-featured-content .field-item
 										{ width:49%; margin-bottom:10px; }
@@ -107,13 +110,13 @@
 #block-inline-field-quote 				{ width:190px !important; }
 
 /* File field list display */
-.field-type-file .field-items .field-item
+.field-name-body .field-item
 										{ display:block; }
 										
-.field-type-file .field-items .field-item img
+.field-name-body .field-item img
 										{ float:left; padding:8px 4px 7px; }
 
-.field-name-field-secondary-section-image .field-items .field-item img {
+.field-name-field-secondary-section-image img {
 	float: none;
 	padding: 0;
 }
@@ -280,7 +283,7 @@
 
 .section-explore .field-name-field-department-links .field-items .field-item,
 .section-explore .node-subsection-homepage .field-name-field-link .field-items .field-item
-										{ margin-bottom:2px; padding-bottom:2px; border-bottom:1px dashed #BFBFBF; }
+										{ margin-bottom:2px; padding-bottom:2px; }
 
 .section-explore .field-name-field-department-links .field-items .field-item a,
 .section-explore .node-subsection-homepage .field-name-field-link .field-items .field-item a
