@@ -91,7 +91,7 @@ function dept_div_collections_list_view_views_default_views() {
   $handler->display->display_options['fields']['view_node']['field'] = 'view_node';
   $handler->display->display_options['fields']['view_node']['label'] = '';
   $handler->display->display_options['fields']['view_node']['text'] = 'Learn more';
-  /* Field: Content: Featured Links */
+  /* Field: Content: Link */
   $handler->display->display_options['fields']['entity_id_2']['id'] = 'entity_id_2';
   $handler->display->display_options['fields']['entity_id_2']['table'] = 'field_data_field_link';
   $handler->display->display_options['fields']['entity_id_2']['field'] = 'field_link';
@@ -175,6 +175,8 @@ function dept_div_collections_list_view_views_default_views() {
   $handler->display->display_options['fields']['field_collection_image_header']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['field_collection_image_header']['alter']['path'] = '[path]';
   $handler->display->display_options['fields']['field_collection_image_header']['alter']['absolute'] = TRUE;
+  $handler->display->display_options['fields']['field_collection_image_header']['element_type'] = 'div';
+  $handler->display->display_options['fields']['field_collection_image_header']['element_class'] = 'field-name-field-image';
   $handler->display->display_options['fields']['field_collection_image_header']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_collection_image_header']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_collection_image_header']['type'] = 'styles_file_content-third';
@@ -191,18 +193,25 @@ function dept_div_collections_list_view_views_default_views() {
   $handler->display->display_options['fields']['entity_id_1']['alter']['max_length'] = '275';
   $handler->display->display_options['fields']['entity_id_1']['alter']['strip_tags'] = TRUE;
   $handler->display->display_options['fields']['entity_id_1']['alter']['trim'] = TRUE;
+  $handler->display->display_options['fields']['entity_id_1']['element_type'] = 'div';
+  $handler->display->display_options['fields']['entity_id_1']['element_class'] = 'field-name-field-lede';
+  $handler->display->display_options['fields']['entity_id_1']['element_label_colon'] = FALSE;
   /* Field: Content: Link */
   $handler->display->display_options['fields']['view_node']['id'] = 'view_node';
   $handler->display->display_options['fields']['view_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['view_node']['field'] = 'view_node';
   $handler->display->display_options['fields']['view_node']['label'] = '';
   $handler->display->display_options['fields']['view_node']['text'] = 'Learn more';
-  /* Field: Content: Featured Links */
+  /* Field: Content: Link */
   $handler->display->display_options['fields']['entity_id_2']['id'] = 'entity_id_2';
   $handler->display->display_options['fields']['entity_id_2']['table'] = 'field_data_field_link';
   $handler->display->display_options['fields']['entity_id_2']['field'] = 'field_link';
   $handler->display->display_options['fields']['entity_id_2']['label'] = '';
+  $handler->display->display_options['fields']['entity_id_2']['alter']['text'] = '<li></li>';
+  $handler->display->display_options['fields']['entity_id_2']['element_type'] = 'div';
+  $handler->display->display_options['fields']['entity_id_2']['element_class'] = 'field-name-field-link';
   $handler->display->display_options['fields']['entity_id_2']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['entity_id_2']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['entity_id_2']['click_sort_column'] = 'url';
   $handler->display->display_options['fields']['entity_id_2']['settings'] = array(
     'override' => array(
