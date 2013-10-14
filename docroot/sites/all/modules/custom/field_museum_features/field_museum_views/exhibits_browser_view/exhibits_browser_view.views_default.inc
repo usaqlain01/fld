@@ -49,6 +49,9 @@ function exhibits_browser_view_views_default_views() {
   $handler->display->display_options['fields']['entity_id_1']['table'] = 'field_data_field_branding_image';
   $handler->display->display_options['fields']['entity_id_1']['field'] = 'field_branding_image';
   $handler->display->display_options['fields']['entity_id_1']['label'] = '';
+  $handler->display->display_options['fields']['entity_id_1']['element_type'] = 'div';
+  $handler->display->display_options['fields']['entity_id_1']['element_class'] = 'field-name-field-branding-image';
+  $handler->display->display_options['fields']['entity_id_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['entity_id_1']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['entity_id_1']['settings'] = array(
     'image_style' => 'original-aspect-thumbnail',
@@ -108,6 +111,9 @@ function exhibits_browser_view_views_default_views() {
   $handler->display->display_options['fields']['entity_id']['alter']['max_length'] = '500';
   $handler->display->display_options['fields']['entity_id']['alter']['trim'] = TRUE;
   $handler->display->display_options['fields']['entity_id']['alter']['html'] = TRUE;
+  $handler->display->display_options['fields']['entity_id']['element_type'] = 'div';
+  $handler->display->display_options['fields']['entity_id']['element_class'] = 'field-name-field-lede';
+  $handler->display->display_options['fields']['entity_id']['element_label_colon'] = FALSE;
   /* Sort criterion: Content: Sticky */
   $handler->display->display_options['sorts']['sticky']['id'] = 'sticky';
   $handler->display->display_options['sorts']['sticky']['table'] = 'node';
