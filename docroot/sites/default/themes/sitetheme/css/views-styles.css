@@ -55,8 +55,13 @@
 										{ float:left; overflow:hidden; margin-right:10px; }
 
 
-.page-views
-.views-row .field-name-field-branding-image { float:left; overflow:hidden; margin-right:10px; width: 100px; text-align:center; }
+.page-views .views-row .field-name-field-branding-image { 
+	float:left; 
+	overflow:hidden; 
+	margin-right:10px; 
+	width: 100px; 
+	text-align:center; 
+}
 
 .page-views .views-field-title 			{ font:normal bold 1.0769em Arial; margin-bottom:0; }
 
@@ -234,8 +239,6 @@
 .view-exhibits-browser .field-content .exhibit-type-Permanent .show-dates,
 .view-exhibits-browser .field-content .exhibit-type-Temporary .show-text
 										{ display: none; }
-
-.view-exhibits-browser img { float: left; margin-right: 10px; }
 
 /*
  * Dept / Div Collections list
