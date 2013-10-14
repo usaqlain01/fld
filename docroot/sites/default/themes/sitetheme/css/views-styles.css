@@ -1219,7 +1219,7 @@ font-size: 14px;
 	text-transform:uppercase; 
 	width:70px; 
 	display: inline-block;
-	vertical-align: top;
+	vertical-align: baseline;
 }
 
 .view-section-front-widget .field-name-field-imageactionlinks  a:last-child {
