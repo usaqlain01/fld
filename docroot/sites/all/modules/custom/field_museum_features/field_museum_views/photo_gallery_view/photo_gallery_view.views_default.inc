@@ -91,11 +91,17 @@ function photo_gallery_view_views_default_views() {
   $handler->display->display_options['fields']['entity_id_1']['table'] = 'field_data_field_imagename';
   $handler->display->display_options['fields']['entity_id_1']['field'] = 'field_imagename';
   $handler->display->display_options['fields']['entity_id_1']['label'] = '';
+  $handler->display->display_options['fields']['entity_id_1']['element_type'] = 'div';
+  $handler->display->display_options['fields']['entity_id_1']['element_class'] = 'field-name-field-imagename';
+  $handler->display->display_options['fields']['entity_id_1']['element_label_colon'] = FALSE;
   /* Field: File: Caption */
   $handler->display->display_options['fields']['entity_id']['id'] = 'entity_id';
   $handler->display->display_options['fields']['entity_id']['table'] = 'field_data_field_imagecaption';
   $handler->display->display_options['fields']['entity_id']['field'] = 'field_imagecaption';
   $handler->display->display_options['fields']['entity_id']['label'] = '';
+  $handler->display->display_options['fields']['entity_id']['element_type'] = 'div';
+  $handler->display->display_options['fields']['entity_id']['element_class'] = 'field-name-field-imagecaption';
+  $handler->display->display_options['fields']['entity_id']['element_label_colon'] = FALSE;
   /* Field: File: More Information */
   $handler->display->display_options['fields']['entity_id_3']['id'] = 'entity_id_3';
   $handler->display->display_options['fields']['entity_id_3']['table'] = 'field_data_field_more_info_link';
@@ -103,6 +109,10 @@ function photo_gallery_view_views_default_views() {
   $handler->display->display_options['fields']['entity_id_3']['label'] = '';
   $handler->display->display_options['fields']['entity_id_3']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['entity_id_3']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['entity_id_3']['element_type'] = 'div';
+  $handler->display->display_options['fields']['entity_id_3']['element_class'] = 'field-name-field-more-info-link';
+  $handler->display->display_options['fields']['entity_id_3']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['entity_id_3']['click_sort_column'] = 'url';
   $handler->display->display_options['fields']['entity_id_3']['type'] = 'custom_link_field_url';
   /* Field: File: Rendered */
   $handler->display->display_options['fields']['rendered_1']['id'] = 'rendered_1';
