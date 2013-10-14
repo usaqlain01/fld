@@ -143,7 +143,14 @@ ul.links li.node-readmore 				{  }
 ul.links li.node-readmore a,
 .view-id-blog .more-link
 										{ border-top:1px dashed #bfbfbf; display:block; background:url(../images/icon-learn-more.png) no-repeat right center; padding-right:12px; text-align:right !important; color:#212121 !important; text-transform:uppercase; font:italic bold 11px/22px Arial !important; clear:both; }
-
+a.node-article,
+a.node-video,
+a.node-exhibit,
+a.node-podcast,
+a.node-event,
+a.node-photo_gallery {
+  border-top: none;
+}
 .pager /* A list of page numbers when more than 1 page of content is available */
 										{ clear:both; margin:1em 0; text-align:center; }
 
