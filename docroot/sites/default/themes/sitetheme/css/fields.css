@@ -52,8 +52,7 @@
 .field-name-field-audio-file 			{ float:left; }
 .field-name-field-audio-file-description{ float:right; }
 
-.field-name-body .field-name-file,
-.field-name-body img { 
+.field-name-body .field-name-file { 
 	margin:1em 10px; 
 }
 
@@ -114,7 +113,7 @@
 										{ display:block; }
 										
 .field-name-body .field-item img
-										{ float:left; padding:8px 4px 7px; }
+										{ float:left; }
 
 .field-name-field-secondary-section-image img {
 	float: none;

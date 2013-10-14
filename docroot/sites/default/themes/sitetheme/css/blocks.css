@@ -290,7 +290,7 @@
 #block-views-blogs-block-block-1 .views-field-title, #block-views-blogs-block-block-1 .views-field-name
 										{ display:inline; }
 
-.front .region-content  #block-views-homepage-block_2
+.front .region-content  #block-views-homepage-block-2
 										{ width:100%; }
 /* 
 Making .region-content wider so we can add the padding above to those blocks 

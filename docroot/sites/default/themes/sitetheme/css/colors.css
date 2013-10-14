@@ -827,36 +827,49 @@ body.two-sidebars.section-users #main-inner-wrapper
 }
 
 /*Explore Colors*/
+.section-museum-campus-map h1.title span,
+.section-museum-campus-map h2,
+.section-museum-campus-map #block-views-wp-09-featured-content-block-1,
 .section-explore h1.title span,
 .section-explore h2,
 .section-explore #block-views-wp-09-featured-content-block-1 {
   border-bottom-color: #92B40A;
 }
 
+.section-museum-campus-map #block-views-wp-09-featured-content-block-1 h2 .triangle,
 .section-explore #block-views-wp-09-featured-content-block-1 h2 .triangle { 
   background-position:left -276px; 
 }
 
+.section-museum-campus-map .views-featured-content .views-row,
+.section-museum-campus-map .row-related-content--main .views-row-inner,
+.section-museum-campus-map #block-views-wp-09-featured-content-block-1 h2,
 .section-explore .views-featured-content .views-row,
 .section-explore .row-related-content--main .views-row-inner,
 .section-explore #block-views-wp-09-featured-content-block-1 h2 {
 	background: #92B40A;
 }
+.section-museum-campus-map #block-views-wp-09-featured-content-block-1 h2,
 .section-explore #block-views-wp-09-featured-content-block-1 h2 {
   border-left-color: #536712;
   color: #536712;
 }
 
+.section-museum-campus-map .row-promotion img,
 .section-explore .row-promotion img {
 	border-right-color: #536712;
 }
 
+.section-museum-campus-map .row-related-content--main img,
+.section-museum-campus-map .row-featured-content img,
 .section-explore .row-related-content--main img,
 .section-explore .row-featured-content img {
   border-bottom-color: #536712;
 }
 
-.section-explore .views-featured-content .views-field-title
+.section-museum-campus-map .views-featured-content .views-field-title,
+.section-museum-campus-map .row-related-content--main .views-field-title,
+.section-explore .views-featured-content .views-field-title,
 .section-explore .row-related-content--main .views-field-title {
 	background: url(../images/icon-arrow-down.png) no-repeat center top;
 }
