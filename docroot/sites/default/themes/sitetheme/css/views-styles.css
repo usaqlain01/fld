@@ -490,11 +490,9 @@
 #block-views-photo-gallery-photo-gallery .views-slideshow-controls-bottom
 										{ height:125px; width:614px; padding:10px 10px 15px; overflow:auto; background:url(../images/photo-gallery-pager-background.png) repeat-y; }
 
-#block-views-photo-gallery-photo-gallery #views_slideshow_cycle_pager_photo_gallery-photo_gallery-photoWrapper
+#block-views-photo-gallery-photo-gallery #widget_pager_bottom_photo_gallery-photo_gallery
 										{ height:123px; margin:0; padding:0; }
 
-#block-views-photo-gallery-photo-gallery #views_slideshow_cycle_pager_photo_gallery-photo_gallery
-										{  }
 
 #block-views-photo-gallery-photo-gallery .jspHorizontalBar
 										{ height:18px; background:transparent; }
