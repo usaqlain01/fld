@@ -62,6 +62,9 @@ h1.title,
 	border-bottom: none;
 }
 
+#block-views-homepage-block-3.block {
+	border-bottom-color: #2ca7c6;
+}
 .mep-container .mep-controls > div 		{ background-color:#92B40A; }
 
 
