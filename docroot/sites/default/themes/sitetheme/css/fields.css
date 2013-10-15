@@ -113,7 +113,7 @@
 										{ display:block; }
 										
 .field-name-body .field-item img
-										{ float:left; }
+										/*{ float:left; }*/
 
 .field-name-field-secondary-section-image img {
 	float: none;
@@ -165,9 +165,7 @@
 .view-subsection-homepage-news a {
 	border-bottom: none;
 }
-.view-subsection-homepage-news .views-field-title {
-	margin-bottom: 0;
-}
+
 .field-name-field-link .field-items,
 .field-name-field-department-links .field-items
 										{ padding-bottom:10px; }

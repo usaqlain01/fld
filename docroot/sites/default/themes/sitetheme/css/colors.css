@@ -56,6 +56,7 @@ h1.title,
 #content .block,
 .region-sidebar-second .block 			{ border-bottom:1px solid #92B40A; }
 
+#block-quicktabs-homepage-quicktabs.block,
 #block-views-explore-our-collections-block-6.block,
 #block-views-podcasts-block-1.block{
 	border-bottom: none;
