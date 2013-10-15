@@ -15,7 +15,6 @@ field_ui
 file
 filter
 help
-homepage_quicktabs_block_context
 image
 list
 menu
@@ -58,11 +57,12 @@ explore_our_collections_view
 explore_science_home_page_list_view
 extlink_config
 faq_view
-featured_content_field_view
 featured_links_view
 features
 feeds_for_microsites_view
+gallery_file_view_mode
 homepage_centerstage_view
+homepage_menu_block
 homepage_view
 image_managment_view
 microsite_widgets_view
@@ -111,6 +111,7 @@ section_front_content_type
 subsection_homepage_content_type
 video_content_type
 webform_content_type
+homepage_quicktabs_block_context
 article_original_aspect_file_style
 content_full_file_style
 content_half_file_style
@@ -147,7 +148,6 @@ slideshow_thumbnail_image_style
 square_thumbnail_image_style
 square_thumbnail_with_more_info_link_image_style
 homepage_quicktabs
-homepage_menu_block
 profile_blog_quicktabs
 file_shared_fields
 integer_shared_fields
@@ -158,6 +158,7 @@ text_shared_fields
 user_reference_shared_fields
 admin_content_view
 admin_users_view
+featured_content_field_view
 gis_projects_view
 library_files_view
 nodequeue_current_exhibits_view
@@ -186,6 +187,7 @@ diff
 disqus
 entity
 entity_token
+entity_view_mode
 field_formatter_settings
 flood_control
 imagecache_profiles
