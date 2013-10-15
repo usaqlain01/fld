@@ -111,9 +111,6 @@
 /* File field list display */
 .field-name-body .field-item
 										{ display:block; }
-										
-.field-name-body .field-item img
-										/*{ float:left; }*/
 
 .field-name-field-secondary-section-image img {
 	float: none;
