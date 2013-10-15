@@ -234,8 +234,13 @@ function mediafield_upgrade_batch_step($source_instance, $target_instance, &$con
           );
         }
       }
-      field_attach_presave($target_instance['entity_type'], $entity);
-      field_attach_update($target_instance['entity_type'], $entity);
+      try {
+        field_attach_presave($target_instance['entity_type'], $entity);
+        field_attach_update($target_instance['entity_type'], $entity);
+      }
+      catch (Exception $e) {
+        watchdog('mediafield','Migration Failed on entity @eid @entity_type because of: @message', array('@eid' => $id, '@entity_type' => $source_instance['entity_type'], '@message' => $e->getMessage()), WATCHDOG_WARNING);
+      }
     }
 
     $context['sandbox']['current_entity'] = $id;
