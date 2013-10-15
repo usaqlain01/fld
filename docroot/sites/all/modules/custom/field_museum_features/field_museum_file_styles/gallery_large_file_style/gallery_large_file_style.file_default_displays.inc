@@ -22,5 +22,13 @@ function gallery_large_file_style_file_default_displays() {
   );
   $export['image__custom_gallery-large__file_field_styles_file_gallery-large'] = $file_display;
 
+  $file_display = new stdClass();
+  $file_display->api_version = 1;
+  $file_display->name = 'image__gallery__file_field_styles_file_gallery-large';
+  $file_display->weight = 0;
+  $file_display->status = TRUE;
+  $file_display->settings = '';
+  $export['image__gallery__file_field_styles_file_gallery-large'] = $file_display;
+
   return $export;
 }

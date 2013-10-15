@@ -86,6 +86,7 @@ function photo_gallery_view_views_default_views() {
   $handler->display->display_options['fields']['rendered']['field'] = 'rendered';
   $handler->display->display_options['fields']['rendered']['label'] = '';
   $handler->display->display_options['fields']['rendered']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['rendered']['file_view_mode'] = 'gallery';
   /* Field: File: Name */
   $handler->display->display_options['fields']['entity_id_1']['id'] = 'entity_id_1';
   $handler->display->display_options['fields']['entity_id_1']['table'] = 'field_data_field_imagename';
@@ -111,7 +112,7 @@ function photo_gallery_view_views_default_views() {
   $handler->display->display_options['fields']['rendered_1']['label'] = '';
   $handler->display->display_options['fields']['rendered_1']['exclude'] = TRUE;
   $handler->display->display_options['fields']['rendered_1']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['rendered_1']['file_view_mode'] = 'preview';
+  $handler->display->display_options['fields']['rendered_1']['file_view_mode'] = 'gallery';
   /* Contextual filter: Content: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
   $handler->display->display_options['arguments']['nid']['table'] = 'node';
