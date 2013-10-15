@@ -59,12 +59,16 @@ function user_profile_name_view_views_default_views() {
   $handler->display->display_options['fields']['entity_id_3']['table'] = 'field_data_field_givenname';
   $handler->display->display_options['fields']['entity_id_3']['field'] = 'field_givenname';
   $handler->display->display_options['fields']['entity_id_3']['label'] = '';
+  $handler->display->display_options['fields']['entity_id_3']['element_type'] = 'div';
+  $handler->display->display_options['fields']['entity_id_3']['element_class'] = 'field-name-field-givenname';
   $handler->display->display_options['fields']['entity_id_3']['element_label_colon'] = FALSE;
   /* Field: User: Last Name */
   $handler->display->display_options['fields']['entity_id_4']['id'] = 'entity_id_4';
   $handler->display->display_options['fields']['entity_id_4']['table'] = 'field_data_field_surname';
   $handler->display->display_options['fields']['entity_id_4']['field'] = 'field_surname';
   $handler->display->display_options['fields']['entity_id_4']['label'] = '';
+  $handler->display->display_options['fields']['entity_id_4']['element_type'] = 'div';
+  $handler->display->display_options['fields']['entity_id_4']['element_class'] = 'field-name-field-surname';
   $handler->display->display_options['fields']['entity_id_4']['element_label_colon'] = FALSE;
   $export['user_profile_name'] = $view;
 
