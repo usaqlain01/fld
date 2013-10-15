@@ -90,28 +90,28 @@
     attach: function(context, settings) {
       var $gallery, $children, width = 0;
       if (settings.customPhotoGalleryEnabled) {
-        $gallery = $('#block-views-photo_gallery-photo_gallery');
+        $gallery = $('#block-views-photo-gallery-photo-gallery ');
         // Make sure there is actually a gallery on the page before we act.
         if ($gallery.length) {
 
           // Attach the scroll bar to the pager thumbnails. We need to use a
           // script to add scroll bars because these are themed and firefox
           // does not support themed scroll bars.
-          $gallery.find('#views_slideshow_cycle_pager_photo_gallery-photo_gallery').wrap('<div id="views_slideshow_cycle_pager_photo_gallery-photo_gallery-photoWrapper"></div>');
+          $gallery.find('#widget_pager_bottom_photo_gallery-photo_gallery').wrap('<div id="photo-gallery_scrollpane"></div>');
 
           // Recalculating the width fixes and IE bug.
           if ($.browser.msie) {
-            $children = $gallery.find('.pager-item');
+            $children = $gallery.find('.views-slideshow-pager-field-item');
             $children.each(function() {
               width += $(this).outerWidth(true);
             });
-            $gallery.find('.views_slideshow_pager_thumbnails').width(width);
+            $gallery.find('.views-slideshow-pager-fields').width(width);
           }
-          $gallery.find('#views_slideshow_cycle_pager_photo_gallery-photo_gallery-photoWrapper').jScrollPane({showArrows: true});
+          $gallery.find('#photo-gallery_scrollpane').jScrollPane({showArrows: true});
         }
       }
     }
-  }
+  };
 
   var custom = {
     /*
@@ -121,7 +121,7 @@
     resizeGallery: function() {
       var $gallery, $items, greatest = 0, currentHeight, slideSectionHeight = 0;
       if (Drupal.settings.customPhotoGalleryEnabled) {
-        $gallery = $('#block-views-photo_gallery-photo_gallery');
+        $gallery = $('#block-views-photo-gallery-photo-gallery');
         // Make sure there is actually a gallery on the page before we act.
         if ($gallery.length) {
           // Make sure the slide show is the size of the largest region.
@@ -135,7 +135,7 @@
               }
             })
             .each(function(index) {
-              $(this).height(greatest);  
+              $(this).height(greatest);
             });
 
           // The slide wrapper needs to be updated to be the height of the items.
@@ -144,6 +144,7 @@
         }
       }
     },
+
     resizeSectionFrontWidget: function() {
       var $widget, currentHeight, greatestHeight = 0;
       $widget = $('#views_slideshow_cycle_main_section_front_widget-section_front');
@@ -163,7 +164,6 @@
       }
     }
   }
-
   // Webkit browsers need to do something things at the load event, when all
   // resources are available.
   $(window).load(function() {
