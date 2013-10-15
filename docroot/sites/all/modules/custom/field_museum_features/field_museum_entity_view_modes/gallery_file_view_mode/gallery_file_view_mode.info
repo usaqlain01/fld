@@ -1,0 +1,6 @@
+name = gallery_file_view_mode
+core = 7.x
+package = Features
+dependencies[] = entity_view_mode
+features[entity_view_mode][] = file:gallery
+features[features_api][] = api:2
