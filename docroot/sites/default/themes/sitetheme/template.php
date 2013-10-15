@@ -321,25 +321,22 @@ function sitetheme_preprocess_node(&$vars, $hook) {
 function sitetheme_preprocess_node_photo_gallery(&$vars, $hook) {
   // Adding the scroll bar for the gallery. Should this be attached to the
   // view instead of the node?
-  $path = path_to_theme();
-  drupal_add_js($path . '/js/jquery.jscrollpane.min.js');
+  drupal_add_js(path_to_theme() . '/js/jquery.jscrollpane.min.js');
   drupal_add_js(array('customPhotoGalleryEnabled' => TRUE), 'setting');
-  drupal_add_css($path . '/css/jquery.jscrollpane.css');
+  drupal_add_css(path_to_theme() . '/css/jquery.jscrollpane.css');
 }
 
 /*
  * Add javascipt for correct quote block positioning
  */
 function sitetheme_preprocess_node_article(&$vars, $hook) {
-  $path = path_to_theme();
-  drupal_add_js($path . '/js/quote_script.js');
+  drupal_add_js(path_to_theme() . '/js/quote_script.js');
 }
 /*
  * Add javascipt for correct quote block positioning
  */
 function sitetheme_preprocess_node_blog(&$vars, $hook) {
-  $path = path_to_theme();
-  drupal_add_js($path . '/js/quote_script.js');
+  drupal_add_js(path_to_theme() . '/js/quote_script.js');
 }
 
 /*

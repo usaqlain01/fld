@@ -180,19 +180,19 @@
 #content #block-views-dept_div_collections_list-block
 										{ border-bottom:0px none; }
 
-#block-views-dept_div_collections_list-block h2.block-title
+#block-views-dept-div-collections-list-block h2.block-title
 										{ background-color:#92B40A; background-image:url('../images/field-collapsible-arrows.png'); background-position:4px -24px; background-repeat:no-repeat; font-family:Helvetica, Arial, "Nimbus Sans L", sans-serif; font-style:normal; font-size:13px; font-weight:bold; color:#fff; cursor:pointer; text-transform:none; padding:4px 6px 4px 20px; margin-top:0px; margin-bottom:4px; border-bottom:0px none; }
 
-#content #block-views-dept_div_collections_list-block h2.block-title
+#content #block-views-dept-div-collections-list-block h2.block-title
 										{ text-transform:none; }
 
-#block-views-dept_div_collections_list-block h2.block-title.collapsed
+#block-views-dept-div-collections-list-block h2.block-title.collapsed
 										{ background-color:#EEEEEE; background-position:4px 6px; font:bold 13px Helvetica, Arial, "Nimbus Sans L", sans-serif; color:#000000; margin-bottom:4px; }
 
-#block-views-dept_div_collections_list-block .view
+#block-views-dept-div-collections-list-block .view
 										{ border-bottom:1px solid #92B40A; }
 
-#block-views-dept_div_collections_list-block .view.collapsed
+#block-views-dept-div-collections-list-block .view.collapsed
 										{ border-bottom:0px none; }
 
 /*
