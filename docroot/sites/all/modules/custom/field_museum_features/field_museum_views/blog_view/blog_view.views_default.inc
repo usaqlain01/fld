@@ -54,6 +54,8 @@ function blog_view_views_default_views() {
   $handler->display->display_options['fields']['field_blog_image']['label'] = '';
   $handler->display->display_options['fields']['field_blog_image']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['field_blog_image']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_blog_image']['element_type'] = 'div';
+  $handler->display->display_options['fields']['field_blog_image']['element_class'] = 'field-name-field-image';
   $handler->display->display_options['fields']['field_blog_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_blog_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_blog_image']['type'] = 'styles_file_content-third-home';
@@ -75,6 +77,9 @@ function blog_view_views_default_views() {
   $handler->display->display_options['fields']['entity_id']['alter']['max_length'] = '300';
   $handler->display->display_options['fields']['entity_id']['alter']['trim'] = TRUE;
   $handler->display->display_options['fields']['entity_id']['alter']['html'] = TRUE;
+  $handler->display->display_options['fields']['entity_id']['element_type'] = 'div';
+  $handler->display->display_options['fields']['entity_id']['element_class'] = 'field-name-field-lede';
+  $handler->display->display_options['fields']['entity_id']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['entity_id']['type'] = 'text_trimmed';
   $handler->display->display_options['fields']['entity_id']['settings'] = array(
     'trim_length' => '300',
