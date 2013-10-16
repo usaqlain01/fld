@@ -392,13 +392,13 @@
  * Featured Links
  */
 .region-sidebar-first .view-featured-links .field-name-field-link
-										{ width:auto; }
+										{ width:auto; padding-left: 10px; }
  
 .region-sidebar-first .view-featured-links .field-name-field-link .field-item
 										{ margin-bottom:3px; }
 
 .region-sidebar-first .view-featured-links .field-name-field-link a
-										{ font-weight: bold; color:#000; padding: 0 0 0 10px;}
+										{ font-weight: bold; color:#000; padding: 0;}
 
 /* Photo Gallery views. */
 
