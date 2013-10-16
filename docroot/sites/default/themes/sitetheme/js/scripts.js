@@ -97,7 +97,6 @@
           // Attach the scroll bar to the pager thumbnails. We need to use a
           // script to add scroll bars because these are themed and firefox
           // does not support themed scroll bars.
-          // $gallery.find('#widget_pager_bottom_photo_gallery-photo_gallery').wrap('<div id="photo-gallery_scrollpane"></div>');
 
           // Recalculating the width fixes and IE bug.
           if ($.browser.msie) {

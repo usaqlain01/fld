@@ -504,7 +504,7 @@
 #block-views-photo-gallery-photo-gallery .views-slideshow-controls-bottom
 										{ height:125px; width:614px; padding:10px 10px 15px; overflow:auto; background:url(../images/photo-gallery-pager-background.png) repeat-y; }
 
-#block-views-photo-gallery-photo-gallery #widget_pager_bottom_photo_gallery-photo_gallery { }
+#block-views-photo-gallery-photo-gallery #widget_pager_bottom_photo_gallery-photo_gallery { width: 614px; height: 123px;}
 
 #block-views-photo-gallery-photo-gallery .jspHorizontalBar
 										{ height:18px; background:transparent; }
@@ -531,9 +531,11 @@
 #block-views-photo-gallery-photo-gallery .views_slideshow_pager_field_item {  
 	margin-right:30px; 
 	padding-left:0;
+	float: none;
 	width:98px; 
 	height:96px;
-	display: inline;
+	display: inline-block;
+	cursor: pointer;
 } 
 
 #block-views-photo-gallery-photo-gallery .views_slideshow_pager_field_item img { 
