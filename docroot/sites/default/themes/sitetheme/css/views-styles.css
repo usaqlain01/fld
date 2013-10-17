@@ -1215,12 +1215,50 @@ font-size: 14px;
 
 .view-section-front-widget img {
 	height: 235px;
-	border-bottom: 2px solid #92b40a;
 	background: white;
 	outline: none;
 	margin-bottom: 40px;
 }
 
+.section-plan .view-section-front-widget .field-name-field-imageactionlinks  a,
+.section-plan .view-section-front-widget img {
+  border-bottom: 3px solid #CE3E05;
+}
+
+.section-happening .view-section-front-widget .field-name-field-imageactionlinks  a,
+.section-happening .view-section-front-widget img {
+  border-bottom: 3px solid #2CA7C6;
+}
+
+.section-visit .view-section-front-widget .field-name-field-imageactionlinks  a,
+.section-vist .view-section-front-widget img {
+  border-bottom: 3px solid #CE3E05;
+}
+
+.section-support .view-section-front-widget .field-name-field-imageactionlinks  a,
+.section-support .view-section-front-widget img {
+  border-bottom: 3px solid #0F8A5A;
+}
+
+.section-schools .view-section-front-widget .field-name-field-imageactionlinks  a,
+.section-schools .view-section-front-widget img {
+  border-bottom: 3px solid #934E9B;
+}
+
+.section-schools .view-section-front-widget .field-name-field-imageactionlinks  a,
+.section-schools .view-section-front-widget img {
+  border-bottom: 3px solid #934E9B;
+}
+
+.section-explore .view-section-front-widget .field-name-field-imageactionlinks  a,
+.section-explore .view-section-front-widget img {
+  border-bottom: 3px solid #91B309;
+}
+
+.section-about .view-section-front-widget .field-name-field-imageactionlinks  a,
+.section-about .view-section-front-widget img {
+  border-bottom: 3px solid #4F4FCF;
+}
 
 .view-section-front-widget .field-name-file { 
 	border-bottom:3px solid #CE3E05; 
@@ -1249,7 +1287,6 @@ font-size: 14px;
 }
 
 .view-section-front-widget .field-name-field-imageactionlinks  a { 
-	border-bottom:3px solid #CE3E05; 
 	color:#fff; 
 	font-size:10px; 
 	margin-right: 25px;
