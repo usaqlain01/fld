@@ -99,6 +99,7 @@
 										{ float:none; display:block; font-style:italic; font-family:Georgia; font-weight:normal; font-size:inherit; color:inherit; line-height:inherit; padding:0 0 0 0; }
 
 .field-name-field-image,
+.views-field-field-video-thumbnail-image,
 .field-name-field-podcast-image,
 .field-name-field-dept-div-header-image,
 .field-name-field-image-header 			{ float:left; margin-right:10px; margin-bottom:10px; }
