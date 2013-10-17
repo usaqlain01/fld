@@ -1171,3 +1171,18 @@ font-size: 14px;
 .view-reflections-on-9-11 .views-field-entity-id-4		{ margin-top:-3px; font-size: 12px; text-align: right; color:#333333; }
 
 .view-reflections-on-9-11 .views-row.views-row-last		{ border-bottom-color: #FFFFFF !important; }
+
+.page-explore-newsflash .view-news.view-id-news .views-row .views-field-title a {
+	font-size:14px;
+	color:#FF8112;
+	font-weight:bold;
+	}
+
+.page-explore-newsflash .view-news.view-id-news .views-row .views-field-created {
+	font-family: arial, helvetica;
+	font-style: normal;
+	font-size: 11px;
+	margin: 5px 0;
+	color: #999;
+	line-height: 1em;
+	}
