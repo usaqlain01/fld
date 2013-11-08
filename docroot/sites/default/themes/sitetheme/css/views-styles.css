@@ -582,6 +582,11 @@
 
 .view-id-section_front_widget .views_slideshow_slide .field-type-file .field-items .field-item img
 										{ padding:0; margin-top:0px; }
+										
+.view-id-section_front_widget a:link,
+.view-id-section_front_widget a:visited {
+  color: #FFF;
+}
 
 .node-type-section-front #content .section
 										{ padding:20px 44px; }
