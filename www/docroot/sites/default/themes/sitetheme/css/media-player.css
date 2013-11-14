@@ -1,0 +1,180 @@
+/*
+ * Media player general settings.
+ */
+ 
+.mep-container .mep-controls {
+  height:auto !important;
+  position:static;
+}
+ 
+.mep-container,
+.mep-container .mep-controls {
+  background:none;
+}
+
+.mep-container .mep-controls > div {
+}
+
+.mep-container .mep-controls .mep-playpause-button {
+  -moz-border-radius: 25px;
+  -webkit-border-radius: 25px;
+  border-radius: 25px;
+  width:25px;
+  height:25px;
+}
+
+.mep-container .mep-controls .mep-play span {
+  margin:4px 4px 4px 5px;
+}
+
+.mep-container .mep-controls .mep-pause span {
+  margin:4px 4px 4px 5px;
+}
+
+.block-inline-field .mep-container .mep-controls .mep-time-rail,
+.block-inline-field .mep-container .mep-controls .mep-time,
+.block-inline-field .mep-container .mep-controls .mep-volume-button {
+  display:none;
+}
+
+.mep-poster img {
+  display: none;
+}
+
+/*
+ * Media player podcast.
+ */
+.field-name-field-podcast-file .mep-container,
+.field-name-field-podcast-file .mep-container .mep-controls {
+  background: none;
+}
+
+.mep-container .mep-controls .mep-time-rail,
+.mep-container .mep-controls .mep-time,
+.mep-container .mep-controls .mep-volume-button {
+  display: inline;
+}
+
+.field-name-field-podcast-file .mep-container .mep-controls .mep-volume-button,
+.field-name-field-podcast-file .mep-container .mep-controls .mep-time-rail,
+.field-name-field-podcast-file .mep-container .mep-controls .mep-time {
+  border-radius: 0;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  margin-top: 19px;
+  margin-bottom: 13px;
+}
+
+.field-name-field-podcast-file .mep-container .mep-controls .mep-playpause-button {
+  -moz-border-radius: 25px;
+  -webkit-border-radius: 25px;
+  border-radius: 25px;
+  width: 45px;
+  height: 45px;
+  margin-right: 23px;
+  background: url(../images/button-bg-audio-player.png) no-repeat;
+}
+
+.field-name-field-podcast-file .mep-container .mep-controls .mep-play span {
+  background: url(../images/audio-player-play.png) no-repeat;
+  height: 22px;
+  width: 20px;
+  margin: 12px 12px 11px 13px;
+}
+
+.field-name-field-podcast-file .mep-container .mep-controls .mep-pause span {
+  background: url(../images/audio-player-pause.png) no-repeat;
+  height: 22px;
+  width: 20px;
+  margin: 12px 12px 11px 13px;
+}
+
+.field-name-field-podcast-file .mep-container .mep-controls .mep-time-rail {
+  height: 18px;
+  background: #999;
+}
+
+.two-sidebars .field-name-field-podcast-file .mep-container .mep-controls .mep-time-rail {
+  display:none;
+}
+
+.field-name-field-podcast-file .mep-container .mep-controls .mep-time-rail .mep-time-total {
+  border-radius: 0;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  height: 14px;
+  border: 1px solid #fff;
+  margin: 1px;
+  background: #fff;
+}
+
+.field-name-field-podcast-file .mep-container .mep-controls .mep-time-rail .mep-time-total .mep-time-loaded {
+  background: url(../images/audio-player-loaded.png) repeat-x;
+  height: 14px;
+  border-radius: 0;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+}
+
+.field-name-field-podcast-file .mep-container .mep-controls .mep-time-rail .mep-time-current {
+  height: 14px;
+  background-color: #92b40a;
+  border-radius: 0;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+}
+
+.field-name-field-podcast-file .mep-container .mep-controls .mep-time {
+  height: 14px;
+  padding: 3px 0 1px 3px;
+  margin-right: 0;
+}
+
+.field-name-field-podcast-file .mep-container .mep-controls .mep-volume-button {
+  height: 18px;
+  width: 18px;
+  padding: 0;
+}
+
+.field-name-field-podcast-file .mep-container .mep-controls .mep-volume-button span {
+  margin: 1px;
+}
+
+.field-name-field-podcast-file .mep-container .mep-controls .mep-volume-button .mep-volume-slider {
+  height: 50px;
+  top: -50px;
+  width: 18px;
+  border-radius: 0;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+}
+
+.field-name-field-podcast-file .mep-container .mep-controls .mep-volume-button .mep-volume-slider .mep-volume-rail {
+  left: 8px;
+  top: 4px;
+  height: 42px;
+}
+
+.node-type-podcast .field-name-field-podcast-file {
+  margin-left:180px;
+}
+
+.podcast-audio-download-link {
+  text-align:left;
+  margin-bottom:10px;
+  width:100px;
+  margin-left:-23px;
+}
+
+.podcast-audio-download-link a {
+  padding-right:20px;
+  font-weight:bold;
+  font-size:0.7692em;
+  /*background:url(../images/icon-download.png) no-repeat left center;*/
+}
+
+.mejs-inner,	
+.field-name-field-podcast-file .field-item.even {
+	width:350px;
+	height:30px;
+	} 

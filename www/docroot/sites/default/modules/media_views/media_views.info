@@ -1,0 +1,7 @@
+name = Media browser views
+description = Provides views integration for the media browser.
+package = Media
+core = 7.x
+dependencies[] = media
+dependencies[] = views
+files[] = views_handler_field_file_link_media_browser.inc

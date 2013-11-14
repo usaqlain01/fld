@@ -1,0 +1,6 @@
+name = Field Museum Events
+description = "Provides a simple block for displaying events from http://events.fieldmuseum.org/."
+package = Field Museum
+core = 7.x
+dependencies[] = block
+files[] = field_events.module
