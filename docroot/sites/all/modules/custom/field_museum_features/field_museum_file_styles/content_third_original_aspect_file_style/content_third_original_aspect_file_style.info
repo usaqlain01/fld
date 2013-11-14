@@ -1,0 +1,9 @@
+name = Content Third Original Aspect File Style
+core = 7.x
+package = Field Museum File Styles
+dependencies[] = ctools
+dependencies[] = file_entity
+features[ctools][] = file_entity:file_default_displays:1
+features[features_api][] = api:2
+features[file_display][] = image__custom_content-third-original-aspect__file_field_styles_file_content-third-original-aspect
+project path = sites/all/modules/custom/field_museum_features/field_museum_file_styles

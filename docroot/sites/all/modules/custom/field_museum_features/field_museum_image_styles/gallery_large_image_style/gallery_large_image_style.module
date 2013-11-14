@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Gallery Large Image Style feature.
+ */
+
+include_once 'gallery_large_image_style.features.inc';

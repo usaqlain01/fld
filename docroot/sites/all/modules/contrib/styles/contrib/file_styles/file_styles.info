@@ -1,0 +1,16 @@
+
+name = File Styles
+description = Allows preset transformation of files and media for display.
+package = Styles
+core = 7.x
+files[] = file_styles.module
+files[] = file_styles.admin.inc
+dependencies[] = styles
+dependencies[] = image
+
+; Information added by drupal.org packaging script on 2013-10-01
+version = "7.x-1.0-alpha1+11-dev"
+core = "7.x"
+project = "styles"
+datestamp = "1380638143"
+

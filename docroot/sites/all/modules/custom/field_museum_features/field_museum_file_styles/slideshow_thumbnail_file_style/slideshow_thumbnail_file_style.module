@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Slideshow Thumbnail File Style feature.
+ */
+
+include_once 'slideshow_thumbnail_file_style.features.inc';

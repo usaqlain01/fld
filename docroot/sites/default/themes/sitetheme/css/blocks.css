@@ -1,0 +1,451 @@
+/* $Id: blocks.css,v 1.4 2009/11/05 11:05:39 johnalbin Exp $ */
+
+/**
+ * @file
+ * Block Styling
+ */
+
+
+.block /* Block wrapper */ 				{ margin-bottom:1em; }
+
+.region-header .block 					{ float:right; }
+
+.block-addthis 							{ float:right; }
+
+.region-highlight .block.block-block,
+.block-addthis,
+.block-search,
+/*.block-views,*/
+.block-menu-block,
+.block-system,
+#block-views-podcasts-block_1,
+#block-views-podcasts-block_2,
+#block-views-4fa1194608354659cc686bef18902085,
+#block-views-f4f695a1f748c24a7ce32e38ab5b619d,
+#block-views-what_the_fish-block_2,
+#block-views-what_the_fish-block_3
+										{ border-bottom: none !important; margin:0; padding:0; }
+ 
+.region-sidebar-first .block-views 		{ border:none; }
+
+.block.region-odd /* Zebra striping for each block in the region */ {  }
+.block.region-even /* Zebra striping for each block in the region */ {  }
+.block.odd /* Zebra striping independent of each region */ {  }
+.block.even /* Zebra striping independent of each region */ {  }
+.block-custom 							{ overflow:hidden; }
+.block-inline-field 					{ float:right; width:190px; margin-left:10px; clear:right; }
+
+.region-count-1 /* Incremental count for each block in the region */
+										{  }
+
+.node-type-secondary-section-front .region-count-3,
+.node-type-secondary-section-front .region-count-4,
+.node-type-secondary-section-front .region-count-5,
+.node-type-secondary-section-front .region-count-6,
+.node-type-section-front .region-count-3,
+.node-type-section-front .region-count-4,
+.node-type-section-front .region-count-5,
+.node-type-section-front .region-count-6 { /* float:left; width:49%; */ }
+
+.count-1 /* Incremental count independent of each region */
+										{  }
+
+.block h2.title /* Block title */ 		{  }
+
+
+#content .block h2.block-title /* Block titles in main content pane are all lowercase */
+										{ text-transform:lowercase; margin-top: 0;}
+
+.block .content /* Block's content wrapper */
+										{  }
+
+#block-aggregator-category-1 /* Block for the latest news items in the first category */
+										{  }
+
+#block-aggregator-feed-1 /* Block for the latest news items in the first feed */
+										{  }
+
+#block-block-1 /* First administrator-defined block */
+										{  }
+
+#block-blog-0 /* "Recent blog posts" block */
+										{  }
+
+#block-book-0 /* "Book navigation" block for the current book's table of contents */
+										{  }
+
+#block-comment-0 /* "Recent comments" block */
+										{  }
+
+#block-forum-0 /* "Active forum topics" block */
+										{  }
+
+#block-forum-1 /* "New forum topics" block */
+										{  }
+
+#block-menu-primary-links /* "Primary links" block */
+										{  }
+
+#block-menu-secondary-links /* "Secondary links" block */
+										{  }
+
+#block-node-0 /* "Syndicate" block for primary RSS feed */
+										{  }
+
+#block-poll-0 /* "Most recent poll" block */
+										{  }
+
+#block-profile-0 /* "Author information" block for the profile of the page's author */
+										{  }
+
+#block-search-0 /* "Search form" block */
+										{  }
+
+#block-statistics-0 /* "Popular content" block */
+										{  }
+
+#block-user-0 /* "User login form" block */
+										{  }
+
+#block-user-1 /* "Navigation" block for Drupal navigation menu */
+										{  }
+
+#block-user-2 /* "Who's new" block for a list of the newest users */
+										{  }
+
+#block-user-3 /* "Who's online" block for a list of the online users */
+										{  }
+
+#block-block-1 							{  }
+#block-system-main 						{ margin-bottom:0; }
+#block-inline-field-quote h2 			{ text-indent:-9999px; margin:0; height:0; }
+#block-block-3 							{ overflow:hidden; }
+#block-views-news-block_1 				{  }
+
+#block-views-featured-links-block-1 h2.block-title
+										{ color:#fff; font:bold normal 1.0769em/1.3em Arial; }
+
+.block .view div.feed-icon 				{ margin-top:3px; padding-right:0px; }
+
+#block-views-explore-our-collections-block-1 .view div.grouped-feed-icon
+										{ position:absolute; top:-75px; right:0px; }
+
+#block-inline-field-related-multimedia 	{ width:190px !important; }
+
+/*
+ * Contact Us
+ */
+#block-block-16 				{ overflow:visible; white-space:nowrap; }
+#block-block-16 h3 				{ color:#CE3E05; text-transform:uppercase; margin-bottom:6px; }
+#block-block-16 p 				{ margin-top:0px; }
+#block-block-16 a 				{ white-space:nowrap; }
+.follow-us-links				{ line-height:2.2em; }
+.follow-us-links img			{ margin-top:5px;margin-right:5px;}
+
+/*
+ * WR - 04 Related Content Multiple 
+ */
+#block-views-f45d17ad4b4acf217d4e605f6a96351e
+										{  }
+
+#block-views-f45d17ad4b4acf217d4e605f6a96351e h2.block-title
+										{ background:url('../images/icon-related-content.png') no-repeat right; }
+
+/*
+ * WR - 05 Promo Content
+ */
+#block-views-wr_05_promo_content-block_1{  }
+
+#block-views-wr_05_promo_content-block_1 h2.block-title
+										{ background:url('../images/icon-featured.png') no-repeat right; }
+
+/*
+ * Dept / Div page
+ */
+.node-type-department-division-page #content .block
+										{  }
+
+.node-type-department-division-page #content #block-views-our-collections-main-block
+										{ clear:none; }
+
+/*
+ * Dept / Div Collections Landing
+ */
+.node-type-dept-div-collections-landing #content #block-system-main
+										{ border-bottom:0px none; }
+
+/*
+ * Dept / Div Collections List
+ */
+#content #block-views-dept_div_collections_list-block
+										{ border-bottom:0px none; }
+
+#block-views-dept-div-collections-list-block h2.block-title
+										{ background-color:#92B40A; background-image:url('../images/field-collapsible-arrows.png'); background-position:4px -24px; background-repeat:no-repeat; font-family:Helvetica, Arial, "Nimbus Sans L", sans-serif; font-style:normal; font-size:13px; font-weight:bold; color:#fff; cursor:pointer; text-transform:none; padding:4px 6px 4px 20px; margin-top:0px; margin-bottom:4px; border-bottom:0px none; }
+
+#content #block-views-dept-div-collections-list-block h2.block-title
+										{ text-transform:none; }
+
+#block-views-dept-div-collections-list-block h2.block-title.collapsed
+										{ background-color:#EEEEEE; background-position:4px 6px; font:bold 13px Helvetica, Arial, "Nimbus Sans L", sans-serif; color:#000000; margin-bottom:4px; }
+
+#block-views-dept-div-collections-list-block .view
+										{ border-bottom:1px solid #92B40A; }
+
+#block-views-dept-div-collections-list-block .view.collapsed
+										{ border-bottom:0px none; }
+
+/*
+ * Explore our collections blocks 
+ */
+.node-type-explore-our-collections #content #block-views-explore-our-collections-block-1,
+.node-type-explore-our-collections #content #block-views-explore-our-collections-block-2,
+.node-type-explore-our-collections #content #block-views-explore-our-collections-block-3,
+.node-type-explore-our-collections #content #block-views-explore-our-collections-block-4,
+.node-type-explore-our-collections #content #block-views-explore-our-collections-block-5
+										{ border-bottom:0px none; }
+
+#block-views-explore-our-collections-block-1,
+#block-views-explore-our-collections-block-2,
+#block-views-explore-our-collections-block-3,
+#block-views-explore-our-collections-block-4,
+#block-views-explore-our-collections-block-5,
+#block-views-explore-our-collections-block-6
+										{ margin-bottom:0px; }
+
+#block-views-explore-our-collections-block-1 .content,
+#block-views-explore-our-collections-block-2 .content,
+#block-views-explore-our-collections-block-3 .content,
+#block-views-explore-our-collections-block-4 .content,
+#block-views-explore-our-collections-block-6 .content,
+#block-views-explore-our-collections-block-5 .content
+										{ position:relative; }
+
+#block-views-explore-our-collections-block-1 h2.block-title,
+#block-views-explore-our-collections-block-2 h2.block-title,
+#block-views-explore-our-collections-block-3 h2.block-title,
+#block-views-explore-our-collections-block-4 h2.block-title,
+#block-views-explore-our-collections-block-6 h2.block-title,
+#block-views-explore-our-collections-block-5 h2.block-title
+										{ background-color:#92B40A; background-image:url('../images/field-collapsible-arrows.png'); background-position:4px -24px; background-repeat:no-repeat; font-family:Helvetica, Arial, "Nimbus Sans L", sans-serif; font-style:normal; font-size:13px; color:#fff; cursor:pointer; padding:4px 6px 4px 20px; margin-bottom:4px; border-bottom:0px none; }
+
+#block-views-explore-our-collections-block-1 h2.block-title.collapsed,
+#block-views-explore-our-collections-block-2 h2.block-title.collapsed,
+#block-views-explore-our-collections-block-3 h2.block-title.collapsed,
+#block-views-explore-our-collections-block-4 h2.block-title.collapsed,
+#block-views-explore-our-collections-block-6 h2.block-title.collapsed,
+#block-views-explore-our-collections-block-5 h2.block-title.collapsed
+										{ background-position:4px 6px; background-color:#EEEEEE; color:#000000; }
+
+/*
+ * Browse our collections blocks 
+ */
+#block-views-browse_collections-block_1 { margin-top:23px; }
+
+#block-views-browse_collections-block_1,
+#block-views-browse_collections-block_2,
+#block-views-browse_collections-block_3,
+#block-views-browse_collections-block_6,
+#block-views-browse_collections-block_4,
+#block-views-browse_collections-block_5 { margin-bottom:0px; border-bottom:0px none; }
+
+#block-views-browse_collections-block_1 .content,
+#block-views-browse_collections-block_2 .content,
+#block-views-browse_collections-block_3 .content,
+#block-views-browse_collections-block_4 .content,
+#block-views-browse_collections-block_6 .content,
+#block-views-browse_collections-block_5 .content
+										{ position:relative; }
+
+#block-views-browse_collections-block_1 h2.block-title,
+#block-views-browse_collections-block_2 h2.block-title,
+#block-views-browse_collections-block_3 h2.block-title,
+#block-views-browse_collections-block_4 h2.block-title,
+#block-views-browse_collections-block_6 h2.block-title,
+#block-views-browse_collections-block_5 h2.block-title
+										{ background-color:#92B40A; font-family:Helvetica, Arial, "Nimbus Sans L", sans-serif; font-style:normal; font-size:13px; color:#fff; padding:4px 6px 4px 6px; margin-bottom:4px; border-bottom:0px none; }
+
+#block-custom-copyright 				{ font-weight:bold; font-size:11px; }
+
+#block-views-homepage-block_1,
+#block-system-main,
+#block-quicktabs-1 						{ float:none; }
+
+#block-addthis-addthis 					{ margin:0; }
+
+/*
+ * Section front widgets
+ */
+.region-content #block-field-events-event-list,
+.region-content #block-custom-get_directions,
+.region-content #block-views-homepage-block-2,
+.region-content #block-views-faq-related-questions,
+.region-content #block-views-news-block-1,
+.region-content #block-views-blogs-block-block-1,
+.region-content #block-custom-email_signup,
+.region-content #block-views-363e9aa45e38d72e259300c8c2408c08,
+.region-content #block-views-c_r_weekly_newsletter-block-1
+										{ width:308px; display:inline-block; margin-right:10px; vertical-align:top; }
+
+#block-views-blogs-block-block-1 .views-field-title, #block-views-blogs-block-block-1 .views-field-name
+										{ display:inline; }
+
+.front .region-content  #block-views-homepage-block-2
+										{ width:100%; }
+/* 
+Making .region-content wider so we can add the padding above to those blocks 
+This is for pages with first sidebar that have widgets at the bottom.
+*/
+.not-front.node-type-department-division-page .region-content,
+.not-front.node-type-secondary-section-front .region-content,
+.not-front.node-type-explore-our-collections .region-content,
+.not-front.node-type-section-front .region-content
+										{ width:640px; }
+/*
+For pages with a second sidebar, lets use full width and not hard code it
+*/
+.not-front.two-sidebars .region-content,
+.not-front.two-sidebars .region-content .block
+										{ width:auto !important; display:block !important; margin-right:0 !important; }
+
+.not-front.node-type-secondary-section-front #block-system-main .field-name-field-image,
+.not-front.node-type-department-division-page #block-system-main, 
+.not-front.node-type-department-division-page #block-views-related-content-block,
+.not-front.node-type-secondary-section-front #block-system-main, 
+.not-front.node-type-secondary-section-front #block-views-related-content-block,
+.not-front.node-type-section-front #block-system-main, 
+.not-front.node-type-section-front #block-views-related-content-block
+										{ width:630px; }
+
+.not-front.node-type-secondary-section-front #block-system-main .field-name-field-image,
+.not-front.node-type-secondary-section-front #block-system-main, 
+.not-front.node-type-secondary-section-front #block-views-related-content-block,
+.not-front.node-type-section-front #block-system-main, 
+.not-front.node-type-section-front #block-views-related-content-block
+										{ overflow:hidden; }
+
+.not-front.two-sidebars #block-system-main,
+.not-front.two-sidebars #block-views-related-content-block
+										{ width:auto; }
+
+
+#block-field-events-event-list tr,
+#block-field-events-full-list tr 		{ font:normal italic normal 0.875em/normal Arial; }
+
+#block-field-events-event-list tr a,
+#block-field-events-full-list tr a		{ font-weight:bold; font-style:normal; display:block; color:#1F2818; font-family:helvetica, arial; }
+
+/*
+.node-type-section-front .region-content .block.region-odd
+										{ float:left; }
+
+.node-type-section-front .region-content .block.region-even
+										{ float:right }
+
+.section-support .region-content  #block-views-news-block_1,
+.section-happening .region-content  #block-views-news-block_1,
+.section-visit .region-content  #block-views-news-block_1
+										{ float:right; }
+
+.node-type-section-front .region-content #block-field-events-event-list
+										{ clear:left; }
+*/
+.sidebar #block-field-events-event-list h2.block-title
+										{ background:url('../images/icon-upcoming-events.png') no-repeat right; }
+
+#block-field-events-event-list table,
+#block-field-events-full-list table 	{ margin-top:0; }
+#block-field-events-event-list tr,
+#block-field-events-full-list tr 		{ border:none; }
+#block-field-events-event-list tr.odd,
+#block-field-events-full-list tr.odd 	{ background-color:#E0ECEF; }
+#block-field-events-event-list tr.even,
+#block-field-events-full-list tr.even 	{ background:none; }
+#block-field-events-event-list tr td,
+#block-field-events-full-list tr td 	{ padding:7px 0 7px 10px; }
+
+
+#google_translate_element				{ float:right; margin:-5px 0 10px 0; padding-bottom:30px; }
+
+/* Homepage left rail menu block */
+#block-menu-block-9						{ /*margin-bottom: -15px;*/ }
+#block-menu-block-9 div.content			{ display:none; }
+
+.front #block-block-62					{ margin-bottom:0; color:#fff; }
+.front #block-block-62 a				{ color:#fff; }
+
+
+/* Menu Block for microsites */
+.region-content-top h2.block-title		{ display:none; }
+
+.region-content-top .first.last .menu a	{ display:block; }
+
+
+.region-content-top ul.menu	li			{ list-style:none; }
+.region-content-top ul.menu				{ margin:0; padding:0; }
+.region-content-top ul.menu ul.menu li	{ float:left; }
+
+.region-content-top #block-contextual_menu_block-contextual-menu-block { border-bottom:none; }
+
+#content-inner							{ clear:both; }
+
+
+/* blocks for subsection homepage */
+/* links */
+.node-type-subsection-homepage #block-views-3afabfca216af126d8c09eb6bb83fd25
+										{ width:33%; float:right; border-bottom:none!important; }
+.block-news--links {
+	border-bottom: 1px solid #92B40A;
+	padding-bottom: 10px;
+}
+.region-content-top #block-contextual-menu-block-contextual-menu-block ul li.first.last.expanded.active-trail > a {
+    display: none;
+}
+.node-type-subsection-homepage #block-views-3afabfca216af126d8c09eb6bb83fd25 .field-name-field-link
+										{ width:100%; }
+/* news */
+.node-type-subsection-homepage #block-views-6259daf465f98e63cd68b7d935bf2516
+										{ width:65%; float:left; margin-right:1%; }
+.node-type-subsection-homepage #block-views-6259daf465f98e63cd68b7d935bf2516 .views-row
+										{ padding:5px 4px; }
+.node-type-subsection-homepage #block-views-6259daf465f98e63cd68b7d935bf2516 .views-row.views-row-odd
+										{ background:#EAEDDC; }
+.node-type-subsection-homepage #block-views-6259daf465f98e63cd68b7d935bf2516 .views-row:hover
+										{ background:#99b02c; }
+.node-type-subsection-homepage #block-views-6259daf465f98e63cd68b7d935bf2516 .views-row:hover a
+										{ text-decoration:none; color:#fff; }
+.node-type-subsection-homepage #block-views-6259daf465f98e63cd68b7d935bf2516 .views-row a
+										{ padding:5px 4px; font-size:11px; color:#000; font-family:helvetica, arial; font-weight:bold; font-style:normal; }
+/* additional info */
+.node-type-subsection-homepage #block-views-db0aa012b187672d958e570bad9e60cd
+										{ width:65%; float:left; margin-right:1%; clear:left; }
+.node-type-subsection-homepage #block-views-db0aa012b187672d958e570bad9e60cd iframe
+										{ width:100%; }
+.node-type-subsection-homepage .field-name-field-section-tags.field-type-taxonomy-term-reference
+										{ display:none; }
+/* logos */
+.node-type-subsection-homepage #block-views-abe106e2787eec7597df82ee35804d1c
+										{ width:33%; float:right; clear:right; }
+										
+										
+/* block for department landing page header thumbnails */
+.view-id-explore_our_collections_header .views-row
+										{ float:left; margin:0 6px 10px 0; width:100px; }
+
+.view-id-explore_our_collections_header .views-row-last
+										{ margin:0; }
+
+.view-id-explore_our_collections_header .field-name-field-image
+										{ margin:0 0 4px 0; }
+
+.view-id-explore_our_collections_header .views-field-name
+										{ background:#93b40b; padding:5px 3px; }
+
+.view-id-explore_our_collections_header .views-field-name a
+										{ font-family:'neutra'; color:#fff; text-transform:uppercase; font-size:9px; }
+
+.node-type-explore-our-collections #page-title
+										{ clear:both; }
+
+.node-type-explore-our-collections .view-header
+										{ font:italic 1.0769em/1.3em Georgia; color:#373830; width:100%; border-bottom:2px solid #92B40A; margin-bottom:0; }

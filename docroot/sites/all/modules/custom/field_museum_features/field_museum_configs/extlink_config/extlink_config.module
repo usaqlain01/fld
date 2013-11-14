@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the extlink_config feature.
+ */
+
+include_once 'extlink_config.features.inc';

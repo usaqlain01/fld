@@ -1,0 +1,13 @@
+diff --git a/media.install b/media.install
+index 10683b4..9415f06 100644
+--- a/media.install
++++ b/media.install
+@@ -591,7 +591,7 @@ function media_update_7201() {
+  */
+ function media_update_7202() {
+   module_enable(array('views'));
+-  if (module_exists('views')) {
++  if (!module_exists('views')) {
+     throw new DrupalUpdateException('The <a href="https://drupal.org/project/views">Views module</a> must be downloaded and available for Media updates to proceed.');
+   }
+ }

@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Subsection Homepage Content Type feature.
+ */
+
+include_once 'subsection_homepage_content_type.features.inc';

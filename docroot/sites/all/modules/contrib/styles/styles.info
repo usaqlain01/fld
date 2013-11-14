@@ -1,0 +1,13 @@
+
+name = Styles
+description = Bundles similar display formatters together.
+package = Styles
+core = 7.x
+files[] = styles.module
+
+; Information added by drupal.org packaging script on 2013-10-01
+version = "7.x-1.0-alpha1+11-dev"
+core = "7.x"
+project = "styles"
+datestamp = "1380638143"
+

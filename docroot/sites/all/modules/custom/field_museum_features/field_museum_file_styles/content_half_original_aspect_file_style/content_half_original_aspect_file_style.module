@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Content Half Original Aspect File Style feature.
+ */
+
+include_once 'content_half_original_aspect_file_style.features.inc';

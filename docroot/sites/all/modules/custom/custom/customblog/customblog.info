@@ -1,0 +1,6 @@
+name = Custom Blog
+description = "Custom Blog functionality and theming support for fieldmuseum.org"
+package = Field Museum
+core = 7.x
+dependencies[] = views
+files[] = custom.module

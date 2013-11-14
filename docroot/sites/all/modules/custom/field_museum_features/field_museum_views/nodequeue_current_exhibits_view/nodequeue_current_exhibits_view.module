@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the NodeQueue Current Exhibits View feature.
+ */
+
+include_once 'nodequeue_current_exhibits_view.features.inc';

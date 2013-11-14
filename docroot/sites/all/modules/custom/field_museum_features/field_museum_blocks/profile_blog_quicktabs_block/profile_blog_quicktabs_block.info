@@ -1,0 +1,10 @@
+name = Profile Blog quicktabs block
+core = 7.x
+package = Field Museum Blocks
+dependencies[] = fe_block
+dependencies[] = profile_blog_quicktabs
+dependencies[] = quicktabs
+features[fe_block_settings][] = quicktabs-profile_blog
+features[fe_block_settings][] = quicktabs-profile_blog_quicktabs
+features[features_api][] = api:2
+project path = sites/all/modules/custom/field_museum_features/field_museum_blocks

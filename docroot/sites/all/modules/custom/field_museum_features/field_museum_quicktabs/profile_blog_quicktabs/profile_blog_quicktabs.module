@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Profile Blog quicktabs feature.
+ */
+
+include_once 'profile_blog_quicktabs.features.inc';

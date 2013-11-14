@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the wr_05_promo_content_view feature.
+ */
+
+include_once 'wr_05_promo_content_view.features.inc';

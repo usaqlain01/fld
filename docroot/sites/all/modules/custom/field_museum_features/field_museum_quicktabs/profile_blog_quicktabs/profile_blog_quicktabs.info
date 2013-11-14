@@ -1,0 +1,9 @@
+name = Profile Blog quicktabs
+core = 7.x
+package = Field Museum Quicktabs
+dependencies[] = ctools
+dependencies[] = quicktabs
+features[ctools][] = quicktabs:quicktabs:1
+features[features_api][] = api:2
+features[quicktabs][] = profile_blog_quicktabs
+project path = sites/all/modules/custom/field_museum_features/field_museum_quicktabs

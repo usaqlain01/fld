@@ -1,0 +1,11 @@
+name = homepage_menu_block
+core = 7.x
+package = Features
+dependencies[] = fe_block
+dependencies[] = features
+dependencies[] = menu
+dependencies[] = menu_block
+features[fe_block_settings][] = menu_block-9
+features[features_api][] = api:2
+features[menu_custom][] = menu-homepage-menu
+features[menu_links][] = menu-homepage-menu:<front>

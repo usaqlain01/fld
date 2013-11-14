@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the base_list_single_column feature.
+ */
+
+include_once 'base_list_single_column_view.features.inc';

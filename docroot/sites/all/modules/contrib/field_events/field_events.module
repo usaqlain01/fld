@@ -1,0 +1,164 @@
+<?php
+
+/**
+ * Fetch the list of upcoming Field museum events from the PEO XML feed.
+ */
+function field_events_get_events() {
+  $cache = cache_get('field_events');
+  if (!empty($cache->data) && $cache->expire < REQUEST_TIME) {
+    return $cache->data;
+  }
+
+  $url = variable_get('field_events_xml_url', 'https://tickets.fieldmuseum.org/public/xmlfeed/xmlfeed.asp?docID=feed3&xmlfeedcache=nocache');
+  $request = drupal_http_request($url);
+  if (!empty($request->error) || $request->code != '200' || empty($request->data)) {
+    return trigger_error(t('Failed to fetch event XML from @url (code @code).', array('@url' => $url, $request->code)));
+  }
+
+  try {
+    $xml = @simplexml_load_string($request->data);
+    if (!$xml) {
+      return trigger_error(t('Failed to parse XML from @url.', array('@url' => $url, $request->code)));
+    }
+
+    $events = array();
+    foreach ($xml->Event as $event) {
+      $timestamp = @strtotime($event['DateTime']);
+      if (!$timestamp) {
+        throw new Exception(t("Invalid event date and time '@datetime'", array('@datetime' => $event['DateTime'])));
+      }
+      elseif ($timestamp < REQUEST_TIME) {
+        // Event has already passed, so exclude it.
+        continue;
+      }
+
+      foreach ($event->attributes() as $name => $value) {
+        $events[$timestamp][strtolower($name)] = (string) $value;
+      }
+      $events[$timestamp]['timestamp'] = $timestamp;
+    }
+  }
+  catch (Exception $e) {
+    trigger_error(t('Failed to parse XML from @url: @message.', array('@url' => $url, '@message' => $e->getMessage())));
+    cache_set('field_events', FALSE, 'cache', REQUEST_TIME + 3600);
+    return array();
+  }
+
+  ksort($events);
+  cache_set('field_events', $events, 'cache', gmmktime(0, 0, 0) + variable_get('field_events_refresh', 86400));
+  return $events;
+}
+
+/**
+ * Implements hook_block_info()
+ */
+function field_events_block_info() {
+  $info['event-list'] = array(
+    'info' => 'Upcoming PEO events',
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+  $info['full-list'] = array(
+    'info' => 'Upcoming PEO events - Full list',
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+
+  return $info;
+}
+
+/**
+ * Implements hook_block_configure().
+ */
+function field_events_block_configure($delta = '') {
+  $form = array();
+
+  if ($delta == 'event-list') {
+    $form['field_events_display_limit'] = array(
+      '#type' => 'select',
+      '#title' => t('Number of upcoming events to display'),
+      '#default_value' => variable_get('field_events_display_limit', 10),
+      '#options' => drupal_map_assoc(range(1, 20)),
+    );
+    $form['field_events_xml_url'] = array(
+      '#type' => 'textfield',
+      '#title' => t('XML Event Feed'),
+      '#default_value' => variable_get('field_events_xml_url', 'https://tickets.fieldmuseum.org/public/xmlfeed/xmlfeed.asp?docID=feed3&xmlfeedcache=nocache'),
+    );
+    $form['field_events_view_all_link'] = array(
+      '#type' => 'textfield',
+      '#title' => t('View More Link'),
+      '#default_value' => variable_get('field_events_view_all_link', 'https://tickets.fieldmuseum.org/public/'),
+    );
+  }
+
+  return $form;
+}
+
+/**
+ * Implements hook_block_save().
+ */
+function field_events_block_save($delta = '', $edit = array()) {
+  // This example comes from node.module.
+  if ($delta == 'event-list') {
+    variable_set('field_events_display_limit', $edit['field_events_display_limit']);
+    variable_set('field_events_xml_url', $edit['field_events_xml_url']);
+    variable_set('field_events_view_all_link', $edit['field_events_view_all_link']);
+  }
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function field_events_block_view($delta) {
+  $block = array();
+
+  if ($delta == 'event-list') {
+    $rows = array();
+    $events = field_events_get_events();
+    $events = array_slice($events, 0, variable_get('field_events_display_limit', 10));
+    foreach ($events as $event) {
+      $rows[] = array(
+        format_date($event['timestamp'], 'custom', 'n/j'),
+        l($event['name'], 'https://tickets.fieldmuseum.org/public/loader.asp?target=show.asp?' . drupal_http_build_query(array('shcode' => $event['show'], 'shName' => $event['name']))),
+      );
+    }
+    if (empty($rows)) {
+      $rows[] = array('data' => t('No event data available.'), 'colspan' => 2);
+    }
+
+    $block['title'] = t('Upcoming events');
+    $block['content']['table'] = array(
+      '#theme' => 'table',
+      '#rows' => $rows,
+    );
+    $block['content']['view-all-link'] = array(
+      '#type' => 'link',
+      '#prefix' => '<div class="more-link">',
+      '#suffix' => '</div>',
+      '#href' => variable_get('field_events_view_all_link', 'https://tickets.fieldmuseum.org/public/'),
+      '#title' => t('View all'),
+    );
+  }
+  
+  // View All block
+  if ($delta == 'full-list') {
+    $rows = array();
+    $events = field_events_get_events();
+    foreach ($events as $event) {
+      $rows[] = array(
+        format_date($event['timestamp'], 'custom', 'n/j'),
+        l($event['name'], 'https://tickets.fieldmuseum.org/public/loader.asp?target=show.asp?' . drupal_http_build_query(array('shcode' => $event['show'], 'shName' => $event['name']))),
+      );
+    }
+    if (empty($rows)) {
+      $rows[] = array('data' => t('No event data available.'), 'colspan' => 2);
+    }
+
+    $block['title'] = t('Upcoming events');
+    $block['content']['table'] = array(
+      '#theme' => 'table',
+      '#rows' => $rows,
+    );
+  }
+
+  return $block;
+}

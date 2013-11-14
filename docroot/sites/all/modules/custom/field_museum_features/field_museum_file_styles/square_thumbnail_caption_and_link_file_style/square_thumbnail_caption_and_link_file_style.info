@@ -1,0 +1,9 @@
+name = Square Thumbnail Caption and Link File Style
+core = 7.x
+package = Field Museum File Styles
+dependencies[] = ctools
+dependencies[] = file_entity
+features[ctools][] = file_entity:file_default_displays:1
+features[features_api][] = api:2
+features[file_display][] = image__custom_square-thumbnail-with-caption-and-link__file_field_styles_file_square-thumbnail-with-caption-and-link
+project path = sites/all/modules/custom/field_museum_features/field_museum_file_styles

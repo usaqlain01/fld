@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the photos_tab_view feature.
+ */
+
+include_once 'photos_tab_view.features.inc';

@@ -1,0 +1,39 @@
+<?php
+
+/**
+ * Implements hook_schema().
+ */
+function submitted_toggle_schema() {
+  $schema['submitted_toggle'] = array(
+    'description' => 'TODO',
+    'fields' => array(
+      'nid' => array(
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => 'Node id, foreign key to {node}',
+      ),
+      'show_author' => array(
+        'type' => 'int',
+        'size' => 'tiny',
+        'not null' => TRUE,
+        'default' => 1,
+        'description' => 'Display author flag',
+      ),
+      'show_date' => array(
+        'type' => 'int',
+        'size' => 'tiny',
+        'not null' => TRUE,
+        'default' => 1,
+        'description' => 'Display date flag',
+      ),
+    ),
+    'primary key' => array('nid'),
+    'foreign_keys' => array(
+      'nid' => array('node' => 'nid'),
+    ),
+  );
+
+  return $schema;
+}

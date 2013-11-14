@@ -1,0 +1,11 @@
+name = Node Reference Shared Fields
+core = 7.x
+package = Field Museum Shared Fields
+dependencies[] = custom
+dependencies[] = features
+dependencies[] = node_reference
+features[features_api][] = api:2
+features[field_base][] = field_featured_content
+features[field_instance][] = node-secondary_section_front-field_featured_content
+features[field_instance][] = node-section_front-field_featured_content
+project path = sites/all/modules/custom/field_museum_features/field_museum_shared_fields

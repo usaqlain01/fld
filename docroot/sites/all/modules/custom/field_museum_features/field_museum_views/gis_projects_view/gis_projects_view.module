@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the GIS Projects View feature.
+ */
+
+include_once 'gis_projects_view.features.inc';
