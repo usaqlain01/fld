@@ -4,7 +4,7 @@
  */
 
 Workbench Media
-Workbench integration for the File, File Entity, and Media modules.
+Workbench integration for the File, File Entity, and Media modules (7.x-2.x).
 
 CONTENTS
 --------
@@ -58,7 +58,7 @@ any content.
 ----
 2.  Installation
 
-Workbench and Media are required in order to install Workbench Media.
+Workbench and Media (7.x-2.x) are required in order to install Workbench Media.
 
 
 ----
