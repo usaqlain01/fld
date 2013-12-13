@@ -550,6 +550,14 @@
 
 
 
+
+#block-views-photo-gallery-photo-gallery .widget_pager {
+	height:96px;
+	white-space:nowrap;
+}
+
+
+
 #block-views-photo-gallery-photo-gallery .widget_pager div a:focus
 										{ outline:none; }
 
@@ -582,7 +590,7 @@
 
 .view-id-section_front_widget .views_slideshow_slide .field-type-file .field-items .field-item img
 										{ padding:0; margin-top:0px; }
-										
+
 .view-id-section_front_widget a:link,
 .view-id-section_front_widget a:visited {
   color: #CE3E05;
