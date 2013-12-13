@@ -1,7 +1,0 @@
-# ignore the Drupal standard files directories and their contents
-docroot/files
-docroot/sites/*/files
-.svn
-.DS_Store
-settings.local.php
-docroot/backup

@@ -1,6 +1,0 @@
-<?php
-
-function floodlight_tags_init() {
-  $floodlight_numgen_url = file_create_url( drupal_get_path('module', 'floodlight_tags') ) . '/floodlight_numgen.php';
-  drupal_add_js("window.floodlight_numgen_url = \"{$floodlight_numgen_url}\"", 'inline');
-}

@@ -1,7 +1,0 @@
-; $Id: integerdate.info,v 1.1.2.1 2010/09/24 09:39:25 everettz Exp $
-name = Integer date
-description = Provides an integer date field type, widget, and formatter.
-core = 7.x
-dependencies[] = field
-files[] = integerdate.module
-files[] = integerdate.install

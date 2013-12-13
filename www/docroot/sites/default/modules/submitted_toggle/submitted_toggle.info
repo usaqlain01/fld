@@ -1,5 +1,0 @@
-name = Submitted toggle
-description = Enables customization of the submitted by information on content.
-core = 7.x
-files[] = submitted_toggle.module
-files[] = submitted_toggle.install
