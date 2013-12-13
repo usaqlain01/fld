@@ -25,10 +25,10 @@ echo "Enable Modules" &&
 $drush en file_entity -y
 $drush cc all
 $drush en $(cat $build_path/mods_enabled | tr '\n' ' ') -y &&
-echo "Disable Modules" &&
-$drush dis $(cat $build_path/mods_purge | tr '\n' ' ') -y &&
-echo "Uninstall Modules" &&
-$drush pm-uninstall $(cat $build_path/mods_purge | tr '\n' ' ') -y &&
+#echo "Disable Modules" &&
+#$drush dis $(cat $build_path/mods_purge | tr '\n' ' ') -y &&
+#echo "Uninstall Modules" &&
+#$drush pm-uninstall $(cat $build_path/mods_purge | tr '\n' ' ') -y &&
 $drush cc all
 $drush updatedb -y
 $drush cc all
