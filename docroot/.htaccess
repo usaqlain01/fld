@@ -64,7 +64,7 @@ DirectoryIndex index.php index.html index.htm
   RewriteRule . - [E=DO_REDIRECT:true]
 
   # Depending on variable, output the headers for Varnish to handle.
-  Header set X-AH-Tablet-Redirect "http://fieldmuseum.org" env=DO_REDIRECT
+  # Header set X-AH-Tablet-Redirect "http://fieldmuseum.org" env=DO_REDIRECT
   Header set X-AH-Mobile-Redirect "http://m.fieldmuseum.org" env=DO_REDIRECT
 
 
