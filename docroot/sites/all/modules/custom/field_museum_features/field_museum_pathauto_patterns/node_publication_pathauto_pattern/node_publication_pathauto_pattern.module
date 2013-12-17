@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the node_publication_pathauto_pattern feature.
+ */
+
+include_once 'node_publication_pathauto_pattern.features.inc';

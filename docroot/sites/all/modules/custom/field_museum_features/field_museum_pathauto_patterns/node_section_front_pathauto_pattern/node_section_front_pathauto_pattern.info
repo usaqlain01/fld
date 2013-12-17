@@ -1,0 +1,8 @@
+name = node_section_front_pathauto_pattern
+core = 7.x
+package = Features
+dependencies[] = ctools
+dependencies[] = strongarm
+features[ctools][] = strongarm:strongarm:1
+features[features_api][] = api:2
+features[variable][] = pathauto_node_section_front_pattern

@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the node_faq_pathauto_pattern feature.
+ */
+
+include_once 'node_faq_pathauto_pattern.features.inc';
