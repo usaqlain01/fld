@@ -56,6 +56,12 @@ DirectoryIndex index.php index.html index.htm
 <IfModule mod_rewrite.c>
   RewriteEngine on
 
+
+
+  RewriteCond %{HTTP_HOST} "^fldmuse.prod.acquia-sites.com$"
+  RewriteRule (.*) http://fieldmuseum.org/$1 [L,R=301]
+
+
   # Enable X-AH-*-Redirect headers:
   #   ...for certain host(s)...
   RewriteCond %{HTTP_HOST} "^(www\.)?fieldmuseum\.org$"
