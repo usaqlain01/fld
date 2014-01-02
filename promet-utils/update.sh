@@ -6,7 +6,7 @@ while [ $# -gt 0 ]; do
   shift
 done
 
-drush="drush $drush_flags"
+drush="drush5 $drush_flags"
 
 build_path="../promet-utils"
 drupal_path=`pwd`
