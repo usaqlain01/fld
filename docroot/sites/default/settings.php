@@ -460,13 +460,18 @@ if (file_exists(dirname(__FILE__) . '/settings.local.php')) {
 * AH_NON_PRODUCTION: Is defined only when this is a child site (is not a prod site).
 * AH_PRODUCTION: Is defined only when this is the production site.
 */
-if (!empty($_SERVER['AH_SITE_GROUP'])) {
-  $file = "/var/www/site-php/fldmuse/fldmuse-settings.inc";
-  if (file_exists($file)) {
-    require($file);
-  }
-}
+//Commented out 1/4/13 - Acquia Ticket #112265
+//if (!empty($_SERVER['AH_SITE_GROUP'])) {
+//  $file = "/var/www/site-php/fldmuse/fldmuse-settings.inc";
+//  if (file_exists($file)) {
+//    require($file);
+//  }
+//}
 
+// Use a unique database for each site environment
+if (file_exists('/var/www/site-php')) {
+  require('/var/www/site-php/fldmuse/fldmuse-settings.inc');
+}
 
 // Acquia Network settings
 if (!empty($_SERVER["AH_SITE_NAME"])) {
@@ -481,9 +486,3 @@ if (!empty($_SERVER["AH_SITE_NAME"])) {
     $conf["file_private_path"] = "/mnt/files/fldmusestg/files-private";
   }
 }
-
-// Use a unique database for each site environment
-if (file_exists('/var/www/site-php')) {
-  require('/var/www/site-php/fldmuse/fldmuse-settings.inc');
-}
-
