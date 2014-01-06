@@ -480,4 +480,3 @@ if (!empty($_SERVER["AH_SITE_NAME"])) {
     $conf["file_private_path"] = "/mnt/files/fldmusestg/files-private";
   }
 }
-
