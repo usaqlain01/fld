@@ -30,7 +30,7 @@ function contextual_menu_block_block_view($delta = '') {
       }
       $field = field_get_items('node', $node, $field);
       $taxo = $field[0]['taxonomy_term']->name;
-
+			
       // Search the menu for the menu title with the same name as the taxonomy term.
       $top = db_select('menu_links')
       ->fields('menu_links', array('menu_name', 'mlid'))
@@ -42,6 +42,8 @@ function contextual_menu_block_block_view($delta = '') {
       $current = db_select('menu_links')
       ->fields('menu_links')
       ->condition('link_path', 'node/'.$node->nid)
+      // Use the menu item from the subsections menu.
+      ->condition('menu_name', 'menu-subsections')
       ->execute()->fetchAssoc();
       
       // Build active trail mlids.
@@ -58,7 +60,7 @@ function contextual_menu_block_block_view($delta = '') {
         if (strpos($key, $top['mlid']) === FALSE) {
           unset($tree[$key]);
         }
-      } 
+      }
 
       // Render the tree.
       $title = array('#markup' => check_plain($top['menu_name']));
