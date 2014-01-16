@@ -100,15 +100,15 @@
 
 .view-related-content .views-row,
 .view-related-content-widget .views-row,
-.view-featured-content .views-row		{ margin-left:211px; margin-right:-422px; width:211px; }
+.view-featured-content .views-row		{ margin-left:201px; margin-right:-402px; width:201px; }
 
 .view-related-content .views-row-first,
 .view-related-content-widget .views-row-first,
-.view-featured-content .views-row-first { margin-left:0; margin-right:-211px; }
+.view-featured-content .views-row-first { margin-left:0; margin-right:-201px; }
 
 .view-related-content .views-row-last,
 .view-related-content-widget .views-row-last,
-.view-featured-content .views-row-last 	{ margin-left:422px; margin-right:-633px; }
+.view-featured-content .views-row-last 	{ margin-left:402px; margin-right:-633px; }
 
 .view-related-content .views-row-last .views-row-inner,
 .view-related-content-widget .views-row-last .views-row-inner,
