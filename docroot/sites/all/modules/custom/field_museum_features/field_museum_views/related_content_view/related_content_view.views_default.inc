@@ -162,6 +162,7 @@ if ($node && !empty($node->field_topic[LANGUAGE_NONE])) {
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = '1';
+  $handler->display->display_options['filters']['status']['group'] = 1;
   /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
@@ -173,11 +174,7 @@ if ($node && !empty($node->field_topic[LANGUAGE_NONE])) {
     'podcast' => 'podcast',
     'video' => 'video',
   );
-  /* Filter criterion: Field: Image (field_image:fid) */
-  $handler->display->display_options['filters']['field_image_fid']['id'] = 'field_image_fid';
-  $handler->display->display_options['filters']['field_image_fid']['table'] = 'field_data_field_image';
-  $handler->display->display_options['filters']['field_image_fid']['field'] = 'field_image_fid';
-  $handler->display->display_options['filters']['field_image_fid']['operator'] = 'not empty';
+  $handler->display->display_options['filters']['type']['group'] = 1;
   /* Filter criterion: Content: Has taxonomy term */
   $handler->display->display_options['filters']['tid']['id'] = 'tid';
   $handler->display->display_options['filters']['tid']['table'] = 'taxonomy_index';
@@ -186,6 +183,7 @@ if ($node && !empty($node->field_topic[LANGUAGE_NONE])) {
   $handler->display->display_options['filters']['tid']['value'] = array(
     0 => '461',
   );
+  $handler->display->display_options['filters']['tid']['group'] = 1;
   $handler->display->display_options['filters']['tid']['vocabulary'] = 'topic';
 
   /* Display: Block: Related Content */

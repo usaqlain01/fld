@@ -6,7 +6,8 @@ while [ $# -gt 0 ]; do
   shift
 done
 
-drush="drush5 $drush_flags"
+drush="drush $drush_flags"
+drush5="drush5 $drush_flags"
 
 build_path="../promet-utils"
 drupal_path=`pwd`
@@ -25,14 +26,14 @@ echo "Enable Modules" &&
 $drush en file_entity -y
 $drush cc all
 $drush en $(cat $build_path/mods_enabled | tr '\n' ' ') -y &&
-#echo "Disable Modules" &&
-#$drush dis $(cat $build_path/mods_purge | tr '\n' ' ') -y &&
-#echo "Uninstall Modules" &&
-#$drush pm-uninstall $(cat $build_path/mods_purge | tr '\n' ' ') -y &&
+echo "Disable Modules" &&
+$drush dis $(cat $build_path/mods_purge | tr '\n' ' ') -y &&
+echo "Uninstall Modules" &&
+$drush pm-uninstall $(cat $build_path/mods_purge | tr '\n' ' ') -y &&
 $drush cc all
 $drush updatedb -y
 $drush cc all
-$drush fra -y
+$drush5 fra -y
 $drush cc all
-$drush fra -y
+$drush5 fra -y
 $drush cc all
