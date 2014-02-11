@@ -61,6 +61,13 @@ DirectoryIndex index.php index.html index.htm
   RewriteCond %{HTTP_HOST} "^(www\.)?fieldmuseum\.org$"
   #   ...and ommitting this path:
   RewriteCond %{THE_REQUEST} !explore/department/ecco/getinvolvedinstewardship
+  #   ...see ticket#15066-110965
+  RewriteCond %{THE_REQUEST} !happening/exhibits/dinosaurs-tracking-reptiles-pangaea
+  RewriteCond %{THE_REQUEST} !happening/programs/meet-scientist
+  RewriteCond %{THE_REQUEST} !support
+  RewriteCond %{THE_REQUEST} !happening/exhibits/bunky-echo-hawk-modern-warrior
+  RewriteCond %{THE_REQUEST} !happening/exhibits/titans-ice-age-3d
+  RewriteCond %{THE_REQUEST} !happening/artists-and-authors
   RewriteRule . - [E=DO_REDIRECT:true]
 
   # Depending on variable, output the headers for Varnish to handle.
