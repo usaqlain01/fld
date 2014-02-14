@@ -1,6 +1,6 @@
-name = wp_09_featured_content_view
+name = wp_09 Featured Content View
 core = 7.x
-package = Features
+package = Field Museum Views
 dependencies[] = ctools
 dependencies[] = custom
 dependencies[] = views

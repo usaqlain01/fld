@@ -71,7 +71,7 @@ function wp_09_featured_content_view_views_default_views() {
   $handler->display->display_options['fields']['field_podcast_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_podcast_image']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_podcast_image']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_podcast_image']['type'] = 'styles_file_thumbnail';
+  $handler->display->display_options['fields']['field_podcast_image']['type'] = 'styles_file_more-on-thumbnail';
   /* Field: Content: Image */
   $handler->display->display_options['fields']['field_photo_gallery_image']['id'] = 'field_photo_gallery_image';
   $handler->display->display_options['fields']['field_photo_gallery_image']['table'] = 'field_data_field_photo_gallery_image';
@@ -82,7 +82,7 @@ function wp_09_featured_content_view_views_default_views() {
   $handler->display->display_options['fields']['field_photo_gallery_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_photo_gallery_image']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_photo_gallery_image']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_photo_gallery_image']['type'] = 'styles_file_thumbnail';
+  $handler->display->display_options['fields']['field_photo_gallery_image']['type'] = 'styles_file_more-on-thumbnail';
   /* Field: Content: Image */
   $handler->display->display_options['fields']['field_exhibit_image']['id'] = 'field_exhibit_image';
   $handler->display->display_options['fields']['field_exhibit_image']['table'] = 'field_data_field_exhibit_image';
@@ -93,7 +93,7 @@ function wp_09_featured_content_view_views_default_views() {
   $handler->display->display_options['fields']['field_exhibit_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_exhibit_image']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_exhibit_image']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_exhibit_image']['type'] = 'styles_file_thumbnail';
+  $handler->display->display_options['fields']['field_exhibit_image']['type'] = 'styles_file_more-on-thumbnail';
   /* Field: Content: Thumbnail Image */
   $handler->display->display_options['fields']['field_thumbnail_image']['id'] = 'field_thumbnail_image';
   $handler->display->display_options['fields']['field_thumbnail_image']['table'] = 'field_data_field_thumbnail_image';
@@ -104,7 +104,7 @@ function wp_09_featured_content_view_views_default_views() {
   $handler->display->display_options['fields']['field_thumbnail_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_thumbnail_image']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_thumbnail_image']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_thumbnail_image']['type'] = 'styles_file_thumbnail';
+  $handler->display->display_options['fields']['field_thumbnail_image']['type'] = 'styles_file_more-on-thumbnail';
   /* Field: Content: Thumbnail Image */
   $handler->display->display_options['fields']['field_video_thumbnail_image']['id'] = 'field_video_thumbnail_image';
   $handler->display->display_options['fields']['field_video_thumbnail_image']['table'] = 'field_data_field_video_thumbnail_image';
@@ -115,7 +115,7 @@ function wp_09_featured_content_view_views_default_views() {
   $handler->display->display_options['fields']['field_video_thumbnail_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_video_thumbnail_image']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_video_thumbnail_image']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_video_thumbnail_image']['type'] = 'styles_file_thumbnail';
+  $handler->display->display_options['fields']['field_video_thumbnail_image']['type'] = 'styles_file_more-on-thumbnail';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
