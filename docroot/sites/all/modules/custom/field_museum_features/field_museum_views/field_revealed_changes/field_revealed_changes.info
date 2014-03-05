@@ -1,0 +1,11 @@
+name = Field Revealed changes
+description = Fixes for Field Revealed view
+core = 7.x
+package = Features
+version = 7.x-1.0
+project = field_revealed_changes
+dependencies[] = fe_block
+dependencies[] = views
+features[fe_block_settings][] = views-4fa1194608354659cc686bef18902085
+features[fe_block_settings][] = views-f4f695a1f748c24a7ce32e38ab5b619d
+features[features_api][] = api:2
