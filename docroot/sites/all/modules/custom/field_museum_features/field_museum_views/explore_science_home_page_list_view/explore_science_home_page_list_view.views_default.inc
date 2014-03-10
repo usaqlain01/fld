@@ -50,6 +50,7 @@ function explore_science_home_page_list_view_views_default_views() {
   $handler->display->display_options['fields']['path']['label'] = '';
   $handler->display->display_options['fields']['path']['exclude'] = TRUE;
   $handler->display->display_options['fields']['path']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['path']['absolute'] = TRUE;
   /* Field: Content: Header Image */
   $handler->display->display_options['fields']['field_dept_div_header_image']['id'] = 'field_dept_div_header_image';
   $handler->display->display_options['fields']['field_dept_div_header_image']['table'] = 'field_data_field_dept_div_header_image';
@@ -166,7 +167,6 @@ function explore_science_home_page_list_view_views_default_views() {
   $handler->display->display_options['fields']['field_thumbnail_image']['field'] = 'field_thumbnail_image';
   $handler->display->display_options['fields']['field_thumbnail_image']['label'] = '';
   $handler->display->display_options['fields']['field_thumbnail_image']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['field_thumbnail_image']['alter']['path'] = '[path]';
   $handler->display->display_options['fields']['field_thumbnail_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_thumbnail_image']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_thumbnail_image']['click_sort_column'] = 'fid';
@@ -178,6 +178,8 @@ function explore_science_home_page_list_view_views_default_views() {
   $handler->display->display_options['fields']['field_video_thumbnail_image']['label'] = '';
   $handler->display->display_options['fields']['field_video_thumbnail_image']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['field_video_thumbnail_image']['alter']['path'] = '[path]';
+  $handler->display->display_options['fields']['field_video_thumbnail_image']['element_type'] = 'div';
+  $handler->display->display_options['fields']['field_video_thumbnail_image']['element_class'] = 'field-name-field-image';
   $handler->display->display_options['fields']['field_video_thumbnail_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_video_thumbnail_image']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_video_thumbnail_image']['click_sort_column'] = 'fid';
@@ -238,6 +240,7 @@ function explore_science_home_page_list_view_views_default_views() {
   $handler->display->display_options['fields']['path']['label'] = '';
   $handler->display->display_options['fields']['path']['exclude'] = TRUE;
   $handler->display->display_options['fields']['path']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['path']['absolute'] = TRUE;
   /* Field: Content: Header Image */
   $handler->display->display_options['fields']['field_dept_div_header_image']['id'] = 'field_dept_div_header_image';
   $handler->display->display_options['fields']['field_dept_div_header_image']['table'] = 'field_data_field_dept_div_header_image';
@@ -321,7 +324,7 @@ function explore_science_home_page_list_view_views_default_views() {
   $handler->display->display_options['fields']['field_widget_left_rail_image']['field'] = 'field_widget_left_rail_image';
   $handler->display->display_options['fields']['field_widget_left_rail_image']['label'] = '';
   $handler->display->display_options['fields']['field_widget_left_rail_image']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['field_widget_left_rail_image']['alter']['path'] = '[path]';
+  $handler->display->display_options['fields']['field_widget_left_rail_image']['alter']['path'] = 'fieldmuseum.org/[path]';
   $handler->display->display_options['fields']['field_widget_left_rail_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_widget_left_rail_image']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_widget_left_rail_image']['click_sort_column'] = 'fid';
@@ -366,6 +369,8 @@ function explore_science_home_page_list_view_views_default_views() {
   $handler->display->display_options['fields']['field_video_thumbnail_image']['label'] = '';
   $handler->display->display_options['fields']['field_video_thumbnail_image']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['field_video_thumbnail_image']['alter']['path'] = '[path]';
+  $handler->display->display_options['fields']['field_video_thumbnail_image']['element_type'] = 'div';
+  $handler->display->display_options['fields']['field_video_thumbnail_image']['element_class'] = 'field-name-field-image';
   $handler->display->display_options['fields']['field_video_thumbnail_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_video_thumbnail_image']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_video_thumbnail_image']['click_sort_column'] = 'fid';
