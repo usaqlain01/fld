@@ -26,31 +26,52 @@
  * Implements hook_menu().
  */
 function customblog_menu() {
+  
   $items['user/%user/blog'] = array(
     'title' => 'Blog',
     'page callback' => 'customblog_blog',
     'page arguments' => array(1),
-    'access arguments' => array('access content'),
+    'access callback' => 'customblog_blog_access',
+    'access arguments' => array(1),
     'type' => MENU_LOCAL_TASK,
   );
-
+  
   return $items;
+}
+
+/**
+ * Creates menu entry only if not tagged with Board of Trustees.
+ */
+function customblog_blog_access($user_viewed) {
+  // Get user object and terms from field
+  $user_wrapper = entity_metadata_wrapper('user', $user_viewed);
+  $user_terms = $user_wrapper->field_dept_division_tags->value();
+  
+  // If tagged with Board of Trustees, do not create blog menu entry.
+  foreach ($user_terms as $term) {
+    if ($term->tid == '1261') {
+      return FALSE;
+    }
+  }
+  
+  // If not tagged with Board of Trustees, create blog menu entry.
+  return TRUE;
 }
 
 /**
  * Page callback for the user blog path.
  */
 function customblog_blog($account) {
-  // Add a link to the view feed.
-  drupal_add_feed("user/{$account->uid}/blog/feed", t("Subscribe to Field Museum Blog - @username", array('@username' => format_username($account))));
+    // Add a link to the view feed.
+    drupal_add_feed("user/{$account->uid}/blog/feed", t("Subscribe to Field Museum Blog - @username", array('@username' => format_username($account))));
 
-  // Set the page title.
-  drupal_set_title(t("@name's blog", array('@name' => format_username($account))), PASS_THROUGH);
+    // Set the page title.
+    drupal_set_title(t("@name's blog", array('@name' => format_username($account))), PASS_THROUGH);
 
-  // Returns a blank page; we really just need the path so that blocks can be
-  // placed here, etc.
-  return array('#markup' => '');
-}
+    // Returns a blank page; we really just need the path so that blocks can be
+    // placed here, etc.
+    return array('#markup' => '');
+  }
 
 /**
  * Implements PathAuto's hook_pathauto().
