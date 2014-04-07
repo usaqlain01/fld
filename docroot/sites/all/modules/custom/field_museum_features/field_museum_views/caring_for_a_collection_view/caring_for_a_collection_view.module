@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Caring for a Collection view feature.
+ */
+
+include_once 'caring_for_a_collection_view.features.inc';
