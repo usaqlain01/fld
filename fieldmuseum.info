@@ -5,6 +5,7 @@ package = Other
 dependencies[] = ctools
 dependencies[] = features
 dependencies[] = markdown
+dependencies[] = menu
 dependencies[] = page_manager
 distribution_name = Drupal
 features[ctools][] = page_manager:pages_default:1
