@@ -21,6 +21,9 @@ projects[navbar][subdir] = contrib
 projects[features][version] = 2.0
 projects[features][subdir] = contrib
 
+projects[markdown][version] = 2.x-dev
+projects[markdown][subdir] = contrib
+
 ; Themes
 
 projects[zen][version] = 5.4
