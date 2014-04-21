@@ -1,0 +1,14 @@
+/modules/contrib/
+/libraries/
+
+# These themes are downloaded through the make file.
+/themes/zen/
+/themes/ember/
+
+# If composer or the Drupal bridge autoloader is used.
+/vendor/
+classmap.php
+
+# If rvm is being used in developer environments
+.ruby-gemset
+.ruby-version
