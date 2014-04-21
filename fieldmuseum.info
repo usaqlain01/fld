@@ -13,6 +13,7 @@ features[features_api][] = api:2
 features[filter][] = markdown
 features[page_manager_pages][] = exhibitions_and_events
 features[page_manager_pages][] = home
+features[page_manager_pages][] = plan_your_visit
 features[page_manager_pages][] = science_and_research
 features[page_manager_pages][] = support_the_museum
 hidden = 0
