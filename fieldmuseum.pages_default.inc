@@ -616,6 +616,124 @@ Open every day except Christmas. 9am-5pm.
   $page->default_handlers[$handler->name] = $handler;
   $pages['science_and_research'] = $page;
 
+  $page = new stdClass();
+  $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
+  $page->api_version = 1;
+  $page->name = 'support_the_museum';
+  $page->task = 'page';
+  $page->admin_title = 'Support the museum';
+  $page->admin_description = '';
+  $page->path = 'support';
+  $page->access = array();
+  $page->menu = array(
+    'type' => 'normal',
+    'title' => 'Support the museum',
+    'name' => 'main-menu',
+    'weight' => '0',
+    'parent' => array(
+      'type' => 'none',
+      'title' => '',
+      'name' => 'navigation',
+      'weight' => '0',
+    ),
+  );
+  $page->arguments = array();
+  $page->conf = array(
+    'admin_paths' => FALSE,
+  );
+  $page->default_handlers = array();
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'page_support_the_museum_panel_context';
+  $handler->task = 'page';
+  $handler->subtask = 'support_the_museum';
+  $handler->handler = 'panel_context';
+  $handler->weight = 0;
+  $handler->conf = array(
+    'title' => 'Panel',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => '',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(),
+  );
+  $display = new panels_display();
+  $display->layout = 'zen_no_wrapper';
+  $display->layout_settings = array(
+    'main_classes' => '',
+  );
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'main' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = 'Support the museum';
+  $display->uuid = '0277acda-f6f0-4ac8-b9f0-bf97f2e6d425';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-d560624f-ff81-4642-a5a9-4b25a794bc7e';
+    $pane->panel = 'main';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => 'Call to action',
+      'title' => '',
+      'body' => 'Intention: a clear call to action to why donations from the community are such an important part of The Field achieving its goals.',
+      'format' => 'markdown',
+      'substitute' => TRUE,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'd560624f-ff81-4642-a5a9-4b25a794bc7e';
+    $display->content['new-d560624f-ff81-4642-a5a9-4b25a794bc7e'] = $pane;
+    $display->panels['main'][0] = 'new-d560624f-ff81-4642-a5a9-4b25a794bc7e';
+    $pane = new stdClass();
+    $pane->pid = 'new-71d3136f-4c89-4cbd-b034-ded39e90c364';
+    $pane->panel = 'main';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => '',
+      'title' => 'Ways to give',
+      'body' => 'Intent: There should also be brief summaries about each of the areas within the section that explain that type of giving and provide a call to action to click through to find out more .
+',
+      'format' => 'markdown',
+      'substitute' => TRUE,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = '71d3136f-4c89-4cbd-b034-ded39e90c364';
+    $display->content['new-71d3136f-4c89-4cbd-b034-ded39e90c364'] = $pane;
+    $display->panels['main'][1] = 'new-71d3136f-4c89-4cbd-b034-ded39e90c364';
+  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->title_pane = 'new-d560624f-ff81-4642-a5a9-4b25a794bc7e';
+  $handler->conf['display'] = $display;
+  $page->default_handlers[$handler->name] = $handler;
+  $pages['support_the_museum'] = $page;
+
   return $pages;
 
 }
