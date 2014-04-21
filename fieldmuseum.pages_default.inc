@@ -451,6 +451,171 @@ Open every day except Christmas. 9am-5pm.
   $page->default_handlers[$handler->name] = $handler;
   $pages['home'] = $page;
 
+  $page = new stdClass();
+  $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
+  $page->api_version = 1;
+  $page->name = 'science_and_research';
+  $page->task = 'page';
+  $page->admin_title = 'Science and research';
+  $page->admin_description = '';
+  $page->path = 'science';
+  $page->access = array();
+  $page->menu = array(
+    'type' => 'normal',
+    'title' => 'Science & Research',
+    'name' => 'main-menu',
+    'weight' => '0',
+    'parent' => array(
+      'type' => 'none',
+      'title' => '',
+      'name' => 'navigation',
+      'weight' => '0',
+    ),
+  );
+  $page->arguments = array();
+  $page->conf = array(
+    'admin_paths' => FALSE,
+  );
+  $page->default_handlers = array();
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'page_science_and_research_panel_context';
+  $handler->task = 'page';
+  $handler->subtask = 'science_and_research';
+  $handler->handler = 'panel_context';
+  $handler->weight = 0;
+  $handler->conf = array(
+    'title' => 'Panel',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => '',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(),
+  );
+  $display = new panels_display();
+  $display->layout = 'zen_no_wrapper';
+  $display->layout_settings = array(
+    'main_classes' => '',
+  );
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'main' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = 'Science and Research';
+  $display->uuid = '86abd588-1ecf-4a03-926f-d7098a870c45';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-9a08e76d-af3d-4f08-ae40-71a25e52853d';
+    $pane->panel = 'main';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => 'Introduction',
+      'title' => '',
+      'body' => 'Intent: provide an introduction to The Field\'s research and spell out your scientific mission statement.',
+      'format' => 'markdown',
+      'substitute' => TRUE,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '9a08e76d-af3d-4f08-ae40-71a25e52853d';
+    $display->content['new-9a08e76d-af3d-4f08-ae40-71a25e52853d'] = $pane;
+    $display->panels['main'][0] = 'new-9a08e76d-af3d-4f08-ae40-71a25e52853d';
+    $pane = new stdClass();
+    $pane->pid = 'new-ca141c23-c717-42eb-baea-bb4bbdcbf2f0';
+    $pane->panel = 'main';
+    $pane->type = 'block';
+    $pane->subtype = 'blog-recent';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = 'ca141c23-c717-42eb-baea-bb4bbdcbf2f0';
+    $display->content['new-ca141c23-c717-42eb-baea-bb4bbdcbf2f0'] = $pane;
+    $display->panels['main'][1] = 'new-ca141c23-c717-42eb-baea-bb4bbdcbf2f0';
+    $pane = new stdClass();
+    $pane->pid = 'new-a3bdc9ce-2dd1-4c89-8390-aa956641015b';
+    $pane->panel = 'main';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => 'Featured collection',
+      'title' => 'Fishes Dried Skeleton Collection',
+      'body' => '(for example)',
+      'format' => 'markdown',
+      'substitute' => TRUE,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 2;
+    $pane->locks = array();
+    $pane->uuid = 'a3bdc9ce-2dd1-4c89-8390-aa956641015b';
+    $display->content['new-a3bdc9ce-2dd1-4c89-8390-aa956641015b'] = $pane;
+    $display->panels['main'][2] = 'new-a3bdc9ce-2dd1-4c89-8390-aa956641015b';
+    $pane = new stdClass();
+    $pane->pid = 'new-45e77207-718d-4343-9c77-2c9ef6214178';
+    $pane->panel = 'main';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => 'Science Newsflash',
+      'title' => 'Sue\'s Microbes go to Space',
+      'body' => 'What do cheerleaders, microbes, and dinosaur skeletons have in common?  They are all part of a project taking place onboard the International Space Station! Talk about worlds colliding!
+',
+      'format' => 'markdown',
+      'substitute' => TRUE,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 3;
+    $pane->locks = array();
+    $pane->uuid = '45e77207-718d-4343-9c77-2c9ef6214178';
+    $display->content['new-45e77207-718d-4343-9c77-2c9ef6214178'] = $pane;
+    $display->panels['main'][3] = 'new-45e77207-718d-4343-9c77-2c9ef6214178';
+  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->title_pane = '0';
+  $handler->conf['display'] = $display;
+  $page->default_handlers[$handler->name] = $handler;
+  $pages['science_and_research'] = $page;
+
   return $pages;
 
 }
