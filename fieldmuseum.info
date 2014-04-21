@@ -11,5 +11,5 @@ features[ctools][] = page_manager:pages_default:1
 features[features_api][] = api:2
 features[filter][] = markdown
 features[page_manager_pages][] = home
-hidden = 1
+hidden = 0
 required = 1
