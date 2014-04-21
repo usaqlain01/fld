@@ -24,6 +24,9 @@ projects[features][subdir] = contrib
 projects[markdown][version] = 2.x-dev
 projects[markdown][subdir] = contrib
 
+projects[diff][version] = 3.2
+projects[diff][subdir] = contrib
+
 ; Themes
 
 projects[zen][version] = 5.4
