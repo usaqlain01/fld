@@ -11,6 +11,175 @@ function fieldmuseum_default_page_manager_pages() {
   $page = new stdClass();
   $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
   $page->api_version = 1;
+  $page->name = 'exhibitions_and_events';
+  $page->task = 'page';
+  $page->admin_title = 'Exhibitions and events';
+  $page->admin_description = 'The Exhibitions & Events section is the current “Happening at the Field” section with a simplified name. This section should serve to answer the question, “What will I be able to see and do when I\'m at The Field?” It will achieve this by housing all information about floor exhibitions, programs for visitors, and events at the Field. These items drive the visit decision for a large percentage of users that we talked to (see research findings document). The URL, /at-the-field, speaks to the greater purpose of the section as visitors browse, and works better as a single "sentence" when you\'ve driven down into the various subsections within this area of the site.';
+  $page->path = 'at-the-field';
+  $page->access = array();
+  $page->menu = array(
+    'type' => 'normal',
+    'title' => 'Exhibitions & Events',
+    'name' => 'main-menu',
+    'weight' => '0',
+    'parent' => array(
+      'type' => 'none',
+      'title' => '',
+      'name' => 'navigation',
+      'weight' => '0',
+    ),
+  );
+  $page->arguments = array();
+  $page->conf = array(
+    'admin_paths' => FALSE,
+  );
+  $page->default_handlers = array();
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'page_exhibitions_and_events_panel_context';
+  $handler->task = 'page';
+  $handler->subtask = 'exhibitions_and_events';
+  $handler->handler = 'panel_context';
+  $handler->weight = 0;
+  $handler->conf = array(
+    'title' => 'Panel',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => '',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(),
+  );
+  $display = new panels_display();
+  $display->layout = 'zen_no_wrapper';
+  $display->layout_settings = array(
+    'main_classes' => '',
+  );
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'main' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = 'Exhibitions and Events';
+  $display->uuid = '6670015c-8d44-40ac-8664-5d85e449f8fc';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-24afc512-0bcf-4763-8955-c8c2e636dfbb';
+    $pane->panel = 'main';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => '',
+      'title' => 'The Machine Inside: Biomechanics',
+      'body' => '[![][1]][2]
+
+   [1]: http://fieldmuseum.org/sites/default/files/styles/original-aspect-thumbnail/public/TMI%20identity%20black%281%29.jpg?itok=qx_J84Ua
+   [2]: /happening/exhibits/machine-inside-biomechanics
+
+[The Machine Inside: Biomechanics][3]
+
+   [3]: /happening/exhibits/machine-inside-biomechanics
+
+Mar 12, 2014 to Jan 4, 2015
+
+Temporary Exhibition
+
+Have you ever wondered how some creatures can fly for miles without resting, leap the length of a football field, or crush over 8,000 pounds in one bite?',
+      'format' => 'markdown',
+      'substitute' => TRUE,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '24afc512-0bcf-4763-8955-c8c2e636dfbb';
+    $display->content['new-24afc512-0bcf-4763-8955-c8c2e636dfbb'] = $pane;
+    $display->panels['main'][0] = 'new-24afc512-0bcf-4763-8955-c8c2e636dfbb';
+    $pane = new stdClass();
+    $pane->pid = 'new-37a2a530-2656-4e29-81e2-ee2d88a3d6bc';
+    $pane->panel = 'main';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => '',
+      'title' => 'Opening the Vaults: Wonders of the 1893 World’s Fair',
+      'body' => '[![][1]][2]
+
+   [1]: http://fieldmuseum.org/sites/default/files/styles/original-aspect-thumbnail/public/Field_Museum_Wonders_of_the_1893_Worlds_Fair.gif?itok=d70O66SK
+   [2]: /happening/exhibits/opening-vaults-wonders-1893-world%E2%80%99s-fair
+
+Oct 25, 2013 to Sep 7, 2014
+
+Temporary Exhibition
+
+The World’s Columbian Exposition was a glittering showcase of architecture, culture, technology, and peoples from around the world.',
+      'format' => 'markdown',
+      'substitute' => TRUE,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = '37a2a530-2656-4e29-81e2-ee2d88a3d6bc';
+    $display->content['new-37a2a530-2656-4e29-81e2-ee2d88a3d6bc'] = $pane;
+    $display->panels['main'][1] = 'new-37a2a530-2656-4e29-81e2-ee2d88a3d6bc';
+    $pane = new stdClass();
+    $pane->pid = 'new-52395ecc-ddd4-418b-9788-e0ee8f79ebb3';
+    $pane->panel = 'main';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => '',
+      'title' => 'Upcoming Events',
+      'body' => '| Date | Description |
+|:----:|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 5/30 | [Overnight - Dozin With the Dinos](https://tickets.fieldmuseum.org/public/loader.asp?target=show.asp?shcode=241&shName=Overnight%20-%20Dozin%20With%20the%20Dinos) |
+|  6/3 | [Dino Camp](https://tickets.fieldmuseum.org/public/loader.asp?target=show.asp?shcode=149&shName=Dino%20Camp)                                                       |
+|  6/4 | [Dino Camp](https://tickets.fieldmuseum.org/public/loader.asp?target=show.asp?shcode=149&shName=Dino%20Camp)                                                       |
+| 6/17 | [Dino Camp](https://tickets.fieldmuseum.org/public/loader.asp?target=show.asp?shcode=149&shName=Dino%20Camp)                                                       |',
+      'format' => 'markdown',
+      'substitute' => TRUE,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 2;
+    $pane->locks = array();
+    $pane->uuid = '52395ecc-ddd4-418b-9788-e0ee8f79ebb3';
+    $display->content['new-52395ecc-ddd4-418b-9788-e0ee8f79ebb3'] = $pane;
+    $display->panels['main'][2] = 'new-52395ecc-ddd4-418b-9788-e0ee8f79ebb3';
+  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->title_pane = 'new-24afc512-0bcf-4763-8955-c8c2e636dfbb';
+  $handler->conf['display'] = $display;
+  $page->default_handlers[$handler->name] = $handler;
+  $pages['exhibitions_and_events'] = $page;
+
+  $page = new stdClass();
+  $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
+  $page->api_version = 1;
   $page->name = 'home';
   $page->task = 'page';
   $page->admin_title = 'Home';
@@ -28,6 +197,8 @@ function fieldmuseum_default_page_manager_pages() {
       ),
     ),
     'logic' => 'and',
+    'type' => 'none',
+    'settings' => NULL,
   );
   $page->menu = array(
     'type' => 'none',
