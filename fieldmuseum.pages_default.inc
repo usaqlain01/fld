@@ -21,7 +21,7 @@ function fieldmuseum_default_page_manager_pages() {
     'type' => 'normal',
     'title' => 'About the museum',
     'name' => 'main-menu',
-    'weight' => '0',
+    'weight' => '6',
     'parent' => array(
       'type' => 'none',
       'title' => '',
@@ -88,7 +88,7 @@ function fieldmuseum_default_page_manager_pages() {
     'type' => 'normal',
     'title' => 'Educators',
     'name' => 'main-menu',
-    'weight' => '0',
+    'weight' => '4',
     'parent' => array(
       'type' => 'none',
       'title' => '',
@@ -155,7 +155,7 @@ function fieldmuseum_default_page_manager_pages() {
     'type' => 'normal',
     'title' => 'Exhibitions & Events',
     'name' => 'main-menu',
-    'weight' => '0',
+    'weight' => '1',
     'parent' => array(
       'type' => 'none',
       'title' => '',
@@ -598,7 +598,7 @@ Open every day except Christmas. 9am-5pm.
     'type' => 'normal',
     'title' => 'Plan your visit',
     'name' => 'main-menu',
-    'weight' => '0',
+    'weight' => '2',
     'parent' => array(
       'type' => 'none',
       'title' => '',
@@ -665,7 +665,7 @@ Open every day except Christmas. 9am-5pm.
     'type' => 'normal',
     'title' => 'Science & Research',
     'name' => 'main-menu',
-    'weight' => '0',
+    'weight' => '3',
     'parent' => array(
       'type' => 'none',
       'title' => '',
@@ -830,7 +830,7 @@ Open every day except Christmas. 9am-5pm.
     'type' => 'normal',
     'title' => 'Support the museum',
     'name' => 'main-menu',
-    'weight' => '0',
+    'weight' => '5',
     'parent' => array(
       'type' => 'none',
       'title' => '',
