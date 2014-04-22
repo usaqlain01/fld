@@ -1,0 +1,11 @@
+name = Field Museum program
+core = 7.x
+package = The Field Museum
+dependencies[] = features
+dependencies[] = options
+features[features_api][] = api:2
+features[field_base][] = field_audience
+features[field_instance][] = node-program-field_audience
+features[node][] = program
+features_exclude[dependencies][taxonomy] = taxonomy
+features_exclude[taxonomy][audience] = audience
