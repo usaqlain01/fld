@@ -48,5 +48,11 @@ libraries[underscore][destination] = libraries
 libraries[underscore][type] = library
 libraries[underscore][download][tag] = 1.6.0
 
+libraries[modernizr][download][type] = file
+libraries[modernizr][download][url] = http://modernizr.com/downloads/modernizr-latest.js
+libraries[modernizr][directory_name] = modernizr
+libraries[modernizr][destination] = libraries
+libraries[modernizr][type] = library
+
 ; drush --yes make --dev --working-copy --contrib-destination=. --no-core fieldmuseum.make
 
