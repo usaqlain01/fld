@@ -48,6 +48,13 @@ libraries[underscore][destination] = libraries
 libraries[underscore][type] = library
 libraries[underscore][download][tag] = 1.6.0
 
+libraries[markdown][download][type] = git
+libraries[markdown][download][url] = https://github.com/michelf/php-markdown.git
+libraries[markdown][directory_name] = markdown
+libraries[markdown][destination] = libraries
+libraries[markdown][type] = library
+libraries[markdown][download][tag] = 1.4.0
+
 libraries[modernizr][download][type] = file
 libraries[modernizr][download][url] = http://modernizr.com/downloads/modernizr-latest.js
 libraries[modernizr][directory_name] = modernizr
