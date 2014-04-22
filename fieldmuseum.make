@@ -27,6 +27,9 @@ projects[markdown][subdir] = contrib
 projects[diff][version] = 3.2
 projects[diff][subdir] = contrib
 
+projects[date][version] = 2.7
+projects[date][subdir] = contrib
+
 ; Themes
 
 projects[zen][version] = 5.4
