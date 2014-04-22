@@ -1,7 +1,7 @@
 name = Field Museum install profile
 description = Caxy Interactive
 core = 7.x
-package = Other
+package = The Field Museum
 dependencies[] = block
 dependencies[] = ctools
 dependencies[] = features
