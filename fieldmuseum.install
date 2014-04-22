@@ -1,1 +1,17 @@
 <?php
+
+/**
+ * Implements hook_install().
+ */
+function fieldmuseum_install() {
+
+  // Theme settings.
+  theme_enable(array('esquif'));
+
+  variable_set('admin_theme', 'ember');
+  variable_set('theme_default', 'esquif');
+  variable_set('node_admin_theme', '1');
+
+  // Home page is the `home` panel page.
+  variable_set('site_frontpage', 'home');
+}
