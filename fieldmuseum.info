@@ -5,6 +5,7 @@ package = The Field Museum
 dependencies[] = block
 dependencies[] = ctools
 dependencies[] = features
+dependencies[] = filter
 dependencies[] = markdown
 dependencies[] = menu
 dependencies[] = navbar
