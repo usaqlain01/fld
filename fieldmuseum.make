@@ -30,6 +30,12 @@ projects[diff][subdir] = contrib
 projects[date][version] = 2.7
 projects[date][subdir] = contrib
 
+projects[entity][version] = 1.5
+projects[entity][subdir] = contrib
+
+projects[entityreference][version] = 1.1
+projects[entityreference][subdir] = contrib
+
 ; Themes
 
 projects[zen][version] = 5.4

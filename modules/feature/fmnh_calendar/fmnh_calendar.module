@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Field Museum calendar feature.
+ */
+
+include_once 'fmnh_calendar.features.inc';
