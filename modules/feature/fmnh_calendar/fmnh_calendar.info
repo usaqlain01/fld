@@ -21,3 +21,4 @@ features[page_manager_pages][] = calendar_ending
 features[page_manager_pages][] = calendar_starting
 features[page_manager_pages][] = new_event
 features[views_view][] = fmnh_calendar
+features[views_view][] = upcoming_events
