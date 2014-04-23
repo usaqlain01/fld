@@ -263,23 +263,16 @@ function fieldmuseum_default_page_manager_pages() {
     $display->content['new-04a6e454-9660-438b-bd25-ea6e66c98f01'] = $pane;
     $display->panels['main'][0] = 'new-04a6e454-9660-438b-bd25-ea6e66c98f01';
     $pane = new stdClass();
-    $pane->pid = 'new-52395ecc-ddd4-418b-9788-e0ee8f79ebb3';
+    $pane->pid = 'new-cf15b6c0-56a4-4c28-b4ad-e1b2151282b8';
     $pane->panel = 'main';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'upcoming_events-panel_pane_2';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'admin_title' => '',
-      'title' => 'Upcoming Events',
-      'body' => '| Date | Description |
-|:----:|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 5/30 | [Overnight - Dozin With the Dinos](https://tickets.fieldmuseum.org/public/loader.asp?target=show.asp?shcode=241&shName=Overnight%20-%20Dozin%20With%20the%20Dinos) |
-|  6/3 | [Dino Camp](https://tickets.fieldmuseum.org/public/loader.asp?target=show.asp?shcode=149&shName=Dino%20Camp)                                                       |
-|  6/4 | [Dino Camp](https://tickets.fieldmuseum.org/public/loader.asp?target=show.asp?shcode=149&shName=Dino%20Camp)                                                       |
-| 6/17 | [Dino Camp](https://tickets.fieldmuseum.org/public/loader.asp?target=show.asp?shcode=149&shName=Dino%20Camp)                                                       |',
-      'format' => 'markdown',
-      'substitute' => TRUE,
+      'use_pager' => 0,
+      'pager_id' => '0',
+      'items_per_page' => '10',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -289,9 +282,9 @@ function fieldmuseum_default_page_manager_pages() {
     $pane->extras = array();
     $pane->position = 1;
     $pane->locks = array();
-    $pane->uuid = '52395ecc-ddd4-418b-9788-e0ee8f79ebb3';
-    $display->content['new-52395ecc-ddd4-418b-9788-e0ee8f79ebb3'] = $pane;
-    $display->panels['main'][1] = 'new-52395ecc-ddd4-418b-9788-e0ee8f79ebb3';
+    $pane->uuid = 'cf15b6c0-56a4-4c28-b4ad-e1b2151282b8';
+    $display->content['new-cf15b6c0-56a4-4c28-b4ad-e1b2151282b8'] = $pane;
+    $display->panels['main'][1] = 'new-cf15b6c0-56a4-4c28-b4ad-e1b2151282b8';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
@@ -440,7 +433,9 @@ function fieldmuseum_default_page_manager_pages() {
     $pane->configuration = array(
       'rows' => array(),
       'use_fields' => 0,
-      'fields' => array(),
+      'fields' => array(
+        'title' => 'title',
+      ),
       'context' => 'context_view:exhibitions-ctools_context_1_1',
       'override_title' => 0,
       'override_title_text' => '',
@@ -457,23 +452,16 @@ function fieldmuseum_default_page_manager_pages() {
     $display->content['new-92d88d8b-df23-47e4-8205-1ebbd1441c3b'] = $pane;
     $display->panels['main'][2] = 'new-92d88d8b-df23-47e4-8205-1ebbd1441c3b';
     $pane = new stdClass();
-    $pane->pid = 'new-4e0c7d35-04ef-4c39-9298-be0f93f81e59';
+    $pane->pid = 'new-40f9d913-1d3f-49c5-bbbd-d12e0e919624';
     $pane->panel = 'main';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'upcoming_events-panel_pane_2';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'admin_title' => '',
-      'title' => 'Upcoming Events',
-      'body' => '| Date | Description |
-|:----:|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 5/30 | [Overnight - Dozin With the Dinos](https://tickets.fieldmuseum.org/public/loader.asp?target=show.asp?shcode=241&shName=Overnight%20-%20Dozin%20With%20the%20Dinos) |
-|  6/3 | [Dino Camp](https://tickets.fieldmuseum.org/public/loader.asp?target=show.asp?shcode=149&shName=Dino%20Camp)                                                       |
-|  6/4 | [Dino Camp](https://tickets.fieldmuseum.org/public/loader.asp?target=show.asp?shcode=149&shName=Dino%20Camp)                                                       |
-| 6/17 | [Dino Camp](https://tickets.fieldmuseum.org/public/loader.asp?target=show.asp?shcode=149&shName=Dino%20Camp)                                                       |',
-      'format' => 'markdown',
-      'substitute' => TRUE,
+      'use_pager' => 0,
+      'pager_id' => '0',
+      'items_per_page' => '5',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -483,9 +471,9 @@ function fieldmuseum_default_page_manager_pages() {
     $pane->extras = array();
     $pane->position = 3;
     $pane->locks = array();
-    $pane->uuid = '4e0c7d35-04ef-4c39-9298-be0f93f81e59';
-    $display->content['new-4e0c7d35-04ef-4c39-9298-be0f93f81e59'] = $pane;
-    $display->panels['main'][3] = 'new-4e0c7d35-04ef-4c39-9298-be0f93f81e59';
+    $pane->uuid = '40f9d913-1d3f-49c5-bbbd-d12e0e919624';
+    $display->content['new-40f9d913-1d3f-49c5-bbbd-d12e0e919624'] = $pane;
+    $display->panels['main'][3] = 'new-40f9d913-1d3f-49c5-bbbd-d12e0e919624';
     $pane = new stdClass();
     $pane->pid = 'new-519f6547-3398-4381-9ed8-5bcea0341247';
     $pane->panel = 'main';
