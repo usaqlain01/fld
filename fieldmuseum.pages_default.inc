@@ -96,7 +96,7 @@ function fieldmuseum_default_page_manager_pages() {
   $page->task = 'page';
   $page->admin_title = 'Educators';
   $page->admin_description = '';
-  $page->path = 'schools';
+  $page->path = 'educators';
   $page->access = array(
     'plugins' => array(
       0 => array(
