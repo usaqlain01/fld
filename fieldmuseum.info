@@ -21,6 +21,7 @@ features[field_base][] = body
 features[field_instance][] = node-article-body
 features[field_instance][] = node-page-body
 features[filter][] = markdown
+features[menu_custom][] = menu-header-menu
 features[node][] = article
 features[node][] = page
 features[page_manager_pages][] = about_the_museum
