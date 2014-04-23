@@ -47,12 +47,12 @@ function fmnh_exhibit_default_page_manager_pages() {
       'identifier' => 'Taxonomy term: ID',
       'name' => 'term',
       'settings' => array(
-        'input_form' => 'tid',
+        'input_form' => 'term',
         'vids' => array(
           1 => 0,
         ),
         'breadcrumb' => 1,
-        'transform' => 0,
+        'transform' => 1,
       ),
     ),
   );
