@@ -1,6 +1,7 @@
 name = Field Museum calendar
 core = 7.x
 package = The Field Museum
+dependencies[] = ctools
 dependencies[] = date
 dependencies[] = entityreference
 dependencies[] = features
@@ -16,5 +17,7 @@ features[field_instance][] = node-event-field_date
 features[field_instance][] = node-event-field_exhibit_or_program
 features[node][] = event
 features[page_manager_pages][] = calendar
+features[page_manager_pages][] = calendar_ending
+features[page_manager_pages][] = calendar_starting
+features[page_manager_pages][] = new_event
 features[views_view][] = fmnh_calendar
-features_exclude[dependencies][ctools] = ctools
