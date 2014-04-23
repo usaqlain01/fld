@@ -1031,6 +1031,94 @@ Open every day except Christmas. 9am-5pm.
   $page = new stdClass();
   $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
   $page->api_version = 1;
+  $page->name = 'shop';
+  $page->task = 'page';
+  $page->admin_title = 'Shop';
+  $page->admin_description = '';
+  $page->path = 'shop';
+  $page->access = array();
+  $page->menu = array(
+    'type' => 'normal',
+    'title' => 'Shop',
+    'name' => 'menu-header-menu',
+    'weight' => '0',
+    'parent' => array(
+      'type' => 'none',
+      'title' => '',
+      'name' => 'navigation',
+      'weight' => '0',
+    ),
+  );
+  $page->arguments = array();
+  $page->conf = array(
+    'admin_paths' => FALSE,
+  );
+  $page->default_handlers = array();
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'page_shop_http_response';
+  $handler->task = 'page';
+  $handler->subtask = 'shop';
+  $handler->handler = 'http_response';
+  $handler->weight = 0;
+  $handler->conf = array(
+    'title' => 'HTTP response code',
+    'contexts' => array(),
+    'relationships' => array(),
+    'code' => '301',
+    'destination' => 'http://store.fieldmuseum.org',
+  );
+  $page->default_handlers[$handler->name] = $handler;
+  $pages['shop'] = $page;
+
+  $page = new stdClass();
+  $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
+  $page->api_version = 1;
+  $page->name = 'subscribe';
+  $page->task = 'page';
+  $page->admin_title = 'Subscribe';
+  $page->admin_description = '';
+  $page->path = 'subscribe';
+  $page->access = array();
+  $page->menu = array(
+    'type' => 'normal',
+    'title' => 'Subscribe',
+    'name' => 'menu-header-menu',
+    'weight' => '0',
+    'parent' => array(
+      'type' => 'none',
+      'title' => '',
+      'name' => 'navigation',
+      'weight' => '0',
+    ),
+  );
+  $page->arguments = array();
+  $page->conf = array(
+    'admin_paths' => FALSE,
+  );
+  $page->default_handlers = array();
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'page_subscribe_http_response';
+  $handler->task = 'page';
+  $handler->subtask = 'subscribe';
+  $handler->handler = 'http_response';
+  $handler->weight = 0;
+  $handler->conf = array(
+    'title' => 'HTTP response code',
+    'contexts' => array(),
+    'relationships' => array(),
+    'code' => '301',
+    'destination' => 'http://enews.fieldmuseum.org/site/Survey?ACTION_REQUIRED=URI_ACTION_USER_REQUESTS&SURVEY_ID=1761#mainstage',
+  );
+  $page->default_handlers[$handler->name] = $handler;
+  $pages['subscribe'] = $page;
+
+  $page = new stdClass();
+  $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
+  $page->api_version = 1;
   $page->name = 'support_the_museum';
   $page->task = 'page';
   $page->admin_title = 'Support the museum';
@@ -1263,6 +1351,50 @@ Open every day except Christmas. 9am-5pm.
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
   $pages['teacher_professional_development'] = $page;
+
+  $page = new stdClass();
+  $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
+  $page->api_version = 1;
+  $page->name = 'tickets';
+  $page->task = 'page';
+  $page->admin_title = 'Tickets';
+  $page->admin_description = '';
+  $page->path = 'tickets';
+  $page->access = array();
+  $page->menu = array(
+    'type' => 'normal',
+    'title' => 'Tickets',
+    'name' => 'menu-header-menu',
+    'weight' => '0',
+    'parent' => array(
+      'type' => 'none',
+      'title' => '',
+      'name' => 'navigation',
+      'weight' => '0',
+    ),
+  );
+  $page->arguments = array();
+  $page->conf = array(
+    'admin_paths' => FALSE,
+  );
+  $page->default_handlers = array();
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'page_tickets_http_response';
+  $handler->task = 'page';
+  $handler->subtask = 'tickets';
+  $handler->handler = 'http_response';
+  $handler->weight = 0;
+  $handler->conf = array(
+    'title' => 'HTTP response code',
+    'contexts' => array(),
+    'relationships' => array(),
+    'code' => '301',
+    'destination' => 'https://tickets.fieldmuseum.org/public/',
+  );
+  $page->default_handlers[$handler->name] = $handler;
+  $pages['tickets'] = $page;
 
   $page = new stdClass();
   $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
