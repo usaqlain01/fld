@@ -92,6 +92,111 @@ function fieldmuseum_default_page_manager_pages() {
   $page = new stdClass();
   $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
   $page->api_version = 1;
+  $page->name = 'auxiliary_groups';
+  $page->task = 'page';
+  $page->admin_title = 'Auxiliary Groups';
+  $page->admin_description = '';
+  $page->path = 'support/ways-to-give/auxiliary-groups';
+  $page->access = array(
+    'plugins' => array(
+      0 => array(
+        'name' => 'perm',
+        'settings' => array(
+          'perm' => 'access content',
+        ),
+        'context' => 'logged-in-user',
+        'not' => FALSE,
+      ),
+    ),
+    'logic' => 'and',
+  );
+  $page->menu = array(
+    'type' => 'normal',
+    'title' => 'Auxiliary Groups',
+    'name' => 'main-menu',
+    'weight' => '6',
+    'parent' => array(
+      'type' => 'none',
+      'title' => '',
+      'name' => 'navigation',
+      'weight' => '0',
+    ),
+  );
+  $page->arguments = array();
+  $page->conf = array(
+    'admin_paths' => FALSE,
+  );
+  $page->default_handlers = array();
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'page_auxiliary_groups_panel_context';
+  $handler->task = 'page';
+  $handler->subtask = 'auxiliary_groups';
+  $handler->handler = 'panel_context';
+  $handler->weight = 0;
+  $handler->conf = array(
+    'title' => 'Panel',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => '',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(),
+  );
+  $display = new panels_display();
+  $display->layout = 'zen_no_wrapper';
+  $display->layout_settings = array(
+    'main_classes' => '',
+  );
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'main' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = '';
+  $display->uuid = 'f2e7bd54-6085-4c34-aa63-01b247d16dad';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-5bb9442f-803f-4ee0-a34e-ffc29e4bbe32';
+    $pane->panel = 'main';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => '',
+      'title' => 'Auxiliary Groups',
+      'body' => 'Intention: include summaries of each group that encourage users to find out more about each.',
+      'format' => 'markdown',
+      'substitute' => TRUE,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+      'style' => 'naked',
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '5bb9442f-803f-4ee0-a34e-ffc29e4bbe32';
+    $display->content['new-5bb9442f-803f-4ee0-a34e-ffc29e4bbe32'] = $pane;
+    $display->panels['main'][0] = 'new-5bb9442f-803f-4ee0-a34e-ffc29e4bbe32';
+  $display->hide_title = PANELS_TITLE_PANE;
+  $display->title_pane = 'new-5bb9442f-803f-4ee0-a34e-ffc29e4bbe32';
+  $handler->conf['display'] = $display;
+  $page->default_handlers[$handler->name] = $handler;
+  $pages['auxiliary_groups'] = $page;
+
+  $page = new stdClass();
+  $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
+  $page->api_version = 1;
   $page->name = 'educators';
   $page->task = 'page';
   $page->admin_title = 'Educators';
@@ -1114,6 +1219,114 @@ Open every day except Christmas. 9am-5pm.
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
   $pages['teacher_professional_development'] = $page;
+
+  $page = new stdClass();
+  $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
+  $page->api_version = 1;
+  $page->name = 'ways_to_give';
+  $page->task = 'page';
+  $page->admin_title = 'Ways to Give';
+  $page->admin_description = '';
+  $page->path = 'support/ways-to-give';
+  $page->access = array(
+    'plugins' => array(
+      0 => array(
+        'name' => 'perm',
+        'settings' => array(
+          'perm' => 'access content',
+        ),
+        'context' => 'logged-in-user',
+        'not' => FALSE,
+      ),
+    ),
+    'logic' => 'and',
+  );
+  $page->menu = array(
+    'type' => 'normal',
+    'title' => 'Ways to Give',
+    'name' => 'main-menu',
+    'weight' => '2',
+    'parent' => array(
+      'type' => 'none',
+      'title' => '',
+      'name' => 'navigation',
+      'weight' => '0',
+    ),
+  );
+  $page->arguments = array();
+  $page->conf = array(
+    'admin_paths' => FALSE,
+  );
+  $page->default_handlers = array();
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'page_ways_to_give_panel_context';
+  $handler->task = 'page';
+  $handler->subtask = 'ways_to_give';
+  $handler->handler = 'panel_context';
+  $handler->weight = 0;
+  $handler->conf = array(
+    'title' => 'Panel',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => '',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(),
+  );
+  $display = new panels_display();
+  $display->layout = 'zen_no_wrapper';
+  $display->layout_settings = array(
+    'main_classes' => '',
+  );
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'main' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = '';
+  $display->uuid = 'fe1d18c2-5f59-4c25-9aaa-928505089749';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-717c7453-7c83-416f-b4f0-d58316cfe1dc';
+    $pane->panel = 'main';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => '',
+      'title' => 'Ways to Give',
+      'body' => 'Intention: 
+
+* tell a compelling story about how donations have a direct impact on The Field advancing it\'s mission forward
+* include summaries of each of the ways that a person could give to the organization, with calls to action for potential donors to find out more by clicking through to the page that has the extended information for each giving opportunity.',
+      'format' => 'markdown',
+      'substitute' => TRUE,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+      'style' => 'naked',
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '717c7453-7c83-416f-b4f0-d58316cfe1dc';
+    $display->content['new-717c7453-7c83-416f-b4f0-d58316cfe1dc'] = $pane;
+    $display->panels['main'][0] = 'new-717c7453-7c83-416f-b4f0-d58316cfe1dc';
+  $display->hide_title = PANELS_TITLE_PANE;
+  $display->title_pane = 'new-717c7453-7c83-416f-b4f0-d58316cfe1dc';
+  $handler->conf['display'] = $display;
+  $page->default_handlers[$handler->name] = $handler;
+  $pages['ways_to_give'] = $page;
 
   return $pages;
 
