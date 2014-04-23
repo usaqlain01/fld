@@ -115,7 +115,7 @@ function _fieldmuseum_create_node($bundle, $label, $path, $menu = FALSE) {
     $parent_path = explode('/', $path);
     array_pop($parent_path);
     $parent_path = implode('/', $parent_path);
-    $parent_link = menu_link_get_preferred($parent_path);
+    $parent_link = menu_link_get_preferred(drupal_get_normal_path($parent_path));
 
     $node->menu = array(
       'enabled' => 1,
@@ -129,14 +129,12 @@ function _fieldmuseum_create_node($bundle, $label, $path, $menu = FALSE) {
     }
   }
 
-  node_object_prepare($node); // Sets some defaults. Invokes hook_prepare() and hook_node_prepare().
-  $node->language = LANGUAGE_NONE; // Or e.g. 'en' if locale is enabled
+  node_object_prepare($node);
+  $node->language = LANGUAGE_NONE;
   $node->uid = $user->uid;
-  $node->status = 1; //(1 or 0): published or not
-  $node->promote = 0; //(1 or 0): promoted to front page
-  $node->comment = 1; // 0 = comments disabled, 1 = read only, 2 = read/write
-  // 'node' is default,
-  // Other possible values are "user" and  "taxonomy_term"
-  $node = node_submit($node); // Prepare node for saving
+  $node->status = 1;
+  $node->promote = 0;
+  $node->comment = 1;
+  $node = node_submit($node);
   node_save($node);
 }
