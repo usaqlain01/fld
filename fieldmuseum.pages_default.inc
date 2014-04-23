@@ -28,6 +28,8 @@ function fieldmuseum_default_page_manager_pages() {
       ),
     ),
     'logic' => 'and',
+    'type' => 'none',
+    'settings' => NULL,
   );
   $page->menu = array(
     'type' => 'normal',
@@ -107,6 +109,8 @@ function fieldmuseum_default_page_manager_pages() {
       ),
     ),
     'logic' => 'and',
+    'type' => 'none',
+    'settings' => NULL,
   );
   $page->menu = array(
     'type' => 'normal',
@@ -240,32 +244,13 @@ function fieldmuseum_default_page_manager_pages() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-24afc512-0bcf-4763-8955-c8c2e636dfbb';
+    $pane->pid = 'new-04a6e454-9660-438b-bd25-ea6e66c98f01';
     $pane->panel = 'main';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'exhibitions-panel_pane_1';
     $pane->shown = TRUE;
     $pane->access = array();
-    $pane->configuration = array(
-      'admin_title' => '',
-      'title' => 'The Machine Inside: Biomechanics',
-      'body' => '[![][1]][2]
-
-   [1]: http://fieldmuseum.org/sites/default/files/styles/original-aspect-thumbnail/public/TMI%20identity%20black%281%29.jpg?itok=qx_J84Ua
-   [2]: /happening/exhibits/machine-inside-biomechanics
-
-[The Machine Inside: Biomechanics][3]
-
-   [3]: /happening/exhibits/machine-inside-biomechanics
-
-Mar 12, 2014 to Jan 4, 2015
-
-Temporary Exhibition
-
-Have you ever wondered how some creatures can fly for miles without resting, leap the length of a football field, or crush over 8,000 pounds in one bite?',
-      'format' => 'markdown',
-      'substitute' => TRUE,
-    );
+    $pane->configuration = array();
     $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,
@@ -274,43 +259,9 @@ Have you ever wondered how some creatures can fly for miles without resting, lea
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = '24afc512-0bcf-4763-8955-c8c2e636dfbb';
-    $display->content['new-24afc512-0bcf-4763-8955-c8c2e636dfbb'] = $pane;
-    $display->panels['main'][0] = 'new-24afc512-0bcf-4763-8955-c8c2e636dfbb';
-    $pane = new stdClass();
-    $pane->pid = 'new-37a2a530-2656-4e29-81e2-ee2d88a3d6bc';
-    $pane->panel = 'main';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'admin_title' => '',
-      'title' => 'Opening the Vaults: Wonders of the 1893 World’s Fair',
-      'body' => '[![][1]][2]
-
-   [1]: http://fieldmuseum.org/sites/default/files/styles/original-aspect-thumbnail/public/Field_Museum_Wonders_of_the_1893_Worlds_Fair.gif?itok=d70O66SK
-   [2]: /happening/exhibits/opening-vaults-wonders-1893-world%E2%80%99s-fair
-
-Oct 25, 2013 to Sep 7, 2014
-
-Temporary Exhibition
-
-The World’s Columbian Exposition was a glittering showcase of architecture, culture, technology, and peoples from around the world.',
-      'format' => 'markdown',
-      'substitute' => TRUE,
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 1;
-    $pane->locks = array();
-    $pane->uuid = '37a2a530-2656-4e29-81e2-ee2d88a3d6bc';
-    $display->content['new-37a2a530-2656-4e29-81e2-ee2d88a3d6bc'] = $pane;
-    $display->panels['main'][1] = 'new-37a2a530-2656-4e29-81e2-ee2d88a3d6bc';
+    $pane->uuid = '04a6e454-9660-438b-bd25-ea6e66c98f01';
+    $display->content['new-04a6e454-9660-438b-bd25-ea6e66c98f01'] = $pane;
+    $display->panels['main'][0] = 'new-04a6e454-9660-438b-bd25-ea6e66c98f01';
     $pane = new stdClass();
     $pane->pid = 'new-52395ecc-ddd4-418b-9788-e0ee8f79ebb3';
     $pane->panel = 'main';
@@ -336,13 +287,13 @@ The World’s Columbian Exposition was a glittering showcase of architecture, cu
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 2;
+    $pane->position = 1;
     $pane->locks = array();
     $pane->uuid = '52395ecc-ddd4-418b-9788-e0ee8f79ebb3';
     $display->content['new-52395ecc-ddd4-418b-9788-e0ee8f79ebb3'] = $pane;
-    $display->panels['main'][2] = 'new-52395ecc-ddd4-418b-9788-e0ee8f79ebb3';
+    $display->panels['main'][1] = 'new-52395ecc-ddd4-418b-9788-e0ee8f79ebb3';
   $display->hide_title = PANELS_TITLE_FIXED;
-  $display->title_pane = 'new-24afc512-0bcf-4763-8955-c8c2e636dfbb';
+  $display->title_pane = '0';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
   $pages['exhibitions_and_events'] = $page;
@@ -403,7 +354,14 @@ The World’s Columbian Exposition was a glittering showcase of architecture, cu
     'body_classes_to_add' => '',
     'css_id' => '',
     'css' => '',
-    'contexts' => array(),
+    'contexts' => array(
+      0 => array(
+        'identifier' => 'View: Exhibitions',
+        'keyword' => 'view',
+        'name' => 'view:exhibitions-ctools_context_1',
+        'id' => 1,
+      ),
+    ),
     'relationships' => array(),
   );
   $display = new panels_display();
@@ -473,72 +431,19 @@ The World’s Columbian Exposition was a glittering showcase of architecture, cu
     $display->content['new-e8032d89-b651-4f3e-b068-b3ee68d055fe'] = $pane;
     $display->panels['main'][1] = 'new-e8032d89-b651-4f3e-b068-b3ee68d055fe';
     $pane = new stdClass();
-    $pane->pid = 'new-cd88a92d-402c-4ed3-bcdd-595499edbf23';
+    $pane->pid = 'new-92d88d8b-df23-47e4-8205-1ebbd1441c3b';
     $pane->panel = 'main';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
+    $pane->type = 'views_row';
+    $pane->subtype = 'views_row';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'admin_title' => '',
-      'title' => 'Current exhibitions',
-      'body' => '[![][1]][2]
-
-   [1]: http://fieldmuseum.org/sites/default/files/styles/original-aspect-thumbnail/public/TMI%20identity%20black%281%29.jpg?itok=qx_J84Ua
-   [2]: /happening/exhibits/machine-inside-biomechanics
-
-[The Machine Inside: Biomechanics][3]
-
-   [3]: /happening/exhibits/machine-inside-biomechanics
-
-Mar 12, 2014 to Jan 4, 2015
-
-Temporary Exhibition
-
-Have you ever wondered how some creatures can fly for miles without resting, leap the length of a football field, or crush over 8,000 pounds in one bite?
-
-[![][4]][5]
-
-   [4]: http://fieldmuseum.org/sites/default/files/styles/original-aspect-thumbnail/public/Field_Museum_Wonders_of_the_1893_Worlds_Fair.gif?itok=d70O66SK
-   [5]: /happening/exhibits/opening-vaults-wonders-1893-world%E2%80%99s-fair
-
-[Opening the Vaults: Wonders of the 1893 World’s Fair][6]
-
-   [6]: /happening/exhibits/opening-vaults-wonders-1893-world%E2%80%99s-fair
-
-Oct 25, 2013 to Sep 7, 2014
-
-Temporary Exhibition
-
-The World’s Columbian Exposition was a glittering showcase of architecture, culture, technology, and peoples from around the world.
-
-[![][7]][8]
-
-   [7]: http://fieldmuseum.org/sites/default/files/styles/original-aspect-thumbnail/public/Before%20the%20Dinosaurs%20Identity-2.jpg?itok=_mLZ5RZB
-   [8]: /happening/exhibits/dinosaurs-tracking-reptiles-pangaea
-
-[Before the Dinosaurs: Tracking the Reptiles of Pangaea][9]
-
-   [9]: /happening/exhibits/dinosaurs-tracking-reptiles-pangaea
-
-Dec 9, 2013 to Feb 1, 2015
-
-Temporary Exhibition
-
-Journey across the globe with a Field Museum paleontologist and his teammates in search of what life was like before dinosaurs roamed the Earth.
-
-[![][10]][11]
-
-   [10]: http://fieldmuseum.org/sites/default/files/styles/original-aspect-thumbnail/public/Bunky%20exbtn%20identity.jpg?itok=SzPnjXcn
-   [11]: /happening/exhibits/bunky-echo-hawk-modern-warrior
-
-[Bunky Echo-Hawk: Modern Warrior][12]
-
-   [12]: /happening/exhibits/bunky-echo-hawk-modern-warrior
-
-(there is a lot of these currently)',
-      'format' => 'markdown',
-      'substitute' => TRUE,
+      'rows' => array(),
+      'use_fields' => 0,
+      'fields' => array(),
+      'context' => 'context_view:exhibitions-ctools_context_1_1',
+      'override_title' => 0,
+      'override_title_text' => '',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -548,9 +453,9 @@ Journey across the globe with a Field Museum paleontologist and his teammates in
     $pane->extras = array();
     $pane->position = 2;
     $pane->locks = array();
-    $pane->uuid = 'cd88a92d-402c-4ed3-bcdd-595499edbf23';
-    $display->content['new-cd88a92d-402c-4ed3-bcdd-595499edbf23'] = $pane;
-    $display->panels['main'][2] = 'new-cd88a92d-402c-4ed3-bcdd-595499edbf23';
+    $pane->uuid = '92d88d8b-df23-47e4-8205-1ebbd1441c3b';
+    $display->content['new-92d88d8b-df23-47e4-8205-1ebbd1441c3b'] = $pane;
+    $display->panels['main'][2] = 'new-92d88d8b-df23-47e4-8205-1ebbd1441c3b';
     $pane = new stdClass();
     $pane->pid = 'new-4e0c7d35-04ef-4c39-9298-be0f93f81e59';
     $pane->panel = 'main';
@@ -641,6 +546,8 @@ Open every day except Christmas. 9am-5pm.
       ),
     ),
     'logic' => 'and',
+    'type' => 'none',
+    'settings' => NULL,
   );
   $page->menu = array(
     'type' => 'normal',
@@ -720,6 +627,8 @@ Open every day except Christmas. 9am-5pm.
       ),
     ),
     'logic' => 'and',
+    'type' => 'none',
+    'settings' => NULL,
   );
   $page->menu = array(
     'type' => 'normal',
@@ -897,6 +806,8 @@ Open every day except Christmas. 9am-5pm.
       ),
     ),
     'logic' => 'and',
+    'type' => 'none',
+    'settings' => NULL,
   );
   $page->menu = array(
     'type' => 'normal',
