@@ -109,6 +109,8 @@ function fieldmuseum_default_page_manager_pages() {
       ),
     ),
     'logic' => 'and',
+    'type' => 'none',
+    'settings' => NULL,
   );
   $page->menu = array(
     'type' => 'normal',
@@ -295,6 +297,8 @@ function fieldmuseum_default_page_manager_pages() {
       ),
     ),
     'logic' => 'and',
+    'type' => 'none',
+    'settings' => NULL,
   );
   $page->menu = array(
     'type' => 'normal',
@@ -639,6 +643,8 @@ Open every day except Christmas. 9am-5pm.
       ),
     ),
     'logic' => 'and',
+    'type' => 'none',
+    'settings' => NULL,
   );
   $page->menu = array(
     'type' => 'normal',
@@ -1268,6 +1274,8 @@ Open every day except Christmas. 9am-5pm.
       ),
     ),
     'logic' => 'and',
+    'type' => 'none',
+    'settings' => NULL,
   );
   $page->menu = array(
     'type' => 'normal',
@@ -1416,6 +1424,8 @@ Open every day except Christmas. 9am-5pm.
       ),
     ),
     'logic' => 'and',
+    'type' => 'none',
+    'settings' => NULL,
   );
   $page->menu = array(
     'type' => 'normal',
