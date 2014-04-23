@@ -42,6 +42,12 @@ projects[context_admin][subdir] = contrib
 projects[entity_view_mode][version] = 1.0-rc1
 projects[entity_view_mode][subdir] = contrib
 
+projects[pathauto][version] = 1.2
+projects[pathauto][subdir] = contrib
+
+projects[token][version] = 1.5
+projects[token][subdir] = contrib
+
 ; Development
 
 projects[bangpoundentity][subdir] = bangpound
