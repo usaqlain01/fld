@@ -39,6 +39,16 @@ projects[entityreference][subdir] = contrib
 projects[context_admin][version] = 1.2
 projects[context_admin][subdir] = contrib
 
+projects[entity_view_mode][version] = 1.0-rc1
+projects[entity_view_mode][subdir] = contrib
+
+; Development
+
+projects[bangpoundentity][subdir] = bangpound
+projects[bangpoundentity][type] = module
+projects[bangpoundentity][download][url] = https://github.com/bangpound/bangpoundentity.git
+projects[bangpoundentity][download][type] = git
+
 ; Themes
 
 projects[zen][version] = 5.4
