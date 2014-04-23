@@ -36,6 +36,9 @@ projects[entity][subdir] = contrib
 projects[entityreference][version] = 1.1
 projects[entityreference][subdir] = contrib
 
+projects[context_admin][version] = 1.2
+projects[context_admin][subdir] = contrib
+
 ; Themes
 
 projects[zen][version] = 5.4
