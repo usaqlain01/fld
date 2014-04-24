@@ -102,7 +102,7 @@ function fieldmuseum_install() {
 /**
  * Creates stub nodes with paths and menu items from simple arguments.
  */
-function _fieldmuseum_create_node($bundle, $label, $path, $menu = FALSE) {
+function _fieldmuseum_create_node($bundle, $label, $path, $menu_name = FALSE) {
   global $user;
   $node = new stdClass();
   $node->title = $label;
@@ -111,7 +111,7 @@ function _fieldmuseum_create_node($bundle, $label, $path, $menu = FALSE) {
     'alias' => $path,
   );
 
-  if ($menu) {
+  if ($menu_name) {
     $parent_path = explode('/', $path);
     array_pop($parent_path);
     $parent_path = implode('/', $parent_path);
@@ -119,7 +119,7 @@ function _fieldmuseum_create_node($bundle, $label, $path, $menu = FALSE) {
 
     $node->menu = array(
       'enabled' => 1,
-      'menu_name' => 'main-menu',
+      'menu_name' => $menu_name,
       'link_path' => $path,
       'link_title' => $label,
       'description' => '',
