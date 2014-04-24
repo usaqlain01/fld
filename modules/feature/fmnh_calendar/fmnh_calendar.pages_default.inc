@@ -28,6 +28,8 @@ function fmnh_calendar_default_page_manager_pages() {
       ),
     ),
     'logic' => 'and',
+    'type' => 'none',
+    'settings' => NULL,
   );
   $page->menu = array(
     'type' => 'normal',
@@ -145,6 +147,8 @@ function fmnh_calendar_default_page_manager_pages() {
       ),
     ),
     'logic' => 'and',
+    'type' => 'none',
+    'settings' => NULL,
   );
   $page->menu = array(
     'type' => 'normal',
@@ -257,6 +261,8 @@ function fmnh_calendar_default_page_manager_pages() {
       ),
     ),
     'logic' => 'and',
+    'type' => 'none',
+    'settings' => NULL,
   );
   $page->menu = array(
     'type' => 'normal',
@@ -382,6 +388,8 @@ function fmnh_calendar_default_page_manager_pages() {
       ),
     ),
     'logic' => 'and',
+    'type' => 'none',
+    'settings' => NULL,
   );
   $page->menu = array(
     'type' => 'action',
@@ -422,7 +430,7 @@ function fmnh_calendar_default_page_manager_pages() {
     'css' => '',
     'contexts' => array(),
     'relationships' => array(),
-    'context_admin_options' => 'admin_section',
+    'context_admin_options' => 'entityref_create_node:event:field_exhibit_or_program',
     'context_admin_options_items' => 'event',
     'context_admin_field' => 'field_exhibit_or_program',
     'context_admin_custom_redirect' => '',
