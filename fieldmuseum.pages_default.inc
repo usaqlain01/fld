@@ -1391,7 +1391,15 @@ Open every day except Christmas. 9am-5pm.
     'body_classes_to_add' => '',
     'css_id' => '',
     'css' => '',
-    'contexts' => array(),
+    'contexts' => array(
+      0 => array(
+        'identifier' => 'Taxonomy term',
+        'keyword' => 'taxonomy_term',
+        'name' => 'entity:taxonomy_term',
+        'entity_id' => '21',
+        'id' => 1,
+      ),
+    ),
     'relationships' => array(),
   );
   $display = new panels_display();
@@ -1411,32 +1419,31 @@ Open every day except Christmas. 9am-5pm.
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-1fed67ed-dedc-4036-ae12-b3dca826af9e';
+    $pane->pid = 'new-76b12dd7-fe1e-42d1-993e-724efd2eb7f1';
     $pane->panel = 'main';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'programs-panel_pane_1';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'admin_title' => '',
-      'title' => 'Teacher Professional Development',
-      'body' => 'Intent: show `program` content filtered by a term (TBD)',
-      'format' => 'markdown',
-      'substitute' => TRUE,
+      'context' => array(
+        0 => 'context_entity:taxonomy_term_1',
+      ),
     );
     $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,
+      'style' => 'naked',
     );
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = '1fed67ed-dedc-4036-ae12-b3dca826af9e';
-    $display->content['new-1fed67ed-dedc-4036-ae12-b3dca826af9e'] = $pane;
-    $display->panels['main'][0] = 'new-1fed67ed-dedc-4036-ae12-b3dca826af9e';
+    $pane->uuid = '76b12dd7-fe1e-42d1-993e-724efd2eb7f1';
+    $display->content['new-76b12dd7-fe1e-42d1-993e-724efd2eb7f1'] = $pane;
+    $display->panels['main'][0] = 'new-76b12dd7-fe1e-42d1-993e-724efd2eb7f1';
   $display->hide_title = PANELS_TITLE_PANE;
-  $display->title_pane = 'new-1fed67ed-dedc-4036-ae12-b3dca826af9e';
+  $display->title_pane = 'new-76b12dd7-fe1e-42d1-993e-724efd2eb7f1';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
   $pages['teacher_professional_development'] = $page;
