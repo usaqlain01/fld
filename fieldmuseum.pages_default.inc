@@ -1117,7 +1117,10 @@ Open every day except Christmas. 9am-5pm.
   $page->admin_title = 'Shop';
   $page->admin_description = '';
   $page->path = 'shop';
-  $page->access = array();
+  $page->access = array(
+    'type' => 'none',
+    'settings' => NULL,
+  );
   $page->menu = array(
     'type' => 'normal',
     'title' => 'Shop',
@@ -1161,7 +1164,10 @@ Open every day except Christmas. 9am-5pm.
   $page->admin_title = 'Subscribe';
   $page->admin_description = '';
   $page->path = 'subscribe';
-  $page->access = array();
+  $page->access = array(
+    'type' => 'none',
+    'settings' => NULL,
+  );
   $page->menu = array(
     'type' => 'normal',
     'title' => 'Subscribe',
@@ -1443,7 +1449,10 @@ Open every day except Christmas. 9am-5pm.
   $page->admin_title = 'Tickets';
   $page->admin_description = '';
   $page->path = 'tickets';
-  $page->access = array();
+  $page->access = array(
+    'type' => 'none',
+    'settings' => NULL,
+  );
   $page->menu = array(
     'type' => 'normal',
     'title' => 'Tickets',

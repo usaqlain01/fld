@@ -106,7 +106,10 @@ function fieldmuseum_default_panels_mini() {
       'settings' => NULL,
       'style' => 'naked',
     );
-    $pane->css = array();
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => '',
+    );
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
