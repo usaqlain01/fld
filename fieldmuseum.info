@@ -46,4 +46,5 @@ features[page_manager_pages][] = ways_to_give
 features[panels_mini][] = footer
 features[panels_mini][] = header
 features[taxonomy][] = audience
+hidden = 0
 required = 1
