@@ -5,6 +5,78 @@
  */
 
 /**
+ * Implements hook_default_page_manager_handlers().
+ */
+function fieldmuseum_default_page_manager_handlers() {
+  $export = array();
+
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'contact_site_panel_context';
+  $handler->task = 'contact_site';
+  $handler->subtask = '';
+  $handler->handler = 'panel_context';
+  $handler->weight = 0;
+  $handler->conf = array(
+    'title' => 'Panel',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => '',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(),
+  );
+  $display = new panels_display();
+  $display->layout = 'zen_no_wrapper';
+  $display->layout_settings = array(
+    'main_classes' => '',
+  );
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'main' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = '';
+  $display->uuid = '50a7125f-46b1-4406-966b-ffc9bb0d803c';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-531a2b8d-f9b2-4cdd-9343-dba47f623979';
+    $pane->panel = 'main';
+    $pane->type = 'contact';
+    $pane->subtype = 'contact';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+      'style' => 'naked',
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '531a2b8d-f9b2-4cdd-9343-dba47f623979';
+    $display->content['new-531a2b8d-f9b2-4cdd-9343-dba47f623979'] = $pane;
+    $display->panels['main'][0] = 'new-531a2b8d-f9b2-4cdd-9343-dba47f623979';
+  $display->hide_title = PANELS_TITLE_PANE;
+  $display->title_pane = 'new-531a2b8d-f9b2-4cdd-9343-dba47f623979';
+  $handler->conf['display'] = $display;
+  $export['contact_site_panel_context'] = $handler;
+
+  return $export;
+}
+
+/**
  * Implements hook_default_page_manager_pages().
  */
 function fieldmuseum_default_page_manager_pages() {
@@ -738,7 +810,10 @@ Open every day except Christmas. 9am-5pm.
   $page->admin_title = 'Make a gift';
   $page->admin_description = '';
   $page->path = 'support/make-a-gift';
-  $page->access = array();
+  $page->access = array(
+    'type' => 'none',
+    'settings' => NULL,
+  );
   $page->menu = array(
     'type' => 'normal',
     'title' => 'Make a gift',
