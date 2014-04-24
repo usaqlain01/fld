@@ -1,0 +1,5 @@
+ul.menu {
+  .region-header &, .region-footer & {
+    @include inline-list;
+  }
+}

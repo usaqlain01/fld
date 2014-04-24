@@ -19,7 +19,7 @@ $zen-gutter-width:  20px;
 // You can generate more efficient CSS if you manually apply the
 // zen-grid-item-base mixin to all grid items from within a single ruleset.
 $zen-auto-include-item-base: false;
-// $zen-auto-include-flow-item-base: false;
+$zen-auto-include-flow-item-base: false;
 
 // Suppress this section of CSS for RTL layouts since it contains no LTR-specific styles.
 @if $zen-reverse-all-floats == false {

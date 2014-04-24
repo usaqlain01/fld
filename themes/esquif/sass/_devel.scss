@@ -1,0 +1,13 @@
+.with-wireframes {
+  .panel-pane,.pane-title {
+    background-color: rgba(red, .2);
+  }
+
+  .node {
+    background-color: rgba(blue, .2);
+  }
+
+  .region,.sidebar,#header,#navigation,#content {
+    background-color: rgba(yellow, .2);
+  }
+}
