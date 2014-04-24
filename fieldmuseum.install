@@ -95,21 +95,33 @@ function fieldmuseum_install() {
   // Create some stub nodes.
   $stubs = \Symfony\Component\Yaml\Yaml::parse(DRUPAL_ROOT .'/'. drupal_get_path('profile', 'fieldmuseum') .'/placeholder-content.yml');
   array_walk($stubs, function ($args) {
-    call_user_func_array('_fieldmuseum_create_node', $args);
+    $entity_type = array_shift($args);
+    switch ($entity_type) {
+      case 'node':
+        call_user_func_array('_fieldmuseum_create_node', $args);
+        break;
+
+      case 'taxonomy_term':
+        call_user_func_array('_fieldmuseum_create_taxonomy_term', $args);
+        break;
+    }
   });
 }
 
 /**
  * Creates stub nodes with paths and menu items from simple arguments.
  */
-function _fieldmuseum_create_node($bundle, $label, $path, $menu_name = FALSE) {
+function _fieldmuseum_create_node($bundle, $label, $path = NULL, $menu_name = FALSE) {
   global $user;
   $node = new stdClass();
   $node->title = $label;
   $node->type = $bundle;
-  $node->path = array(
-    'alias' => $path,
-  );
+
+  if ($path) {
+    $node->path = array(
+      'alias' => $path,
+    );
+  }
 
   if ($menu_name) {
     $parent_path = explode('/', $path);
@@ -137,4 +149,20 @@ function _fieldmuseum_create_node($bundle, $label, $path, $menu_name = FALSE) {
   $node->comment = 1;
   $node = node_submit($node);
   node_save($node);
+}
+
+/**
+ * Creates stub taxonomy terms.
+ */
+function _fieldmuseum_create_taxonomy_term($bundle, $label, $path = NULL, $menu_name = FALSE) {
+  $vocabulary = taxonomy_vocabulary_machine_name_load($bundle);
+  $term = (object) array(
+    'vid' => $vocabulary->vid,
+    'name' => $label,
+    'description' => NULL,
+    'format' => 1,
+  );
+  // @TODO support paths.
+  // @TODO support menu names.
+  taxonomy_term_save($term);
 }
