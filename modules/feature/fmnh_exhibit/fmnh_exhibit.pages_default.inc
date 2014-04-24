@@ -28,6 +28,8 @@ function fmnh_exhibit_default_page_manager_pages() {
       ),
     ),
     'logic' => 'and',
+    'type' => 'none',
+    'settings' => NULL,
   );
   $page->menu = array(
     'type' => 'normal',
@@ -96,7 +98,7 @@ function fmnh_exhibit_default_page_manager_pages() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-652b610c-279a-4d10-9e8a-ed8448f94138';
+    $pane->pid = 'new-80cd034f-2442-4d79-9638-3cb4935e4736';
     $pane->panel = 'main';
     $pane->type = 'views_panes';
     $pane->subtype = 'exhibitions-panel_pane_1';
@@ -112,11 +114,11 @@ function fmnh_exhibit_default_page_manager_pages() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = '652b610c-279a-4d10-9e8a-ed8448f94138';
-    $display->content['new-652b610c-279a-4d10-9e8a-ed8448f94138'] = $pane;
-    $display->panels['main'][0] = 'new-652b610c-279a-4d10-9e8a-ed8448f94138';
+    $pane->uuid = '80cd034f-2442-4d79-9638-3cb4935e4736';
+    $display->content['new-80cd034f-2442-4d79-9638-3cb4935e4736'] = $pane;
+    $display->panels['main'][0] = 'new-80cd034f-2442-4d79-9638-3cb4935e4736';
   $display->hide_title = PANELS_TITLE_PANE;
-  $display->title_pane = 'new-652b610c-279a-4d10-9e8a-ed8448f94138';
+  $display->title_pane = 'new-80cd034f-2442-4d79-9638-3cb4935e4736';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
   $pages['exhibitions'] = $page;
