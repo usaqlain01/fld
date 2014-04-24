@@ -92,6 +92,7 @@ function fieldmuseum_install() {
     ->fields(array('uid' => 1, 'rid' => $admin_role->rid))
     ->execute();
 
+  // module_load_include('install', 'fieldmuseum');
   // Create some stub nodes.
   $stubs = \Symfony\Component\Yaml\Yaml::parse(DRUPAL_ROOT .'/'. drupal_get_path('profile', 'fieldmuseum') .'/placeholder-content.yml');
   array_walk($stubs, function ($args) {
