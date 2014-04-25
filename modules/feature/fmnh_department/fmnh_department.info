@@ -1,0 +1,10 @@
+name = Field Museum department
+core = 7.x
+package = The Field Museum
+dependencies[] = entityreference
+dependencies[] = features
+dependencies[] = text
+features[features_api][] = api:2
+features[field_base][] = field_department
+features[field_instance][] = node-department-body
+features[node][] = department

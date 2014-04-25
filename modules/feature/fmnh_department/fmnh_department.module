@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Field Museum department feature.
+ */
+
+include_once 'fmnh_department.features.inc';
