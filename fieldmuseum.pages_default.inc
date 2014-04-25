@@ -435,6 +435,7 @@ function fieldmuseum_default_page_manager_pages() {
     $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,
+      'style' => 'naked',
     );
     $pane->css = array();
     $pane->extras = array();
@@ -924,6 +925,38 @@ Open every day except Christmas. 9am-5pm.
   $display->uuid = '0e1fa6d2-0164-4626-b7f4-3dbb72c3c3fb';
   $display->content = array();
   $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-09d12684-6f9a-45c4-b381-3723c89883ac';
+    $pane->panel = 'main';
+    $pane->type = 'menu_tree';
+    $pane->subtype = 'main-menu';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'menu_name' => 'main-menu',
+      'parent_mlid' => 'main-menu:0',
+      'title_link' => 0,
+      'admin_title' => '',
+      'level' => '1',
+      'follow' => 'child',
+      'depth' => 0,
+      'expanded' => 0,
+      'sort' => 0,
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+      'style' => 'naked',
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '09d12684-6f9a-45c4-b381-3723c89883ac';
+    $display->content['new-09d12684-6f9a-45c4-b381-3723c89883ac'] = $pane;
+    $display->panels['main'][0] = 'new-09d12684-6f9a-45c4-b381-3723c89883ac';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
