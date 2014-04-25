@@ -1,0 +1,11 @@
+name = Field Museum staff
+core = 7.x
+package = The Field Museum
+dependencies[] = fmnh_department
+dependencies[] = options
+dependencies[] = views
+dependencies[] = views_content
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:2
+features[field_instance][] = user-user-field_department
+features[views_view][] = people

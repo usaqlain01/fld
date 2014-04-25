@@ -227,6 +227,131 @@ function fmnh_department_default_page_manager_pages() {
   $page->default_handlers[$handler->name] = $handler;
   $pages['department_collections'] = $page;
 
+  $page = new stdClass();
+  $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
+  $page->api_version = 1;
+  $page->name = 'department_people';
+  $page->task = 'page';
+  $page->admin_title = 'Department people';
+  $page->admin_description = '';
+  $page->path = 'node/%node/people';
+  $page->access = array(
+    'plugins' => array(
+      0 => array(
+        'name' => 'perm',
+        'settings' => array(
+          'perm' => 'access content',
+        ),
+        'context' => 'logged-in-user',
+        'not' => FALSE,
+      ),
+    ),
+    'logic' => 'and',
+  );
+  $page->menu = array(
+    'type' => 'tab',
+    'title' => 'People',
+    'name' => 'navigation',
+    'weight' => '3',
+    'parent' => array(
+      'type' => 'none',
+      'title' => '',
+      'name' => 'navigation',
+      'weight' => '0',
+    ),
+  );
+  $page->arguments = array(
+    'node' => array(
+      'id' => 1,
+      'identifier' => 'Node: ID',
+      'name' => 'entity_id:node',
+      'settings' => array(),
+    ),
+  );
+  $page->conf = array(
+    'admin_paths' => FALSE,
+  );
+  $page->default_handlers = array();
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'page_department_people_panel_context';
+  $handler->task = 'page';
+  $handler->subtask = 'department_people';
+  $handler->handler = 'panel_context';
+  $handler->weight = 0;
+  $handler->conf = array(
+    'title' => 'Panel',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => '',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(),
+    'access' => array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'entity_bundle:node',
+          'settings' => array(
+            'type' => array(
+              'department' => 'department',
+            ),
+          ),
+          'context' => 'argument_entity_id:node_1',
+          'not' => FALSE,
+        ),
+      ),
+      'logic' => 'and',
+    ),
+  );
+  $display = new panels_display();
+  $display->layout = 'zen_no_wrapper';
+  $display->layout_settings = array(
+    'main_classes' => '',
+  );
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'main' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = '';
+  $display->uuid = '7fb0ee0d-2370-4e32-bd2b-5d75727b002d';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-9b169951-fe80-4a59-ad53-eccb8c0a6d51';
+    $pane->panel = 'main';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'people-panel_pane_1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'context' => array(
+        0 => 'argument_entity_id:node_1',
+      ),
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+      'style' => 'naked',
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '9b169951-fe80-4a59-ad53-eccb8c0a6d51';
+    $display->content['new-9b169951-fe80-4a59-ad53-eccb8c0a6d51'] = $pane;
+    $display->panels['main'][0] = 'new-9b169951-fe80-4a59-ad53-eccb8c0a6d51';
+  $display->hide_title = PANELS_TITLE_PANE;
+  $display->title_pane = 'new-9b169951-fe80-4a59-ad53-eccb8c0a6d51';
+  $handler->conf['display'] = $display;
+  $page->default_handlers[$handler->name] = $handler;
+  $pages['department_people'] = $page;
+
   return $pages;
 
 }
