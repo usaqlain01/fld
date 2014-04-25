@@ -1,0 +1,16 @@
+name = Field Museum collection
+core = 7.x
+package = The Field Museum
+dependencies[] = ctools
+dependencies[] = date
+dependencies[] = entityreference
+dependencies[] = features
+dependencies[] = fieldmuseum
+dependencies[] = node
+dependencies[] = options
+dependencies[] = text
+features[features_api][] = api:2
+features[field_instance][] = node-collection-body
+features[node][] = collection
+features_exclude[field_base][field_department] = field_department
+features_exclude[field_instance][node-collection-field_department] = node-collection-field_department
