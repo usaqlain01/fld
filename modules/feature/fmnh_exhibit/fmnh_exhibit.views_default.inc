@@ -150,6 +150,13 @@ function fmnh_exhibit_views_default_views() {
   $handler->display->display_options['filters']['field_date_value']['relationship'] = 'reverse_field_exhibit_or_program_node';
   $handler->display->display_options['filters']['field_date_value']['operator'] = '<=';
   $handler->display->display_options['filters']['field_date_value']['default_date'] = 'now +1 month';
+  /* Filter criterion: Content: Date -  start date (field_date) */
+  $handler->display->display_options['filters']['field_date_value_1']['id'] = 'field_date_value_1';
+  $handler->display->display_options['filters']['field_date_value_1']['table'] = 'field_data_field_date';
+  $handler->display->display_options['filters']['field_date_value_1']['field'] = 'field_date_value';
+  $handler->display->display_options['filters']['field_date_value_1']['relationship'] = 'reverse_field_exhibit_or_program_node';
+  $handler->display->display_options['filters']['field_date_value_1']['operator'] = '>';
+  $handler->display->display_options['filters']['field_date_value_1']['default_date'] = 'now';
   $handler->display->display_options['pane_category']['name'] = 'Exhibits';
   $handler->display->display_options['pane_category']['weight'] = '0';
   $handler->display->display_options['argument_input'] = array(
