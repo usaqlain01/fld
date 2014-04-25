@@ -12,5 +12,6 @@ features[field_base][] = field_department
 features[field_instance][] = node-department-body
 features[node][] = department
 features[page_manager_handlers][] = node_view_panel_context_department
+features[page_manager_pages][] = add_child_page
 features[page_manager_pages][] = department_collections
 features[page_manager_pages][] = department_people

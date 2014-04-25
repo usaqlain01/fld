@@ -105,6 +105,108 @@ function fmnh_department_default_page_manager_pages() {
   $page = new stdClass();
   $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
   $page->api_version = 1;
+  $page->name = 'add_child_page';
+  $page->task = 'page';
+  $page->admin_title = 'Add child page';
+  $page->admin_description = '';
+  $page->path = 'node/%node/add-child';
+  $page->access = array(
+    'plugins' => array(
+      0 => array(
+        'name' => 'perm',
+        'settings' => array(
+          'perm' => 'create page content',
+        ),
+        'context' => 'logged-in-user',
+        'not' => FALSE,
+      ),
+      1 => array(
+        'name' => 'node_access',
+        'settings' => array(
+          'type' => 'view',
+        ),
+        'context' => array(
+          0 => 'logged-in-user',
+          1 => 'argument_entity_id:node_1',
+        ),
+        'not' => FALSE,
+      ),
+      2 => array(
+        'name' => 'node_menu',
+        'settings' => array(
+          'menu' => 'main-menu',
+        ),
+        'context' => 'argument_entity_id:node_1',
+        'not' => FALSE,
+      ),
+      3 => array(
+        'name' => 'entity_bundle:node',
+        'settings' => array(
+          'type' => array(
+            'department' => 'department',
+          ),
+        ),
+        'context' => 'argument_entity_id:node_1',
+        'not' => FALSE,
+      ),
+    ),
+    'logic' => 'and',
+  );
+  $page->menu = array(
+    'type' => 'action',
+    'title' => 'Create child page',
+    'name' => 'navigation',
+    'weight' => '0',
+    'parent' => array(
+      'type' => 'none',
+      'title' => '',
+      'name' => 'navigation',
+      'weight' => '0',
+    ),
+  );
+  $page->arguments = array(
+    'node' => array(
+      'id' => 1,
+      'identifier' => 'Node: ID',
+      'name' => 'entity_id:node',
+      'settings' => array(),
+    ),
+  );
+  $page->conf = array(
+    'admin_paths' => FALSE,
+  );
+  $page->default_handlers = array();
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'page_add_child_page_menu_context';
+  $handler->task = 'page';
+  $handler->subtask = 'add_child_page';
+  $handler->handler = 'menu_context';
+  $handler->weight = 0;
+  $handler->conf = array(
+    'title' => 'Context Admin',
+    'no_blocks' => FALSE,
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(),
+    'access' => array(
+      'plugins' => array(),
+      'logic' => 'and',
+    ),
+    'context_admin_options' => 'node_create_menu',
+    'context_admin_options_items' => 'page',
+    'context_admin_sub_page' => 1,
+    'context_admin_use_node_edit' => 0,
+    'submitted_context' => 'argument_entity_id:node_1',
+  );
+  $page->default_handlers[$handler->name] = $handler;
+  $pages['add_child_page'] = $page;
+
+  $page = new stdClass();
+  $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
+  $page->api_version = 1;
   $page->name = 'department_collections';
   $page->task = 'page';
   $page->admin_title = 'Department collections';
@@ -118,6 +220,16 @@ function fmnh_department_default_page_manager_pages() {
           'perm' => 'access content',
         ),
         'context' => 'logged-in-user',
+        'not' => FALSE,
+      ),
+      1 => array(
+        'name' => 'entity_bundle:node',
+        'settings' => array(
+          'type' => array(
+            'department' => 'department',
+          ),
+        ),
+        'context' => 'argument_entity_id:node_1',
         'not' => FALSE,
       ),
     ),
@@ -166,18 +278,7 @@ function fmnh_department_default_page_manager_pages() {
     'contexts' => array(),
     'relationships' => array(),
     'access' => array(
-      'plugins' => array(
-        0 => array(
-          'name' => 'entity_bundle:node',
-          'settings' => array(
-            'type' => array(
-              'department' => 'department',
-            ),
-          ),
-          'context' => 'argument_entity_id:node_1',
-          'not' => FALSE,
-        ),
-      ),
+      'plugins' => array(),
       'logic' => 'and',
     ),
   );
@@ -245,6 +346,16 @@ function fmnh_department_default_page_manager_pages() {
         'context' => 'logged-in-user',
         'not' => FALSE,
       ),
+      1 => array(
+        'name' => 'entity_bundle:node',
+        'settings' => array(
+          'type' => array(
+            'department' => 'department',
+          ),
+        ),
+        'context' => 'argument_entity_id:node_1',
+        'not' => FALSE,
+      ),
     ),
     'logic' => 'and',
   );
@@ -291,18 +402,7 @@ function fmnh_department_default_page_manager_pages() {
     'contexts' => array(),
     'relationships' => array(),
     'access' => array(
-      'plugins' => array(
-        0 => array(
-          'name' => 'entity_bundle:node',
-          'settings' => array(
-            'type' => array(
-              'department' => 'department',
-            ),
-          ),
-          'context' => 'argument_entity_id:node_1',
-          'not' => FALSE,
-        ),
-      ),
+      'plugins' => array(),
       'logic' => 'and',
     ),
   );
