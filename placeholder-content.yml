@@ -71,7 +71,7 @@
 - [ node, page, Mission, about/mission, main-menu ]
 - [ node, page, Press, about/press, main-menu ]
 - [ node, page, Annual reports, about/annual-reports, main-menu ]
-- [ node, page, Copyright information, copyright, menu-footer-menu ]
+- [ node, page, Copyright information, about/copyright-information, menu-footer-menu ]
 - [ node, department, Pritzker DNA Lab, science/research/pritzker-dna-lab, main-menu ]
 - [ node, department, Conserving collections, science/research/conserving-collections, main-menu ]
 - [ node, department, Library, science/library, main-menu ]
