@@ -57,6 +57,18 @@ projects[migrate][subdir] = contrib
 projects[webform][subdir] = contrib
 projects[webform][version] = 3.20
 
+projects[media_gallery][subdir] = contrib
+projects[media_gallery][version] = 2.x-dev
+
+projects[media][subdir] = contrib
+projects[media][version] = 2.x-dev
+
+projects[file_entity][subdir] = contrib
+projects[file_entity][version] = 2.x-dev
+
+projects[oembed][subdir] = contrib
+projects[oembed][version] = 1.x-dev
+
 ; Development
 
 projects[bangpoundentity][subdir] = bangpound
