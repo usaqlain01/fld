@@ -54,6 +54,9 @@ projects[migrate_d2d][subdir] = contrib
 projects[migrate][version] = 2.x-dev
 projects[migrate][subdir] = contrib
 
+projects[webform][subdir] = contrib
+projects[webform][version] = 3.20
+
 ; Development
 
 projects[bangpoundentity][subdir] = bangpound
