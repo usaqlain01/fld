@@ -48,6 +48,12 @@ projects[pathauto][subdir] = contrib
 projects[token][version] = 1.5
 projects[token][subdir] = contrib
 
+projects[migrate_d2d][version] = 2.x-dev
+projects[migrate_d2d][subdir] = contrib
+
+projects[migrate][version] = 2.x-dev
+projects[migrate][subdir] = contrib
+
 ; Development
 
 projects[bangpoundentity][subdir] = bangpound
