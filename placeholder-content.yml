@@ -90,3 +90,7 @@
 - [ node, page, Community science, science/community-science, main-menu ]
 - [ node, department, Collections resource center, science/resources/collections-resource-center, main-menu ]
 - [ node, department, Photo archives, science/archives/photo-archives, main-menu ]
+- [ node, page, Careers, about/careers, main-menu ]
+- [ node, page, Internships, about/careers/internships, main-menu ]
+- [ node, page, Benefits, about/careers/benefis, main-menu ]
+- [ node, page, Research scholarship grants, about/careers/research-scholarship-grants, main-menu ]
