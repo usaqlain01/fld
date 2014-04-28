@@ -1,0 +1,10 @@
+name = Field Museum newsletter
+core = 7.x
+package = The Field Museum
+dependencies[] = fieldmuseum
+dependencies[] = node
+dependencies[] = text
+features[features_api][] = api:2
+features[node][] = newsletter
+features_exclude[dependencies][features] = features
+features_exclude[field_instance][node-newsletter-body] = node-newsletter-body
