@@ -59,7 +59,7 @@ function fmnh_migrate_migrate_api() {
         'destination_type' => 'newsletter',
         'source_connection' => 'migrate',
         'source_version' => '7',
-        'description' => 'Migrate newsletters',
+        'description' => 'Migrate newsletter nodes',
       ),
       'PodcastNode' => array(
         'class_name' => 'PodcastNodeMigration',
