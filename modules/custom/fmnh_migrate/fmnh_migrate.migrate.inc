@@ -106,6 +106,15 @@ function fmnh_migrate_migrate_api() {
         'source_version' => '7',
         'description' => 'Migrate topic terms',
       ),
+      'VideoNode' => array(
+        'class_name' => 'VideoNodeMigration',
+        'group_name' => 'fmnh',
+        'source_type' => 'video',
+        'destination_type' => 'video',
+        'source_connection' => 'migrate',
+        'source_version' => '7',
+        'description' => 'Migrate video nodes',
+      ),
     ),
   );
   return $api;

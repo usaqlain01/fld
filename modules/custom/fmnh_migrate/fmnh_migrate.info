@@ -12,3 +12,4 @@ files[] = lib/ResearchAreasTermMigration.inc
 files[] = lib/ScienceFocusTermMigration.inc
 files[] = lib/StratigraphyTermMigration.inc
 files[] = lib/TopicTermMigration.inc
+files[] = lib/VideoNodeMigration.inc
