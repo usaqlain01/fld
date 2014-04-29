@@ -61,6 +61,15 @@ function fmnh_migrate_migrate_api() {
         'source_version' => '7',
         'description' => 'Migrate science_focus terms',
       ),
+      'ResearchAreasTerm' => array(
+        'class_name' => 'ResearchAreasTermMigration',
+        'group_name' => 'fmnh',
+        'source_vocabulary' => 'research_areas',
+        'destination_vocabulary' => 'research_areas',
+        'source_connection' => 'migrate',
+        'source_version' => '7',
+        'description' => 'Migrate research_areas terms',
+      ),
       'TopicTerm' => array(
         'class_name' => 'TopicTermMigration',
         'group_name' => 'fmnh',
