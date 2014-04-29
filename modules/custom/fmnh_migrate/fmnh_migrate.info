@@ -5,3 +5,4 @@ dependencies[] = migrate_d2d
 files[] = lib/BlogNodeMigration.inc
 files[] = lib/CollectionNodeMigration.inc
 files[] = lib/NewsletterNodeMigration.inc
+files[] = lib/TopicTermMigration.inc

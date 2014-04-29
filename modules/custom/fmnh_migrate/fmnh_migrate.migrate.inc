@@ -43,6 +43,15 @@ function fmnh_migrate_migrate_api() {
         'source_version' => '7',
         'description' => 'Migrate newsletters',
       ),
+      'TopicTerm' => array(
+        'class_name' => 'TopicTermMigration',
+        'group_name' => 'fmnh',
+        'source_vocabulary' => 'topic',
+        'destination_vocabulary' => 'topic',
+        'source_connection' => 'migrate',
+        'source_version' => '7',
+        'description' => 'Migrate topic terms',
+      ),
     ),
   );
   return $api;
