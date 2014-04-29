@@ -61,6 +61,15 @@ function fmnh_migrate_migrate_api() {
         'source_version' => '7',
         'description' => 'Migrate newsletters',
       ),
+      'PodcastNode' => array(
+        'class_name' => 'PodcastNodeMigration',
+        'group_name' => 'fmnh',
+        'source_type' => 'podcast',
+        'destination_type' => 'podcast',
+        'source_connection' => 'migrate',
+        'source_version' => '7',
+        'description' => 'Migrate podcast nodes',
+      ),
       'ScienceFocusTerm' => array(
         'class_name' => 'ScienceFocusTermMigration',
         'group_name' => 'fmnh',
