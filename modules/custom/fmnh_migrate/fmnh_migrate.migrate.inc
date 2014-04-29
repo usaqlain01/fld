@@ -43,6 +43,15 @@ function fmnh_migrate_migrate_api() {
         'source_version' => '7',
         'description' => 'Migrate newsletters',
       ),
+      'ScienceFocusTerm' => array(
+        'class_name' => 'ScienceFocusTermMigration',
+        'group_name' => 'fmnh',
+        'source_vocabulary' => 'science_focus',
+        'destination_vocabulary' => 'science_focus',
+        'source_connection' => 'migrate',
+        'source_version' => '7',
+        'description' => 'Migrate science_focus terms',
+      ),
       'TopicTerm' => array(
         'class_name' => 'TopicTermMigration',
         'group_name' => 'fmnh',
