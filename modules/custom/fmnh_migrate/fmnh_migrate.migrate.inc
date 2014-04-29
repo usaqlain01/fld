@@ -34,6 +34,15 @@ function fmnh_migrate_migrate_api() {
         'source_version' => '7',
         'description' => 'Migrate individual_collection posts',
       ),
+      'ExhibitTypeTerm' => array(
+        'class_name' => 'ExhibitTypeTermMigration',
+        'group_name' => 'fmnh',
+        'source_vocabulary' => 'exhibit_type',
+        'destination_vocabulary' => 'exhibit_type',
+        'source_connection' => 'migrate',
+        'source_version' => '7',
+        'description' => 'Migrate exhibit_type terms',
+      ),
       'NewsletterNode' => array(
         'class_name' => 'NewsletterNodeMigration',
         'group_name' => 'fmnh',
