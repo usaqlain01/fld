@@ -86,6 +86,13 @@ function fmnh_migrate_migrate_api() {
         'source_version' => '7',
         'description' => 'Migrate podcast nodes',
       ),
+      'Role' => array(
+        'class_name' => 'RoleMigration',
+        'group_name' => 'fmnh',
+        'source_connection' => 'migrate',
+        'source_version' => '7',
+        'description' => 'Migrate roles',
+      ),
       'ScienceFocusTerm' => array(
         'class_name' => 'ScienceFocusTermMigration',
         'group_name' => 'fmnh',
@@ -121,6 +128,14 @@ function fmnh_migrate_migrate_api() {
         'source_connection' => 'migrate',
         'source_version' => '7',
         'description' => 'Migrate topic terms',
+      ),
+      'User' => array(
+        'class_name' => 'UserMigration',
+        'group_name' => 'fmnh',
+        'source_connection' => 'migrate',
+        'source_version' => '7',
+        'dependencies' => array('Role'),
+        'description' => 'Migrate users',
       ),
       'VideoNode' => array(
         'class_name' => 'VideoNodeMigration',
