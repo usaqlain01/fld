@@ -23,6 +23,7 @@ function fmnh_migrate_migrate_api() {
         'destination_type' => 'blog',
         'source_connection' => 'migrate',
         'source_version' => '7',
+        'dependencies' => array('User'),
         'description' => 'Migrate blog posts',
       ),
       'CollectionNode' => array(
@@ -32,6 +33,7 @@ function fmnh_migrate_migrate_api() {
         'destination_type' => 'collection',
         'source_connection' => 'migrate',
         'source_version' => '7',
+        'dependencies' => array('User'),
         'description' => 'Migrate individual_collection posts',
       ),
       'ExhibitTypeTerm' => array(
@@ -57,6 +59,7 @@ function fmnh_migrate_migrate_api() {
         'group_name' => 'fmnh',
         'source_connection' => 'migrate',
         'source_version' => '7',
+        'dependencies' => array('User'),
         'description' => 'Migrate files',
       ),
       'NewsletterNode' => array(
@@ -66,6 +69,7 @@ function fmnh_migrate_migrate_api() {
         'destination_type' => 'newsletter',
         'source_connection' => 'migrate',
         'source_version' => '7',
+        'dependencies' => array('User'),
         'description' => 'Migrate newsletter nodes',
       ),
       'PhotoGalleryNode' => array(
@@ -75,6 +79,7 @@ function fmnh_migrate_migrate_api() {
         'destination_type' => 'media_gallery',
         'source_connection' => 'migrate',
         'source_version' => '7',
+        'dependencies' => array('User'),
         'description' => 'Migrate photo_gallery nodes',
       ),
       'PodcastNode' => array(
@@ -84,6 +89,7 @@ function fmnh_migrate_migrate_api() {
         'destination_type' => 'podcast',
         'source_connection' => 'migrate',
         'source_version' => '7',
+        'dependencies' => array('User'),
         'description' => 'Migrate podcast nodes',
       ),
       'Role' => array(
@@ -144,6 +150,7 @@ function fmnh_migrate_migrate_api() {
         'destination_type' => 'video',
         'source_connection' => 'migrate',
         'source_version' => '7',
+        'dependencies' => array('User'),
         'description' => 'Migrate video nodes',
       ),
     ),
