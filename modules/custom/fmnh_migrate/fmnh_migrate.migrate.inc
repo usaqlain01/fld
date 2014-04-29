@@ -52,6 +52,13 @@ function fmnh_migrate_migrate_api() {
         'source_version' => '7',
         'description' => 'Migrate faq_topics terms',
       ),
+      'File' => array(
+        'class_name' => 'FileMigration',
+        'group_name' => 'fmnh',
+        'source_connection' => 'migrate',
+        'source_version' => '7',
+        'description' => 'Migrate files',
+      ),
       'NewsletterNode' => array(
         'class_name' => 'NewsletterNodeMigration',
         'group_name' => 'fmnh',
