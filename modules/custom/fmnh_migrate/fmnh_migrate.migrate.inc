@@ -123,7 +123,7 @@ function fmnh_migrate_migrate_api() {
         'class_name' => 'ResearchAreasTermMigration',
         'group_name' => 'fmnh',
         'source_vocabulary' => 'research_areas',
-        'destination_vocabulary' => 'research_areas',
+        'destination_vocabulary' => 'research_area',
         'source_connection' => 'migrate',
         'source_version' => '7',
         'description' => 'Migrate research_areas terms',
