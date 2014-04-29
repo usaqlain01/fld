@@ -1,0 +1,10 @@
+name = Field Museum podcast
+core = 7.x
+package = The Field Museum
+dependencies[] = features
+dependencies[] = fieldmuseum
+dependencies[] = node
+dependencies[] = text
+features[features_api][] = api:2
+features[field_instance][] = node-podcast-body
+features[node][] = podcast
