@@ -45,6 +45,16 @@ function fmnh_migrate_migrate_api() {
         'source_version' => '7',
         'description' => 'Migrate exhibit_type terms',
       ),
+      'FaqNode' => array(
+        'class_name' => 'FaqNodeMigration',
+        'group_name' => 'fmnh',
+        'source_type' => 'faq',
+        'destination_type' => 'faq',
+        'source_connection' => 'migrate',
+        'source_version' => '7',
+        'dependencies' => array('User', 'FaqTopicsTerm'),
+        'description' => 'Migrate FAQ posts',
+      ),
       'FaqTopicsTerm' => array(
         'class_name' => 'FaqTopicsTermMigration',
         'group_name' => 'fmnh',
