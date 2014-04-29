@@ -16,6 +16,15 @@ function fmnh_migrate_migrate_api() {
       ),
     ),
     'migrations' => array(
+      'AudienceTerm' => array(
+        'class_name' => 'AudienceTermMigration',
+        'group_name' => 'fmnh',
+        'source_vocabulary' => 'audience',
+        'destination_vocabulary' => 'audience',
+        'source_connection' => 'migrate',
+        'source_version' => '7',
+        'description' => 'Migrate audience terms',
+      ),
       'BlogNode' => array(
         'class_name' => 'BlogNodeMigration',
         'group_name' => 'fmnh',
