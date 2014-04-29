@@ -75,6 +75,9 @@ projects[multiform][version] = 1.0
 projects[plupload][subdir] = contrib
 projects[plupload][version] = 1.6
 
+projects[invisimail][subdir] = contrib
+projects[invisimail][version] = 1.1
+
 ; Development
 
 projects[bangpoundentity][subdir] = bangpound
