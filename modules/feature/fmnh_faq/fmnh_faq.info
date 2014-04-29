@@ -1,0 +1,10 @@
+name = Field Museum FAQ
+core = 7.x
+package = The Field Museum
+dependencies[] = features
+dependencies[] = fieldmuseum
+dependencies[] = node
+dependencies[] = text
+features[features_api][] = api:2
+features[field_instance][] = node-faq-body
+features[node][] = faq
