@@ -61,6 +61,15 @@ function fmnh_migrate_migrate_api() {
         'source_version' => '7',
         'description' => 'Migrate newsletter nodes',
       ),
+      'PhotoGalleryNode' => array(
+        'class_name' => 'PhotoGalleryNodeMigration',
+        'group_name' => 'fmnh',
+        'source_type' => 'photo_gallery',
+        'destination_type' => 'media_gallery',
+        'source_connection' => 'migrate',
+        'source_version' => '7',
+        'description' => 'Migrate photo_gallery nodes',
+      ),
       'PodcastNode' => array(
         'class_name' => 'PodcastNodeMigration',
         'group_name' => 'fmnh',
