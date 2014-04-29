@@ -8,4 +8,5 @@ files[] = lib/NewsletterNodeMigration.inc
 files[] = lib/ExhibitTypeTermMigration.inc
 files[] = lib/ResearchAreasTermMigration.inc
 files[] = lib/ScienceFocusTermMigration.inc
+files[] = lib/StratigraphyTermMigration.inc
 files[] = lib/TopicTermMigration.inc

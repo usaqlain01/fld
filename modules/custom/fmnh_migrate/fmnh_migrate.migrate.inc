@@ -70,6 +70,15 @@ function fmnh_migrate_migrate_api() {
         'source_version' => '7',
         'description' => 'Migrate research_areas terms',
       ),
+      'StratigraphyTerm' => array(
+        'class_name' => 'StratigraphyTermMigration',
+        'group_name' => 'fmnh',
+        'source_vocabulary' => 'stratigraphy',
+        'destination_vocabulary' => 'stratigraphy',
+        'source_connection' => 'migrate',
+        'source_version' => '7',
+        'description' => 'Migrate stratigraphy terms',
+      ),
       'TopicTerm' => array(
         'class_name' => 'TopicTermMigration',
         'group_name' => 'fmnh',
