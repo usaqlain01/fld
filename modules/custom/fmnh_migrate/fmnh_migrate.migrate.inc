@@ -16,6 +16,15 @@ function fmnh_migrate_migrate_api() {
       ),
     ),
     'migrations' => array(
+      'BlogNode' => array(
+        'class_name' => 'BlogNodeMigration',
+        'group_name' => 'fmnh',
+        'source_type' => 'blog',
+        'destination_type' => 'blog',
+        'source_connection' => 'migrate',
+        'source_version' => '7',
+        'description' => 'Migrate blog posts',
+      ),
       'NewsletterNode' => array(
         'class_name' => 'NewsletterNodeMigration',
         'group_name' => 'fmnh',

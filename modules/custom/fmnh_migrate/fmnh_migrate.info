@@ -2,4 +2,5 @@ name = Field Museum migration
 core = 7.x
 package = The Field Museum
 dependencies[] = migrate_d2d
+files[] = lib/BlogNodeMigration.inc
 files[] = lib/NewsletterNodeMigration.inc
