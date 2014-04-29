@@ -43,6 +43,15 @@ function fmnh_migrate_migrate_api() {
         'source_version' => '7',
         'description' => 'Migrate exhibit_type terms',
       ),
+      'FaqTopicsTerm' => array(
+        'class_name' => 'FaqTopicsTermMigration',
+        'group_name' => 'fmnh',
+        'source_vocabulary' => 'faq_topics',
+        'destination_vocabulary' => 'faq_topics',
+        'source_connection' => 'migrate',
+        'source_version' => '7',
+        'description' => 'Migrate faq_topics terms',
+      ),
       'NewsletterNode' => array(
         'class_name' => 'NewsletterNodeMigration',
         'group_name' => 'fmnh',
