@@ -12,6 +12,7 @@ files[] = lib/ExhibitTypeTermMigration.inc
 files[] = lib/FaqNodeMigration.inc
 files[] = lib/FaqTopicsTermMigration.inc
 files[] = lib/ImageFileMigration.inc
+files[] = lib/LocationRegionTermMigration.inc
 files[] = lib/NewsletterNodeMigration.inc
 files[] = lib/PhotoGalleryNodeMigration.inc
 files[] = lib/PodcastNodeMigration.inc

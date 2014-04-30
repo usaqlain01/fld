@@ -113,6 +113,15 @@ function fmnh_migrate_migrate_api() {
         'dependencies' => array('User'),
         'description' => 'Migrate image files',
       ),
+      'LocationRegionTerm' => array(
+        'class_name' => 'LocationRegionTermMigration',
+        'group_name' => 'fmnh',
+        'source_vocabulary' => 'location_region',
+        'destination_vocabulary' => 'location_region',
+        'source_connection' => 'migrate',
+        'source_version' => '7',
+        'description' => 'Migrate location/region terms',
+      ),
       'NewsletterNode' => array(
         'class_name' => 'NewsletterNodeMigration',
         'group_name' => 'fmnh',
