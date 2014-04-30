@@ -65,6 +65,15 @@ function fmnh_migrate_migrate_api() {
         'dependencies' => array('User'),
         'description' => 'Migrate default files',
       ),
+      'DepartmentTerm' => array(
+        'class_name' => 'DepartmentTermMigration',
+        'group_name' => 'fmnh',
+        'source_connection' => 'migrate',
+        'destination_type' => 'department',
+        'source_version' => '7',
+        'source_vocabulary' => 'department_division',
+        'description' => 'migrate department terms to nodes',
+      ),
       'DocumentFiles' => array(
         'class_name' => 'DocumentFileMigration',
         'group_name' => 'fmnh',
