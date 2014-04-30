@@ -32,7 +32,7 @@ function fmnh_migrate_migrate_api() {
         'bundle' => 'audio',
         'source_version' => '7',
         'skip_pictures' => TRUE,
-        'dependencies' => array('User'),
+        'user_migration' => 'User',
         'description' => 'Migrate audio files',
       ),
       'BlogNode' => array(
@@ -42,7 +42,8 @@ function fmnh_migrate_migrate_api() {
         'destination_type' => 'blog',
         'source_connection' => 'migrate',
         'source_version' => '7',
-        'dependencies' => array('User'),
+        'user_migration' => 'User',
+        'dependencies' => array('ImageFile'),
         'description' => 'Migrate blog posts',
       ),
       'CollectionNode' => array(
@@ -52,7 +53,7 @@ function fmnh_migrate_migrate_api() {
         'destination_type' => 'collection',
         'source_connection' => 'migrate',
         'source_version' => '7',
-        'dependencies' => array('User'),
+        'user_migration' => 'User',
         'description' => 'Migrate individual_collection posts',
       ),
       'DefaultFile' => array(
@@ -62,7 +63,7 @@ function fmnh_migrate_migrate_api() {
         'bundle' => 'default',
         'source_version' => '7',
         'skip_pictures' => TRUE,
-        'dependencies' => array('User'),
+        'user_migration' => 'User',
         'description' => 'Migrate default files',
       ),
       'DepartmentTerm' => array(
@@ -81,7 +82,7 @@ function fmnh_migrate_migrate_api() {
         'bundle' => 'document',
         'source_version' => '7',
         'skip_pictures' => TRUE,
-        'dependencies' => array('User'),
+        'user_migration' => 'User',
         'description' => 'Migrate document files',
       ),
       'ExhibitTerm' => array(
@@ -109,7 +110,8 @@ function fmnh_migrate_migrate_api() {
         'destination_type' => 'faq',
         'source_connection' => 'migrate',
         'source_version' => '7',
-        'dependencies' => array('User', 'FaqTopicsTerm'),
+        'user_migration' => 'User',
+        'dependencies' => array('FaqTopicsTerm'),
         'description' => 'Migrate FAQ posts',
       ),
       'FaqTopicsTerm' => array(
@@ -128,7 +130,7 @@ function fmnh_migrate_migrate_api() {
         'bundle' => 'image',
         'source_version' => '7',
         'skip_pictures' => TRUE,
-        'dependencies' => array('User'),
+        'user_migration' => 'User',
         'description' => 'Migrate image files',
       ),
       'LocationRegionTerm' => array(
@@ -147,7 +149,7 @@ function fmnh_migrate_migrate_api() {
         'destination_type' => 'newsletter',
         'source_connection' => 'migrate',
         'source_version' => '7',
-        'dependencies' => array('User'),
+        'user_migration' => 'User',
         'description' => 'Migrate newsletter nodes',
       ),
       'PhotoGalleryNode' => array(
@@ -157,7 +159,7 @@ function fmnh_migrate_migrate_api() {
         'destination_type' => 'media_gallery',
         'source_connection' => 'migrate',
         'source_version' => '7',
-        'dependencies' => array('User'),
+        'user_migration' => 'User',
         'description' => 'Migrate photo_gallery nodes',
       ),
       'PodcastNode' => array(
@@ -167,7 +169,7 @@ function fmnh_migrate_migrate_api() {
         'destination_type' => 'podcast',
         'source_connection' => 'migrate',
         'source_version' => '7',
-        'dependencies' => array('User'),
+        'user_migration' => 'User',
         'description' => 'Migrate podcast nodes',
       ),
       'Role' => array(
@@ -235,7 +237,7 @@ function fmnh_migrate_migrate_api() {
         'bundle' => 'undefined',
         'source_version' => '7',
         'skip_pictures' => TRUE,
-        'dependencies' => array('User'),
+        'user_migration' => 'User',
         'description' => 'Migrate undefined files',
       ),
       'VideoFile' => array(
@@ -245,7 +247,7 @@ function fmnh_migrate_migrate_api() {
         'bundle' => 'video',
         'source_version' => '7',
         'skip_pictures' => TRUE,
-        'dependencies' => array('User'),
+        'user_migration' => 'User',
         'description' => 'Migrate video files',
       ),
       'VideoNode' => array(
@@ -255,7 +257,7 @@ function fmnh_migrate_migrate_api() {
         'destination_type' => 'video',
         'source_connection' => 'migrate',
         'source_version' => '7',
-        'dependencies' => array('User'),
+        'user_migration' => 'User',
         'description' => 'Migrate video nodes',
       ),
     ),
