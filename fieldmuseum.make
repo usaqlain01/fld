@@ -78,6 +78,9 @@ projects[plupload][version] = 1.6
 projects[invisimail][subdir] = contrib
 projects[invisimail][version] = 1.1
 
+projects[acquia_connector][subdir] = contrib
+projects[acquia_connector][version] = 2.14
+
 ; Development
 
 projects[bangpoundentity][subdir] = bangpound
