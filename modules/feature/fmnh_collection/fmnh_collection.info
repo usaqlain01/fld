@@ -14,4 +14,3 @@ features[field_instance][] = node-collection-body
 features[field_instance][] = node-collection-field_department
 features[node][] = collection
 features[views_view][] = collections
-features_exclude[field_base][field_department] = field_department

@@ -16,4 +16,3 @@ features[field_instance][] = node-program-field_audience
 features[node][] = program
 features[page_manager_pages][] = programs
 features[views_view][] = programs
-features_exclude[taxonomy][audience] = audience
