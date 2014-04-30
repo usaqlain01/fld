@@ -9,6 +9,7 @@ files[] = lib/CollectionNodeMigration.inc
 files[] = lib/DefaultFileMigration.inc
 files[] = lib/DepartmentTermMigration.inc
 files[] = lib/DocumentFileMigration.inc
+files[] = lib/ExhibitTermMigration.inc
 files[] = lib/ExhibitTypeTermMigration.inc
 files[] = lib/FaqNodeMigration.inc
 files[] = lib/FaqTopicsTermMigration.inc

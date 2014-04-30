@@ -84,6 +84,15 @@ function fmnh_migrate_migrate_api() {
         'dependencies' => array('User'),
         'description' => 'Migrate document files',
       ),
+      'ExhibitTerm' => array(
+        'class_name' => 'ExhibitTermMigration',
+        'group_name' => 'fmnh',
+        'source_connection' => 'migrate',
+        'destination_type' => 'exhibit',
+        'source_version' => '7',
+        'source_vocabulary' => 'exhibit',
+        'description' => 'migrate exhibit terms to nodes',
+      ),
       'ExhibitTypeTerm' => array(
         'class_name' => 'ExhibitTypeTermMigration',
         'group_name' => 'fmnh',
