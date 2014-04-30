@@ -17,6 +17,14 @@ function fieldmuseum_taxonomy_default_vocabularies() {
       'module' => 'taxonomy',
       'weight' => 0,
     ),
+    'exhibit_type' => array(
+      'name' => 'Exhibit type',
+      'machine_name' => 'exhibit_type',
+      'description' => '',
+      'hierarchy' => 0,
+      'module' => 'taxonomy',
+      'weight' => 0,
+    ),
     'faq_topics' => array(
       'name' => 'FAQ topics',
       'machine_name' => 'faq_topics',

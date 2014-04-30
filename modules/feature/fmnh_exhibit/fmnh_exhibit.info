@@ -17,5 +17,4 @@ features[node][] = exhibit
 features[page_manager_pages][] = exhibitions
 features[page_manager_pages][] = exhibitions_coming_soon
 features[page_manager_pages][] = exhibitions_past
-features[taxonomy][] = exhibit_type
 features[views_view][] = exhibitions

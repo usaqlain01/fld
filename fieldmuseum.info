@@ -57,6 +57,7 @@ features[page_manager_pages][] = ways_to_give
 features[panels_mini][] = footer
 features[panels_mini][] = header
 features[taxonomy][] = audience
+features[taxonomy][] = exhibit_type
 features[taxonomy][] = faq_topics
 features[taxonomy][] = grade_level
 features[taxonomy][] = location_region
