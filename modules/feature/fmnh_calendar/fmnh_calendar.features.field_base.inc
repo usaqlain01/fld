@@ -38,13 +38,13 @@ function fmnh_calendar_field_default_field_bases() {
     'type' => 'datetime',
   );
 
-  // Exported field_base: 'field_exhibit_or_program'
-  $field_bases['field_exhibit_or_program'] = array(
+  // Exported field_base: 'field_program'
+  $field_bases['field_program'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_exhibit_or_program',
+    'field_name' => 'field_program',
     'foreign keys' => array(
       'node' => array(
         'columns' => array(

@@ -72,8 +72,8 @@ function fmnh_calendar_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-event-field_exhibit_or_program'
-  $field_instances['node-event-field_exhibit_or_program'] = array(
+  // Exported field_instance: 'node-event-field_program'
+  $field_instances['node-event-field_program'] = array(
     'bundle' => 'event',
     'default_value' => NULL,
     'deleted' => 0,
@@ -96,7 +96,7 @@ function fmnh_calendar_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_exhibit_or_program',
+    'field_name' => 'field_program',
     'label' => 'Exhibit or program',
     'required' => 0,
     'settings' => array(

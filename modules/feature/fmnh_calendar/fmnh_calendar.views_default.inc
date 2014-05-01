@@ -32,9 +32,9 @@ function fmnh_calendar_views_default_views() {
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'node';
   /* Relationship: Entity Reference: Referenced Entity */
-  $handler->display->display_options['relationships']['field_exhibit_or_program_target_id']['id'] = 'field_exhibit_or_program_target_id';
-  $handler->display->display_options['relationships']['field_exhibit_or_program_target_id']['table'] = 'field_data_field_exhibit_or_program';
-  $handler->display->display_options['relationships']['field_exhibit_or_program_target_id']['field'] = 'field_exhibit_or_program_target_id';
+  $handler->display->display_options['relationships']['field_program_target_id']['id'] = 'field_program_target_id';
+  $handler->display->display_options['relationships']['field_program_target_id']['table'] = 'field_data_field_program';
+  $handler->display->display_options['relationships']['field_program_target_id']['field'] = 'field_program_target_id';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -50,7 +50,7 @@ function fmnh_calendar_views_default_views() {
   $handler->display->display_options['arguments']['tid']['id'] = 'tid';
   $handler->display->display_options['arguments']['tid']['table'] = 'taxonomy_index';
   $handler->display->display_options['arguments']['tid']['field'] = 'tid';
-  $handler->display->display_options['arguments']['tid']['relationship'] = 'field_exhibit_or_program_target_id';
+  $handler->display->display_options['arguments']['tid']['relationship'] = 'field_program_target_id';
   $handler->display->display_options['arguments']['tid']['title_enable'] = TRUE;
   $handler->display->display_options['arguments']['tid']['title'] = 'Events for %1';
   $handler->display->display_options['arguments']['tid']['default_argument_type'] = 'fixed';
