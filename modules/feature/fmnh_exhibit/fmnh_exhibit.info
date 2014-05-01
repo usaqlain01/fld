@@ -2,6 +2,7 @@ name = Field Museum exhibit
 core = 7.x
 package = The Field Museum
 dependencies[] = ctools
+dependencies[] = entityreference
 dependencies[] = features
 dependencies[] = options
 dependencies[] = page_manager
