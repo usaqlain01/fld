@@ -90,6 +90,9 @@ projects[menu_position][version] = 1.x-dev
 projects[menu_block][subdir] = contrib
 projects[menu_block][version] = 2.x-dev
 
+projects[redirect][subdir] = contrib
+projects[redirect][version] = 1.x-dev
+
 ; Development
 
 projects[bangpoundentity][subdir] = bangpound
