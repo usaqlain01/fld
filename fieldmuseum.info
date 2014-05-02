@@ -8,6 +8,7 @@ dependencies[] = ctools
 dependencies[] = entityreference
 dependencies[] = features
 dependencies[] = filter
+dependencies[] = image
 dependencies[] = invisimail
 dependencies[] = markdown
 dependencies[] = menu
