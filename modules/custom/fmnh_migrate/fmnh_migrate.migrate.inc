@@ -152,6 +152,18 @@ function fmnh_migrate_migrate_api() {
         'user_migration' => 'User',
         'description' => 'Migrate newsletter nodes',
       ),
+      'GalleryImage' => array(
+        'class_name' => 'GalleryImageMigration',
+        'group_name' => 'fmnh',
+        'dependencies' => array('PhotoGalleryNode'),
+        'description' => 'Migrate photo_gallery nodes',
+      ),
+      'GalleryImageRevision' => array(
+        'class_name' => 'GalleryImageRevisionMigration',
+        'group_name' => 'fmnh',
+        'dependencies' => array('GalleryImage'),
+        'description' => 'Migrate photo_gallery revisions',
+      ),
       'PhotoGalleryNode' => array(
         'class_name' => 'PhotoGalleryNodeMigration',
         'group_name' => 'fmnh',

@@ -29,3 +29,5 @@ files[] = lib/UserMigration.inc
 files[] = lib/UserPictureMigration.inc
 files[] = lib/VideoFileMigration.inc
 files[] = lib/VideoNodeMigration.inc
+files[] = lib/GalleryImageMigration.inc
+files[] = lib/GalleryImageRevisionMigration.inc
