@@ -220,7 +220,9 @@ function fmnh_migrate_migrate_api() {
         'group_name' => 'fmnh',
         'source_connection' => 'migrate',
         'source_version' => '7',
-        'dependencies' => array('Role', 'UserPicture'),
+        'dependencies' => array('DepartmentTerm'),
+        'role_migration' => 'Role',
+        'picture_migration' => 'UserPicture',
         'description' => 'Migrate users',
       ),
       'UserPicture' => array(
