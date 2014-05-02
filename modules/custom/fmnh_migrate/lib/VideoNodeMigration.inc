@@ -17,5 +17,24 @@ class VideoNodeMigration extends DrupalNode7Migration
     $this->addFieldMapping('field_research_area', 'field_research_area_tags')->sourceMigration('ResearchAreasTerm');
     $this->addFieldMapping('field_science_focus', 'field_science_focus')->sourceMigration('ScienceFocusTerm');
     $this->addFieldMapping('field_audience', 'field_audience')->sourceMigration('AudienceTerm');
+
+    $this->addFieldMapping('field_video', 'field_vimeo_video_url');
+    $this->addFieldMapping('field_video:file_class')->defaultValue('MigrateFileUriAsIs');
+    $this->addFieldMapping('field_video:description', 'field_vimeo_video_url:title');
+  }
+
+  public function prepareRow($row) {
+    if (parent::prepareRow($row) === FALSE) {
+      return FALSE;
+    }
+
+    /** @TODO when the incoming URL value points ot a nonexitent resource, Migrate handles
+     * badly and sets up a new file entity with a "file" type, which is invalid. */
+    if (!empty($row->field_vimeo_video_url)) {
+      foreach ($row->field_vimeo_video_url as &$value) {
+        $value = 'oembed://'. drupal_encode_path($value);
+      }
+    }
+    return TRUE;
   }
 }
