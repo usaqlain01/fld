@@ -16,6 +16,7 @@ dependencies[] = navbar
 dependencies[] = page_manager
 dependencies[] = panels
 dependencies[] = panels_mini
+dependencies[] = search
 dependencies[] = taxonomy
 dependencies[] = text
 distribution_name = Drupal
