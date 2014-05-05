@@ -43,7 +43,7 @@ function fmnh_migrate_migrate_api() {
         'source_connection' => 'migrate',
         'source_version' => '7',
         'user_migration' => 'User',
-        'dependencies' => array('ImageFile'),
+        'dependencies' => array('ImageFile', 'ScienceFocusTerm', 'TopicTerm', 'AudienceTerm'),
         'description' => 'Migrate blog posts',
       ),
       'CollectionNode' => array(
@@ -54,6 +54,7 @@ function fmnh_migrate_migrate_api() {
         'source_connection' => 'migrate',
         'source_version' => '7',
         'user_migration' => 'User',
+        'dependencies' => array('ScienceFocusTerm', 'LocationRegionTerm', 'ResearchAreasTerm', 'StratigraphyTerm', 'AudienceTerm'),
         'description' => 'Migrate individual_collection posts',
       ),
       'DefaultFile' => array(
@@ -111,7 +112,7 @@ function fmnh_migrate_migrate_api() {
         'source_connection' => 'migrate',
         'source_version' => '7',
         'user_migration' => 'User',
-        'dependencies' => array('FaqTopicsTerm'),
+        'dependencies' => array('FaqTopicsTerm', 'ScienceFocusTerm', 'DepartmentTerm', 'TopicTerm', 'AudienceTerm'),
         'description' => 'Migrate FAQ posts',
       ),
       'FaqTopicsTerm' => array(
@@ -172,6 +173,7 @@ function fmnh_migrate_migrate_api() {
         'source_connection' => 'migrate',
         'source_version' => '7',
         'user_migration' => 'User',
+        'dependencies' => array('ImageFile'),
         'description' => 'Migrate photo_gallery nodes',
       ),
       'PodcastNode' => array(
@@ -182,6 +184,7 @@ function fmnh_migrate_migrate_api() {
         'source_connection' => 'migrate',
         'source_version' => '7',
         'user_migration' => 'User',
+        'dependencies' => array('AudioFile', 'ScienceFocusTerm'),
         'description' => 'Migrate podcast nodes',
       ),
       'Role' => array(
@@ -272,6 +275,7 @@ function fmnh_migrate_migrate_api() {
         'source_connection' => 'migrate',
         'source_version' => '7',
         'user_migration' => 'User',
+        'dependencies' => array('ScienceFocusTerm', 'VideoFile'),
         'description' => 'Migrate video nodes',
       ),
     ),
