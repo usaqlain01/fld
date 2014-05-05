@@ -95,6 +95,16 @@ function fmnh_migrate_migrate_api() {
         'source_vocabulary' => 'exhibit',
         'description' => 'migrate exhibit terms to nodes',
       ),
+      'ExhibitNode' => array(
+        'class_name' => 'ExhibitNodeMigration',
+        'group_name' => 'fmnh',
+        'source_type' => 'exhibit',
+        'destination_type' => 'exhibit',
+        'source_connection' => 'migrate',
+        'source_version' => '7',
+        'dependencies' => array('ExhibitTerm'),
+        'description' => 'Migrate exhibit nodes',
+      ),
       'ExhibitTypeTerm' => array(
         'class_name' => 'ExhibitTypeTermMigration',
         'group_name' => 'fmnh',
