@@ -5,27 +5,16 @@ class CollectionNodeMigration extends DrupalNode7Migration
   public function __construct(array $arguments) {
     parent::__construct($arguments);
     $this->addFieldMapping('field_topic', 'field_topic')->sourceMigration('TopicTerm');
-    $this->addFieldMapping('field_topic:source_type')->defaultValue('tid');
-    $this->addUnmigratedDestinations(array('field_topic:create_term', 'field_topic:ignore_case'));
-
     $this->addFieldMapping('field_science_focus', 'field_science_focus')->sourceMigration('ScienceFocusTerm');
-    $this->addFieldMapping('field_science_focus:source_type')->defaultValue('tid');
-    $this->addUnmigratedDestinations(array('field_science_focus:create_term', 'field_science_focus:ignore_case'));
-
     $this->addFieldMapping('field_audience', 'field_audience')->sourceMigration('AudienceTerm');
-    $this->addFieldMapping('field_audience:source_type')->defaultValue('tid');
-    $this->addUnmigratedDestinations(array('field_audience:create_term', 'field_audience:ignore_case'));
-
     $this->addFieldMapping('field_location_region', 'field_location_region')->sourceMigration('LocationRegionTerm');
-    $this->addFieldMapping('field_location_region:source_type')->defaultValue('tid');
-    $this->addUnmigratedDestinations(array('field_location_region:create_term', 'field_location_region:ignore_case'));
-
     $this->addFieldMapping('field_stratigraphy', 'field_stratigraphy_tags')->sourceMigration('StratigraphyTerm');
-    $this->addFieldMapping('field_stratigraphy:source_type')->defaultValue('tid');
-    $this->addUnmigratedDestinations(array('field_stratigraphy:create_term', 'field_stratigraphy:ignore_case'));
+    $this->addFieldMapping('field_research_area', 'field_research_area_tags')->sourceMigration('ResearchAreasTerm');
+    $this->addFieldMapping('field_department', 'field_dept_division_tags')->sourceMigration('DepartmentTerm');
+    $this->addFieldMapping('field_exhibit', 'field_exhibition_tags')->sourceMigration('ExhibitTerm');
 
-    $this->addFieldMapping('field_research_area', 'field_stratigraphy_tags')->sourceMigration('ResearchAreasTerm');
-    $this->addFieldMapping('field_research_area:source_type')->defaultValue('tid');
-    $this->addUnmigratedDestinations(array('field_research_area:create_term', 'field_research_area:ignore_case'));
+    $this->addUnmigratedSources(array('field_image', 'field_image:title', 'field_image:data'));
+
+    $this->addFieldMapping('field_image', 'field_collection_image_header')->sourceMigration('ImageFile');
   }
 }
