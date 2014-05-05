@@ -27,7 +27,8 @@ class PodcastNodeMigration extends DrupalNode7Migration
 
     $this->addFieldMapping('field_image', 'field_podcast_image')->sourceMigration('ImageFile');
     $this->addFieldMapping('field_image:file_class')->defaultValue('MigrateFileFid');
+    $this->addFieldMapping('field_image:alt', 'field_podcast_image:description');
 
-    $this->addUnmigratedSources(array('field_image', 'field_image:title', 'field_image:data'));
+    $this->addUnmigratedSources(array('field_image', 'field_image:title', 'field_image:data', 'field_section_tags'));
   }
 }
