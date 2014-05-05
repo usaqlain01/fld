@@ -30,6 +30,9 @@ projects[diff][subdir] = contrib
 projects[date][version] = 2.7
 projects[date][subdir] = contrib
 
+projects[email][version] = 1.3
+projects[email][subdir] = contrib
+
 projects[entity][version] = 1.5
 projects[entity][subdir] = contrib
 
