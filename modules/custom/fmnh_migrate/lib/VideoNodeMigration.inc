@@ -21,6 +21,11 @@ class VideoNodeMigration extends DrupalNode7Migration
     $this->addFieldMapping('field_video', 'field_vimeo_video_url');
     $this->addFieldMapping('field_video:file_class')->defaultValue('MigrateFileUriAsIs');
     $this->addFieldMapping('field_video:description', 'field_vimeo_video_url:title');
+
+    $this->addFieldMapping('field_department', 'field_dept_division_tags')->sourceMigration('DepartmentTerm');
+    $this->addFieldMapping('field_program', 'field_exhibition_tags')->sourceMigration('ExhibitTerm');
+
+    $this->addUnmigratedSources(array('field_section_tags'));
   }
 
   public function prepareRow($row) {
