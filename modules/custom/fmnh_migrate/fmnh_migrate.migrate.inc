@@ -76,6 +76,16 @@ function fmnh_migrate_migrate_api() {
         'source_vocabulary' => 'department_division',
         'description' => 'migrate department terms to nodes',
       ),
+      'DepartmentNode' => array(
+        'class_name' => 'DepartmentNodeMigration',
+        'group_name' => 'fmnh',
+        'source_type' => 'department_division_page',
+        'destination_type' => 'department',
+        'source_connection' => 'migrate',
+        'source_version' => '7',
+        'dependencies' => array('DepartmentTerm'),
+        'description' => 'Migrate department nodes',
+      ),
       'DocumentFiles' => array(
         'class_name' => 'DocumentFileMigration',
         'group_name' => 'fmnh',

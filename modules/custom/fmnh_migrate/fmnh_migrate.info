@@ -32,3 +32,4 @@ files[] = lib/VideoNodeMigration.inc
 files[] = lib/GalleryImageMigration.inc
 files[] = lib/GalleryImageRevisionMigration.inc
 files[] = lib/ExhibitNodeMigration.inc
+files[] = lib/DepartmentNodeMigration.inc
