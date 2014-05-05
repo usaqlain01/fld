@@ -131,6 +131,44 @@ function fmnh_collection_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-collection-field_exhibit'
+  $field_instances['node-collection-field_exhibit'] = array(
+    'bundle' => 'collection',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 8,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_exhibit',
+    'label' => 'Exhibit',
+    'required' => FALSE,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 43,
+    ),
+  );
+
   // Exported field_instance: 'node-collection-field_location_region'
   $field_instances['node-collection-field_location_region'] = array(
     'bundle' => 'collection',
@@ -356,6 +394,7 @@ function fmnh_collection_field_default_field_instances() {
   t('Audience');
   t('Body');
   t('Department');
+  t('Exhibit');
   t('Location/Region');
   t('Research area');
   t('Science Focus');

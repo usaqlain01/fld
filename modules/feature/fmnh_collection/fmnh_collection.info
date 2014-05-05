@@ -16,6 +16,7 @@ features[features_api][] = api:2
 features[field_instance][] = node-collection-body
 features[field_instance][] = node-collection-field_audience
 features[field_instance][] = node-collection-field_department
+features[field_instance][] = node-collection-field_exhibit
 features[field_instance][] = node-collection-field_location_region
 features[field_instance][] = node-collection-field_research_area
 features[field_instance][] = node-collection-field_science_focus
