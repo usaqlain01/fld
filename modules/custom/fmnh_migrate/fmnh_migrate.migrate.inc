@@ -83,7 +83,7 @@ function fmnh_migrate_migrate_api() {
         'destination_type' => 'department',
         'source_connection' => 'migrate',
         'source_version' => '7',
-        'dependencies' => array('DepartmentTerm'),
+        'dependencies' => array('DepartmentTerm', 'ScienceFocusTerm', 'AudienceTerm', 'TopicTerm', 'User', 'ImageFile'),
         'description' => 'Migrate department nodes',
       ),
       'DocumentFiles' => array(
