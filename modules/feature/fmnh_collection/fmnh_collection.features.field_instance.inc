@@ -80,7 +80,7 @@ function fmnh_collection_field_default_field_instances() {
     'label' => 'Acknowledgements',
     'required' => FALSE,
     'settings' => array(
-      'text_processing' => 0,
+      'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -119,7 +119,7 @@ function fmnh_collection_field_default_field_instances() {
     'label' => 'Acknowledgements',
     'required' => FALSE,
     'settings' => array(
-      'text_processing' => 0,
+      'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -196,7 +196,7 @@ function fmnh_collection_field_default_field_instances() {
     'label' => 'Collections loan',
     'required' => FALSE,
     'settings' => array(
-      'text_processing' => 0,
+      'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -235,7 +235,7 @@ function fmnh_collection_field_default_field_instances() {
     'label' => 'Collections related info',
     'required' => FALSE,
     'settings' => array(
-      'text_processing' => 0,
+      'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -274,7 +274,7 @@ function fmnh_collection_field_default_field_instances() {
     'label' => 'Database information',
     'required' => FALSE,
     'settings' => array(
-      'text_processing' => 0,
+      'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -585,7 +585,7 @@ function fmnh_collection_field_default_field_instances() {
     'label' => 'People (additional)',
     'required' => FALSE,
     'settings' => array(
-      'text_processing' => 0,
+      'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -624,7 +624,7 @@ function fmnh_collection_field_default_field_instances() {
     'label' => 'Policies',
     'required' => FALSE,
     'settings' => array(
-      'text_processing' => 0,
+      'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
