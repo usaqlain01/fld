@@ -54,7 +54,7 @@ function fmnh_migrate_migrate_api() {
         'source_connection' => 'migrate',
         'source_version' => '7',
         'user_migration' => 'User',
-        'dependencies' => array('ScienceFocusTerm', 'LocationRegionTerm', 'ResearchAreasTerm', 'StratigraphyTerm', 'AudienceTerm'),
+        'dependencies' => array('ScienceFocusTerm', 'LocationRegionTerm', 'ResearchAreasTerm', 'StratigraphyTerm', 'AudienceTerm', 'User', 'ImageFile'),
         'description' => 'Migrate individual_collection posts',
       ),
       'DefaultFile' => array(
