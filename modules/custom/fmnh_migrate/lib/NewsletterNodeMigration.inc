@@ -5,9 +5,7 @@ class NewsletterNodeMigration extends DrupalNode7Migration
   public function __construct(array $arguments)
   {
     parent::__construct($arguments);
-    $this->addFieldMapping('body', 'body');
     $this->removeFieldMapping('body:format');
-    $this->removeFieldMapping('body:summary');
     $this->addFieldMapping('body:format', 'field_crnews_staff_student:format')
       ->callbacks(array($this, 'mapFormat'));
     $this->addUnmigratedSources(array('field_crnews_staff_student', 'field_research_publications', 'field_fieldwork_collections', 'field_public_education'));

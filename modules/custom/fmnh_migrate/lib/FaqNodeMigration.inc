@@ -10,7 +10,9 @@ class FaqNodeMigration extends DrupalNode7Migration
     $this->addFieldMapping('field_department', 'field_dept_division_tags')->sourceMigration('DepartmentTerm');
     $this->addFieldMapping('field_faq_topic', 'field_faq_topic')->sourceMigration('FaqTopicsTerm');
     $this->addFieldMapping('field_long_question', 'field_faq_long_question');
-    $this->addFieldMapping('field_long_question:format', 'field_faq_long_question:format');
+    $this->addFieldMapping('field_long_question:format', 'field_faq_long_question:format')
+      ->callbacks(array($this, 'mapFormat'));
+    ;
 
     $this->addUnmigratedSources(array('field_section_tags'));
   }
