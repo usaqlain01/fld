@@ -8,4 +8,15 @@ class VideoFileMigration extends DrupalFile7Migration
     $query->condition('f.type', 'video');
     return $query;
   }
+
+  public function prepareRow($row)
+  {
+    if (parent::prepareRow($row) === FALSE) {
+      return FALSE;
+    }
+
+    if (52 == $row->fid) {
+      return FALSE;
+    }
+  }
 }

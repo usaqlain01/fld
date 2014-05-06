@@ -19,7 +19,7 @@ class VideoNodeMigration extends DrupalNode7Migration
     $this->addFieldMapping('field_audience', 'field_audience')->sourceMigration('AudienceTerm');
 
     $this->addFieldMapping('field_video', 'field_vimeo_video_url');
-    $this->addFieldMapping('field_video:file_class')->defaultValue('MigrateFileUriAsIs');
+    $this->addFieldMapping('field_video:file_class')->defaultValue('MigrateFileFid');
     $this->addFieldMapping('field_video:description', 'field_vimeo_video_url:title');
 
     $this->addFieldMapping('field_department', 'field_dept_division_tags')->sourceMigration('DepartmentTerm');
@@ -28,7 +28,8 @@ class VideoNodeMigration extends DrupalNode7Migration
     $this->addUnmigratedSources(array('field_section_tags'));
   }
 
-  public function prepareRow($row) {
+  public function prepareRow($row)
+  {
     if (parent::prepareRow($row) === FALSE) {
       return FALSE;
     }
@@ -37,7 +38,13 @@ class VideoNodeMigration extends DrupalNode7Migration
      * badly and sets up a new file entity with a "file" type, which is invalid. */
     if (!empty($row->field_vimeo_video_url)) {
       foreach ($row->field_vimeo_video_url as &$value) {
-        $value = 'oembed://'. drupal_encode_path($value);
+        if (oembed_get_data($value)) {
+          $file = oembed_url_to_file($value, TRUE);
+          $value = $file->fid;
+        }
+        else{
+          return FALSE;
+        }
       }
     }
     return TRUE;
