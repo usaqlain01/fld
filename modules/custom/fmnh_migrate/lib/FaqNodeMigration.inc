@@ -13,6 +13,10 @@ class FaqNodeMigration extends DrupalNode7Migration
     $this->addFieldMapping('field_long_question:format', 'field_faq_long_question:format')
       ->callbacks(array($this, 'mapFormat'));
     ;
+    $this->addFieldMapping('field_long_question:language')->defaultValue(LANGUAGE_NONE);
+    $this->addFieldMapping(null, 'revision')->issueGroup('DNM')->description('Administrative debris');
+    $this->addFieldMapping(null, 'log')->issueGroup('DNM')->description('Administrative debris');
+    $this->addFieldMapping(null, 'revision_uid')->issueGroup('DNM')->description('Administrative debris');
 
     $this->addUnmigratedSources(array('field_section_tags'));
   }
