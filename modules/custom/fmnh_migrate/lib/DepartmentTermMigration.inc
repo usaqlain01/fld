@@ -10,10 +10,6 @@ class DepartmentTermMigration extends TermToNodeMigration
     $this->addFieldMapping(null, 'weight')->issueGroup('DNM')->description('No longer terms.');
     $this->addFieldMapping(null, 'parent')->issueGroup('DNM')->description('No hierarchy in nodes.');
 
-    // ->issueGroup('DNM')->description('Handled in DepartmentNode migration.');
-    $this->addFieldMapping('field_image')->issueGroup('DNM')->description('Handled in DepartmentNode migration.');
-    $this->addFieldMapping('field_image:file_class')->issueGroup('DNM')->description('Handled in DepartmentNode migration.');
-
     $this->addFieldMapping('uid')->issueGroup('DNM')->description('Not applicable for migration from term.');
     $this->addFieldMapping('created')->issueGroup('DNM')->description('Not applicable for migration from term.');
     $this->addFieldMapping('changed')->issueGroup('DNM')->description('Not applicable for migration from term.');
@@ -33,6 +29,8 @@ class DepartmentTermMigration extends TermToNodeMigration
     $this->addFieldMapping('field_topic')->issueGroup('DNM')->description('Handled in DepartmentNode migration.');
     $this->addFieldMapping('field_science_focus')->issueGroup('DNM')->description('Handled in DepartmentNode migration.');
     $this->addFieldMapping('field_audience')->issueGroup('DNM')->description('Handled in DepartmentNode migration.');
+    $this->removeFieldMapping('body');
+    $this->removeFieldMapping('body:format');
     $this->addFieldMapping('body')->issueGroup('DNM')->description('Handled in DepartmentNode migration.');
     $this->addFieldMapping('body:summary')->issueGroup('DNM')->description('Handled in DepartmentNode migration.');
     $this->addFieldMapping('body:format')->issueGroup('DNM')->description('Handled in DepartmentNode migration.');
@@ -44,10 +42,8 @@ class DepartmentTermMigration extends TermToNodeMigration
     $this->addFieldMapping('field_image:destination_dir')->issueGroup('DNM')->description('Handled in DepartmentNode migration.');
     $this->addFieldMapping('field_image:destination_file')->issueGroup('DNM')->description('Handled in DepartmentNode migration.');
     $this->addFieldMapping('field_image:file_replace')->issueGroup('DNM')->description('Handled in DepartmentNode migration.');
-    $this->addFieldMapping('field_image:source_dir')->issueGroup('DNM')->description('Handled in DepartmentNode migration.');
     $this->addFieldMapping('field_image:urlencode')->issueGroup('DNM')->description('Handled in DepartmentNode migration.');
     $this->addFieldMapping('field_image:source_dir')->issueGroup('DNM')->description('Handled in DepartmentNode migration.');
-    $this->addFieldMapping('field_image:urlencode')->issueGroup('DNM')->description('Handled in DepartmentNode migration.');
     $this->addFieldMapping('field_image:alt')->issueGroup('DNM')->description('Handled in DepartmentNode migration.');
     $this->addFieldMapping('field_image:title')->issueGroup('DNM')->description('Handled in DepartmentNode migration.');
 
