@@ -21,5 +21,21 @@ class PhotoGalleryNodeMigration extends DrupalNode7Migration
 
     $this->addFieldMapping('media_gallery_description', 'field_description');
     $this->addFieldMapping('media_gallery_description:format', 'field_description:format');
+
+    $this->addFieldMapping('field_topic', 'field_topic')->sourceMigration('TopicTerm');
+    $this->addFieldMapping('field_department', 'field_dept_division_tags')->sourceMigration('DepartmentTerm');
+    $this->addFieldMapping('field_exhibit', 'field_exhibition_tags')->sourceMigration('ExhibitTerm');
+    $this->addFieldMapping('field_audience', 'field_audience')->sourceMigration('AudienceTerm');
+    $this->addFieldMapping('field_science_focus', 'field_science_focus')->sourceMigration('ScienceFocusTerm');
+
+    $this->addFieldMapping(null, 'field_image')->issueGroup('DNM')->description('Gallery thumbs are based on gallery contents.');
+    $this->addFieldMapping(null, 'field_image:title')->issueGroup('DNM')->description('Gallery thumbs are based on gallery contents.');
+    $this->addFieldMapping(null, 'field_image:data')->issueGroup('DNM')->description('Gallery thumbs are based on gallery contents.');
+    $this->addFieldMapping(null, 'field_photo_gallery_image')->issueGroup('DNM')->description('Gallery thumbs are based on gallery contents.');
+    $this->addFieldMapping(null, 'field_photo_gallery_image:display')->issueGroup('DNM')->description('Gallery thumbs are based on gallery contents.');
+    $this->addFieldMapping(null, 'field_photo_gallery_image:description')->issueGroup('DNM')->description('Gallery thumbs are based on gallery contents.');
+    $this->addFieldMapping(null, 'revision')->issueGroup('DNM')->description('Administrative debris');
+    $this->addFieldMapping(null, 'log')->issueGroup('DNM')->description('Administrative debris');
+    $this->addFieldMapping(null, 'revision_uid')->issueGroup('DNM')->description('Administrative debris');
   }
 }

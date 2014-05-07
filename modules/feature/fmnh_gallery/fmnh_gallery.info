@@ -1,0 +1,16 @@
+name = Field Museum gallery
+core = 7.x
+package = The Field Museum
+dependencies[] = entityreference
+dependencies[] = features
+dependencies[] = fieldmuseum
+dependencies[] = fmnh_department
+dependencies[] = fmnh_program
+dependencies[] = media_gallery
+dependencies[] = options
+features[features_api][] = api:2
+features[field_instance][] = node-media_gallery-field_audience
+features[field_instance][] = node-media_gallery-field_department
+features[field_instance][] = node-media_gallery-field_exhibit
+features[field_instance][] = node-media_gallery-field_science_focus
+features[field_instance][] = node-media_gallery-field_topic
