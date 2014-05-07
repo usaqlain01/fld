@@ -17,6 +17,8 @@ class UserMigration extends DrupalUser7Migration
     $this->addFieldMapping('field_cvfile:file_class')->defaultValue('MigrateFileFid');
     $this->addFieldMapping('field_cvfile:display', 'field_cvfile:display');
     $this->addFieldMapping('field_cvfile:description', 'field_cvfile:description');
+    $this->addFieldMapping('field_cvfile:language')->defaultValue(LANGUAGE_NONE);
+    $this->addFieldMapping('field_cvfile:preserve_files')->defaultValue(FALSE);
 
     $this->addFieldMapping('field_image', 'field_image')->sourceMigration('ImageFile');
     $this->addFieldMapping('field_image:file_class')->defaultValue('MigrateFileFid');
