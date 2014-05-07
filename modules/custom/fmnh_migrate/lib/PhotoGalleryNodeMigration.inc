@@ -19,8 +19,23 @@ class PhotoGalleryNodeMigration extends DrupalNode7Migration
     $this->addFieldMapping('media_gallery_block_rows')->defaultValue(3);
     $this->addFieldMapping('media_gallery_image_info_where')->defaultValue('hover');
 
+    $this->addFieldMapping('media_gallery_allow_download')->defaultValue(0);
+
     $this->addFieldMapping('media_gallery_description', 'field_description');
     $this->addFieldMapping('media_gallery_description:format', 'field_description:format');
+    $this->addFieldMapping('media_gallery_description:language')->defaultValue(LANGUAGE_NONE);
+
+    $this->addFieldMapping('media_gallery_file')->issueGroup('DNM')->description('Handled in GalleryImage');
+    $this->addFieldMapping('media_gallery_file:file_class')->issueGroup('DNM')->description('Handled in GalleryImage');
+    $this->addFieldMapping('media_gallery_file:language')->issueGroup('DNM')->description('Handled in GalleryImage');
+    $this->addFieldMapping('media_gallery_file:preserve_files')->issueGroup('DNM')->description('Handled in GalleryImage');
+    $this->addFieldMapping('media_gallery_file:destination_dir')->issueGroup('DNM')->description('Handled in GalleryImage');
+    $this->addFieldMapping('media_gallery_file:destination_file')->issueGroup('DNM')->description('Handled in GalleryImage');
+    $this->addFieldMapping('media_gallery_file:file_replace')->issueGroup('DNM')->description('Handled in GalleryImage');
+    $this->addFieldMapping('media_gallery_file:source_dir')->issueGroup('DNM')->description('Handled in GalleryImage');
+    $this->addFieldMapping('media_gallery_file:urlencode')->issueGroup('DNM')->description('Handled in GalleryImage');
+    $this->addFieldMapping('media_gallery_file:description')->issueGroup('DNM')->description('Handled in GalleryImage');
+    $this->addFieldMapping('media_gallery_file:display')->issueGroup('DNM')->description('Handled in GalleryImage');
 
     $this->addFieldMapping('field_topic', 'field_topic')->sourceMigration('TopicTerm');
     $this->addFieldMapping('field_department', 'field_dept_division_tags')->sourceMigration('DepartmentTerm');
