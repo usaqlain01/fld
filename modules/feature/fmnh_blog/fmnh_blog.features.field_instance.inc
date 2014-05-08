@@ -54,6 +54,54 @@ function fmnh_blog_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-blog-field_attachment'
+  $field_instances['node-blog-field_attachment'] = array(
+    'bundle' => 'blog',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'file',
+        'settings' => array(),
+        'type' => 'file_default',
+        'weight' => 5,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_attachment',
+    'label' => 'Attachment',
+    'required' => FALSE,
+    'settings' => array(
+      'description_field' => 0,
+      'file_directory' => '',
+      'file_extensions' => 'txt',
+      'max_filesize' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'media',
+      'settings' => array(
+        'allowed_schemes' => array(
+          0 => 'public',
+          1 => 'private',
+        ),
+        'allowed_types' => array(
+          0 => 'image',
+        ),
+        'browser_plugins' => array(),
+      ),
+      'type' => 'media_generic',
+      'weight' => 39,
+    ),
+  );
+
   // Exported field_instance: 'node-blog-field_audience'
   $field_instances['node-blog-field_audience'] = array(
     'bundle' => 'blog',
@@ -233,6 +281,7 @@ function fmnh_blog_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Attachment');
   t('Audience');
   t('Body');
   t('Image');

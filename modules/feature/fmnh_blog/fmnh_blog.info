@@ -9,6 +9,7 @@ dependencies[] = node
 dependencies[] = text
 features[features_api][] = api:2
 features[field_instance][] = node-blog-body
+features[field_instance][] = node-blog-field_attachment
 features[field_instance][] = node-blog-field_audience
 features[field_instance][] = node-blog-field_image
 features[field_instance][] = node-blog-field_science_focus
