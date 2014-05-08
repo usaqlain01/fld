@@ -47,5 +47,15 @@ class DepartmentNodeMigration extends DrupalNode7Migration
     $this->addFieldMapping(null, 'revision')->issueGroup('DNM')->description('Administrative debris');
     $this->addFieldMapping(null, 'log')->issueGroup('DNM')->description('Administrative debris');
     $this->addFieldMapping(null, 'revision_uid')->issueGroup('DNM')->description('Administrative debris');
+
+    $this->addFieldMapping(null, 'field_lede')->issueGroup('Design');
+    $this->addFieldMapping(null, 'field_lede:format')->issueGroup('Design');
+
+    $this->addFieldMapping(null, 'field_description_link')->issueGroup('DNM')->description('Would like to drop this.');
+    $this->addFieldMapping(null, 'field_description_link:title')->issueGroup('DNM')->description('Would like to drop this.');
+    $this->addFieldMapping(null, 'field_description_link:attributes')->issueGroup('DNM')->description('Would like to drop this.');
+
+    $this->addFieldMapping(null, 'field_people_tab_header')->issueGroup('Design');
+    $this->addFieldMapping(null, 'field_people_tab_header:format')->issueGroup('Design');
   }
 }
