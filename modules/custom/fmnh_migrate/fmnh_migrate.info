@@ -34,3 +34,4 @@ files[] = lib/GalleryImageRevisionMigration.inc
 files[] = lib/ExhibitNodeMigration.inc
 files[] = lib/DepartmentNodeMigration.inc
 files[] = lib/ArticleNodeMigration.inc
+files[] = lib/EventNodeMigration.inc

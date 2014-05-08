@@ -96,6 +96,16 @@ function fmnh_migrate_migrate_api() {
         'user_migration' => 'User',
         'description' => 'Migrate document files',
       ),
+      'EventNode' => array(
+        'class_name' => 'EventNodeMigration',
+        'group_name' => 'fmnh',
+        'source_type' => 'exhibit',
+        'destination_type' => 'event',
+        'source_connection' => 'migrate',
+        'source_version' => '7',
+        'dependencies' => array('ExhibitNode'),
+        'description' => 'Migrate event nodes from exhibits',
+      ),
       'ExhibitTerm' => array(
         'class_name' => 'ExhibitTermMigration',
         'group_name' => 'fmnh',
