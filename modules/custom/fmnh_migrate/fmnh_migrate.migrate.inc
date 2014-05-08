@@ -207,6 +207,16 @@ function fmnh_migrate_migrate_api() {
         'dependencies' => array('AudioFile', 'ScienceFocusTerm'),
         'description' => 'Migrate podcast nodes',
       ),
+      'ArticleNode' => array(
+        'class_name' => 'ArticleNodeMigration',
+        'group_name' => 'fmnh',
+        'source_type' => 'article',
+        'destination_type' => 'article',
+        'source_connection' => 'migrate',
+        'source_version' => '7',
+        'user_migration' => 'User',
+        'description' => 'Migrate article nodes',
+      ),
       'Role' => array(
         'class_name' => 'RoleMigration',
         'group_name' => 'fmnh',
