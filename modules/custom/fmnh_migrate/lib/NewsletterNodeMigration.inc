@@ -9,6 +9,7 @@ class NewsletterNodeMigration extends DrupalNode7Migration
     $this->addFieldMapping('body:format', 'field_crnews_staff_student:format')
       ->callbacks(array($this, 'mapFormat'));
     $this->addUnmigratedSources(array('field_crnews_staff_student', 'field_research_publications', 'field_fieldwork_collections', 'field_public_education'));
+    $this->addUnmigratedSources(array('field_research_publications:format', 'field_fieldwork_collections:format', 'field_public_education:format'));
   }
 
   public function prepareRow($row) {

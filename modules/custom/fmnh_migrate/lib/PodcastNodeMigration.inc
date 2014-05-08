@@ -30,5 +30,6 @@ class PodcastNodeMigration extends DrupalNode7Migration
     $this->addFieldMapping('field_image:alt', 'field_podcast_image:description');
 
     $this->addUnmigratedSources(array('field_image', 'field_image:title', 'field_image:data', 'field_section_tags'));
+    $this->addFieldMapping(null, 'field_video_thumbnail_image:display')->issueGroup('DNM')->description('Thumbnails dervied from oEmbed');
   }
 }
