@@ -18,6 +18,6 @@ class FaqNodeMigration extends DrupalNode7Migration
     $this->addFieldMapping(null, 'log')->issueGroup('DNM')->description('Administrative debris');
     $this->addFieldMapping(null, 'revision_uid')->issueGroup('DNM')->description('Administrative debris');
 
-    $this->addUnmigratedSources(array('field_section_tags'));
+    $this->addUnmigratedSources(array('field_section_tags','field_sortorder'));
   }
 }
