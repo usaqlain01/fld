@@ -41,6 +41,11 @@ class VideoNodeMigration extends DrupalNode7Migration
     $this->addFieldMapping(null, 'field_video_thumbnail_image:display')->issueGroup('DNM')->description('Thumbnails dervied from oEmbed');
     $this->addFieldMapping(null, 'field_video_thumbnail_image:description')->issueGroup('DNM')->description('Thumbnails dervied from oEmbed');
     $this->addFieldMapping(null, 'field_video_thumbnail_image')->issueGroup('DNM')->description('Thumbnails dervied from oEmbed');
+
+    $this->addFieldMapping(null, 'field_lede')->issueGroup('Design');
+
+    $this->addFieldMapping(null, 'field_section_tags')->issueGroup('DNM')->description('Seek to abandon');
+    $this->addFieldMapping(null, 'field_subsections')->issueGroup('DNM')->description('Seek to abandon');
   }
 
   public function prepareRow($row)
