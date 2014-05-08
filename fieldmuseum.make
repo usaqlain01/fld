@@ -132,7 +132,7 @@ libraries[markdown][download][url] = https://github.com/michelf/php-markdown.git
 libraries[markdown][directory_name] = markdown
 libraries[markdown][destination] = libraries
 libraries[markdown][type] = library
-libraries[markdown][download][tag] = 1.4.0
+libraries[markdown][download][tag] = x1.2.8
 
 libraries[modernizr][download][type] = file
 libraries[modernizr][download][url] = http://modernizr.com/downloads/modernizr-latest.js
