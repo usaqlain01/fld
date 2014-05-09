@@ -130,3 +130,158 @@ function esquif_preprocess_block(&$variables, $hook) {
   //}
 }
 // */
+
+/**
+ * Theme function for the embedded global nav inside site nav
+ *
+ * @param $variables
+ * @return string
+ */
+function esquif_links__global($variables) {
+  $links = array();
+  foreach ($variables['links'] as $key => $value) {
+    $key .= ' navGlobal__item';
+    $links[$key] = $value;
+  }
+  $variables['links'] = $links;
+  return theme('links', $variables);
+}
+
+/**
+ * Theme function for site navigation.
+ *
+ * @param $variables
+ * @return string
+ * @see theme_links
+ * @see template_preprocess_page
+ */
+function esquif_links__system_main_menu($variables) {
+
+  // Create the branding link
+  $text = (theme_get_setting('toggle_name') ? filter_xss_admin(variable_get('site_name', 'Drupal')) : '');
+  $options = array(
+    'attributes' => array(
+      'class' => array('logo__link'),
+      'id' => 'logo',
+      'rel' => 'home',
+      'title' => t('Home'),
+    )
+  );
+  $home_page_link = l($text, NULL, $options);
+
+  // Embed a global navigation menu inside the main menu.
+  $embedded_variables = array(
+    'links' => array(),
+    'attributes' => array(
+      'class' => 'navGlobal',
+    ),
+  );
+  foreach (menu_navigation_links('menu-header-menu') as $key => $value) {
+    $key .= ' navGlobal__item';
+    $embedded_variables['links'][$key] = $value;
+  }
+
+  // Append class attribute values to primary menu links. The key of the array is used
+  // for the li element class attribute.
+  $links = array();
+  foreach ($variables['links'] as $key => $value) {
+    $key .= ' navMain__item navMain__primary';
+    $links[$key] = $value;
+  }
+  $variables['links'] = $links;
+
+  // Merge the branding and global nav into the main menu.
+  $variables['links'] = array(
+    'navMain__item navMain__brand' => array(
+      'title' => '<h1 class="logo">'. $home_page_link .'</h1>',
+      'html' => TRUE,
+      'submenu' => TRUE,
+    ),
+    'navMain__item navMain__global' => array(
+      'title' => theme('links__global', $embedded_variables),
+      'html' => true,
+      'submenu' => TRUE,
+    )
+  ) + $variables['links'];
+
+  /**
+   * @see theme_links
+   */
+  $links = $variables['links'];
+  $attributes = $variables['attributes'];
+  $heading = $variables['heading'];
+  global $language_url;
+  $output = '';
+
+  if (count($links) > 0) {
+    $output = '';
+
+    // Treat the heading first if it is present to prepend it to the
+    // list of links.
+    if (!empty($heading)) {
+      if (is_string($heading)) {
+        // Prepare the array that will be used when the passed heading
+        // is a string.
+        $heading = array(
+          'text' => $heading,
+          // Set the default level of the heading.
+          'level' => 'h2',
+        );
+      }
+      $output .= '<' . $heading['level'];
+      if (!empty($heading['class'])) {
+        $output .= drupal_attributes(array('class' => $heading['class']));
+      }
+      $output .= '>' . check_plain($heading['text']) . '</' . $heading['level'] . '>';
+    }
+
+    $output .= '<ul' . drupal_attributes($attributes) . '>';
+
+    $num_links = count($links);
+    $i = 1;
+
+    foreach ($links as $key => $link) {
+      $class = array($key);
+
+      // Add first, last and active classes to the list of links to help out themers.
+      if ($i == 1) {
+        $class[] = 'first';
+      }
+      if ($i == $num_links) {
+        $class[] = 'last';
+      }
+      if (isset($link['href']) && ($link['href'] == $_GET['q'] || ($link['href'] == '<front>' && drupal_is_front_page()))
+        && (empty($link['language']) || $link['language']->language == $language_url->language)) {
+        $class[] = 'active';
+      }
+      $output .= '<li' . drupal_attributes(array('class' => $class)) . '>';
+
+      if (isset($link['href'])) {
+        // Pass in $link as $options, they share the same keys.
+        $output .= l($link['title'], $link['href'], $link);
+      }
+      elseif (!empty($link['title'])) {
+        // Some links are actually not links, but we wrap these in <span> for adding title and class attributes.
+        if (empty($link['html'])) {
+          $link['title'] = check_plain($link['title']);
+        }
+        if (isset($link['submenu']) && (TRUE === $link['submenu']))  {
+          $output .= $link['title'];
+        }
+        else {
+          $span_attributes = '';
+          if (isset($link['attributes'])) {
+            $span_attributes = drupal_attributes($link['attributes']);
+          }
+          $output .= '<span' . $span_attributes . '>' . $link['title'] . '</span>';
+        }
+      }
+
+      $i++;
+      $output .= "</li>\n";
+    }
+
+    $output .= '</ul>';
+  }
+  return $output;
+}

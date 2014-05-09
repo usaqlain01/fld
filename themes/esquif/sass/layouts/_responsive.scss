@@ -30,7 +30,8 @@ $zen-auto-include-flow-item-base: false;
  * For screen sizes larger than 1200px, prevent excessively long lines of text
  * by setting a max-width.
  */
-#page,
+.l--main,
+.region-footer,
 .region-bottom {
   margin-left: auto;
   margin-right: auto;
@@ -50,20 +51,20 @@ $zen-auto-include-flow-item-base: false;
 
 /* Containers for grid items and flow items. */
 #header,
-#main,
+.l--main,
 #footer {
   @include zen-grid-container();
 }
 
 /* Navigation bar */
 @media all and (min-width: 480px) {
-  #main {
-    /* Move all the children of #main down to make room. */
+  .l--main {
+    /* Move all the children of .l--main down to make room. */
     padding-top: $nav-height;
     position: relative;
   }
-  #navigation {
-    /* Move the navbar up inside #main's padding. */
+  .navigation {
+    /* Move the navbar up inside .l--main's padding. */
     position: absolute;
     top: 0;
     height: $nav-height;
