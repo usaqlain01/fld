@@ -202,7 +202,7 @@ function fieldmuseum_metatag_export_default() {
         'value' => 'summary',
       ),
       'twitter:site' => array(
-        'value' => '',
+        'value' => '@fieldmuseum',
       ),
       'twitter:site:id' => array(
         'value' => '',
