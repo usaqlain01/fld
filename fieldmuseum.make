@@ -63,6 +63,9 @@ projects[menu_block][version] = 2.x-dev
 projects[menu_position][subdir] = contrib
 projects[menu_position][version] = 1.x-dev
 
+projects[metatag][subdir] = contrib
+projects[metatag][version] = 1.x-dev
+
 projects[migrate_d2d][subdir] = contrib
 projects[migrate_d2d][version] = 2.x-dev
 
