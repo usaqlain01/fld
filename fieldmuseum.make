@@ -3,65 +3,53 @@ api = 2
 
 ; Modules
 
-projects[panels][version] = 3.4
-projects[panels][subdir] = contrib
+projects[acquia_connector][subdir] = contrib
+projects[acquia_connector][version] = 2.14
 
-projects[ctools][version] = 1.4
-projects[ctools][subdir] = contrib
-
-projects[views][version] = 3.7
-projects[views][subdir] = contrib
-
-projects[libraries][version] = 2.2
-projects[libraries][subdir] = contrib
-
-projects[navbar][version] = 1.x-dev
-projects[navbar][subdir] = contrib
-
-projects[features][version] = 2.0
-projects[features][subdir] = contrib
-
-projects[markdown][version] = 2.x-dev
-projects[markdown][subdir] = contrib
-
-projects[diff][version] = 3.2
-projects[diff][subdir] = contrib
-
-projects[date][version] = 2.7
-projects[date][subdir] = contrib
-
-projects[email][version] = 1.3
-projects[email][subdir] = contrib
-
-projects[entity][version] = 1.5
-projects[entity][subdir] = contrib
-
-projects[entityreference][version] = 1.1
-projects[entityreference][subdir] = contrib
-
-projects[link][version] = 1.2
-projects[link][subdir] = contrib
-
-projects[context_admin][version] = 1.2
 projects[context_admin][subdir] = contrib
+projects[context_admin][version] = 1.2
 
-projects[entity_view_mode][version] = 1.0-rc1
+projects[ctools][subdir] = contrib
+projects[ctools][version] = 1.4
+
+projects[date][subdir] = contrib
+projects[date][version] = 2.7
+
+projects[diff][subdir] = contrib
+projects[diff][version] = 3.2
+
+projects[email][subdir] = contrib
+projects[email][version] = 1.3
+
 projects[entity_view_mode][subdir] = contrib
+projects[entity_view_mode][version] = 1.0-rc1
 
-projects[pathauto][version] = 1.2
-projects[pathauto][subdir] = contrib
+projects[entity][subdir] = contrib
+projects[entity][version] = 1.5
 
-projects[token][version] = 1.5
-projects[token][subdir] = contrib
+projects[entityreference][subdir] = contrib
+projects[entityreference][version] = 1.1
 
-projects[migrate_d2d][version] = 2.x-dev
-projects[migrate_d2d][subdir] = contrib
+projects[features][subdir] = contrib
+projects[features][version] = 2.0
 
-projects[migrate][version] = 2.x-dev
-projects[migrate][subdir] = contrib
+projects[field_group][subdir] = contrib
+projects[field_group][version] = 1.3
 
-projects[webform][subdir] = contrib
-projects[webform][version] = 3.20
+projects[file_entity][subdir] = contrib
+projects[file_entity][version] = 2.x-dev
+
+projects[invisimail][subdir] = contrib
+projects[invisimail][version] = 1.1
+
+projects[libraries][subdir] = contrib
+projects[libraries][version] = 2.2
+
+projects[link][subdir] = contrib
+projects[link][version] = 1.2
+
+projects[markdown][subdir] = contrib
+projects[markdown][version] = 2.x-dev
 
 projects[media_gallery][subdir] = contrib
 projects[media_gallery][version] = 2.x-dev
@@ -69,35 +57,47 @@ projects[media_gallery][version] = 2.x-dev
 projects[media][subdir] = contrib
 projects[media][version] = 2.x-dev
 
-projects[file_entity][subdir] = contrib
-projects[file_entity][version] = 2.x-dev
-
-projects[oembed][subdir] = contrib
-projects[oembed][version] = 1.x-dev
-
-projects[multiform][subdir] = contrib
-projects[multiform][version] = 1.0
-
-projects[plupload][subdir] = contrib
-projects[plupload][version] = 1.6
-
-projects[invisimail][subdir] = contrib
-projects[invisimail][version] = 1.1
-
-projects[acquia_connector][subdir] = contrib
-projects[acquia_connector][version] = 2.14
-
-projects[field_group][subdir] = contrib
-projects[field_group][version] = 1.3
+projects[menu_block][subdir] = contrib
+projects[menu_block][version] = 2.x-dev
 
 projects[menu_position][subdir] = contrib
 projects[menu_position][version] = 1.x-dev
 
-projects[menu_block][subdir] = contrib
-projects[menu_block][version] = 2.x-dev
+projects[migrate_d2d][subdir] = contrib
+projects[migrate_d2d][version] = 2.x-dev
+
+projects[migrate][subdir] = contrib
+projects[migrate][version] = 2.x-dev
+
+projects[multiform][subdir] = contrib
+projects[multiform][version] = 1.0
+
+projects[navbar][subdir] = contrib
+projects[navbar][version] = 1.x-dev
+
+projects[oembed][subdir] = contrib
+projects[oembed][version] = 1.x-dev
+
+projects[panels][subdir] = contrib
+projects[panels][version] = 3.4
+
+projects[pathauto][subdir] = contrib
+projects[pathauto][version] = 1.2
+
+projects[plupload][subdir] = contrib
+projects[plupload][version] = 1.6
 
 projects[redirect][subdir] = contrib
 projects[redirect][version] = 1.x-dev
+
+projects[token][subdir] = contrib
+projects[token][version] = 1.5
+
+projects[views][subdir] = contrib
+projects[views][version] = 3.7
+
+projects[webform][subdir] = contrib
+projects[webform][version] = 3.20
 
 ; Development
 
