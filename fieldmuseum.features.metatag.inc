@@ -75,6 +75,9 @@ function fieldmuseum_metatag_export_default() {
         'value' => 1,
         'period' => 'day',
       ),
+      'distribution' => array(
+        'value' => 'global',
+      ),
       'dcterms.title' => array(
         'value' => '[current-page:title]',
       ),

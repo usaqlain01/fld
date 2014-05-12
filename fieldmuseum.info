@@ -25,6 +25,7 @@ dependencies[] = search
 dependencies[] = taxonomy
 dependencies[] = text
 distribution_name = Drupal
+features[ctools][] = metatag:metatag:1
 features[ctools][] = page_manager:pages_default:1
 features[ctools][] = panels_mini:panels_default:1
 features[features_api][] = api:2
