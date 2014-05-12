@@ -33,6 +33,9 @@ projects[entityreference][version] = 1.1
 projects[features][subdir] = contrib
 projects[features][version] = 2.0
 
+projects[fences][subdir] = contrib
+projects[fences][version] = 1.x-dev
+
 projects[field_group][subdir] = contrib
 projects[field_group][version] = 1.3
 
@@ -92,6 +95,9 @@ projects[plupload][version] = 1.6
 
 projects[redirect][subdir] = contrib
 projects[redirect][version] = 1.x-dev
+
+projects[semantic_panels][subdir] = contrib
+projects[semantic_panels][version] = 1.2
 
 projects[token][subdir] = contrib
 projects[token][version] = 1.5

@@ -52,11 +52,18 @@ function esquif_preprocess_html(&$variables, $hook) {
  * @param $hook
  *   The name of the template being rendered ("page" in this case.)
  */
-/* -- Delete this line if you want to use this function
 function esquif_preprocess_page(&$variables, $hook) {
-  $variables['sample_variable'] = t('Lorem ipsum.');
+  $script = <<<EOT
+(function(d) {
+  var config = {
+    kitId: 'fke5kfl',
+    scriptTimeout: 3000
+  },
+  h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='//use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+})(document);
+EOT;
+  drupal_add_js($script, array('type' => 'inline'));
 }
-// */
 
 /**
  * Override or insert variables into the node templates.
@@ -101,14 +108,17 @@ function esquif_preprocess_comment(&$variables, $hook) {
  * @param $hook
  *   The name of the template being rendered ("region" in this case.)
  */
-/* -- Delete this line if you want to use this function
 function esquif_preprocess_region(&$variables, $hook) {
+
+  if ($variables['region'] == 'header') {
+    $variables['classes_array'][] = 'pageHeader';
+    $variables['classes_array'][] = 'l--2up';
+  }
   // Don't use Zen's region--sidebar.tpl.php template for sidebars.
   //if (strpos($variables['region'], 'sidebar_') === 0) {
   //  $variables['theme_hook_suggestions'] = array_diff($variables['theme_hook_suggestions'], array('region__sidebar'));
   //}
 }
-// */
 
 /**
  * Override or insert variables into the block templates.
