@@ -42,6 +42,9 @@ projects[field_group][version] = 1.3
 projects[file_entity][subdir] = contrib
 projects[file_entity][version] = 2.x-dev
 
+projects[google_analytics][subdir] = contrib
+projects[google_analytics][version] = 2.x-dev
+
 projects[invisimail][subdir] = contrib
 projects[invisimail][version] = 1.1
 
