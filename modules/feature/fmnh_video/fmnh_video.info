@@ -11,6 +11,7 @@ dependencies[] = fmnh_department
 dependencies[] = fmnh_program
 dependencies[] = media
 dependencies[] = options
+dependencies[] = oembed
 dependencies[] = text
 features[features_api][] = api:2
 features[field_base][] = field_video
