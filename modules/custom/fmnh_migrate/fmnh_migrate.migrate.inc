@@ -6,6 +6,7 @@
  * @see hook_migrate_api
  */
 function fmnh_migrate_migrate_api() {
+  $source_dir = variable_get('fmnh_migrate_file_source_dir');
   $api = array(
     'api' => 2,
     'groups' => array(
@@ -31,6 +32,7 @@ function fmnh_migrate_migrate_api() {
         'source_connection' => 'migrate',
         'bundle' => 'audio',
         'source_version' => '7',
+        'source_dir' => $source_dir,
         'skip_pictures' => TRUE,
         'user_migration' => 'User',
         'description' => 'Migrate audio files',
@@ -63,6 +65,7 @@ function fmnh_migrate_migrate_api() {
         'source_connection' => 'migrate',
         'bundle' => 'default',
         'source_version' => '7',
+        'source_dir' => $source_dir,
         'skip_pictures' => TRUE,
         'user_migration' => 'User',
         'description' => 'Migrate default files',
@@ -92,6 +95,7 @@ function fmnh_migrate_migrate_api() {
         'source_connection' => 'migrate',
         'bundle' => 'document',
         'source_version' => '7',
+        'source_dir' => $source_dir,
         'skip_pictures' => TRUE,
         'user_migration' => 'User',
         'description' => 'Migrate document files',
@@ -160,6 +164,7 @@ function fmnh_migrate_migrate_api() {
         'source_connection' => 'migrate',
         'bundle' => 'image',
         'source_version' => '7',
+        'source_dir' => $source_dir,
         'skip_pictures' => TRUE,
         'user_migration' => 'User',
         'description' => 'Migrate image files',
@@ -285,6 +290,7 @@ function fmnh_migrate_migrate_api() {
         'group_name' => 'fmnh',
         'source_connection' => 'migrate',
         'source_version' => '7',
+        'source_dir' => $source_dir,
         'description' => 'Migrate user pictures',
       ),
       'UndefinedFile' => array(
@@ -293,6 +299,7 @@ function fmnh_migrate_migrate_api() {
         'source_connection' => 'migrate',
         'bundle' => 'undefined',
         'source_version' => '7',
+        'source_dir' => $source_dir,
         'skip_pictures' => TRUE,
         'user_migration' => 'User',
         'description' => 'Migrate undefined files',
@@ -303,6 +310,7 @@ function fmnh_migrate_migrate_api() {
         'source_connection' => 'migrate',
         'bundle' => 'video',
         'source_version' => '7',
+        'source_dir' => $source_dir,
         'skip_pictures' => TRUE,
         'user_migration' => 'User',
         'description' => 'Migrate video files',
