@@ -7,15 +7,16 @@
  * @see https://drupal.org/node/1728208
  */
 ?><!DOCTYPE html>
-<!--[if lt IE 9 ]><html class='no-js ie ltie9 ltie10' <?php print $html_attributes; ?>><![endif]-->
-<!--[if IE 9 ]><html class='no-js ie ie9 ltie10' <?php print $html_attributes; ?>><![endif]-->
-<!--[if (gt IE 9)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html <?php print $html_attributes . $rdf_namespaces; ?>><!--<![endif]-->
+<!--[if lt IE 9 ]><html class="no-js ie ltie9 ltie10"<?php print $html_attributes; ?>><![endif]-->
+<!--[if IE 9 ]><html class="no-js ie ie9 ltie10"<?php print $html_attributes; ?>><![endif]-->
+<!--[if (gt IE 9)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html<?php print $html_attributes . $rdf_namespaces; ?>><!--<![endif]-->
 
 <head>
   <?php print $head; ?>
   <title><?php print $head_title; ?></title>
 
   <?php if ($default_mobile_metatags): ?>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="MobileOptimized" content="320">
     <meta name="HandheldFriendly" content="true">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
