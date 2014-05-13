@@ -1544,7 +1544,7 @@ Open every day except Christmas. 9am-5pm.
   );
   $page->menu = array(
     'type' => 'normal',
-    'title' => 'Shop',
+    'title' => 'The Museum Store',
     'name' => 'menu-header-menu',
     'weight' => '0',
     'parent' => array(
@@ -1592,7 +1592,7 @@ Open every day except Christmas. 9am-5pm.
   $page->menu = array(
     'type' => 'normal',
     'title' => 'Subscribe',
-    'name' => 'menu-header-menu',
+    'name' => 'navigation',
     'weight' => '0',
     'parent' => array(
       'type' => 'none',
@@ -1883,7 +1883,7 @@ Open every day except Christmas. 9am-5pm.
   );
   $page->menu = array(
     'type' => 'normal',
-    'title' => 'Tickets',
+    'title' => 'Buy Tickets',
     'name' => 'menu-header-menu',
     'weight' => '0',
     'parent' => array(
