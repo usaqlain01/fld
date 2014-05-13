@@ -114,6 +114,10 @@ function esquif_preprocess_region(&$variables, $hook) {
     $variables['classes_array'][] = 'pageHeader';
     $variables['classes_array'][] = 'l--2up';
   }
+
+  if ($variables['region'] == 'footer') {
+    $variables['classes_array'][] = 'pageFooter';
+  }
   // Don't use Zen's region--sidebar.tpl.php template for sidebars.
   //if (strpos($variables['region'], 'sidebar_') === 0) {
   //  $variables['theme_hook_suggestions'] = array_diff($variables['theme_hook_suggestions'], array('region__sidebar'));
@@ -294,4 +298,76 @@ function esquif_links__system_main_menu($variables) {
     $output .= '</ul>';
   }
   return $output;
+}
+
+/**
+ * @param $variables
+ * @param $hook
+ */
+function esquif_preprocess_menu_block_wrapper(&$variables, $hook) {
+  if ($variables['theme_hook_suggestion'] == 'menu_block_wrapper__main_menu') {
+    foreach (element_children($variables['content']) as $child) {
+      $variables['content'][$child]['#attributes']['class'][] = 'navFooter__item';
+    }
+  }
+}
+
+/**
+ * Theme override for footer menu.
+ *
+ * @param $variables
+ * @return string
+ */
+function esquif_menu_tree__menu_block__ctools_main_menu_1($variables) {
+  return '<ul class="navFooter__list menu">' . $variables['tree'] . '</ul>';
+}
+
+/**
+ * Theme override for footer menu.
+ *
+ * @param $variables
+ * @return string
+ */
+function esquif_menu_tree__menu_block__ctools_main_menu_2($variables) {
+  return esquif_menu_tree__menu_block__ctools_main_menu_1($variables);
+}
+
+/**
+ * Theme override for footer menu.
+ *
+ * @param $variables
+ * @return string
+ */
+function esquif_menu_tree__menu_block__ctools_main_menu_3($variables) {
+  return esquif_menu_tree__menu_block__ctools_main_menu_1($variables);
+}
+
+/**
+ * Theme override for footer menu.
+ *
+ * @param $variables
+ * @return string
+ */
+function esquif_menu_tree__menu_block__ctools_main_menu_4($variables) {
+  return esquif_menu_tree__menu_block__ctools_main_menu_1($variables);
+}
+
+/**
+ * Theme override for footer menu.
+ *
+ * @param $variables
+ * @return string
+ */
+function esquif_menu_tree__menu_block__ctools_main_menu_5($variables) {
+  return esquif_menu_tree__menu_block__ctools_main_menu_1($variables);
+}
+
+/**
+ * Theme override for footer menu.
+ *
+ * @param $variables
+ * @return string
+ */
+function esquif_menu_tree__menu_block__ctools_main_menu_6($variables) {
+  return esquif_menu_tree__menu_block__ctools_main_menu_1($variables);
 }

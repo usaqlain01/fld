@@ -130,6 +130,16 @@ function fieldmuseum_filter_default_formats() {
     ),
   );
 
+  // Exported format: Unfiltered.
+  $formats['unfiltered'] = array(
+    'format' => 'unfiltered',
+    'name' => 'Unfiltered',
+    'cache' => 1,
+    'status' => 1,
+    'weight' => 0,
+    'filters' => array(),
+  );
+
   // Exported format: Unfiltered Phrase HTML.
   $formats['unfiltered_phrase_html'] = array(
     'format' => 'unfiltered_phrase_html',

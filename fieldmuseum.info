@@ -75,6 +75,7 @@ features[filter][] = filtered_html
 features[filter][] = full_html
 features[filter][] = markdown
 features[filter][] = plain_text
+features[filter][] = unfiltered
 features[filter][] = unfiltered_phrase_html
 features[menu_custom][] = menu-footer-menu
 features[menu_custom][] = menu-header-menu
