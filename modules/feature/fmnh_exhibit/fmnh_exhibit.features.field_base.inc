@@ -10,6 +10,33 @@
 function fmnh_exhibit_field_default_field_bases() {
   $field_bases = array();
 
+  // Exported field_base: 'field_banner_description'
+  $field_bases['field_banner_description'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_banner_description',
+    'foreign keys' => array(
+      'format' => array(
+        'columns' => array(
+          'format' => 'format',
+        ),
+        'table' => 'filter_format',
+      ),
+    ),
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(),
+    'translatable' => 0,
+    'type' => 'text_long',
+  );
+
   // Exported field_base: 'field_exhibit_type'
   $field_bases['field_exhibit_type'] = array(
     'active' => 1,

@@ -17,6 +17,12 @@ function fmnh_exhibit_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'banner' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 1,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'text',
@@ -59,6 +65,12 @@ function fmnh_exhibit_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'banner' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 6,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'entityreference',
@@ -90,6 +102,54 @@ function fmnh_exhibit_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-exhibit-field_banner_description'
+  $field_instances['node-exhibit-field_banner_description'] = array(
+    'bundle' => 'exhibit',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'banner' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 2,
+      ),
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 9,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'fences_wrapper' => 'figcaption',
+    'field_name' => 'field_banner_description',
+    'label' => 'Banner description',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 47,
+    ),
+  );
+
   // Exported field_instance: 'node-exhibit-field_exhibit_type'
   $field_instances['node-exhibit-field_exhibit_type'] = array(
     'bundle' => 'exhibit',
@@ -97,6 +157,12 @@ function fmnh_exhibit_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'banner' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 9,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'entityreference',
@@ -135,6 +201,16 @@ function fmnh_exhibit_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'banner' => array(
+        'label' => 'hidden',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => '',
+          'image_style' => '',
+        ),
+        'type' => 'image',
+        'weight' => 1,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'image',
@@ -153,9 +229,10 @@ function fmnh_exhibit_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
+    'fences_wrapper' => 'no_wrapper',
     'field_name' => 'field_image',
     'label' => 'Image',
-    'required' => FALSE,
+    'required' => 0,
     'settings' => array(
       'alt_field' => 0,
       'default_image' => 0,
@@ -339,6 +416,7 @@ function fmnh_exhibit_field_default_field_instances() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Audience');
+  t('Banner description');
   t('Body');
   t('Exhibit type');
   t('Image');

@@ -73,9 +73,13 @@ EOT;
  * @param $hook
  *   The name of the template being rendered ("node" in this case.)
  */
-/* -- Delete this line if you want to use this function
 function esquif_preprocess_node(&$variables, $hook) {
-  $variables['sample_variable'] = t('Lorem ipsum.');
+
+  switch ($variables['view_mode']) {
+    case 'banner':
+      $variables['theme_hook_suggestion'] = 'node__banner';
+      break;
+  }
 
   // Optionally, run node-type-specific preprocess functions, like
   // esquif_preprocess_node_page() or esquif_preprocess_node_story().
@@ -84,7 +88,6 @@ function esquif_preprocess_node(&$variables, $hook) {
     $function($variables, $hook);
   }
 }
-// */
 
 /**
  * Override or insert variables into the comment templates.

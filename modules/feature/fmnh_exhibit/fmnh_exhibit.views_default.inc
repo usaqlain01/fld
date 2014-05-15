@@ -82,31 +82,6 @@ function fmnh_exhibit_views_default_views() {
   $handler->display->display_options['filters']['field_date_value2']['operator'] = '>=';
   $handler->display->display_options['filters']['field_date_value2']['default_date'] = 'now';
 
-  /* Display: Promoted exhibitions */
-  $handler = $view->new_display('ctools_context', 'Promoted exhibitions', 'ctools_context_1');
-  $handler->display->display_options['style_plugin'] = 'ctools_context';
-  $handler->display->display_options['row_plugin'] = 'node';
-  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
-  $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
-  $handler->display->display_options['filters']['status']['id'] = 'status';
-  $handler->display->display_options['filters']['status']['table'] = 'node';
-  $handler->display->display_options['filters']['status']['field'] = 'status';
-  $handler->display->display_options['filters']['status']['value'] = 1;
-  $handler->display->display_options['filters']['status']['group'] = 1;
-  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
-  $handler->display->display_options['filters']['type']['id'] = 'type';
-  $handler->display->display_options['filters']['type']['table'] = 'node';
-  $handler->display->display_options['filters']['type']['field'] = 'type';
-  $handler->display->display_options['filters']['type']['value'] = array(
-    'exhibit' => 'exhibit',
-  );
-  /* Filter criterion: Content: Promoted to front page */
-  $handler->display->display_options['filters']['promote']['id'] = 'promote';
-  $handler->display->display_options['filters']['promote']['table'] = 'node';
-  $handler->display->display_options['filters']['promote']['field'] = 'promote';
-  $handler->display->display_options['filters']['promote']['value'] = '1';
 
   /* Display: Current exhibitions by type */
   $handler = $view->new_display('panel_pane', 'Current exhibitions by type', 'panel_pane_1');
