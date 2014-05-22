@@ -55,6 +55,12 @@ projects[fences][version] = 1.x-dev
 projects[field_group][subdir] = contrib
 projects[field_group][version] = 1.3
 
+projects[field_formatter_class][subdir] = contrib
+projects[field_formatter_class][version] = 1.1
+
+projects[field_formatter_settings][subdir] = contrib
+projects[field_formatter_settings][version] = 1.1
+
 projects[file_entity][subdir] = contrib
 projects[file_entity][version] = 2.x-dev
 

@@ -718,6 +718,27 @@ function fieldmuseum_default_page_manager_pages() {
     $pane->uuid = '40f9d913-1d3f-49c5-bbbd-d12e0e919624';
     $display->content['new-40f9d913-1d3f-49c5-bbbd-d12e0e919624'] = $pane;
     $display->panels['main'][5] = 'new-40f9d913-1d3f-49c5-bbbd-d12e0e919624';
+    $pane = new stdClass();
+    $pane->pid = 'new-f4d1dbd0-5126-4765-b649-fed5d90dd473';
+    $pane->panel = 'main';
+    $pane->type = 'fieldable_panels_pane';
+    $pane->subtype = 'fpid:1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'view_mode' => 'full',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 6;
+    $pane->locks = array();
+    $pane->uuid = 'f4d1dbd0-5126-4765-b649-fed5d90dd473';
+    $display->content['new-f4d1dbd0-5126-4765-b649-fed5d90dd473'] = $pane;
+    $display->panels['main'][6] = 'new-f4d1dbd0-5126-4765-b649-fed5d90dd473';
   $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;

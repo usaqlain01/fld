@@ -20,7 +20,9 @@ function fmnh_podcast_field_default_field_instances() {
       'default' => array(
         'label' => 'hidden',
         'module' => 'text',
-        'settings' => array(),
+        'settings' => array(
+          'field_formatter_class' => '',
+        ),
         'type' => 'text_default',
         'weight' => 0,
       ),
@@ -28,6 +30,7 @@ function fmnh_podcast_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'text',
         'settings' => array(
+          'field_formatter_class' => '',
           'trim_length' => 600,
         ),
         'type' => 'text_summary_or_trimmed',
@@ -64,6 +67,7 @@ function fmnh_podcast_field_default_field_instances() {
         'label' => 'above',
         'module' => 'file_entity',
         'settings' => array(
+          'field_formatter_class' => '',
           'file_view_mode' => 'default',
         ),
         'type' => 'file_rendered',
@@ -123,6 +127,7 @@ function fmnh_podcast_field_default_field_instances() {
         'label' => 'above',
         'module' => 'entityreference',
         'settings' => array(
+          'field_formatter_class' => '',
           'link' => FALSE,
         ),
         'type' => 'entityreference_label',
@@ -161,6 +166,7 @@ function fmnh_podcast_field_default_field_instances() {
         'label' => 'above',
         'module' => 'entityreference',
         'settings' => array(
+          'field_formatter_class' => '',
           'link' => FALSE,
         ),
         'type' => 'entityreference_label',
@@ -198,6 +204,7 @@ function fmnh_podcast_field_default_field_instances() {
         'label' => 'above',
         'module' => 'image',
         'settings' => array(
+          'field_formatter_class' => '',
           'image_link' => '',
           'image_style' => '',
         ),
@@ -254,6 +261,7 @@ function fmnh_podcast_field_default_field_instances() {
         'label' => 'above',
         'module' => 'entityreference',
         'settings' => array(
+          'field_formatter_class' => '',
           'link' => FALSE,
         ),
         'type' => 'entityreference_label',
@@ -292,6 +300,7 @@ function fmnh_podcast_field_default_field_instances() {
         'label' => 'above',
         'module' => 'entityreference',
         'settings' => array(
+          'field_formatter_class' => '',
           'link' => 1,
         ),
         'type' => 'entityreference_label',

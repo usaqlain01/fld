@@ -21,6 +21,7 @@ function fmnh_program_field_default_field_instances() {
         'label' => 'above',
         'module' => 'entityreference',
         'settings' => array(
+          'field_formatter_class' => '',
           'link' => 1,
         ),
         'type' => 'entityreference_label',
