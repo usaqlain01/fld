@@ -185,5 +185,11 @@ libraries[colorbox][directory_name] = colorbox
 libraries[colorbox][download][url] = https://github.com/jackmoore/colorbox.git
 libraries[colorbox][type] = library
 
-; drush --yes make --dev --working-copy --contrib-destination=. --no-core fieldmuseum.make
+libraries[Jcrop][download][type] = git
+libraries[Jcrop][download][url] = https://github.com/tapmodo/Jcrop.git
+libraries[Jcrop][directory_name] = Jcrop
+libraries[Jcrop][destination] = libraries
+libraries[Jcrop][type] = library
+
+; drush --yes make --working-copy --contrib-destination=. --no-core fieldmuseum.make
 
