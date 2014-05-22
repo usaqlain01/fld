@@ -18,7 +18,7 @@ class ArticleNodeMigration extends DrupalNode7Migration
     $this->addFieldMapping('field_audience', 'field_audience')->sourceMigration('AudienceTerm');
     $this->addFieldMapping('field_location_region', 'field_location_region')->sourceMigration('LocationRegionTerm');
     $this->addFieldMapping('field_department', 'field_dept_division_tags')->sourceMigration('DepartmentTerm');
-    $this->addFieldMapping('field_research_area', 'field_research_area_tags')->sourceMigration('ResearchAreaTerm');
+    $this->addFieldMapping('field_research_area', 'field_research_area_tags')->sourceMigration('ResearchAreasTerm');
     $this->addFieldMapping('field_stratigraphy', 'field_stratigraphy_tags')->sourceMigration('StratigraphyTerm');
     $this->addFieldMapping('field_grade_level', 'field_age_group_tags')->sourceMigration('GradeLevelTerm');
 
