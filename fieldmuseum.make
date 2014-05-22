@@ -122,7 +122,7 @@ projects[token][subdir] = contrib
 projects[token][version] = 1.5
 
 projects[views][subdir] = contrib
-projects[views][version] = 3.7
+projects[views][version] = 3.8
 
 projects[webform][subdir] = contrib
 projects[webform][version] = 3.20
