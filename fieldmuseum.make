@@ -6,6 +6,9 @@ api = 2
 projects[acquia_connector][subdir] = contrib
 projects[acquia_connector][version] = 2.14
 
+projects[composer_manager][subdir] = contrib
+projects[composer_manager][version] = 1.3
+
 projects[context_admin][subdir] = contrib
 projects[context_admin][version] = 1.2
 
@@ -26,6 +29,16 @@ projects[entity_view_mode][version] = 1.0-rc1
 
 projects[entity][subdir] = contrib
 projects[entity][version] = 1.5
+
+projects[entitylist][subdir] = bangpound
+projects[entitylist][type] = module
+projects[entitylist][download][url] = https://github.com/bangpound/entitylist.git
+projects[entitylist][download][type] = git
+
+projects[bangpoundefq][subdir] = bangpound
+projects[bangpoundefq][type] = module
+projects[bangpoundefq][download][url] = https://github.com/bangpound/bangpoundefq.git
+projects[bangpoundefq][download][type] = git
 
 projects[entityreference][subdir] = contrib
 projects[entityreference][version] = 1.1

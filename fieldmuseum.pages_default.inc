@@ -523,17 +523,23 @@ function fieldmuseum_default_page_manager_pages() {
   $handler->weight = 0;
   $handler->conf = array(
     'title' => 'Landing page',
-    'no_blocks' => FALSE,
-    'pipeline' => 'ipe',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
     'body_classes_to_remove' => '',
     'body_classes_to_add' => '',
     'css_id' => '',
     'css' => '',
     'contexts' => array(
       0 => array(
-        'identifier' => 'View: Exhibitions',
-        'keyword' => 'view',
-        'name' => 'view:exhibitions-ctools_context_1',
+        'identifier' => 'List: Promoted exhibitions',
+        'keyword' => 'list',
+        'name' => 'entitylist:promoted_exhibitions',
+        'use_pager' => FALSE,
+        'pager_id' => NULL,
+        'range' => array(
+          'offset' => 0,
+          'limit' => 3,
+        ),
         'id' => 1,
       ),
     ),
@@ -606,33 +612,89 @@ function fieldmuseum_default_page_manager_pages() {
     $display->content['new-e8032d89-b651-4f3e-b068-b3ee68d055fe'] = $pane;
     $display->panels['main'][1] = 'new-e8032d89-b651-4f3e-b068-b3ee68d055fe';
     $pane = new stdClass();
-    $pane->pid = 'new-92d88d8b-df23-47e4-8205-1ebbd1441c3b';
+    $pane->pid = 'new-0b7e8763-317f-435a-bfbe-fd05c7d12506';
     $pane->panel = 'main';
-    $pane->type = 'views_row';
-    $pane->subtype = 'views_row';
+    $pane->type = 'entity';
+    $pane->subtype = 'entity';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'rows' => array(),
-      'use_fields' => 0,
-      'fields' => array(
-        'title' => 'title',
-      ),
-      'context' => 'context_view:exhibitions-ctools_context_1_1',
+      'index' => '1',
+      'view_mode' => 'node:banner',
+      'use_pager' => FALSE,
+      'pager_id' => 0,
+      'context' => 'context_entitylist:promoted_exhibitions_1',
       'override_title' => 0,
       'override_title_text' => '',
     );
     $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,
+      'style' => 'naked',
     );
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 2;
     $pane->locks = array();
-    $pane->uuid = '92d88d8b-df23-47e4-8205-1ebbd1441c3b';
-    $display->content['new-92d88d8b-df23-47e4-8205-1ebbd1441c3b'] = $pane;
-    $display->panels['main'][2] = 'new-92d88d8b-df23-47e4-8205-1ebbd1441c3b';
+    $pane->uuid = '0b7e8763-317f-435a-bfbe-fd05c7d12506';
+    $display->content['new-0b7e8763-317f-435a-bfbe-fd05c7d12506'] = $pane;
+    $display->panels['main'][2] = 'new-0b7e8763-317f-435a-bfbe-fd05c7d12506';
+    $pane = new stdClass();
+    $pane->pid = 'new-e17aa475-ebcc-44d9-a2c8-5475e37c1548';
+    $pane->panel = 'main';
+    $pane->type = 'entity';
+    $pane->subtype = 'entity';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'index' => '2',
+      'view_mode' => 'node:banner',
+      'use_pager' => FALSE,
+      'pager_id' => 0,
+      'context' => 'context_entitylist:promoted_exhibitions_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+      'style' => 'naked',
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 3;
+    $pane->locks = array();
+    $pane->uuid = 'e17aa475-ebcc-44d9-a2c8-5475e37c1548';
+    $display->content['new-e17aa475-ebcc-44d9-a2c8-5475e37c1548'] = $pane;
+    $display->panels['main'][3] = 'new-e17aa475-ebcc-44d9-a2c8-5475e37c1548';
+    $pane = new stdClass();
+    $pane->pid = 'new-64c4c056-b3c7-4afd-8796-35e7f9d62988';
+    $pane->panel = 'main';
+    $pane->type = 'entity';
+    $pane->subtype = 'entity';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'index' => '3',
+      'view_mode' => 'node:banner',
+      'use_pager' => FALSE,
+      'pager_id' => 0,
+      'context' => 'context_entitylist:promoted_exhibitions_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+      'style' => 'naked',
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 4;
+    $pane->locks = array();
+    $pane->uuid = '64c4c056-b3c7-4afd-8796-35e7f9d62988';
+    $display->content['new-64c4c056-b3c7-4afd-8796-35e7f9d62988'] = $pane;
+    $display->panels['main'][4] = 'new-64c4c056-b3c7-4afd-8796-35e7f9d62988';
     $pane = new stdClass();
     $pane->pid = 'new-40f9d913-1d3f-49c5-bbbd-d12e0e919624';
     $pane->panel = 'main';
@@ -651,45 +713,11 @@ function fieldmuseum_default_page_manager_pages() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 3;
+    $pane->position = 5;
     $pane->locks = array();
     $pane->uuid = '40f9d913-1d3f-49c5-bbbd-d12e0e919624';
     $display->content['new-40f9d913-1d3f-49c5-bbbd-d12e0e919624'] = $pane;
-    $display->panels['main'][3] = 'new-40f9d913-1d3f-49c5-bbbd-d12e0e919624';
-    $pane = new stdClass();
-    $pane->pid = 'new-519f6547-3398-4381-9ed8-5bcea0341247';
-    $pane->panel = 'main';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'admin_title' => 'Museum hours that link to map/directions',
-      'title' => '',
-      'body' => '### Hours
-
-Open every day except Christmas. 9am-5pm.
-
-### Location
-
-[1400 S Lake Shore Drive Chicago, IL 60605][1]
-
-   [1]: http://goo.gl/yjy8a
-',
-      'format' => 'markdown',
-      'substitute' => TRUE,
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 4;
-    $pane->locks = array();
-    $pane->uuid = '519f6547-3398-4381-9ed8-5bcea0341247';
-    $display->content['new-519f6547-3398-4381-9ed8-5bcea0341247'] = $pane;
-    $display->panels['main'][4] = 'new-519f6547-3398-4381-9ed8-5bcea0341247';
+    $display->panels['main'][5] = 'new-40f9d913-1d3f-49c5-bbbd-d12e0e919624';
   $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
