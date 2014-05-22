@@ -28,6 +28,7 @@ features[field_instance][] = node-exhibit-body
 features[field_instance][] = node-exhibit-field_audience
 features[field_instance][] = node-exhibit-field_banner_description
 features[field_instance][] = node-exhibit-field_exhibit_type
+features[field_instance][] = node-exhibit-field_grade_level
 features[field_instance][] = node-exhibit-field_image
 features[field_instance][] = node-exhibit-field_research_area
 features[field_instance][] = node-exhibit-field_science_focus
