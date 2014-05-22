@@ -55,6 +55,7 @@ features[field_base][] = field_executive_staff
 features[field_base][] = field_exhibit
 features[field_base][] = field_fax
 features[field_base][] = field_givenname
+features[field_base][] = field_grade_level
 features[field_base][] = field_grants_awards
 features[field_base][] = field_image
 features[field_base][] = field_interests
