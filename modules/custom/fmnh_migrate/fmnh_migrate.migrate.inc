@@ -158,6 +158,15 @@ function fmnh_migrate_migrate_api() {
         'source_version' => '7',
         'description' => 'Migrate faq_topics terms',
       ),
+      'GradeLevelTerm' => array(
+        'class_name' => 'GradeLevelTermMigration',
+        'group_name' => 'fmnh',
+        'source_vocabulary' => 'age_group',
+        'destination_vocabulary' => 'grade_level',
+        'source_connection' => 'migrate',
+        'source_version' => '7',
+        'description' => 'Migrate faq_topics terms',
+      ),
       'ImageFile' => array(
         'class_name' => 'ImageFileMigration',
         'group_name' => 'fmnh',
