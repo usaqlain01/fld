@@ -1,6 +1,6 @@
 /modules/contrib/
 /modules/bangpound/
-/libraries/
+/libraries/*
 
 # These themes are downloaded through the make file.
 /themes/zen/
