@@ -139,6 +139,9 @@ projects[views][version] = 3.8
 projects[webform][subdir] = contrib
 projects[webform][version] = 3.20
 
+projects[wysiwyg][subdir] = contrib
+projects[wysiwyg][version] = 2.x-dev
+
 ; Development
 
 projects[bangpoundentity][subdir] = bangpound
@@ -159,6 +162,12 @@ libraries[backbone][directory_name] = backbone
 libraries[backbone][destination] = libraries
 libraries[backbone][type] = library
 libraries[backbone][download][tag] = 1.1.2
+
+libraries[ckeditor][download][type] = get
+libraries[ckeditor][download][url] = http://download.cksource.com/CKEditor/CKEditor/CKEditor%203.6.6.1/ckeditor_3.6.6.1.tar.gz
+libraries[ckeditor][directory_name] = ckeditor
+libraries[ckeditor][destination] = libraries
+libraries[ckeditor][type] = library
 
 libraries[underscore][download][type] = git
 libraries[underscore][download][url] = https://github.com/jashkenas/underscore.git
