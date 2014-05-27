@@ -11,6 +11,9 @@ projects[bangpoundefq][type] = module
 projects[bangpoundefq][download][url] = https://github.com/bangpound/bangpoundefq.git
 projects[bangpoundefq][download][type] = git
 
+projects[classloader][subdir] = contrib
+projects[classloader][version] = 1.1
+
 projects[composer_manager][subdir] = contrib
 projects[composer_manager][version] = 1.3
 
@@ -72,6 +75,9 @@ projects[imagecrop][type] = module
 projects[imagecrop][download][url] = https://github.com/bangpound/imagecrop.git
 projects[imagecrop][download][type] = git
 projects[imagecrop][download][branch] = develop
+
+projects[inline][subdir] = contrib
+projects[inline][version] = 2.x-dev
 
 projects[invisimail][subdir] = contrib
 projects[invisimail][version] = 1.1
