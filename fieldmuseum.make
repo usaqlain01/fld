@@ -73,6 +73,9 @@ projects[file_entity][version] = 2.x-dev
 projects[google_analytics][subdir] = contrib
 projects[google_analytics][version] = 2.x-dev
 
+projects[google_cse][subdir] = contrib
+projects[google_cse][version] = 2.x-dev
+
 projects[imagecrop][subdir] = contrib
 projects[imagecrop][type] = module
 projects[imagecrop][download][url] = https://github.com/bangpound/imagecrop.git
