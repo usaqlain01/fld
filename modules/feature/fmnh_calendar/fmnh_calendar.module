@@ -5,3 +5,46 @@
  */
 
 include_once 'fmnh_calendar.features.inc';
+
+/**
+ * Implement hook_cron().
+ */
+function fmnh_calendar_cron() {
+  // Format a new date that is today minus 1 day. (Result is going to be two days ago to
+  // compensate for day time and guarantee that it's always at least one full day in the past.)
+  $value2 = date('Y-m-d', strtotime('-1 day', strtotime(date('Y-m-d'))));
+
+  $query = new EntityFieldQuery();
+  $query->entityCondition('entity_type', 'node')
+    ->entityCondition('bundle', 'event')
+    ->fieldCondition('field_date', 'value2', $value2, '<');
+
+  $result = $query->execute();
+  if (!empty($result['node'])) {
+    $entities = entity_load('node', array_keys($result['node']));
+
+    foreach ($entities as $entity) {
+      list($id, , $type) = entity_extract_ids('node', $entity);
+      $items = field_get_items('node', $entity, 'field_program');
+      if ($items) {
+        /** @var array $items */
+        foreach ($items as $item) {
+          $target_entities = entity_load('node', array($item['target_id']));
+          foreach ($target_entities as $target_entity) {
+            list(,,$bundle) = entity_extract_ids('node', $target_entity);
+
+            // Only delete events that are linked to program nodes.
+            if ('program' === $bundle) {
+              $title = entity_label('node', $entity);
+              watchdog('content', 'Automatically deleted past event %title.', array(
+                '@type' => $type,
+                '%title' => $title,
+              ), WATCHDOG_INFO);
+              entity_delete('node', $id);
+            }
+          }
+        }
+      }
+    }
+  }
+}
