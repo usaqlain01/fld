@@ -170,7 +170,6 @@ projects[bangpoundentity][download][type] = git
 ; Themes
 
 projects[zen][version] = 5.5
-projects[ember][version] = 2.x-dev
 
 ; Libraries
 
