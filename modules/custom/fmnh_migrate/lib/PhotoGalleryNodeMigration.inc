@@ -1,6 +1,6 @@
 <?php
 
-class PhotoGalleryNodeMigration extends DrupalNode7Migration
+class PhotoGalleryNodeMigration extends FmnhNodeMigration
 {
   public function __construct(array $arguments)
   {

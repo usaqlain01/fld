@@ -1,6 +1,6 @@
 <?php
 
-class BlogNodeMigration extends DrupalNode7Migration
+class BlogNodeMigration extends FmnhNodeMigration
 {
   public function __construct(array $arguments) {
     parent::__construct($arguments);

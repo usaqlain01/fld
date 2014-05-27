@@ -1,6 +1,6 @@
 <?php
 
-class NewsletterNodeMigration extends DrupalNode7Migration
+class NewsletterNodeMigration extends FmnhNodeMigration
 {
   public function __construct(array $arguments)
   {

@@ -1,6 +1,6 @@
 <?php
 
-class LocationRegionTermMigration extends DrupalTerm7Migration
+class LocationRegionTermMigration extends FmnhTermMigration
 {
 
 }

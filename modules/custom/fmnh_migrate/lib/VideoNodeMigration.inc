@@ -1,6 +1,6 @@
 <?php
 
-class VideoNodeMigration extends DrupalNode7Migration
+class VideoNodeMigration extends FmnhNodeMigration
 {
   public function __construct(array $arguments) {
     parent::__construct($arguments);

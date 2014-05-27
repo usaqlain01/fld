@@ -1,6 +1,6 @@
 <?php
 
-class ExhibitNodeMigration extends DrupalNode7Migration
+class ExhibitNodeMigration extends FmnhNodeMigration
 {
   public function __construct(array $arguments) {
     $this->setSystemOfRecord(Migration::DESTINATION);

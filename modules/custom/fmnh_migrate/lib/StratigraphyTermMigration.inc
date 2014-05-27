@@ -1,6 +1,6 @@
 <?php
 
-class StratigraphyTermMigration extends DrupalTerm7Migration
+class StratigraphyTermMigration extends FmnhTermMigration
 {
 
 }

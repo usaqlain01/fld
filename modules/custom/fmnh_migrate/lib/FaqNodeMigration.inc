@@ -1,6 +1,6 @@
 <?php
 
-class FaqNodeMigration extends DrupalNode7Migration
+class FaqNodeMigration extends FmnhNodeMigration
 {
   public function __construct(array $arguments) {
     parent::__construct($arguments);

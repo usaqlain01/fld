@@ -1,6 +1,6 @@
 <?php
 
-class ExhibitTypeTermMigration extends DrupalTerm7Migration
+class ExhibitTypeTermMigration extends FmnhTermMigration
 {
 
 }

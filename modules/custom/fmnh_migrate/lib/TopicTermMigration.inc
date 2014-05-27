@@ -1,6 +1,6 @@
 <?php
 
-class TopicTermMigration extends DrupalTerm7Migration
+class TopicTermMigration extends FmnhTermMigration
 {
 
 }

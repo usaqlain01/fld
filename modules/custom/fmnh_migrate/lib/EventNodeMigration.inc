@@ -1,6 +1,6 @@
 <?php
 
-class EventNodeMigration extends DrupalNode7Migration
+class EventNodeMigration extends FmnhNodeMigration
 {
   public function __construct(array $arguments)
   {

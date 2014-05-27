@@ -1,5 +1,5 @@
 <?php
 
-class AudienceTermMigration extends DrupalTerm7Migration {
+class AudienceTermMigration extends FmnhTermMigration {
 
 }

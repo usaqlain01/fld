@@ -1,6 +1,6 @@
 <?php
 
-class ScienceFocusTermMigration extends DrupalTerm7Migration
+class ScienceFocusTermMigration extends FmnhTermMigration
 {
 
 }
