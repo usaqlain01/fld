@@ -52,6 +52,9 @@ projects[entityreference][version] = 1.1
 projects[features][subdir] = contrib
 projects[features][version] = 2.0
 
+projects[feeds][subdir] = contrib
+projects[feeds][version] = 2.x-dev
+
 projects[fences][subdir] = contrib
 projects[fences][version] = 1.x-dev
 
@@ -81,6 +84,9 @@ projects[inline][version] = 2.x-dev
 
 projects[invisimail][subdir] = contrib
 projects[invisimail][version] = 1.1
+
+projects[job_scheduler][subdir] = contrib
+projects[job_scheduler][version] = 2.x-dev
 
 projects[libraries][subdir] = contrib
 projects[libraries][version] = 2.2
