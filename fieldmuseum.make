@@ -133,6 +133,9 @@ projects[navbar][version] = 1.x-dev
 projects[oembed][subdir] = contrib
 projects[oembed][version] = 1.x-dev
 
+projects[override_node_options][subdir] = contrib
+projects[override_node_options][version] = 1.x-dev
+
 projects[panels][subdir] = contrib
 projects[panels][version] = 3.4
 
