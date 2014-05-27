@@ -77,4 +77,9 @@ function fieldmuseum_install() {
   // Enable default permissions for system roles.
   user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array('access content'));
   user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID, array('access content'));
+
+  // Disqus settings
+  variable_set('disqus_domain','fieldmuseum');
+  variable_set('disqus_nodetypes', array('blog' => 'blog'));
+  variable_set('disqus_useraccesstoken', 'B5CPoFWBpHjwDi2FURAevbGyOS5ALvz8OXl7f4BxjuCCrMshzpCm4eZ4BPtsSv7Z');
 }

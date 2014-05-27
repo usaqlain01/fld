@@ -194,6 +194,12 @@ libraries[underscore][destination] = libraries
 libraries[underscore][type] = library
 libraries[underscore][download][tag] = 1.6.0
 
+libraries[disqus-php][download][type] = git
+libraries[disqus-php][download][url] = https://github.com/disqus/disqus-php.git
+libraries[disqus-php][directory_name] = disqusapi
+libraries[disqus-php][destination] = libraries
+libraries[disqus-php][type] = library
+
 libraries[markdown][download][type] = git
 libraries[markdown][download][url] = https://github.com/michelf/php-markdown.git
 libraries[markdown][directory_name] = markdown
