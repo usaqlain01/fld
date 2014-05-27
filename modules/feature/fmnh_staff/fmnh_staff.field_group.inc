@@ -1,115 +1,115 @@
 <?php
 /**
  * @file
- * fmnh_exhibit.field_group.inc
+ * fmnh_staff.field_group.inc
  */
 
 /**
  * Implements hook_field_group_info().
  */
-function fmnh_exhibit_field_group_info() {
+function fmnh_staff_field_group_info() {
   $export = array();
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
-  $field_group->identifier = 'group_audience|node|exhibit|form';
-  $field_group->group_name = 'group_audience';
-  $field_group->entity_type = 'node';
-  $field_group->bundle = 'exhibit';
+  $field_group->identifier = 'group_department|user|user|form';
+  $field_group->group_name = 'group_department';
+  $field_group->entity_type = 'user';
+  $field_group->bundle = 'user';
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_public_tags';
   $field_group->data = array(
-    'label' => 'Audience',
-    'weight' => '50',
+    'label' => 'Department',
+    'weight' => '29',
     'children' => array(
-      0 => 'field_audience',
+      0 => 'field_department',
     ),
     'format_type' => 'htab',
     'format_settings' => array(
       'formatter' => 'closed',
       'instance_settings' => array(
         'description' => '',
-        'classes' => 'group-audience field-group-htab',
+        'classes' => 'group-department field-group-htab',
         'required_fields' => 1,
         'id' => '',
       ),
     ),
   );
-  $export['group_audience|node|exhibit|form'] = $field_group;
+  $export['group_department|user|user|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
-  $field_group->identifier = 'group_figure|node|exhibit|banner';
-  $field_group->group_name = 'group_figure';
-  $field_group->entity_type = 'node';
-  $field_group->bundle = 'exhibit';
-  $field_group->mode = 'banner';
-  $field_group->parent_name = '';
-  $field_group->data = array(
-    'label' => 'figure',
-    'weight' => '0',
-    'children' => array(
-      0 => 'field_image',
-      1 => 'field_banner_description',
-    ),
-    'format_type' => 'html-element',
-    'format_settings' => array(
-      'label' => 'figure',
-      'instance_settings' => array(
-        'classes' => 'group-figure field-group-html-element',
-        'element' => 'figure',
-        'attributes' => '',
-      ),
-    ),
-  );
-  $export['group_figure|node|exhibit|banner'] = $field_group;
-
-  $field_group = new stdClass();
-  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
-  $field_group->api_version = 1;
-  $field_group->identifier = 'group_grade_level|node|exhibit|form';
-  $field_group->group_name = 'group_grade_level';
-  $field_group->entity_type = 'node';
-  $field_group->bundle = 'exhibit';
+  $field_group->identifier = 'group_exhibit|user|user|form';
+  $field_group->group_name = 'group_exhibit';
+  $field_group->entity_type = 'user';
+  $field_group->bundle = 'user';
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_public_tags';
   $field_group->data = array(
-    'label' => 'Grade level',
-    'weight' => '53',
+    'label' => 'Exhibit',
+    'weight' => '31',
     'children' => array(
-      0 => 'field_grade_level',
+      0 => 'field_exhibit',
     ),
     'format_type' => 'htab',
     'format_settings' => array(
       'formatter' => 'closed',
       'instance_settings' => array(
         'description' => '',
-        'classes' => 'group-grade-level field-group-htab',
+        'classes' => 'group-exhibit field-group-htab',
         'required_fields' => 1,
         'id' => '',
       ),
     ),
   );
-  $export['group_grade_level|node|exhibit|form'] = $field_group;
+  $export['group_exhibit|user|user|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
-  $field_group->identifier = 'group_public_tags|node|exhibit|form';
+  $field_group->identifier = 'group_location_region|user|user|form';
+  $field_group->group_name = 'group_location_region';
+  $field_group->entity_type = 'user';
+  $field_group->bundle = 'user';
+  $field_group->mode = 'form';
+  $field_group->parent_name = 'group_science_tags';
+  $field_group->data = array(
+    'label' => 'Location/Region',
+    'weight' => '35',
+    'children' => array(
+      0 => 'field_location_region',
+    ),
+    'format_type' => 'htab',
+    'format_settings' => array(
+      'formatter' => 'closed',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-location-region field-group-htab',
+        'required_fields' => 1,
+        'id' => '',
+      ),
+    ),
+  );
+  $export['group_location_region|user|user|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_public_tags|user|user|form';
   $field_group->group_name = 'group_public_tags';
-  $field_group->entity_type = 'node';
-  $field_group->bundle = 'exhibit';
+  $field_group->entity_type = 'user';
+  $field_group->bundle = 'user';
   $field_group->mode = 'form';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'Public Tags',
-    'weight' => '7',
+    'label' => 'Public tags',
+    'weight' => '27',
     'children' => array(
-      0 => 'group_audience',
+      0 => 'group_department',
       1 => 'group_topic',
-      2 => 'group_grade_level',
+      2 => 'group_exhibit',
     ),
     'format_type' => 'htabs',
     'format_settings' => array(
@@ -119,20 +119,20 @@ function fmnh_exhibit_field_group_info() {
       ),
     ),
   );
-  $export['group_public_tags|node|exhibit|form'] = $field_group;
+  $export['group_public_tags|user|user|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
-  $field_group->identifier = 'group_research_area|node|exhibit|form';
+  $field_group->identifier = 'group_research_area|user|user|form';
   $field_group->group_name = 'group_research_area';
-  $field_group->entity_type = 'node';
-  $field_group->bundle = 'exhibit';
+  $field_group->entity_type = 'user';
+  $field_group->bundle = 'user';
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_science_tags';
   $field_group->data = array(
     'label' => 'Research area',
-    'weight' => '44',
+    'weight' => '36',
     'children' => array(
       0 => 'field_research_area',
     ),
@@ -141,57 +141,29 @@ function fmnh_exhibit_field_group_info() {
       'formatter' => 'closed',
       'instance_settings' => array(
         'description' => '',
-        'classes' => '',
+        'classes' => 'group-research-area field-group-htab',
         'required_fields' => 1,
         'id' => '',
       ),
     ),
   );
-  $export['group_research_area|node|exhibit|form'] = $field_group;
+  $export['group_research_area|user|user|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
-  $field_group->identifier = 'group_science_focus|node|exhibit|form';
-  $field_group->group_name = 'group_science_focus';
-  $field_group->entity_type = 'node';
-  $field_group->bundle = 'exhibit';
-  $field_group->mode = 'form';
-  $field_group->parent_name = 'group_science_tags';
-  $field_group->data = array(
-    'label' => 'Science focus',
-    'weight' => '45',
-    'children' => array(
-      0 => 'field_science_focus',
-    ),
-    'format_type' => 'htab',
-    'format_settings' => array(
-      'formatter' => 'closed',
-      'instance_settings' => array(
-        'description' => '',
-        'classes' => '',
-        'required_fields' => 1,
-        'id' => '',
-      ),
-    ),
-  );
-  $export['group_science_focus|node|exhibit|form'] = $field_group;
-
-  $field_group = new stdClass();
-  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
-  $field_group->api_version = 1;
-  $field_group->identifier = 'group_science_tags|node|exhibit|form';
+  $field_group->identifier = 'group_science_tags|user|user|form';
   $field_group->group_name = 'group_science_tags';
-  $field_group->entity_type = 'node';
-  $field_group->bundle = 'exhibit';
+  $field_group->entity_type = 'user';
+  $field_group->bundle = 'user';
   $field_group->mode = 'form';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'Science Tags',
-    'weight' => '6',
+    'label' => 'Science tags',
+    'weight' => '28',
     'children' => array(
-      0 => 'group_research_area',
-      1 => 'group_science_focus',
+      0 => 'group_location_region',
+      1 => 'group_research_area',
       2 => 'group_stratigraphy',
     ),
     'format_type' => 'htabs',
@@ -202,20 +174,20 @@ function fmnh_exhibit_field_group_info() {
       ),
     ),
   );
-  $export['group_science_tags|node|exhibit|form'] = $field_group;
+  $export['group_science_tags|user|user|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
-  $field_group->identifier = 'group_stratigraphy|node|exhibit|form';
+  $field_group->identifier = 'group_stratigraphy|user|user|form';
   $field_group->group_name = 'group_stratigraphy';
-  $field_group->entity_type = 'node';
-  $field_group->bundle = 'exhibit';
+  $field_group->entity_type = 'user';
+  $field_group->bundle = 'user';
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_science_tags';
   $field_group->data = array(
     'label' => 'Stratigraphy',
-    'weight' => '46',
+    'weight' => '37',
     'children' => array(
       0 => 'field_stratigraphy',
     ),
@@ -230,20 +202,20 @@ function fmnh_exhibit_field_group_info() {
       ),
     ),
   );
-  $export['group_stratigraphy|node|exhibit|form'] = $field_group;
+  $export['group_stratigraphy|user|user|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
-  $field_group->identifier = 'group_topic|node|exhibit|form';
+  $field_group->identifier = 'group_topic|user|user|form';
   $field_group->group_name = 'group_topic';
-  $field_group->entity_type = 'node';
-  $field_group->bundle = 'exhibit';
+  $field_group->entity_type = 'user';
+  $field_group->bundle = 'user';
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_public_tags';
   $field_group->data = array(
     'label' => 'Topic',
-    'weight' => '52',
+    'weight' => '30',
     'children' => array(
       0 => 'field_topic',
     ),
@@ -258,7 +230,7 @@ function fmnh_exhibit_field_group_info() {
       ),
     ),
   );
-  $export['group_topic|node|exhibit|form'] = $field_group;
+  $export['group_topic|user|user|form'] = $field_group;
 
   return $export;
 }

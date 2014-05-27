@@ -56,7 +56,7 @@ function fmnh_exhibit_field_default_field_instances() {
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
-      'weight' => 33,
+      'weight' => 1,
     ),
   );
 
@@ -101,7 +101,7 @@ function fmnh_exhibit_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 39,
+      'weight' => 51,
     ),
   );
 
@@ -153,7 +153,7 @@ function fmnh_exhibit_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 47,
+      'weight' => 4,
     ),
   );
 
@@ -199,7 +199,7 @@ function fmnh_exhibit_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 31,
+      'weight' => 5,
     ),
   );
 
@@ -238,7 +238,7 @@ function fmnh_exhibit_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 46,
+      'weight' => 42,
     ),
   );
 
@@ -304,7 +304,7 @@ function fmnh_exhibit_field_default_field_instances() {
         ),
       ),
       'type' => 'media_generic',
-      'weight' => 45,
+      'weight' => 3,
     ),
   );
 
@@ -343,7 +343,7 @@ function fmnh_exhibit_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 35,
+      'weight' => 45,
     ),
   );
 
@@ -382,7 +382,7 @@ function fmnh_exhibit_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 41,
+      'weight' => 46,
     ),
   );
 
@@ -421,7 +421,7 @@ function fmnh_exhibit_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 37,
+      'weight' => 47,
     ),
   );
 
@@ -460,7 +460,7 @@ function fmnh_exhibit_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 43,
+      'weight' => 41,
     ),
   );
 

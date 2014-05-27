@@ -50,7 +50,7 @@ function fmnh_staff_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 31,
+      'weight' => 14,
     ),
   );
 
@@ -97,7 +97,7 @@ function fmnh_staff_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'file_generic',
-      'weight' => 13,
+      'weight' => 11,
     ),
   );
 
@@ -131,7 +131,7 @@ function fmnh_staff_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 8,
+      'weight' => 30,
     ),
   );
 
@@ -169,7 +169,7 @@ function fmnh_staff_field_default_field_instances() {
         'size' => 50,
       ),
       'type' => 'email_textfield',
-      'weight' => 8,
+      'weight' => 7,
     ),
   );
 
@@ -202,7 +202,7 @@ function fmnh_staff_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 33,
+      'weight' => 32,
     ),
   );
 
@@ -279,7 +279,7 @@ function fmnh_staff_field_default_field_instances() {
         'size' => 30,
       ),
       'type' => 'text_textfield',
-      'weight' => 2,
+      'weight' => 1,
     ),
   );
 
@@ -329,7 +329,7 @@ function fmnh_staff_field_default_field_instances() {
         'browser_plugins' => array(),
       ),
       'type' => 'media_generic',
-      'weight' => 18,
+      'weight' => 13,
     ),
   );
 
@@ -362,7 +362,7 @@ function fmnh_staff_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 10,
+      'weight' => 36,
     ),
   );
 
@@ -395,7 +395,7 @@ function fmnh_staff_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 9,
+      'weight' => 8,
     ),
   );
 
@@ -439,7 +439,7 @@ function fmnh_staff_field_default_field_instances() {
         'size' => 30,
       ),
       'type' => 'text_textfield',
-      'weight' => 4,
+      'weight' => 3,
     ),
   );
 
@@ -472,7 +472,7 @@ function fmnh_staff_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 12,
+      'weight' => 37,
     ),
   );
 
@@ -505,7 +505,7 @@ function fmnh_staff_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 16,
+      'weight' => 38,
     ),
   );
 
@@ -549,7 +549,7 @@ function fmnh_staff_field_default_field_instances() {
         'size' => 30,
       ),
       'type' => 'text_textfield',
-      'weight' => 3,
+      'weight' => 2,
     ),
   );
 
@@ -582,7 +582,7 @@ function fmnh_staff_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 14,
+      'weight' => 31,
     ),
   );
 
@@ -626,7 +626,7 @@ function fmnh_staff_field_default_field_instances() {
         'size' => 4,
       ),
       'type' => 'text_textfield',
-      'weight' => 10,
+      'weight' => 9,
     ),
   );
 

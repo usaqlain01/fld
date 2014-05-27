@@ -53,7 +53,7 @@ function fmnh_faq_field_default_field_instances() {
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
-      'weight' => 31,
+      'weight' => 1,
     ),
   );
 
@@ -92,7 +92,7 @@ function fmnh_faq_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 35,
+      'weight' => 41,
     ),
   );
 
@@ -131,7 +131,7 @@ function fmnh_faq_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 39,
+      'weight' => 43,
     ),
   );
 
@@ -176,7 +176,7 @@ function fmnh_faq_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 40,
+      'weight' => 4,
     ),
   );
 
@@ -218,7 +218,7 @@ function fmnh_faq_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 41,
+      'weight' => 5,
     ),
   );
 
@@ -257,7 +257,7 @@ function fmnh_faq_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 33,
+      'weight' => 41,
     ),
   );
 
@@ -296,7 +296,7 @@ function fmnh_faq_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 37,
+      'weight' => 42,
     ),
   );
 

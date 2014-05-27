@@ -151,7 +151,7 @@ function fmnh_podcast_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 38,
+      'weight' => 56,
     ),
   );
 
@@ -190,7 +190,7 @@ function fmnh_podcast_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 40,
+      'weight' => 52,
     ),
   );
 
@@ -285,7 +285,7 @@ function fmnh_podcast_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 36,
+      'weight' => 46,
     ),
   );
 
@@ -324,7 +324,7 @@ function fmnh_podcast_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 33,
+      'weight' => 50,
     ),
   );
 

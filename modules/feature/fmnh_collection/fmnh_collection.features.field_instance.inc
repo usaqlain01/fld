@@ -174,7 +174,7 @@ function fmnh_collection_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 38,
+      'weight' => 47,
     ),
   );
 
@@ -337,7 +337,7 @@ function fmnh_collection_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 32,
+      'weight' => 46,
     ),
   );
 
@@ -376,7 +376,7 @@ function fmnh_collection_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 43,
+      'weight' => 63,
     ),
   );
 
@@ -533,7 +533,7 @@ function fmnh_collection_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 41,
+      'weight' => 57,
     ),
   );
 
@@ -703,7 +703,7 @@ function fmnh_collection_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 40,
+      'weight' => 56,
     ),
   );
 
@@ -748,7 +748,7 @@ function fmnh_collection_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 36,
+      'weight' => 59,
     ),
   );
 
@@ -793,7 +793,7 @@ function fmnh_collection_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 42,
+      'weight' => 58,
     ),
   );
 
@@ -838,7 +838,7 @@ function fmnh_collection_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 34,
+      'weight' => 45,
     ),
   );
 
