@@ -6,6 +6,7 @@ dependencies[] = block
 dependencies[] = contextual
 dependencies[] = ctools
 dependencies[] = ctools_custom_content
+dependencies[] = date_popup
 dependencies[] = diff
 dependencies[] = email
 dependencies[] = entity_view_mode
