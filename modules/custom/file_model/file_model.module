@@ -68,3 +68,74 @@ function file_model_theme($existing, $type, $theme, $path) {
     ),
   );
 }
+
+
+/**
+ * Implements hook_file_formatter_FORMATTER_view().
+ */
+function file_model_file_formatter_x3d_view($file, $display, $langcode) {
+  return array(
+    '#theme' => 'x3d',
+    '#file' => $file,
+    '#width' => $display['settings']['width'],
+    '#height' => $display['settings']['height'],
+  );
+}
+
+/**
+ * Implements hook_file_formatter_FORMATTER_view().
+ */
+function file_model_file_formatter_qt_view($file, $display, $langcode) {
+  return array(
+    '#theme' => 'qt',
+    '#file' => $file,
+    '#width' => $display['settings']['width'],
+    '#height' => $display['settings']['height'],
+  );
+}
+
+/**
+ * Implements hook_file_formatter_FORMATTER_settings().
+ */
+function file_model_file_formatter_x3d_settings($form, &$form_state, $settings) {
+  $element = array();
+
+  // For image files we allow the alt attribute (required in HTML).
+  $element['width'] = array(
+    '#title' => t('Width'),
+    '#type' => 'textfield',
+    '#default_value' => $settings['width'],
+  );
+
+  // Allow the setting of the title attribute.
+  $element['height'] = array(
+    '#title' => t('Height'),
+    '#type' => 'textfield',
+    '#default_value' => $settings['height'],
+  );
+
+  return $element;
+}
+
+/**
+ * Implements hook_file_formatter_FORMATTER_settings().
+ */
+function file_model_file_formatter_qt_settings($form, &$form_state, $settings) {
+  $element = array();
+
+  // For image files we allow the alt attribute (required in HTML).
+  $element['width'] = array(
+    '#title' => t('Width'),
+    '#type' => 'textfield',
+    '#default_value' => $settings['width'],
+  );
+
+  // Allow the setting of the title attribute.
+  $element['height'] = array(
+    '#title' => t('Height'),
+    '#type' => 'textfield',
+    '#default_value' => $settings['height'],
+  );
+
+  return $element;
+}
