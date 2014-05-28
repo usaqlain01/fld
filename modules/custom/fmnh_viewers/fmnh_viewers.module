@@ -51,47 +51,11 @@ function fmnh_viewers_theme($existing, $type, $theme, $path) {
   return array(
     'x3d' => array(
       'variables' => array('file' => NULL),
+      'file' => 'fmnh_viewers.theme.inc',
     ),
     'qt' => array(
       'variables' => array('file' => NULL),
+      'file' => 'fmnh_viewers.theme.inc',
     ),
   );
 }
-
-function theme_x3d($variables) {
-  $file = $variables['file'];
-  $file_url = file_create_url($file->uri);
-  $output = '<object data="'. $file_url .'" type="'. $file->filemime .'" height="360" width="300">';
-  $output .= '<param name="src" value="'. $file_url .'"/>';
-  $output .= '<param name="DASHBOARD" value="FALSE"/>';
-  $output .= '<param name="SPLASHSCREEN" value="FALSE"/>';
-  $output .= '<a href="http://www.web3d.org/x3d/content/examples/X3dResources.html#Applications">Select an X3D plugin to see this example...</a>';
-  $output .= '</object>';
-  return $output;
-}
-
-function theme_qt($variables) {
-  $file = $variables['file'];
-  $file_url = file_create_url($file->uri);
-  $output = '<OBJECT CLASSID="clsid:02BF25D5-8C17-4B23-BC80-D3488ABDDC6B" CODEBASE="http://www.apple.com/qtactivex/qtplugin.cab" HEIGHT=yy WIDTH=xx>';
-  $output .= '<PARAM NAME="src" VALUE="'. $file_url .'">';
-  $output .= '<EMBED SRC="'. $file_url .'" HEIGHT=yy WIDTH=xx TYPE="'. $file->filemime .'" PLUGINSPAGE="http://www.apple.com/quicktime/download/" />';
-  $output .= '</OBJECT>';
-  return $output;
-}
-
-/**
- * Implements hook_file_mimetype_mapping_alter().
- */
-function fmnh_viewers_file_mimetype_mapping_alter(&$mapping) {
-  $mapping['mimetypes']['model_x3d_xml'] = 'model/x3d+xml';
-  $mapping['mimetypes']['model_x3d_binary'] = 'model/x3d+binary';
-  $mapping['mimetypes']['model_x3d_vrml'] = 'model/x3d+vrml';
-  $mapping['extensions']['x3d'] = 'model_x3d_xml';
-  $mapping['extensions']['x3dz'] = 'model_x3d_xml';
-  $mapping['extensions']['x3db'] = 'model_x3d_binary';
-  $mapping['extensions']['x3dbz'] = 'model_x3d_binary';
-  $mapping['extensions']['x3dv'] = 'model_x3d_vrml';
-  $mapping['extensions']['x3dvz'] = 'model_x3d_vrml';
-}
-
