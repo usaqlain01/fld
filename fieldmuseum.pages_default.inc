@@ -476,6 +476,50 @@ function fieldmuseum_default_page_manager_pages() {
   $page = new stdClass();
   $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
   $page->api_version = 1;
+  $page->name = 'give_now';
+  $page->task = 'page';
+  $page->admin_title = 'Give now';
+  $page->admin_description = '';
+  $page->path = 'give-now';
+  $page->access = array();
+  $page->menu = array(
+    'type' => 'normal',
+    'title' => 'Give now',
+    'name' => 'menu-header-menu',
+    'weight' => '0',
+    'parent' => array(
+      'type' => 'none',
+      'title' => '',
+      'name' => 'navigation',
+      'weight' => '0',
+    ),
+  );
+  $page->arguments = array();
+  $page->conf = array(
+    'admin_paths' => FALSE,
+  );
+  $page->default_handlers = array();
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'page_give_now_http_response';
+  $handler->task = 'page';
+  $handler->subtask = 'give_now';
+  $handler->handler = 'http_response';
+  $handler->weight = 0;
+  $handler->conf = array(
+    'title' => 'HTTP response code',
+    'contexts' => array(),
+    'relationships' => array(),
+    'code' => '301',
+    'destination' => 'http://enews.fieldmuseum.org/site/PageServer?pagename=api_donate&donate=now',
+  );
+  $page->default_handlers[$handler->name] = $handler;
+  $pages['give_now'] = $page;
+
+  $page = new stdClass();
+  $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
+  $page->api_version = 1;
   $page->name = 'home';
   $page->task = 'page';
   $page->admin_title = 'Home';
