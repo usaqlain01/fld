@@ -241,5 +241,8 @@ libraries[Jcrop][directory_name] = Jcrop
 libraries[Jcrop][destination] = libraries
 libraries[Jcrop][type] = library
 
-; drush --yes make --working-copy --contrib-destination=. --no-core fieldmuseum.make
+libraries[x3dom][download][type] = get
+libraries[x3dom][download][url] = http://x3dom.org/download/1.6/x3dom-1.6.0.zip
+libraries[x3dom][type] = library
 
+; drush --yes make --working-copy --contrib-destination=. --no-core fieldmuseum.make

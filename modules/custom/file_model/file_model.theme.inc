@@ -6,12 +6,27 @@ function theme_x3d($variables) {
   $height   = $variables['height'];
   $file_url = file_create_url($file->uri);
 
-  $output = '<object data="'. $file_url .'" type="'. $file->filemime .'" height="360" width="300">';
+  $output = '<object data="'. $file_url .'" type="'. $file->filemime .'" height="'. $height .'" width="'. $width .'">';
   $output .= '<param name="src" value="'. $file_url .'"/>';
   $output .= '<param name="DASHBOARD" value="FALSE"/>';
   $output .= '<param name="SPLASHSCREEN" value="FALSE"/>';
   $output .= '<a href="http://www.web3d.org/x3d/content/examples/X3dResources.html#Applications">Select an X3D plugin to see this example...</a>';
   $output .= '</object>';
+  return $output;
+}
+
+function theme_x3dom($variables) {
+  $file     = $variables['file'];
+  $width    = $variables['width'];
+  $height   = $variables['height'];
+  $file_url = file_create_url($file->uri);
+  drupal_add_library('file_model', 'x3dom');
+
+  $output = '<x3d width="'.$width.'px" height="'.$height.'px">';
+  $output .= '<scene>';
+  $output .= '<inline url="'. $file_url .'"></inline>';
+  $output .= '</scene>';
+  $output .= '</x3d>';
   return $output;
 }
 

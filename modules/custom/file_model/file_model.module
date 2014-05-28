@@ -62,6 +62,10 @@ function file_model_theme($existing, $type, $theme, $path) {
       'variables' => array('file' => NULL, 'width' => 800, 'height' => 600),
       'file' => 'file_model.theme.inc',
     ),
+    'x3dom' => array(
+      'variables' => array('file' => NULL, 'width' => 800, 'height' => 600),
+      'file' => 'file_model.theme.inc',
+    ),
     'qt' => array(
       'variables' => array('file' => NULL, 'width' => 800, 'height' => 600),
       'file' => 'file_model.theme.inc',
@@ -75,7 +79,7 @@ function file_model_theme($existing, $type, $theme, $path) {
  */
 function file_model_file_formatter_x3d_view($file, $display, $langcode) {
   return array(
-    '#theme' => 'x3d',
+    '#theme' => 'x3dom',
     '#file' => $file,
     '#width' => $display['settings']['width'],
     '#height' => $display['settings']['height'],
@@ -138,4 +142,25 @@ function file_model_file_formatter_qt_settings($form, &$form_state, $settings) {
   );
 
   return $element;
+}
+
+/**
+ * @return mixed
+ */
+function file_model_library() {
+  $libraries['x3dom'] = array(
+    'title' => 'X3DOM',
+    'website' => 'http://www.x3dom.org',
+    'version' => '1.6.0',
+    'js' => array(
+      libraries_get_path('x3dom') . '/x3dom.js' => array(),
+    ),
+    'css' => array(
+      libraries_get_path('x3dom') . '/x3dom.css' => array(
+        'type' => 'file',
+        'media' => 'screen',
+      ),
+    ),
+  );
+  return $libraries;
 }
