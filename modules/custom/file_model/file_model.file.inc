@@ -3,7 +3,7 @@
 /**
  * Implements hook_file_mimetype_mapping_alter().
  */
-function fmnh_viewers_file_mimetype_mapping_alter(&$mapping) {
+function file_model_file_mimetype_mapping_alter(&$mapping) {
   $mapping['mimetypes']['model_x3d_xml'] = 'model/x3d+xml';
   $mapping['mimetypes']['model_x3d_binary'] = 'model/x3d+binary';
   $mapping['mimetypes']['model_x3d_vrml'] = 'model/x3d+vrml';

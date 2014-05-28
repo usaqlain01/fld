@@ -3,7 +3,7 @@
 /**
  * Implements hook_ctools_plugin_api().
  */
-function fmnh_viewers_ctools_plugin_api($module, $api) {
+function file_model_ctools_plugin_api($module, $api) {
   if ($module == 'file_entity' && $api == 'file_type') {
     return array('version' => 1);
   }
@@ -12,7 +12,7 @@ function fmnh_viewers_ctools_plugin_api($module, $api) {
 /**
  * Implements hook_field_formatter_info().
  */
-function fmnh_viewers_field_formatter_info() {
+function file_model_field_formatter_info() {
   return array(
     'x3d' => array(
       'label' => t('x3d'),
@@ -28,7 +28,7 @@ function fmnh_viewers_field_formatter_info() {
 /**
  * Implements hook_field_formatter_view().
  */
-function fmnh_viewers_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+function file_model_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
   $element = array();
 
   switch ($display['type']) {
@@ -56,15 +56,15 @@ function fmnh_viewers_field_formatter_view($entity_type, $entity, $field, $insta
 /**
  * Implements hook_theme().
  */
-function fmnh_viewers_theme($existing, $type, $theme, $path) {
+function file_model_theme($existing, $type, $theme, $path) {
   return array(
     'x3d' => array(
       'variables' => array('file' => NULL),
-      'file' => 'fmnh_viewers.theme.inc',
+      'file' => 'file_model.theme.inc',
     ),
     'qt' => array(
       'variables' => array('file' => NULL),
-      'file' => 'fmnh_viewers.theme.inc',
+      'file' => 'file_model.theme.inc',
     ),
   );
 }

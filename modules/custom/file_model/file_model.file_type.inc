@@ -8,7 +8,7 @@
 /**
  * Implements hook_file_default_types().
  */
-function fmnh_viewers_file_default_types() {
+function file_model_file_default_types() {
   $file_types = array();
 
   $file_type = new stdClass();
@@ -18,9 +18,8 @@ function fmnh_viewers_file_default_types() {
   $file_type->label = 'Model';
   $file_type->description =  t('A <em>Model</em> file is a 3D image.');
   $file_type->mimetypes = array(
-    0 => 'model/x3d+xml',
-    1 => 'model/x3d+binary',
-    2 => 'model/x3d+vrml',
+    0 => 'model/*',
+    1 => 'video/quicktime',
   );
   $file_types['model'] = $file_type;
 
