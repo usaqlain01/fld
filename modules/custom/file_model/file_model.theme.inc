@@ -1,8 +1,11 @@
 <?php
 
 function theme_x3d($variables) {
-  $file = $variables['file'];
+  $file     = $variables['file'];
+  $width    = $variables['width'];
+  $height   = $variables['height'];
   $file_url = file_create_url($file->uri);
+
   $output = '<object data="'. $file_url .'" type="'. $file->filemime .'" height="360" width="300">';
   $output .= '<param name="src" value="'. $file_url .'"/>';
   $output .= '<param name="DASHBOARD" value="FALSE"/>';
@@ -13,11 +16,14 @@ function theme_x3d($variables) {
 }
 
 function theme_qt($variables) {
-  $file = $variables['file'];
+  $file     = $variables['file'];
+  $width    = $variables['width'];
+  $height   = $variables['height'];
   $file_url = file_create_url($file->uri);
-  $output = '<OBJECT CLASSID="clsid:02BF25D5-8C17-4B23-BC80-D3488ABDDC6B" CODEBASE="http://www.apple.com/qtactivex/qtplugin.cab" HEIGHT=yy WIDTH=xx>';
+
+  $output = '<OBJECT CLASSID="clsid:02BF25D5-8C17-4B23-BC80-D3488ABDDC6B" CODEBASE="http://www.apple.com/qtactivex/qtplugin.cab" HEIGHT="'. $height .'" WIDTH="'. $width .'">';
   $output .= '<PARAM NAME="src" VALUE="'. $file_url .'">';
-  $output .= '<EMBED SRC="'. $file_url .'" HEIGHT=yy WIDTH=xx TYPE="'. $file->filemime .'" PLUGINSPAGE="http://www.apple.com/quicktime/download/" />';
+  $output .= '<EMBED SRC="'. $file_url .'" HEIGHT="'. $height .'" WIDTH="'. $width .'" TYPE="'. $file->filemime .'" PLUGINSPAGE="http://www.apple.com/quicktime/download/" />';
   $output .= '</OBJECT>';
   return $output;
 }
