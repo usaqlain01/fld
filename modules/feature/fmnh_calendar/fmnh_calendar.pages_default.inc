@@ -461,8 +461,8 @@ function fmnh_calendar_default_page_manager_pages() {
     $pane->uuid = 'a3a1106b-1ac3-4397-b97e-e10ae839fc58';
     $display->content['new-a3a1106b-1ac3-4397-b97e-e10ae839fc58'] = $pane;
     $display->panels['main'][0] = 'new-a3a1106b-1ac3-4397-b97e-e10ae839fc58';
-  $display->hide_title = PANELS_TITLE_FIXED;
-  $display->title_pane = '0';
+  $display->hide_title = PANELS_TITLE_PANE;
+  $display->title_pane = 'new-a3a1106b-1ac3-4397-b97e-e10ae839fc58';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
   $pages['events'] = $page;

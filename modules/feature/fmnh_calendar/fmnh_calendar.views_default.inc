@@ -22,6 +22,7 @@ function fmnh_calendar_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'Events';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -37,7 +38,7 @@ function fmnh_calendar_views_default_views() {
     'title_editable' => 'title_editable',
     'field_date_editable' => 'field_date_editable',
   );
-  $handler->display->display_options['style_options']['default'] = '-1';
+  $handler->display->display_options['style_options']['default'] = 'field_date_editable';
   $handler->display->display_options['style_options']['info'] = array(
     'title_editable' => array(
       'sortable' => 0,
@@ -47,13 +48,18 @@ function fmnh_calendar_views_default_views() {
       'empty_column' => 0,
     ),
     'field_date_editable' => array(
-      'sortable' => 0,
+      'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
   );
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_program_target_id']['id'] = 'field_program_target_id';
+  $handler->display->display_options['relationships']['field_program_target_id']['table'] = 'field_data_field_program';
+  $handler->display->display_options['relationships']['field_program_target_id']['field'] = 'field_program_target_id';
+  $handler->display->display_options['relationships']['field_program_target_id']['required'] = TRUE;
   /* Field: Content: Title (editable) */
   $handler->display->display_options['fields']['title_editable']['id'] = 'title_editable';
   $handler->display->display_options['fields']['title_editable']['table'] = 'node';
@@ -82,19 +88,18 @@ function fmnh_calendar_views_default_views() {
   $handler->display->display_options['fields']['field_date_editable']['widget_type'] = 'date_popup';
   $handler->display->display_options['fields']['field_date_editable']['suppress_label'] = 0;
   $handler->display->display_options['fields']['field_date_editable']['suppress_description'] = 0;
-  /* Sort criterion: Content: Date (field_date) */
-  $handler->display->display_options['sorts']['field_date_value']['id'] = 'field_date_value';
-  $handler->display->display_options['sorts']['field_date_value']['table'] = 'field_data_field_date';
-  $handler->display->display_options['sorts']['field_date_value']['field'] = 'field_date_value';
-  /* Contextual filter: Content: Exhibit or program (field_program) */
-  $handler->display->display_options['arguments']['field_program_target_id']['id'] = 'field_program_target_id';
-  $handler->display->display_options['arguments']['field_program_target_id']['table'] = 'field_data_field_program';
-  $handler->display->display_options['arguments']['field_program_target_id']['field'] = 'field_program_target_id';
-  $handler->display->display_options['arguments']['field_program_target_id']['default_action'] = 'access denied';
-  $handler->display->display_options['arguments']['field_program_target_id']['default_argument_type'] = 'fixed';
-  $handler->display->display_options['arguments']['field_program_target_id']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['field_program_target_id']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['field_program_target_id']['summary_options']['items_per_page'] = '25';
+  /* Contextual filter: Content: Nid */
+  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['table'] = 'node';
+  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['relationship'] = 'field_program_target_id';
+  $handler->display->display_options['arguments']['nid']['default_action'] = 'access denied';
+  $handler->display->display_options['arguments']['nid']['title_enable'] = TRUE;
+  $handler->display->display_options['arguments']['nid']['title'] = 'Events for %1';
+  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
   /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
@@ -106,14 +111,16 @@ function fmnh_calendar_views_default_views() {
 
   /* Display: Content pane */
   $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
+  $handler->display->display_options['pane_category']['name'] = 'Calendar';
+  $handler->display->display_options['pane_category']['weight'] = '0';
   $handler->display->display_options['argument_input'] = array(
-    'field_program_target_id' => array(
+    'nid' => array(
       'type' => 'context',
       'context' => 'entity:node.nid',
       'context_optional' => 0,
       'panel' => '0',
       'fixed' => '',
-      'label' => 'Content: Exhibit or program (field_program)',
+      'label' => 'Content: Nid',
     ),
   );
   $export['events_admin'] = $view;

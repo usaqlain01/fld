@@ -6,6 +6,9 @@ api = 2
 projects[acquia_connector][subdir] = contrib
 projects[acquia_connector][version] = 2.14
 
+projects[auto_entitylabel][subdir] = contrib
+projects[auto_entitylabel][version] = 1.x-dev
+
 projects[bangpoundefq][subdir] = bangpound
 projects[bangpoundefq][type] = module
 projects[bangpoundefq][download][url] = https://github.com/bangpound/bangpoundefq.git
@@ -153,6 +156,9 @@ projects[redirect][version] = 1.x-dev
 
 projects[semantic_panels][subdir] = contrib
 projects[semantic_panels][version] = 1.2
+
+projects[strongarm][subdir] = contrib
+projects[strongarm][version] = 2.x-dev
 
 projects[token][subdir] = contrib
 projects[token][version] = 1.5
