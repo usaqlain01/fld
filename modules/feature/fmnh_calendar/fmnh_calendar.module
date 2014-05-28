@@ -48,3 +48,14 @@ function fmnh_calendar_cron() {
     }
   }
 }
+
+/**
+ * Implements hook_admin_paths()
+ */
+function fmnh_calendar_admin_paths() {
+  $paths = array(
+    'node/*/events' => TRUE,
+    'node/*/event/add' => TRUE,
+  );
+  return $paths;
+}

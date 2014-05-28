@@ -32,6 +32,9 @@ projects[diff][version] = 3.2
 projects[disqus][subdir] = contrib
 projects[disqus][version] = 1.10
 
+projects[editableviews][subdir] = contrib
+projects[editableviews][version] = 1.0-beta8
+
 projects[email][subdir] = contrib
 projects[email][version] = 1.3
 
