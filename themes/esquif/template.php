@@ -148,6 +148,10 @@ function esquif_preprocess_block(&$variables, $hook) {
 }
 // */
 
+function esquif_preprocess(&$variables) {
+  $variables['path_to_theme'] = drupal_get_path('theme', 'esquif');
+}
+
 /**
  * Theme function for the embedded global nav inside site nav
  *
