@@ -175,14 +175,19 @@ function esquif_links__global($variables) {
 function esquif_links__system_main_menu($variables) {
 
   // Create the branding link
-  $text = (theme_get_setting('toggle_name') ? filter_xss_admin(variable_get('site_name', 'Drupal')) : '');
+  $text = '<span class="logo__name is--visHidden" itemprop="name">';
+  $text .= (theme_get_setting('toggle_name') ? filter_xss_admin(variable_get('site_name', 'Drupal')) : '');
+  $text .= '</span>';
+  $text .= '<img class="logo__image" itemprop="logo" alt="The Field Museum" src="'.path_to_theme().'/images/logos/field-logo.svg" width="225px" height="81px" />';
   $options = array(
     'attributes' => array(
       'class' => array('logo__link'),
+      'itemprop' => 'url',
       'id' => 'logo',
       'rel' => 'home',
       'title' => t('Home'),
-    )
+    ),
+    'html' => true,
   );
   $home_page_link = l($text, NULL, $options);
 
@@ -194,7 +199,11 @@ function esquif_links__system_main_menu($variables) {
     ),
   );
   foreach (menu_navigation_links('menu-header-menu') as $key => $value) {
-    $key .= ' navGlobal__item';
+    $value['title'] = '<span class="navGlobal__label" itemprop="name">'. check_plain($value['title']) .'</span>';
+    $value['attributes'] = array(
+      'itemprop' => 'url',
+    );
+    $value['html'] = TRUE;
     $embedded_variables['links'][$key] = $value;
   }
 
@@ -203,6 +212,11 @@ function esquif_links__system_main_menu($variables) {
   $links = array();
   foreach ($variables['links'] as $key => $value) {
     $key .= ' navMain__item navMain__primary';
+    $value['title'] = '<span class="navMain__label" itemprop="name">'. check_plain($value['title']) .'</span>';
+    $value['attributes'] = array(
+      'itemprop' => 'url',
+    );
+    $value['html'] = TRUE;
     $links[$key] = $value;
   }
   $variables['links'] = $links;
@@ -210,7 +224,7 @@ function esquif_links__system_main_menu($variables) {
   // Merge the branding and global nav into the main menu.
   $variables['links'] = array(
     'navMain__item navMain__brand' => array(
-      'title' => '<h1 class="logo">'. $home_page_link .'</h1>',
+      'title' => '<h1 class="logo" itemscope itemtype="http://schema.org/Organization">'. $home_page_link .'</h1>',
       'html' => TRUE,
       'submenu' => TRUE,
     ),

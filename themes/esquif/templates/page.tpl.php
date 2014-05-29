@@ -7,9 +7,9 @@
  * @see https://drupal.org/node/1728148
  */
 ?>
-  <div class="l--main"><!-- Main Site Panel -->
+  <div class="l--main js--stickyParent"><!-- Main Site Panel -->
 
-    <nav class="navMain" role="navigation">
+    <nav class="navMain js--sticky" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
       <?php
       // This code snippet is hard to modify. We recommend turning off the
       // "Main menu" on your sub-theme's settings form, deleting this PHP
@@ -19,11 +19,6 @@
         'links' => $main_menu,
         'attributes' => array(
           'class' => array('navMain__list'),
-        ),
-        'heading' => array(
-          'text' => t('Main menu'),
-          'level' => 'h2',
-          'class' => array('element-invisible'),
         ),
       )); ?>
       <?php print render($page['navigation']); ?>
