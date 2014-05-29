@@ -182,7 +182,7 @@ function esquif_links__system_main_menu($variables) {
   $text = '<span class="logo__name is--visHidden" itemprop="name">';
   $text .= (theme_get_setting('toggle_name') ? filter_xss_admin(variable_get('site_name', 'Drupal')) : '');
   $text .= '</span>';
-  $text .= '<img class="logo__image" itemprop="logo" alt="The Field Museum" src="'.path_to_theme().'/images/logos/field-logo.svg" width="225px" height="81px" />';
+  $text .= '<img class="logo__image" itemprop="logo" alt="The Field Museum" src="'.base_path().path_to_theme().'/images/logos/field-logo.svg" width="225px" height="81px" />';
   $options = array(
     'attributes' => array(
       'class' => array('logo__link'),
