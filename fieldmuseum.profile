@@ -34,3 +34,15 @@ function fieldmuseum_module_implements_alter(&$implementations, $hook) {
     unset($implementations['media_gallery']);
   }
 }
+/**
+ * Implementation of hook_ctools_plugin_directory() to let the system know
+ * we implement task and task_handler plugins.
+ */
+function fieldmuseum_ctools_plugin_directory($module, $plugin) {
+  // Most of this module is implemented as an export ui plugin, and the
+  // rest is in ctools/includes/ctools_access_ruleset.inc
+  if ($module == 'ctools' && $plugin == 'access') {
+    return 'plugins/' . $plugin;
+  }
+}
+
