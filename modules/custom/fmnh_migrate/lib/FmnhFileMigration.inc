@@ -160,15 +160,17 @@ class FmnhFileMigration extends DrupalFile7Migration
         'VideoFile',
       );
       $fid = self::handleSourceMigrationStatic($sourceMigrations, $tag_info['fid']);
-      $tag_info['fid'] = $fid;
+      if ($fid) {
+        $tag_info['fid'] = $fid;
 
-      if (!isset($tag_info['fid'])) {
-        throw new Exception('No file Id');
+        if (!isset($tag_info['fid'])) {
+          throw new Exception('No file Id');
+        }
+
+        $result = '[[' . drupal_json_encode($tag_info) . ']]';
+
+        return $result;
       }
-
-      $result = '[[' . drupal_json_encode($tag_info) . ']]';
-
-      return $result;
     }
     catch (Exception $e) {
       watchdog('media', 'Unable to render media from %tag. Error: %error', array('%tag' => $tag, '%error' => $e->getMessage()));
@@ -233,24 +235,7 @@ class FmnhFileMigration extends DrupalFile7Migration
           }
         }
       }
-      // If no destination ID was found, give each source migration a chance to
-      // create a stub.
-      if (!$destids) {
-        foreach ($source_migrations as $source_migration) {
-          // Is this a self reference?
-          if ($source_migration->machineName == $this->machineName) {
-            if (!array_diff($source_key, $this->currentSourceKey())) {
-              $destids = array();
-              $this->needsUpdate = MigrateMap::STATUS_NEEDS_UPDATE;
-              break;
-            }
-          }
-          // Break out of the loop if a stub was successfully created.
-          if ($destids = $source_migration->createStubWrapper($source_key, $migration)) {
-            break;
-          }
-        }
-      }
+
       if ($destids) {
         // Assume that if the destination key is a single value, it
         // should be passed as such

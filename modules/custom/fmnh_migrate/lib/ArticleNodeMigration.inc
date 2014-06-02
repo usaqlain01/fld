@@ -30,12 +30,5 @@ class ArticleNodeMigration extends FmnhNodeMigration
     if (parent::prepareRow($row) === FALSE) {
       return FALSE;
     }
-
-    try {
-      FmnhFileMigration::rewriteMediaTags($row, 'body');
-    }
-    catch (\Exception $e) {
-      return FALSE;
-    }
   }
 }

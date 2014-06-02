@@ -101,4 +101,67 @@ class FmnhNodeMigration extends DrupalNode7Migration {
     $this->addFieldMapping('metatag_yandex-verification')->issueGroup('Metatag')->description('No need to migrate this.');
     $this->addFieldMapping('metatag_distribution')->issueGroup('Metatag')->description('No need to migrate this.');
   }
+
+  public function prepareRow($row) {
+    if (parent::prepareRow($row) === FALSE) {
+      return FALSE;
+    }
+    $fields = array(
+      'field_firstname',
+      'field_surname',
+      'field_position',
+      'field_year_started',
+      'field_hometown',
+      'field_dept_div_abbr',
+      'field_content_location_abbr',
+      'field_vimeo_download_url',
+      'field_office',
+      'field_fax',
+      'field_lede',
+      'field_description',
+      'field_map',
+      'field_research_publications',
+      'field_policies',
+      'field_collections_related_info',
+      'field_acknowledgements',
+      'field_loan_info',
+      'field_people_additional',
+      'field_fieldwork_collections',
+      'field_intro',
+      'field_public_education',
+      'field_imagecaption',
+      'field_bio_sketch',
+      'field_faq_long_question',
+      'field_publications',
+      'field_introduction',
+      'field_project_header',
+      'field_explore_tags',
+      'field_collections_loans',
+      'field_section_front_tags',
+      'field_home_tags',
+      'field_article_tags',
+      'field_research',
+      'field_work_experience',
+      'field_interests',
+      'field_secondary_front_tags',
+      'field_accomplishments',
+      'field_grants_awards',
+      'field_education',
+      'field_professional_affiliations',
+      'field_database_information',
+      'field_people_tab_header',
+      'field_additional_information',
+      'field_crnews_staff_student',
+      'body',
+    );
+
+    foreach ($fields as $field) {
+      try {
+        FmnhFileMigration::rewriteMediaTags($row, $field);
+      }
+      catch (\Exception $e) {
+        return FALSE;
+      }
+    }
+  }
 }
