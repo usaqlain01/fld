@@ -104,4 +104,175 @@ class FmnhFileMigration extends DrupalFile7Migration
       return FALSE;
     }
   }
+
+  /**
+   * Call this from the prepare() method of a migration that contains media
+   * image files, if you want to rewrite the IMG tags into media references.
+   *
+   * @param $row
+   *  Entity object being built.
+   * @param $field
+   *  Name of the text field within the entity to be modified. Defaults to 'body'.
+   */
+  static public function rewriteMediaTags($row, $field = 'body') {
+    if (is_array($row->$field)) {
+      migrate_instrument_start('MigrateDestinationMedia rewriteMediaTags');
+      // @todo This needs to handle multicolumn fields.
+      foreach ($row->$field as &$value) {
+        // Quickly skip any non-candidates
+        if (!stristr($value, '[[')) {
+          migrate_instrument_stop('MigrateDestinationMedia rewriteMediaTags');
+          return;
+        }
+        // Pass full img tags into the callback
+        $value = preg_replace_callback(MEDIA_WYSIWYG_TOKEN_REGEX, array(self, 'replaceCallback'),
+          $value);
+
+      }
+      migrate_instrument_stop('MigrateDestinationMedia rewriteMediaTags');
+    }
+  }
+
+  /**
+   * If a referenced image can be found in the files table, replace the <img> tag
+   * with a media JSON reference.
+   *
+   * @param array $matches
+   * @return string
+   */
+  static protected function replaceCallback(array $match) {
+    $match = str_replace("[[", "", $match);
+    $match = str_replace("]]", "", $match);
+    $tag = $match[0];
+
+    try {
+      if (!is_string($tag)) {
+        throw new Exception('Unable to find matching tag');
+      }
+
+      $tag_info = drupal_json_decode($tag);
+
+      $sourceMigrations = array(
+        'AudioFile',
+        'DefaultFile',
+        'DocumentFile',
+        'ImageFile',
+        'VideoFile',
+      );
+      $fid = self::handleSourceMigrationStatic($sourceMigrations, $tag_info['fid']);
+      $tag_info['fid'] = $fid;
+
+      if (!isset($tag_info['fid'])) {
+        throw new Exception('No file Id');
+      }
+
+      $result = '[[' . drupal_json_encode($tag_info) . ']]';
+
+      return $result;
+    }
+    catch (Exception $e) {
+      watchdog('media', 'Unable to render media from %tag. Error: %error', array('%tag' => $tag, '%error' => $e->getMessage()));
+      throw $e;
+    }
+  }
+
+  static protected function handleSourceMigrationStatic($source_migrations, $source_keys, $default = NULL, $migration = NULL) {
+
+    // Handle the source migration(s) as an array.
+    $source_migrations = (array) $source_migrations;
+
+    // We want to treat source keys consistently as an array of arrays (each
+    // representing one key).
+    if (is_array($source_keys)) {
+      if (empty($source_keys)) {
+        // Empty value should return empty results.
+        return NULL;
+      }
+      elseif (is_array(reset($source_keys))) {
+        // Already an array of key arrays, fall through
+      }
+      else {
+        // An array of single-key values - make each one an array
+        $new_source_keys = array();
+        foreach ($source_keys as $source_key) {
+          $new_source_keys[] = array($source_key);
+        }
+        $source_keys = $new_source_keys;
+      }
+    }
+    else {
+      // A simple value - make it an array within an array
+      $source_keys = array(array($source_keys));
+    }
+
+    // Instantiate each migration, and store back in the array.
+    foreach ($source_migrations as $key => $source_migration) {
+      $source_migrations[$key] = Migration::getInstance($source_migration);
+    }
+
+    $results = array();
+    // Each $source_key will be an array of key values
+    foreach ($source_keys as $source_key) {
+      // If any source keys are NULL, skip this set
+      $continue = FALSE;
+      foreach ($source_key as $value) {
+        if (!isset($value)) {
+          $continue = TRUE;
+          break;
+        }
+      }
+      if ($continue || empty($source_key)) {
+        continue;
+      }
+      // Loop through each source migration, checking for an existing dest ID.
+      foreach ($source_migrations as $source_migration) {
+        // Break out of the loop as soon as a destination ID is found.
+        if ($destids = $source_migration->getMap()->lookupDestinationID($source_key)) {
+          if (!empty($destids['destid1'])) {
+            break;
+          }
+        }
+      }
+      // If no destination ID was found, give each source migration a chance to
+      // create a stub.
+      if (!$destids) {
+        foreach ($source_migrations as $source_migration) {
+          // Is this a self reference?
+          if ($source_migration->machineName == $this->machineName) {
+            if (!array_diff($source_key, $this->currentSourceKey())) {
+              $destids = array();
+              $this->needsUpdate = MigrateMap::STATUS_NEEDS_UPDATE;
+              break;
+            }
+          }
+          // Break out of the loop if a stub was successfully created.
+          if ($destids = $source_migration->createStubWrapper($source_key, $migration)) {
+            break;
+          }
+        }
+      }
+      if ($destids) {
+        // Assume that if the destination key is a single value, it
+        // should be passed as such
+        if (count($destids) == 1) {
+          $results[] = reset($destids);
+        }
+        else {
+          $results[] = $destids;
+        }
+      }
+      // If no match found, apply the default value (if any)
+      elseif (!is_null($default)) {
+        $results[] = $default;
+      }
+    }
+    // Return a single result if we had a single key
+    if (count($source_keys) > 1) {
+      return $results;
+    }
+    else {
+      $value = reset($results);
+      return empty($value) && $value !== 0 && $value !== '0' ? NULL : $value;
+    }
+  }
 }

@@ -25,4 +25,17 @@ class ArticleNodeMigration extends FmnhNodeMigration
     $this->addFieldMapping(null, 'field_section_tags')->issueGroup('DNM')->description('Seek to abandon');
     $this->addFieldMapping(null, 'field_subsections')->issueGroup('DNM')->description('Seek to abandon');
   }
+
+  public function prepareRow($row) {
+    if (parent::prepareRow($row) === FALSE) {
+      return FALSE;
+    }
+
+    try {
+      FmnhFileMigration::rewriteMediaTags($row, 'body');
+    }
+    catch (\Exception $e) {
+      return FALSE;
+    }
+  }
 }

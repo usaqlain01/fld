@@ -17,6 +17,16 @@ class NewsletterNodeMigration extends FmnhNodeMigration
       return FALSE;
     }
 
+    try {
+      FmnhFileMigration::rewriteMediaTags($row, 'field_crnews_staff_student');
+      FmnhFileMigration::rewriteMediaTags($row, 'field_research_publications');
+      FmnhFileMigration::rewriteMediaTags($row, 'field_fieldwork_collections');
+      FmnhFileMigration::rewriteMediaTags($row, 'field_public_education');
+    }
+    catch (\Exception $e) {
+      return FALSE;
+    }
+
     $body_value = '';
     $body_value .= '<h2>Staff &amp; Student News</h2>';
     $body_value .= $row->field_crnews_staff_student[0];
@@ -29,4 +39,4 @@ class NewsletterNodeMigration extends FmnhNodeMigration
     $row->body = array($body_value);
     return TRUE;
   }
-} 
+}
