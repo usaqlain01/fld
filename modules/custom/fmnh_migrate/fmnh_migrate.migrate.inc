@@ -425,6 +425,95 @@ function fmnh_migrate_migrate_api() {
         ),
         'description' => 'Migrate video nodes',
       ),
+      'WebformComponent' => array(
+        'class_name' => 'WebformComponentMigration',
+        'group_name' => 'fmnh',
+        'source_connection' => 'migrate',
+        'source_table' => 'webform_component',
+        'destination_table' => 'webform_component',
+        'source_version' => '7',
+        'dependencies' => array(
+          'WebformNode',
+        ),
+        'description' => 'Webform',
+      ),
+
+      'WebformEmail' => array(
+        'class_name' => 'WebformEmailMigration',
+        'group_name' => 'fmnh',
+        'source_connection' => 'migrate',
+        'source_table' => 'webform_emails',
+        'destination_table' => 'webform_emails',
+        'source_version' => '7',
+        'dependencies' => array(
+          'WebformNode',
+        ),
+        'description' => 'Webform',
+      ),
+
+      'WebformLastDownload' => array(
+        'class_name' => 'WebformLastDownloadMigration',
+        'group_name' => 'fmnh',
+        'source_connection' => 'migrate',
+        'source_table' => 'webform_last_download',
+        'destination_table' => 'webform_last_download',
+        'source_version' => '7',
+        'dependencies' => array(
+          'User',
+          'WebformSubmittedData',
+        ),
+        'description' => 'Webform',
+      ),
+      'WebformNode' => array(
+        'class_name' => 'WebformNodeMigration',
+        'group_name' => 'fmnh',
+        'source_type' => 'webform',
+        'destination_type' => 'webform',
+        'source_connection' => 'migrate',
+        'source_version' => '7',
+        'user_migration' => 'User',
+        'description' => 'Migrate webform nodes',
+      ),
+      'WebformRoles' => array(
+        'class_name' => 'WebformRolesMigration',
+        'group_name' => 'fmnh',
+        'source_connection' => 'migrate',
+        'source_table' => 'webform_roles',
+        'destination_table' => 'webform_roles',
+        'source_version' => '7',
+        'dependencies' => array(
+          'WebformNode',
+        ),
+        'description' => 'Webform',
+      ),
+
+      'WebformSubmissions' => array(
+        'class_name' => 'WebformSubmissionsMigration',
+        'group_name' => 'fmnh',
+        'source_connection' => 'migrate',
+        'source_table' => 'webform_submissions',
+        'destination_table' => 'webform_submissions',
+        'source_version' => '7',
+        'dependencies' => array(
+          'WebformNode',
+          'User',
+        ),
+        'description' => 'Webform',
+      ),
+
+      'WebformSubmittedData' => array(
+        'class_name' => 'WebformSubmittedDataMigration',
+        'group_name' => 'fmnh',
+        'source_connection' => 'migrate',
+        'source_table' => 'webform_submitted_data',
+        'destination_table' => 'webform_submitted_data',
+        'source_version' => '7',
+        'dependencies' => array(
+          'WebformSubmissions',
+        ),
+        'description' => 'Webform',
+      ),
+
     ),
   );
   return $api;
