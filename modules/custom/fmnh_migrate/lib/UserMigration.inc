@@ -13,7 +13,7 @@ class UserMigration extends DrupalUser7Migration
     $this->addFieldMapping('field_location_region', 'field_location_region')->sourceMigration('LocationRegionTerm');
     $this->addFieldMapping('field_exhibit', 'field_exhibition_tags')->sourceMigration('ExhibitTerm');
 
-    $this->addFieldMapping('field_cvfile', 'field_cvfile')->sourceMigration('DocumentFiles');
+    $this->addFieldMapping('field_cvfile', 'field_cvfile')->sourceMigration('DocumentFile');
     $this->addFieldMapping('field_cvfile:file_class')->defaultValue('MigrateFileFid');
     $this->addFieldMapping('field_cvfile:display', 'field_cvfile:display');
     $this->addFieldMapping('field_cvfile:description', 'field_cvfile:description');

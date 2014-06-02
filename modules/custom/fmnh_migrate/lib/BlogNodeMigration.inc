@@ -12,7 +12,7 @@ class BlogNodeMigration extends FmnhNodeMigration
     $this->addFieldMapping('field_image:file_class')->defaultValue('MigrateFileFid');
     $this->addFieldMapping('field_image:language')->defaultValue(LANGUAGE_NONE);
 
-    $this->addFieldMapping('field_attachment', 'field_article_files')->sourceMigration('DocumentFiles');
+    $this->addFieldMapping('field_attachment', 'field_article_files')->sourceMigration('DocumentFile');
 
   }
 }
