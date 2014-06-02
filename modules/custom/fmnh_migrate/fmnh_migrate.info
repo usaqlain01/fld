@@ -17,6 +17,7 @@ files[] = lib/ExhibitTermMigration.inc
 files[] = lib/ExhibitTypeTermMigration.inc
 files[] = lib/FaqNodeMigration.inc
 files[] = lib/FaqTopicsTermMigration.inc
+files[] = lib/FmnhFileMigration.inc
 files[] = lib/FmnhNodeMigration.inc
 files[] = lib/FmnhTermMigration.inc
 files[] = lib/GalleryImageMigration.inc

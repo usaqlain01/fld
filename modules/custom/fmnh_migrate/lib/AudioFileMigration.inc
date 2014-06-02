@@ -1,6 +1,6 @@
 <?php
 
-class AudioFileMigration extends DrupalFile7Migration
+class AudioFileMigration extends FmnhFileMigration
 {
   public function __construct(array $arguments)
   {

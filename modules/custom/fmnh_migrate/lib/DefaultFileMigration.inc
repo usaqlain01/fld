@@ -1,6 +1,6 @@
 <?php
 
-class DefaultFileMigration extends DrupalFile7Migration
+class DefaultFileMigration extends FmnhFileMigration
 {
   protected function baseQuery()
   {

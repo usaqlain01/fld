@@ -1,6 +1,6 @@
 <?php
 
-class VideoFileMigration extends DrupalFile7Migration
+class VideoFileMigration extends FmnhFileMigration
 {
   public function __construct(array $arguments)
   {
