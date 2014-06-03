@@ -7,6 +7,8 @@ class WebformRolesMigration extends WebformMigration
    */
   public function __construct(array $arguments) {
     parent::__construct($arguments);
+    $this->addFieldMapping('nid', 'nid')->sourceMigration('WebformNode');
+    $this->addFieldMapping('rid', 'rid')->sourceMigration('Role');
   }
 
   /**
@@ -20,5 +22,15 @@ class WebformRolesMigration extends WebformMigration
       ->select('webform_roles')
       ->fields('webform_roles');
     return $query;
+  }
+
+  public function prepareRow($row) {
+    if (parent::prepareRow($row) === FALSE) {
+      return FALSE;
+    }
+    if (in_array($row->rid, array(11,16,21,26))) {
+      $this->queueMessage(t('Drop role #@role.', array('@role' => $row->rid)), MigrationBase::MESSAGE_INFORMATIONAL);
+      return FALSE;
+    }
   }
 }

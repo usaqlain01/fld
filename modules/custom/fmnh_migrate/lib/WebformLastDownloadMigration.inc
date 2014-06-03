@@ -7,6 +7,10 @@ class WebformLastDownloadMigration extends WebformMigration
    */
   public function __construct(array $arguments) {
     parent::__construct($arguments);
+    $this->addFieldMapping('nid', 'nid')->sourceMigration('WebformNode');
+    $this->addFieldMapping('uid', 'uid')->sourceMigration('User');
+    $this->addFieldMapping('sid', 'sid')->sourceMigration('WebformSubmissions');
+    $this->addSimpleMappings(array('requested'));
   }
 
   /**

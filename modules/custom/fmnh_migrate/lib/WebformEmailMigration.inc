@@ -7,6 +7,8 @@ class WebformEmailMigration extends WebformMigration
    */
   public function __construct(array $arguments) {
     parent::__construct($arguments);
+    $this->addFieldMapping('nid', 'nid')->sourceMigration('WebformNode');
+    $this->addSimpleMappings(array('eid', 'email', 'subject', 'from_name', 'from_address', 'template', 'excluded_components', 'html', 'attachments'));
   }
 
   /**
@@ -18,7 +20,8 @@ class WebformEmailMigration extends WebformMigration
     // Do not attempt to migrate the anonymous or authenticated roles.
     $query = Database::getConnection('default', $this->sourceConnection)
       ->select('webform_emails')
-      ->fields('webform_emails');
+      ->fields('webform_emails')
+      ->orderBy('eid', 'ASC');
     return $query;
   }
 }

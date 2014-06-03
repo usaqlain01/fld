@@ -7,6 +7,8 @@ class WebformComponentMigration extends WebformMigration
    */
   public function __construct(array $arguments) {
     parent::__construct($arguments);
+    $this->addFieldMapping('nid', 'nid')->sourceMigration('WebformNode');
+    $this->addSimpleMappings(array('cid', 'pid', 'form_key', 'name', 'type', 'value', 'extra', 'mandatory', 'weight'));
   }
 
   /**
@@ -18,7 +20,8 @@ class WebformComponentMigration extends WebformMigration
     // Do not attempt to migrate the anonymous or authenticated roles.
     $query = Database::getConnection('default', $this->sourceConnection)
       ->select('webform_component')
-      ->fields('webform_component');
+      ->fields('webform_component')
+      ->orderBy('cid', 'ASC');
     return $query;
   }
 }

@@ -7,6 +7,9 @@ class WebformSubmittedDataMigration extends WebformMigration
    */
   public function __construct(array $arguments) {
     parent::__construct($arguments);
+    $this->addFieldMapping('nid', 'nid')->sourceMigration('WebformNode');
+    $this->addFieldMapping('sid', 'sid')->sourceMigration('WebformSubmissions');
+    $this->addSimpleMappings(array('cid', 'no', 'data'));
   }
 
   /**
@@ -18,7 +21,8 @@ class WebformSubmittedDataMigration extends WebformMigration
     // Do not attempt to migrate the anonymous or authenticated roles.
     $query = Database::getConnection('default', $this->sourceConnection)
       ->select('webform_submitted_data')
-      ->fields('webform_submitted_data');
+      ->fields('webform_submitted_data')
+      ->orderBy('sid', 'ASC');
     return $query;
   }
 }

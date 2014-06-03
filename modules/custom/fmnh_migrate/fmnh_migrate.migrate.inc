@@ -460,7 +460,8 @@ function fmnh_migrate_migrate_api() {
         'source_version' => '7',
         'dependencies' => array(
           'User',
-          'WebformSubmittedData',
+          'WebformNode',
+          'WebformSubmissions',
         ),
         'description' => 'Webform',
       ),
@@ -483,6 +484,7 @@ function fmnh_migrate_migrate_api() {
         'source_version' => '7',
         'dependencies' => array(
           'WebformNode',
+          'Role',
         ),
         'description' => 'Webform',
       ),
