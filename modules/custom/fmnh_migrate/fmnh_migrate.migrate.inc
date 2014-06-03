@@ -15,11 +15,41 @@ function fmnh_migrate_migrate_api() {
         // Default format for all content migrations
         'default_format' => 'filtered_html',
       ),
+      'fmnh_file' => array(
+        'title' => t('The Field Museum (file)'),
+        // Default format for all content migrations
+        'default_format' => 'filtered_html',
+      ),
+      'fmnh_node' => array(
+        'title' => t('The Field Museum (node)'),
+        // Default format for all content migrations
+        'default_format' => 'filtered_html',
+      ),
+      'fmnh_term' => array(
+        'title' => t('The Field Museum (term)'),
+        // Default format for all content migrations
+        'default_format' => 'filtered_html',
+      ),
+      'fmnh_user' => array(
+        'title' => t('The Field Museum (user)'),
+        // Default format for all content migrations
+        'default_format' => 'filtered_html',
+      ),
+      'fmnh_gallery' => array(
+        'title' => t('The Field Museum (gallery)'),
+        // Default format for all content migrations
+        'default_format' => 'filtered_html',
+      ),
+      'fmnh_webform' => array(
+        'title' => t('The Field Museum (webform)'),
+        // Default format for all content migrations
+        'default_format' => 'filtered_html',
+      ),
     ),
     'migrations' => array(
       'AudienceTerm' => array(
         'class_name' => 'AudienceTermMigration',
-        'group_name' => 'fmnh',
+        'group_name' => 'fmnh_term',
         'source_vocabulary' => 'audience',
         'destination_vocabulary' => 'audience',
         'source_connection' => 'migrate',
@@ -28,7 +58,7 @@ function fmnh_migrate_migrate_api() {
       ),
       'AudioFile' => array(
         'class_name' => 'AudioFileMigration',
-        'group_name' => 'fmnh',
+        'group_name' => 'fmnh_file',
         'source_connection' => 'migrate',
         'bundle' => 'audio',
         'source_version' => '7',
@@ -39,7 +69,7 @@ function fmnh_migrate_migrate_api() {
       ),
       'BlogNode' => array(
         'class_name' => 'BlogNodeMigration',
-        'group_name' => 'fmnh',
+        'group_name' => 'fmnh_node',
         'source_type' => 'blog',
         'destination_type' => 'blog',
         'source_connection' => 'migrate',
@@ -59,7 +89,7 @@ function fmnh_migrate_migrate_api() {
       ),
       'CollectionNode' => array(
         'class_name' => 'CollectionNodeMigration',
-        'group_name' => 'fmnh',
+        'group_name' => 'fmnh_node',
         'source_type' => 'individual_collection',
         'destination_type' => 'collection',
         'source_connection' => 'migrate',
@@ -81,7 +111,7 @@ function fmnh_migrate_migrate_api() {
       ),
       'DefaultFile' => array(
         'class_name' => 'DefaultFileMigration',
-        'group_name' => 'fmnh',
+        'group_name' => 'fmnh_file',
         'source_connection' => 'migrate',
         'bundle' => 'default',
         'source_version' => '7',
@@ -92,7 +122,7 @@ function fmnh_migrate_migrate_api() {
       ),
       'DepartmentTerm' => array(
         'class_name' => 'DepartmentTermMigration',
-        'group_name' => 'fmnh',
+        'group_name' => 'fmnh_term',
         'source_connection' => 'migrate',
         'destination_type' => 'department',
         'source_version' => '7',
@@ -101,7 +131,7 @@ function fmnh_migrate_migrate_api() {
       ),
       'DepartmentNode' => array(
         'class_name' => 'DepartmentNodeMigration',
-        'group_name' => 'fmnh',
+        'group_name' => 'fmnh_node',
         'source_type' => 'department_division_page',
         'destination_type' => 'department',
         'source_connection' => 'migrate',
@@ -122,7 +152,7 @@ function fmnh_migrate_migrate_api() {
       ),
       'DocumentFile' => array(
         'class_name' => 'DocumentFileMigration',
-        'group_name' => 'fmnh',
+        'group_name' => 'fmnh_file',
         'source_connection' => 'migrate',
         'bundle' => 'document',
         'source_version' => '7',
@@ -133,7 +163,7 @@ function fmnh_migrate_migrate_api() {
       ),
       'EventNode' => array(
         'class_name' => 'EventNodeMigration',
-        'group_name' => 'fmnh',
+        'group_name' => 'fmnh_node',
         'source_type' => 'exhibit',
         'destination_type' => 'event',
         'source_connection' => 'migrate',
@@ -150,7 +180,7 @@ function fmnh_migrate_migrate_api() {
       ),
       'ExhibitTerm' => array(
         'class_name' => 'ExhibitTermMigration',
-        'group_name' => 'fmnh',
+        'group_name' => 'fmnh_term',
         'source_connection' => 'migrate',
         'destination_type' => 'exhibit',
         'source_version' => '7',
@@ -159,7 +189,7 @@ function fmnh_migrate_migrate_api() {
       ),
       'ExhibitNode' => array(
         'class_name' => 'ExhibitNodeMigration',
-        'group_name' => 'fmnh',
+        'group_name' => 'fmnh_node',
         'source_type' => 'exhibit',
         'destination_type' => 'exhibit',
         'source_connection' => 'migrate',
@@ -176,7 +206,7 @@ function fmnh_migrate_migrate_api() {
       ),
       'ExhibitTypeTerm' => array(
         'class_name' => 'ExhibitTypeTermMigration',
-        'group_name' => 'fmnh',
+        'group_name' => 'fmnh_term',
         'source_vocabulary' => 'exhibit_type',
         'destination_vocabulary' => 'exhibit_type',
         'source_connection' => 'migrate',
@@ -185,7 +215,7 @@ function fmnh_migrate_migrate_api() {
       ),
       'FaqNode' => array(
         'class_name' => 'FaqNodeMigration',
-        'group_name' => 'fmnh',
+        'group_name' => 'fmnh_node',
         'source_type' => 'faq',
         'destination_type' => 'faq',
         'source_connection' => 'migrate',
@@ -207,7 +237,7 @@ function fmnh_migrate_migrate_api() {
       ),
       'FaqTopicsTerm' => array(
         'class_name' => 'FaqTopicsTermMigration',
-        'group_name' => 'fmnh',
+        'group_name' => 'fmnh_term',
         'source_vocabulary' => 'faq_topics',
         'destination_vocabulary' => 'faq_topics',
         'source_connection' => 'migrate',
@@ -216,7 +246,7 @@ function fmnh_migrate_migrate_api() {
       ),
       'GradeLevelTerm' => array(
         'class_name' => 'GradeLevelTermMigration',
-        'group_name' => 'fmnh',
+        'group_name' => 'fmnh_term',
         'source_vocabulary' => 'age_group',
         'destination_vocabulary' => 'grade_level',
         'source_connection' => 'migrate',
@@ -225,7 +255,7 @@ function fmnh_migrate_migrate_api() {
       ),
       'ImageFile' => array(
         'class_name' => 'ImageFileMigration',
-        'group_name' => 'fmnh',
+        'group_name' => 'fmnh_file',
         'source_connection' => 'migrate',
         'bundle' => 'image',
         'source_version' => '7',
@@ -236,7 +266,7 @@ function fmnh_migrate_migrate_api() {
       ),
       'LocationRegionTerm' => array(
         'class_name' => 'LocationRegionTermMigration',
-        'group_name' => 'fmnh',
+        'group_name' => 'fmnh_term',
         'source_vocabulary' => 'location_region',
         'destination_vocabulary' => 'location_region',
         'source_connection' => 'migrate',
@@ -245,7 +275,7 @@ function fmnh_migrate_migrate_api() {
       ),
       'NewsletterNode' => array(
         'class_name' => 'NewsletterNodeMigration',
-        'group_name' => 'fmnh',
+        'group_name' => 'fmnh_node',
         'source_type' => 'newsletter',
         'destination_type' => 'newsletter',
         'source_connection' => 'migrate',
@@ -262,19 +292,19 @@ function fmnh_migrate_migrate_api() {
       ),
       'GalleryImage' => array(
         'class_name' => 'GalleryImageMigration',
-        'group_name' => 'fmnh',
+        'group_name' => 'fmnh_gallery',
         'dependencies' => array('PhotoGalleryNode'),
         'description' => 'Migrate photo_gallery nodes',
       ),
       'GalleryImageRevision' => array(
         'class_name' => 'GalleryImageRevisionMigration',
-        'group_name' => 'fmnh',
+        'group_name' => 'fmnh_gallery',
         'dependencies' => array('GalleryImage'),
         'description' => 'Migrate photo_gallery revisions',
       ),
       'PhotoGalleryNode' => array(
         'class_name' => 'PhotoGalleryNodeMigration',
-        'group_name' => 'fmnh',
+        'group_name' => 'fmnh_gallery',
         'source_type' => 'photo_gallery',
         'destination_type' => 'media_gallery',
         'source_connection' => 'migrate',
@@ -291,7 +321,7 @@ function fmnh_migrate_migrate_api() {
       ),
       'PodcastNode' => array(
         'class_name' => 'PodcastNodeMigration',
-        'group_name' => 'fmnh',
+        'group_name' => 'fmnh_node',
         'source_type' => 'podcast',
         'destination_type' => 'podcast',
         'source_connection' => 'migrate',
@@ -309,7 +339,7 @@ function fmnh_migrate_migrate_api() {
       ),
       'ArticleNode' => array(
         'class_name' => 'ArticleNodeMigration',
-        'group_name' => 'fmnh',
+        'group_name' => 'fmnh_node',
         'source_type' => 'article',
         'destination_type' => 'article',
         'source_connection' => 'migrate',
@@ -326,23 +356,26 @@ function fmnh_migrate_migrate_api() {
       ),
       'Role' => array(
         'class_name' => 'RoleMigration',
-        'group_name' => 'fmnh',
+        'group_name' => 'fmnh_user',
         'source_connection' => 'migrate',
         'source_version' => '7',
         'description' => 'Migrate roles',
       ),
       'ScienceFocusTerm' => array(
         'class_name' => 'ScienceFocusTermMigration',
-        'group_name' => 'fmnh',
+        'group_name' => 'fmnh_term',
         'source_vocabulary' => 'science_focus',
         'destination_vocabulary' => 'science_focus',
         'source_connection' => 'migrate',
         'source_version' => '7',
+        'dependencies' => array(
+          'StratigraphyTerm',
+        ),
         'description' => 'Migrate science_focus terms',
       ),
       'ResearchAreasTerm' => array(
         'class_name' => 'ResearchAreasTermMigration',
-        'group_name' => 'fmnh',
+        'group_name' => 'fmnh_term',
         'source_vocabulary' => 'research_areas',
         'destination_vocabulary' => 'research_area',
         'source_connection' => 'migrate',
@@ -351,7 +384,7 @@ function fmnh_migrate_migrate_api() {
       ),
       'StratigraphyTerm' => array(
         'class_name' => 'StratigraphyTermMigration',
-        'group_name' => 'fmnh',
+        'group_name' => 'fmnh_term',
         'source_vocabulary' => 'stratigraphy',
         'destination_vocabulary' => 'stratigraphy',
         'source_connection' => 'migrate',
@@ -360,7 +393,7 @@ function fmnh_migrate_migrate_api() {
       ),
       'TopicTerm' => array(
         'class_name' => 'TopicTermMigration',
-        'group_name' => 'fmnh',
+        'group_name' => 'fmnh_term',
         'source_vocabulary' => 'topic',
         'destination_vocabulary' => 'topic',
         'source_connection' => 'migrate',
@@ -369,17 +402,24 @@ function fmnh_migrate_migrate_api() {
       ),
       'User' => array(
         'class_name' => 'UserMigration',
-        'group_name' => 'fmnh',
+        'group_name' => 'fmnh_user',
         'source_connection' => 'migrate',
         'source_version' => '7',
-        'dependencies' => array('DepartmentTerm'),
+        'dependencies' => array(
+          'DepartmentTerm',
+          'LocationRegionTerm',
+          'ResearchAreasTerm',
+          'TopicTerm',
+          'StratigraphyTerm',
+          'ExhibitTerm',
+        ),
         'role_migration' => 'Role',
         'picture_migration' => 'UserPicture',
         'description' => 'Migrate users',
       ),
       'UserPicture' => array(
         'class_name' => 'UserPictureMigration',
-        'group_name' => 'fmnh',
+        'group_name' => 'fmnh_user',
         'source_connection' => 'migrate',
         'source_version' => '7',
         'source_dir' => $source_dir,
@@ -387,7 +427,7 @@ function fmnh_migrate_migrate_api() {
       ),
       'UndefinedFile' => array(
         'class_name' => 'UndefinedFileMigration',
-        'group_name' => 'fmnh',
+        'group_name' => 'fmnh_file',
         'source_connection' => 'migrate',
         'bundle' => 'undefined',
         'source_version' => '7',
@@ -398,7 +438,7 @@ function fmnh_migrate_migrate_api() {
       ),
       'VideoFile' => array(
         'class_name' => 'VideoFileMigration',
-        'group_name' => 'fmnh',
+        'group_name' => 'fmnh_file',
         'source_connection' => 'migrate',
         'bundle' => 'video',
         'source_version' => '7',
@@ -409,7 +449,7 @@ function fmnh_migrate_migrate_api() {
       ),
       'VideoNode' => array(
         'class_name' => 'VideoNodeMigration',
-        'group_name' => 'fmnh',
+        'group_name' => 'fmnh_node',
         'source_type' => 'video',
         'destination_type' => 'video',
         'source_connection' => 'migrate',
@@ -427,7 +467,7 @@ function fmnh_migrate_migrate_api() {
       ),
       'WebformComponent' => array(
         'class_name' => 'WebformComponentMigration',
-        'group_name' => 'fmnh',
+        'group_name' => 'fmnh_webform',
         'source_connection' => 'migrate',
         'source_table' => 'webform_component',
         'destination_table' => 'webform_component',
@@ -440,7 +480,7 @@ function fmnh_migrate_migrate_api() {
 
       'WebformEmail' => array(
         'class_name' => 'WebformEmailMigration',
-        'group_name' => 'fmnh',
+        'group_name' => 'fmnh_webform',
         'source_connection' => 'migrate',
         'source_table' => 'webform_emails',
         'destination_table' => 'webform_emails',
@@ -453,7 +493,7 @@ function fmnh_migrate_migrate_api() {
 
       'WebformLastDownload' => array(
         'class_name' => 'WebformLastDownloadMigration',
-        'group_name' => 'fmnh',
+        'group_name' => 'fmnh_webform',
         'source_connection' => 'migrate',
         'source_table' => 'webform_last_download',
         'destination_table' => 'webform_last_download',
@@ -467,7 +507,7 @@ function fmnh_migrate_migrate_api() {
       ),
       'WebformNode' => array(
         'class_name' => 'WebformNodeMigration',
-        'group_name' => 'fmnh',
+        'group_name' => 'fmnh_webform',
         'source_type' => 'webform',
         'destination_type' => 'webform',
         'source_connection' => 'migrate',
@@ -477,7 +517,7 @@ function fmnh_migrate_migrate_api() {
       ),
       'WebformRoles' => array(
         'class_name' => 'WebformRolesMigration',
-        'group_name' => 'fmnh',
+        'group_name' => 'fmnh_webform',
         'source_connection' => 'migrate',
         'source_table' => 'webform_roles',
         'destination_table' => 'webform_roles',
@@ -491,7 +531,7 @@ function fmnh_migrate_migrate_api() {
 
       'WebformSubmissions' => array(
         'class_name' => 'WebformSubmissionsMigration',
-        'group_name' => 'fmnh',
+        'group_name' => 'fmnh_webform',
         'source_connection' => 'migrate',
         'source_table' => 'webform_submissions',
         'destination_table' => 'webform_submissions',
@@ -505,7 +545,7 @@ function fmnh_migrate_migrate_api() {
 
       'WebformSubmittedData' => array(
         'class_name' => 'WebformSubmittedDataMigration',
-        'group_name' => 'fmnh',
+        'group_name' => 'fmnh_webform',
         'source_connection' => 'migrate',
         'source_table' => 'webform_submitted_data',
         'destination_table' => 'webform_submitted_data',

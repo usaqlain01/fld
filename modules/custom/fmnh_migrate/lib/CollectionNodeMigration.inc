@@ -13,14 +13,15 @@ class CollectionNodeMigration extends FmnhNodeMigration
     $this->addFieldMapping('field_department', 'field_dept_division_tags')->sourceMigration('DepartmentTerm');
     $this->addFieldMapping('field_exhibit', 'field_exhibition_tags')->sourceMigration('ExhibitTerm');
 
-    $this->addUnmigratedSources(array('field_image', 'field_image:title', 'field_image:data'));
+    $this->addUnmigratedSources(array('field_image:title', 'field_image:data'));
 
     $this->addFieldMapping('field_image', 'field_collection_image_header')->sourceMigration('ImageFile');
-    $this->addFieldMapping('field_image')->defaultValue('MigrateFileFid');
+    $this->addFieldMapping('field_image:file_class')->defaultValue('MigrateFileFid');
 
     $this->removeFieldMapping('body');
     $this->removeFieldMapping('body:format');
     $this->removeFieldMapping('body:summary');
+    $this->addUnmigratedSources(array('body'));
     $this->addFieldMapping('body', 'field_description');
     $this->addFieldMapping('body:format', 'field_description:format')
       ->callbacks(array($this, 'mapFormat'))

@@ -8,6 +8,7 @@ class ExhibitNodeMigration extends FmnhNodeMigration
     $this->addFieldMapping('nid', 'field_exhibition_tags')->sourceMigration('ExhibitTerm');
     $this->addFieldMapping('field_exhibit_type', 'field_exhibition_type_tags')->sourceMigration('ExhibitTypeTerm');
     $this->removeFieldMapping('body');
+    $this->removeFieldMapping('body:format');
     $this->addFieldMapping(null, 'body');
     $this->addFieldMapping('body', 'field_description');
     $this->addFieldMapping('body:format', 'field_description:format')->callbacks(array($this, 'mapFormat'));
