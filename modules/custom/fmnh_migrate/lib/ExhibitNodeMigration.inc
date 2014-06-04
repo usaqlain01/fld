@@ -24,6 +24,7 @@ class ExhibitNodeMigration extends FmnhNodeMigration
     $this->addFieldMapping('field_image:file_class')->defaultValue('');
     $this->addFieldMapping('field_image:alt', 'field_branding_image:alt');
     $this->addFieldMapping('field_image:title', 'field_branding_image:title');
+    $this->addFieldMapping('field_image:description')->issueGroup('DNM')->description('N/A');
     $this->addFieldMapping('field_image:language')->defaultValue(LANGUAGE_NONE);
     $this->addFieldMapping('field_image:preserve_files')->defaultValue(FALSE);
     $this->addFieldMapping('field_image:destination_dir')->issueGroup('DNM')->description('N/A');

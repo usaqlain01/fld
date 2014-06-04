@@ -156,11 +156,13 @@ class FmnhNodeMigration extends DrupalNode7Migration {
     );
 
     foreach ($fields as $field) {
-      try {
-        FmnhFileMigration::rewriteMediaTags($row, $field);
-      }
-      catch (\Exception $e) {
-        return FALSE;
+      if (isset($row->$field)) {
+        try {
+          FmnhFileMigration::rewriteMediaTags($row, $field);
+        }
+        catch (\Exception $e) {
+          return FALSE;
+        }
       }
     }
   }

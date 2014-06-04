@@ -1,6 +1,6 @@
 <?php
 
-class UndefinedFileMigration extends DrupalFile7Migration
+class UndefinedFileMigration extends FmnhFileMigration
 {
   protected function baseQuery()
   {

@@ -1,6 +1,6 @@
 <?php
 
-class ArticleNodeMigration extends FmnhNodeMigration
+abstract class ArticleNodeMigration extends FmnhNodeMigration
 {
   public function __construct(array $arguments) {
     parent::__construct($arguments);

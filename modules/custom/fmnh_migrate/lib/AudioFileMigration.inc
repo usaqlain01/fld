@@ -16,6 +16,8 @@ class AudioFileMigration extends FmnhFileMigration
     $this->addFieldMapping('field_tags:ignore_case')->issueGroup('DNM')->description('no source');
     $this->addFieldMapping('field_license')->issueGroup('DNM')->description('no source');
     $this->addFieldMapping('urlencode')->issueGroup('DNM')->description('n/a');
+    $this->addFieldMapping('field_credit', 'field_credit');
+    $this->addFieldMapping('field_credit:language')->defaultValue(NULL);
   }
 
   protected function baseQuery()

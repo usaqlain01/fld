@@ -32,5 +32,9 @@ class WebformRolesMigration extends WebformMigration
       $this->queueMessage(t('Drop role #@role.', array('@role' => $row->rid)), MigrationBase::MESSAGE_INFORMATIONAL);
       return FALSE;
     }
+    if (!$row->rid) {
+      $this->queueMessage('Empty role.');
+      return FALSE;
+    }
   }
 }
