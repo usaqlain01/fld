@@ -10,7 +10,22 @@ class GalleryImageMigration extends Migration
       ->orderBy('entity_id', 'ASC')
       ->orderBy('delta', 'ASC');
     ;
-    $this->source = new MigrateSourceSQL($query);
+
+    $fields = array(
+      'bundle' => 'Example Content: image',
+      'deleted' => 'Example Content: 0',
+      'entity_id' => 'Example Content: 17',
+      'revision_id' => 'Example Content: 17',
+      'language' => 'Example Content: und',
+      'delta' => 'Example Content: 0',
+      'entity_type' => 'Example Content: file',
+      'media_gallery_file_fid' => 'file',
+      'entity_id_1' => 'Example Content: 17',
+      'revision_id_1' => 'Example Content: 17',
+      'delta_1' => 'Example Content: 0',
+    );
+
+    $this->source = new MigrateSourceSQL($query, $fields,  NULL, array('map_joinable' => FALSE));
     $this->destination = new MigrateDestinationTable('field_data_media_gallery_file');
 
     $this->map = new MigrateSQLMap($this->machineName,
@@ -56,11 +71,11 @@ class GalleryImageMigration extends Migration
     $this->addFieldMapping('bundle')->defaultValue('media_gallery');
     $this->addFieldMapping('deleted', 'deleted');
     $this->addFieldMapping('language', 'language');
-    $this->addFieldMapping('entity_id', 'field_imagegalleryref_nid')->sourceMigration('PhotoGalleryNode');
-    $this->addFieldMapping('media_gallery_file_fid', 'entity_id')->sourceMigration('ImageFile');
-    $this->addFieldMapping('media_gallery_file_description')->defaultValue('');
-    $this->addFieldMapping('delta', 'delta_1');
+    $this->addFieldMapping('entity_id', 'entity_id_1');
     $this->addFieldMapping('revision_id', 'revision_id_1');
+    $this->addFieldMapping('media_gallery_file_fid', 'entity_id')->sourceMigration(array('ImageFile', 'VideoFile', 'AudioFile', 'DocumentFile', 'DefaultFile', 'UndefinedFile'));
+    $this->addFieldMapping('media_gallery_file_description')->defaultValue('');
+    $this->addFieldMapping('delta', 'delta_1')->defaultValue(0);
   }
 
   public function prepareRow($row) {
@@ -69,27 +84,36 @@ class GalleryImageMigration extends Migration
     }
 
     if (empty($row->entity_id)) {
+      $this->queueMessage('There was no entity ID');
       return FALSE;
     }
-
-    cache_clear_all('*', 'cache_field', TRUE);
 
     /** @var MigrationBase|Migration $source_migration */
     $source_migration = Migration::getInstance('PhotoGalleryNode');
     $destids = $source_migration->getMap()->lookupDestinationID(array($row->field_imagegalleryref_nid));
     if (!empty($destids)) {
       $nid = reset($destids);
-      $node = node_load($nid, NULL, TRUE);
-      $row->revision_id_1 = $node->vid;
-      $items = field_get_items('node', $node, 'media_gallery_file');
-      if ($items) {
-        $row->delta_1 = count($items);
-      }
-      else {
-        $row->delta_1 = 0;
+      $row->entity_id_1 = $nid;
+      $row->revision_id_1 = db_select('node')->fields('node', array('vid'))->condition('nid', $nid)->execute()->fetchField();
+
+      $query = db_select('field_data_media_gallery_file')
+        ->condition('entity_type', 'node')
+        ->condition('bundle', 'media_gallery')
+        ->condition('entity_id', $nid);
+      // This would break for language.
+
+      $query
+        ->addExpression('MAX(field_data_media_gallery_file.delta)');
+
+      $result = $query->execute();
+      $delta = (int) $result->fetchField();
+      $row->delta_1 = 0;
+      if ($delta || $delta === 0) {
+        $row->delta_1 = $delta + 1;
       }
     }
     else {
+      $this->queueMessage('No destination IDs for '. $row->field_imagegalleryref_nid, Migration::MESSAGE_INFORMATIONAL);
       return FALSE;
     }
   }
