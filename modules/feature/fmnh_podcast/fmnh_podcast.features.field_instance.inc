@@ -194,6 +194,45 @@ function fmnh_podcast_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-podcast-field_exhibit'
+  $field_instances['node-podcast-field_exhibit'] = array(
+    'bundle' => 'podcast',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'field_formatter_class' => '',
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 7,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_exhibit',
+    'label' => 'Exhibit',
+    'required' => FALSE,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 58,
+    ),
+  );
+
   // Exported field_instance: 'node-podcast-field_image'
   $field_instances['node-podcast-field_image'] = array(
     'bundle' => 'podcast',
@@ -335,6 +374,7 @@ function fmnh_podcast_field_default_field_instances() {
   t('Audience');
   t('Body');
   t('Department');
+  t('Exhibit');
   t('Image');
   t('Science Focus');
   t('Topic');
