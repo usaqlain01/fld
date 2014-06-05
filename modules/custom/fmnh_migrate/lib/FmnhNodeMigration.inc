@@ -14,6 +14,8 @@ class FmnhNodeMigration extends DrupalNode7Migration {
     $this->addFieldMapping(null, 'log')->issueGroup('DNM')->description('Administrative debris');
     $this->addFieldMapping(null, 'revision_uid')->issueGroup('DNM')->description('Administrative debris');
 
+    $this->addFieldMapping(null, 'path');
+
     $this->addFieldMapping('metatag_title')->issueGroup('Metatag')->description('No need to migrate this.');
     $this->addFieldMapping('metatag_description')->issueGroup('Metatag')->description('No need to migrate this.');
     $this->addFieldMapping('metatag_abstract')->issueGroup('Metatag')->description('No need to migrate this.');

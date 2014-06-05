@@ -3,8 +3,12 @@ class FmnhFileMigration extends DrupalFile7Migration
 {
   public function __construct(array $arguments) {
     parent::__construct($arguments);
+
     $this->formatMappings[2] = 'filtered_wysiwyg';
     $this->formatMappings[3] = 'full_wysiwyg';
+
+    $this->addFieldMapping(null, 'path');
+
     $this->addFieldMapping('metatag_title')->issueGroup('Metatag')->description('No need to migrate this.');
     $this->addFieldMapping('metatag_description')->issueGroup('Metatag')->description('No need to migrate this.');
     $this->addFieldMapping('metatag_abstract')->issueGroup('Metatag')->description('No need to migrate this.');
