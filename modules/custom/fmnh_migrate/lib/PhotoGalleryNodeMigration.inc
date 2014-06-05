@@ -49,8 +49,5 @@ class PhotoGalleryNodeMigration extends FmnhNodeMigration
     $this->addFieldMapping(null, 'field_photo_gallery_image')->issueGroup('DNM')->description('Gallery thumbs are based on gallery contents.');
     $this->addFieldMapping(null, 'field_photo_gallery_image:display')->issueGroup('DNM')->description('Gallery thumbs are based on gallery contents.');
     $this->addFieldMapping(null, 'field_photo_gallery_image:description')->issueGroup('DNM')->description('Gallery thumbs are based on gallery contents.');
-    $this->addFieldMapping(null, 'revision')->issueGroup('DNM')->description('Administrative debris');
-    $this->addFieldMapping(null, 'log')->issueGroup('DNM')->description('Administrative debris');
-    $this->addFieldMapping(null, 'revision_uid')->issueGroup('DNM')->description('Administrative debris');
   }
 }

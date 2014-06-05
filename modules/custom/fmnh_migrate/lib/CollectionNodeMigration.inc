@@ -53,9 +53,5 @@ class CollectionNodeMigration extends FmnhNodeMigration
 
     $this->addFieldMapping(null, 'field_lede')->issueGroup('Design');
     $this->addFieldMapping(null, 'field_lede:format')->issueGroup('Design');
-
-    $this->addFieldMapping(null, 'revision')->issueGroup('DNM')->description('Administrative debris');
-    $this->addFieldMapping(null, 'log')->issueGroup('DNM')->description('Administrative debris');
-    $this->addFieldMapping(null, 'revision_uid')->issueGroup('DNM')->description('Administrative debris');
   }
 }

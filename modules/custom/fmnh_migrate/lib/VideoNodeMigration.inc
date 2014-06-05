@@ -28,9 +28,6 @@ class VideoNodeMigration extends FmnhNodeMigration
     $this->addFieldMapping('field_department', 'field_dept_division_tags')->sourceMigration('DepartmentTerm');
     $this->addFieldMapping('field_exhibit', 'field_exhibition_tags')->sourceMigration('ExhibitTerm');
 
-    $this->addFieldMapping(null, 'revision')->issueGroup('DNM')->description('Administrative debris');
-    $this->addFieldMapping(null, 'log')->issueGroup('DNM')->description('Administrative debris');
-    $this->addFieldMapping(null, 'revision_uid')->issueGroup('DNM')->description('Administrative debris');
     $this->addFieldMapping(null, 'body')->issueGroup('DNM')->description('No body field');
     $this->addFieldMapping(null, 'field_vimeo_download_url')->issueGroup('DNM')->description('Cannot support this field in oEmbed. It also was not visible in UI.');
     $this->addFieldMapping(null, 'field_image')->issueGroup('DNM')->description('There are no images displayed on the node. Few values.');

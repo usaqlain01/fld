@@ -36,10 +36,6 @@ class ExhibitNodeMigration extends FmnhNodeMigration
     $this->addFieldMapping(null, 'field_branding_image:width')->issueGroup('DNM');
     $this->addFieldMapping(null, 'field_branding_image:height')->issueGroup('DNM');
 
-    $this->addFieldMapping(null, 'revision')->issueGroup('DNM')->description('Administrative debris');
-    $this->addFieldMapping(null, 'log')->issueGroup('DNM')->description('Administrative debris');
-    $this->addFieldMapping(null, 'revision_uid')->issueGroup('DNM')->description('Administrative debris');
-
     $this->addFieldMapping(null, 'field_body_link')->issueGroup('DNM')->description('Would like to drop this.');
     $this->addFieldMapping(null, 'field_body_link:title')->issueGroup('DNM')->description('Would like to drop this.');
     $this->addFieldMapping(null, 'field_body_link:attributes')->issueGroup('DNM')->description('Would like to drop this.');
