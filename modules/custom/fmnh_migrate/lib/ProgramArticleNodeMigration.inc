@@ -1,6 +1,13 @@
 <?php
 
-class ProgramArticleNodeMigration extends ArticleNodeMigration {
+class ProgramArticleNodeMigration extends FmnhNodeMigration {
+
+  public function __construct(array $arguments) {
+    parent::__construct($arguments);
+
+    $this->addFieldMapping('field_audience', 'field_audience')->sourceMigration('AudienceTerm');
+  }
+
   protected function query() {
     /** @var \SelectQueryInterface $query */
     $query = parent::query();

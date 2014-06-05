@@ -1,6 +1,6 @@
 <?php
 
-class PressMaterialsArticleNodeMigration extends ArticleNodeMigration {
+class PressMaterialsArticleNodeMigration extends FmnhNodeMigration {
   protected function query() {
     /** @var \SelectQueryInterface $query */
     $query = parent::query();

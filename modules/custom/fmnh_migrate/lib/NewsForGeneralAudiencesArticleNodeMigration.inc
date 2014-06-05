@@ -1,6 +1,6 @@
 <?php
 
-class NewsForGeneralAudiencesArticleNodeMigration extends ArticleNodeMigration {
+class NewsForGeneralAudiencesArticleNodeMigration extends FmnhNodeMigration {
   protected function query() {
     /** @var \SelectQueryInterface $query */
     $query = parent::query();

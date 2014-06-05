@@ -1,13 +1,9 @@
 <?php
 
-abstract class ArticleNodeMigration extends FmnhNodeMigration
+class ArticleNodeMigration extends FmnhNodeMigration
 {
   public function __construct(array $arguments) {
     parent::__construct($arguments);
-    $this->addFieldMapping(null, 'revision')->issueGroup('DNM')->description('Administrative debris');
-    $this->addFieldMapping(null, 'log')->issueGroup('DNM')->description('Administrative debris');
-    $this->addFieldMapping(null, 'revision_uid')->issueGroup('DNM')->description('Administrative debris');
-
     $this->addFieldMapping(null, 'field_lede')->issueGroup('Design');
     $this->addFieldMapping(null, 'field_lede:format')->issueGroup('Design');
 
@@ -30,5 +26,13 @@ abstract class ArticleNodeMigration extends FmnhNodeMigration
     if (parent::prepareRow($row) === FALSE) {
       return FALSE;
     }
+  }
+
+  protected function query() {
+    /** @var \SelectQueryInterface $query */
+    $query = parent::query();
+    $query->leftJoin('field_data_field_article_type', 'f', 'n.nid=f.entity_id');
+    $query->isNull('f.field_article_type_tid');
+    return $query;
   }
 }
