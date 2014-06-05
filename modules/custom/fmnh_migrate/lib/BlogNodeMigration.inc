@@ -52,44 +52,6 @@ class BlogNodeMigration extends FmnhNodeMigration
     if (parent::prepareRow($row) === FALSE) {
       return FALSE;
     }
-
-    // Merge article files and audio files into a single attachment field.
-    $row->attachments = array();
-    $row->{'attachments:display'} = array();
-    $row->{'attachments:description'} = array();
-    if (!empty($row->field_audio_file)) {
-      $source_migrations = array(
-        'VideoFile',
-        'AudioFile',
-        'DefaultFile',
-        'DocumentFile',
-        'ImageFile',
-        'UndefinedFile',
-      );
-      $destids = $this->handleSourceMigration($source_migrations, $row->field_audio_file);
-      if (!is_array($destids)) {
-        $destids = array($destids);
-      }
-      $row->attachments = array_merge($row->attachments, $destids);
-      $row->{'attachments:display'} = array_merge($row->{'attachments:display'}, $row->{'field_audio_file:display'});
-      $row->{'attachments:description'} = array_merge($row->{'attachments:description'}, $row->{'field_audio_file:description'});
-    }
-    if (!empty($row->field_article_files)) {
-      $source_migrations = array(
-        'VideoFile',
-        'AudioFile',
-        'DefaultFile',
-        'DocumentFile',
-        'ImageFile',
-        'UndefinedFile',
-      );
-      $destids = $this->handleSourceMigration($source_migrations, $row->field_article_files);
-      if (!is_array($destids)) {
-        $destids = array($destids);
-      }
-      $row->attachments = array_merge($row->attachments, $destids);
-      $row->{'attachments:display'} = array_merge($row->{'attachments:display'}, $row->{'field_article_files:display'});
-      $row->{'attachments:description'} = array_merge($row->{'attachments:description'}, $row->{'field_article_files:description'});
-    }
+    $this->prepareRowAttachments($row);
   }
 }
