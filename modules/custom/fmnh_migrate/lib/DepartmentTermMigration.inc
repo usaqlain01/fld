@@ -4,7 +4,9 @@ class DepartmentTermMigration extends TermToNodeMigration
 {
   public function __construct(array $arguments)
   {
+    $this->sourceFields['menu'] = 'menu';
     parent::__construct($arguments);
+    $this->addFieldMapping('menu', 'menu');
     $this->addFieldMapping(null, 'field_dept_div')->issueGroup('DNM')->description('This is implied by hierarchy.');
     $this->addFieldMapping(null, 'field_dept_div_abbr')->issueGroup('DNM')->description('Previously used in path auto patterns.');
     $this->addFieldMapping(null, 'weight')->issueGroup('DNM')->description('No longer terms.');
@@ -53,5 +55,35 @@ class DepartmentTermMigration extends TermToNodeMigration
     $this->addFieldMapping('field_link:language')->issueGroup('DNM')->description('Handled in DepartmentNode migration.');
 
     $this->addFieldMapping('field_person')->issueGroup('DNM')->description('Handled in DepartmentNode migration.');
+  }
+
+  public function prepareRow($row) {
+    if (parent::prepareRow($row) === FALSE) {
+      return FALSE;
+    }
+
+    if ($row->parent == 0) {
+      $parent_item = menu_link_get_preferred('science/research');
+      $row->menu = array(
+        'enabled' => true,
+        'link_title' => $row->name,
+        'menu_name' => 'main-menu',
+        'plid' => $parent_item['mlid'],
+      );
+    }
+    else {
+      $source_migrations = array(
+        'DepartmentTerm',
+      );
+      $nid = $this->handleSourceMigration($source_migrations, $row->parent);
+      $parent_item = menu_link_get_preferred('node/'. $nid);
+      $row->menu = array(
+        'enabled' => true,
+        'link_title' => $row->name,
+        'description' => '',
+        'menu_name' => 'main-menu',
+        'plid' => $parent_item['mlid'],
+      );
+    }
   }
 }
