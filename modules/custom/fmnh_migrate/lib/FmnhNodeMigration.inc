@@ -169,6 +169,7 @@ class FmnhNodeMigration extends DrupalNode7Migration {
           FmnhFileMigration::rewriteMediaTags($row, $field);
         }
         catch (\Exception $e) {
+          $this->queueMessage('Rewriting the media tag failed');
           return FALSE;
         }
       }
