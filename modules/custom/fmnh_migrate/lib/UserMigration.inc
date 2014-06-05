@@ -6,6 +6,8 @@ class UserMigration extends DrupalUser7Migration
   public function __construct(array $arguments)
   {
     parent::__construct($arguments);
+    $this->formatMappings[2] = 'filtered_wysiwyg';
+    $this->formatMappings[3] = 'full_wysiwyg';
     $this->setDefaultRollbackAction(MigrateMap::ROLLBACK_DELETE);
     $this->addFieldMapping('metatag_title')->issueGroup('Metatag')->description('No need to migrate this.');
     $this->addFieldMapping('metatag_description')->issueGroup('Metatag')->description('No need to migrate this.');

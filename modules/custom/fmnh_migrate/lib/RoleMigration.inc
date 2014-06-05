@@ -4,6 +4,8 @@ class RoleMigration extends DrupalRole7Migration
 {
     public function __construct(array $arguments) {
       parent::__construct($arguments);
+      $this->formatMappings[2] = 'filtered_wysiwyg';
+      $this->formatMappings[3] = 'full_wysiwyg';
       $this->setDefaultRollbackAction(MigrateMap::ROLLBACK_DELETE);
     }
 
