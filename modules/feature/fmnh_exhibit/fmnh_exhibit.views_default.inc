@@ -32,10 +32,6 @@ function fmnh_exhibit_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'node';
-  /* Relationship: Entity Reference: Referencing entity */
-  $handler->display->display_options['relationships']['reverse_field_program_node']['id'] = 'reverse_field_program_node';
-  $handler->display->display_options['relationships']['reverse_field_program_node']['table'] = 'node';
-  $handler->display->display_options['relationships']['reverse_field_program_node']['field'] = 'reverse_field_program_node';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -71,17 +67,14 @@ function fmnh_exhibit_views_default_views() {
   $handler->display->display_options['filters']['field_date_value']['id'] = 'field_date_value';
   $handler->display->display_options['filters']['field_date_value']['table'] = 'field_data_field_date';
   $handler->display->display_options['filters']['field_date_value']['field'] = 'field_date_value';
-  $handler->display->display_options['filters']['field_date_value']['relationship'] = 'reverse_field_program_node';
   $handler->display->display_options['filters']['field_date_value']['operator'] = '<=';
   $handler->display->display_options['filters']['field_date_value']['default_date'] = 'now';
   /* Filter criterion: Content: Date - end date (field_date:value2) */
   $handler->display->display_options['filters']['field_date_value2']['id'] = 'field_date_value2';
   $handler->display->display_options['filters']['field_date_value2']['table'] = 'field_data_field_date';
   $handler->display->display_options['filters']['field_date_value2']['field'] = 'field_date_value2';
-  $handler->display->display_options['filters']['field_date_value2']['relationship'] = 'reverse_field_program_node';
   $handler->display->display_options['filters']['field_date_value2']['operator'] = '>=';
   $handler->display->display_options['filters']['field_date_value2']['default_date'] = 'now';
-
 
   /* Display: Current exhibitions by type */
   $handler = $view->new_display('panel_pane', 'Current exhibitions by type', 'panel_pane_1');
@@ -122,14 +115,12 @@ function fmnh_exhibit_views_default_views() {
   $handler->display->display_options['filters']['field_date_value']['id'] = 'field_date_value';
   $handler->display->display_options['filters']['field_date_value']['table'] = 'field_data_field_date';
   $handler->display->display_options['filters']['field_date_value']['field'] = 'field_date_value';
-  $handler->display->display_options['filters']['field_date_value']['relationship'] = 'reverse_field_program_node';
   $handler->display->display_options['filters']['field_date_value']['operator'] = '<=';
   $handler->display->display_options['filters']['field_date_value']['default_date'] = 'now +1 month';
   /* Filter criterion: Content: Date -  start date (field_date) */
   $handler->display->display_options['filters']['field_date_value_1']['id'] = 'field_date_value_1';
   $handler->display->display_options['filters']['field_date_value_1']['table'] = 'field_data_field_date';
   $handler->display->display_options['filters']['field_date_value_1']['field'] = 'field_date_value';
-  $handler->display->display_options['filters']['field_date_value_1']['relationship'] = 'reverse_field_program_node';
   $handler->display->display_options['filters']['field_date_value_1']['operator'] = '>';
   $handler->display->display_options['filters']['field_date_value_1']['default_date'] = 'now';
   $handler->display->display_options['pane_category']['name'] = 'Exhibits';
@@ -169,7 +160,6 @@ function fmnh_exhibit_views_default_views() {
   $handler->display->display_options['filters']['field_date_value2']['id'] = 'field_date_value2';
   $handler->display->display_options['filters']['field_date_value2']['table'] = 'field_data_field_date';
   $handler->display->display_options['filters']['field_date_value2']['field'] = 'field_date_value2';
-  $handler->display->display_options['filters']['field_date_value2']['relationship'] = 'reverse_field_program_node';
   $handler->display->display_options['filters']['field_date_value2']['operator'] = '<=';
   $handler->display->display_options['filters']['field_date_value2']['default_date'] = 'now';
   $handler->display->display_options['pane_category']['name'] = 'Exhibits';

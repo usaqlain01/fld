@@ -4,6 +4,7 @@ package = The Field Museum
 dependencies[] = ctools
 dependencies[] = ctools_access_ruleset
 dependencies[] = date
+dependencies[] = date_views
 dependencies[] = editableviews
 dependencies[] = entitylist
 dependencies[] = entityreference
