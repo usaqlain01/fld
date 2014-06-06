@@ -80,27 +80,45 @@ function fmnh_blog_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
+    'fences_wrapper' => 'div',
     'field_name' => 'field_attachment',
     'label' => 'Attachment',
-    'required' => FALSE,
+    'required' => 0,
     'settings' => array(
       'description_field' => 0,
       'file_directory' => '',
       'file_extensions' => 'txt',
+      'imagecrop' => array(
+        'large' => 0,
+        'media_gallery_large' => 0,
+        'media_gallery_thumbnail' => 0,
+        'medium' => 0,
+        'thumbnail' => 0,
+      ),
       'max_filesize' => '',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
+      'active' => 1,
       'module' => 'media',
       'settings' => array(
         'allowed_schemes' => array(
-          0 => 'public',
-          1 => 'private',
+          'oembed' => 0,
+          'public' => 'public',
         ),
         'allowed_types' => array(
-          0 => 'image',
+          'audio' => 0,
+          'document' => 0,
+          'image' => 'image',
+          'model' => 0,
+          'video' => 0,
         ),
-        'browser_plugins' => array(),
+        'browser_plugins' => array(
+          'media_default--media_browser_1' => 0,
+          'media_default--media_browser_my_files' => 0,
+          'media_internet' => 0,
+          'upload' => 0,
+        ),
       ),
       'type' => 'media_generic',
       'weight' => 39,
@@ -195,7 +213,7 @@ function fmnh_blog_field_default_field_instances() {
       'settings' => array(
         'allowed_schemes' => array(
           'oembed' => 0,
-          'public' => 'public',
+          'public' => 0,
         ),
         'allowed_types' => array(
           'audio' => 0,

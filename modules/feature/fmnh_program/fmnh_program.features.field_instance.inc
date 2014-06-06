@@ -128,11 +128,11 @@ function fmnh_program_field_default_field_instances() {
       'file_directory' => '',
       'file_extensions' => 'jpg gif jpeg png',
       'imagecrop' => array(
-        'large' => 0,
-        'media_gallery_large' => 0,
-        'media_gallery_thumbnail' => 0,
-        'medium' => 0,
-        'thumbnail' => 0,
+        'large' => 'large',
+        'media_gallery_large' => 'media_gallery_large',
+        'media_gallery_thumbnail' => 'media_gallery_thumbnail',
+        'medium' => 'medium',
+        'thumbnail' => 'thumbnail',
       ),
       'max_filesize' => '',
       'user_register_form' => FALSE,
@@ -143,7 +143,7 @@ function fmnh_program_field_default_field_instances() {
       'settings' => array(
         'allowed_schemes' => array(
           'oembed' => 0,
-          'public' => 'public',
+          'public' => 0,
         ),
         'allowed_types' => array(
           'audio' => 0,

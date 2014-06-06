@@ -315,15 +315,17 @@ function fmnh_exhibit_field_default_field_instances() {
     'label' => 'Image',
     'required' => 0,
     'settings' => array(
-      'alt_field' => 0,
-      'default_image' => 0,
       'description_field' => 0,
       'file_directory' => '',
       'file_extensions' => 'png gif jpg jpeg',
+      'imagecrop' => array(
+        'large' => 'large',
+        'media_gallery_large' => 'media_gallery_large',
+        'media_gallery_thumbnail' => 'media_gallery_thumbnail',
+        'medium' => 'medium',
+        'thumbnail' => 'thumbnail',
+      ),
       'max_filesize' => '',
-      'max_resolution' => '',
-      'min_resolution' => '',
-      'title_field' => 0,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -332,13 +334,14 @@ function fmnh_exhibit_field_default_field_instances() {
       'settings' => array(
         'allowed_schemes' => array(
           'oembed' => 0,
-          'public' => 'public',
+          'public' => 0,
         ),
         'allowed_types' => array(
           'audio' => 0,
           'document' => 0,
           'image' => 'image',
-          'video' => 0,
+          'model' => 0,
+          'video' => 'video',
         ),
         'browser_plugins' => array(
           'media_default--media_browser_1' => 0,
