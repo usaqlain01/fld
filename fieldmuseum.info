@@ -20,6 +20,7 @@ dependencies[] = file_entity
 dependencies[] = file_model
 dependencies[] = filter
 dependencies[] = image
+dependencies[] = image_resize_filter
 dependencies[] = invisimail
 dependencies[] = link
 dependencies[] = list

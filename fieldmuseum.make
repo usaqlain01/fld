@@ -92,6 +92,9 @@ projects[imagecrop][download][url] = https://github.com/bangpound/imagecrop.git
 projects[imagecrop][download][type] = git
 projects[imagecrop][download][branch] = develop
 
+projects[image_resize_filter][subdir] = contrib
+projects[image_resize_filter][version] = 1.14
+
 projects[inline][subdir] = contrib
 projects[inline][version] = 2.x-dev
 
