@@ -1,0 +1,15 @@
+{
+    "require-dev": {
+        "facebook/xhprof": "dev-master",
+        "raulfraile/ladybug": "dev-master",
+        "symfony/debug": "~2.4",
+        "behat/behat": "2.5.*@stable",
+        "behat/mink": "1.5.*@stable",
+        "behat/mink-extension": "*",
+        "behat/mink-goutte-driver": "*",
+        "drupal/drupal-extension": "1.0.*@stable"
+    },
+    "autoload": {
+        "psr-4": {"": "lib/"}
+    }
+}
