@@ -405,7 +405,32 @@ function fieldmuseum_default_page_manager_pages() {
     'body_classes_to_add' => '',
     'css_id' => '',
     'css' => '',
-    'contexts' => array(),
+    'contexts' => array(
+      0 => array(
+        'identifier' => 'List: Current exhibitions',
+        'keyword' => 'list',
+        'name' => 'entitylist:current_exhibitions',
+        'use_pager' => FALSE,
+        'pager_id' => NULL,
+        'range' => array(
+          'offset' => 0,
+          'limit' => 3,
+        ),
+        'id' => 1,
+      ),
+      1 => array(
+        'identifier' => 'List: Upcoming events',
+        'keyword' => 'list_2',
+        'name' => 'entitylist:upcoming_events',
+        'use_pager' => FALSE,
+        'pager_id' => NULL,
+        'range' => array(
+          'offset' => 0,
+          'limit' => 5,
+        ),
+        'id' => 1,
+      ),
+    ),
     'relationships' => array(),
   );
   $display = new panels_display();
@@ -425,36 +450,53 @@ function fieldmuseum_default_page_manager_pages() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-04a6e454-9660-438b-bd25-ea6e66c98f01';
+    $pane->pid = 'new-91b6980d-0fb6-4d6a-a3e2-52f60d261004';
     $pane->panel = 'main';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'exhibitions-panel_pane_1';
+    $pane->type = 'entity_range';
+    $pane->subtype = 'entity_range';
     $pane->shown = TRUE;
     $pane->access = array();
-    $pane->configuration = array();
+    $pane->configuration = array(
+      'range' => array(
+        'offset' => '0',
+        'limit' => '3',
+      ),
+      'view_mode' => 'node:banner',
+      'use_pager' => FALSE,
+      'pager_id' => 0,
+      'context' => 'context_entitylist:current_exhibitions_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
     $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,
-      'style' => 'naked',
     );
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = '04a6e454-9660-438b-bd25-ea6e66c98f01';
-    $display->content['new-04a6e454-9660-438b-bd25-ea6e66c98f01'] = $pane;
-    $display->panels['main'][0] = 'new-04a6e454-9660-438b-bd25-ea6e66c98f01';
+    $pane->uuid = '91b6980d-0fb6-4d6a-a3e2-52f60d261004';
+    $display->content['new-91b6980d-0fb6-4d6a-a3e2-52f60d261004'] = $pane;
+    $display->panels['main'][0] = 'new-91b6980d-0fb6-4d6a-a3e2-52f60d261004';
     $pane = new stdClass();
-    $pane->pid = 'new-cf15b6c0-56a4-4c28-b4ad-e1b2151282b8';
+    $pane->pid = 'new-6a80f4e9-cfd5-4b4e-ad57-e3a821eb5441';
     $pane->panel = 'main';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'upcoming_events-panel_pane_2';
+    $pane->type = 'entity_range';
+    $pane->subtype = 'entity_range';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'use_pager' => 0,
-      'pager_id' => '0',
-      'items_per_page' => '10',
+      'range' => array(
+        'offset' => '0',
+        'limit' => '5',
+      ),
+      'view_mode' => 'node:entity_label',
+      'use_pager' => FALSE,
+      'pager_id' => 0,
+      'context' => 'context_entitylist:upcoming_events_1',
+      'override_title' => 1,
+      'override_title_text' => 'Upcoming events',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -464,9 +506,9 @@ function fieldmuseum_default_page_manager_pages() {
     $pane->extras = array();
     $pane->position = 1;
     $pane->locks = array();
-    $pane->uuid = 'cf15b6c0-56a4-4c28-b4ad-e1b2151282b8';
-    $display->content['new-cf15b6c0-56a4-4c28-b4ad-e1b2151282b8'] = $pane;
-    $display->panels['main'][1] = 'new-cf15b6c0-56a4-4c28-b4ad-e1b2151282b8';
+    $pane->uuid = '6a80f4e9-cfd5-4b4e-ad57-e3a821eb5441';
+    $display->content['new-6a80f4e9-cfd5-4b4e-ad57-e3a821eb5441'] = $pane;
+    $display->panels['main'][1] = 'new-6a80f4e9-cfd5-4b4e-ad57-e3a821eb5441';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
