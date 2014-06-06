@@ -509,6 +509,38 @@ function fieldmuseum_default_page_manager_pages() {
     $pane->uuid = '6a80f4e9-cfd5-4b4e-ad57-e3a821eb5441';
     $display->content['new-6a80f4e9-cfd5-4b4e-ad57-e3a821eb5441'] = $pane;
     $display->panels['main'][1] = 'new-6a80f4e9-cfd5-4b4e-ad57-e3a821eb5441';
+    $pane = new stdClass();
+    $pane->pid = 'new-9a1d7e41-1a00-4092-a52a-a24e228add45';
+    $pane->panel = 'main';
+    $pane->type = 'menu_tree';
+    $pane->subtype = 'main-menu';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'menu_name' => 'main-menu',
+      'parent_mlid' => 0,
+      'parent' => 'main-menu:0',
+      'title_link' => 0,
+      'admin_title' => '',
+      'level' => '2',
+      'follow' => 0,
+      'depth' => '0',
+      'expanded' => 1,
+      'sort' => 0,
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 2;
+    $pane->locks = array();
+    $pane->uuid = '9a1d7e41-1a00-4092-a52a-a24e228add45';
+    $display->content['new-9a1d7e41-1a00-4092-a52a-a24e228add45'] = $pane;
+    $display->panels['main'][2] = 'new-9a1d7e41-1a00-4092-a52a-a24e228add45';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
@@ -523,7 +555,10 @@ function fieldmuseum_default_page_manager_pages() {
   $page->admin_title = 'Give now';
   $page->admin_description = '';
   $page->path = 'give-now';
-  $page->access = array();
+  $page->access = array(
+    'type' => 'none',
+    'settings' => NULL,
+  );
   $page->menu = array(
     'type' => 'normal',
     'title' => 'Give now',
