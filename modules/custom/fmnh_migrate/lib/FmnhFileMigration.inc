@@ -158,6 +158,9 @@ class FmnhFileMigration extends DrupalFile7Migration
 
       $tag_info = drupal_json_decode($tag);
 
+      // Handle deprecated view modes.
+      $tag_info['view_mode'] = self::mapViewMode($tag_info['view_mode']);
+
       $sourceMigrations = array(
         'AudioFile',
         'DefaultFile',
@@ -264,6 +267,38 @@ class FmnhFileMigration extends DrupalFile7Migration
     else {
       $value = reset($results);
       return empty($value) && $value !== 0 && $value !== '0' ? NULL : $value;
+    }
+  }
+
+  static public function mapViewMode($view_mode) {
+    $map = array(
+      'content_full' => 'full',
+      'custom_article' => 'full',
+      'custom_article-original-aspect' => 'full',
+      'custom_content-full' => 'full',
+      'custom_content-half' => 'full',
+      'custom_content-half-original-aspect' => 'full',
+      'custom_content-half-thin' => 'full',
+      'custom_content-third' => 'full',
+      'custom_content-third-home' => 'full',
+      'custom_content-third-original-aspect' => 'full',
+      'custom_gallery-large' => 'full',
+      'custom_medium' => 'full',
+      'custom_profile' => 'full',
+      'custom_square_thumbnail' => 'full',
+      'custom_thumbnail' => 'full',
+      'default' => 'full',
+      'gallery' => 'full',
+      'media_large' => 'full',
+      'media_original' => 'full',
+      'media_preview' => 'full',
+      'media_small' => 'full',
+    );
+    if (isset($map[$view_mode])) {
+      return $map[$view_mode];
+    }
+    else {
+      throw new Exception('Missing view mode named '. $view_mode);
     }
   }
 }
