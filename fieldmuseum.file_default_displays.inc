@@ -12,8 +12,16 @@ function fieldmuseum_file_default_displays() {
 
   $file_display = new stdClass();
   $file_display->api_version = 1;
-  $file_display->name = 'image__default__oembed_image';
+  $file_display->name = 'document__default__file_field_x3d';
   $file_display->weight = 0;
+  $file_display->status = TRUE;
+  $file_display->settings = '';
+  $export['document__default__file_field_x3d'] = $file_display;
+
+  $file_display = new stdClass();
+  $file_display->api_version = 1;
+  $file_display->name = 'image__default__oembed_image';
+  $file_display->weight = 10;
   $file_display->status = TRUE;
   $file_display->settings = array(
     'image_style' => '',
@@ -35,7 +43,7 @@ function fieldmuseum_file_default_displays() {
   $file_display = new stdClass();
   $file_display->api_version = 1;
   $file_display->name = 'image__preview__oembed_image';
-  $file_display->weight = 0;
+  $file_display->weight = -48;
   $file_display->status = TRUE;
   $file_display->settings = array(
     'image_style' => 'media_thumbnail',
@@ -58,6 +66,36 @@ function fieldmuseum_file_default_displays() {
 
   $file_display = new stdClass();
   $file_display->api_version = 1;
+  $file_display->name = 'model__default__file_field_x3d';
+  $file_display->weight = 0;
+  $file_display->status = TRUE;
+  $file_display->settings = '';
+  $export['model__default__file_field_x3d'] = $file_display;
+
+  $file_display = new stdClass();
+  $file_display->api_version = 1;
+  $file_display->name = 'model__default__file_model_qt';
+  $file_display->weight = 0;
+  $file_display->status = TRUE;
+  $file_display->settings = array(
+    'width' => '800',
+    'height' => '600',
+  );
+  $export['model__default__file_model_qt'] = $file_display;
+
+  $file_display = new stdClass();
+  $file_display->api_version = 1;
+  $file_display->name = 'model__default__file_model_x3d';
+  $file_display->weight = 0;
+  $file_display->status = TRUE;
+  $file_display->settings = array(
+    'width' => '800',
+    'height' => '600',
+  );
+  $export['model__default__file_model_x3d'] = $file_display;
+
+  $file_display = new stdClass();
+  $file_display->api_version = 1;
   $file_display->name = 'video__media_gallery_thumbnail__oembed_image';
   $file_display->weight = 0;
   $file_display->status = TRUE;
@@ -67,6 +105,17 @@ function fieldmuseum_file_default_displays() {
     'title' => '[file:field_file_image_title_text]',
   );
   $export['video__media_gallery_thumbnail__oembed_image'] = $file_display;
+
+  $file_display = new stdClass();
+  $file_display->api_version = 1;
+  $file_display->name = 'video__wysiwyg__oembed_thumbnail';
+  $file_display->weight = 0;
+  $file_display->status = TRUE;
+  $file_display->settings = array(
+    'width' => '',
+    'height' => '',
+  );
+  $export['video__wysiwyg__oembed_thumbnail'] = $file_display;
 
   return $export;
 }
