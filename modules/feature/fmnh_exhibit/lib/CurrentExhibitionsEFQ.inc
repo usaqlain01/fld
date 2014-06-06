@@ -6,6 +6,5 @@ class CurrentExhibitionsEFQ extends NodeListEFQ {
     $this->entityCondition('bundle', 'exhibit');
     $this->fieldCondition('field_date', 'value', date("Y-m-d h:i:s"), '<=');
     $this->fieldCondition('field_date', 'value2', date("Y-m-d h:i:s"), '>');
-    return $this;
   }
 }
