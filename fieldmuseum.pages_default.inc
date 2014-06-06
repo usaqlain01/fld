@@ -632,7 +632,7 @@ function fieldmuseum_default_page_manager_pages() {
     'relationships' => array(),
   );
   $display = new panels_display();
-  $display->layout = 'zen_no_wrapper';
+  $display->layout = 'l1';
   $display->layout_settings = array(
     'main_classes' => '',
   );
@@ -652,8 +652,19 @@ function fieldmuseum_default_page_manager_pages() {
     $pane->panel = 'main';
     $pane->type = 'custom';
     $pane->subtype = 'custom';
-    $pane->shown = FALSE;
-    $pane->access = array();
+    $pane->shown = TRUE;
+    $pane->access = array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'sunrise_sunset',
+          'settings' => array(
+            'sunrise' => '2014-05-27 00:00',
+            'sunset' => '2014-05-28 00:00',
+          ),
+          'not' => FALSE,
+        ),
+      ),
+    );
     $pane->configuration = array(
       'admin_title' => 'Alert',
       'title' => 'Alert!',
@@ -782,29 +793,6 @@ function fieldmuseum_default_page_manager_pages() {
     $display->content['new-64c4c056-b3c7-4afd-8796-35e7f9d62988'] = $pane;
     $display->panels['main'][4] = 'new-64c4c056-b3c7-4afd-8796-35e7f9d62988';
     $pane = new stdClass();
-    $pane->pid = 'new-40f9d913-1d3f-49c5-bbbd-d12e0e919624';
-    $pane->panel = 'main';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'upcoming_events-panel_pane_2';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'use_pager' => 0,
-      'pager_id' => '0',
-      'items_per_page' => '5',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 5;
-    $pane->locks = array();
-    $pane->uuid = '40f9d913-1d3f-49c5-bbbd-d12e0e919624';
-    $display->content['new-40f9d913-1d3f-49c5-bbbd-d12e0e919624'] = $pane;
-    $display->panels['main'][5] = 'new-40f9d913-1d3f-49c5-bbbd-d12e0e919624';
-    $pane = new stdClass();
     $pane->pid = 'new-f4d1dbd0-5126-4765-b649-fed5d90dd473';
     $pane->panel = 'main';
     $pane->type = 'fieldable_panels_pane';
@@ -820,11 +808,41 @@ function fieldmuseum_default_page_manager_pages() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 6;
+    $pane->position = 5;
     $pane->locks = array();
     $pane->uuid = 'f4d1dbd0-5126-4765-b649-fed5d90dd473';
     $display->content['new-f4d1dbd0-5126-4765-b649-fed5d90dd473'] = $pane;
-    $display->panels['main'][6] = 'new-f4d1dbd0-5126-4765-b649-fed5d90dd473';
+    $display->panels['main'][5] = 'new-f4d1dbd0-5126-4765-b649-fed5d90dd473';
+    $pane = new stdClass();
+    $pane->pid = 'new-66560f6a-fd8b-4229-8ef3-55e405440b6d';
+    $pane->panel = 'main';
+    $pane->type = 'entity_range';
+    $pane->subtype = 'entity_range';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'range' => array(
+        'offset' => '0',
+        'limit' => '5',
+      ),
+      'view_mode' => 'node:token',
+      'use_pager' => FALSE,
+      'pager_id' => 0,
+      'context' => 'context_entitylist:upcoming_events_1',
+      'override_title' => 1,
+      'override_title_text' => 'Upcoming events',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 6;
+    $pane->locks = array();
+    $pane->uuid = '66560f6a-fd8b-4229-8ef3-55e405440b6d';
+    $display->content['new-66560f6a-fd8b-4229-8ef3-55e405440b6d'] = $pane;
+    $display->panels['main'][6] = 'new-66560f6a-fd8b-4229-8ef3-55e405440b6d';
   $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
