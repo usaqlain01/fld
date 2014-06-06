@@ -64,3 +64,4 @@ features[user_permission][] = override exhibit revision option
 features[user_permission][] = override exhibit sticky option
 features[variable][] = field_bundle_settings_node__exhibit
 features[views_view][] = exhibitions
+files[] = lib/PromotedExhibitionsEFQ.inc
