@@ -18,7 +18,7 @@ projects[classloader][subdir] = contrib
 projects[classloader][version] = 1.1
 
 projects[composer_manager][subdir] = contrib
-projects[composer_manager][version] = 1.3
+projects[composer_manager][version] = 1.5
 
 projects[context_admin][subdir] = contrib
 projects[context_admin][version] = 1.2
@@ -63,6 +63,9 @@ projects[feeds][version] = 2.x-dev
 
 projects[fences][subdir] = contrib
 projects[fences][version] = 1.x-dev
+
+projects[fieldable_panels_panes][subdir] = contrib
+projects[fieldable_panels_panes][version] = 1.x-dev
 
 projects[field_group][subdir] = contrib
 projects[field_group][version] = 1.3
