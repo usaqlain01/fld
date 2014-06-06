@@ -25,6 +25,7 @@ projects[context_admin][version] = 1.2
 
 projects[ctools][subdir] = contrib
 projects[ctools][version] = 1.4
+projects[ctools][patch][] = https://drupal.org/files/issues/field_not_empty-1188466-11.patch
 
 projects[date][subdir] = contrib
 projects[date][version] = 2.7
