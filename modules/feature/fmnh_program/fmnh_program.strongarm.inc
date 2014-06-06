@@ -31,6 +31,21 @@ function fmnh_program_strongarm() {
       'diff_standard' => array(
         'custom_settings' => FALSE,
       ),
+      'search_index' => array(
+        'custom_settings' => FALSE,
+      ),
+      'search_result' => array(
+        'custom_settings' => FALSE,
+      ),
+      'banner' => array(
+        'custom_settings' => FALSE,
+      ),
+      'media_gallery_block' => array(
+        'custom_settings' => FALSE,
+      ),
+      'token' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -39,6 +54,9 @@ function fmnh_program_strongarm() {
         ),
         'title' => array(
           'weight' => '-5',
+        ),
+        'path' => array(
+          'weight' => '30',
         ),
       ),
       'display' => array(),
