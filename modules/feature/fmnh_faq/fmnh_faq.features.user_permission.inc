@@ -13,36 +13,69 @@ function fmnh_faq_user_default_permissions() {
   // Exported permission: 'create faq content'.
   $permissions['create faq content'] = array(
     'name' => 'create faq content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'author' => 'author',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'delete any faq content'.
   $permissions['delete any faq content'] = array(
     'name' => 'delete any faq content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'publisher' => 'publisher',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'delete own faq content'.
   $permissions['delete own faq content'] = array(
     'name' => 'delete own faq content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'publisher' => 'publisher',
+    ),
     'module' => 'node',
+  );
+
+  // Exported permission: 'delete terms in faq_topics'.
+  $permissions['delete terms in faq_topics'] = array(
+    'name' => 'delete terms in faq_topics',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'taxonomy',
   );
 
   // Exported permission: 'edit any faq content'.
   $permissions['edit any faq content'] = array(
     'name' => 'edit any faq content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'reviewer' => 'reviewer',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'edit own faq content'.
   $permissions['edit own faq content'] = array(
     'name' => 'edit own faq content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'author' => 'author',
+    ),
     'module' => 'node',
+  );
+
+  // Exported permission: 'edit terms in faq_topics'.
+  $permissions['edit terms in faq_topics'] = array(
+    'name' => 'edit terms in faq_topics',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'taxonomy',
   );
 
   // Exported permission: 'enter faq revision log entry'.
