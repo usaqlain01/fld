@@ -628,6 +628,18 @@ function fieldmuseum_default_page_manager_pages() {
         ),
         'id' => 1,
       ),
+      1 => array(
+        'identifier' => 'List: Upcoming events',
+        'keyword' => 'list_2',
+        'name' => 'entitylist:upcoming_events',
+        'use_pager' => FALSE,
+        'pager_id' => NULL,
+        'range' => array(
+          'offset' => 0,
+          'limit' => 5,
+        ),
+        'id' => 1,
+      ),
     ),
     'relationships' => array(),
   );
