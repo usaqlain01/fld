@@ -4,7 +4,6 @@
 
 # These themes are downloaded through the make file.
 /themes/zen/
-/themes/ember/
 
 # If composer or the Drupal bridge autoloader is used.
 /vendor/
