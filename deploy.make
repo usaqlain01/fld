@@ -14,5 +14,5 @@ projects[fieldmuseum][download][url] = git@codebasehq.com:caxy/field-museum-main
 projects[fieldmuseum][type] = profile
 
 ; drush make --working-copy deploy.make drupal
-; drush --yes -r $PWD/drupal site-install fieldmuseum --db-url=sqlite://sites/default/files/.ht.sqlite
-; drush si fieldmuseum --site-name="The Field Museum" --site-mail="no-reply@fieldmuseum.org"
+; drush --yes si fieldmuseum --site-name="The Field Museum" --site-mail="bjd@bangpound.org"
+; drush --yes en fmnh*
