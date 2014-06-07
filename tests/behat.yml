@@ -1,17 +1,19 @@
 default:
-  paths:
-    features: 'features'
-    bootstrap: 'features/bootstrap'
-  extensions:
-    Behat\MinkExtension\Extension:  
-      base_url: http://fieldmuseum.local:8083
-      goutte: ~
-    Drupal\DrupalExtension\Extension:
-      api_driver: 'drupal'
-      blackbox: ~
-      drupal:
-        drupal_root: '/Users/bjd/workspace/fieldmuseum'
-      subcontexts:
-        autoload: 0
-        paths:
-          - "/Users/bjd/workspace/fieldmuseum/profiles/fieldmuseum/modules/custom/fmnh_migrate"
+    paths:
+        bootstrap: "%behat.paths.features%/bootstrap"
+        features: features
+    extensions:
+        Behat\MinkExtension\Extension:
+            base_url: "http://fieldmuseum.local:8083"
+            goutte: ~
+        Drupal\DrupalExtension\Extension:
+            api_driver: drupal
+            blackbox: ~
+            drupal:
+                drupal_root: ../../../
+            drush:
+                alias: self
+            subcontexts:
+                autoload: 0
+                paths:
+                    - "../modules/custom/fmnh_migrate/tests"

@@ -1,12 +1,11 @@
 <?php
 
 use Behat\Behat\Context\ClosuredContextInterface,
-    Behat\Behat\Context\TranslatedContextInterface,
-    Behat\Behat\Context\BehatContext,
-    Behat\Behat\Exception\PendingException;
+  Behat\Behat\Context\TranslatedContextInterface,
+  Behat\Behat\Context\BehatContext,
+  Behat\Behat\Exception\PendingException;
 use Behat\Gherkin\Node\PyStringNode,
-    Behat\Gherkin\Node\TableNode;
-use Behat\MinkExtension\Context\MinkContext;  
+  Behat\Gherkin\Node\TableNode;
 
 //
 // Require 3rd-party libraries here:
@@ -20,28 +19,13 @@ use Behat\MinkExtension\Context\MinkContext;
  */
 class FeatureContext extends \Drupal\DrupalExtension\Context\DrupalContext
 {
-    /**
-     * Initializes context.
-     * Every scenario gets it's own context object.
-     *
-     * @param array $parameters context parameters (set them up through behat.yml)
-     */
-    public function __construct(array $parameters)
-    {
-      spl_autoload_register('drupal_autoload_class');
-      spl_autoload_register('drupal_autoload_interface');
-        // Initialize your context here
-    }
-
-//
-// Place your definition and hook methods here:
-//
-//    /**
-//     * @Given /^I have done something with "([^"]*)"$/
-//     */
-//    public function iHaveDoneSomethingWith($argument)
-//    {
-//        doSomethingWith($argument);
-//    }
-//
+  /**
+   * Initializes context.
+   * Every scenario gets its own context object.
+   *
+   * @param array $parameters context parameters (set them up through behat.yml)
+   */
+  public function __construct(array $parameters)
+  {
+  }
 }
