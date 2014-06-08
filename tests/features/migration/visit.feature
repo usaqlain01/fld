@@ -7,10 +7,10 @@ Feature: Plan your visit section migration
   Scenario Outline: Viewing a migrated node
     Given Source node <source-nid> has been migrated
     When I load the destination node
-    Then I see section <section>
+    Then I see section "<section>"
 
     Examples:
-      | source-nid  | section |
+      |  source-nid | section |
       |        1006 | visit   |
       |         906 | visit   |
       |        3311 | visit   |
