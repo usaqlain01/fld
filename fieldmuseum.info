@@ -21,6 +21,7 @@ dependencies[] = file_model
 dependencies[] = filter
 dependencies[] = image
 dependencies[] = image_resize_filter
+dependencies[] = imagecrop
 dependencies[] = invisimail
 dependencies[] = link
 dependencies[] = list
