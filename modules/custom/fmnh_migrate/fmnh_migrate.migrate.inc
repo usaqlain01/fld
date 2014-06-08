@@ -535,7 +535,7 @@ function fmnh_migrate_migrate_api() {
         'class_name' => 'PressMaterialsArticleNodeMigration',
         'group_name' => 'fmnh_node_article',
         'source_type' => 'article',
-        'destination_type' => 'article',
+        'destination_type' => 'press_release',
         'source_connection' => 'migrate',
         'source_version' => '7',
         'user_migration' => 'User',

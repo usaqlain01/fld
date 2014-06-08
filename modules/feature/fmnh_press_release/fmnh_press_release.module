@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Field Museum press release feature.
+ */
+
+include_once 'fmnh_press_release.features.inc';
