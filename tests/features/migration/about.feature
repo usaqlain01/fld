@@ -6,18 +6,15 @@ Feature: About the museum content migration
   @api
   Scenario Outline: Viewing a migrated node
     Given Source node <source-nid> has been migrated
-    When I load the destination node
-    Then I see section "<section>"
-    And it has type "<type>"
-    And it has subtype "<sub-type>"
+    Then I see breadcrumbs for "<section>" and "<type>"
 
     Examples:
       | source-nid | section | type                  | sub-type                    |
       | 3906       | about   |                       |                             |
       | 7271       | about   |                       |                             |
-      | 6251       | about   |                       |                             |
-      | 12541      | about   |                       |                             |
-      | 6911       | about   |                       |                             |
+      | 6251       | about   | history               |                             |
+      | 12541      | about   | history               |                             |
+      | 6911       | about   | history               |                             |
       | 187        | about   |                       |                             |
       | 207        | about   |                       |                             |
       | 209        | about   |                       |                             |
@@ -30,8 +27,6 @@ Feature: About the museum content migration
       | 6001       | about   | traveling-exhibitions |                             |
       | 5461       | about   | traveling-exhibitions |                             |
       | 7411       | about   |                       |                             |
-      |            | about   | press                 |                             |
-      |            | about   | press                 |                             |
       | 9231       | about   | press                 |                             |
       | 9226       | about   | press                 |                             |
       | 9251       | about   | press                 |                             |
@@ -92,8 +87,5 @@ Feature: About the museum content migration
       | 4411       | about   | careers               | research-scholarship-grants |
       | 8591       | about   | annual-reports        |                             |
       | 8641       | about   | annual-reports        |                             |
-      |            | about   | annual-reports        |                             |
-      |            | about   | staff                 |                             |
-      |            | about   | staff                 |                             |
       | 210        | about   |                       |                             |
       | 217        | about   |                       |                             |

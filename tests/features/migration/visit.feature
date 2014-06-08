@@ -6,8 +6,7 @@ Feature: Plan your visit section migration
   @api
   Scenario Outline: Viewing a migrated node
     Given Source node <source-nid> has been migrated
-    When I load the destination node
-    Then I see section "<section>"
+    Then I see breadcrumbs for "<section>" and "<type>"
 
     Examples:
       |  source-nid | section |

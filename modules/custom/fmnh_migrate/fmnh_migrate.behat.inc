@@ -1,12 +1,10 @@
 <?php
 
+use Drupal\DrupalExtension\Context\DrupalContext;
 use Drupal\DrupalExtension\Context\DrupalSubContextInterface;
 use Behat\Behat\Context\BehatContext;
 
 class FmnhMigrateSubContext extends BehatContext implements DrupalSubContextInterface {
-
-  private $sourceid;
-  private $destids;
 
   public static function getAlias() {
     return 'fmnh_migrate';
@@ -16,65 +14,41 @@ class FmnhMigrateSubContext extends BehatContext implements DrupalSubContextInte
    * @Given /^Source node (\d+) has been migrated$/
    */
   public function sourceNodeHasBeenMigrated($arg1) {
-    $this->sourceid = $arg1;
-  }
-
-  /**
-   * @When /^I load the destination node$/
-   */
-  public function iLoadTheDestinationNode() {
+    /** @var DrupalContext $mainContext */
     $mainContext = $this->getMainContext();
-    $this->destids = $this->lookupDestinationNid($this->sourceid);
-    $mainContext->getSession()->visit($mainContext->locatePath('node/'. $this->destids['destid1']));
+    $destids = $this->lookupDestinationNid($arg1);
+    $mainContext->getSession()->visit($mainContext->locatePath('node/'. $destids['destid1']));
   }
 
   /**
-   * @Then /^I see section "([^\/]*)"$/
+   * @Then /^I see breadcrumbs for "([^"]*)"$/
+   * @Then /^I see breadcrumbs for "([^"]*)" and "([^"]*)"$/
+   * @Then /^I see breadcrumbs for "([^"]*)" and "([^"]*)" and "([^"]*)"$/
    */
-  public function iSeeSection($section)
-  {
+  public function iSeeBreadcrumbsFor($arg1, $arg2 = NULL, $arg3 = NULL) {
+    /** @var DrupalContext $mainContext */
+    $mainContext = $this->getMainContext();
+    $args = array_filter(array_map('trim', func_get_args()));
     /** @var \Behat\Mink\Element\DocumentElement $page */
-    $page = $this->getMainContext()->getSession()->getPage();
-    $links = $page->findAll('css', '.active-trail a,.active a,.is-active a');
+    $page = $mainContext->getSession()->getPage();
+    $links = $page->findAll('css', 'nav.breadcrumb a');
 
-    foreach ($links as $link) {
-      if ($link && $link->hasAttribute('href')) {
-        if ($this->searchInUrl($section, $link->getAttribute('href'))) {
-          return;
+    foreach ($args as $arg) {
+      foreach ($links as $link) {
+        /** @var \Behat\Mink\Element\NodeElement $link */
+        if ($link->hasAttribute('href')) {
+          if ($this->searchInUrl($arg, $link->getAttribute('href'))) {
+            continue 2;
+          }
         }
       }
+      throw new Exception(sprintf('Supposed to map under %s but does not.', $arg));
     }
-    throw new Exception(sprintf('Supposed to map under %s but does not.', $section));
-  }
-
-  /**
-   * @Given /^it has type "([^"]*)"$/
-   */
-  public function itHasType($arg1) {
-    /** @var \Behat\Mink\Element\DocumentElement $page */
-    $page = $this->getMainContext()->getSession()->getPage();
-    $links = $page->findAll('css', '.active-trail a,.active a,.is-active a');
-
-    foreach ($links as $link) {
-      if ($link && $link->hasAttribute('href')) {
-        if ($this->searchInUrl($arg1, $link->getAttribute('href'))) {
-          return;
-        }
-      }
-    }
-    throw new Exception(sprintf('Supposed to map under %s but does not.', $arg1));
-  }
-
-  /**
-   * @Given /^it has subtype "([^"]*)"$/
-   */
-  public function itHasSubtype($arg1) {
-    throw new \Behat\Behat\Exception\PendingException();
   }
 
   protected function searchInUrl($needle, $haystack) {
     foreach (explode('/', $haystack) as $part) {
-      if (trim($needle, " \t\n\r\0\x0B\/") === trim($part, " \t\n\r\0\x0B\/")) {
+      if ($needle === trim($part, " \t\n\r\0\x0B\/")) {
         return true;
       }
     }
@@ -85,7 +59,9 @@ class FmnhMigrateSubContext extends BehatContext implements DrupalSubContextInte
    * @Transform /^source node (\d+)$/
    */
   protected function lookupDestinationNid($sourceNid) {
-    $this->getMainContext()->getDrupal()->getDriver();
+    /** @var DrupalContext $mainContext */
+//    $mainContext = $this->getMainContext();
+//    $mainContext->getDrupal();
     $source_migrations = array(
       'ArticleNode',
       'BlogNode',
