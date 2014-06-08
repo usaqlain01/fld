@@ -12,7 +12,6 @@ files[] = lib/DepartmentNodeMigration.inc
 files[] = lib/DepartmentTermMigration.inc
 files[] = lib/DocumentFileMigration.inc
 files[] = lib/EducationalResourceArticleNodeMigration.inc
-files[] = lib/EventNodeMigration.inc
 files[] = lib/ExhibitNodeMigration.inc
 files[] = lib/ExhibitTermMigration.inc
 files[] = lib/ExhibitTypeTermMigration.inc

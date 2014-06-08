@@ -6,7 +6,6 @@
 
 include_once 'fieldmuseum.features.inc';
 
-
 /**
  * Implements hook_menu
  */
@@ -33,7 +32,6 @@ function fieldmuseum_node_migrate($node) {
     'CollectionNode',
     'DepartmentNode',
     'EducationalResourceArticleNode',
-    'EventNode',
     'ExhibitNode',
     'FaqNode',
     'ItineraryArticleNode',

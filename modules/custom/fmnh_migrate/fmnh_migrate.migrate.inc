@@ -190,26 +190,6 @@ function fmnh_migrate_migrate_api() {
           'track_changes' => TRUE,
         ),
       ),
-      'EventNode' => array(
-        'class_name' => 'EventNodeMigration',
-        'group_name' => 'fmnh_node',
-        'source_type' => 'exhibit',
-        'destination_type' => 'event',
-        'source_connection' => 'migrate',
-        'source_version' => '7',
-        'dependencies' => array(
-          'AudioFile',
-          'DefaultFile',
-          'DocumentFile',
-          'ExhibitNode',
-          'ImageFile',
-          'VideoFile',
-        ),
-        'description' => 'Migrate event nodes from exhibits',
-        'source_options' => array(
-          'track_changes' => TRUE,
-        ),
-      ),
       'ExhibitTerm' => array(
         'class_name' => 'ExhibitTermMigration',
         'group_name' => 'fmnh_term_node',
