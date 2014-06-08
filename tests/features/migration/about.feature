@@ -87,5 +87,6 @@ Feature: About the museum content migration
       | 4411       | about   | careers               | research-scholarship-grants |
       | 8591       | about   | annual-reports        |                             |
       | 8641       | about   | annual-reports        |                             |
+      | 9211       | about   | annual-reports        |                             |
       | 210        | about   |                       |                             |
       | 217        | about   |                       |                             |
