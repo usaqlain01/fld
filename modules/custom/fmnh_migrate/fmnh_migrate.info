@@ -40,6 +40,7 @@ files[] = lib/ScienceFocusTermMigration.inc
 files[] = lib/StratigraphyTermMigration.inc
 files[] = lib/TermToNodeMigration.inc
 files[] = lib/TopicTermMigration.inc
+files[] = lib/TravelingExhibitionNodeMigration.inc
 files[] = lib/UndefinedFileMigration.inc
 files[] = lib/UserMigration.inc
 files[] = lib/UserPictureMigration.inc

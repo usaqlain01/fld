@@ -612,6 +612,26 @@ function fmnh_migrate_migrate_api() {
           'track_changes' => TRUE,
         ),
       ),
+      'TravelingExhibitionNode' => array(
+        'class_name' => 'TravelingExhibitionNodeMigration',
+        'group_name' => 'fmnh_node_article',
+        'source_type' => 'article',
+        'destination_type' => 'traveling_exhibit',
+        'source_connection' => 'migrate',
+        'source_version' => '7',
+        'user_migration' => 'User',
+        'dependencies' => array(
+          'AudioFile',
+          'DefaultFile',
+          'DocumentFile',
+          'ImageFile',
+          'VideoFile',
+        ),
+        'description' => 'Migrate article nodes',
+        'source_options' => array(
+          'track_changes' => TRUE,
+        ),
+      ),
       'User' => array(
         'class_name' => 'UserMigration',
         'group_name' => 'fmnh_user',
