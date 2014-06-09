@@ -61,12 +61,27 @@ class FmnhMigrateSubContext extends BehatContext implements DrupalSubContextInte
   }
 
   /**
+   * Pseudo-bootstrap
+   *
+   * @BeforeScenario
+   *
+   * We don't actually need the Drupal API at all, but in order to easily access
+   * the database and the classloader, we need to hack together a bootstrap.@deprecated
+   *
+   * @see
+   */
+  public function beforeScenario() {
+    /** @var DrupalContext $mainContext */
+    $mainContext = $this->getMainContext();
+    /** @var \Drupal\Drupal $drupal */
+    $drupal = $mainContext->getDrupal();
+    $drupal->getDriver();
+  }
+
+  /**
    * @Transform /^source node (\d+)$/
    */
   protected function lookupDestinationNid($sourceNid) {
-    /** @var DrupalContext $mainContext */
-//    $mainContext = $this->getMainContext();
-//    $mainContext->getDrupal();
     $source_migrations = array(
       'ArticleNode',
       'BlogNode',
