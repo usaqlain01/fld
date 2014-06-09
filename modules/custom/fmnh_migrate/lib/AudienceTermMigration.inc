@@ -11,16 +11,18 @@ class AudienceTermMigration extends FmnhTermMigration {
     // Read the crosswalk file the first time through.
     if (empty($this->crosswalk)) {
       $this->crosswalk = array(
-        'Press/Journalist' => 'Adults',
-        'Special Event Planners' => 'Adults',
-        'Researchers' => 'Adults',
-        'Scientists' => 'Adults',
+        'Boy & Girl Scouts' => 'Scouts',
+        'Citizen Scientists' => 'Adults',
         'Conservationists' => 'Adults',
         'Graduates' => 'Adults',
-        'Undergraduates' => 'Adults',
-        'Citizen Scientists' => 'Adults',
         'Groups - school groups and group sales' => 'Educators',
-        'Student' => 'Kids & Teens',
+        'Kids & Teens' => 'Teens',
+        'Press/Journalist' => 'Adults',
+        'Researchers' => 'Adults',
+        'Scientists' => 'Adults',
+        'Special Event Planners' => 'Adults',
+        'Student' => 'Teens',
+        'Undergraduates' => 'Adults',
       );
     }
 

@@ -64,3 +64,62 @@ function fieldmuseum_install() {
   variable_set('disqus_nodetypes', array('blog' => 'blog'));
   variable_set('disqus_useraccesstoken', 'B5CPoFWBpHjwDi2FURAevbGyOS5ALvz8OXl7f4BxjuCCrMshzpCm4eZ4BPtsSv7Z');
 }
+
+/**
+ * Helper function to run after terms are migrated.
+ *
+ * This function generates menu items as needed.
+ */
+function fieldmuseum_create_program_filters() {
+  $query = new EntityFieldQuery();
+  $query->entityCondition('entity_type', 'taxonomy_term');
+  $query->entityCondition('bundle', 'audience');
+  $query->propertyOrderBy('weight', 'ASC');
+  $result = $query->execute();
+  if (!empty($result['taxonomy_term'])) {
+    $entities = entity_load('taxonomy_term', array_keys($result['taxonomy_term']));
+    module_load_include('inc', 'pathauto');
+    foreach ($entities as $entity) {
+      $data = array('term' => $entity);
+      $parent_item = menu_link_get_preferred('at-the-field/programs');
+      $link_path = token_replace('at-the-field/programs/[term:name]', $data, array(
+        'sanitize' => FALSE,
+        'clear' => TRUE,
+        'callback' => 'pathauto_clean_token_values',
+        'language' => (object) array('language' => $language),
+        'pathauto' => TRUE,
+      ));
+      $link = array(
+        'enabled' => true,
+        'link_title' => $entity->name,
+        'link_path' => token_replace($link_path),
+        'description' => '',
+        'menu_name' => $parent_item['menu_name'],
+        'plid' => $parent_item['mlid'],
+        'mlid' => null,
+      );
+      menu_link_save($link);
+
+
+      $parent_item = menu_link_get_preferred('at-the-field/calendar');
+      $link_path = token_replace('at-the-field/calendar/[term:name]', $data, array(
+        'sanitize' => FALSE,
+        'clear' => TRUE,
+        'callback' => 'pathauto_clean_token_values',
+        'language' => (object) array('language' => $language),
+        'pathauto' => TRUE,
+      ));
+      $link = array(
+        'enabled' => true,
+        'link_title' => $entity->name,
+        'link_path' => token_replace($link_path),
+        'description' => '',
+        'menu_name' => $parent_item['menu_name'],
+        'plid' => $parent_item['mlid'],
+        'mlid' => null,
+      );
+      menu_link_save($link);
+    }
+  }
+  menu_cache_clear_all();
+}
