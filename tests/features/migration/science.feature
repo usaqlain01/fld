@@ -1,4 +1,4 @@
-Feature: Support the museum content migration
+Feature: Science and research content migration
   In order for the content to remain findable
   for web site users
   the migration process must achieve specific milestones
