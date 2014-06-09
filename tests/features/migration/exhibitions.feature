@@ -6,7 +6,7 @@ Feature: Events, programs and exhibition content migration
   @api
   Scenario Outline: Viewing a migrated node
     Given Source node <source-nid> has been migrated
-    Then I see breadcrumbs for "<section>" and "<type>" and "<sub-type>"
+    Then I see breadcrumbs for "<section>" and "<type>"
 
     Examples:
       | source-nid | section      | type        | sub-type    |
