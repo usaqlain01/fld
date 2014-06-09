@@ -108,8 +108,8 @@ function fmnh_exhibit_field_group_info() {
     'weight' => '7',
     'children' => array(
       0 => 'group_audience',
-      1 => 'group_topic',
-      2 => 'group_grade_level',
+      1 => 'group_grade_level',
+      2 => 'group_topic',
     ),
     'format_type' => 'htabs',
     'format_settings' => array(

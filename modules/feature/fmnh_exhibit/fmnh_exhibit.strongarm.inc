@@ -40,6 +40,9 @@ function fmnh_exhibit_strongarm() {
         'metatags' => array(
           'weight' => '2',
         ),
+        'path' => array(
+          'weight' => '30',
+        ),
       ),
       'display' => array(),
     ),
