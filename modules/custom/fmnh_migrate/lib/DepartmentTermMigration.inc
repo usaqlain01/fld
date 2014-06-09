@@ -62,8 +62,17 @@ class DepartmentTermMigration extends TermToNodeMigration
       return FALSE;
     }
 
-    if ($row->parent == 0) {
+    if (in_array($row->tid, array(109,90,78,67,103))) {
       $parent_item = menu_link_get_preferred('science/research');
+      $row->menu = array(
+        'enabled' => true,
+        'link_title' => $row->name,
+        'menu_name' => 'main-menu',
+        'plid' => $parent_item['mlid'],
+      );
+    }
+    else if ($row->parent == 85 || $row->tid == 85) {
+      $parent_item = menu_link_get_preferred('science/conservation');
       $row->menu = array(
         'enabled' => true,
         'link_title' => $row->name,
@@ -77,13 +86,15 @@ class DepartmentTermMigration extends TermToNodeMigration
       );
       $nid = $this->handleSourceMigration($source_migrations, $row->parent);
       $parent_item = menu_link_get_preferred('node/'. $nid);
-      $row->menu = array(
-        'enabled' => true,
-        'link_title' => $row->name,
-        'description' => '',
-        'menu_name' => 'main-menu',
-        'plid' => $parent_item['mlid'],
-      );
+      if ($parent_item) {
+        $row->menu = array(
+          'enabled' => true,
+          'link_title' => $row->name,
+          'description' => '',
+          'menu_name' => $parent_item['menu_name'],
+          'plid' => $parent_item['mlid'],
+        );
+      }
     }
   }
 }
