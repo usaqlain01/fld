@@ -17,7 +17,12 @@ class FmnhMigrateSubContext extends BehatContext implements DrupalSubContextInte
     /** @var DrupalContext $mainContext */
     $mainContext = $this->getMainContext();
     $destids = $this->lookupDestinationNid($arg1);
-    $mainContext->getSession()->visit($mainContext->locatePath('node/'. $destids['destid1']));
+    if ($destids) {
+      $mainContext->getSession()->visit($mainContext->locatePath('node/'. $destids['destid1']));
+    }
+    else {
+      throw new \Exception(sprintf('Node %s has not been migrated', $arg1));
+    }
   }
 
   /**
@@ -42,7 +47,7 @@ class FmnhMigrateSubContext extends BehatContext implements DrupalSubContextInte
           }
         }
       }
-      throw new Exception(sprintf('Supposed to map under %s but does not.', $arg));
+      throw new Exception(sprintf('Does not map under %s in menu.', $arg));
     }
   }
 
