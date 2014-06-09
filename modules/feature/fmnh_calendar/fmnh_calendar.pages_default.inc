@@ -324,7 +324,17 @@ function fmnh_calendar_default_page_manager_pages() {
       'settings' => array(
         'input_form' => 'term',
         'vids' => array(
-          1 => 0,
+          1 => '1',
+          2 => '2',
+          3 => 0,
+          10 => 0,
+          4 => 0,
+          5 => 0,
+          6 => 0,
+          7 => 0,
+          8 => 0,
+          11 => 0,
+          9 => 0,
         ),
         'breadcrumb' => 1,
         'transform' => 1,

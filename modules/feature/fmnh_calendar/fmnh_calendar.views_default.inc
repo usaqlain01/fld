@@ -150,6 +150,11 @@ function fmnh_calendar_views_default_views() {
   $handler->display->display_options['relationships']['field_program_target_id']['id'] = 'field_program_target_id';
   $handler->display->display_options['relationships']['field_program_target_id']['table'] = 'field_data_field_program';
   $handler->display->display_options['relationships']['field_program_target_id']['field'] = 'field_program_target_id';
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_audience_target_id']['id'] = 'field_audience_target_id';
+  $handler->display->display_options['relationships']['field_audience_target_id']['table'] = 'field_data_field_audience';
+  $handler->display->display_options['relationships']['field_audience_target_id']['field'] = 'field_audience_target_id';
+  $handler->display->display_options['relationships']['field_audience_target_id']['relationship'] = 'field_program_target_id';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -161,17 +166,25 @@ function fmnh_calendar_views_default_views() {
   $handler->display->display_options['sorts']['field_date_value']['id'] = 'field_date_value';
   $handler->display->display_options['sorts']['field_date_value']['table'] = 'field_data_field_date';
   $handler->display->display_options['sorts']['field_date_value']['field'] = 'field_date_value';
-  /* Contextual filter: Content: Has taxonomy term ID */
-  $handler->display->display_options['arguments']['tid']['id'] = 'tid';
-  $handler->display->display_options['arguments']['tid']['table'] = 'taxonomy_index';
-  $handler->display->display_options['arguments']['tid']['field'] = 'tid';
-  $handler->display->display_options['arguments']['tid']['relationship'] = 'field_program_target_id';
-  $handler->display->display_options['arguments']['tid']['title_enable'] = TRUE;
-  $handler->display->display_options['arguments']['tid']['title'] = 'Events for %1';
-  $handler->display->display_options['arguments']['tid']['default_argument_type'] = 'fixed';
-  $handler->display->display_options['arguments']['tid']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['tid']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['tid']['summary_options']['items_per_page'] = '25';
+  /* Contextual filter: Taxonomy term: Name */
+  $handler->display->display_options['arguments']['name']['id'] = 'name';
+  $handler->display->display_options['arguments']['name']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['arguments']['name']['field'] = 'name';
+  $handler->display->display_options['arguments']['name']['relationship'] = 'field_audience_target_id';
+  $handler->display->display_options['arguments']['name']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['name']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['name']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['name']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['name']['specify_validation'] = TRUE;
+  $handler->display->display_options['arguments']['name']['validate']['type'] = 'taxonomy_term';
+  $handler->display->display_options['arguments']['name']['validate_options']['vocabularies'] = array(
+    'audience' => 'audience',
+  );
+  $handler->display->display_options['arguments']['name']['validate_options']['type'] = 'name';
+  $handler->display->display_options['arguments']['name']['validate_options']['transform'] = TRUE;
+  $handler->display->display_options['arguments']['name']['validate']['fail'] = 'access denied';
+  $handler->display->display_options['arguments']['name']['limit'] = '0';
+  $handler->display->display_options['arguments']['name']['path_case'] = 'lower';
   /* Contextual filter: Content: Date -  start date (field_date) */
   $handler->display->display_options['arguments']['field_date_value']['id'] = 'field_date_value';
   $handler->display->display_options['arguments']['field_date_value']['table'] = 'field_data_field_date';
@@ -201,13 +214,13 @@ function fmnh_calendar_views_default_views() {
   $handler->display->display_options['pane_category']['name'] = 'Calendar';
   $handler->display->display_options['pane_category']['weight'] = '0';
   $handler->display->display_options['argument_input'] = array(
-    'tid' => array(
+    'name' => array(
       'type' => 'context',
-      'context' => 'entity:taxonomy_term.tid',
+      'context' => 'entity:taxonomy_term.name',
       'context_optional' => 1,
       'panel' => '0',
       'fixed' => '',
-      'label' => 'Content: Has taxonomy term ID',
+      'label' => 'Taxonomy term: Name',
     ),
     'field_date_value' => array(
       'type' => 'panel',
