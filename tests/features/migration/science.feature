@@ -27,6 +27,10 @@ Feature: Support the museum content migration
     | 5966       | science | resources    | publication           |
     | 4656       | science | resources    | publication           |
     | 4601       | science | resources    | publication           |
+    | 69         | science | library      |                       |
+    | 4752       | science | library      |                       |
+    | 4201       | science | library      |                       |
+    | 8761       | science | library      |                       |
     | 4716       | science | library      |                       |
     | 5486       | science | library      |                       |
     | 5491       | science | library      |                       |
@@ -50,6 +54,11 @@ Feature: Support the museum content migration
     | 5251       | science | archive      |                       |
     | 176        | science |              |                       |
     | 67         | science | conservation |                       |
+    | 80         | science | conservation | science-action-center |
+    | 7601       | science | conservation | science-action-center |
+    | 77         | science | conservation | science-action-center |
+    | 5031       | science | conservation | science-action-center |
+    | 79         | science | conservation | science-action-center |
     | 4986       | science | conservation | science-action-center |
     | 5541       | science | conservation | science-action-center |
     | 5526       | science | conservation | science-action-center |
@@ -126,6 +135,10 @@ Feature: Support the museum content migration
     | 6526       | science | conservation | cultural-heritage     |
     | 59         | science |              |                       |
     | 46         | science | research     |                       |
+    | 47         | science | research     |                       |
+    | 50         | science | research     |                       |
+    | 48         | science | research     |                       |
+    | 49         | science | research     |                       |
     | 11286      | science | research     |                       |
     | 4971       | science | research     |                       |
     | 6311       | science | research     |                       |
@@ -133,9 +146,25 @@ Feature: Support the museum content migration
     | 8336       | science | research     |                       |
     | 8906       | science | research     |                       |
     | 51         | science | research     |                       |
+    | 61         | science | research     |                       |
+    | 37         | science | research     |                       |
+    | 3401       | science | research     |                       |
+    | 3381       | science | research     |                       |
     | 68         | science | research     |                       |
+    | 86         | science | research     |                       |
+    | 81         | science | research     |                       |
+    | 87         | science | research     |                       |
+    | 88         | science | research     |                       |
     | 33         | science | research     |                       |
+    | 40         | science | research     |                       |
+    | 38         | science | research     |                       |
+    | 2506       | science | research     |                       |
+    | 42         | science | research     |                       |
     | 70         | science | research     |                       |
+    | 8156       | science | research     |                       |
+    | 8176       | science | research     |                       |
+    | 8151       | science | research     |                       |
+    | 8186       | science | research     |                       |
     | 8156       | science | research     |                       |
     | 4536       | science | research     |                       |
     | 8176       | science | research     |                       |

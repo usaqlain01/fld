@@ -1,69 +1,65 @@
 node/46:
-    - anthropology-tabs
+    - node/46
 node/47:
-    - anthropology-tabs
+    - node/46
 node/50:
-    - anthropology-tabs
+    - node/46
 explore/department/anthropology/people:
-    - anthropology-tabs
+    - node/46
 node/48:
-    - anthropology-tabs
+    - node/46
 node/49:
-    - anthropology-tabs
-node/51:
-    - botany-tabs
+    - node/46
 node/61:
-    - botany-tabs
+    - node/51
 node/37:
-    - botany-tabs
+    - node/51
 explore/department/botany/people:
-    - botany-tabs
+    - node/51
 node/3401:
-    - botany-tabs
+    - node/51
 node/3381:
-    - botany-tabs
+    - node/51
 happening/exhibits/browse/current:
     - devel
 happening/exhibits/browse/coming-soon:
     - devel
 happening/exhibits/browse/past:
     - devel
-node/67:
-    - ecco-tabs
 node/80:
-    - ecco-tabs
+    - node/67
 node/7601:
-    - ecco-tabs
+    - node/67
 node/77:
-    - ecco-tabs
+    - node/67
 node/5031:
-    - ecco-tabs
+    - node/67
 node/79:
-    - ecco-tabs
+    - node/67
 node/68:
-    - geology-tabs
+    - node/68
 node/86:
-    - geology-tabs
+    - node/68
 node/81:
-    - geology-tabs
+    - node/68
 explore/department/geology/people:
-    - geology-tabs
+    - node/68
 node/87:
-    - geology-tabs
+    - node/68
 node/88:
-    - geology-tabs
+    - node/68
 node/69:
-    - library-tabs
+    - node/69
 node/4716:
-    - library-tabs
+    - node/69
 node/4752:
-    - library-tabs
+    - node/69
 explore/department/library/people:
-    - library-tabs
+    - node/69
 node/4201:
-    - library-tabs
+    - node/69
 node/8761:
-    - library-tabs
+    - node/69
 node/109:
     - main-menu
 node/111:
@@ -1168,46 +1164,40 @@ node/217:
     - node/108
 menu-position/41:
     - node/108
-node/5226:
-    - menu-biosync-tabs
 node/8791:
-    - menu-biosync-tabs
+    - node/5226
 node/8796:
-    - menu-biosync-tabs
+    - node/5226
 node/8846:
-    - menu-biosync-tabs
+    - node/5226
 node/8841:
-    - menu-biosync-tabs
+    - node/5226
 explore/department/biosync/people:
-    - menu-biosync-tabs
-node/7146:
-    - menu-collections-conserv-tabs
+    - node/5226
 node/7281:
-    - menu-collections-conserv-tabs
+    - node/7146
 node/7311:
-    - menu-collections-conserv-tabs
+    - node/7146
 explore/department/conserving-collections/people:
-    - menu-collections-conserv-tabs
+    - node/7146
 node/7286:
-    - menu-collections-conserv-tabs
+    - node/7146
 node/7256:
-    - menu-collections-conserv-tabs
+    - node/7146
 node/217:
     - menu-copyright-menu
 'http://m.fieldmuseum.org/':
     - menu-copyright-menu
-node/6511:
-    - menu-cultural-heritage
 node/6516:
-    - menu-cultural-heritage
+    - node/6511
 node/6306:
-    - menu-cultural-heritage
+    - node/6511
 node/6531:
-    - menu-cultural-heritage
+    - node/6511
 node/6521:
-    - menu-cultural-heritage
+    - node/6511
 node/6526:
-    - menu-cultural-heritage
+    - node/6511
 'http://fieldmuseum.org/schools/academic-programs':
     - menu-digital-media-learning-tabs
 node/15516:
@@ -1792,18 +1782,16 @@ filter/tips:
     - navigation
 search404:
     - navigation
-node/70:
-    - pritzkerlab-tabs
 node/8156:
-    - pritzkerlab-tabs
+    - node/70
 node/8176:
-    - pritzkerlab-tabs
+    - node/70
 explore/department/pritzkerlab/people:
-    - pritzkerlab-tabs
+    - node/70
 node/8151:
-    - pritzkerlab-tabs
+    - node/70
 node/8186:
-    - pritzkerlab-tabs
+    - node/70
 node/8216:
     - node/8186
 user:
@@ -1814,15 +1802,13 @@ user/login:
     - user
 user/password:
     - user
-node/33:
-    - zoology-tabs
 node/40:
-    - zoology-tabs
+    - node/33
 node/38:
-    - zoology-tabs
+    - node/33
 explore/department/zoology/people:
-    - zoology-tabs
+    - node/33
 node/2506:
-    - zoology-tabs
+    - node/33
 node/42:
-    - zoology-tabs
+    - node/33
