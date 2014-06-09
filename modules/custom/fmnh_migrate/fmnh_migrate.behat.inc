@@ -99,6 +99,7 @@ class FmnhMigrateSubContext extends BehatContext implements DrupalSubContextInte
       'ProgramArticleNode',
       'PublicationArticleNode',
       'ResearchScienceArticleNode',
+      'TravelingExhibitionNode',
       'VideoNode',
       'WebformNode',
     );
