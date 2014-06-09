@@ -398,6 +398,7 @@ function fmnh_migrate_migrate_api() {
         'source_version' => '7',
         'user_migration' => 'User',
         'dependencies' => array(
+          'DepartmentTerm',
           'AudioFile',
           'DefaultFile',
           'DocumentFile',
