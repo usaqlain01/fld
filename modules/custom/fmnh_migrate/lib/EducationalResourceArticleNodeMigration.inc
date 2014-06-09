@@ -42,5 +42,11 @@ class EducationalResourceArticleNodeMigration extends FmnhNodeMigration {
       return FALSE;
     }
     $this->prepareRowAttachments($row);
+
+    $migration = \Migration::getInstance('PageNode');
+    $destids = $migration->getMap()->lookupDestinationID(array($row->nid));
+    if ($destids['destid1']) {
+      return false;
+    }
   }
 }

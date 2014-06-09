@@ -26,6 +26,13 @@ class ItineraryArticleNodeMigration extends FmnhNodeMigration {
       'description' => '',
       'menu_name' => 'main-menu',
       'plid' => $parent_item['mlid'],
+      'mlid' => null,
     );
+
+    $migration = \Migration::getInstance('PageNode');
+    $destids = $migration->getMap()->lookupDestinationID(array($row->nid));
+    if ($destids['destid1']) {
+      return false;
+    }
   }
 }

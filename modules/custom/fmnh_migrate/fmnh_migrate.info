@@ -28,6 +28,7 @@ files[] = lib/ItineraryArticleNodeMigration.inc
 files[] = lib/LocationRegionTermMigration.inc
 files[] = lib/NewsForGeneralAudiencesArticleNodeMigration.inc
 files[] = lib/NewsletterNodeMigration.inc
+files[] = lib/PageNodeMigration.inc
 files[] = lib/PhotoGalleryNodeMigration.inc
 files[] = lib/PodcastNodeMigration.inc
 files[] = lib/PressMaterialsArticleNodeMigration.inc

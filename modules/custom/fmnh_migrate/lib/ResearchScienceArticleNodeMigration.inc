@@ -16,38 +16,16 @@ class ResearchScienceArticleNodeMigration extends FmnhNodeMigration {
     return $query;
   }
 
+
   public function prepareRow($row) {
     if (parent::prepareRow($row) === FALSE) {
       return FALSE;
     }
-    $source_migrations = array(
-      'DepartmentTerm',
-    );
-    $nid = $this->handleSourceMigration($source_migrations, $row->field_dept_division_tags);
-    if ($nid) {
-      if (is_array($nid)) {
-        rsort($nid);
-        $nid = reset($nid);
-      }
-      $parent_item = menu_link_get_preferred('node/'. $nid);
-      if ($parent_item) {
-        $row->menu = array(
-          'enabled' => true,
-          'link_title' => $row->title,
-          'description' => '',
-          'menu_name' => 'main-menu',
-          'plid' => $parent_item['mlid'],
-          'mlid' => NULL,
-        );
-      }
-      else {
-        $this->queueMessage('No parent item!');
-        return FALSE;
-      }
-    }
-    else {
-      $this->queueMessage('No dept/division tag!');
-      return FALSE;
+
+    $migration = \Migration::getInstance('PageNode');
+    $destids = $migration->getMap()->lookupDestinationID(array($row->nid));
+    if ($destids['destid1']) {
+      return false;
     }
   }
 }

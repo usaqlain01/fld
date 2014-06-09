@@ -389,6 +389,26 @@ function fmnh_migrate_migrate_api() {
           'track_changes' => TRUE,
         ),
       ),
+      'PageNode' => array(
+        'class_name' => 'PageNodeMigration',
+        'group_name' => 'fmnh_node_article',
+        'source_type' => 'article',
+        'destination_type' => 'page',
+        'source_connection' => 'migrate',
+        'source_version' => '7',
+        'user_migration' => 'User',
+        'dependencies' => array(
+          'AudioFile',
+          'DefaultFile',
+          'DocumentFile',
+          'ImageFile',
+          'VideoFile',
+        ),
+        'description' => 'Migrate untagged article nodes',
+        'source_options' => array(
+          'track_changes' => TRUE,
+        ),
+      ),
       'ArticleNode' => array(
         'class_name' => 'ArticleNodeMigration',
         'group_name' => 'fmnh_node_article',
@@ -398,6 +418,7 @@ function fmnh_migrate_migrate_api() {
         'source_version' => '7',
         'user_migration' => 'User',
         'dependencies' => array(
+          'PageNode',
           'AudioFile',
           'DefaultFile',
           'DocumentFile',
@@ -418,6 +439,7 @@ function fmnh_migrate_migrate_api() {
         'source_version' => '7',
         'user_migration' => 'User',
         'dependencies' => array(
+          'PageNode',
           'AudioFile',
           'DefaultFile',
           'DocumentFile',
@@ -438,6 +460,7 @@ function fmnh_migrate_migrate_api() {
         'source_version' => '7',
         'user_migration' => 'User',
         'dependencies' => array(
+          'PageNode',
           'AudioFile',
           'DefaultFile',
           'DocumentFile',
@@ -458,6 +481,7 @@ function fmnh_migrate_migrate_api() {
         'source_version' => '7',
         'user_migration' => 'User',
         'dependencies' => array(
+          'PageNode',
           'AudienceTerm',
           'AudioFile',
           'DefaultFile',
@@ -479,6 +503,7 @@ function fmnh_migrate_migrate_api() {
         'source_version' => '7',
         'user_migration' => 'User',
         'dependencies' => array(
+          'PageNode',
           'AudioFile',
           'DefaultFile',
           'DocumentFile',
@@ -499,6 +524,7 @@ function fmnh_migrate_migrate_api() {
         'source_version' => '7',
         'user_migration' => 'User',
         'dependencies' => array(
+          'PageNode',
           'AudioFile',
           'DefaultFile',
           'DocumentFile',
@@ -520,6 +546,7 @@ function fmnh_migrate_migrate_api() {
         'source_version' => '7',
         'user_migration' => 'User',
         'dependencies' => array(
+          'PageNode',
           'AudioFile',
           'DefaultFile',
           'DocumentFile',
@@ -540,6 +567,7 @@ function fmnh_migrate_migrate_api() {
         'source_version' => '7',
         'user_migration' => 'User',
         'dependencies' => array(
+          'PageNode',
           'AudioFile',
           'DefaultFile',
           'DocumentFile',

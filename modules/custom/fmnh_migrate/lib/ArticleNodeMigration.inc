@@ -26,6 +26,12 @@ class ArticleNodeMigration extends FmnhNodeMigration
     if (parent::prepareRow($row) === FALSE) {
       return FALSE;
     }
+
+    $migration = \Migration::getInstance('PageNode');
+    $destids = $migration->getMap()->lookupDestinationID(array($row->nid));
+    if ($destids['destid1']) {
+      return false;
+    }
   }
 
   protected function query() {
