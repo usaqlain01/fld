@@ -1,0 +1,18 @@
+'49995 Current Exhibitions 19903':
+    link:
+        link_path: happening/exhibits/browse/current
+        router_path: happening/exhibits/browse/current
+        link_title: 'Current Exhibitions'
+        type: '140'
+'50000 Coming Soon 19902':
+    link:
+        link_path: happening/exhibits/browse/coming-soon
+        router_path: happening/exhibits/browse/coming-soon
+        link_title: 'Coming Soon'
+        type: '132'
+'50001 Past Exhibitions 19901':
+    link:
+        link_path: happening/exhibits/browse/past
+        router_path: happening/exhibits/browse/past
+        link_title: 'Past Exhibitions'
+        type: '132'

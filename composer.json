@@ -1,5 +1,6 @@
 {
     "require-dev": {
+        "querypath/QueryPath": "dev-master",
         "facebook/xhprof": "dev-master",
         "raulfraile/ladybug": "dev-master",
         "symfony/debug": "~2.4",

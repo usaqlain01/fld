@@ -1,0 +1,36 @@
+'50000 Home 10566':
+    link:
+        link_path: node/7146
+        router_path: node/%
+        link_title: Home
+        type: '6'
+'50001 Examination 10801':
+    link:
+        link_path: node/7281
+        router_path: node/%
+        link_title: Examination
+        type: '6'
+'50002 Preventive 10806':
+    link:
+        link_path: node/7311
+        router_path: node/%
+        link_title: Preventive
+        type: '6'
+'50003 People 10596':
+    link:
+        link_path: explore/department/conserving-collections/people
+        router_path: explore/department/%/people
+        link_title: People
+        type: '0'
+'50003 Treatment 10811':
+    link:
+        link_path: node/7286
+        router_path: node/%
+        link_title: Treatment
+        type: '6'
+'50004 Projects 10581':
+    link:
+        link_path: node/7256
+        router_path: node/%
+        link_title: Projects
+        type: '6'
