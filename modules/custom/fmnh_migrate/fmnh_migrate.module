@@ -1,1 +1,109 @@
 <?php
+
+/**
+ * Implements hook_menu
+ */
+function fmnh_migrate_menu() {
+  $items = array();
+  $items['node/%fmnh_migrate_source_node/migrate'] = array(
+    'title' => 'Migrate',
+    'page callback' => 'fmnh_migrate_node_migrate',
+    'page arguments' => array(1),
+    'access callback' => 'fmnh_migrate_source_node_access',
+    'access arguments' => array(1),
+    'type' => MENU_LOCAL_TASK,
+  );
+  $items['old-node/%fmnh_migrate_destination_node'] = array(
+    'title' => 'Migrate',
+    'page callback' => 'fmnh_migrate_node_migrate_destination',
+    'page arguments' => array(1),
+    'access callback' => 'node_access',
+    'access arguments' => array('view', 1),
+  );
+  return $items;
+}
+
+function fmnh_migrate_destination_node_load($sourceid1) {
+  $source_migrations = array(
+    'ArticleNode',
+    'BlogNode',
+    'CollectionNode',
+    'DepartmentNode',
+    'EducationalResourceArticleNode',
+    'ExhibitNode',
+    'FaqNode',
+    'ItineraryArticleNode',
+    'NewsForGeneralAudiencesArticleNode',
+    'NewsletterNode',
+    'PhotoGalleryNode',
+    'PodcastNode',
+    'PressMaterialsArticleNode',
+    'ProgramArticleNode',
+    'PublicationArticleNode',
+    'ResearchScienceArticleNode',
+    'VideoNode',
+    'WebformNode',
+  );
+
+  foreach ($source_migrations as $source_migration) {
+    /** @var \Migration $migration */
+    $migration = Migration::getInstance($source_migration);
+    if ($destids = $migration->getMap()->lookupDestinationID(array($sourceid1))) {
+      if (!empty($destids['destid1'])) {
+        return node_load($destids['destid1']);
+      }
+    }
+  }
+  return FALSE;
+}
+
+function fmnh_migrate_node_migrate_destination($node) {
+  drupal_goto('node/'. $node->nid, array(), 303);
+}
+
+function fmnh_migrate_source_node_access($sourceid1) {
+  if ($sourceid1) {
+    return TRUE;
+  }
+}
+
+function fmnh_migrate_source_node_load($sourceid1) {
+  $source_migrations = array(
+    'ArticleNode',
+    'BlogNode',
+    'CollectionNode',
+    'DepartmentNode',
+    'EducationalResourceArticleNode',
+    'ExhibitNode',
+    'FaqNode',
+    'ItineraryArticleNode',
+    'NewsForGeneralAudiencesArticleNode',
+    'NewsletterNode',
+    'PhotoGalleryNode',
+    'PodcastNode',
+    'PressMaterialsArticleNode',
+    'ProgramArticleNode',
+    'PublicationArticleNode',
+    'ResearchScienceArticleNode',
+    'VideoNode',
+    'WebformNode',
+  );
+
+  foreach ($source_migrations as $source_migration) {
+    /** @var \Migration $migration */
+    $migration = Migration::getInstance($source_migration);
+    if ($sourceids = $migration->getMap()->lookupSourceID(array($sourceid1))) {
+      if (!empty($sourceids['sourceid1'])) {
+        return $sourceids['sourceid1'];
+      }
+    }
+  }
+  return FALSE;
+}
+
+/**
+ * @param $node
+ */
+function fmnh_migrate_node_migrate($sourceid1) {
+  drupal_goto('http://fieldmuseum.org/node/'. $sourceid1, array(), 303);
+}

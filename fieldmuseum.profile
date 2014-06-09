@@ -7,58 +7,6 @@
 include_once 'fieldmuseum.features.inc';
 
 /**
- * Implements hook_menu
- */
-function fieldmuseum_menu() {
-  $items = array();
-  $items['node/%node/migrate'] = array(
-    'title' => 'Migrate',
-    'page callback' => 'fieldmuseum_node_migrate',
-    'page arguments' => array(1),
-    'access callback' => 'node_access',
-    'access arguments' => array('view', 1),
-    'type' => MENU_LOCAL_TASK,
-  );
-  return $items;
-}
-
-/**
- * @param $node
- */
-function fieldmuseum_node_migrate($node) {
-  $source_migrations = array(
-    'ArticleNode',
-    'BlogNode',
-    'CollectionNode',
-    'DepartmentNode',
-    'EducationalResourceArticleNode',
-    'ExhibitNode',
-    'FaqNode',
-    'ItineraryArticleNode',
-    'NewsForGeneralAudiencesArticleNode',
-    'NewsletterNode',
-    'PhotoGalleryNode',
-    'PodcastNode',
-    'PressMaterialsArticleNode',
-    'ProgramArticleNode',
-    'PublicationArticleNode',
-    'ResearchScienceArticleNode',
-    'VideoNode',
-    'WebformNode',
-  );
-
-  foreach ($source_migrations as $source_migration) {
-    /** @var \Migration $migration */
-    $migration = Migration::getInstance($source_migration);
-    if ($sourceids = $migration->getMap()->lookupSourceID(array($node->nid))) {
-      if (!empty($sourceids['sourceid1'])) {
-        drupal_goto('http://fieldmuseum.org/node/'. $sourceids['sourceid1'], array(), 303);
-      }
-    }
-  }
-}
-
-/**
  * Implements hook_system_info_alter().
  *
  * Force this profile to be visible.
