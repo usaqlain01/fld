@@ -9,13 +9,14 @@ default:
         Drupal\DrupalExtension\Extension:
             api_driver: drupal
             blackbox: ~
-            drupal:
-                drupal_root: ../../../
             drush:
                 alias: self
+            drupal:
+                drupal_root: ../../../
             subcontexts:
+                autoload: 0
                 paths:
-                    - "%behat.paths.base%/../modules/custom/fmnh_migrate/tests"
+                    - "%behat.paths.base%/../modules/custom/fmnh_migrate"
             region_map:
                 header: "#header"
                 navigation bar: "#navigation"
