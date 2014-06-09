@@ -135,6 +135,7 @@ features[node][] = page
 features[page_manager_handlers][] = contact_site_panel_context
 features[page_manager_pages][] = about_the_museum
 features[page_manager_pages][] = auxiliary_groups
+features[page_manager_pages][] = conservation_efforts
 features[page_manager_pages][] = educators
 features[page_manager_pages][] = exhibitions_and_events
 features[page_manager_pages][] = give_now
