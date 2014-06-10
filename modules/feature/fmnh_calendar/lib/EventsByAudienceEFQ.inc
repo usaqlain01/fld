@@ -1,7 +1,8 @@
 <?php
 
-class EventsByAudienceEFQ extends NodeListEFQ {
+class EventsByAudienceEFQ extends UpcomingEventsEFQ {
   public function __construct(Array $config, Array $arguments = array()) {
+    parent::__construct($config, $arguments);
     $this->fieldCondition('field_audience', 'target_id', $arguments[0]->data->tid);
   }
 
