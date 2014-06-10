@@ -27,3 +27,4 @@ default:
                 second sidebar: ".region .region-sidebar-second"
                 footer: "#footer"
                 page bottom: ".region .region-bottom"
+                breadcrumb: "nav.breadcrumb"

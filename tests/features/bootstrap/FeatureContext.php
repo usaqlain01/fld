@@ -28,4 +28,14 @@ class FeatureContext extends \Drupal\DrupalExtension\Context\DrupalContext
   public function __construct(array $parameters)
   {
   }
+
+  /**
+   * @beforeNodeCreate
+   */
+  public function beforeNodeCreate(\Drupal\DrupalExtension\Event\EntityEvent $event) {
+    $term = reset($event->getContext()->terms);
+    var_dump($term);
+    $node = $event->getEntity();
+    $node->field_audience[LANGUAGE_NONE][0] = array('target_id' => $term->tid);
+  }
 }
