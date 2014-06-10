@@ -250,7 +250,18 @@ class FmnhNodeMigration extends DrupalNode7Migration {
       foreach ($info[$path] as $item) {
         if (strpos($item, 'node/') === 0) {
           $old_nid = str_replace('node/', '', $item);
-          $nid = $this->handleSourceMigration($source_migrations, $old_nid);
+
+          foreach ($source_migrations as $source_migration) {
+            $migration = \Migration::getInstance($source_migration);
+            // Break out of the loop as soon as a destination ID is found.
+            if ($destids = $migration->getMap()->lookupDestinationID(array($old_nid))) {
+              if (!empty($destids['destid1'])) {
+                $nid = $destids['destid1'];
+                break;
+              }
+            }
+          }
+
           if ($nid) {
             $parent_item = menu_link_get_preferred('node/'. $nid);
             if ($parent_item['link_path'] != 'node/%') {
