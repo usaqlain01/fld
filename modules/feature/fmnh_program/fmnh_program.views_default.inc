@@ -38,16 +38,24 @@ function fmnh_program_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Contextual filter: Content: Has taxonomy term ID */
-  $handler->display->display_options['arguments']['tid']['id'] = 'tid';
-  $handler->display->display_options['arguments']['tid']['table'] = 'taxonomy_index';
-  $handler->display->display_options['arguments']['tid']['field'] = 'tid';
-  $handler->display->display_options['arguments']['tid']['title_enable'] = TRUE;
-  $handler->display->display_options['arguments']['tid']['title'] = 'For %1';
-  $handler->display->display_options['arguments']['tid']['default_argument_type'] = 'fixed';
-  $handler->display->display_options['arguments']['tid']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['tid']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['tid']['summary_options']['items_per_page'] = '25';
+  /* Contextual filter: Content: Audience (field_audience) */
+  $handler->display->display_options['arguments']['field_audience_target_id']['id'] = 'field_audience_target_id';
+  $handler->display->display_options['arguments']['field_audience_target_id']['table'] = 'field_data_field_audience';
+  $handler->display->display_options['arguments']['field_audience_target_id']['field'] = 'field_audience_target_id';
+  $handler->display->display_options['arguments']['field_audience_target_id']['title_enable'] = TRUE;
+  $handler->display->display_options['arguments']['field_audience_target_id']['title'] = 'Programs for %1';
+  $handler->display->display_options['arguments']['field_audience_target_id']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['field_audience_target_id']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_audience_target_id']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_audience_target_id']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['field_audience_target_id']['specify_validation'] = TRUE;
+  $handler->display->display_options['arguments']['field_audience_target_id']['validate']['type'] = 'taxonomy_term';
+  $handler->display->display_options['arguments']['field_audience_target_id']['validate_options']['vocabularies'] = array(
+    'audience' => 'audience',
+  );
+  $handler->display->display_options['arguments']['field_audience_target_id']['validate_options']['type'] = 'convert';
+  $handler->display->display_options['arguments']['field_audience_target_id']['validate_options']['transform'] = TRUE;
+  $handler->display->display_options['arguments']['field_audience_target_id']['validate']['fail'] = 'empty';
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -68,13 +76,13 @@ function fmnh_program_views_default_views() {
   $handler->display->display_options['pane_category']['name'] = 'Programs';
   $handler->display->display_options['pane_category']['weight'] = '0';
   $handler->display->display_options['argument_input'] = array(
-    'tid' => array(
+    'field_audience_target_id' => array(
       'type' => 'context',
-      'context' => 'entity:taxonomy_term.tid',
+      'context' => 'entity:taxonomy_term.name',
       'context_optional' => 1,
       'panel' => '0',
       'fixed' => '',
-      'label' => 'Content: Has taxonomy term ID',
+      'label' => 'Content: Audience (field_audience)',
     ),
   );
   $export['programs'] = $view;
