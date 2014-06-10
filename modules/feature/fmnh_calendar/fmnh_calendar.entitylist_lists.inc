@@ -13,6 +13,19 @@ function fmnh_calendar_entitylist_defaults() {
   $list = new EntityList();
   $list->disabled = FALSE; /* Edit this to true to make a default list disabled initially */
   $list->api_version = 1;
+  $list->name = 'events_by_audience';
+  $list->title = 'Events by audience';
+  $list->description = '';
+  $list->content_type = 0;
+  $list->handler_plugin = 'EntityListHandlerEFQ';
+  $list->handler_config = array(
+    'class_name' => 'EventsByAudienceEFQ',
+  );
+  $export['events_by_audience'] = $list;
+
+  $list = new EntityList();
+  $list->disabled = FALSE; /* Edit this to true to make a default list disabled initially */
+  $list->api_version = 1;
   $list->name = 'events_ending_soon';
   $list->title = 'Events ending soon';
   $list->description = '';

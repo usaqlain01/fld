@@ -25,6 +25,7 @@ features[ctools][] = views:views_default:3.0
 features[ctools_access_ruleset][] = events_ending_soon
 features[ctools_access_ruleset][] = events_starting_soon
 features[ctools_access_ruleset][] = manage_events
+features[entitylist_lists][] = events_by_audience
 features[entitylist_lists][] = events_ending_soon
 features[entitylist_lists][] = events_starting_soon
 features[entitylist_lists][] = upcoming_events

@@ -28,6 +28,7 @@ features[ctools][] = strongarm:strongarm:1
 features[ctools][] = views:views_default:3.0
 features[entitylist_lists][] = current_exhibitions
 features[entitylist_lists][] = ending_soon_exhibition
+features[entitylist_lists][] = past_exhibitions
 features[entitylist_lists][] = promoted_exhibitions
 features[features_api][] = api:2
 features[field_base][] = field_banner_description
