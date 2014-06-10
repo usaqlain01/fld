@@ -49,7 +49,7 @@ function fmnh_program_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Public tags',
-    'weight' => '43',
+    'weight' => '5',
     'children' => array(
       0 => 'group_audience',
     ),

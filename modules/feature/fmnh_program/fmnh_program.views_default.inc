@@ -31,6 +31,10 @@ function fmnh_program_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'node';
+  /* Relationship: Entity Reference: Referencing entity */
+  $handler->display->display_options['relationships']['reverse_field_program_node']['id'] = 'reverse_field_program_node';
+  $handler->display->display_options['relationships']['reverse_field_program_node']['table'] = 'node';
+  $handler->display->display_options['relationships']['reverse_field_program_node']['field'] = 'reverse_field_program_node';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -56,6 +60,10 @@ function fmnh_program_views_default_views() {
   $handler->display->display_options['arguments']['field_audience_target_id']['validate_options']['type'] = 'convert';
   $handler->display->display_options['arguments']['field_audience_target_id']['validate_options']['transform'] = TRUE;
   $handler->display->display_options['arguments']['field_audience_target_id']['validate']['fail'] = 'empty';
+  $handler->display->display_options['filter_groups']['groups'] = array(
+    1 => 'AND',
+    2 => 'OR',
+  );
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -70,6 +78,22 @@ function fmnh_program_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'program' => 'program',
   );
+  $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filter criterion: Content: Always visible (field_always_visible) */
+  $handler->display->display_options['filters']['field_always_visible_value']['id'] = 'field_always_visible_value';
+  $handler->display->display_options['filters']['field_always_visible_value']['table'] = 'field_data_field_always_visible';
+  $handler->display->display_options['filters']['field_always_visible_value']['field'] = 'field_always_visible_value';
+  $handler->display->display_options['filters']['field_always_visible_value']['value'] = array(
+    1 => '1',
+  );
+  $handler->display->display_options['filters']['field_always_visible_value']['group'] = 2;
+  /* Filter criterion: Content: Nid */
+  $handler->display->display_options['filters']['nid']['id'] = 'nid';
+  $handler->display->display_options['filters']['nid']['table'] = 'node';
+  $handler->display->display_options['filters']['nid']['field'] = 'nid';
+  $handler->display->display_options['filters']['nid']['relationship'] = 'reverse_field_program_node';
+  $handler->display->display_options['filters']['nid']['operator'] = 'not empty';
+  $handler->display->display_options['filters']['nid']['group'] = 2;
 
   /* Display: Content pane */
   $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
