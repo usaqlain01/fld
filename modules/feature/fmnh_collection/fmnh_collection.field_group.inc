@@ -137,8 +137,8 @@ function fmnh_collection_field_group_info() {
     'children' => array(
       0 => 'group_audience',
       1 => 'group_department',
-      2 => 'group_topic',
-      3 => 'group_exhibit',
+      2 => 'group_exhibit',
+      3 => 'group_topic',
     ),
     'format_type' => 'htabs',
     'format_settings' => array(
@@ -219,10 +219,10 @@ function fmnh_collection_field_group_info() {
     'label' => 'Science tags',
     'weight' => '55',
     'children' => array(
-      0 => 'group_research_area',
-      1 => 'group_stratigraphy',
-      2 => 'group_location_region',
-      3 => 'group_science_focus',
+      0 => 'group_location_region',
+      1 => 'group_research_area',
+      2 => 'group_science_focus',
+      3 => 'group_stratigraphy',
     ),
     'format_type' => 'htabs',
     'format_settings' => array(

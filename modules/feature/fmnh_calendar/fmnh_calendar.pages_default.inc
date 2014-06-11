@@ -17,7 +17,7 @@ function fmnh_calendar_default_page_manager_handlers() {
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = 1;
+  $handler->weight = -29;
   $handler->conf = array(
     'title' => 'Event',
     'no_blocks' => 0,
