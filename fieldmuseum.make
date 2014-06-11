@@ -155,6 +155,9 @@ projects[override_node_options][version] = 1.x-dev
 projects[panels][subdir] = contrib
 projects[panels][version] = 3.4
 
+projects[panelizer][subdir] = contrib
+projects[panelizer][version] = 3.x-dev
+
 projects[pathauto][subdir] = contrib
 projects[pathauto][version] = 1.2
 
