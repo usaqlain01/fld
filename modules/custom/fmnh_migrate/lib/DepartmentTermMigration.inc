@@ -67,8 +67,10 @@ class DepartmentTermMigration extends TermToNodeMigration
       $row->menu = array(
         'enabled' => true,
         'link_title' => $row->name,
+        'description' => '',
         'menu_name' => 'main-menu',
         'plid' => $parent_item['mlid'],
+        'mlid' => null,
       );
     }
     else if ($row->parent == 85 || $row->tid == 85) {
@@ -76,8 +78,10 @@ class DepartmentTermMigration extends TermToNodeMigration
       $row->menu = array(
         'enabled' => true,
         'link_title' => $row->name,
+        'description' => '',
         'menu_name' => 'main-menu',
         'plid' => $parent_item['mlid'],
+        'mlid' => null,
       );
     }
     else {
@@ -93,6 +97,7 @@ class DepartmentTermMigration extends TermToNodeMigration
           'description' => '',
           'menu_name' => $parent_item['menu_name'],
           'plid' => $parent_item['mlid'],
+          'mlid' => null,
         );
       }
     }
