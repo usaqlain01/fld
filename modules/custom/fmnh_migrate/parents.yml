@@ -242,8 +242,6 @@ node/5101:
     - node/206
 visit/faq:
     - node/109
-menu-position/16:
-    - node/109
 node/107:
     - main-menu
 node/140:
@@ -252,38 +250,22 @@ happening/exhibits/browse:
     - node/140
 happening/exhibits/browse/coming-soon:
     - node/140
-menu-position/91:
-    - node/140
 happening/exhibits/browse/past:
     - node/140
-menu-position/21:
-    - node/107
 node/991:
     - node/107
 happening/programs/adults:
     - node/991
-menu-position/66:
-    - happening/programs/adults
-menu-position/111:
-    - happening/programs/adults
 happening/programs/educators:
     - node/991
-menu-position/71:
-    - happening/programs/educators
 happening/programs/families:
     - node/991
-menu-position/76:
-    - happening/programs/families
 node/13446:
     - menu-position/76
 happening/programs/scouts:
     - node/991
-menu-position/81:
-    - happening/programs/scouts
 happening/programs/teens:
     - node/991
-menu-position/86:
-    - happening/programs/teens
 node/7536:
     - node/107
 node/138:
@@ -292,27 +274,17 @@ node/138:
     - node/138
 node/3896:
     - node/138
-menu-position/116:
-    - node/3896
 node/14221:
     - node/3896
-menu-position/121:
-    - node/14221
 node/13491:
     - node/3896
-menu-position/136:
-    - node/13491
 node/8401:
     - node/3896
 node/13556:
     - node/3896
-menu-position/126:
-    - node/13556
 node/146:
     - node/3896
 node/147:
-    - node/146
-menu-position/131:
     - node/146
 node/13116:
     - node/146
@@ -348,8 +320,6 @@ node/3226:
     - node/151
 node/6831:
     - node/151
-menu-position/26:
-    - node/138
 node/17511:
     - node/138
 'https://secure2.convio.net/fmnh/site/Ecommerce;jsessionid=7010355A6ACC2A536B773FB7CC8F1295.app274b?store_id=1161':
@@ -390,8 +360,6 @@ node/4021:
     - node/2921
 node/4166:
     - node/2921
-menu-position/31:
-    - node/158
 node/9021:
     - node/158
 node/165:
@@ -606,12 +574,8 @@ node/6211:
     - node/5321
 node/6216:
     - node/5321
-menu-position/5:
-    - node/46
 node/51:
     - node/59
-menu-position/6:
-    - node/51
 node/331:
     - node/51
 node/3671:
@@ -774,8 +738,6 @@ node/1646:
     - node/486
 node/3851:
     - node/486
-menu-position/8:
-    - node/68
 node/491:
     - node/68
 node/3861:
@@ -936,38 +898,22 @@ node/1886:
     - node/76
 node/106:
     - node/76
-menu-position/11:
-    - node/33
-menu-position/61:
-    - node/59
 node/67:
     - node/59
     - node/176
 node/70:
     - node/59
-menu-position/10:
-    - node/70
 node/176:
     - node/60
-menu-position/7:
-    - node/67
 node/7146:
     - node/176
     - node/15
-menu-position/56:
-    - node/7146
 node/7276:
     - node/176
-menu-position/96:
-    - node/7276
 node/6511:
     - node/176
-menu-position/51:
-    - node/6511
 node/15:
     - node/60
-menu-position/1:
-    - node/15
 node/69:
     - node/15
 node/5191:
@@ -1018,8 +964,6 @@ node/5266:
     - node/5181
 node/5271:
     - node/5181
-menu-position/9:
-    - node/69
 node/5196:
     - node/69
 node/5276:
@@ -1052,18 +996,12 @@ node/9211:
     - node/5656
 explore/crnewsletter:
     - node/6896
-menu-position/101:
-    - explore/crnewsletter
-menu-position/36:
-    - node/60
 node/11911:
     - node/60
 node/18516:
     - node/11911
 node/9186:
     - node/11911
-menu-position/106:
-    - node/9186
 node/11866:
     - node/11911
 node/14791:
@@ -1132,8 +1070,6 @@ about/staff/executive:
     - about/staff
 node/210:
     - about/staff
-menu-position/3:
-    - about/staff
 node/6836:
     - node/108
 node/6736:
@@ -1162,8 +1098,6 @@ node/8641:
     - node/8591
 node/217:
     - node/108
-menu-position/41:
-    - node/108
 node/8791:
     - node/5226
 node/8796:
@@ -1184,10 +1118,6 @@ node/7286:
     - node/7146
 node/7256:
     - node/7146
-node/217:
-    - menu-copyright-menu
-'http://m.fieldmuseum.org/':
-    - menu-copyright-menu
 node/6516:
     - node/6511
 node/6306:
