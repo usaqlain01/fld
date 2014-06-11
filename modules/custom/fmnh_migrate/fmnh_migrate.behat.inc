@@ -34,7 +34,6 @@ class FmnhMigrateSubContext extends BehatContext implements DrupalSubContextInte
     /** @var DrupalContext $mainContext */
     $mainContext = $this->getMainContext();
     $args = array_filter(array_map('trim', func_get_args()));
-    /** @var \Behat\Mink\Element\DocumentElement $page */
     $page = $mainContext->getSession()->getPage();
     $links = $page->findAll('css', 'nav.breadcrumb a');
 

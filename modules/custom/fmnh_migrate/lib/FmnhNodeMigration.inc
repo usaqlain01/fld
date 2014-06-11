@@ -266,6 +266,8 @@ class FmnhNodeMigration extends DrupalNode7Migration {
 
           if ($nid) {
             $parent_item = menu_link_get_preferred('node/'. $nid);
+
+            // This check seems to catch a lot of invalid paths.
             if ($parent_item['link_path'] != 'node/%') {
               return $parent_item;
             }
