@@ -5,3 +5,71 @@
  */
 
 include_once 'fmnh_program.features.inc';
+
+/**
+ * Implements hook_taxonomy_term_delete().
+ *
+ * @param $term
+ */
+function fmnh_program_taxonomy_term_delete($term) {
+  global $language;
+
+  if ($term->vocabulary_machine_name == 'audience') {
+    $data = array('term' => $term);
+    $parent_paths = array(
+      'at-the-field/programs',
+      'at-the-field/calendar',
+    );
+    foreach ($parent_paths as $parent_path) {
+      $link_path = token_replace($parent_path .'/[term:name]', $data, array(
+        'sanitize' => FALSE,
+        'clear' => TRUE,
+        'callback' => 'pathauto_clean_token_values',
+        'language' => (object) array('language' => $language),
+        'pathauto' => TRUE,
+      ));
+
+      menu_link_delete(NULL, $link_path);
+    }
+  }
+}
+
+/**
+ * Implements hook_taxonomy_term_presave().
+ */
+function fmnh_program_taxonomy_term_presave($term) {
+  global $language;
+
+  if ($term->vocabulary_machine_name == 'audience') {
+    if (isset($term->original)) {
+      fmnh_program_taxonomy_term_delete($term->original);
+    }
+
+    $data = array('term' => $term);
+    $parent_paths = array(
+      'at-the-field/programs',
+      'at-the-field/calendar',
+    );
+    foreach ($parent_paths as $parent_path) {
+      $parent_item = menu_link_get_preferred($parent_path);
+      $link_path = token_replace($parent_path .'/[term:name]', $data, array(
+        'sanitize' => FALSE,
+        'clear' => TRUE,
+        'callback' => 'pathauto_clean_token_values',
+        'language' => (object) array('language' => $language),
+        'pathauto' => TRUE,
+      ));
+      $link = array(
+        'enabled' => true,
+        'link_title' => $term->name,
+        'link_path' => token_replace($link_path),
+        'description' => '',
+        'menu_name' => $parent_item['menu_name'],
+        'plid' => $parent_item['mlid'],
+        'mlid' => null,
+      );
+
+      menu_link_save($link);
+    }
+  }
+}
