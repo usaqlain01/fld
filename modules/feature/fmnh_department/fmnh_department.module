@@ -5,3 +5,13 @@
  */
 
 include_once 'fmnh_department.features.inc';
+
+/**
+ * Implements hook_admin_paths()
+ */
+function fmnh_department_admin_paths() {
+  $paths = array(
+    'node/*/admin' => TRUE,
+  );
+  return $paths;
+}

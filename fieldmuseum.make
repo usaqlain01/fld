@@ -6,6 +6,9 @@ api = 2
 projects[acquia_connector][subdir] = contrib
 projects[acquia_connector][version] = 2.14
 
+projects[admin_views][subdir] = contrib
+projects[admin_views][version] = 1.3
+
 projects[auto_entitylabel][subdir] = contrib
 projects[auto_entitylabel][version] = 1.x-dev
 
@@ -175,6 +178,9 @@ projects[transliteration][version] = 3.2
 
 projects[views][subdir] = contrib
 projects[views][version] = 3.8
+
+projects[views_bulk_operations][subdir] = contrib
+projects[views_bulk_operations][version] = 3.2
 
 projects[webform][subdir] = contrib
 projects[webform][version] = 3.20
