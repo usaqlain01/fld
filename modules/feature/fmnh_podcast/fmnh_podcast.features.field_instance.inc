@@ -86,8 +86,8 @@ function fmnh_podcast_field_default_field_instances() {
     'required' => 0,
     'settings' => array(
       'description_field' => 0,
-      'file_directory' => '',
-      'file_extensions' => 'txt',
+      'file_directory' => '[current-user:name]/[current-date:custom:Y]/[current-date:custom:m]/[current-date:custom:d]',
+      'file_extensions' => 'pdf mp3 mp4 txt',
       'max_filesize' => '',
       'user_register_form' => FALSE,
     ),
@@ -264,9 +264,11 @@ function fmnh_podcast_field_default_field_instances() {
     'required' => 0,
     'settings' => array(
       'description_field' => 0,
-      'file_directory' => '',
+      'file_directory' => '[current-user:name]/[current-date:custom:Y]/[current-date:custom:m]/[current-date:custom:d]',
       'file_extensions' => 'png gif jpg jpeg',
       'imagecrop' => array(
+        '5x2_2400w' => '5x2_2400w',
+        '5x3_2400w' => '5x3_2400w',
         'large' => 'large',
         'media_gallery_large' => 'media_gallery_large',
         'media_gallery_thumbnail' => 'media_gallery_thumbnail',
