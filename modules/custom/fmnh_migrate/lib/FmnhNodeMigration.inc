@@ -116,6 +116,12 @@ class FmnhNodeMigration extends DrupalNode7Migration {
     if (parent::prepareRow($row) === FALSE) {
       return FALSE;
     }
+
+    // Undo the mapping of the path.
+    if ($this->moduleExists('path')) {
+      unset($row->path);
+    }
+
     $fields = array(
       'field_firstname',
       'field_surname',
