@@ -34,15 +34,477 @@ function fieldmuseum_ctools_plugin_api($module = NULL, $api = NULL) {
 function fieldmuseum_image_default_styles() {
   $styles = array();
 
+  // Exported image style: 5x2_1000w.
+  $styles['5x2_1000w'] = array(
+    'name' => '5x2_1000w',
+    'label' => '5x2 1000w',
+    'effects' => array(
+      array(
+        'label' => 'Reuse a javascript crop selection',
+        'help' => 'Reuse crop selection from another javascript crop preset.',
+        'effect callback' => 'imagecrop_reuse_effect',
+        'form callback' => 'imagecrop_reuse_form',
+        'summary theme' => 'theme_imagecrop_reuse',
+        'module' => 'imagecrop',
+        'name' => 'imagecrop_reuse',
+        'data' => array(
+          'imagecrop_style' => '5x2_2400w',
+        ),
+        'weight' => 1,
+      ),
+      array(
+        'label' => 'Scale',
+        'help' => 'Scaling will maintain the aspect-ratio of the original image. If only a single dimension is specified, the other dimension will be calculated.',
+        'effect callback' => 'image_scale_effect',
+        'dimensions callback' => 'image_scale_dimensions',
+        'form callback' => 'image_scale_form',
+        'summary theme' => 'image_scale_summary',
+        'module' => 'image',
+        'name' => 'image_scale',
+        'data' => array(
+          'width' => 1000,
+          'height' => 400,
+          'upscale' => 0,
+        ),
+        'weight' => 2,
+      ),
+    ),
+  );
+
+  // Exported image style: 5x2_1200w.
+  $styles['5x2_1200w'] = array(
+    'name' => '5x2_1200w',
+    'label' => '5x2 1200w',
+    'effects' => array(
+      array(
+        'label' => 'Reuse a javascript crop selection',
+        'help' => 'Reuse crop selection from another javascript crop preset.',
+        'effect callback' => 'imagecrop_reuse_effect',
+        'form callback' => 'imagecrop_reuse_form',
+        'summary theme' => 'theme_imagecrop_reuse',
+        'module' => 'imagecrop',
+        'name' => 'imagecrop_reuse',
+        'data' => array(
+          'imagecrop_style' => '5x2_2400w',
+        ),
+        'weight' => 1,
+      ),
+      array(
+        'label' => 'Scale',
+        'help' => 'Scaling will maintain the aspect-ratio of the original image. If only a single dimension is specified, the other dimension will be calculated.',
+        'effect callback' => 'image_scale_effect',
+        'dimensions callback' => 'image_scale_dimensions',
+        'form callback' => 'image_scale_form',
+        'summary theme' => 'image_scale_summary',
+        'module' => 'image',
+        'name' => 'image_scale',
+        'data' => array(
+          'width' => 1200,
+          'height' => 480,
+          'upscale' => 0,
+        ),
+        'weight' => 2,
+      ),
+    ),
+  );
+
+  // Exported image style: 5x2_1600w.
+  $styles['5x2_1600w'] = array(
+    'name' => '5x2_1600w',
+    'label' => '5x2 1600w',
+    'effects' => array(
+      array(
+        'label' => 'Reuse a javascript crop selection',
+        'help' => 'Reuse crop selection from another javascript crop preset.',
+        'effect callback' => 'imagecrop_reuse_effect',
+        'form callback' => 'imagecrop_reuse_form',
+        'summary theme' => 'theme_imagecrop_reuse',
+        'module' => 'imagecrop',
+        'name' => 'imagecrop_reuse',
+        'data' => array(
+          'imagecrop_style' => '5x2_2400w',
+        ),
+        'weight' => 1,
+      ),
+      array(
+        'label' => 'Scale',
+        'help' => 'Scaling will maintain the aspect-ratio of the original image. If only a single dimension is specified, the other dimension will be calculated.',
+        'effect callback' => 'image_scale_effect',
+        'dimensions callback' => 'image_scale_dimensions',
+        'form callback' => 'image_scale_form',
+        'summary theme' => 'image_scale_summary',
+        'module' => 'image',
+        'name' => 'image_scale',
+        'data' => array(
+          'width' => 1600,
+          'height' => 640,
+          'upscale' => 0,
+        ),
+        'weight' => 2,
+      ),
+    ),
+  );
+
+  // Exported image style: 5x2_2400w.
+  $styles['5x2_2400w'] = array(
+    'name' => '5x2_2400w',
+    'label' => '5x2 2400w',
+    'effects' => array(
+      1 => array(
+        'label' => 'Javascript crop',
+        'help' => 'Create a crop with a javascript toolbox.',
+        'effect callback' => 'imagecrop_effect',
+        'dimensions callback' => 'imagecrop_dimensions',
+        'form callback' => 'imagecrop_effect_form',
+        'summary theme' => 'imagecrop_effect_summary',
+        'module' => 'imagecrop',
+        'name' => 'imagecrop_javascript',
+        'data' => array(
+          'width' => 2400,
+          'height' => 960,
+          'xoffset' => '',
+          'yoffset' => '',
+          'resizable' => 1,
+          'downscaling' => 1,
+          'aspect_ratio' => 'CROP',
+          'disable_if_no_data' => 0,
+        ),
+        'weight' => 1,
+      ),
+      2 => array(
+        'label' => 'Scale',
+        'help' => 'Scaling will maintain the aspect-ratio of the original image. If only a single dimension is specified, the other dimension will be calculated.',
+        'effect callback' => 'image_scale_effect',
+        'dimensions callback' => 'image_scale_dimensions',
+        'form callback' => 'image_scale_form',
+        'summary theme' => 'image_scale_summary',
+        'module' => 'image',
+        'name' => 'image_scale',
+        'data' => array(
+          'width' => 2400,
+          'height' => 960,
+          'upscale' => 0,
+        ),
+        'weight' => 2,
+      ),
+    ),
+  );
+
+  // Exported image style: 5x2_500w.
+  $styles['5x2_500w'] = array(
+    'name' => '5x2_500w',
+    'label' => '5x2 500w',
+    'effects' => array(
+      array(
+        'label' => 'Reuse a javascript crop selection',
+        'help' => 'Reuse crop selection from another javascript crop preset.',
+        'effect callback' => 'imagecrop_reuse_effect',
+        'form callback' => 'imagecrop_reuse_form',
+        'summary theme' => 'theme_imagecrop_reuse',
+        'module' => 'imagecrop',
+        'name' => 'imagecrop_reuse',
+        'data' => array(
+          'imagecrop_style' => '5x2_2400w',
+        ),
+        'weight' => 1,
+      ),
+      array(
+        'label' => 'Scale',
+        'help' => 'Scaling will maintain the aspect-ratio of the original image. If only a single dimension is specified, the other dimension will be calculated.',
+        'effect callback' => 'image_scale_effect',
+        'dimensions callback' => 'image_scale_dimensions',
+        'form callback' => 'image_scale_form',
+        'summary theme' => 'image_scale_summary',
+        'module' => 'image',
+        'name' => 'image_scale',
+        'data' => array(
+          'width' => 500,
+          'height' => 200,
+          'upscale' => 0,
+        ),
+        'weight' => 2,
+      ),
+    ),
+  );
+
+  // Exported image style: 5x2_800w.
+  $styles['5x2_800w'] = array(
+    'name' => '5x2_800w',
+    'label' => '5x2 800w',
+    'effects' => array(
+      array(
+        'label' => 'Reuse a javascript crop selection',
+        'help' => 'Reuse crop selection from another javascript crop preset.',
+        'effect callback' => 'imagecrop_reuse_effect',
+        'form callback' => 'imagecrop_reuse_form',
+        'summary theme' => 'theme_imagecrop_reuse',
+        'module' => 'imagecrop',
+        'name' => 'imagecrop_reuse',
+        'data' => array(
+          'imagecrop_style' => '5x2_2400w',
+        ),
+        'weight' => 1,
+      ),
+      array(
+        'label' => 'Scale',
+        'help' => 'Scaling will maintain the aspect-ratio of the original image. If only a single dimension is specified, the other dimension will be calculated.',
+        'effect callback' => 'image_scale_effect',
+        'dimensions callback' => 'image_scale_dimensions',
+        'form callback' => 'image_scale_form',
+        'summary theme' => 'image_scale_summary',
+        'module' => 'image',
+        'name' => 'image_scale',
+        'data' => array(
+          'width' => 800,
+          'height' => 400,
+          'upscale' => 0,
+        ),
+        'weight' => 2,
+      ),
+    ),
+  );
+
+  // Exported image style: 5x3_1000w.
+  $styles['5x3_1000w'] = array(
+    'name' => '5x3_1000w',
+    'label' => '5x3 1000w',
+    'effects' => array(
+      array(
+        'label' => 'Reuse a javascript crop selection',
+        'help' => 'Reuse crop selection from another javascript crop preset.',
+        'effect callback' => 'imagecrop_reuse_effect',
+        'form callback' => 'imagecrop_reuse_form',
+        'summary theme' => 'theme_imagecrop_reuse',
+        'module' => 'imagecrop',
+        'name' => 'imagecrop_reuse',
+        'data' => array(
+          'imagecrop_style' => '5x3_2400w',
+        ),
+        'weight' => 1,
+      ),
+      array(
+        'label' => 'Scale',
+        'help' => 'Scaling will maintain the aspect-ratio of the original image. If only a single dimension is specified, the other dimension will be calculated.',
+        'effect callback' => 'image_scale_effect',
+        'dimensions callback' => 'image_scale_dimensions',
+        'form callback' => 'image_scale_form',
+        'summary theme' => 'image_scale_summary',
+        'module' => 'image',
+        'name' => 'image_scale',
+        'data' => array(
+          'width' => 1000,
+          'height' => 600,
+          'upscale' => 0,
+        ),
+        'weight' => 2,
+      ),
+    ),
+  );
+
+  // Exported image style: 5x3_1200w.
+  $styles['5x3_1200w'] = array(
+    'name' => '5x3_1200w',
+    'label' => '5x3 1200w',
+    'effects' => array(
+      array(
+        'label' => 'Reuse a javascript crop selection',
+        'help' => 'Reuse crop selection from another javascript crop preset.',
+        'effect callback' => 'imagecrop_reuse_effect',
+        'form callback' => 'imagecrop_reuse_form',
+        'summary theme' => 'theme_imagecrop_reuse',
+        'module' => 'imagecrop',
+        'name' => 'imagecrop_reuse',
+        'data' => array(
+          'imagecrop_style' => '5x3_2400w',
+        ),
+        'weight' => 1,
+      ),
+      array(
+        'label' => 'Scale',
+        'help' => 'Scaling will maintain the aspect-ratio of the original image. If only a single dimension is specified, the other dimension will be calculated.',
+        'effect callback' => 'image_scale_effect',
+        'dimensions callback' => 'image_scale_dimensions',
+        'form callback' => 'image_scale_form',
+        'summary theme' => 'image_scale_summary',
+        'module' => 'image',
+        'name' => 'image_scale',
+        'data' => array(
+          'width' => 1200,
+          'height' => 720,
+          'upscale' => 0,
+        ),
+        'weight' => 2,
+      ),
+    ),
+  );
+
+  // Exported image style: 5x3_1600w.
+  $styles['5x3_1600w'] = array(
+    'name' => '5x3_1600w',
+    'label' => '5x3 1600w',
+    'effects' => array(
+      array(
+        'label' => 'Reuse a javascript crop selection',
+        'help' => 'Reuse crop selection from another javascript crop preset.',
+        'effect callback' => 'imagecrop_reuse_effect',
+        'form callback' => 'imagecrop_reuse_form',
+        'summary theme' => 'theme_imagecrop_reuse',
+        'module' => 'imagecrop',
+        'name' => 'imagecrop_reuse',
+        'data' => array(
+          'imagecrop_style' => '5x3_2400w',
+        ),
+        'weight' => 1,
+      ),
+      array(
+        'label' => 'Scale',
+        'help' => 'Scaling will maintain the aspect-ratio of the original image. If only a single dimension is specified, the other dimension will be calculated.',
+        'effect callback' => 'image_scale_effect',
+        'dimensions callback' => 'image_scale_dimensions',
+        'form callback' => 'image_scale_form',
+        'summary theme' => 'image_scale_summary',
+        'module' => 'image',
+        'name' => 'image_scale',
+        'data' => array(
+          'width' => 1600,
+          'height' => 960,
+          'upscale' => 0,
+        ),
+        'weight' => 2,
+      ),
+    ),
+  );
+
+  // Exported image style: 5x3_2400w.
+  $styles['5x3_2400w'] = array(
+    'name' => '5x3_2400w',
+    'label' => '5x3 2400w',
+    'effects' => array(
+      3 => array(
+        'label' => 'Javascript crop',
+        'help' => 'Create a crop with a javascript toolbox.',
+        'effect callback' => 'imagecrop_effect',
+        'dimensions callback' => 'imagecrop_dimensions',
+        'form callback' => 'imagecrop_effect_form',
+        'summary theme' => 'imagecrop_effect_summary',
+        'module' => 'imagecrop',
+        'name' => 'imagecrop_javascript',
+        'data' => array(
+          'width' => 2400,
+          'height' => 1440,
+          'xoffset' => '',
+          'yoffset' => '',
+          'resizable' => 1,
+          'downscaling' => 1,
+          'aspect_ratio' => 'CROP',
+          'disable_if_no_data' => 0,
+        ),
+        'weight' => 1,
+      ),
+      4 => array(
+        'label' => 'Scale',
+        'help' => 'Scaling will maintain the aspect-ratio of the original image. If only a single dimension is specified, the other dimension will be calculated.',
+        'effect callback' => 'image_scale_effect',
+        'dimensions callback' => 'image_scale_dimensions',
+        'form callback' => 'image_scale_form',
+        'summary theme' => 'image_scale_summary',
+        'module' => 'image',
+        'name' => 'image_scale',
+        'data' => array(
+          'width' => 2400,
+          'height' => 1440,
+          'upscale' => 0,
+        ),
+        'weight' => 2,
+      ),
+    ),
+  );
+
+  // Exported image style: 5x3_500w.
+  $styles['5x3_500w'] = array(
+    'name' => '5x3_500w',
+    'label' => '5x3 500w',
+    'effects' => array(
+      array(
+        'label' => 'Reuse a javascript crop selection',
+        'help' => 'Reuse crop selection from another javascript crop preset.',
+        'effect callback' => 'imagecrop_reuse_effect',
+        'form callback' => 'imagecrop_reuse_form',
+        'summary theme' => 'theme_imagecrop_reuse',
+        'module' => 'imagecrop',
+        'name' => 'imagecrop_reuse',
+        'data' => array(
+          'imagecrop_style' => '5x3_2400w',
+        ),
+        'weight' => 1,
+      ),
+      array(
+        'label' => 'Scale',
+        'help' => 'Scaling will maintain the aspect-ratio of the original image. If only a single dimension is specified, the other dimension will be calculated.',
+        'effect callback' => 'image_scale_effect',
+        'dimensions callback' => 'image_scale_dimensions',
+        'form callback' => 'image_scale_form',
+        'summary theme' => 'image_scale_summary',
+        'module' => 'image',
+        'name' => 'image_scale',
+        'data' => array(
+          'width' => 500,
+          'height' => 300,
+          'upscale' => 0,
+        ),
+        'weight' => 2,
+      ),
+    ),
+  );
+
+  // Exported image style: 5x3_800w.
+  $styles['5x3_800w'] = array(
+    'name' => '5x3_800w',
+    'label' => '5x3 800w',
+    'effects' => array(
+      array(
+        'label' => 'Reuse a javascript crop selection',
+        'help' => 'Reuse crop selection from another javascript crop preset.',
+        'effect callback' => 'imagecrop_reuse_effect',
+        'form callback' => 'imagecrop_reuse_form',
+        'summary theme' => 'theme_imagecrop_reuse',
+        'module' => 'imagecrop',
+        'name' => 'imagecrop_reuse',
+        'data' => array(
+          'imagecrop_style' => '5x3_2400w',
+        ),
+        'weight' => 1,
+      ),
+      array(
+        'label' => 'Scale',
+        'help' => 'Scaling will maintain the aspect-ratio of the original image. If only a single dimension is specified, the other dimension will be calculated.',
+        'effect callback' => 'image_scale_effect',
+        'dimensions callback' => 'image_scale_dimensions',
+        'form callback' => 'image_scale_form',
+        'summary theme' => 'image_scale_summary',
+        'module' => 'image',
+        'name' => 'image_scale',
+        'data' => array(
+          'width' => 800,
+          'height' => 480,
+          'upscale' => 0,
+        ),
+        'weight' => 2,
+      ),
+
+    ),
+  );
+
   // Exported image style: large.
   $styles['large'] = array(
     'name' => 'large',
     'label' => 'Large (480x480)',
     'effects' => array(
-      6 => array(
+      array(
         'label' => 'Javascript crop',
         'help' => 'Create a crop with a javascript toolbox.',
         'effect callback' => 'imagecrop_effect',
+        'dimensions callback' => 'imagecrop_dimensions',
         'form callback' => 'imagecrop_effect_form',
         'summary theme' => 'imagecrop_effect_summary',
         'module' => 'imagecrop',
@@ -59,7 +521,7 @@ function fieldmuseum_image_default_styles() {
         ),
         'weight' => -10,
       ),
-      5 => array(
+      array(
         'label' => 'Scale',
         'help' => 'Scaling will maintain the aspect-ratio of the original image. If only a single dimension is specified, the other dimension will be calculated.',
         'effect callback' => 'image_scale_effect',
@@ -87,6 +549,7 @@ function fieldmuseum_image_default_styles() {
         'label' => 'Javascript crop',
         'help' => 'Create a crop with a javascript toolbox.',
         'effect callback' => 'imagecrop_effect',
+        'dimensions callback' => 'imagecrop_dimensions',
         'form callback' => 'imagecrop_effect_form',
         'summary theme' => 'imagecrop_effect_summary',
         'module' => 'imagecrop',
@@ -131,6 +594,7 @@ function fieldmuseum_image_default_styles() {
         'label' => 'Javascript crop',
         'help' => 'Create a crop with a javascript toolbox.',
         'effect callback' => 'imagecrop_effect',
+        'dimensions callback' => 'imagecrop_dimensions',
         'form callback' => 'imagecrop_effect_form',
         'summary theme' => 'imagecrop_effect_summary',
         'module' => 'imagecrop',
@@ -211,6 +675,7 @@ function fieldmuseum_image_default_styles() {
         'label' => 'Javascript crop',
         'help' => 'Create a crop with a javascript toolbox.',
         'effect callback' => 'imagecrop_effect',
+        'dimensions callback' => 'imagecrop_dimensions',
         'form callback' => 'imagecrop_effect_form',
         'summary theme' => 'imagecrop_effect_summary',
         'module' => 'imagecrop',
@@ -255,6 +720,7 @@ function fieldmuseum_image_default_styles() {
         'label' => 'Javascript crop',
         'help' => 'Create a crop with a javascript toolbox.',
         'effect callback' => 'imagecrop_effect',
+        'dimensions callback' => 'imagecrop_dimensions',
         'form callback' => 'imagecrop_effect_form',
         'summary theme' => 'imagecrop_effect_summary',
         'module' => 'imagecrop',

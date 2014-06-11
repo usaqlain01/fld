@@ -72,6 +72,13 @@ function fieldmuseum_ctools_plugin_directory($module, $plugin) {
 }
 
 /**
+ * Implement hook_image_effect_info_alter().
+ */
+function fieldmuseum_image_effect_info_alter(&$effects) {
+  $effects['imagecrop_javascript']['effect callback'] = 'fieldmuseum_imagecrop_effectfe';
+}
+
+/**
  * Image effect callback: Crop the image based on the image style.
  *
  * Wraps around original imagecrop effect callback to provide a default crop area using
@@ -100,20 +107,16 @@ function fieldmuseum_imagecrop_effect(&$image, $data) {
 
     // Load settings
     if (!$settings) {
-      list($cx, $cy) = image_focus_get_focal_point($image);
-      $info = $image->info;
-      $scale = max($data['width'] / $info['width'], $data['height'] / $info['height']);
-      $info['width'] = $info['width'] * $scale;
-      $info['height'] = $info['height'] * $scale;
-      $xoffset = max(0, min($info['width']  - $data['width'],  $cx * $scale - $data['width']  / 2));
-      $yoffset = max(0, min($info['height'] - $data['height'], $cy * $scale - $data['height'] / 2));
-      $scale_width = ceil(($image->info['width'] + 2) * $scale);
+      $crop = new \Bangpound\stojg\crop\CropBalanced($image->source);
+      $scale = max($data['width'] / $image->info['width'], $data['height'] / $image->info['height']);
+      $offset = $crop->getOffset($data['width'] / $scale, $data['height'] / $scale);
+      $scale_width = ceil($image->info['width'] * $scale);
 
       $row = array(
         'fid' => $fid,
         'style_name' => $style_name,
-        'xoffset' => $xoffset,
-        'yoffset' => $yoffset,
+        'xoffset' => $offset['x'] * $scale,
+        'yoffset' => $offset['y'] * $scale,
         'width' => $data['width'],
         'height' => $data['height'],
         'scale' => $scale_width,
