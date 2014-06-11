@@ -319,6 +319,8 @@ function fieldmuseum_default_page_manager_pages() {
       ),
     ),
     'logic' => 'and',
+    'type' => 'none',
+    'settings' => NULL,
   );
   $page->menu = array(
     'type' => 'normal',
@@ -521,7 +523,7 @@ function fieldmuseum_default_page_manager_pages() {
         'keyword' => 'list',
         'name' => 'entitylist:current_exhibitions',
         'use_pager' => FALSE,
-        'pager_id' => NULL,
+        'pager_id' => 0,
         'range' => array(
           'offset' => 0,
           'limit' => 3,
@@ -533,7 +535,7 @@ function fieldmuseum_default_page_manager_pages() {
         'keyword' => 'list_2',
         'name' => 'entitylist:upcoming_events',
         'use_pager' => FALSE,
-        'pager_id' => NULL,
+        'pager_id' => 0,
         'range' => array(
           'offset' => 0,
           'limit' => 5,

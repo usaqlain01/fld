@@ -67,6 +67,7 @@ function fieldmuseum_wysiwyg_default_profiles() {
       'css_path' => '',
       'css_classes' => '',
     ),
+    'rdf_mapping' => array(),
   );
 
   // Exported profile: full_wysiwyg
@@ -125,6 +126,7 @@ function fieldmuseum_wysiwyg_default_profiles() {
       'css_path' => '',
       'css_classes' => '',
     ),
+    'rdf_mapping' => array(),
   );
 
   return $profiles;
