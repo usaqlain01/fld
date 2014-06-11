@@ -64,5 +64,12 @@ function fmnh_program_strongarm() {
   );
   $export['field_bundle_settings_node__program'] = $strongarm;
 
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_program_pattern';
+  $strongarm->value = 'at-the-field/programs/[node:title]';
+  $export['pathauto_node_program_pattern'] = $strongarm;
+
   return $export;
 }

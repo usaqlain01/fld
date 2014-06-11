@@ -236,4 +236,5 @@ features[variable][] = media_wysiwyg_view_mode_video_wysiwyg_restricted_view_mod
 features[variable][] = media_wysiwyg_view_mode_video_wysiwyg_restricted_view_modes_status
 features[wysiwyg][] = filtered_wysiwyg
 features[wysiwyg][] = full_wysiwyg
+files[] = lib/NodesByAudienceEFQ.inc
 required = 1
