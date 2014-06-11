@@ -170,6 +170,9 @@ projects[strongarm][version] = 2.x-dev
 projects[token][subdir] = contrib
 projects[token][version] = 1.5
 
+projects[transliteration][subdir] = contrib
+projects[transliteration][version] = 3.2
+
 projects[views][subdir] = contrib
 projects[views][version] = 3.8
 

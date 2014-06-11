@@ -47,6 +47,7 @@ dependencies[] = semantic_panels
 dependencies[] = strongarm
 dependencies[] = taxonomy
 dependencies[] = text
+dependencies[] = transliteration
 dependencies[] = views_content
 dependencies[] = webform
 dependencies[] = wysiwyg
