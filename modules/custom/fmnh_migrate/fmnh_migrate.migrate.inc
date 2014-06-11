@@ -10,8 +10,23 @@ function fmnh_migrate_migrate_api() {
   $api = array(
     'api' => 2,
     'groups' => array(
+      'fmnh_term' => array(
+        'title' => t('The Field Museum (term)'),
+        // Default format for all content migrations
+        'default_format' => 'filtered_html',
+      ),
+      'fmnh_user' => array(
+        'title' => t('The Field Museum (user)'),
+        // Default format for all content migrations
+        'default_format' => 'filtered_html',
+      ),
       'fmnh_file' => array(
         'title' => t('The Field Museum (file)'),
+        // Default format for all content migrations
+        'default_format' => 'filtered_html',
+      ),
+      'fmnh_term_node' => array(
+        'title' => t('The Field Museum (terms to nodes)'),
         // Default format for all content migrations
         'default_format' => 'filtered_html',
       ),
@@ -22,21 +37,6 @@ function fmnh_migrate_migrate_api() {
       ),
       'fmnh_node_article' => array(
         'title' => t('The Field Museum (articles)'),
-        // Default format for all content migrations
-        'default_format' => 'filtered_html',
-      ),
-      'fmnh_term' => array(
-        'title' => t('The Field Museum (term)'),
-        // Default format for all content migrations
-        'default_format' => 'filtered_html',
-      ),
-      'fmnh_term_node' => array(
-        'title' => t('The Field Museum (terms to nodes)'),
-        // Default format for all content migrations
-        'default_format' => 'filtered_html',
-      ),
-      'fmnh_user' => array(
-        'title' => t('The Field Museum (user)'),
         // Default format for all content migrations
         'default_format' => 'filtered_html',
       ),
