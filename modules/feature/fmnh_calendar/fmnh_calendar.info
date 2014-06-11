@@ -42,7 +42,6 @@ features[page_manager_pages][] = calendar
 features[page_manager_pages][] = calendar_ending
 features[page_manager_pages][] = calendar_starting
 features[page_manager_pages][] = events
-features[page_manager_pages][] = new_event
 features[user_permission][] = create event content
 features[user_permission][] = delete any event content
 features[user_permission][] = delete own event content
