@@ -412,6 +412,50 @@ function fmnh_exhibit_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-exhibit-field_references'
+  $field_instances['node-exhibit-field_references'] = array(
+    'bundle' => 'exhibit',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 12,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'fences_wrapper' => 'div',
+    'field_name' => 'field_references',
+    'label' => 'References',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'entityreference',
+      'settings' => array(
+        'match_operator' => 'CONTAINS',
+        'path' => '',
+        'size' => 60,
+      ),
+      'type' => 'entityreference_autocomplete',
+      'weight' => 54,
+    ),
+  );
+
   // Exported field_instance: 'node-exhibit-field_research_area'
   $field_instances['node-exhibit-field_research_area'] = array(
     'bundle' => 'exhibit',
@@ -562,6 +606,7 @@ function fmnh_exhibit_field_default_field_instances() {
   t('Exhibit type');
   t('Grade level');
   t('Image');
+  t('References');
   t('Research area');
   t('Science Focus');
   t('Stratigraphy');

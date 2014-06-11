@@ -676,6 +676,50 @@ function fmnh_collection_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-collection-field_references'
+  $field_instances['node-collection-field_references'] = array(
+    'bundle' => 'collection',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 19,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'fences_wrapper' => 'div',
+    'field_name' => 'field_references',
+    'label' => 'References',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'entityreference',
+      'settings' => array(
+        'match_operator' => 'CONTAINS',
+        'path' => '',
+        'size' => 60,
+      ),
+      'type' => 'entityreference_autocomplete',
+      'weight' => 65,
+    ),
+  );
+
   // Exported field_instance: 'node-collection-field_research_area'
   $field_instances['node-collection-field_research_area'] = array(
     'bundle' => 'collection',
@@ -872,6 +916,7 @@ function fmnh_collection_field_default_field_instances() {
   t('People (additional)');
   t('Person');
   t('Policies');
+  t('References');
   t('Research area');
   t('Science Focus');
   t('Stratigraphy');

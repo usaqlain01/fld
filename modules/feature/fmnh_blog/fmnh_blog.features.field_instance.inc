@@ -234,6 +234,50 @@ function fmnh_blog_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-blog-field_references'
+  $field_instances['node-blog-field_references'] = array(
+    'bundle' => 'blog',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 6,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'fences_wrapper' => 'div',
+    'field_name' => 'field_references',
+    'label' => 'References',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'entityreference',
+      'settings' => array(
+        'match_operator' => 'CONTAINS',
+        'path' => '',
+        'size' => 60,
+      ),
+      'type' => 'entityreference_autocomplete',
+      'weight' => 51,
+    ),
+  );
+
   // Exported field_instance: 'node-blog-field_science_focus'
   $field_instances['node-blog-field_science_focus'] = array(
     'bundle' => 'blog',
@@ -318,6 +362,7 @@ function fmnh_blog_field_default_field_instances() {
   t('Audience');
   t('Body');
   t('Image');
+  t('References');
   t('Science Focus');
   t('Topic');
 
