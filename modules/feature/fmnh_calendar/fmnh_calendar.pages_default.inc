@@ -609,11 +609,6 @@ function fmnh_calendar_default_page_manager_pages() {
         'context' => 'logged-in-user',
         'not' => FALSE,
       ),
-      1 => array(
-        'name' => 'ruleset:events_ending_soon',
-        'settings' => NULL,
-        'not' => FALSE,
-      ),
     ),
     'logic' => 'and',
     'type' => 'none',
@@ -772,11 +767,6 @@ function fmnh_calendar_default_page_manager_pages() {
           'perm' => 'access content',
         ),
         'context' => 'logged-in-user',
-        'not' => FALSE,
-      ),
-      1 => array(
-        'name' => 'ruleset:events_starting_soon',
-        'settings' => NULL,
         'not' => FALSE,
       ),
     ),

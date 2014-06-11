@@ -81,7 +81,7 @@ function fmnh_program_default_page_manager_pages() {
   $handler->handler = 'panel_context';
   $handler->weight = 0;
   $handler->conf = array(
-    'title' => 'Panel',
+    'title' => 'filtered by audience',
     'no_blocks' => 0,
     'pipeline' => 'standard',
     'body_classes_to_remove' => '',
@@ -89,6 +89,141 @@ function fmnh_program_default_page_manager_pages() {
     'css_id' => '',
     'css' => '',
     'contexts' => array(),
+    'relationships' => array(
+      0 => array(
+        'identifier' => 'List: Programs for audience',
+        'keyword' => 'list',
+        'name' => 'entitylist_relationship:programs_for_audience',
+        'use_pager' => TRUE,
+        'pager_id' => NULL,
+        'range' => array(
+          'offset' => 0,
+          'limit' => 10,
+        ),
+        'context' => array(
+          0 => 'argument_term_1',
+        ),
+        'id' => 1,
+      ),
+    ),
+    'access' => array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'context_exists',
+          'settings' => array(
+            'exists' => '1',
+          ),
+          'context' => 'argument_term_1',
+          'not' => FALSE,
+        ),
+      ),
+      'logic' => 'and',
+    ),
+  );
+  $display = new panels_display();
+  $display->layout = 'zen_no_wrapper';
+  $display->layout_settings = array(
+    'main_classes' => '',
+  );
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'main' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = 'Programs for %term:name';
+  $display->uuid = 'e5c22d08-7786-468b-b8ca-63fadd07acaa';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-3aad467a-7fd8-4a66-b732-83d4b0b87dad';
+    $pane->panel = 'main';
+    $pane->type = 'entity_range';
+    $pane->subtype = 'entity_range';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'range' => array(
+        'offset' => '0',
+        'limit' => '10',
+      ),
+      'view_mode' => 'node:teaser',
+      'use_pager' => FALSE,
+      'pager_id' => 0,
+      'context' => 'relationship_entitylist_relationship:programs_for_audience_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '3aad467a-7fd8-4a66-b732-83d4b0b87dad';
+    $display->content['new-3aad467a-7fd8-4a66-b732-83d4b0b87dad'] = $pane;
+    $display->panels['main'][0] = 'new-3aad467a-7fd8-4a66-b732-83d4b0b87dad';
+    $pane = new stdClass();
+    $pane->pid = 'new-f9436776-b376-46c8-8142-562d84838868';
+    $pane->panel = 'main';
+    $pane->type = 'pager';
+    $pane->subtype = 'pager';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'type' => 'full',
+      'context' => 'relationship_entitylist_relationship:programs_for_audience_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = 'f9436776-b376-46c8-8142-562d84838868';
+    $display->content['new-f9436776-b376-46c8-8142-562d84838868'] = $pane;
+    $display->panels['main'][1] = 'new-f9436776-b376-46c8-8142-562d84838868';
+  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->title_pane = '0';
+  $handler->conf['display'] = $display;
+  $page->default_handlers[$handler->name] = $handler;
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'page_programs_panel_context_2';
+  $handler->task = 'page';
+  $handler->subtask = 'programs';
+  $handler->handler = 'panel_context';
+  $handler->weight = 1;
+  $handler->conf = array(
+    'title' => 'unfiltered',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => '',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(
+      0 => array(
+        'identifier' => 'List: Programs',
+        'keyword' => 'list',
+        'name' => 'entitylist:programs',
+        'use_pager' => TRUE,
+        'pager_id' => NULL,
+        'range' => array(
+          'offset' => 0,
+          'limit' => 10,
+        ),
+        'id' => 1,
+      ),
+    ),
     'relationships' => array(),
   );
   $display = new panels_display();
@@ -103,52 +238,50 @@ function fmnh_program_default_page_manager_pages() {
     ),
   );
   $display->cache = array();
-  $display->title = '';
+  $display->title = 'Programs';
   $display->uuid = 'e5c22d08-7786-468b-b8ca-63fadd07acaa';
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-a430c0e1-04fd-4847-bec1-eb66d3a20be2';
+    $pane->pid = 'new-86f9ea68-a8c8-487f-9ea5-9ecac9fc83ce';
     $pane->panel = 'main';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'programs-panel_pane_1';
+    $pane->type = 'entity_range';
+    $pane->subtype = 'entity_range';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'context' => array(
-        0 => 'argument_term_1',
+      'range' => array(
+        'offset' => '0',
+        'limit' => '10',
       ),
+      'view_mode' => 'node:teaser',
+      'use_pager' => FALSE,
+      'pager_id' => 0,
+      'context' => 'context_entitylist:programs_1',
+      'override_title' => 0,
+      'override_title_text' => '',
     );
     $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,
-      'style' => 'naked',
     );
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = 'a430c0e1-04fd-4847-bec1-eb66d3a20be2';
-    $display->content['new-a430c0e1-04fd-4847-bec1-eb66d3a20be2'] = $pane;
-    $display->panels['main'][0] = 'new-a430c0e1-04fd-4847-bec1-eb66d3a20be2';
+    $pane->uuid = '86f9ea68-a8c8-487f-9ea5-9ecac9fc83ce';
+    $display->content['new-86f9ea68-a8c8-487f-9ea5-9ecac9fc83ce'] = $pane;
+    $display->panels['main'][0] = 'new-86f9ea68-a8c8-487f-9ea5-9ecac9fc83ce';
     $pane = new stdClass();
-    $pane->pid = 'new-ca1b442c-724a-44c0-8bea-4fcab0b06605';
+    $pane->pid = 'new-7703f8e8-bec3-4247-ab5b-0365ff6f31f9';
     $pane->panel = 'main';
-    $pane->type = 'menu_tree';
-    $pane->subtype = 'main-menu';
+    $pane->type = 'pager';
+    $pane->subtype = 'pager';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'menu_name' => 'main-menu',
-      'parent_mlid' => 0,
-      'parent' => 'main-menu:0',
-      'title_link' => 0,
-      'admin_title' => '',
-      'level' => '2',
-      'follow' => 0,
-      'depth' => '0',
-      'expanded' => 1,
-      'sort' => 0,
+      'type' => 'full',
+      'context' => 'context_entitylist:programs_1',
       'override_title' => 0,
       'override_title_text' => '',
     );
@@ -160,11 +293,11 @@ function fmnh_program_default_page_manager_pages() {
     $pane->extras = array();
     $pane->position = 1;
     $pane->locks = array();
-    $pane->uuid = 'ca1b442c-724a-44c0-8bea-4fcab0b06605';
-    $display->content['new-ca1b442c-724a-44c0-8bea-4fcab0b06605'] = $pane;
-    $display->panels['main'][1] = 'new-ca1b442c-724a-44c0-8bea-4fcab0b06605';
-  $display->hide_title = PANELS_TITLE_PANE;
-  $display->title_pane = 'new-a430c0e1-04fd-4847-bec1-eb66d3a20be2';
+    $pane->uuid = '7703f8e8-bec3-4247-ab5b-0365ff6f31f9';
+    $display->content['new-7703f8e8-bec3-4247-ab5b-0365ff6f31f9'] = $pane;
+    $display->panels['main'][1] = 'new-7703f8e8-bec3-4247-ab5b-0365ff6f31f9';
+  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->title_pane = '0';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
   $pages['programs'] = $page;
