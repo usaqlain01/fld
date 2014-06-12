@@ -264,18 +264,13 @@ class FmnhNodeMigration extends DrupalNode7Migration {
             // Break out of the loop as soon as a destination ID is found.
             if ($destids = $migration->getMap()->lookupDestinationID(array($old_nid))) {
               if (!empty($destids['destid1'])) {
-                $nid = $destids['destid1'];
-                break;
+                $parent_item = menu_link_get_preferred('node/'. $destids['destid1']);
+
+                // This check seems to catch a lot of invalid paths.
+                if ($parent_item['link_path'] != 'node/%') {
+                  return $parent_item;
+                }
               }
-            }
-          }
-
-          if ($nid) {
-            $parent_item = menu_link_get_preferred('node/'. $nid);
-
-            // This check seems to catch a lot of invalid paths.
-            if ($parent_item['link_path'] != 'node/%') {
-              return $parent_item;
             }
           }
         }
