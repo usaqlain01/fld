@@ -40,6 +40,9 @@ function fmnh_blog_strongarm() {
         'metatags' => array(
           'weight' => '40',
         ),
+        'path' => array(
+          'weight' => '30',
+        ),
       ),
       'display' => array(),
     ),

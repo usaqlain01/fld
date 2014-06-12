@@ -86,14 +86,16 @@ function fmnh_blog_field_default_field_instances() {
     'required' => 0,
     'settings' => array(
       'description_field' => 0,
-      'file_directory' => '',
-      'file_extensions' => 'txt',
+      'file_directory' => '[current-user:name]/[current-date:custom:Y]/[current-date:custom:m]/[current-date:custom:d]',
+      'file_extensions' => 'pdf mp3 txt',
       'imagecrop' => array(
-        'large' => 0,
-        'media_gallery_large' => 0,
-        'media_gallery_thumbnail' => 0,
-        'medium' => 0,
-        'thumbnail' => 0,
+        '5x2_2400w' => '5x2_2400w',
+        '5x3_2400w' => '5x3_2400w',
+        'large' => 'large',
+        'media_gallery_large' => 'media_gallery_large',
+        'media_gallery_thumbnail' => 'media_gallery_thumbnail',
+        'medium' => 'medium',
+        'thumbnail' => 'thumbnail',
       ),
       'max_filesize' => '',
       'user_register_form' => FALSE,
@@ -195,9 +197,11 @@ function fmnh_blog_field_default_field_instances() {
     'required' => 0,
     'settings' => array(
       'description_field' => 0,
-      'file_directory' => '',
+      'file_directory' => '[current-user:name]/[current-date:custom:Y]/[current-date:custom:m]/[current-date:custom:d]',
       'file_extensions' => 'png gif jpg jpeg',
       'imagecrop' => array(
+        '5x2_2400w' => '5x2_2400w',
+        '5x3_2400w' => '5x3_2400w',
         'large' => 'large',
         'media_gallery_large' => 'media_gallery_large',
         'media_gallery_thumbnail' => 'media_gallery_thumbnail',
@@ -231,6 +235,50 @@ function fmnh_blog_field_default_field_instances() {
       ),
       'type' => 'media_generic',
       'weight' => 31,
+    ),
+  );
+
+  // Exported field_instance: 'node-blog-field_references'
+  $field_instances['node-blog-field_references'] = array(
+    'bundle' => 'blog',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 6,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'fences_wrapper' => 'div',
+    'field_name' => 'field_references',
+    'label' => 'References',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'entityreference',
+      'settings' => array(
+        'match_operator' => 'CONTAINS',
+        'path' => '',
+        'size' => 60,
+      ),
+      'type' => 'entityreference_autocomplete',
+      'weight' => 51,
     ),
   );
 
@@ -318,6 +366,7 @@ function fmnh_blog_field_default_field_instances() {
   t('Audience');
   t('Body');
   t('Image');
+  t('References');
   t('Science Focus');
   t('Topic');
 

@@ -75,7 +75,7 @@ function fieldmuseum_ctools_plugin_directory($module, $plugin) {
  * Implement hook_image_effect_info_alter().
  */
 function fieldmuseum_image_effect_info_alter(&$effects) {
-  $effects['imagecrop_javascript']['effect callback'] = 'fieldmuseum_imagecrop_effectfe';
+  $effects['imagecrop_javascript']['effect callback'] = 'fieldmuseum_imagecrop_effect';
 }
 
 /**

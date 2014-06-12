@@ -6,6 +6,9 @@ api = 2
 projects[acquia_connector][subdir] = contrib
 projects[acquia_connector][version] = 2.14
 
+projects[admin_views][subdir] = contrib
+projects[admin_views][version] = 1.3
+
 projects[auto_entitylabel][subdir] = contrib
 projects[auto_entitylabel][version] = 1.x-dev
 
@@ -19,9 +22,6 @@ projects[classloader][version] = 1.1
 
 projects[composer_manager][subdir] = contrib
 projects[composer_manager][version] = 1.5
-
-projects[context_admin][subdir] = contrib
-projects[context_admin][version] = 1.2
 
 projects[ctools][subdir] = contrib
 projects[ctools][version] = 1.4
@@ -152,6 +152,9 @@ projects[override_node_options][version] = 1.x-dev
 projects[panels][subdir] = contrib
 projects[panels][version] = 3.4
 
+projects[panelizer][subdir] = contrib
+projects[panelizer][version] = 3.x-dev
+
 projects[pathauto][subdir] = contrib
 projects[pathauto][version] = 1.2
 
@@ -175,6 +178,9 @@ projects[transliteration][version] = 3.2
 
 projects[views][subdir] = contrib
 projects[views][version] = 3.8
+
+projects[views_bulk_operations][subdir] = contrib
+projects[views_bulk_operations][version] = 3.2
 
 projects[webform][subdir] = contrib
 projects[webform][version] = 3.20

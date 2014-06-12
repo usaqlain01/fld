@@ -88,6 +88,29 @@ function fmnh_calendar_views_default_views() {
   $handler->display->display_options['fields']['field_date_editable']['widget_type'] = 'date_popup';
   $handler->display->display_options['fields']['field_date_editable']['suppress_label'] = 0;
   $handler->display->display_options['fields']['field_date_editable']['suppress_description'] = 0;
+  /* Field: Content: Summary (editable) */
+  $handler->display->display_options['fields']['field_summary_editable']['id'] = 'field_summary_editable';
+  $handler->display->display_options['fields']['field_summary_editable']['table'] = 'field_data_field_summary';
+  $handler->display->display_options['fields']['field_summary_editable']['field'] = 'field_summary_editable';
+  $handler->display->display_options['fields']['field_summary_editable']['label'] = '';
+  $handler->display->display_options['fields']['field_summary_editable']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_summary_editable']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_summary_editable']['element_wrapper_type'] = '0';
+  $handler->display->display_options['fields']['field_summary_editable']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_summary_editable']['field_api_classes'] = TRUE;
+  $handler->display->display_options['fields']['field_summary_editable']['widget_type'] = '0';
+  $handler->display->display_options['fields']['field_summary_editable']['suppress_label'] = 0;
+  $handler->display->display_options['fields']['field_summary_editable']['suppress_description'] = 0;
+  /* Field: Content: Link */
+  $handler->display->display_options['fields']['view_node']['id'] = 'view_node';
+  $handler->display->display_options['fields']['view_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['view_node']['field'] = 'view_node';
+  $handler->display->display_options['fields']['view_node']['label'] = 'View';
+  /* Field: Content: Delete link */
+  $handler->display->display_options['fields']['delete_node']['id'] = 'delete_node';
+  $handler->display->display_options['fields']['delete_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['delete_node']['field'] = 'delete_node';
+  $handler->display->display_options['fields']['delete_node']['label'] = 'Delete';
   /* Contextual filter: Content: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
   $handler->display->display_options['arguments']['nid']['table'] = 'node';

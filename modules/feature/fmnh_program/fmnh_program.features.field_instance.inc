@@ -169,9 +169,11 @@ function fmnh_program_field_default_field_instances() {
     'required' => 0,
     'settings' => array(
       'description_field' => 0,
-      'file_directory' => '',
+      'file_directory' => '[current-user:name]/[current-date:custom:Y]/[current-date:custom:m]/[current-date:custom:d]',
       'file_extensions' => 'jpg gif jpeg png',
       'imagecrop' => array(
+        '5x2_2400w' => '5x2_2400w',
+        '5x3_2400w' => '5x3_2400w',
         'large' => 'large',
         'media_gallery_large' => 'media_gallery_large',
         'media_gallery_thumbnail' => 'media_gallery_thumbnail',
@@ -208,6 +210,48 @@ function fmnh_program_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-program-field_references'
+  $field_instances['node-program-field_references'] = array(
+    'bundle' => 'program',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 5,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_references',
+    'label' => 'References',
+    'required' => FALSE,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'entityreference',
+      'settings' => array(
+        'match_operator' => 'CONTAINS',
+        'path' => '',
+        'size' => 60,
+      ),
+      'type' => 'entityreference_autocomplete',
+      'weight' => 8,
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('Always visible');
@@ -215,6 +259,7 @@ function fmnh_program_field_default_field_instances() {
   t('Body');
   t('If a program has no events linked to it, the program will not appear in the places it normally would. If the program should always be visible even if there are no planned events, check this box.');
   t('Image');
+  t('References');
 
   return $field_instances;
 }

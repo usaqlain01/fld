@@ -13,6 +13,19 @@ function fmnh_program_entitylist_defaults() {
   $list = new EntityList();
   $list->disabled = FALSE; /* Edit this to true to make a default list disabled initially */
   $list->api_version = 1;
+  $list->name = 'programs';
+  $list->title = 'Programs';
+  $list->description = '';
+  $list->content_type = 0;
+  $list->handler_plugin = 'EntityListHandlerEFQ';
+  $list->handler_config = array(
+    'class_name' => 'ProgramListEFQ',
+  );
+  $export['programs'] = $list;
+
+  $list = new EntityList();
+  $list->disabled = FALSE; /* Edit this to true to make a default list disabled initially */
+  $list->api_version = 1;
   $list->name = 'programs_for_audience';
   $list->title = 'Programs for audience';
   $list->description = '';
