@@ -15,7 +15,7 @@ include_once 'fmnh_collection.features.inc';
  * @return bool
  */
 function fmnh_collection_node_view($node, $view_mode, $langcode) {
-  if (!empty($node->nid) && $view_mode == 'full' && node_is_page($node)) {
+  if (!empty($node->nid) && $view_mode == 'full' && node_is_page($node) && $node->type == 'collection') {
     $items = field_get_items('node', $node, 'field_department');
     if ($items) {
       $item = reset($items);
