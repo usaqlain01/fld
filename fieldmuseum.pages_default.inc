@@ -319,8 +319,6 @@ function fieldmuseum_default_page_manager_pages() {
       ),
     ),
     'logic' => 'and',
-    'type' => 'none',
-    'settings' => NULL,
   );
   $page->menu = array(
     'type' => 'normal',
