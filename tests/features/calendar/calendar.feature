@@ -83,3 +83,4 @@ Feature: Calendar
       | field_program | field_date          |
       | Program A     | 2014-07-10 00:00:00 |
     Then I should see the heading "Program A"
+
