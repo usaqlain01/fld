@@ -22,10 +22,11 @@ class ResearchScienceArticleNodeMigration extends FmnhNodeMigration {
       return FALSE;
     }
 
+    /** @var \Migration $migration */
     $migration = \Migration::getInstance('PageNode');
-    $destids = $migration->getMap()->lookupDestinationID(array($row->nid));
-    if ($destids['destid1']) {
-      return false;
+    $mapRow = $migration->getMap()->getRowBySource(array($row->nid));
+    if ($mapRow && $mapRow['needs_update'] != MigrateMap::STATUS_IGNORED) {
+      return FALSE;
     }
   }
 }
