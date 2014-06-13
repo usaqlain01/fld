@@ -24,4 +24,16 @@ class WebformComponentMigration extends WebformMigration
       ->orderBy('cid', 'ASC');
     return $query;
   }
+
+  public function prepareRow($row) {
+    if (parent::prepareRow($row) === FALSE) {
+      return FALSE;
+    }
+
+    if ($row->type == 'markup') {
+      $extra = unserialize($row->extra);
+      $extra['format'] = $this->mapFormat($extra['format']);
+      $row->extra = serialize($extra);
+    }
+  }
 }
