@@ -92,6 +92,7 @@ class FmnhMigrateSubContext extends BehatContext implements DrupalSubContextInte
       'ItineraryArticleNode',
       'NewsForGeneralAudiencesArticleNode',
       'NewsletterNode',
+      'PageNode',
       'PhotoGalleryNode',
       'PodcastNode',
       'PressMaterialsArticleNode',
