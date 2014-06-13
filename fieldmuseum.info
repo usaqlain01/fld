@@ -157,6 +157,7 @@ features[page_manager_pages][] = auxiliary_groups
 features[page_manager_pages][] = conservation_efforts
 features[page_manager_pages][] = educators
 features[page_manager_pages][] = exhibitions_and_events
+features[page_manager_pages][] = field_trip_programs
 features[page_manager_pages][] = give_now
 features[page_manager_pages][] = home
 features[page_manager_pages][] = learning_resources
