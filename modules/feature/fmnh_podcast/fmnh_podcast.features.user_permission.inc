@@ -13,35 +13,51 @@ function fmnh_podcast_user_default_permissions() {
   // Exported permission: 'create podcast content'.
   $permissions['create podcast content'] = array(
     'name' => 'create podcast content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'author' => 'author',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'delete any podcast content'.
   $permissions['delete any podcast content'] = array(
     'name' => 'delete any podcast content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'reviewer' => 'reviewer',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'delete own podcast content'.
   $permissions['delete own podcast content'] = array(
     'name' => 'delete own podcast content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'reviewer' => 'reviewer',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'edit any podcast content'.
   $permissions['edit any podcast content'] = array(
     'name' => 'edit any podcast content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'publisher' => 'publisher',
+      'reviewer' => 'reviewer',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'edit own podcast content'.
   $permissions['edit own podcast content'] = array(
     'name' => 'edit own podcast content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'author' => 'author',
+    ),
     'module' => 'node',
   );
 

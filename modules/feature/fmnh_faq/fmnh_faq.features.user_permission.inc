@@ -26,6 +26,7 @@ function fmnh_faq_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'publisher' => 'publisher',
+      'reviewer' => 'reviewer',
     ),
     'module' => 'node',
   );
@@ -36,6 +37,7 @@ function fmnh_faq_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'publisher' => 'publisher',
+      'reviewer' => 'reviewer',
     ),
     'module' => 'node',
   );
@@ -54,6 +56,7 @@ function fmnh_faq_user_default_permissions() {
     'name' => 'edit any faq content',
     'roles' => array(
       'administrator' => 'administrator',
+      'publisher' => 'publisher',
       'reviewer' => 'reviewer',
     ),
     'module' => 'node',

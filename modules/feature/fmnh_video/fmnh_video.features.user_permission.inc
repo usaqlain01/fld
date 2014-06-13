@@ -13,35 +13,55 @@ function fmnh_video_user_default_permissions() {
   // Exported permission: 'create video content'.
   $permissions['create video content'] = array(
     'name' => 'create video content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'author' => 'author',
+      'publisher' => 'publisher',
+      'reviewer' => 'reviewer',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'delete any video content'.
   $permissions['delete any video content'] = array(
     'name' => 'delete any video content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'reviewer' => 'reviewer',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'delete own video content'.
   $permissions['delete own video content'] = array(
     'name' => 'delete own video content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'reviewer' => 'reviewer',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'edit any video content'.
   $permissions['edit any video content'] = array(
     'name' => 'edit any video content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'publisher' => 'publisher',
+      'reviewer' => 'reviewer',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'edit own video content'.
   $permissions['edit own video content'] = array(
     'name' => 'edit own video content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'author' => 'author',
+      'publisher' => 'publisher',
+      'reviewer' => 'reviewer',
+    ),
     'module' => 'node',
   );
 

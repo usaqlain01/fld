@@ -13,35 +13,50 @@ function fmnh_newsletter_user_default_permissions() {
   // Exported permission: 'create newsletter content'.
   $permissions['create newsletter content'] = array(
     'name' => 'create newsletter content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'reviewer' => 'reviewer',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'delete any newsletter content'.
   $permissions['delete any newsletter content'] = array(
     'name' => 'delete any newsletter content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'reviewer' => 'reviewer',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'delete own newsletter content'.
   $permissions['delete own newsletter content'] = array(
     'name' => 'delete own newsletter content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'reviewer' => 'reviewer',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'edit any newsletter content'.
   $permissions['edit any newsletter content'] = array(
     'name' => 'edit any newsletter content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'reviewer' => 'reviewer',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'edit own newsletter content'.
   $permissions['edit own newsletter content'] = array(
     'name' => 'edit own newsletter content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'reviewer' => 'reviewer',
+    ),
     'module' => 'node',
   );
 

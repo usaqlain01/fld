@@ -13,35 +13,50 @@ function fmnh_exhibit_user_default_permissions() {
   // Exported permission: 'create exhibit content'.
   $permissions['create exhibit content'] = array(
     'name' => 'create exhibit content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'author' => 'author',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'delete any exhibit content'.
   $permissions['delete any exhibit content'] = array(
     'name' => 'delete any exhibit content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'reviewer' => 'reviewer',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'delete own exhibit content'.
   $permissions['delete own exhibit content'] = array(
     'name' => 'delete own exhibit content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'reviewer' => 'reviewer',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'edit any exhibit content'.
   $permissions['edit any exhibit content'] = array(
     'name' => 'edit any exhibit content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'publisher' => 'publisher',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'edit own exhibit content'.
   $permissions['edit own exhibit content'] = array(
     'name' => 'edit own exhibit content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'author' => 'author',
+    ),
     'module' => 'node',
   );
 
