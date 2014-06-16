@@ -63,7 +63,7 @@ node/8761:
 node/109:
     - main-menu
 node/111:
-    - node/109
+    - visit
 node/115:
     - node/111
 node/116:
@@ -71,7 +71,7 @@ node/116:
 node/1116:
     - node/111
 node/6811:
-    - node/109
+    - visit
 node/1006:
     - node/6811
 node/906:
@@ -79,25 +79,25 @@ node/906:
 node/3311:
     - node/6811
 node/128:
-    - node/109
+    - visit
 node/18171:
     - node/128
 node/18411:
     - node/128
 node/18181:
-    - node/109
+    - visit
 node/18416:
-    - node/109
+    - visit
 node/124:
     - node/18416
 node/12311:
     - node/18416
 node/130:
-    - node/109
+    - visit
 node/18161:
-    - node/109
+    - visit
 node/6411:
-    - node/109
+    - visit
 node/11361:
     - node/6411
 node/556:
@@ -107,7 +107,7 @@ node/4822:
 node/666:
     - node/6411
 node/188:
-    - node/109
+    - visit
 node/5556:
     - node/188
 node/5586:
@@ -241,7 +241,7 @@ node/206:
 node/5101:
     - node/206
 visit/faq:
-    - node/109
+    - visit
 node/107:
     - main-menu
 node/140:
@@ -271,9 +271,9 @@ node/7536:
 node/138:
     - main-menu
 'http://fieldmuseum.org/annualfund':
-    - node/138
+    - support
 node/3896:
-    - node/138
+    - support
 node/14221:
     - node/3896
 node/13491:
@@ -295,7 +295,7 @@ node/3511:
 node/18366:
     - node/3896
 node/151:
-    - node/138
+    - support
 node/16551:
     - node/151
 node/152:
@@ -321,17 +321,17 @@ node/3226:
 node/6831:
     - node/151
 node/17511:
-    - node/138
+    - support
 'https://secure2.convio.net/fmnh/site/Ecommerce;jsessionid=7010355A6ACC2A536B773FB7CC8F1295.app274b?store_id=1161':
     - node/17511
 'http://fieldmuseum.org/adoptshowcase':
     - node/17511
 'http://store.fieldmuseum.org/':
-    - node/138
+    - support
 node/158:
     - main-menu
 node/159:
-    - node/158
+    - educators
 node/175:
     - node/159
 node/756:
@@ -353,7 +353,7 @@ node/3526:
 node/11436:
     - node/159
 node/2921:
-    - node/158
+    - educators
 node/4106:
     - node/2921
 node/4021:
@@ -361,9 +361,9 @@ node/4021:
 node/4166:
     - node/2921
 node/9021:
-    - node/158
+    - educators
 node/165:
-    - node/158
+    - educators
 node/10991:
     - node/165
 node/167:
@@ -373,11 +373,11 @@ node/168:
 node/166:
     - node/165
 node/2926:
-    - node/158
+    - educators
 node/171:
     - node/2926
 node/7526:
-    - node/158
+    - educators
 node/10421:
     - node/7526
 node/18691:
@@ -391,9 +391,9 @@ node/1171:
 node/1286:
     - node/7526
 node/169:
-    - node/158
+    - educators
 node/17916:
-    - node/158
+    - educators
 node/60:
     - main-menu
 node/18281:
@@ -1011,7 +1011,7 @@ node/18786:
 node/108:
     - main-menu
 node/3906:
-    - node/108
+    - about
 node/12541:
     - node/3906
 node/7271:
@@ -1021,9 +1021,9 @@ node/6251:
 node/6911:
     - node/3906
 node/18876:
-    - node/108
+    - about
 node/207:
-    - node/108
+    - about
 node/5351:
     - node/207
 node/5356:
@@ -1049,7 +1049,7 @@ node/5461:
 node/209:
     - node/207
 node/7411:
-    - node/108
+    - about
 about/press/exhibitions:
     - node/7411
 about/press/science:
@@ -1057,21 +1057,21 @@ about/press/science:
 about/press/archives:
     - node/7411
 about/news:
-    - node/108
+    - about
 node/16081:
-    - node/108
+    - about
 node/12596:
-    - node/108
+    - about
 about/gallery:
-    - node/108
+    - about
 about/staff:
-    - node/108
+    - about
 about/staff/executive:
     - about/staff
 node/210:
     - about/staff
 node/6836:
-    - node/108
+    - about
 node/6736:
     - node/6836
 node/6716:
@@ -1081,7 +1081,7 @@ node/6866:
 node/4411:
     - node/6836
 node/3901:
-    - node/108
+    - about
 node/4226:
     - node/3901
 node/4006:
@@ -1093,11 +1093,11 @@ node/6741:
 node/4241:
     - node/3901
 node/8591:
-    - node/108
+    - about
 node/8641:
     - node/8591
 node/217:
-    - node/108
+    - about
 node/8791:
     - node/5226
 node/8796:

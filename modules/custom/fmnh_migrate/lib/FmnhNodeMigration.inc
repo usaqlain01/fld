@@ -225,14 +225,25 @@ class FmnhNodeMigration extends DrupalNode7Migration {
     }
   }
 
-  public function findNewMenuParent($path) {
+  public function findOldParentMenuItem($path) {
     static $info;
+    if (!$info) {
+      $info = \Symfony\Component\Yaml\Yaml::parse(drupal_get_path('module', 'fmnh_migrate') .'/parents.yml');
+    }
+    if ($info[$path]) {
+      return $info[$path];
+    }
+    else {
+      return array();
+    }
+  }
+
+  public function findNewMenuParentForNode($old_nid) {
     $source_migrations = array(
       'ArticleNode',
       'BlogNode',
       'CollectionNode',
       'DepartmentNode',
-      'DepartmentTerm',
       'EducationalResourceArticleNode',
       'ExhibitNode',
       'FaqNode',
@@ -250,28 +261,16 @@ class FmnhNodeMigration extends DrupalNode7Migration {
       'VideoNode',
       'WebformNode',
     );
-    if (!$info) {
-      $info = \Symfony\Component\Yaml\Yaml::parse(drupal_get_path('module', 'fmnh_migrate') .'/parents.yml');
-    }
+    foreach ($source_migrations as $source_migration) {
+      $migration = \Migration::getInstance($source_migration);
+      // Break out of the loop as soon as a destination ID is found.
+      if ($destids = $migration->getMap()->lookupDestinationID(array($old_nid))) {
+        if (!empty($destids['destid1'])) {
+          $parent_item = menu_link_get_preferred('node/'. $destids['destid1']);
 
-    if (isset($info[$path])) {
-      foreach ($info[$path] as $item) {
-        if (strpos($item, 'node/') === 0) {
-          $old_nid = str_replace('node/', '', $item);
-
-          foreach ($source_migrations as $source_migration) {
-            $migration = \Migration::getInstance($source_migration);
-            // Break out of the loop as soon as a destination ID is found.
-            if ($destids = $migration->getMap()->lookupDestinationID(array($old_nid))) {
-              if (!empty($destids['destid1'])) {
-                $parent_item = menu_link_get_preferred('node/'. $destids['destid1']);
-
-                // This check seems to catch a lot of invalid paths.
-                if ($parent_item['link_path'] != 'node/%') {
-                  return $parent_item;
-                }
-              }
-            }
+          // This check seems to catch a lot of invalid paths.
+          if ($parent_item['link_path'] != 'node/%') {
+            return $parent_item;
           }
         }
       }
