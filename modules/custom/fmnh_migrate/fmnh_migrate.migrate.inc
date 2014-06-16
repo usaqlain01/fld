@@ -102,6 +102,7 @@ function fmnh_migrate_migrate_api() {
         'description' => 'Migrate audio files',
         'source_dir' => $source_dir,
         'source_connection' => 'migrate',
+        'user_migration' => 'User',
       ),
       'BlogNode' => array(
         'class_name' => 'BlogNodeMigration',
@@ -150,6 +151,7 @@ function fmnh_migrate_migrate_api() {
         'description' => 'Migrate default files',
         'source_dir' => $source_dir,
         'source_connection' => 'migrate',
+        'user_migration' => 'User',
       ),
       'DepartmentTerm' => array(
         'class_name' => 'DepartmentTermMigration',
@@ -187,6 +189,7 @@ function fmnh_migrate_migrate_api() {
         'description' => 'Migrate document files',
         'source_dir' => $source_dir,
         'source_connection' => 'migrate',
+        'user_migration' => 'User',
       ),
       'ExhibitTerm' => array(
         'class_name' => 'ExhibitTermMigration',
@@ -265,6 +268,7 @@ function fmnh_migrate_migrate_api() {
         'description' => 'Migrate image files',
         'source_dir' => $source_dir,
         'source_connection' => 'migrate',
+        'user_migration' => 'User',
       ),
       'LocationRegionTerm' => array(
         'class_name' => 'LocationRegionTermMigration',
@@ -609,6 +613,7 @@ function fmnh_migrate_migrate_api() {
         'description' => 'Migrate undefined files',
         'source_connection' => 'migrate',
         'source_dir' => $source_dir,
+        'user_migration' => 'User',
       ),
       'VideoFile' => array(
         'class_name' => 'VideoFileMigration',
@@ -617,6 +622,7 @@ function fmnh_migrate_migrate_api() {
         'description' => 'Migrate video files',
         'source_dir' => $source_dir,
         'source_connection' => 'migrate',
+        'user_migration' => 'User',
       ),
       'VideoNode' => array(
         'class_name' => 'VideoNodeMigration',
