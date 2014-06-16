@@ -497,7 +497,7 @@ function fmnh_calendar_default_page_manager_pages() {
         'keyword' => 'list',
         'name' => 'entitylist:upcoming_events',
         'use_pager' => TRUE,
-        'pager_id' => NULL,
+        'pager_id' => 0,
         'range' => array(
           'offset' => 0,
           'limit' => 10,

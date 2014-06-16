@@ -38,10 +38,10 @@ function fmnh_exhibit_strongarm() {
           'weight' => '0',
         ),
         'metatags' => array(
-          'weight' => '2',
+          'weight' => '3',
         ),
         'path' => array(
-          'weight' => '30',
+          'weight' => '11',
         ),
       ),
       'display' => array(),

@@ -319,6 +319,8 @@ function fieldmuseum_default_page_manager_pages() {
       ),
     ),
     'logic' => 'and',
+    'type' => 'none',
+    'settings' => NULL,
   );
   $page->menu = array(
     'type' => 'normal',
@@ -677,6 +679,8 @@ function fieldmuseum_default_page_manager_pages() {
       ),
     ),
     'logic' => 'and',
+    'type' => 'none',
+    'settings' => NULL,
   );
   $page->menu = array(
     'type' => 'normal',
@@ -1341,7 +1345,7 @@ function fieldmuseum_default_page_manager_pages() {
   );
   $page->menu = array(
     'type' => 'normal',
-    'title' => 'Field trip programs',
+    'title' => 'Members',
     'name' => 'main-menu',
     'weight' => '0',
     'parent' => array(
@@ -1387,7 +1391,7 @@ function fieldmuseum_default_page_manager_pages() {
     ),
   );
   $display->cache = array();
-  $display->title = 'Field trip programs';
+  $display->title = 'Members';
   $display->uuid = '21992d69-55f7-4dc3-8243-33644b61b8ae';
   $display->content = array();
   $display->panels = array();
