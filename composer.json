@@ -1,6 +1,7 @@
 {
     "require": {
-        "stojg/crop": "~1.2.6"
+        "stojg/crop": "~1.2.6",
+        "symfony/yaml": "~2.5"
     },
     "require-dev": {
         "querypath/QueryPath": "dev-master",
