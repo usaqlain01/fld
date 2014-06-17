@@ -69,7 +69,7 @@ projects[fieldable_panels_panes][subdir] = contrib
 projects[fieldable_panels_panes][version] = 1.x-dev
 
 projects[field_group][subdir] = contrib
-projects[field_group][version] = 1.3
+projects[field_group][version] = 1.4
 
 projects[field_formatter_class][subdir] = contrib
 projects[field_formatter_class][version] = 1.1
@@ -138,7 +138,7 @@ projects[migrate][subdir] = contrib
 projects[migrate][version] = 2.x-dev
 
 projects[multiform][subdir] = contrib
-projects[multiform][version] = 1.0
+projects[multiform][version] = 1.1
 
 projects[navbar][subdir] = contrib
 projects[navbar][version] = 1.x-dev
@@ -157,6 +157,9 @@ projects[panelizer][version] = 3.x-dev
 
 projects[pathauto][subdir] = contrib
 projects[pathauto][version] = 1.2
+
+projects[pdf][subdir] = contrib
+projects[pdf][version] = 1.x-dev
 
 projects[plupload][subdir] = contrib
 projects[plupload][version] = 1.6
@@ -239,6 +242,12 @@ libraries[modernizr][download][url] = http://modernizr.com/downloads/modernizr-l
 libraries[modernizr][directory_name] = modernizr
 libraries[modernizr][destination] = libraries
 libraries[modernizr][type] = library
+
+libraries[pdf.js][download][type] = git
+libraries[pdf.js][download][url] = https://github.com/mozilla/pdf.js.git
+libraries[pdf.js][destination] = libraries
+libraries[pdf.js][type] = library
+libraries[pdf.js][download][branch] = master
 
 libraries[plupload][download][type] = get
 libraries[plupload][directory_name] = plupload

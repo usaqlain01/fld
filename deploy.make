@@ -13,6 +13,8 @@ projects[fieldmuseum][download][branch] = develop
 projects[fieldmuseum][download][url] = git@codebasehq.com:caxy/field-museum-main-site/field-museum-caxy.git
 projects[fieldmuseum][type] = profile
 
+projects[devel][version] = 1.x-dev
+
 ; drush make --working-copy deploy.make drupal
 ; drush --yes si fieldmuseum --site-name="The Field Museum" --site-mail="bjd@bangpound.org"
 ; drush --yes en fmnh*
