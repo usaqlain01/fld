@@ -414,6 +414,51 @@ function fmnh_exhibit_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-exhibit-field_location_region'
+  $field_instances['node-exhibit-field_location_region'] = array(
+    'bundle' => 'exhibit',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'field_formatter_class' => '',
+          'link' => 1,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 6,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_location_region',
+    'label' => 'Location/Region',
+    'required' => 0,
+    'settings' => array(
+      'behaviors' => array(
+        'taxonomy-index' => array(
+          'status' => TRUE,
+        ),
+      ),
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 57,
+    ),
+  );
+
   // Exported field_instance: 'node-exhibit-field_references'
   $field_instances['node-exhibit-field_references'] = array(
     'bundle' => 'exhibit',
@@ -467,9 +512,13 @@ function fmnh_exhibit_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 6,
+        'module' => 'entityreference',
+        'settings' => array(
+          'field_formatter_class' => '',
+          'link' => 1,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 5,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -481,15 +530,21 @@ function fmnh_exhibit_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_research_area',
     'label' => 'Research area',
-    'required' => FALSE,
+    'required' => 0,
     'settings' => array(
+      'behaviors' => array(
+        'taxonomy-index' => array(
+          'status' => TRUE,
+        ),
+      ),
       'user_register_form' => FALSE,
     ),
     'widget' => array(
+      'active' => 1,
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 45,
+      'weight' => 56,
     ),
   );
 
@@ -502,9 +557,13 @@ function fmnh_exhibit_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 9,
+        'module' => 'entityreference',
+        'settings' => array(
+          'field_formatter_class' => '',
+          'link' => 1,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 3,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -516,15 +575,21 @@ function fmnh_exhibit_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_science_focus',
     'label' => 'Science Focus',
-    'required' => FALSE,
+    'required' => 0,
     'settings' => array(
+      'behaviors' => array(
+        'taxonomy-index' => array(
+          'status' => TRUE,
+        ),
+      ),
       'user_register_form' => FALSE,
     ),
     'widget' => array(
+      'active' => 1,
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 46,
+      'weight' => 59,
     ),
   );
 
@@ -537,8 +602,12 @@ function fmnh_exhibit_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
+        'module' => 'entityreference',
+        'settings' => array(
+          'field_formatter_class' => '',
+          'link' => 1,
+        ),
+        'type' => 'entityreference_label',
         'weight' => 7,
       ),
       'teaser' => array(
@@ -551,15 +620,21 @@ function fmnh_exhibit_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_stratigraphy',
     'label' => 'Stratigraphy',
-    'required' => FALSE,
+    'required' => 0,
     'settings' => array(
+      'behaviors' => array(
+        'taxonomy-index' => array(
+          'status' => TRUE,
+        ),
+      ),
       'user_register_form' => FALSE,
     ),
     'widget' => array(
+      'active' => 1,
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 47,
+      'weight' => 58,
     ),
   );
 
@@ -608,6 +683,7 @@ function fmnh_exhibit_field_default_field_instances() {
   t('Exhibit type');
   t('Grade level');
   t('Image');
+  t('Location/Region');
   t('References');
   t('Research area');
   t('Science Focus');

@@ -10,6 +10,7 @@ dependencies[] = field_group
 dependencies[] = fieldmuseum
 dependencies[] = file
 dependencies[] = fmnh_department
+dependencies[] = fmnh_science_tags
 dependencies[] = image
 dependencies[] = media
 dependencies[] = options

@@ -175,10 +175,10 @@ function fmnh_gallery_field_default_field_instances() {
         'module' => 'entityreference',
         'settings' => array(
           'field_formatter_class' => '',
-          'link' => FALSE,
+          'link' => 1,
         ),
         'type' => 'entityreference_label',
-        'weight' => 17,
+        'weight' => 3,
       ),
       'full' => array(
         'label' => 'above',
@@ -202,15 +202,21 @@ function fmnh_gallery_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_science_focus',
     'label' => 'Science Focus',
-    'required' => FALSE,
+    'required' => 0,
     'settings' => array(
+      'behaviors' => array(
+        'taxonomy-index' => array(
+          'status' => TRUE,
+        ),
+      ),
       'user_register_form' => FALSE,
     ),
     'widget' => array(
+      'active' => 1,
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 49,
+      'weight' => 59,
     ),
   );
 

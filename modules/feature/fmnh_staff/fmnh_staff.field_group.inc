@@ -77,7 +77,7 @@ function fmnh_staff_field_group_info() {
   $field_group->parent_name = 'group_science_tags';
   $field_group->data = array(
     'label' => 'Location/Region',
-    'weight' => '35',
+    'weight' => '56',
     'children' => array(
       0 => 'field_location_region',
     ),
@@ -132,7 +132,7 @@ function fmnh_staff_field_group_info() {
   $field_group->parent_name = 'group_science_tags';
   $field_group->data = array(
     'label' => 'Research area',
-    'weight' => '36',
+    'weight' => '55',
     'children' => array(
       0 => 'field_research_area',
     ),
@@ -160,11 +160,12 @@ function fmnh_staff_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Science tags',
-    'weight' => '28',
+    'weight' => '55',
     'children' => array(
       0 => 'group_location_region',
       1 => 'group_research_area',
-      2 => 'group_stratigraphy',
+      2 => 'group_science_focus',
+      3 => 'group_stratigraphy',
     ),
     'format_type' => 'htabs',
     'format_settings' => array(
@@ -187,7 +188,7 @@ function fmnh_staff_field_group_info() {
   $field_group->parent_name = 'group_science_tags';
   $field_group->data = array(
     'label' => 'Stratigraphy',
-    'weight' => '37',
+    'weight' => '57',
     'children' => array(
       0 => 'field_stratigraphy',
     ),

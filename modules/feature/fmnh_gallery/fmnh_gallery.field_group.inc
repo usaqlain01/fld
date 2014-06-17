@@ -133,7 +133,7 @@ function fmnh_gallery_field_group_info() {
   $field_group->parent_name = 'group_science_tags';
   $field_group->data = array(
     'label' => 'Science focus',
-    'weight' => '48',
+    'weight' => '58',
     'children' => array(
       0 => 'field_science_focus',
     ),
@@ -161,9 +161,12 @@ function fmnh_gallery_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Science tags',
-    'weight' => '43',
+    'weight' => '55',
     'children' => array(
-      0 => 'group_science_focus',
+      0 => 'group_location_region',
+      1 => 'group_research_area',
+      2 => 'group_science_focus',
+      3 => 'group_stratigraphy',
     ),
     'format_type' => 'htabs',
     'format_settings' => array(

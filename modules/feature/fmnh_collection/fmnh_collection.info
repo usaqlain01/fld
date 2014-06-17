@@ -9,6 +9,7 @@ dependencies[] = field_group
 dependencies[] = fmnh_department
 dependencies[] = fmnh_program
 dependencies[] = fmnh_references
+dependencies[] = fmnh_science_tags
 dependencies[] = image
 dependencies[] = link
 dependencies[] = media

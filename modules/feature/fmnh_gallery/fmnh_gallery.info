@@ -8,6 +8,7 @@ dependencies[] = field_group
 dependencies[] = fieldmuseum
 dependencies[] = fmnh_department
 dependencies[] = fmnh_program
+dependencies[] = fmnh_science_tags
 dependencies[] = media_gallery
 dependencies[] = node
 dependencies[] = options
