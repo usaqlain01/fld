@@ -38,6 +38,7 @@ files[] = lib/ResearchAreasTermMigration.inc
 files[] = lib/ResearchScienceArticleNodeMigration.inc
 files[] = lib/RoleMigration.inc
 files[] = lib/ScienceFocusTermMigration.inc
+files[] = lib/StaffProfileMigration.inc
 files[] = lib/StratigraphyTermMigration.inc
 files[] = lib/TermToNodeMigration.inc
 files[] = lib/TopicTermMigration.inc

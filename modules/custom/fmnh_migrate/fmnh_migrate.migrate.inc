@@ -586,7 +586,16 @@ function fmnh_migrate_migrate_api() {
       'User' => array(
         'class_name' => 'UserMigration',
         'group_name' => 'fmnh_user',
+        'role_migration' => 'Role',
+        'picture_migration' => 'UserPicture',
+        'description' => 'Migrate users',
+        'source_connection' => 'migrate',
+      ),
+      'StaffProfile' => array(
+        'class_name' => 'StaffProfileMigration',
+        'group_name' => 'fmnh_user',
         'dependencies' => array(
+          'User',
           'DepartmentTerm',
           'LocationRegionTerm',
           'ResearchAreasTerm',
