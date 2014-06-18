@@ -14,7 +14,7 @@
 # http://www.robotstxt.org/wc/robots.html
 #
 # For syntax checking, see:
-# http://www.frobee.com/robots-txt-check
+# http://www.sxw.org.uk/computing/robots/check.html
 
 User-agent: *
 Crawl-delay: 10
