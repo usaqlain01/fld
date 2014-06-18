@@ -1,0 +1,12 @@
+'50000 Compose tips 8':
+    link:
+        link_path: filter/tips
+        router_path: filter/tips
+        link_title: 'Compose tips'
+        type: '20'
+'50000 Page not found 17896':
+    link:
+        link_path: search404
+        router_path: search404
+        link_title: 'Page not found'
+        type: '0'

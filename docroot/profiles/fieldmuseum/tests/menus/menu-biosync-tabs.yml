@@ -1,0 +1,36 @@
+'49950 Home 15461':
+    link:
+        link_path: node/5226
+        router_path: node/%
+        link_title: Home
+        type: '6'
+'50000 Meetings 15471':
+    link:
+        link_path: node/8791
+        router_path: node/%
+        link_title: Meetings
+        type: '6'
+'50001 Research 15466':
+    link:
+        link_path: node/8796
+        router_path: node/%
+        link_title: Research
+        type: '6'
+'50002 Education 15476':
+    link:
+        link_path: node/8846
+        router_path: node/%
+        link_title: Education
+        type: '6'
+'50003 Software 15481':
+    link:
+        link_path: node/8841
+        router_path: node/%
+        link_title: Software
+        type: '6'
+'50004 Staff 15486':
+    link:
+        link_path: explore/department/biosync/people
+        router_path: explore/department/%/people
+        link_title: Staff
+        type: '0'

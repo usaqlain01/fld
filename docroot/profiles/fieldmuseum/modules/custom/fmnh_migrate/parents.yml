@@ -1,0 +1,1744 @@
+node/46:
+    - node/46
+node/47:
+    - node/46
+node/50:
+    - node/46
+explore/department/anthropology/people:
+    - node/46
+node/48:
+    - node/46
+node/49:
+    - node/46
+node/61:
+    - node/51
+node/37:
+    - node/51
+explore/department/botany/people:
+    - node/51
+node/3401:
+    - node/51
+node/3381:
+    - node/51
+happening/exhibits/browse/current:
+    - devel
+happening/exhibits/browse/coming-soon:
+    - devel
+happening/exhibits/browse/past:
+    - devel
+node/80:
+    - node/67
+node/7601:
+    - node/67
+node/77:
+    - node/67
+node/5031:
+    - node/67
+node/79:
+    - node/67
+node/68:
+    - node/68
+node/86:
+    - node/68
+node/81:
+    - node/68
+explore/department/geology/people:
+    - node/68
+node/87:
+    - node/68
+node/88:
+    - node/68
+node/69:
+    - node/69
+node/4716:
+    - node/69
+node/4752:
+    - node/69
+explore/department/library/people:
+    - node/69
+node/4201:
+    - node/69
+node/8761:
+    - node/69
+node/109:
+    - main-menu
+node/111:
+    - visit
+node/115:
+    - node/111
+node/116:
+    - node/111
+node/1116:
+    - node/111
+node/6811:
+    - visit
+node/1006:
+    - node/6811
+node/906:
+    - node/6811
+node/3311:
+    - node/6811
+node/128:
+    - visit
+node/18171:
+    - node/128
+node/18411:
+    - node/128
+node/18181:
+    - visit
+node/18416:
+    - visit
+node/124:
+    - node/18416
+node/12311:
+    - node/18416
+node/130:
+    - visit
+node/18161:
+    - visit
+node/6411:
+    - visit
+node/11361:
+    - node/6411
+node/556:
+    - node/6411
+node/4822:
+    - node/6411
+node/666:
+    - node/6411
+node/188:
+    - visit
+node/5556:
+    - node/188
+node/5586:
+    - node/5556
+node/5591:
+    - node/5556
+node/5596:
+    - node/5556
+node/5601:
+    - node/5556
+node/5606:
+    - node/5556
+node/5611:
+    - node/5556
+node/5621:
+    - node/5556
+node/3476:
+    - node/188
+node/5641:
+    - node/3476
+node/5726:
+    - node/3476
+node/5736:
+    - node/3476
+node/5741:
+    - node/3476
+node/5751:
+    - node/3476
+node/5746:
+    - node/3476
+node/5756:
+    - node/3476
+node/5571:
+    - node/188
+node/3651:
+    - node/5571
+node/5851:
+    - node/5571
+node/3521:
+    - node/188
+node/5771:
+    - node/3521
+node/5776:
+    - node/3521
+node/17496:
+    - node/188
+node/5626:
+    - node/188
+node/4706:
+    - node/5626
+node/6036:
+    - node/5626
+node/5561:
+    - node/5626
+node/6331:
+    - node/5626
+node/6336:
+    - node/5626
+node/6341:
+    - node/5626
+node/6346:
+    - node/5626
+node/6351:
+    - node/5626
+node/12101:
+    - node/188
+node/13881:
+    - node/12101
+node/13866:
+    - node/12101
+node/201:
+    - node/188
+node/6131:
+    - node/201
+node/6136:
+    - node/6131
+node/6141:
+    - node/6131
+node/6146:
+    - node/6131
+node/6151:
+    - node/6131
+node/6156:
+    - node/6131
+node/6161:
+    - node/6131
+node/6171:
+    - node/6131
+node/6166:
+    - node/6131
+node/6176:
+    - node/6131
+node/6181:
+    - node/6131
+node/6186:
+    - node/6131
+node/6046:
+    - node/201
+node/6056:
+    - node/6046
+node/6061:
+    - node/6046
+node/6066:
+    - node/6046
+node/6121:
+    - node/6046
+node/6126:
+    - node/6046
+node/6256:
+    - node/6046
+node/6261:
+    - node/6046
+node/6271:
+    - node/6046
+node/6276:
+    - node/6046
+node/6281:
+    - node/6046
+node/6286:
+    - node/6046
+node/4481:
+    - node/188
+node/5786:
+    - node/188
+node/14286:
+    - node/5786
+node/5791:
+    - node/188
+node/206:
+    - node/188
+node/5101:
+    - node/206
+visit/faq:
+    - visit
+node/107:
+    - main-menu
+node/140:
+    - node/107
+happening/exhibits/browse:
+    - node/140
+happening/exhibits/browse/coming-soon:
+    - node/140
+happening/exhibits/browse/past:
+    - node/140
+node/991:
+    - node/107
+happening/programs/adults:
+    - node/991
+happening/programs/educators:
+    - node/991
+happening/programs/families:
+    - node/991
+node/13446:
+    - menu-position/76
+happening/programs/scouts:
+    - node/991
+happening/programs/teens:
+    - node/991
+node/7536:
+    - node/107
+node/138:
+    - main-menu
+'http://fieldmuseum.org/annualfund':
+    - support
+node/3896:
+    - support
+node/14221:
+    - node/3896
+node/13491:
+    - node/3896
+node/8401:
+    - node/3896
+node/13556:
+    - node/3896
+node/146:
+    - node/3896
+node/147:
+    - node/146
+node/13116:
+    - node/146
+node/3406:
+    - node/146
+node/3511:
+    - node/146
+node/18366:
+    - node/3896
+node/151:
+    - support
+node/16551:
+    - node/151
+node/152:
+    - node/151
+node/3061:
+    - node/152
+node/3116:
+    - node/152
+node/3126:
+    - node/152
+node/3076:
+    - node/152
+node/3101:
+    - node/152
+node/3091:
+    - node/152
+node/3021:
+    - node/152
+node/12156:
+    - node/151
+node/3226:
+    - node/151
+node/6831:
+    - node/151
+node/17511:
+    - support
+'https://secure2.convio.net/fmnh/site/Ecommerce;jsessionid=7010355A6ACC2A536B773FB7CC8F1295.app274b?store_id=1161':
+    - node/17511
+'http://fieldmuseum.org/adoptshowcase':
+    - node/17511
+'http://store.fieldmuseum.org/':
+    - support
+node/158:
+    - main-menu
+node/159:
+    - educators
+node/175:
+    - node/159
+node/756:
+    - node/159
+node/10851:
+    - node/159
+node/132:
+    - node/159
+node/2896:
+    - node/159
+node/3616:
+    - node/2896
+node/2911:
+    - node/2896
+node/3581:
+    - node/2896
+node/3526:
+    - node/2896
+node/11436:
+    - node/159
+node/2921:
+    - educators
+node/4106:
+    - node/2921
+node/4021:
+    - node/2921
+node/4166:
+    - node/2921
+node/9021:
+    - educators
+node/165:
+    - educators
+node/10991:
+    - node/165
+node/167:
+    - node/165
+node/168:
+    - node/165
+node/166:
+    - node/165
+node/2926:
+    - educators
+node/171:
+    - node/2926
+node/7526:
+    - educators
+node/10421:
+    - node/7526
+node/18691:
+    - node/7526
+node/15516:
+    - node/7526
+node/4286:
+    - node/7526
+node/1171:
+    - node/7526
+node/1286:
+    - node/7526
+node/169:
+    - educators
+node/17916:
+    - educators
+node/60:
+    - main-menu
+node/18281:
+    - node/60
+node/59:
+    - node/60
+node/46:
+    - node/59
+node/336:
+    - node/46
+node/1536:
+    - node/336
+node/3886:
+    - node/336
+node/3566:
+    - node/3886
+explore/department/anthropology/africa/people:
+    - node/336
+node/1456:
+    - node/336
+node/1491:
+    - node/336
+node/346:
+    - node/46
+node/1806:
+    - node/346
+node/1836:
+    - node/346
+node/3641:
+    - node/1836
+node/5381:
+    - node/1836
+node/4882:
+    - node/1836
+node/6931:
+    - node/1836
+node/5061:
+    - node/1836
+node/7291:
+    - node/1836
+explore/department/anthropology/asia/people:
+    - node/346
+node/3731:
+    - node/346
+node/3726:
+    - node/346
+node/391:
+    - node/46
+node/3751:
+    - node/391
+node/826:
+    - node/391
+explore/department/anthropology/europe/people:
+    - node/391
+node/1966:
+    - node/391
+node/3756:
+    - node/391
+node/426:
+    - node/46
+node/3761:
+    - node/426
+node/3891:
+    - node/426
+node/7026:
+    - node/3891
+node/7021:
+    - node/3891
+node/4496:
+    - node/3891
+explore/department/anthropology/middle-america/people:
+    - node/426
+node/2051:
+    - node/426
+node/3771:
+    - node/426
+node/431:
+    - node/46
+node/2141:
+    - node/431
+node/2161:
+    - node/431
+node/4626:
+    - node/2161
+node/4326:
+    - node/2161
+explore/department/anthropology/north-america/people:
+    - node/431
+node/2101:
+    - node/431
+node/3781:
+    - node/431
+node/436:
+    - node/46
+node/3796:
+    - node/436
+node/2241:
+    - node/436
+node/7581:
+    - node/2241
+node/7586:
+    - node/2241
+node/7571:
+    - node/2241
+node/7591:
+    - node/2241
+node/7576:
+    - node/2241
+node/7561:
+    - node/2241
+node/7546:
+    - node/2241
+explore/department/anthropology/pacific/people:
+    - node/436
+node/2191:
+    - node/436
+node/2211:
+    - node/436
+node/441:
+    - node/46
+node/3816:
+    - node/441
+node/2306:
+    - node/441
+node/7016:
+    - node/2306
+node/7011:
+    - node/2306
+node/6706:
+    - node/2306
+explore/department/anthropology/south-america/people:
+    - node/441
+node/2256:
+    - node/441
+node/3821:
+    - node/441
+node/1371:
+    - node/46
+node/1311:
+    - node/1371
+node/6806:
+    - node/1371
+node/6816:
+    - node/6806
+node/6801:
+    - node/6806
+node/6821:
+    - node/6806
+node/6751:
+    - node/6806
+explore/department/anthropology/archaeological-science/people:
+    - node/1371
+node/3721:
+    - node/1371
+node/3716:
+    - node/1371
+node/351:
+    - node/46
+node/3741:
+    - node/351
+node/1941:
+    - node/351
+explore/department/anthropology/biological-anthropology/people:
+    - node/351
+node/3746:
+    - node/351
+node/3736:
+    - node/351
+node/5321:
+    - node/46
+node/6206:
+    - node/5321
+node/6201:
+    - node/5321
+explore/department/anthropology/cultural-anthropology/people:
+    - node/5321
+node/6211:
+    - node/5321
+node/6216:
+    - node/5321
+node/51:
+    - node/59
+node/331:
+    - node/51
+node/3671:
+    - node/331
+node/2626:
+    - node/331
+node/901:
+    - node/2626
+explore/department/botany/bryophytes/people:
+    - node/331
+node/3686:
+    - node/331
+node/3691:
+    - node/331
+node/326:
+    - node/51
+node/3666:
+    - node/326
+node/2151:
+    - node/326
+node/916:
+    - node/2151
+explore/department/botany/economic/people:
+    - node/326
+node/62:
+    - node/326
+node/3356:
+    - node/326
+node/321:
+    - node/51
+node/3676:
+    - node/321
+node/2366:
+    - node/321
+node/996:
+    - node/2366
+node/1021:
+    - node/2366
+node/1161:
+    - node/2366
+node/1511:
+    - node/2366
+node/1546:
+    - node/2366
+explore/department/botany/fungi/people:
+    - node/321
+node/3706:
+    - node/321
+node/3711:
+    - node/321
+node/316:
+    - node/51
+node/3681:
+    - node/316
+node/2336:
+    - node/316
+node/1621:
+    - node/2336
+node/626:
+    - node/2336
+node/1856:
+    - node/2336
+node/1751:
+    - node/2336
+explore/department/botany/seedplants/people:
+    - node/316
+node/3696:
+    - node/316
+node/3701:
+    - node/316
+node/68:
+    - node/59
+node/446:
+    - node/68
+node/3766:
+    - node/446
+node/681:
+    - node/446
+explore/department/geology/fossil-amphibians-and-reptiles/people:
+    - node/446
+node/931:
+    - node/446
+node/3776:
+    - node/446
+node/5976:
+    - node/68
+node/6006:
+    - node/5976
+node/5981:
+    - node/5976
+explore/department/geology/fossil-birds/people:
+    - node/5976
+node/6016:
+    - node/5976
+node/6011:
+    - node/5976
+node/451:
+    - node/68
+node/1356:
+    - node/451
+node/726:
+    - node/451
+explore/department/geology/fossil-fishes/people:
+    - node/451
+node/1281:
+    - node/451
+node/3791:
+    - node/451
+node/466:
+    - node/68
+node/3811:
+    - node/466
+node/746:
+    - node/466
+node/5941:
+    - node/746
+explore/department/geology/fossil-invertebrates/people:
+    - node/466
+node/14471:
+    - node/466
+node/3801:
+    - node/466
+node/471:
+    - node/68
+node/3826:
+    - node/471
+node/3876:
+    - node/471
+explore/department/geology/fossil-mammals/people:
+    - node/471
+node/1411:
+    - node/471
+node/3831:
+    - node/471
+node/481:
+    - node/68
+node/3836:
+    - node/481
+node/806:
+    - node/481
+node/5936:
+    - node/806
+node/13966:
+    - node/806
+explore/department/geology/fossil-plants/people:
+    - node/481
+node/1516:
+    - node/481
+node/3841:
+    - node/481
+node/486:
+    - node/68
+node/3846:
+    - node/486
+node/851:
+    - node/486
+explore/department/geology/gems/people:
+    - node/486
+node/1646:
+    - node/486
+node/3851:
+    - node/486
+node/491:
+    - node/68
+node/3861:
+    - node/491
+node/886:
+    - node/491
+explore/department/geology/meteorites/people:
+    - node/491
+node/1826:
+    - node/491
+node/3856:
+    - node/491
+node/501:
+    - node/68
+node/3866:
+    - node/501
+explore/department/geology/polar-studies/people:
+    - node/501
+node/3881:
+    - node/501
+node/3871:
+    - node/501
+node/6431:
+    - node/68
+node/6436:
+    - node/6431
+node/6441:
+    - node/6431
+explore/department/geology/fossil-prep/people:
+    - node/6431
+node/6446:
+    - node/6431
+node/6451:
+    - node/6431
+node/33:
+    - node/59
+node/71:
+    - node/33
+node/89:
+    - node/71
+node/82:
+    - node/71
+node/1166:
+    - node/82
+explore/department/zoology/amphibians-and-reptiles/people:
+    - node/71
+node/2381:
+    - node/71
+node/91:
+    - node/71
+node/72:
+    - node/33
+node/92:
+    - node/72
+node/8241:
+    - node/92
+node/34:
+    - node/72
+node/1126:
+    - node/34
+node/1141:
+    - node/34
+node/1106:
+    - node/34
+explore/department/zoology/birds/people:
+    - node/72
+node/2246:
+    - node/72
+node/94:
+    - node/72
+node/73:
+    - node/33
+node/95:
+    - node/73
+node/27:
+    - node/73
+node/656:
+    - node/27
+node/561:
+    - node/27
+node/3206:
+    - node/27
+node/606:
+    - node/27
+node/701:
+    - node/27
+node/661:
+    - node/27
+explore/department/zoology/fishes/people:
+    - node/73
+node/1846:
+    - node/73
+node/97:
+    - node/73
+node/74:
+    - node/33
+node/98:
+    - node/74
+node/83:
+    - node/74
+node/5441:
+    - node/83
+node/5521:
+    - node/83
+node/1036:
+    - node/83
+node/1061:
+    - node/83
+node/1011:
+    - node/83
+node/941:
+    - node/83
+node/966:
+    - node/83
+explore/department/zoology/insects/people:
+    - node/74
+node/2221:
+    - node/74
+node/100:
+    - node/74
+node/75:
+    - node/33
+node/101:
+    - node/75
+node/84:
+    - node/75
+node/876:
+    - node/84
+node/5301:
+    - node/84
+node/896:
+    - node/84
+node/856:
+    - node/84
+node/911:
+    - node/84
+node/921:
+    - node/84
+explore/department/zoology/invertebrates/people:
+    - node/75
+node/2046:
+    - node/75
+node/103:
+    - node/75
+node/76:
+    - node/33
+node/104:
+    - node/76
+node/1336:
+    - node/76
+node/786:
+    - node/1336
+node/821:
+    - node/1336
+explore/department/zoology/mammals/people:
+    - node/76
+node/1886:
+    - node/76
+node/106:
+    - node/76
+node/67:
+    - node/59
+    - node/176
+node/70:
+    - node/59
+node/176:
+    - node/60
+node/7146:
+    - node/176
+    - node/15
+node/7276:
+    - node/176
+node/6511:
+    - node/176
+node/15:
+    - node/60
+node/69:
+    - node/15
+node/5191:
+    - node/69
+node/5206:
+    - node/5191
+explore/department/library/museum-archives/people:
+    - node/5191
+node/5251:
+    - node/5191
+node/5181:
+    - node/69
+node/5261:
+    - node/5181
+node/5186:
+    - node/5181
+node/6996:
+    - node/5186
+node/6921:
+    - node/5186
+node/6926:
+    - node/5186
+node/6466:
+    - node/5186
+node/7006:
+    - node/5186
+node/6986:
+    - node/5186
+node/6916:
+    - node/5186
+node/6951:
+    - node/5186
+node/6906:
+    - node/5186
+node/6946:
+    - node/5186
+node/8726:
+    - node/5186
+node/6991:
+    - node/5186
+node/5581:
+    - node/5186
+node/4381:
+    - node/5186
+explore/department/library/photo-archives/people:
+    - node/5181
+node/5266:
+    - node/5181
+node/5271:
+    - node/5181
+node/5196:
+    - node/69
+node/5276:
+    - node/5196
+node/5201:
+    - node/5196
+node/5306:
+    - node/5201
+node/5661:
+    - node/5201
+explore/department/library/rare-books/people:
+    - node/5196
+node/5281:
+    - node/5196
+node/5286:
+    - node/5196
+node/6896:
+    - node/60
+node/8236:
+    - node/6896
+node/6901:
+    - node/6896
+node/7031:
+    - node/6901
+node/5656:
+    - node/6896
+node/5326:
+    - node/5656
+node/9211:
+    - node/5656
+explore/crnewsletter:
+    - node/6896
+node/11911:
+    - node/60
+node/18516:
+    - node/11911
+node/9186:
+    - node/11911
+node/11866:
+    - node/11911
+node/14791:
+    - node/11911
+node/18786:
+    - node/11911
+node/108:
+    - main-menu
+node/3906:
+    - about
+node/12541:
+    - node/3906
+node/7271:
+    - node/3906
+node/6251:
+    - node/3906
+node/6911:
+    - node/3906
+node/18876:
+    - about
+node/207:
+    - about
+node/5351:
+    - node/207
+node/5356:
+    - node/207
+node/5366:
+    - node/207
+node/5411:
+    - node/207
+node/5451:
+    - node/207
+node/6001:
+    - node/207
+node/5421:
+    - node/207
+node/15781:
+    - node/207
+node/5416:
+    - node/207
+node/15811:
+    - node/207
+node/5461:
+    - node/207
+node/209:
+    - node/207
+node/7411:
+    - about
+about/press/exhibitions:
+    - node/7411
+about/press/science:
+    - node/7411
+about/press/archives:
+    - node/7411
+about/news:
+    - about
+node/16081:
+    - about
+node/12596:
+    - about
+about/gallery:
+    - about
+about/staff:
+    - about
+about/staff/executive:
+    - about/staff
+node/210:
+    - about/staff
+node/6836:
+    - about
+node/6736:
+    - node/6836
+node/6716:
+    - node/6836
+node/6866:
+    - node/6836
+node/4411:
+    - node/6836
+node/3901:
+    - about
+node/4226:
+    - node/3901
+node/4006:
+    - node/3901
+node/4221:
+    - node/3901
+node/6741:
+    - node/3901
+node/4241:
+    - node/3901
+node/8591:
+    - about
+node/8641:
+    - node/8591
+node/217:
+    - about
+node/8791:
+    - node/5226
+node/8796:
+    - node/5226
+node/8846:
+    - node/5226
+node/8841:
+    - node/5226
+explore/department/biosync/people:
+    - node/5226
+node/7281:
+    - node/7146
+node/7311:
+    - node/7146
+explore/department/conserving-collections/people:
+    - node/7146
+node/7286:
+    - node/7146
+node/7256:
+    - node/7146
+node/6516:
+    - node/6511
+node/6306:
+    - node/6511
+node/6531:
+    - node/6511
+node/6521:
+    - node/6511
+node/6526:
+    - node/6511
+'http://fieldmuseum.org/schools/academic-programs':
+    - menu-digital-media-learning-tabs
+node/15516:
+    - menu-digital-media-learning-tabs
+'<front>':
+    - menu-homepage-menu
+explore/department/photography/people:
+    - menu-photography-tabs
+node/5186:
+    - menu-photography-tabs
+node:
+    - menu-subsections
+node/11426:
+    - 'subsection-A Greener Field'
+node/11836:
+    - 'subsection-A Greener Field'
+node/11931:
+    - 'subsection-A Greener Field'
+node/11936:
+    - 'subsection-A Greener Field'
+node/11831:
+    - 'subsection-A Greener Field'
+node/11896:
+    - 'subsection-A Greener Field'
+node/14131:
+    - 'subsection-A Greener Field'
+node/14891:
+    - node/14131
+node/16836:
+    - subsection-AAGOB
+node/16841:
+    - subsection-AAGOB
+node/17361:
+    - node/16841
+node/17316:
+    - node/16841
+node/17331:
+    - node/16841
+node/17336:
+    - node/16841
+node/17296:
+    - subsection-AAGOB
+node/17341:
+    - node/17296
+node/17346:
+    - node/17296
+node/17351:
+    - node/17296
+node/17356:
+    - node/17296
+node/17301:
+    - subsection-AAGOB
+node/17306:
+    - subsection-AAGOB
+node/17311:
+    - subsection-AAGOB
+node/16656:
+    - 'subsection-AOU/COS 2013'
+node/16176:
+    - node/16656
+node/17141:
+    - node/16656
+node/14976:
+    - node/16656
+node/15036:
+    - node/16656
+node/14941:
+    - node/16656
+node/15021:
+    - node/16656
+node/17256:
+    - node/16656
+node/14971:
+    - 'subsection-AOU/COS 2013'
+node/17181:
+    - node/14971
+node/15006:
+    - node/14971
+node/17176:
+    - 'subsection-AOU/COS 2013'
+node/16671:
+    - node/17176
+node/16616:
+    - 'subsection-AOU/COS 2013'
+node/17106:
+    - node/16616
+node/14951:
+    - 'subsection-AOU/COS 2013'
+node/12671:
+    - 'subsection-Amazonian Bird Parasites'
+node/15676:
+    - 'subsection-Amazonian Bird Parasites'
+node/15641:
+    - node/15676
+node/15651:
+    - node/15676
+node/15621:
+    - 'subsection-Amazonian Bird Parasites'
+node/15896:
+    - node/15621
+node/15901:
+    - node/15621
+node/15906:
+    - node/15621
+node/15626:
+    - 'subsection-Amazonian Bird Parasites'
+node/15636:
+    - node/15626
+node/15631:
+    - node/15626
+node/15911:
+    - node/15626
+node/11431:
+    - 'subsection-Andean Conference'
+node/11631:
+    - 'subsection-Andean Conference'
+node/11656:
+    - 'subsection-Andean Conference'
+node/11651:
+    - 'subsection-Andean Conference'
+node/11666:
+    - 'subsection-Andean Conference'
+node/11671:
+    - 'subsection-Andean Conference'
+node/11661:
+    - 'subsection-Andean Conference'
+node/13436:
+    - 'subsection-Andean Conference'
+node/12676:
+    - 'subsection-Auxiliary Groups'
+node/12961:
+    - 'subsection-Auxiliary Groups'
+node/13096:
+    - node/12961
+node/13101:
+    - node/12961
+node/12986:
+    - node/12961
+node/12211:
+    - 'subsection-Auxiliary Groups'
+node/13036:
+    - node/12211
+node/12981:
+    - node/12211
+node/13041:
+    - node/12211
+node/13046:
+    - node/12211
+node/13026:
+    - node/12211
+node/13571:
+    - node/12211
+node/12861:
+    - 'subsection-Auxiliary Groups'
+'https://secure2.convio.net/fmnh/site/Donation2?idb=1742778336&df_id=1380&1380.donation=form1':
+    - node/12861
+node/12976:
+    - node/12861
+node/13081:
+    - node/12861
+node/12286:
+    - node/12861
+node/12971:
+    - 'subsection-Auxiliary Groups'
+node/13061:
+    - node/12971
+node/13066:
+    - 'subsection-Collections Preparation and Information Resource'
+node/13356:
+    - 'subsection-Collections Preparation and Information Resource'
+node/13361:
+    - node/13356
+node/13366:
+    - node/13356
+node/13371:
+    - node/13356
+node/13376:
+    - node/13356
+node/13076:
+    - 'subsection-Corporate Giving'
+node/13216:
+    - 'subsection-Corporate Giving'
+node/13526:
+    - node/13216
+node/13596:
+    - node/13216
+node/13606:
+    - node/13216
+node/13601:
+    - node/13216
+node/13611:
+    - node/13216
+node/13536:
+    - 'subsection-Corporate Giving'
+node/13541:
+    - 'subsection-Corporate Giving'
+node/13561:
+    - node/13541
+node/13586:
+    - node/13541
+node/13591:
+    - node/13541
+node/13576:
+    - node/13541
+node/14681:
+    - 'subsection-Corporate Giving'
+node/10556:
+    - 'subsection-Deep Scaly'
+node/9671:
+    - 'subsection-Deep Scaly'
+node/9731:
+    - node/9671
+node/9771:
+    - 'subsection-Deep Scaly'
+node/9796:
+    - node/9771
+node/9681:
+    - 'subsection-Deep Scaly'
+node/9676:
+    - 'subsection-Deep Scaly'
+node/9711:
+    - 'subsection-Deep Scaly'
+'http://www.fieldmuseum.org/explore/field-museum-women-science/':
+    - menu-subsections
+node/16116:
+    - 'http://www.fieldmuseum.org/explore/field-museum-women-science/'
+node/16271:
+    - 'http://www.fieldmuseum.org/explore/field-museum-women-science/'
+node/16276:
+    - 'http://www.fieldmuseum.org/explore/field-museum-women-science/'
+node/17161:
+    - node/16276
+node/18371:
+    - 'http://www.fieldmuseum.org/explore/field-museum-women-science/'
+node/17896:
+    - node/18371
+node/17251:
+    - 'http://www.fieldmuseum.org/explore/field-museum-women-science/'
+node/17276:
+    - node/17251
+node/17281:
+    - node/17251
+node/18036:
+    - node/17251
+node/16611:
+    - 'http://www.fieldmuseum.org/explore/field-museum-women-science/'
+node/14271:
+    - 'subsection-GIS in Science and Education'
+node/17616:
+    - 'subsection-GIS in Science and Education'
+node/17606:
+    - 'subsection-GIS in Science and Education'
+node/17611:
+    - 'subsection-GIS in Science and Education'
+node/17466:
+    - 'subsection-GIS in Science and Education'
+node/10076:
+    - 'subsection-Goose Barnacles'
+node/10086:
+    - node/10076
+node/10081:
+    - node/10076
+node/10071:
+    - 'subsection-Goose Barnacles'
+node/10106:
+    - 'subsection-Goose Barnacles'
+node/10111:
+    - node/10106
+node/10101:
+    - 'subsection-Goose Barnacles'
+node/10091:
+    - 'subsection-Goose Barnacles'
+node/9986:
+    - subsection-Greenland
+node/9991:
+    - subsection-Greenland
+node/10011:
+    - node/9991
+node/10006:
+    - node/9991
+node/9996:
+    - subsection-Greenland
+node/10021:
+    - node/9996
+node/10026:
+    - node/9996
+node/10046:
+    - node/9996
+node/10051:
+    - node/9996
+node/10056:
+    - node/9996
+node/10061:
+    - node/9996
+node/9981:
+    - subsection-Greenland
+node/13696:
+    - 'subsection-Individual Giving'
+node/13761:
+    - node/13696
+node/14236:
+    - node/13696
+node/17886:
+    - node/13696
+node/13711:
+    - 'subsection-Individual Giving'
+node/13731:
+    - node/13711
+'http://fieldmuseum.org/AnnualFund':
+    - node/13711
+node/13746:
+    - node/13711
+node/13751:
+    - node/13711
+node/13721:
+    - 'subsection-Individual Giving'
+node/13771:
+    - node/13721
+'http://fieldmuseum.org/FoundersCouncil':
+    - node/13721
+node/13786:
+    - node/13721
+node/18541:
+    - node/13721
+node/13726:
+    - 'subsection-Individual Giving'
+'https://secure2.convio.net/fmnh/site/SPageServer/?pagename=api_donate&learn=more':
+    - node/13726
+'http://fieldmuseum.org/founderscouncil':
+    - node/13726
+node/10121:
+    - 'subsection-Kearney Lab'
+node/10211:
+    - 'subsection-Kearney Lab'
+node/10216:
+    - 'subsection-Kearney Lab'
+node/10226:
+    - 'subsection-Kearney Lab'
+node/12681:
+    - subsection-LinEpig
+node/13271:
+    - subsection-LinEpig
+node/13281:
+    - subsection-LinEpig
+node/14416:
+    - subsection-LinEpig
+node/13276:
+    - subsection-LinEpig
+node/11311:
+    - subsection-Malacologia
+node/11241:
+    - node/11311
+node/14836:
+    - node/11311
+node/11246:
+    - node/11311
+node/14086:
+    - node/11311
+node/8601:
+    - subsection-Malacologia
+node/8621:
+    - subsection-Malacologia
+node/11261:
+    - subsection-Malacologia
+node/11251:
+    - node/11261
+node/11256:
+    - node/11261
+node/11271:
+    - subsection-Malacologia
+node/18611:
+    - node/11271
+node/18606:
+    - node/11271
+node/18601:
+    - node/11271
+node/18596:
+    - node/11271
+node/14076:
+    - node/11271
+node/14081:
+    - node/11271
+node/12216:
+    - node/11271
+node/12221:
+    - node/11271
+node/12226:
+    - node/11271
+node/12231:
+    - node/11271
+node/12236:
+    - node/11271
+node/12246:
+    - node/11271
+node/12251:
+    - node/11271
+node/12256:
+    - node/11271
+node/12261:
+    - node/11271
+node/12266:
+    - node/11271
+node/8636:
+    - node/11271
+node/12271:
+    - node/11271
+node/8631:
+    - node/11271
+node/12276:
+    - node/11271
+node/10256:
+    - subsection-Manu
+node/10266:
+    - subsection-Manu
+node/10271:
+    - subsection-Manu
+node/10281:
+    - node/10271
+node/13486:
+    - subsection-Milli-PEET
+node/13516:
+    - node/13486
+node/13501:
+    - subsection-Milli-PEET
+node/13651:
+    - node/13501
+node/13826:
+    - node/13501
+node/13831:
+    - node/13501
+node/13836:
+    - node/13501
+node/13841:
+    - node/13501
+node/13846:
+    - node/13501
+node/13506:
+    - subsection-Milli-PEET
+node/13856:
+    - node/13506
+node/13876:
+    - node/13506
+node/13886:
+    - node/13506
+node/13921:
+    - node/13506
+node/13891:
+    - node/13506
+node/13896:
+    - node/13506
+node/13926:
+    - node/13506
+node/13941:
+    - node/13506
+node/13511:
+    - subsection-Milli-PEET
+node/13531:
+    - subsection-Milli-PEET
+node/12436:
+    - 'subsection-Mountmakers Forum'
+node/12496:
+    - 'subsection-Mountmakers Forum'
+node/12451:
+    - 'subsection-Mountmakers Forum'
+node/12461:
+    - 'subsection-Mountmakers Forum'
+node/12466:
+    - 'subsection-Mountmakers Forum'
+node/12491:
+    - 'subsection-Mountmakers Forum'
+node/10536:
+    - 'subsection-Museum Loan Network'
+node/10466:
+    - 'subsection-Museum Loan Network'
+node/12036:
+    - node/10466
+node/12026:
+    - node/10466
+node/12031:
+    - node/10466
+node/10471:
+    - node/10466
+node/10481:
+    - node/10466
+node/10531:
+    - node/10466
+node/10526:
+    - node/10466
+node/12021:
+    - 'subsection-Museum Loan Network'
+node/10596:
+    - subsection-PEET-bivalves
+node/10891:
+    - node/10596
+node/7811:
+    - subsection-PEET-bivalves
+node/11046:
+    - node/7811
+node/11041:
+    - node/7811
+node/11061:
+    - node/7811
+node/11066:
+    - node/7811
+node/11026:
+    - subsection-PEET-bivalves
+node/7806:
+    - node/11026
+node/7931:
+    - node/11026
+node/7801:
+    - node/11026
+node/11021:
+    - subsection-PEET-bivalves
+node/7656:
+    - node/11021
+node/7671:
+    - node/11021
+node/7676:
+    - node/11021
+node/7681:
+    - node/11021
+node/7686:
+    - node/11021
+node/7691:
+    - node/11021
+node/7696:
+    - node/11021
+node/7701:
+    - node/11021
+node/7726:
+    - subsection-PEET-bivalves
+node/17916:
+    - 'subsection-Systems Biology'
+node/17971:
+    - 'subsection-Systems Biology'
+node/17936:
+    - node/17971
+node/17981:
+    - 'subsection-Systems Biology'
+node/17996:
+    - node/17981
+node/17976:
+    - 'subsection-Systems Biology'
+node/18006:
+    - node/17976
+node/17961:
+    - 'subsection-Systems Biology'
+node/17951:
+    - node/17961
+node/17986:
+    - 'subsection-Systems Biology'
+node/18101:
+    - node/17986
+node/18031:
+    - 'subsection-Systems Biology'
+node/18156:
+    - node/18031
+node/10236:
+    - subsection-Textiles
+node/10241:
+    - subsection-Textiles
+node/10246:
+    - subsection-Textiles
+node/13491:
+    - 'subsection-Women''s Board'
+node/14431:
+    - 'subsection-Women''s Board'
+node/14436:
+    - node/14431
+node/17486:
+    - 'subsection-Women''s Board'
+explore/mapping/projects:
+    - menu-subsections
+'http://enews.fieldmuseum.org/site/PageServer?pagename=api_donate&donate=now':
+    - menu-utility-menu
+'http://store.fieldmuseum.org/':
+    - menu-utility-menu
+'https://tickets.fieldmuseum.org/public/':
+    - menu-utility-menu
+filter/tips:
+    - navigation
+search404:
+    - navigation
+node/8156:
+    - node/70
+node/8176:
+    - node/70
+explore/department/pritzkerlab/people:
+    - node/70
+node/8151:
+    - node/70
+node/8186:
+    - node/70
+node/8216:
+    - node/8186
+user:
+    - user-menu
+user/register:
+    - user
+user/login:
+    - user
+user/password:
+    - user
+node/40:
+    - node/33
+node/38:
+    - node/33
+explore/department/zoology/people:
+    - node/33
+node/2506:
+    - node/33
+node/42:
+    - node/33

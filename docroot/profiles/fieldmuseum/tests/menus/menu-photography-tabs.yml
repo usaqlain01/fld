@@ -1,0 +1,12 @@
+'50001 People 10376':
+    link:
+        link_path: explore/department/photography/people
+        router_path: explore/department/%/people
+        link_title: People
+        type: '0'
+'50002 Collections 10381':
+    link:
+        link_path: node/5186
+        router_path: node/%
+        link_title: Collections
+        type: '6'

@@ -1,0 +1,36 @@
+'50000 Home 2335':
+    link:
+        link_path: node/46
+        router_path: node/%
+        link_title: Home
+        type: '6'
+'50001 Research 2184':
+    link:
+        link_path: node/47
+        router_path: node/%
+        link_title: Research
+        type: '6'
+'50002 Collections 9631':
+    link:
+        link_path: node/50
+        router_path: node/%
+        link_title: Collections
+        type: '6'
+'50003 People 2659':
+    link:
+        link_path: explore/department/anthropology/people
+        router_path: explore/department/%/people
+        link_title: People
+        type: '0'
+'50004 Partnerships 5446':
+    link:
+        link_path: node/48
+        router_path: node/%
+        link_title: Partnerships
+        type: '6'
+'50005 Policies 2263':
+    link:
+        link_path: node/49
+        router_path: node/%
+        link_title: Policies
+        type: '6'

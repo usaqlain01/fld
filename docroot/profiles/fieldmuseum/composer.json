@@ -1,0 +1,17 @@
+{
+    "require": {
+        "stojg/crop": "~1.2.6",
+        "symfony/yaml": "~2.4"
+    },
+    "require-dev": {
+        "querypath/QueryPath": "dev-master",
+        "facebook/xhprof": "dev-master",
+        "raulfraile/ladybug": "dev-master",
+        "symfony/debug": "~2.4",
+        "drupal/drupal-extension": "1.0.*@stable",
+        "phpunit/phpunit": "4.1.*"
+    },
+    "autoload": {
+        "psr-4": {"": "lib/"}
+    }
+}

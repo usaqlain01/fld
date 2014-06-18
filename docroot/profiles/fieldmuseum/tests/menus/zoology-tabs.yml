@@ -1,0 +1,36 @@
+'50000 Home 2333':
+    link:
+        link_path: node/33
+        router_path: node/%
+        link_title: Home
+        type: '6'
+'50001 Research 2273':
+    link:
+        link_path: node/40
+        router_path: node/%
+        link_title: Research
+        type: '6'
+'50002 Collections 10786':
+    link:
+        link_path: node/38
+        router_path: node/%
+        link_title: Collections
+        type: '6'
+'50003 People 2663':
+    link:
+        link_path: explore/department/zoology/people
+        router_path: explore/department/%/people
+        link_title: People
+        type: '0'
+'50004 History 6126':
+    link:
+        link_path: node/2506
+        router_path: node/%
+        link_title: History
+        type: '6'
+'50005 Policies 2274':
+    link:
+        link_path: node/42
+        router_path: node/%
+        link_title: Policies
+        type: '6'

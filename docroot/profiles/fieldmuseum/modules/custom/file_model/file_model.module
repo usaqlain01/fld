@@ -1,0 +1,166 @@
+<?php
+
+/**
+ * Implements hook_ctools_plugin_api().
+ */
+function file_model_ctools_plugin_api($module, $api) {
+  if ($module == 'file_entity' && $api == 'file_type') {
+    return array('version' => 1);
+  }
+}
+
+/**
+ * Implements hook_field_formatter_info().
+ */
+function file_model_field_formatter_info() {
+  return array(
+    'x3d' => array(
+      'label' => t('x3d'),
+      'field types' => array('file'),
+    ),
+    'qt' => array(
+      'label' => t('QuickTime VR'),
+      'field types' => array('file'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_field_formatter_view().
+ */
+function file_model_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  $element = array();
+
+  switch ($display['type']) {
+    case 'x3d':
+      foreach ($items as $delta => $item) {
+        $element[$delta] = array(
+          '#theme' => 'x3d',
+          '#file' => (object) $item,
+        );
+      }
+      break;
+    case 'qt':
+      foreach ($items as $delta => $item) {
+        $element[$delta] = array(
+          '#theme' => 'qt',
+          '#file' => (object) $item,
+        );
+      }
+      break;
+  }
+
+  return $element;
+}
+
+/**
+ * Implements hook_theme().
+ */
+function file_model_theme($existing, $type, $theme, $path) {
+  return array(
+    'x3d' => array(
+      'variables' => array('file' => NULL, 'width' => 800, 'height' => 600),
+      'file' => 'file_model.theme.inc',
+    ),
+    'x3dom' => array(
+      'variables' => array('file' => NULL, 'width' => 800, 'height' => 600),
+      'file' => 'file_model.theme.inc',
+    ),
+    'qt' => array(
+      'variables' => array('file' => NULL, 'width' => 800, 'height' => 600),
+      'file' => 'file_model.theme.inc',
+    ),
+  );
+}
+
+
+/**
+ * Implements hook_file_formatter_FORMATTER_view().
+ */
+function file_model_file_formatter_x3d_view($file, $display, $langcode) {
+  return array(
+    '#theme' => 'x3dom',
+    '#file' => $file,
+    '#width' => $display['settings']['width'],
+    '#height' => $display['settings']['height'],
+  );
+}
+
+/**
+ * Implements hook_file_formatter_FORMATTER_view().
+ */
+function file_model_file_formatter_qt_view($file, $display, $langcode) {
+  return array(
+    '#theme' => 'qt',
+    '#file' => $file,
+    '#width' => $display['settings']['width'],
+    '#height' => $display['settings']['height'],
+  );
+}
+
+/**
+ * Implements hook_file_formatter_FORMATTER_settings().
+ */
+function file_model_file_formatter_x3d_settings($form, &$form_state, $settings) {
+  $element = array();
+
+  // For image files we allow the alt attribute (required in HTML).
+  $element['width'] = array(
+    '#title' => t('Width'),
+    '#type' => 'textfield',
+    '#default_value' => $settings['width'],
+  );
+
+  // Allow the setting of the title attribute.
+  $element['height'] = array(
+    '#title' => t('Height'),
+    '#type' => 'textfield',
+    '#default_value' => $settings['height'],
+  );
+
+  return $element;
+}
+
+/**
+ * Implements hook_file_formatter_FORMATTER_settings().
+ */
+function file_model_file_formatter_qt_settings($form, &$form_state, $settings) {
+  $element = array();
+
+  // For image files we allow the alt attribute (required in HTML).
+  $element['width'] = array(
+    '#title' => t('Width'),
+    '#type' => 'textfield',
+    '#default_value' => $settings['width'],
+  );
+
+  // Allow the setting of the title attribute.
+  $element['height'] = array(
+    '#title' => t('Height'),
+    '#type' => 'textfield',
+    '#default_value' => $settings['height'],
+  );
+
+  return $element;
+}
+
+/**
+ * @return mixed
+ */
+function file_model_library() {
+  $libraries['x3dom'] = array(
+    'title' => 'X3DOM',
+    'website' => 'http://www.x3dom.org',
+    'version' => '1.6.0',
+    'js' => array(
+      libraries_get_path('x3dom') . '/x3dom.js' => array(),
+    ),
+    'css' => array(
+      libraries_get_path('x3dom') . '/x3dom.css' => array(
+        'type' => 'file',
+        'media' => 'screen',
+      ),
+    ),
+  );
+  return $libraries;
+}

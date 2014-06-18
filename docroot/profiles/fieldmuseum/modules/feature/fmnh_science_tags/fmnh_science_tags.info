@@ -1,0 +1,16 @@
+name = Field Museum science tags
+core = 7.x
+package = The Field Museum
+dependencies[] = entityreference
+dependencies[] = features
+dependencies[] = field_group
+dependencies[] = taxonomy
+features[features_api][] = api:2
+features[field_base][] = field_location_region
+features[field_base][] = field_research_area
+features[field_base][] = field_science_focus
+features[field_base][] = field_stratigraphy
+features[taxonomy][] = location_region
+features[taxonomy][] = research_area
+features[taxonomy][] = science_focus
+features[taxonomy][] = stratigraphy

@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Field Museum blog feature.
+ */
+
+include_once 'fmnh_blog.features.inc';
