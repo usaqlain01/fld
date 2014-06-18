@@ -1,0 +1,18 @@
+name = Entity List
+description = Provides an abstraction layer for different query builders like Views and EntityFieldQuery. This lets you build lists of content from different query builders but handle presentation and caching consistently.
+core = 7.x
+package = "Entity List"
+
+files[] = includes/EntityList.inc
+files[] = includes/EntityListHandler.inc
+
+files[] = handlers/EntityListHandlerApachesolr.inc
+files[] = handlers/EntityListHandlerDraggableViews.inc
+files[] = handlers/EntityListHandlerDraggableViewsNative.inc
+files[] = handlers/EntityListHandlerEFQ.inc
+files[] = handlers/EntityListHandlerEntityReference.inc
+files[] = handlers/EntityListHandlerNodeQueue.inc
+files[] = handlers/EntityListHandlerSearchApi.inc
+files[] = handlers/EntityListHandlerSQL.inc
+files[] = handlers/EntityListHandlerViews.inc
+files[] = handlers/EntityListHandlerApachesolrMLT.inc
