@@ -142,12 +142,14 @@ function fieldmuseum_default_page_manager_pages() {
   $display = new panels_display();
   $display->layout = 'l5a';
   $display->layout_settings = array(
-    'main_classes' => '',
+    'main_classes' => 'summaries--2up',
+    'nav_classes' => 'navSection',
   );
   $display->panel_settings = array(
     'style_settings' => array(
       'default' => NULL,
       'main' => NULL,
+      'nav' => NULL,
     ),
   );
   $display->cache = array();
@@ -157,7 +159,7 @@ function fieldmuseum_default_page_manager_pages() {
   $display->panels = array();
     $pane = new stdClass();
     $pane->pid = 'new-dfab5014-6e3f-46c9-b52e-baff09478dc9';
-    $pane->panel = 'main';
+    $pane->panel = 'nav';
     $pane->type = 'menu_tree';
     $pane->subtype = 'main-menu';
     $pane->shown = TRUE;
@@ -185,7 +187,7 @@ function fieldmuseum_default_page_manager_pages() {
     $pane->locks = array();
     $pane->uuid = 'dfab5014-6e3f-46c9-b52e-baff09478dc9';
     $display->content['new-dfab5014-6e3f-46c9-b52e-baff09478dc9'] = $pane;
-    $display->panels['main'][0] = 'new-dfab5014-6e3f-46c9-b52e-baff09478dc9';
+    $display->panels['nav'][0] = 'new-dfab5014-6e3f-46c9-b52e-baff09478dc9';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;

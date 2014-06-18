@@ -13,6 +13,7 @@ $plugin = array(
 
   'regions'     => array(
     'main'      => t('Main'),
+    'nav'      => t('Nav'),
   ),
 
   'settings form'     => 'esquif_l5a_settings_form',
