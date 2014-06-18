@@ -129,6 +129,8 @@ class StaffProfileMigration extends DrupalMigration
     $this->addfieldMapping('field_position:language')->defaultValue(LANGUAGE_NONE);
     $this->addfieldMapping('field_year_started:language')->defaultValue(LANGUAGE_NONE);
     $this->addfieldMapping('field_surname:language')->defaultValue(LANGUAGE_NONE);
+
+    $this->addFieldMapping(null, 'field_secondary_dept_division')->description('Handled in prepareRow');
   }
 
 
@@ -174,6 +176,10 @@ class StaffProfileMigration extends DrupalMigration
           $row->{$index}[] = $field_row->$column_name;
         }
       }
+    }
+
+    if ($row->field_secondary_dept_division) {
+      $row->field_dept_division_tags += $row->field_secondary_dept_division;
     }
   }
 }
