@@ -98,9 +98,6 @@ projects[image_resize_filter][version] = 1.14
 projects[inline][subdir] = contrib
 projects[inline][version] = 2.x-dev
 
-projects[inline_entity_form][subdir] = contrib
-projects[inline_entity_form][version] = 1.5
-
 projects[invisimail][subdir] = contrib
 projects[invisimail][version] = 1.1
 

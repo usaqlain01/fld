@@ -51,8 +51,8 @@ function fmnh_exhibit_field_group_info() {
     'label' => 'figure',
     'weight' => '0',
     'children' => array(
-      0 => 'field_image',
-      1 => 'field_banner_description',
+      0 => 'field_banner_description',
+      1 => 'field_image',
     ),
     'format_type' => 'html-element',
     'format_settings' => array(
