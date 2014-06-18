@@ -84,6 +84,14 @@ class DepartmentTermMigration extends TermToNodeMigration
         'mlid' => null,
       );
     }
+    else if ($row->parent == 0) {
+      $row->menu = array(
+        'enabled' => true,
+        'link_title' => $row->name,
+        'menu_name' => 'menu-graveyard',
+        'plid' => 0,
+      );
+    }
     else {
       $source_migrations = array(
         'DepartmentTerm',
