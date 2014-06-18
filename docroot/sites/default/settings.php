@@ -31,4 +31,50 @@ ini_set('url_rewriter.tags',        '');
 // (Drupal 5 or 6) or $databases (Drupal 7) as described in comments above.
 if (file_exists('/var/www/site-php')) {
   require('/var/www/site-php/fieldmusefacelift/fieldmusefacelift-settings.inc');
+  if ($_ENV['AH_SITE_ENVIRONMENT']) {
+    switch ($_ENV['AH_SITE_ENVIRONMENT']) {
+      case 'dev':
+        $conf['fmnh_migrate_file_source_dir'] = '/vol/ebs1/gfs/home/fieldmusefacelift/dev/migrate/files';
+        $databases['migrate'] = array(
+          'default' => array(
+            'driver' => 'mysql',
+            'database' => 'fieldmusedb54461',
+            'username' => 's38651',
+            'password' => 'LE7Zteu6v3tQhCG',
+            'host' => 'srv-3298.devcloud.hosting.acquia.com',
+            'prefix' => '',
+            'port' => 3306,
+          )
+        );
+        break;
+      case 'test':
+        $conf['fmnh_migrate_file_source_dir'] = '/vol/ebs1/gfs/home/fieldmusefacelift/test/migrate/files';
+        $databases['migrate'] = array(
+          'default' => array(
+            'driver' => 'mysql',
+            'database' => 'fieldmusedb54463',
+            'username' => 's38650',
+            'password' => '7ZnvKj7scHRHecU',
+            'host' => 'srv-3298.devcloud.hosting.acquia.com',
+            'prefix' => '',
+            'port' => 3306,
+          )
+        );
+        break;
+      case 'prod':
+        $conf['fmnh_migrate_file_source_dir'] = '/vol/ebs1/gfs/home/fieldmusefacelift/prod/migrate/files';
+        $databases['migrate'] = array(
+          'default' => array(
+            'driver' => 'mysql',
+            'database' => 'fieldmusedb54462',
+            'username' => 's38649',
+            'password' => 'XhhWTLFUFyTc2wJ',
+            'host' => 'srv-3298.devcloud.hosting.acquia.com',
+            'prefix' => '',
+            'port' => 3306,
+          )
+        );
+        break;
+    }
+  }
 }
