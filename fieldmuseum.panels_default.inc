@@ -49,8 +49,8 @@ function fieldmuseum_default_panels_mini() {
     $pane->access = array();
     $pane->configuration = array(
       'menu_name' => 'main-menu',
-      'parent_mlid' => 204,
-      'parent' => 'main-menu:204',
+      'parent_mlid' => 1681,
+      'parent' => 'main-menu:1681',
       'title_link' => 1,
       'admin_title' => '',
       'level' => '1',
@@ -121,8 +121,8 @@ function fieldmuseum_default_panels_mini() {
     $pane->access = array();
     $pane->configuration = array(
       'menu_name' => 'main-menu',
-      'parent_mlid' => 205,
-      'parent' => 'main-menu:205',
+      'parent_mlid' => 1686,
+      'parent' => 'main-menu:1686',
       'title_link' => 1,
       'admin_title' => '',
       'level' => '1',
@@ -193,8 +193,8 @@ function fieldmuseum_default_panels_mini() {
     $pane->access = array();
     $pane->configuration = array(
       'menu_name' => 'main-menu',
-      'parent_mlid' => 206,
-      'parent' => 'main-menu:206',
+      'parent_mlid' => 1691,
+      'parent' => 'main-menu:1691',
       'title_link' => 1,
       'admin_title' => '',
       'level' => '1',
@@ -265,8 +265,8 @@ function fieldmuseum_default_panels_mini() {
     $pane->access = array();
     $pane->configuration = array(
       'menu_name' => 'main-menu',
-      'parent_mlid' => 203,
-      'parent' => 'main-menu:203',
+      'parent_mlid' => 1676,
+      'parent' => 'main-menu:1676',
       'title_link' => 1,
       'admin_title' => '',
       'level' => '1',
@@ -337,8 +337,8 @@ function fieldmuseum_default_panels_mini() {
     $pane->access = array();
     $pane->configuration = array(
       'menu_name' => 'main-menu',
-      'parent_mlid' => 207,
-      'parent' => 'main-menu:207',
+      'parent_mlid' => 1696,
+      'parent' => 'main-menu:1696',
       'title_link' => 1,
       'admin_title' => '',
       'level' => '1',
@@ -409,8 +409,8 @@ function fieldmuseum_default_panels_mini() {
     $pane->access = array();
     $pane->configuration = array(
       'menu_name' => 'main-menu',
-      'parent_mlid' => 202,
-      'parent' => 'main-menu:202',
+      'parent_mlid' => 1671,
+      'parent' => 'main-menu:1671',
       'title_link' => 1,
       'admin_title' => '',
       'level' => '1',
