@@ -95,6 +95,9 @@ projects[imagecrop][download][branch] = develop
 projects[image_resize_filter][subdir] = contrib
 projects[image_resize_filter][version] = 1.14
 
+projects[imagemagick][subdir] = contrib
+projects[imagemagick][version] = 1.x-dev
+
 projects[inline][subdir] = contrib
 projects[inline][version] = 2.x-dev
 
