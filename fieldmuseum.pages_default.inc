@@ -1952,14 +1952,21 @@ function fieldmuseum_default_page_manager_pages() {
     'relationships' => array(),
   );
   $display = new panels_display();
-  $display->layout = 'zen_no_wrapper';
+  $display->layout = 'l3';
   $display->layout_settings = array(
-    'main_classes' => '',
+    'top_classes' => 'promos--3up',
+    'middle_classes' => '',
+    'bottom_classes' => 'summaries--3up',
+    'nav_classes' => 'navSection',
   );
   $display->panel_settings = array(
     'style_settings' => array(
       'default' => NULL,
       'main' => NULL,
+      'top' => NULL,
+      'middle' => NULL,
+      'bottom' => NULL,
+      'nav' => NULL,
     ),
   );
   $display->cache = array();
@@ -1968,38 +1975,23 @@ function fieldmuseum_default_page_manager_pages() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-9a08e76d-af3d-4f08-ae40-71a25e52853d';
-    $pane->panel = 'main';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
+    $pane->pid = 'new-947d2ddb-1bc9-4494-9877-1abb6ccde6ca';
+    $pane->panel = 'nav';
+    $pane->type = 'menu_tree';
+    $pane->subtype = 'main-menu';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'admin_title' => 'Introduction',
-      'title' => '',
-      'body' => 'Intent: provide an introduction to The Field\'s research and spell out your scientific mission statement.',
-      'format' => 'markdown',
-      'substitute' => TRUE,
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = '9a08e76d-af3d-4f08-ae40-71a25e52853d';
-    $display->content['new-9a08e76d-af3d-4f08-ae40-71a25e52853d'] = $pane;
-    $display->panels['main'][0] = 'new-9a08e76d-af3d-4f08-ae40-71a25e52853d';
-    $pane = new stdClass();
-    $pane->pid = 'new-ca141c23-c717-42eb-baea-bb4bbdcbf2f0';
-    $pane->panel = 'main';
-    $pane->type = 'block';
-    $pane->subtype = 'blog-recent';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
+      'menu_name' => 'main-menu',
+      'parent_mlid' => 0,
+      'parent' => 'main-menu:0',
+      'title_link' => 0,
+      'admin_title' => '',
+      'level' => '1',
+      'follow' => 'child',
+      'depth' => '0',
+      'expanded' => 1,
+      'sort' => 0,
       'override_title' => 0,
       'override_title_text' => '',
     );
@@ -2009,62 +2001,11 @@ function fieldmuseum_default_page_manager_pages() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 1;
+    $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = 'ca141c23-c717-42eb-baea-bb4bbdcbf2f0';
-    $display->content['new-ca141c23-c717-42eb-baea-bb4bbdcbf2f0'] = $pane;
-    $display->panels['main'][1] = 'new-ca141c23-c717-42eb-baea-bb4bbdcbf2f0';
-    $pane = new stdClass();
-    $pane->pid = 'new-a3bdc9ce-2dd1-4c89-8390-aa956641015b';
-    $pane->panel = 'main';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'admin_title' => 'Featured collection',
-      'title' => 'Fishes Dried Skeleton Collection',
-      'body' => '(for example)',
-      'format' => 'markdown',
-      'substitute' => TRUE,
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 2;
-    $pane->locks = array();
-    $pane->uuid = 'a3bdc9ce-2dd1-4c89-8390-aa956641015b';
-    $display->content['new-a3bdc9ce-2dd1-4c89-8390-aa956641015b'] = $pane;
-    $display->panels['main'][2] = 'new-a3bdc9ce-2dd1-4c89-8390-aa956641015b';
-    $pane = new stdClass();
-    $pane->pid = 'new-45e77207-718d-4343-9c77-2c9ef6214178';
-    $pane->panel = 'main';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'admin_title' => 'Science Newsflash',
-      'title' => 'Sue\'s Microbes go to Space',
-      'body' => 'What do cheerleaders, microbes, and dinosaur skeletons have in common?  They are all part of a project taking place onboard the International Space Station! Talk about worlds colliding!
-',
-      'format' => 'markdown',
-      'substitute' => TRUE,
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 3;
-    $pane->locks = array();
-    $pane->uuid = '45e77207-718d-4343-9c77-2c9ef6214178';
-    $display->content['new-45e77207-718d-4343-9c77-2c9ef6214178'] = $pane;
-    $display->panels['main'][3] = 'new-45e77207-718d-4343-9c77-2c9ef6214178';
+    $pane->uuid = '947d2ddb-1bc9-4494-9877-1abb6ccde6ca';
+    $display->content['new-947d2ddb-1bc9-4494-9877-1abb6ccde6ca'] = $pane;
+    $display->panels['nav'][0] = 'new-947d2ddb-1bc9-4494-9877-1abb6ccde6ca';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
