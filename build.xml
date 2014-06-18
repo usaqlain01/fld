@@ -26,6 +26,7 @@
     </target>
 
     <target name="composer-update" depends="prepare">
+        <exec command="drush composer-json-rebuild" dir="./docroot" />
         <exec command="drush composer-manager update --prefer-dist --no-dev --no-interaction --verbose --optimize-autoloader" dir="./docroot" />
     </target>
 
