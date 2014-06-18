@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * fieldmuseum.file_default_displays.inc
+ * fmnh_media.file_default_displays.inc
  */
 
 /**
  * Implements hook_file_default_displays().
  */
-function fieldmuseum_file_default_displays() {
+function fmnh_media_file_default_displays() {
   $export = array();
 
   $file_display = new stdClass();
