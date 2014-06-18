@@ -8,7 +8,7 @@
  * include file", which provides the correct database credentials for your site.
  */
 $update_free_access = FALSE;
-$drupal_hash_salt = '';
+$drupal_hash_salt = 'l2MKidUCwLpwuZtpFHB2hXQa4vytP4d44tofDi1JsXQ';
 ini_set('arg_separator.output',     '&amp;');
 ini_set('magic_quotes_runtime',     0);
 ini_set('magic_quotes_sybase',      0);
@@ -78,5 +78,20 @@ if (file_exists('/var/www/site-php')) {
         );
         break;
     }
+  }
+}
+
+// Make sure Drush keeps working.
+// Modified from function drush_verify_cli()
+$cli = (php_sapi_name() == 'cli');
+if (!$cli) {
+  $username = 'fmnh';
+  $password = 'fmnh';
+  if (!(isset($_SERVER['PHP_AUTH_USER']) && ($_SERVER['PHP_AUTH_USER']==$username && $_SERVER['PHP_AUTH_PW']==$password))) {
+    header('WWW-Authenticate: Basic realm="This site is protected"');
+    header('HTTP/1.0 401 Unauthorized');
+    // Fallback message when the user presses cancel / escape
+    echo 'Access denied';
+    exit;
   }
 }

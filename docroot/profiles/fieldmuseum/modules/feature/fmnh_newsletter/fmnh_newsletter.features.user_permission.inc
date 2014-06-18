@@ -63,21 +63,27 @@ function fmnh_newsletter_user_default_permissions() {
   // Exported permission: 'enter newsletter revision log entry'.
   $permissions['enter newsletter revision log entry'] = array(
     'name' => 'enter newsletter revision log entry',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'override_node_options',
   );
 
   // Exported permission: 'override newsletter authored by option'.
   $permissions['override newsletter authored by option'] = array(
     'name' => 'override newsletter authored by option',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'override_node_options',
   );
 
   // Exported permission: 'override newsletter authored on option'.
   $permissions['override newsletter authored on option'] = array(
     'name' => 'override newsletter authored on option',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'override_node_options',
   );
 
@@ -93,21 +99,27 @@ function fmnh_newsletter_user_default_permissions() {
   // Exported permission: 'override newsletter published option'.
   $permissions['override newsletter published option'] = array(
     'name' => 'override newsletter published option',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'override_node_options',
   );
 
   // Exported permission: 'override newsletter revision option'.
   $permissions['override newsletter revision option'] = array(
     'name' => 'override newsletter revision option',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'override_node_options',
   );
 
   // Exported permission: 'override newsletter sticky option'.
   $permissions['override newsletter sticky option'] = array(
     'name' => 'override newsletter sticky option',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'override_node_options',
   );
 

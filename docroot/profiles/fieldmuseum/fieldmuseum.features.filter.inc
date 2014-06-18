@@ -50,7 +50,7 @@ function fieldmuseum_filter_default_formats() {
     'name' => 'Filtered WYSIWYG',
     'cache' => 1,
     'status' => 1,
-    'weight' => -7,
+    'weight' => -10,
     'filters' => array(
       'filter_autop' => array(
         'weight' => -50,
@@ -102,7 +102,7 @@ function fieldmuseum_filter_default_formats() {
     'name' => 'Full HTML',
     'cache' => 1,
     'status' => 1,
-    'weight' => -8,
+    'weight' => -7,
     'filters' => array(
       'invisimail_encode_html_entities' => array(
         'weight' => -48,
@@ -139,7 +139,7 @@ function fieldmuseum_filter_default_formats() {
     'name' => 'Full WYSIWYG',
     'cache' => 1,
     'status' => 1,
-    'weight' => -6,
+    'weight' => -8,
     'filters' => array(
       'invisimail_encode_html_entities' => array(
         'weight' => -50,
@@ -194,7 +194,7 @@ function fieldmuseum_filter_default_formats() {
     'name' => 'Markdown',
     'cache' => 1,
     'status' => 1,
-    'weight' => -5,
+    'weight' => -6,
     'filters' => array(
       'filter_markdown' => array(
         'weight' => 0,
@@ -215,7 +215,7 @@ function fieldmuseum_filter_default_formats() {
     'name' => 'Plain text',
     'cache' => 1,
     'status' => 1,
-    'weight' => -10,
+    'weight' => -3,
     'filters' => array(
       'filter_html_escape' => array(
         'weight' => 0,
@@ -243,7 +243,7 @@ function fieldmuseum_filter_default_formats() {
     'name' => 'Unfiltered',
     'cache' => 1,
     'status' => 1,
-    'weight' => -3,
+    'weight' => -4,
     'filters' => array(),
   );
 
@@ -253,7 +253,7 @@ function fieldmuseum_filter_default_formats() {
     'name' => 'Unfiltered Phrase HTML',
     'cache' => 1,
     'status' => 1,
-    'weight' => -4,
+    'weight' => -5,
     'filters' => array(
       'filter_html' => array(
         'weight' => -10,

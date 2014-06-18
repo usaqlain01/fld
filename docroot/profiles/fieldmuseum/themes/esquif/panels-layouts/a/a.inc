@@ -13,6 +13,9 @@ $plugin = array(
 
   'regions'     => array(
     'main'      => t('Main'),
+    'banners'   => t('Banners'),
+    'bottom_left' => t('Bottom left'),
+    'bottom_right' => t('Bottom right'),
   ),
 
   'settings form'     => 'esquif_a_settings_form',

@@ -56,6 +56,9 @@ projects[entitylist][download][type] = git
 projects[entityreference][subdir] = contrib
 projects[entityreference][version] = 1.1
 
+projects[facetapi][subdir] = contrib
+projects[facetapi][version] = 1.3
+
 projects[features][subdir] = contrib
 projects[features][version] = 2.0
 
@@ -95,11 +98,11 @@ projects[imagecrop][download][branch] = develop
 projects[image_resize_filter][subdir] = contrib
 projects[image_resize_filter][version] = 1.14
 
+projects[imagemagick][subdir] = contrib
+projects[imagemagick][version] = 1.x-dev
+
 projects[inline][subdir] = contrib
 projects[inline][version] = 2.x-dev
-
-projects[inline_entity_form][subdir] = contrib
-projects[inline_entity_form][version] = 1.5
 
 projects[invisimail][subdir] = contrib
 projects[invisimail][version] = 1.1
@@ -169,6 +172,15 @@ projects[profile2][version] = 1.x-dev
 
 projects[redirect][subdir] = contrib
 projects[redirect][version] = 1.x-dev
+
+projects[search_api][subdir] = contrib
+projects[search_api][version] = 1.12
+
+projects[search_api_db][subdir] = contrib
+projects[search_api_db][version] = 1.3
+
+projects[search_api_page][subdir] = contrib
+projects[search_api_page][version] = 1.1
 
 projects[semantic_panels][subdir] = contrib
 projects[semantic_panels][version] = 1.2
@@ -273,4 +285,8 @@ libraries[x3dom][download][type] = get
 libraries[x3dom][download][url] = http://x3dom.org/download/1.6/x3dom-1.6.0.zip
 libraries[x3dom][type] = library
 
+; for local development environment
 ; drush --yes make --working-copy --contrib-destination=. --no-core fieldmuseum.make
+
+; for acquia
+; drush --yes make --contrib-destination=. --no-core fieldmuseum.make

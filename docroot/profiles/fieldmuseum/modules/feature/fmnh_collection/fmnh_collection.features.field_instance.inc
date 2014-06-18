@@ -689,6 +689,7 @@ function fmnh_collection_field_default_field_instances() {
         'label' => 'above',
         'module' => 'entityreference',
         'settings' => array(
+          'field_formatter_class' => '',
           'link' => FALSE,
         ),
         'type' => 'entityreference_label',

@@ -392,3 +392,76 @@ function esquif_menu_tree__menu_block__ctools_main_menu_5($variables) {
 function esquif_menu_tree__menu_block__ctools_main_menu_6($variables) {
   return esquif_menu_tree__menu_block__ctools_main_menu_1($variables);
 }
+
+/**
+ * Breadcrumb theme
+ *
+ * Overridden from Zen's to add more class attributes.
+ *
+ * @param $variables
+ * @return string
+ */
+function esquif_breadcrumb($variables) {
+  $breadcrumb = $variables['breadcrumb'];
+  $output = '';
+
+  // Determine if we are to display the breadcrumb.
+  $show_breadcrumb = theme_get_setting('zen_breadcrumb');
+  if ($show_breadcrumb == 'yes' || $show_breadcrumb == 'admin' && arg(0) == 'admin') {
+
+    // Optionally get rid of the homepage link.
+    $show_breadcrumb_home = theme_get_setting('zen_breadcrumb_home');
+    if (!$show_breadcrumb_home) {
+      array_shift($breadcrumb);
+    }
+
+    // Return the breadcrumb with separators.
+    if (!empty($breadcrumb)) {
+      $breadcrumb_separator = filter_xss_admin(theme_get_setting('zen_breadcrumb_separator'));
+      $trailing_separator = $title = '';
+      if (theme_get_setting('zen_breadcrumb_title')) {
+        $item = menu_get_item();
+        if (!empty($item['tab_parent'])) {
+          // If we are on a non-default tab, use the tab's title.
+          $breadcrumb[] = check_plain($item['title']);
+        }
+        else {
+          $breadcrumb[] = drupal_get_title();
+        }
+      }
+      elseif (theme_get_setting('zen_breadcrumb_trailing')) {
+        $trailing_separator = $breadcrumb_separator;
+      }
+
+      // Provide a navigational heading to give context for breadcrumb links to
+      // screen-reader users.
+      if (empty($variables['title'])) {
+        $variables['title'] = t('You are here');
+      }
+      // Unless overridden by a preprocess function, make the heading invisible.
+      if (!isset($variables['title_attributes_array']['class'])) {
+        $variables['title_attributes_array']['class'][] = 'element-invisible';
+      }
+
+      // Build the breadcrumb trail.
+      $output = '<nav class="breadcrumb" role="navigation" itemprop="breadcrumb">';
+      $output .= '<h2' . drupal_attributes($variables['title_attributes_array']) . '>' . $variables['title'] . '</h2>';
+      $output .= '<ol class="breadcrumb__list"><li class="breadcrumb__item">' . implode($breadcrumb_separator . '</li><li class="breadcrumb__item">', $breadcrumb) . $trailing_separator . '</li></ol>';
+      $output .= '</nav>';
+    }
+  }
+
+  return $output;
+}
+
+/**
+ * Add additional class attribute to breadcrumb links.
+ *
+ * @param $active_trail
+ * @param $item
+ */
+function esquif_menu_breadcrumb_alter(&$active_trail, $item) {
+  foreach ($active_trail as &$trail_item) {
+    $trail_item['localized_options']['attributes']['class'] = 'breadcrumb__link';
+  }
+}
