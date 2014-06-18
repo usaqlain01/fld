@@ -146,9 +146,10 @@ class StaffProfileMigration extends DrupalMigration
     }
 
     $entity_id = $row->uid;
+    $source_field_info = $this->version->getSourceFieldInfo();
 
     // Load up field data for dynamically mapped fields
-    foreach ($this->version->getSourceFieldInfo() as $field_name => $field_info) {
+    foreach ($source_field_info as $field_name => $field_info) {
       // Find the data in field_data_$field_name.
       $table = "field_data_$field_name";
       $result = Database::getConnection('default', $this->arguments['source_connection'])
@@ -163,7 +164,7 @@ class StaffProfileMigration extends DrupalMigration
         $i = 0;
         // We assume the first column is the "primary" value of the field, and
         // assign the field name rather than the column name for it.
-        foreach ($this->version->getSourceFieldInfo()[$field_name]['columns'] as $display_name => $column_name) {
+        foreach ($source_field_info[$field_name]['columns'] as $display_name => $column_name) {
           if ($i++ == 0) {
             $index = $field_name;
           }
