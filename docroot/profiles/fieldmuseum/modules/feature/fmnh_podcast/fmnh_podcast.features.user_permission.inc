@@ -64,21 +64,27 @@ function fmnh_podcast_user_default_permissions() {
   // Exported permission: 'enter podcast revision log entry'.
   $permissions['enter podcast revision log entry'] = array(
     'name' => 'enter podcast revision log entry',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'override_node_options',
   );
 
   // Exported permission: 'override podcast authored by option'.
   $permissions['override podcast authored by option'] = array(
     'name' => 'override podcast authored by option',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'override_node_options',
   );
 
   // Exported permission: 'override podcast authored on option'.
   $permissions['override podcast authored on option'] = array(
     'name' => 'override podcast authored on option',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'override_node_options',
   );
 
@@ -94,21 +100,27 @@ function fmnh_podcast_user_default_permissions() {
   // Exported permission: 'override podcast published option'.
   $permissions['override podcast published option'] = array(
     'name' => 'override podcast published option',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'override_node_options',
   );
 
   // Exported permission: 'override podcast revision option'.
   $permissions['override podcast revision option'] = array(
     'name' => 'override podcast revision option',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'override_node_options',
   );
 
   // Exported permission: 'override podcast sticky option'.
   $permissions['override podcast sticky option'] = array(
     'name' => 'override podcast sticky option',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'override_node_options',
   );
 

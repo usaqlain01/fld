@@ -68,21 +68,27 @@ function fmnh_video_user_default_permissions() {
   // Exported permission: 'enter video revision log entry'.
   $permissions['enter video revision log entry'] = array(
     'name' => 'enter video revision log entry',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'override_node_options',
   );
 
   // Exported permission: 'override video authored by option'.
   $permissions['override video authored by option'] = array(
     'name' => 'override video authored by option',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'override_node_options',
   );
 
   // Exported permission: 'override video authored on option'.
   $permissions['override video authored on option'] = array(
     'name' => 'override video authored on option',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'override_node_options',
   );
 
@@ -98,21 +104,27 @@ function fmnh_video_user_default_permissions() {
   // Exported permission: 'override video published option'.
   $permissions['override video published option'] = array(
     'name' => 'override video published option',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'override_node_options',
   );
 
   // Exported permission: 'override video revision option'.
   $permissions['override video revision option'] = array(
     'name' => 'override video revision option',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'override_node_options',
   );
 
   // Exported permission: 'override video sticky option'.
   $permissions['override video sticky option'] = array(
     'name' => 'override video sticky option',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'override_node_options',
   );
 

@@ -84,21 +84,27 @@ function fmnh_faq_user_default_permissions() {
   // Exported permission: 'enter faq revision log entry'.
   $permissions['enter faq revision log entry'] = array(
     'name' => 'enter faq revision log entry',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'override_node_options',
   );
 
   // Exported permission: 'override faq authored by option'.
   $permissions['override faq authored by option'] = array(
     'name' => 'override faq authored by option',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'override_node_options',
   );
 
   // Exported permission: 'override faq authored on option'.
   $permissions['override faq authored on option'] = array(
     'name' => 'override faq authored on option',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'override_node_options',
   );
 
@@ -114,21 +120,27 @@ function fmnh_faq_user_default_permissions() {
   // Exported permission: 'override faq published option'.
   $permissions['override faq published option'] = array(
     'name' => 'override faq published option',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'override_node_options',
   );
 
   // Exported permission: 'override faq revision option'.
   $permissions['override faq revision option'] = array(
     'name' => 'override faq revision option',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'override_node_options',
   );
 
   // Exported permission: 'override faq sticky option'.
   $permissions['override faq sticky option'] = array(
     'name' => 'override faq sticky option',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'override_node_options',
   );
 

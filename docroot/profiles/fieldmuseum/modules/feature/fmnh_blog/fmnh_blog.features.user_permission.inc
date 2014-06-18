@@ -62,21 +62,27 @@ function fmnh_blog_user_default_permissions() {
   // Exported permission: 'enter blog revision log entry'.
   $permissions['enter blog revision log entry'] = array(
     'name' => 'enter blog revision log entry',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'override_node_options',
   );
 
   // Exported permission: 'override blog authored by option'.
   $permissions['override blog authored by option'] = array(
     'name' => 'override blog authored by option',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'override_node_options',
   );
 
   // Exported permission: 'override blog authored on option'.
   $permissions['override blog authored on option'] = array(
     'name' => 'override blog authored on option',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'override_node_options',
   );
 
@@ -92,21 +98,27 @@ function fmnh_blog_user_default_permissions() {
   // Exported permission: 'override blog published option'.
   $permissions['override blog published option'] = array(
     'name' => 'override blog published option',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'override_node_options',
   );
 
   // Exported permission: 'override blog revision option'.
   $permissions['override blog revision option'] = array(
     'name' => 'override blog revision option',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'override_node_options',
   );
 
   // Exported permission: 'override blog sticky option'.
   $permissions['override blog sticky option'] = array(
     'name' => 'override blog sticky option',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'override_node_options',
   );
 

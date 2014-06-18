@@ -63,21 +63,27 @@ function fmnh_exhibit_user_default_permissions() {
   // Exported permission: 'enter exhibit revision log entry'.
   $permissions['enter exhibit revision log entry'] = array(
     'name' => 'enter exhibit revision log entry',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'override_node_options',
   );
 
   // Exported permission: 'override exhibit authored by option'.
   $permissions['override exhibit authored by option'] = array(
     'name' => 'override exhibit authored by option',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'override_node_options',
   );
 
   // Exported permission: 'override exhibit authored on option'.
   $permissions['override exhibit authored on option'] = array(
     'name' => 'override exhibit authored on option',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'override_node_options',
   );
 
@@ -93,21 +99,27 @@ function fmnh_exhibit_user_default_permissions() {
   // Exported permission: 'override exhibit published option'.
   $permissions['override exhibit published option'] = array(
     'name' => 'override exhibit published option',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'override_node_options',
   );
 
   // Exported permission: 'override exhibit revision option'.
   $permissions['override exhibit revision option'] = array(
     'name' => 'override exhibit revision option',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'override_node_options',
   );
 
   // Exported permission: 'override exhibit sticky option'.
   $permissions['override exhibit sticky option'] = array(
     'name' => 'override exhibit sticky option',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'override_node_options',
   );
 
