@@ -95,7 +95,7 @@ EOF;
                 } elseif (isset($test['todo']) && $test['todo']) {
                     // TODO
                 } else {
-                    eval('$expected = '.trim($test['php']).';');
+                    $expected = eval('return '.trim($test['php']).';');
 
                     $this->assertEquals($expected, $this->parser->parse($this->dumper->dump($expected, 10)), $test['test']);
                 }
