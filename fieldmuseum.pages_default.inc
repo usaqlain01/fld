@@ -548,7 +548,7 @@ function fieldmuseum_default_page_manager_pages() {
   $display = new panels_display();
   $display->layout = 'l1';
   $display->layout_settings = array(
-    'main_classes' => '',
+    'hero_classes' => 'hero',
     'top_classes' => 'summaries--3up',
     'bottom_classes' => 'promos--3up',
   );
@@ -558,6 +558,7 @@ function fieldmuseum_default_page_manager_pages() {
       'main' => NULL,
       'top' => NULL,
       'bottom' => NULL,
+      'hero' => NULL,
     ),
   );
   $display->cache = array();
@@ -1524,14 +1525,21 @@ function fieldmuseum_default_page_manager_pages() {
     'relationships' => array(),
   );
   $display = new panels_display();
-  $display->layout = 'zen_no_wrapper';
+  $display->layout = 'l2';
   $display->layout_settings = array(
-    'main_classes' => '',
+    'callout_classes' => 'callout',
+    'top_classes' => 'l--3up',
+    'bottom_classes' => 'summaries--2up',
+    'nav_classes' => 'navSection',
   );
   $display->panel_settings = array(
     'style_settings' => array(
       'default' => NULL,
       'main' => NULL,
+      'callout' => NULL,
+      'top' => NULL,
+      'bottom' => NULL,
+      'nav' => NULL,
     ),
   );
   $display->cache = array();
@@ -1541,7 +1549,7 @@ function fieldmuseum_default_page_manager_pages() {
   $display->panels = array();
     $pane = new stdClass();
     $pane->pid = 'new-09d12684-6f9a-45c4-b381-3723c89883ac';
-    $pane->panel = 'main';
+    $pane->panel = 'nav';
     $pane->type = 'menu_tree';
     $pane->subtype = 'main-menu';
     $pane->shown = TRUE;
@@ -1570,7 +1578,7 @@ function fieldmuseum_default_page_manager_pages() {
     $pane->locks = array();
     $pane->uuid = '09d12684-6f9a-45c4-b381-3723c89883ac';
     $display->content['new-09d12684-6f9a-45c4-b381-3723c89883ac'] = $pane;
-    $display->panels['main'][0] = 'new-09d12684-6f9a-45c4-b381-3723c89883ac';
+    $display->panels['nav'][0] = 'new-09d12684-6f9a-45c4-b381-3723c89883ac';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
