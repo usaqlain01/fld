@@ -2205,13 +2205,26 @@ function fieldmuseum_default_page_manager_pages() {
     'body_classes_to_add' => '',
     'css_id' => '',
     'css' => '',
-    'contexts' => array(),
+    'contexts' => array(
+      0 => array(
+        'identifier' => 'List: Menu children',
+        'keyword' => 'list',
+        'name' => 'entitylist:menu_children',
+        'use_pager' => FALSE,
+        'pager_id' => NULL,
+        'range' => array(
+          'offset' => 0,
+          'limit' => 10,
+        ),
+        'id' => 1,
+      ),
+    ),
     'relationships' => array(),
   );
   $display = new panels_display();
-  $display->layout = 'zen_no_wrapper';
+  $display->layout = 'l5';
   $display->layout_settings = array(
-    'main_classes' => '',
+    'main_classes' => 'summaries--2up',
   );
   $display->panel_settings = array(
     'style_settings' => array(
@@ -2225,18 +2238,23 @@ function fieldmuseum_default_page_manager_pages() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-d560624f-ff81-4642-a5a9-4b25a794bc7e';
+    $pane->pid = 'new-bd13315e-e390-487e-aaf1-f02023f00457';
     $pane->panel = 'main';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
+    $pane->type = 'entity_range';
+    $pane->subtype = 'entity_range';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'admin_title' => 'Call to action',
-      'title' => '',
-      'body' => 'Intention: a clear call to action to why donations from the community are such an important part of The Field achieving its goals.',
-      'format' => 'markdown',
-      'substitute' => TRUE,
+      'range' => array(
+        'offset' => '0',
+        'limit' => '10',
+      ),
+      'view_mode' => 'node:teaser',
+      'use_pager' => FALSE,
+      'pager_id' => 0,
+      'context' => 'context_entitylist:menu_children_1',
+      'override_title' => 0,
+      'override_title_text' => '',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -2246,37 +2264,11 @@ function fieldmuseum_default_page_manager_pages() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = 'd560624f-ff81-4642-a5a9-4b25a794bc7e';
-    $display->content['new-d560624f-ff81-4642-a5a9-4b25a794bc7e'] = $pane;
-    $display->panels['main'][0] = 'new-d560624f-ff81-4642-a5a9-4b25a794bc7e';
-    $pane = new stdClass();
-    $pane->pid = 'new-71d3136f-4c89-4cbd-b034-ded39e90c364';
-    $pane->panel = 'main';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'admin_title' => '',
-      'title' => 'Ways to give',
-      'body' => 'Intent: There should also be brief summaries about each of the areas within the section that explain that type of giving and provide a call to action to click through to find out more .
-',
-      'format' => 'markdown',
-      'substitute' => TRUE,
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 1;
-    $pane->locks = array();
-    $pane->uuid = '71d3136f-4c89-4cbd-b034-ded39e90c364';
-    $display->content['new-71d3136f-4c89-4cbd-b034-ded39e90c364'] = $pane;
-    $display->panels['main'][1] = 'new-71d3136f-4c89-4cbd-b034-ded39e90c364';
+    $pane->uuid = 'bd13315e-e390-487e-aaf1-f02023f00457';
+    $display->content['new-bd13315e-e390-487e-aaf1-f02023f00457'] = $pane;
+    $display->panels['main'][0] = 'new-bd13315e-e390-487e-aaf1-f02023f00457';
   $display->hide_title = PANELS_TITLE_FIXED;
-  $display->title_pane = 'new-d560624f-ff81-4642-a5a9-4b25a794bc7e';
+  $display->title_pane = '0';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
   $pages['support_the_museum'] = $page;
