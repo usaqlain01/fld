@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model xlink:href="/Users/bjd/.composer/vendor/phing/phing/etc/phing-grammar.rng"
+        type="application/xml"
+        schematypens="http://relaxng.org/ns/structure/1.0" ?>
+<project name="fieldmuseum" default="dist">
+
+    <!-- ============================================  -->
+    <!-- Target: prepare                               -->
+    <!-- ============================================  -->
+    <target name="prepare">
+        <echo msg="Making directory ./docroot"/>
+        <mkdir dir="./docroot"/>
+    </target>
+
+    <!-- ============================================  -->
+    <!-- Target: build                                 -->
+    <!-- ============================================  -->
+    <target name="subtree-update" depends="prepare">
+        <exec command="git pull -s subtree -X subtree=docroot/profiles/fieldmuseum profile develop" />
+    </target>
+
+
+    <target name="build" depends="prepare">
+        <echo msg="Running drush make..."/>
+        <exec command="drush make --working-copy deploy.make docroot"/>
+    </target>
+
+    <target name="composer-update" depends="prepare">
+        <exec command="drush composer-manager update --prefer-dist --no-dev --no-interaction --verbose --optimize-autoloader" dir="./docroot" />
+    </target>
+
+    <target name="compass-compile" depends="prepare">
+        <exec command="compass compile -e production -s compressed" dir="./docroot/profiles/fieldmuseum/themes/temporary" />
+        <exec command="compass compile -e production -s compressed" dir="./docroot/profiles/fieldmuseum/themes/esquif" />
+    </target>
+
+    <!-- ============================================  -->
+    <!-- (DEFAULT)  Target: dist                       -->
+    <!-- ============================================  -->
+    <target name="dist" depends="build">
+        <echo msg="Creating archive..."/>
+
+        <tar destfile="./build/build.tar.gz" compression="gzip">
+            <fileset dir="./build">
+                <include name="*"/>
+            </fileset>
+        </tar>
+
+        <echo msg="Files copied and compressed in build directory OK!"/>
+    </target>
+</project>
