@@ -1,0 +1,18 @@
+'49950 Give Now 18761':
+    link:
+        link_path: 'http://enews.fieldmuseum.org/site/PageServer?pagename=api_donate&donate=now'
+        router_path: ''
+        link_title: 'Give Now'
+        type: null
+'49951 Shop 3908':
+    link:
+        link_path: 'http://store.fieldmuseum.org/'
+        router_path: ''
+        link_title: Shop
+        type: null
+'49952 Tickets 3909':
+    link:
+        link_path: 'https://tickets.fieldmuseum.org/public/'
+        router_path: ''
+        link_title: Tickets
+        type: null

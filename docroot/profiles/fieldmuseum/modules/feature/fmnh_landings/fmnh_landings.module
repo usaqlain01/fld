@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Field Museum landing page widgets feature.
+ */
+
+include_once 'fmnh_landings.features.inc';

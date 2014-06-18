@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Field Museum exhibit feature.
+ */
+
+include_once 'fmnh_exhibit.features.inc';

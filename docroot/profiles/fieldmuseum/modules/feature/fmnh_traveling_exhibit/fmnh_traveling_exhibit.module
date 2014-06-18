@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Traveling exhibit feature.
+ */
+
+include_once 'fmnh_traveling_exhibit.features.inc';

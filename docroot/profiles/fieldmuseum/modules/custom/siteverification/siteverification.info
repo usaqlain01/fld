@@ -1,0 +1,4 @@
+name = Metatag: Site verification
+package = SEO
+core = 7.x
+dependencies[] = metatag

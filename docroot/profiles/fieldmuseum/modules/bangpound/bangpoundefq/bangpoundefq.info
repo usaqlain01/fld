@@ -1,0 +1,10 @@
+name = !&# EntityFieldQuery
+description = Allows EntityFieldQuery content to be used in Panels, Dashboard and other modules which use the CTools Content API.
+dependencies[] = ctools
+dependencies[] = entitylist
+core = 7.x
+stylesheets[all][] = bangpoundefq.css
+package = !&#
+files[] = NodeListEFQ.inc
+files[] = PromotedNodeListEFQ.inc
+files[] = TermListEFQ.inc

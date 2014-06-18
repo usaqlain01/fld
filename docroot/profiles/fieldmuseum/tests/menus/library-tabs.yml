@@ -1,0 +1,36 @@
+'50000 Home 7737':
+    link:
+        link_path: node/69
+        router_path: node/%
+        link_title: Home
+        type: '6'
+'50001 Resources 7562':
+    link:
+        link_path: node/4716
+        router_path: node/%
+        link_title: Resources
+        type: '6'
+'50002 Services 7617':
+    link:
+        link_path: node/4752
+        router_path: node/%
+        link_title: Services
+        type: '6'
+'50003 People 7742':
+    link:
+        link_path: explore/department/library/people
+        router_path: explore/department/%/people
+        link_title: People
+        type: '0'
+'50004 History 6931':
+    link:
+        link_path: node/4201
+        router_path: node/%
+        link_title: History
+        type: '6'
+'50005 About The Library 12481':
+    link:
+        link_path: node/8761
+        router_path: node/%
+        link_title: 'About The Library'
+        type: '6'

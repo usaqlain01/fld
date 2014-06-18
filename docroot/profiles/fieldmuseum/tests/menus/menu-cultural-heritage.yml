@@ -1,0 +1,36 @@
+'49950 Home 10416':
+    link:
+        link_path: node/6511
+        router_path: node/%
+        link_title: Home
+        type: '6'
+'49951 Surveys 10156':
+    link:
+        link_path: node/6516
+        router_path: node/%
+        link_title: Surveys
+        type: '6'
+'49952 Research 10031':
+    link:
+        link_path: node/6306
+        router_path: node/%
+        link_title: Research
+        type: '6'
+'49953 Collections 10171':
+    link:
+        link_path: node/6531
+        router_path: node/%
+        link_title: Collections
+        type: '6'
+'49954 Chicago 10161':
+    link:
+        link_path: node/6521
+        router_path: node/%
+        link_title: Chicago
+        type: '6'
+'49955 Training 10166':
+    link:
+        link_path: node/6526
+        router_path: node/%
+        link_title: Training
+        type: '6'

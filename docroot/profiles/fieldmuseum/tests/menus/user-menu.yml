@@ -1,0 +1,25 @@
+'49990 User account 1733':
+    link:
+        link_path: user
+        router_path: user
+        link_title: 'User account'
+        type: '6'
+    below:
+        '50000 Create new account 9':
+            link:
+                link_path: user/register
+                router_path: user/register
+                link_title: 'Create new account'
+                type: '132'
+        '50000 Log in 11':
+            link:
+                link_path: user/login
+                router_path: user/login
+                link_title: 'Log in'
+                type: '140'
+        '50000 Request new password 12':
+            link:
+                link_path: user/password
+                router_path: user/password
+                link_title: 'Request new password'
+                type: '132'

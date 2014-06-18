@@ -1,0 +1,3661 @@
+'49950 Plan Your Visit 2671':
+    link:
+        link_path: node/109
+        router_path: node/%
+        link_title: 'Plan Your Visit'
+        type: '6'
+    below:
+        '49950 Admission and Hours 2672':
+            link:
+                link_path: node/111
+                router_path: node/%
+                link_title: 'Admission and Hours'
+                type: '6'
+            below:
+                '50002 CityPASS Ticket Book 2675':
+                    link:
+                        link_path: node/115
+                        router_path: node/%
+                        link_title: 'CityPASS Ticket Book'
+                        type: '6'
+                '50003 Go Chicago Card 2676':
+                    link:
+                        link_path: node/116
+                        router_path: node/%
+                        link_title: 'Go Chicago Card'
+                        type: '6'
+                '50009 Field Museum Discount Days 5626':
+                    link:
+                        link_path: node/1116
+                        router_path: node/%
+                        link_title: 'Field Museum Discount Days'
+                        type: '6'
+        '49951 Getting Here/Parking 10301':
+            link:
+                link_path: node/6811
+                router_path: node/%
+                link_title: 'Getting Here/Parking'
+                type: '6'
+            below:
+                '50000 Get Here by Car 5581':
+                    link:
+                        link_path: node/1006
+                        router_path: node/%
+                        link_title: 'Get Here by Car'
+                        type: '6'
+                '50000 Get Here by Public Transit 5546':
+                    link:
+                        link_path: node/906
+                        router_path: node/%
+                        link_title: 'Get Here by Public Transit'
+                        type: '6'
+                '50000 Museum Campus Map 6081':
+                    link:
+                        link_path: node/3311
+                        router_path: node/%
+                        link_title: 'Museum Campus Map'
+                        type: '6'
+        '49952 Floor Maps and Tours 2928':
+            link:
+                link_path: node/128
+                router_path: node/%
+                link_title: 'Floor Maps and Tours'
+                type: '6'
+            below:
+                '49994 The Field Museum Tours App 20341':
+                    link:
+                        link_path: node/18171
+                        router_path: node/%
+                        link_title: 'The Field Museum Tours App'
+                        type: '6'
+                '50010 Audio Tours 21111':
+                    link:
+                        link_path: node/18411
+                        router_path: node/%
+                        link_title: 'Audio Tours'
+                        type: '6'
+        '49953 Restaurants 19711':
+            link:
+                link_path: node/18181
+                router_path: node/%
+                link_title: Restaurants
+                type: '6'
+        '49954 Visiting Chicago 21116':
+            link:
+                link_path: node/18416
+                router_path: node/%
+                link_title: 'Visiting Chicago'
+                type: '6'
+            below:
+                '50000 Hotel Packages 2924':
+                    link:
+                        link_path: node/124
+                        router_path: node/%
+                        link_title: 'Hotel Packages'
+                        type: '6'
+                '50013 International Maps and Guides 16371':
+                    link:
+                        link_path: node/12311
+                        router_path: node/%
+                        link_title: 'International Maps and Guides'
+                        type: '6'
+        '49955 Fun for Kids 2983':
+            link:
+                link_path: node/130
+                router_path: node/%
+                link_title: 'Fun for Kids'
+                type: '6'
+        '49956 School Field Trips 19706':
+            link:
+                link_path: node/18161
+                router_path: node/%
+                link_title: 'School Field Trips'
+                type: '6'
+        '49957 Group Sales 10071':
+            link:
+                link_path: node/6411
+                router_path: node/%
+                link_title: 'Group Sales'
+                type: '6'
+            below:
+                '49980 Out of State Educators 15376':
+                    link:
+                        link_path: node/11361
+                        router_path: node/%
+                        link_title: 'Out of State Educators'
+                        type: '6'
+                '49981 Tour Operators 5456':
+                    link:
+                        link_path: node/556
+                        router_path: node/%
+                        link_title: 'Tour Operators'
+                        type: '6'
+                '49990 Group Planners 7652':
+                    link:
+                        link_path: node/4822
+                        router_path: node/%
+                        link_title: 'Group Planners'
+                        type: '6'
+                '50000 Birthday Parties 5471':
+                    link:
+                        link_path: node/666
+                        router_path: node/%
+                        link_title: 'Birthday Parties'
+                        type: '6'
+        '49958 Plan Your Special Event 3692':
+            link:
+                link_path: node/188
+                router_path: node/%
+                link_title: 'Plan Your Special Event'
+                type: '6'
+            below:
+                '49950 Event Spaces 9511':
+                    link:
+                        link_path: node/5556
+                        router_path: node/%
+                        link_title: 'Event Spaces'
+                        type: '6'
+                    below:
+                        '49984 Stanley Field Hall and Balcony 9536':
+                            link:
+                                link_path: node/5586
+                                router_path: node/%
+                                link_title: 'Stanley Field Hall and Balcony'
+                                type: '6'
+                        '49990 East Atrium and Pavilion 9541':
+                            link:
+                                link_path: node/5591
+                                router_path: node/%
+                                link_title: 'East Atrium and Pavilion'
+                                type: '6'
+                        '49995 Rice Hall 9546':
+                            link:
+                                link_path: node/5596
+                                router_path: node/%
+                                link_title: 'Rice Hall'
+                                type: '6'
+                        '49997 Founders'' Room 9551':
+                            link:
+                                link_path: node/5601
+                                router_path: node/%
+                                link_title: 'Founders'' Room'
+                                type: '6'
+                        '49999 Terraces 9556':
+                            link:
+                                link_path: node/5606
+                                router_path: node/%
+                                link_title: Terraces
+                                type: '6'
+                        '50000 Evolving Planet 9561':
+                            link:
+                                link_path: node/5611
+                                router_path: node/%
+                                link_title: 'Evolving Planet'
+                                type: '6'
+                        '50001 EY 3D Theater 9566':
+                            link:
+                                link_path: node/5621
+                                router_path: node/%
+                                link_title: 'EY 3D Theater'
+                                type: '6'
+                '49951 Meeting Spaces 6231':
+                    link:
+                        link_path: node/3476
+                        router_path: node/%
+                        link_title: 'Meeting Spaces'
+                        type: '6'
+                    below:
+                        '49980 James Simpson Theatre 9576':
+                            link:
+                                link_path: node/5641
+                                router_path: node/%
+                                link_title: 'James Simpson Theatre'
+                                type: '6'
+                        '49990 Montgomery Ward Lecture Hall 9601':
+                            link:
+                                link_path: node/5726
+                                router_path: node/%
+                                link_title: 'Montgomery Ward Lecture Hall'
+                                type: '6'
+                        '49995 Lecture Hall II 9606':
+                            link:
+                                link_path: node/5736
+                                router_path: node/%
+                                link_title: 'Lecture Hall II'
+                                type: '6'
+                        '50000 Founders'' Room 9611':
+                            link:
+                                link_path: node/5741
+                                router_path: node/%
+                                link_title: 'Founders'' Room'
+                                type: '6'
+                        '50005 Rice Hall 9621':
+                            link:
+                                link_path: node/5751
+                                router_path: node/%
+                                link_title: 'Rice Hall'
+                                type: '6'
+                        '50010 Classrooms A, B, & C 9616':
+                            link:
+                                link_path: node/5746
+                                router_path: node/%
+                                link_title: 'Classrooms A, B, & C'
+                                type: '6'
+                        '50012 Meeting Enhancements 9626':
+                            link:
+                                link_path: node/5756
+                                router_path: node/%
+                                link_title: 'Meeting Enhancements'
+                                type: '6'
+                '49952 Special Event Packages 9526':
+                    link:
+                        link_path: node/5571
+                        router_path: node/%
+                        link_title: 'Special Event Packages'
+                        type: '6'
+                    below:
+                        '49986 Meeting Packages 6476':
+                            link:
+                                link_path: node/3651
+                                router_path: node/%
+                                link_title: 'Meeting Packages'
+                                type: '6'
+                        '49995 Summer Outings 9701':
+                            link:
+                                link_path: node/5851
+                                router_path: node/%
+                                link_title: 'Summer Outings'
+                                type: '6'
+                '49953 Engagements & Weddings 6286':
+                    link:
+                        link_path: node/3521
+                        router_path: node/%
+                        link_title: 'Engagements & Weddings'
+                        type: '6'
+                    below:
+                        '49985 Engagements 9636':
+                            link:
+                                link_path: node/5771
+                                router_path: node/%
+                                link_title: Engagements
+                                type: '6'
+                        '49990 Weddings 9641':
+                            link:
+                                link_path: node/5776
+                                router_path: node/%
+                                link_title: Weddings
+                                type: '6'
+                '49954 E-Brochure 19401':
+                    link:
+                        link_path: node/17496
+                        router_path: node/%
+                        link_title: E-Brochure
+                        type: '6'
+                '49954 Photo Galleries 9571':
+                    link:
+                        link_path: node/5626
+                        router_path: node/%
+                        link_title: 'Photo Galleries'
+                        type: '6'
+                    below:
+                        '49950 Stanley Field Hall 7521':
+                            link:
+                                link_path: node/4706
+                                router_path: node/%
+                                link_title: 'Stanley Field Hall'
+                                type: '6'
+                        '49951 East Atrium and Pavilion 9841':
+                            link:
+                                link_path: node/6036
+                                router_path: node/%
+                                link_title: 'East Atrium and Pavilion'
+                                type: '6'
+                        '49952 Rice Hall 9516':
+                            link:
+                                link_path: node/5561
+                                router_path: node/%
+                                link_title: 'Rice Hall'
+                                type: '6'
+                        '49953 Founders'' Room 10036':
+                            link:
+                                link_path: node/6331
+                                router_path: node/%
+                                link_title: 'Founders'' Room'
+                                type: '6'
+                        '49955 Terraces 10041':
+                            link:
+                                link_path: node/6336
+                                router_path: node/%
+                                link_title: Terraces
+                                type: '6'
+                        '49956 Evolving Planet 10046':
+                            link:
+                                link_path: node/6341
+                                router_path: node/%
+                                link_title: 'Evolving Planet'
+                                type: '6'
+                        '49957 James Simpson Theatre 10051':
+                            link:
+                                link_path: node/6346
+                                router_path: node/%
+                                link_title: 'James Simpson Theatre'
+                                type: '6'
+                        '49958 Lecture Halls and Classrooms 10056':
+                            link:
+                                link_path: node/6351
+                                router_path: node/%
+                                link_title: 'Lecture Halls and Classrooms'
+                                type: '6'
+                '49954 Video Tour 16281':
+                    link:
+                        link_path: node/12101
+                        router_path: node/%
+                        link_title: 'Video Tour'
+                        type: '6'
+                    below:
+                        '49950 Unleash the Extraordinary 18551':
+                            link:
+                                link_path: node/13881
+                                router_path: node/%
+                                link_title: 'Unleash the Extraordinary'
+                                type: '6'
+                        '50000 Imagining the Field 18541':
+                            link:
+                                link_path: node/13866
+                                router_path: node/%
+                                link_title: 'Imagining the Field'
+                                type: '6'
+                '49955 Virtual Tour 3720':
+                    link:
+                        link_path: node/201
+                        router_path: node/%
+                        link_title: 'Virtual Tour'
+                        type: '6'
+                    below:
+                        '50000 Java Virtual Tour 9891':
+                            link:
+                                link_path: node/6131
+                                router_path: node/%
+                                link_title: 'Java Virtual Tour'
+                                type: '6'
+                            below:
+                                '50000 Stanley Field Hall Center 9886':
+                                    link:
+                                        link_path: node/6131
+                                        router_path: node/%
+                                        link_title: 'Stanley Field Hall Center'
+                                        type: '6'
+                                '50001 Stanley Field Hall South 9896':
+                                    link:
+                                        link_path: node/6136
+                                        router_path: node/%
+                                        link_title: 'Stanley Field Hall South'
+                                        type: '6'
+                                '50002 Founders'' Room Reception 9901':
+                                    link:
+                                        link_path: node/6141
+                                        router_path: node/%
+                                        link_title: 'Founders'' Room Reception'
+                                        type: '6'
+                                '50003 Founders'' Room Dining 9906':
+                                    link:
+                                        link_path: node/6146
+                                        router_path: node/%
+                                        link_title: 'Founders'' Room Dining'
+                                        type: '6'
+                                '50004 Rice Hall Cocktails 9911':
+                                    link:
+                                        link_path: node/6151
+                                        router_path: node/%
+                                        link_title: 'Rice Hall Cocktails'
+                                        type: '6'
+                                '50005 Rice Hall Dining 9916':
+                                    link:
+                                        link_path: node/6156
+                                        router_path: node/%
+                                        link_title: 'Rice Hall Dining'
+                                        type: '6'
+                                '50006 Evolving Planet 9921':
+                                    link:
+                                        link_path: node/6161
+                                        router_path: node/%
+                                        link_title: 'Evolving Planet'
+                                        type: '6'
+                                '50007 James Simpson Theater 9931':
+                                    link:
+                                        link_path: node/6171
+                                        router_path: node/%
+                                        link_title: 'James Simpson Theater'
+                                        type: '6'
+                                '50008 West Lobby 9926':
+                                    link:
+                                        link_path: node/6166
+                                        router_path: node/%
+                                        link_title: 'West Lobby'
+                                        type: '6'
+                                '50009 Ward Lecture Hall 9936':
+                                    link:
+                                        link_path: node/6176
+                                        router_path: node/%
+                                        link_title: 'Ward Lecture Hall'
+                                        type: '6'
+                                '50010 East Pavilion 9941':
+                                    link:
+                                        link_path: node/6181
+                                        router_path: node/%
+                                        link_title: 'East Pavilion'
+                                        type: '6'
+                                '50011 East Atrium 9946':
+                                    link:
+                                        link_path: node/6186
+                                        router_path: node/%
+                                        link_title: 'East Atrium'
+                                        type: '6'
+                        '50000 Quicktime Virtual Tour 9871':
+                            link:
+                                link_path: node/6046
+                                router_path: node/%
+                                link_title: 'Quicktime Virtual Tour'
+                                type: '6'
+                            below:
+                                '49950 Stanley Field Hall Center 9846':
+                                    link:
+                                        link_path: node/6046
+                                        router_path: node/%
+                                        link_title: 'Stanley Field Hall Center'
+                                        type: '6'
+                                '49951 Stanley Field Hall South 9856':
+                                    link:
+                                        link_path: node/6056
+                                        router_path: node/%
+                                        link_title: 'Stanley Field Hall South'
+                                        type: '6'
+                                '49952 Founders'' Room Reception 9861':
+                                    link:
+                                        link_path: node/6061
+                                        router_path: node/%
+                                        link_title: 'Founders'' Room Reception'
+                                        type: '6'
+                                '49953 Founders'' Room Dining 9866':
+                                    link:
+                                        link_path: node/6066
+                                        router_path: node/%
+                                        link_title: 'Founders'' Room Dining'
+                                        type: '6'
+                                '50004 Rice Hall Cocktails 9876':
+                                    link:
+                                        link_path: node/6121
+                                        router_path: node/%
+                                        link_title: 'Rice Hall Cocktails'
+                                        type: '6'
+                                '50005 Rice Hall Dining 9881':
+                                    link:
+                                        link_path: node/6126
+                                        router_path: node/%
+                                        link_title: 'Rice Hall Dining'
+                                        type: '6'
+                                '50006 Evolving Planet 9986':
+                                    link:
+                                        link_path: node/6256
+                                        router_path: node/%
+                                        link_title: 'Evolving Planet'
+                                        type: '6'
+                                '50007 James Simpson Theater 9991':
+                                    link:
+                                        link_path: node/6261
+                                        router_path: node/%
+                                        link_title: 'James Simpson Theater'
+                                        type: '6'
+                                '50008 West Lobby 10001':
+                                    link:
+                                        link_path: node/6271
+                                        router_path: node/%
+                                        link_title: 'West Lobby'
+                                        type: '6'
+                                '50009 Ward Lecture Hall 10006':
+                                    link:
+                                        link_path: node/6276
+                                        router_path: node/%
+                                        link_title: 'Ward Lecture Hall'
+                                        type: '6'
+                                '50010 East Pavilion 10011':
+                                    link:
+                                        link_path: node/6281
+                                        router_path: node/%
+                                        link_title: 'East Pavilion'
+                                        type: '6'
+                                '50011 East Atrium 10016':
+                                    link:
+                                        link_path: node/6286
+                                        router_path: node/%
+                                        link_title: 'East Atrium'
+                                        type: '6'
+                '49956 A Green Venue 7311':
+                    link:
+                        link_path: node/4481
+                        router_path: node/%
+                        link_title: 'A Green Venue'
+                        type: '6'
+                '49957 Approved Vendors 9646':
+                    link:
+                        link_path: node/5786
+                        router_path: node/%
+                        link_title: 'Approved Vendors'
+                        type: '6'
+                    below:
+                        '49994 Hotel Partner 18716':
+                            link:
+                                link_path: node/14286
+                                router_path: node/%
+                                link_title: 'Hotel Partner'
+                                type: '6'
+                '49958 Beverage Packages 9651':
+                    link:
+                        link_path: node/5791
+                        router_path: node/%
+                        link_title: 'Beverage Packages'
+                        type: '6'
+                '49960 Contact Us 3725':
+                    link:
+                        link_path: node/206
+                        router_path: node/%
+                        link_title: 'Contact Us'
+                        type: '6'
+                    below:
+                        '49959 Request for Proposal (RFP) 9581':
+                            link:
+                                link_path: node/5101
+                                router_path: node/%
+                                link_title: 'Request for Proposal (RFP)'
+                                type: '6'
+        '49959 FAQ 3344':
+            link:
+                link_path: visit/faq
+                router_path: visit/faq
+                link_title: FAQ
+                type: '6'
+        '49961 Plan Your Visit paths (menu position rule) 17846':
+            link:
+                link_path: menu-position/16
+                router_path: menu-position/%
+                link_title: 'Plan Your Visit paths (menu position rule)'
+                type: '0'
+'49951 Happening at the Field 2656':
+    link:
+        link_path: node/107
+        router_path: node/%
+        link_title: 'Happening at the Field'
+        type: '6'
+    below:
+        '50000 Exhibitions 3262':
+            link:
+                link_path: node/140
+                router_path: node/%
+                link_title: Exhibitions
+                type: '6'
+            below:
+                '49999 Current Exhibitions 3919':
+                    link:
+                        link_path: happening/exhibits/browse
+                        router_path: happening/exhibits/browse
+                        link_title: 'Current Exhibitions'
+                        type: '6'
+                '50000 Coming Soon 3925':
+                    link:
+                        link_path: happening/exhibits/browse/coming-soon
+                        router_path: happening/exhibits/browse/coming-soon
+                        link_title: 'Coming Soon'
+                        type: '132'
+                '50000 Exhibit paths (menu position rule) 17766':
+                    link:
+                        link_path: menu-position/91
+                        router_path: menu-position/%
+                        link_title: 'Exhibit paths (menu position rule)'
+                        type: '0'
+                '50001 Past Exhibitions 3924':
+                    link:
+                        link_path: happening/exhibits/browse/past
+                        router_path: happening/exhibits/browse/past
+                        link_title: 'Past Exhibitions'
+                        type: '132'
+        '50000 Happening at the Field paths (menu position rule) 17851':
+            link:
+                link_path: menu-position/21
+                router_path: menu-position/%
+                link_title: 'Happening at the Field paths (menu position rule)'
+                type: '0'
+        '50000 Programs 5571':
+            link:
+                link_path: node/991
+                router_path: node/%
+                link_title: Programs
+                type: '6'
+            below:
+                '50000 For Adults 12536':
+                    link:
+                        link_path: happening/programs/adults
+                        router_path: happening/programs/adults
+                        link_title: 'For Adults'
+                        type: '0'
+                    below:
+                        '50000 Adult Programs paths (menu position rule) 17771':
+                            link:
+                                link_path: menu-position/66
+                                router_path: menu-position/%
+                                link_title: 'Adult Programs paths (menu position rule)'
+                                type: '0'
+                        '50000 Mountmakers (menu position rule) 17746':
+                            link:
+                                link_path: menu-position/111
+                                router_path: menu-position/%
+                                link_title: 'Mountmakers (menu position rule)'
+                                type: '0'
+                '50000 For Educators 12546':
+                    link:
+                        link_path: happening/programs/educators
+                        router_path: happening/programs/educators
+                        link_title: 'For Educators'
+                        type: '0'
+                    below:
+                        '50000 Educator Programs Paths (menu position rule) 17776':
+                            link:
+                                link_path: menu-position/71
+                                router_path: menu-position/%
+                                link_title: 'Educator Programs Paths (menu position rule)'
+                                type: '0'
+                '50000 For Families 12556':
+                    link:
+                        link_path: happening/programs/families
+                        router_path: happening/programs/families
+                        link_title: 'For Families'
+                        type: '0'
+                    below:
+                        '50000 Family Programs Paths (menu position rule) 17781':
+                            link:
+                                link_path: menu-position/76
+                                router_path: menu-position/%
+                                link_title: 'Family Programs Paths (menu position rule)'
+                                type: '0'
+                            below:
+                                '50000 Dino Camp 2012 18341':
+                                    link:
+                                        link_path: node/13446
+                                        router_path: node/%
+                                        link_title: 'Dino Camp 2012'
+                                        type: '6'
+                '50000 For Scouts 12566':
+                    link:
+                        link_path: happening/programs/scouts
+                        router_path: happening/programs/scouts
+                        link_title: 'For Scouts'
+                        type: '0'
+                    below:
+                        '50000 Scout Programs Paths (menu position rule) 17786':
+                            link:
+                                link_path: menu-position/81
+                                router_path: menu-position/%
+                                link_title: 'Scout Programs Paths (menu position rule)'
+                                type: '0'
+                '50000 For Teens 12576':
+                    link:
+                        link_path: happening/programs/teens
+                        router_path: happening/programs/teens
+                        link_title: 'For Teens'
+                        type: '0'
+                    below:
+                        '50000 Teen Programs Paths (menu position rule) 17791':
+                            link:
+                                link_path: menu-position/86
+                                router_path: menu-position/%
+                                link_title: 'Teen Programs Paths (menu position rule)'
+                                type: '0'
+        '50019 Upcoming Events 21621':
+            link:
+                link_path: node/7536
+                router_path: node/%
+                link_title: 'Upcoming Events'
+                type: '6'
+'49952 Support the Museum 3261':
+    link:
+        link_path: node/138
+        router_path: node/%
+        link_title: 'Support the Museum'
+        type: '6'
+    below:
+        '49950 Make a Gift 18776':
+            link:
+                link_path: 'http://fieldmuseum.org/annualfund'
+                router_path: ''
+                link_title: 'Make a Gift'
+                type: null
+        '49951 Ways to Give 6701':
+            link:
+                link_path: node/3896
+                router_path: node/%
+                link_title: 'Ways to Give'
+                type: '6'
+            below:
+                '49950 Field Museum Tours (menu position rule) 17741':
+                    link:
+                        link_path: menu-position/116
+                        router_path: menu-position/%
+                        link_title: 'Field Museum Tours (menu position rule)'
+                        type: '0'
+                '49951 Individual Giving 18671':
+                    link:
+                        link_path: node/14221
+                        router_path: node/%
+                        link_title: 'Individual Giving'
+                        type: '6'
+                    below:
+                        '50000 Individual Giving (menu position rule) 17726':
+                            link:
+                                link_path: menu-position/121
+                                router_path: menu-position/%
+                                link_title: 'Individual Giving (menu position rule)'
+                                type: '0'
+                '49952 Women''s Board 18226':
+                    link:
+                        link_path: node/13491
+                        router_path: node/%
+                        link_title: 'Women''s Board'
+                        type: '6'
+                    below:
+                        '50000 Women''s Board (menu position rule) 21016':
+                            link:
+                                link_path: menu-position/136
+                                router_path: menu-position/%
+                                link_title: 'Women''s Board (menu position rule)'
+                                type: '0'
+                '49954 Planned Giving 11996':
+                    link:
+                        link_path: node/8401
+                        router_path: node/%
+                        link_title: 'Planned Giving'
+                        type: '6'
+                '49955 Corporate Giving 18666':
+                    link:
+                        link_path: node/13556
+                        router_path: node/%
+                        link_title: 'Corporate Giving'
+                        type: '6'
+                    below:
+                        '50000 Corporate Giving (menu position rule) 17731':
+                            link:
+                                link_path: menu-position/126
+                                router_path: menu-position/%
+                                link_title: 'Corporate Giving (menu position rule)'
+                                type: '0'
+                '49956 Auxiliary Groups 3272':
+                    link:
+                        link_path: node/146
+                        router_path: node/%
+                        link_title: 'Auxiliary Groups'
+                        type: '6'
+                    below:
+                        '50000 Anthropology Alliance 3273':
+                            link:
+                                link_path: node/147
+                                router_path: node/%
+                                link_title: 'Anthropology Alliance'
+                                type: '6'
+                        '50000 Auxiliary Groups (menu position rule) 17736':
+                            link:
+                                link_path: menu-position/131
+                                router_path: menu-position/%
+                                link_title: 'Auxiliary Groups (menu position rule)'
+                                type: '0'
+                        '50000 Council on Africa 17366':
+                            link:
+                                link_path: node/13116
+                                router_path: node/%
+                                link_title: 'Council on Africa'
+                                type: '6'
+                        '50000 Field Associates 12106':
+                            link:
+                                link_path: node/3406
+                                router_path: node/%
+                                link_title: 'Field Associates'
+                                type: '6'
+                        '50000 President''s Leadership Council 6266':
+                            link:
+                                link_path: node/3511
+                                router_path: node/%
+                                link_title: 'President''s Leadership Council'
+                                type: '6'
+                '50016 Field Museum Tours 20991':
+                    link:
+                        link_path: node/18366
+                        router_path: node/%
+                        link_title: 'Field Museum Tours'
+                        type: '6'
+        '49952 Member Information 3277':
+            link:
+                link_path: node/151
+                router_path: node/%
+                link_title: 'Member Information'
+                type: '6'
+            below:
+                '49950 Member Events 19166':
+                    link:
+                        link_path: node/16551
+                        router_path: node/%
+                        link_title: 'Member Events'
+                        type: '6'
+                '49952 Member Benefits 3333':
+                    link:
+                        link_path: node/152
+                        router_path: node/%
+                        link_title: 'Member Benefits'
+                        type: '6'
+                    below:
+                        '50000 Individual Membership 5991':
+                            link:
+                                link_path: node/3061
+                                router_path: node/%
+                                link_title: 'Individual Membership'
+                                type: '6'
+                        '50001 Family Membership 6021':
+                            link:
+                                link_path: node/3116
+                                router_path: node/%
+                                link_title: 'Family Membership'
+                                type: '6'
+                        '50002 Family Plus Membership 6026':
+                            link:
+                                link_path: node/3126
+                                router_path: node/%
+                                link_title: 'Family Plus Membership'
+                                type: '6'
+                        '50003 Student Membership 6006':
+                            link:
+                                link_path: node/3076
+                                router_path: node/%
+                                link_title: 'Student Membership'
+                                type: '6'
+                        '50004 National Affiliate 6001':
+                            link:
+                                link_path: node/3101
+                                router_path: node/%
+                                link_title: 'National Affiliate'
+                                type: '6'
+                        '50005 Senior Membership 6011':
+                            link:
+                                link_path: node/3091
+                                router_path: node/%
+                                link_title: 'Senior Membership'
+                                type: '6'
+                        '50006 Member Services: Refunds, Guest, Ticket and Contact Policies 5981':
+                            link:
+                                link_path: node/3021
+                                router_path: node/%
+                                link_title: 'Member Services: Refunds, Guest, Ticket and Contact Policies'
+                                type: '6'
+                '49953 Membership News 16286':
+                    link:
+                        link_path: node/12156
+                        router_path: node/%
+                        link_title: 'Membership News'
+                        type: '6'
+                '49954 Gift Membership 6031':
+                    link:
+                        link_path: node/3226
+                        router_path: node/%
+                        link_title: 'Gift Membership'
+                        type: '6'
+                '49955 Reserve Membership Tickets 10311':
+                    link:
+                        link_path: node/6831
+                        router_path: node/%
+                        link_title: 'Reserve Membership Tickets'
+                        type: '6'
+        '49953 Support the Museum paths (menu position rule) 17856':
+            link:
+                link_path: menu-position/26
+                router_path: menu-position/%
+                link_title: 'Support the Museum paths (menu position rule)'
+                type: '0'
+        '49954 Adopt a Dinosaur 19411':
+            link:
+                link_path: node/17511
+                router_path: node/%
+                link_title: 'Adopt a Dinosaur'
+                type: '6'
+            below:
+                '49950 Adopt Today 16351':
+                    link:
+                        link_path: 'https://secure2.convio.net/fmnh/site/Ecommerce;jsessionid=7010355A6ACC2A536B773FB7CC8F1295.app274b?store_id=1161'
+                        router_path: ''
+                        link_title: 'Adopt Today'
+                        type: null
+                '50002 Adopt Showcase 19416':
+                    link:
+                        link_path: 'http://fieldmuseum.org/adoptshowcase'
+                        router_path: ''
+                        link_title: 'Adopt Showcase'
+                        type: null
+        '49956 Shop the Field Store 3335':
+            link:
+                link_path: 'http://store.fieldmuseum.org/'
+                router_path: ''
+                link_title: 'Shop the Field Store'
+                type: null
+'49954 Schools & Education 3660':
+    link:
+        link_path: node/158
+        router_path: node/%
+        link_title: 'Schools & Education'
+        type: '6'
+    below:
+        '49950 Field Trip Programs 3661':
+            link:
+                link_path: node/159
+                router_path: node/%
+                link_title: 'Field Trip Programs'
+                type: '6'
+            below:
+                '50001 Field Trip Registration 3677':
+                    link:
+                        link_path: node/175
+                        router_path: node/%
+                        link_title: 'Field Trip Registration'
+                        type: '6'
+                '50002 Field Trip Policies 7771':
+                    link:
+                        link_path: node/756
+                        router_path: node/%
+                        link_title: 'Field Trip Policies'
+                        type: '6'
+                '50003 Field Trip Prices 14116':
+                    link:
+                        link_path: node/10851
+                        router_path: node/%
+                        link_title: 'Field Trip Prices'
+                        type: '6'
+                '50004 Field Trip Planning 2985':
+                    link:
+                        link_path: node/132
+                        router_path: node/%
+                        link_title: 'Field Trip Planning'
+                        type: '6'
+                '50005 Student Programs 5936':
+                    link:
+                        link_path: node/2896
+                        router_path: node/%
+                        link_title: 'Student Programs'
+                        type: '6'
+                    below:
+                        '50000 PreK to 2nd Grade 10681':
+                            link:
+                                link_path: node/3616
+                                router_path: node/%
+                                link_title: 'PreK to 2nd Grade'
+                                type: '6'
+                        '50001 3rd to 5th Grade 10651':
+                            link:
+                                link_path: node/2911
+                                router_path: node/%
+                                link_title: '3rd to 5th Grade'
+                                type: '6'
+                        '50002 6th to 8th Grade 10706':
+                            link:
+                                link_path: node/3581
+                                router_path: node/%
+                                link_title: '6th to 8th Grade'
+                                type: '6'
+                        '50003 9th to 12th Grade 10746':
+                            link:
+                                link_path: node/3526
+                                router_path: node/%
+                                link_title: '9th to 12th Grade'
+                                type: '6'
+                '50006 Guided Tours 15396':
+                    link:
+                        link_path: node/11436
+                        router_path: node/%
+                        link_title: 'Guided Tours'
+                        type: '6'
+        '49951 Programs at Schools 5956':
+            link:
+                link_path: node/2921
+                router_path: node/%
+                link_title: 'Programs at Schools'
+                type: '6'
+            below:
+                '50000 Renewable Energy Vehicle 10671':
+                    link:
+                        link_path: node/4106
+                        router_path: node/%
+                        link_title: 'Renewable Energy Vehicle'
+                        type: '6'
+                '50001 Soil Adventure 10666':
+                    link:
+                        link_path: node/4021
+                        router_path: node/%
+                        link_title: 'Soil Adventure'
+                        type: '6'
+                '50002 Other School Programs 10676':
+                    link:
+                        link_path: node/4166
+                        router_path: node/%
+                        link_title: 'Other School Programs'
+                        type: '6'
+        '49952 Schools & Education paths (menu position rule) 17861':
+            link:
+                link_path: menu-position/31
+                router_path: menu-position/%
+                link_title: 'Schools & Education paths (menu position rule)'
+                type: '0'
+        '49953 Harris Learning Collection 12596':
+            link:
+                link_path: node/9021
+                router_path: node/%
+                link_title: 'Harris Learning Collection'
+                type: '6'
+        '49954 Educator Programs 3667':
+            link:
+                link_path: node/165
+                router_path: node/%
+                link_title: 'Educator Programs'
+                type: '6'
+            below:
+                '50000 Educator Open House 14176':
+                    link:
+                        link_path: node/10991
+                        router_path: node/%
+                        link_title: 'Educator Open House'
+                        type: '6'
+                '50001 Field Ambassadors 3669':
+                    link:
+                        link_path: node/167
+                        router_path: node/%
+                        link_title: 'Field Ambassadors'
+                        type: '6'
+                '50002 Educator Workshops 3670':
+                    link:
+                        link_path: node/168
+                        router_path: node/%
+                        link_title: 'Educator Workshops'
+                        type: '6'
+                '50004 Educator In-Services 3668':
+                    link:
+                        link_path: node/166
+                        router_path: node/%
+                        link_title: 'Educator In-Services'
+                        type: '6'
+        '49955 Educator Resources 5961':
+            link:
+                link_path: node/2926
+                router_path: node/%
+                link_title: 'Educator Resources'
+                type: '6'
+            below:
+                '50001 Educator Guides 3673':
+                    link:
+                        link_path: node/171
+                        router_path: node/%
+                        link_title: 'Educator Guides'
+                        type: '6'
+        '49956 Digital Media Learning 10756':
+            link:
+                link_path: node/7526
+                router_path: node/%
+                link_title: 'Digital Media Learning'
+                type: '6'
+            below:
+                '50000 TakeTheField 18941':
+                    link:
+                        link_path: node/10421
+                        router_path: node/%
+                        link_title: TakeTheField
+                        type: '6'
+                '50000 Teens 2014 21276':
+                    link:
+                        link_path: node/18691
+                        router_path: node/%
+                        link_title: 'Teens 2014'
+                        type: '6'
+                '50000 Virtual Visits 18946':
+                    link:
+                        link_path: node/15516
+                        router_path: node/%
+                        link_title: 'Virtual Visits'
+                        type: '6'
+                '50001 Conservation Connection 10611':
+                    link:
+                        link_path: node/4286
+                        router_path: node/%
+                        link_title: 'Conservation Connection'
+                        type: '6'
+                '50003 Water Calculator 5646':
+                    link:
+                        link_path: node/1171
+                        router_path: node/%
+                        link_title: 'Water Calculator'
+                        type: '6'
+                '50004 WhyReef 9851':
+                    link:
+                        link_path: node/1286
+                        router_path: node/%
+                        link_title: WhyReef
+                        type: '6'
+        '49957 Early Elementary Science Partnership 3671':
+            link:
+                link_path: node/169
+                router_path: node/%
+                link_title: 'Early Elementary Science Partnership'
+                type: '6'
+        '49958 Systems Biology Partnership 19701':
+            link:
+                link_path: node/17916
+                router_path: node/%
+                link_title: 'Systems Biology Partnership'
+                type: '6'
+'49955 Explore Science 2269':
+    link:
+        link_path: node/60
+        router_path: node/%
+        link_title: 'Explore Science'
+        type: '6'
+    below:
+        '49950 Science Newsflash 19721':
+            link:
+                link_path: node/18281
+                router_path: node/%
+                link_title: 'Science Newsflash'
+                type: '6'
+        '49951 Follow Our Research 2268':
+            link:
+                link_path: node/59
+                router_path: node/%
+                link_title: 'Follow Our Research'
+                type: '6'
+            below:
+                '49950 Social Sciences 2183':
+                    link:
+                        link_path: node/46
+                        router_path: node/%
+                        link_title: 'Social Sciences'
+                        type: '6'
+                    below:
+                        '49951 Africa 5346':
+                            link:
+                                link_path: node/336
+                                router_path: node/%
+                                link_title: Africa
+                                type: '6'
+                            below:
+                                '50000 Home 6066':
+                                    link:
+                                        link_path: node/336
+                                        router_path: node/%
+                                        link_title: Home
+                                        type: '6'
+                                '50001 Research 6061':
+                                    link:
+                                        link_path: node/1536
+                                        router_path: node/%
+                                        link_title: Research
+                                        type: '6'
+                                '50002 Collections 7466':
+                                    link:
+                                        link_path: node/3886
+                                        router_path: node/%
+                                        link_title: Collections
+                                        type: '6'
+                                    below:
+                                        '50000 Africa Collections 10936':
+                                            link:
+                                                link_path: node/3566
+                                                router_path: node/%
+                                                link_title: 'Africa Collections'
+                                                type: '6'
+                                '50003 People 7471':
+                                    link:
+                                        link_path: explore/department/anthropology/africa/people
+                                        router_path: explore/department/%/%/people
+                                        link_title: People
+                                        type: '0'
+                                '50004 Partnerships 6046':
+                                    link:
+                                        link_path: node/1456
+                                        router_path: node/%
+                                        link_title: Partnerships
+                                        type: '6'
+                                '50005 Policies 6056':
+                                    link:
+                                        link_path: node/1491
+                                        router_path: node/%
+                                        link_title: Policies
+                                        type: '6'
+                        '49952 Asia 5356':
+                            link:
+                                link_path: node/346
+                                router_path: node/%
+                                link_title: Asia
+                                type: '6'
+                            below:
+                                '50000 Home 6326':
+                                    link:
+                                        link_path: node/346
+                                        router_path: node/%
+                                        link_title: Home
+                                        type: '6'
+                                '50001 Research 6076':
+                                    link:
+                                        link_path: node/1806
+                                        router_path: node/%
+                                        link_title: Research
+                                        type: '6'
+                                '50002 Collections 7486':
+                                    link:
+                                        link_path: node/1836
+                                        router_path: node/%
+                                        link_title: Collections
+                                        type: '6'
+                                    below:
+                                        '50000 Asian Textile Collections 10951':
+                                            link:
+                                                link_path: node/3641
+                                                router_path: node/%
+                                                link_title: 'Asian Textile Collections'
+                                                type: '6'
+                                        '50000 Berthold Laufer Collections 10956':
+                                            link:
+                                                link_path: node/5381
+                                                router_path: node/%
+                                                link_title: 'Berthold Laufer Collections'
+                                                type: '6'
+                                        '50000 Boone Collection 10961':
+                                            link:
+                                                link_path: node/4882
+                                                router_path: node/%
+                                                link_title: 'Boone Collection'
+                                                type: '6'
+                                        '50000 Chinese Rubbings Collection 10966':
+                                            link:
+                                                link_path: node/6931
+                                                router_path: node/%
+                                                link_title: 'Chinese Rubbings Collection'
+                                                type: '6'
+                                        '50000 Javanese Mask Collection 10971':
+                                            link:
+                                                link_path: node/5061
+                                                router_path: node/%
+                                                link_title: 'Javanese Mask Collection'
+                                                type: '6'
+                                        '50000 Schuster Collection 10981':
+                                            link:
+                                                link_path: node/7291
+                                                router_path: node/%
+                                                link_title: 'Schuster Collection'
+                                                type: '6'
+                                '50003 People 7491':
+                                    link:
+                                        link_path: explore/department/anthropology/asia/people
+                                        router_path: explore/department/%/%/people
+                                        link_title: People
+                                        type: '0'
+                                '50004 Partnerships 6551':
+                                    link:
+                                        link_path: node/3731
+                                        router_path: node/%
+                                        link_title: Partnerships
+                                        type: '6'
+                                '50005 Policies 6546':
+                                    link:
+                                        link_path: node/3726
+                                        router_path: node/%
+                                        link_title: Policies
+                                        type: '6'
+                        '49953 Europe and the Near East 5366':
+                            link:
+                                link_path: node/391
+                                router_path: node/%
+                                link_title: 'Europe and the Near East'
+                                type: '6'
+                            below:
+                                '49951 Home 6336':
+                                    link:
+                                        link_path: node/391
+                                        router_path: node/%
+                                        link_title: Home
+                                        type: '6'
+                                '49952 Research 6571':
+                                    link:
+                                        link_path: node/3751
+                                        router_path: node/%
+                                        link_title: Research
+                                        type: '6'
+                                '49953 Collections 7506':
+                                    link:
+                                        link_path: node/826
+                                        router_path: node/%
+                                        link_title: Collections
+                                        type: '6'
+                                '49954 People 7511':
+                                    link:
+                                        link_path: explore/department/anthropology/europe/people
+                                        router_path: explore/department/%/%/people
+                                        link_title: People
+                                        type: '0'
+                                '49955 Partnerships 6096':
+                                    link:
+                                        link_path: node/1966
+                                        router_path: node/%
+                                        link_title: Partnerships
+                                        type: '6'
+                                '49956 Policies 6576':
+                                    link:
+                                        link_path: node/3756
+                                        router_path: node/%
+                                        link_title: Policies
+                                        type: '6'
+                        '49954 Mesoamerica and Central America 5371':
+                            link:
+                                link_path: node/426
+                                router_path: node/%
+                                link_title: 'Mesoamerica and Central America'
+                                type: '6'
+                            below:
+                                '50000 Home 6341':
+                                    link:
+                                        link_path: node/426
+                                        router_path: node/%
+                                        link_title: Home
+                                        type: '6'
+                                '50001 Research 6581':
+                                    link:
+                                        link_path: node/3761
+                                        router_path: node/%
+                                        link_title: Research
+                                        type: '6'
+                                '50002 Collections 7536':
+                                    link:
+                                        link_path: node/3891
+                                        router_path: node/%
+                                        link_title: Collections
+                                        type: '6'
+                                    below:
+                                        '50000 Aztec, Inca and Maya Collections 10926':
+                                            link:
+                                                link_path: node/7026
+                                                router_path: node/%
+                                                link_title: 'Aztec, Inca and Maya Collections'
+                                                type: '6'
+                                        '50000 Latin American Textile Collections 10991':
+                                            link:
+                                                link_path: node/7021
+                                                router_path: node/%
+                                                link_title: 'Latin American Textile Collections'
+                                                type: '6'
+                                        '50000 Mesoamerica and Central America Collections 10996':
+                                            link:
+                                                link_path: node/4496
+                                                router_path: node/%
+                                                link_title: 'Mesoamerica and Central America Collections'
+                                                type: '6'
+                                '50003 People 7542':
+                                    link:
+                                        link_path: explore/department/anthropology/middle-america/people
+                                        router_path: explore/department/%/%/people
+                                        link_title: People
+                                        type: '0'
+                                '50004 Partnerships 6101':
+                                    link:
+                                        link_path: node/2051
+                                        router_path: node/%
+                                        link_title: Partnerships
+                                        type: '6'
+                                '50005 Policies 6591':
+                                    link:
+                                        link_path: node/3771
+                                        router_path: node/%
+                                        link_title: Policies
+                                        type: '6'
+                        '49955 North America 5376':
+                            link:
+                                link_path: node/431
+                                router_path: node/%
+                                link_title: 'North America'
+                                type: '6'
+                            below:
+                                '50000 Home 6351':
+                                    link:
+                                        link_path: node/431
+                                        router_path: node/%
+                                        link_title: Home
+                                        type: '6'
+                                '50001 Research 7781':
+                                    link:
+                                        link_path: node/2141
+                                        router_path: node/%
+                                        link_title: Research
+                                        type: '6'
+                                '50002 Collections 7547':
+                                    link:
+                                        link_path: node/2161
+                                        router_path: node/%
+                                        link_title: Collections
+                                        type: '6'
+                                    below:
+                                        '50000 North America Collections 11001':
+                                            link:
+                                                link_path: node/4626
+                                                router_path: node/%
+                                                link_title: 'North America Collections'
+                                                type: '6'
+                                        '50000 Paul S Martin Collection 11011':
+                                            link:
+                                                link_path: node/4326
+                                                router_path: node/%
+                                                link_title: 'Paul S Martin Collection'
+                                                type: '6'
+                                '50003 People 7552':
+                                    link:
+                                        link_path: explore/department/anthropology/north-america/people
+                                        router_path: explore/department/%/%/people
+                                        link_title: People
+                                        type: '0'
+                                '50004 Partnerships 6106':
+                                    link:
+                                        link_path: node/2101
+                                        router_path: node/%
+                                        link_title: Partnerships
+                                        type: '6'
+                                '50005 Policies 6601':
+                                    link:
+                                        link_path: node/3781
+                                        router_path: node/%
+                                        link_title: Policies
+                                        type: '6'
+                        '49956 Pacific 5386':
+                            link:
+                                link_path: node/436
+                                router_path: node/%
+                                link_title: Pacific
+                                type: '6'
+                            below:
+                                '50000 Home 6356':
+                                    link:
+                                        link_path: node/436
+                                        router_path: node/%
+                                        link_title: Home
+                                        type: '6'
+                                '50001 Research 6616':
+                                    link:
+                                        link_path: node/3796
+                                        router_path: node/%
+                                        link_title: Research
+                                        type: '6'
+                                '50002 Collections 7557':
+                                    link:
+                                        link_path: node/2241
+                                        router_path: node/%
+                                        link_title: Collections
+                                        type: '6'
+                                    below:
+                                        '49950 A. B. Lewis Collection 11021':
+                                            link:
+                                                link_path: node/7581
+                                                router_path: node/%
+                                                link_title: 'A. B. Lewis Collection'
+                                                type: '6'
+                                        '49951 A. W. F. Fuller Collection 11026':
+                                            link:
+                                                link_path: node/7586
+                                                router_path: node/%
+                                                link_title: 'A. W. F. Fuller Collection'
+                                                type: '6'
+                                        '49953 Australian Collection 11031':
+                                            link:
+                                                link_path: node/7571
+                                                router_path: node/%
+                                                link_title: 'Australian Collection'
+                                                type: '6'
+                                        '49954 Contemporary Pacific Collections 11036':
+                                            link:
+                                                link_path: node/7591
+                                                router_path: node/%
+                                                link_title: 'Contemporary Pacific Collections'
+                                                type: '6'
+                                        '49955 Early Pacific Collections 11041':
+                                            link:
+                                                link_path: node/7576
+                                                router_path: node/%
+                                                link_title: 'Early Pacific Collections'
+                                                type: '6'
+                                        '49956 Melanesian Collections 11046':
+                                            link:
+                                                link_path: node/7561
+                                                router_path: node/%
+                                                link_title: 'Melanesian Collections'
+                                                type: '6'
+                                        '49957 Polynesian Collections 11056':
+                                            link:
+                                                link_path: node/7546
+                                                router_path: node/%
+                                                link_title: 'Polynesian Collections'
+                                                type: '6'
+                                '50003 People 7567':
+                                    link:
+                                        link_path: explore/department/anthropology/pacific/people
+                                        router_path: explore/department/%/%/people
+                                        link_title: People
+                                        type: '0'
+                                '50004 Partnerships 6116':
+                                    link:
+                                        link_path: node/2191
+                                        router_path: node/%
+                                        link_title: Partnerships
+                                        type: '6'
+                                '50005 Policies 7776':
+                                    link:
+                                        link_path: node/2211
+                                        router_path: node/%
+                                        link_title: Policies
+                                        type: '6'
+                        '49957 South America 5391':
+                            link:
+                                link_path: node/441
+                                router_path: node/%
+                                link_title: 'South America'
+                                type: '6'
+                            below:
+                                '50000 Home 6361':
+                                    link:
+                                        link_path: node/441
+                                        router_path: node/%
+                                        link_title: Home
+                                        type: '6'
+                                '50001 Research 6636':
+                                    link:
+                                        link_path: node/3816
+                                        router_path: node/%
+                                        link_title: Research
+                                        type: '6'
+                                '50002 Collections 7582':
+                                    link:
+                                        link_path: node/2306
+                                        router_path: node/%
+                                        link_title: Collections
+                                        type: '6'
+                                    below:
+                                        '50000 Brazil Collections 11071':
+                                            link:
+                                                link_path: node/7016
+                                                router_path: node/%
+                                                link_title: 'Brazil Collections'
+                                                type: '6'
+                                        '50000 Coastal Peru Collection 11076':
+                                            link:
+                                                link_path: node/7011
+                                                router_path: node/%
+                                                link_title: 'Coastal Peru Collection'
+                                                type: '6'
+                                        '50000 Montez Collection 11081':
+                                            link:
+                                                link_path: node/6706
+                                                router_path: node/%
+                                                link_title: 'Montez Collection'
+                                                type: '6'
+                                '50003 People 7592':
+                                    link:
+                                        link_path: explore/department/anthropology/south-america/people
+                                        router_path: explore/department/%/%/people
+                                        link_title: People
+                                        type: '0'
+                                '50004 Partnerships 6121':
+                                    link:
+                                        link_path: node/2256
+                                        router_path: node/%
+                                        link_title: Partnerships
+                                        type: '6'
+                                '50005 Policies 6641':
+                                    link:
+                                        link_path: node/3821
+                                        router_path: node/%
+                                        link_title: Policies
+                                        type: '6'
+                        '49958 Archaeological Science 6071':
+                            link:
+                                link_path: node/1371
+                                router_path: node/%
+                                link_title: 'Archaeological Science'
+                                type: '6'
+                            below:
+                                '50000 Home 6321':
+                                    link:
+                                        link_path: node/1371
+                                        router_path: node/%
+                                        link_title: Home
+                                        type: '6'
+                                '50002 Research 6041':
+                                    link:
+                                        link_path: node/1311
+                                        router_path: node/%
+                                        link_title: Research
+                                        type: '6'
+                                '50003 Collections 10296':
+                                    link:
+                                        link_path: node/6806
+                                        router_path: node/%
+                                        link_title: Collections
+                                        type: '6'
+                                    below:
+                                        '50000 Andean Clays 11061':
+                                            link:
+                                                link_path: node/6816
+                                                router_path: node/%
+                                                link_title: 'Andean Clays'
+                                                type: '6'
+                                        '50000 Andean Fine-grained Volcanics 11066':
+                                            link:
+                                                link_path: node/6801
+                                                router_path: node/%
+                                                link_title: 'Andean Fine-grained Volcanics'
+                                                type: '6'
+                                        '50000 New Guinean Clays 11051':
+                                            link:
+                                                link_path: node/6821
+                                                router_path: node/%
+                                                link_title: 'New Guinean Clays'
+                                                type: '6'
+                                        '50000 North American Obsidian 11006':
+                                            link:
+                                                link_path: node/6751
+                                                router_path: node/%
+                                                link_title: 'North American Obsidian'
+                                                type: '6'
+                                '50003 People 7481':
+                                    link:
+                                        link_path: explore/department/anthropology/archaeological-science/people
+                                        router_path: explore/department/%/%/people
+                                        link_title: People
+                                        type: '0'
+                                '50004 Partnerships 6541':
+                                    link:
+                                        link_path: node/3721
+                                        router_path: node/%
+                                        link_title: Partnerships
+                                        type: '6'
+                                '50005 Policies 6536':
+                                    link:
+                                        link_path: node/3716
+                                        router_path: node/%
+                                        link_title: Policies
+                                        type: '6'
+                        '49959 Biological Anthropology 5361':
+                            link:
+                                link_path: node/351
+                                router_path: node/%
+                                link_title: 'Biological Anthropology'
+                                type: '6'
+                            below:
+                                '49951 Home 6331':
+                                    link:
+                                        link_path: node/351
+                                        router_path: node/%
+                                        link_title: Home
+                                        type: '6'
+                                '49952 Research 6561':
+                                    link:
+                                        link_path: node/3741
+                                        router_path: node/%
+                                        link_title: Research
+                                        type: '6'
+                                '49953 Collections 7496':
+                                    link:
+                                        link_path: node/1941
+                                        router_path: node/%
+                                        link_title: Collections
+                                        type: '6'
+                                '49954 People 7501':
+                                    link:
+                                        link_path: explore/department/anthropology/biological-anthropology/people
+                                        router_path: explore/department/%/%/people
+                                        link_title: People
+                                        type: '0'
+                                '49955 Partnerships 6566':
+                                    link:
+                                        link_path: node/3746
+                                        router_path: node/%
+                                        link_title: Partnerships
+                                        type: '6'
+                                '49956 Policies 6556':
+                                    link:
+                                        link_path: node/3736
+                                        router_path: node/%
+                                        link_title: Policies
+                                        type: '6'
+                        '49960 Cultural Anthropology 9146':
+                            link:
+                                link_path: node/5321
+                                router_path: node/%
+                                link_title: 'Cultural Anthropology'
+                                type: '6'
+                            below:
+                                '50000 Home 9976':
+                                    link:
+                                        link_path: node/5321
+                                        router_path: node/%
+                                        link_title: Home
+                                        type: '6'
+                                '50001 Research 9951':
+                                    link:
+                                        link_path: node/6206
+                                        router_path: node/%
+                                        link_title: Research
+                                        type: '6'
+                                '50002 Collections 9966':
+                                    link:
+                                        link_path: node/6201
+                                        router_path: node/%
+                                        link_title: Collections
+                                        type: '6'
+                                '50003 People 9981':
+                                    link:
+                                        link_path: explore/department/anthropology/cultural-anthropology/people
+                                        router_path: explore/department/%/%/people
+                                        link_title: People
+                                        type: '0'
+                                '50004 Partnerships 9956':
+                                    link:
+                                        link_path: node/6211
+                                        router_path: node/%
+                                        link_title: Partnerships
+                                        type: '6'
+                                '50005 Policies 9961':
+                                    link:
+                                        link_path: node/6216
+                                        router_path: node/%
+                                        link_title: Policies
+                                        type: '6'
+                        '50000 Anthropology Shows Left Rail Navigation (menu position rule) 17811':
+                            link:
+                                link_path: menu-position/5
+                                router_path: menu-position/%
+                                link_title: 'Anthropology Shows Left Rail Navigation (menu position rule)'
+                                type: '0'
+                '49953 Biological Sciences: Plants 2270':
+                    link:
+                        link_path: node/51
+                        router_path: node/%
+                        link_title: 'Biological Sciences: Plants'
+                        type: '6'
+                    below:
+                        '49950 Botany Shows Left Rail Navigation (menu position rule) 17816':
+                            link:
+                                link_path: menu-position/6
+                                router_path: menu-position/%
+                                link_title: 'Botany Shows Left Rail Navigation (menu position rule)'
+                                type: '0'
+                        '49951 Bryophytes and Pteridophytes 5341':
+                            link:
+                                link_path: node/331
+                                router_path: node/%
+                                link_title: 'Bryophytes and Pteridophytes'
+                                type: '6'
+                            below:
+                                '50000 Home 6366':
+                                    link:
+                                        link_path: node/331
+                                        router_path: node/%
+                                        link_title: Home
+                                        type: '6'
+                                '50001 Research 6491':
+                                    link:
+                                        link_path: node/3671
+                                        router_path: node/%
+                                        link_title: Research
+                                        type: '6'
+                                '50002 Collections 9661':
+                                    link:
+                                        link_path: node/2626
+                                        router_path: node/%
+                                        link_title: Collections
+                                        type: '6'
+                                    below:
+                                        '50000 Bryophytes 11431':
+                                            link:
+                                                link_path: node/901
+                                                router_path: node/%
+                                                link_title: Bryophytes
+                                                type: '6'
+                                '50003 People 7602':
+                                    link:
+                                        link_path: explore/department/botany/bryophytes/people
+                                        router_path: explore/department/%/%/people
+                                        link_title: People
+                                        type: '0'
+                                '50004 History 6506':
+                                    link:
+                                        link_path: node/3686
+                                        router_path: node/%
+                                        link_title: History
+                                        type: '6'
+                                '50005 Policies 6511':
+                                    link:
+                                        link_path: node/3691
+                                        router_path: node/%
+                                        link_title: Policies
+                                        type: '6'
+                        '49952 Economic Botany 5331':
+                            link:
+                                link_path: node/326
+                                router_path: node/%
+                                link_title: 'Economic Botany'
+                                type: '6'
+                            below:
+                                '49950 Home 6371':
+                                    link:
+                                        link_path: node/326
+                                        router_path: node/%
+                                        link_title: Home
+                                        type: '6'
+                                '49952 Research 6486':
+                                    link:
+                                        link_path: node/3666
+                                        router_path: node/%
+                                        link_title: Research
+                                        type: '6'
+                                '49953 Collections 9666':
+                                    link:
+                                        link_path: node/2151
+                                        router_path: node/%
+                                        link_title: Collections
+                                        type: '6'
+                                    below:
+                                        '50000 Economic Botany 11436':
+                                            link:
+                                                link_path: node/916
+                                                router_path: node/%
+                                                link_title: 'Economic Botany'
+                                                type: '6'
+                                '49954 People 7627':
+                                    link:
+                                        link_path: explore/department/botany/economic/people
+                                        router_path: explore/department/%/%/people
+                                        link_title: People
+                                        type: '0'
+                                '49955 History 2278':
+                                    link:
+                                        link_path: node/62
+                                        router_path: node/%
+                                        link_title: History
+                                        type: '6'
+                                '49956 Policies 6111':
+                                    link:
+                                        link_path: node/3356
+                                        router_path: node/%
+                                        link_title: Policies
+                                        type: '6'
+                        '49953 Fungi and Lichens 5326':
+                            link:
+                                link_path: node/321
+                                router_path: node/%
+                                link_title: 'Fungi and Lichens'
+                                type: '6'
+                            below:
+                                '50000 Home 6376':
+                                    link:
+                                        link_path: node/321
+                                        router_path: node/%
+                                        link_title: Home
+                                        type: '6'
+                                '50001 Research 6496':
+                                    link:
+                                        link_path: node/3676
+                                        router_path: node/%
+                                        link_title: Research
+                                        type: '6'
+                                '50002 Collections 9671':
+                                    link:
+                                        link_path: node/2366
+                                        router_path: node/%
+                                        link_title: Collections
+                                        type: '6'
+                                    below:
+                                        '50000 Costa Rican Fungi 11441':
+                                            link:
+                                                link_path: node/996
+                                                router_path: node/%
+                                                link_title: 'Costa Rican Fungi'
+                                                type: '6'
+                                        '50000 Microlichens 11461':
+                                            link:
+                                                link_path: node/1021
+                                                router_path: node/%
+                                                link_title: Microlichens
+                                                type: '6'
+                                        '50000 NAMA Voucher Collection Project 11446':
+                                            link:
+                                                link_path: node/1161
+                                                router_path: node/%
+                                                link_title: 'NAMA Voucher Collection Project'
+                                                type: '6'
+                                        '50000 Singer Index 11451':
+                                            link:
+                                                link_path: node/1511
+                                                router_path: node/%
+                                                link_title: 'Singer Index'
+                                                type: '6'
+                                        '50000 Tropical Lichen Types (TROPILIT) 11456':
+                                            link:
+                                                link_path: node/1546
+                                                router_path: node/%
+                                                link_title: 'Tropical Lichen Types (TROPILIT)'
+                                                type: '6'
+                                '50003 People 7637':
+                                    link:
+                                        link_path: explore/department/botany/fungi/people
+                                        router_path: explore/department/%/%/people
+                                        link_title: People
+                                        type: '0'
+                                '50004 History 6526':
+                                    link:
+                                        link_path: node/3706
+                                        router_path: node/%
+                                        link_title: History
+                                        type: '6'
+                                '50005 Policies 6531':
+                                    link:
+                                        link_path: node/3711
+                                        router_path: node/%
+                                        link_title: Policies
+                                        type: '6'
+                        '49954 Seed Plants 5321':
+                            link:
+                                link_path: node/316
+                                router_path: node/%
+                                link_title: 'Seed Plants'
+                                type: '6'
+                            below:
+                                '50000 Home 6381':
+                                    link:
+                                        link_path: node/316
+                                        router_path: node/%
+                                        link_title: Home
+                                        type: '6'
+                                    below:
+                                        '50000 Angiosperm Origins: A Monocots-First Scenario 19006':
+                                            link:
+                                                link_path: node/15396
+                                                router_path: node/%
+                                                link_title: 'Angiosperm Origins: A Monocots-First Scenario'
+                                                type: '6'
+                                '50001 Research 6501':
+                                    link:
+                                        link_path: node/3681
+                                        router_path: node/%
+                                        link_title: Research
+                                        type: '6'
+                                '50002 Collections 9676':
+                                    link:
+                                        link_path: node/2336
+                                        router_path: node/%
+                                        link_title: Collections
+                                        type: '6'
+                                    below:
+                                        '50000 Andean Flowering Plants 11086':
+                                            link:
+                                                link_path: node/1621
+                                                router_path: node/%
+                                                link_title: 'Andean Flowering Plants'
+                                                type: '6'
+                                        '50000 Berlin Negatives 12076':
+                                            link:
+                                                link_path: node/626
+                                                router_path: node/%
+                                                link_title: 'Berlin Negatives'
+                                                type: '6'
+                                        '50000 Erythroxylum 11091':
+                                            link:
+                                                link_path: node/1856
+                                                router_path: node/%
+                                                link_title: Erythroxylum
+                                                type: '6'
+                                        '50000 vTypes 11426':
+                                            link:
+                                                link_path: node/1751
+                                                router_path: node/%
+                                                link_title: vTypes
+                                                type: '6'
+                                '50003 People 7647':
+                                    link:
+                                        link_path: explore/department/botany/seedplants/people
+                                        router_path: explore/department/%/%/people
+                                        link_title: People
+                                        type: '0'
+                                '50004 History 6516':
+                                    link:
+                                        link_path: node/3696
+                                        router_path: node/%
+                                        link_title: History
+                                        type: '6'
+                                '50005 Policies 6521':
+                                    link:
+                                        link_path: node/3701
+                                        router_path: node/%
+                                        link_title: Policies
+                                        type: '6'
+                '49957 Earth Sciences 2393':
+                    link:
+                        link_path: node/68
+                        router_path: node/%
+                        link_title: 'Earth Sciences'
+                        type: '6'
+                    below:
+                        '50000 Fossil Amphibians and Reptiles 5396':
+                            link:
+                                link_path: node/446
+                                router_path: node/%
+                                link_title: 'Fossil Amphibians and Reptiles'
+                                type: '6'
+                            below:
+                                '50000 Home 6386':
+                                    link:
+                                        link_path: node/446
+                                        router_path: node/%
+                                        link_title: Home
+                                        type: '6'
+                                '50001 Research 6586':
+                                    link:
+                                        link_path: node/3766
+                                        router_path: node/%
+                                        link_title: Research
+                                        type: '6'
+                                '50002 Collections 9686':
+                                    link:
+                                        link_path: node/681
+                                        router_path: node/%
+                                        link_title: Collections
+                                        type: '6'
+                                '50003 People 7662':
+                                    link:
+                                        link_path: explore/department/geology/fossil-amphibians-and-reptiles/people
+                                        router_path: explore/department/%/%/people
+                                        link_title: People
+                                        type: '0'
+                                '50004 History 6316':
+                                    link:
+                                        link_path: node/931
+                                        router_path: node/%
+                                        link_title: History
+                                        type: '6'
+                                '50004 Policies 6596':
+                                    link:
+                                        link_path: node/3776
+                                        router_path: node/%
+                                        link_title: Policies
+                                        type: '6'
+                        '50000 Fossil Birds 9796':
+                            link:
+                                link_path: node/5976
+                                router_path: node/%
+                                link_title: 'Fossil Birds'
+                                type: '6'
+                            below:
+                                '50000 Home 9826':
+                                    link:
+                                        link_path: node/5976
+                                        router_path: node/%
+                                        link_title: Home
+                                        type: '6'
+                                '50001 Research 9801':
+                                    link:
+                                        link_path: node/6006
+                                        router_path: node/%
+                                        link_title: Research
+                                        type: '6'
+                                '50002 Collections 9821':
+                                    link:
+                                        link_path: node/5981
+                                        router_path: node/%
+                                        link_title: Collections
+                                        type: '6'
+                                '50003 People 9831':
+                                    link:
+                                        link_path: explore/department/geology/fossil-birds/people
+                                        router_path: explore/department/%/%/people
+                                        link_title: People
+                                        type: '0'
+                                '50004 History 9816':
+                                    link:
+                                        link_path: node/6016
+                                        router_path: node/%
+                                        link_title: History
+                                        type: '6'
+                                '50005 Policies 9811':
+                                    link:
+                                        link_path: node/6011
+                                        router_path: node/%
+                                        link_title: Policies
+                                        type: '6'
+                        '50000 Fossil Fishes 5401':
+                            link:
+                                link_path: node/451
+                                router_path: node/%
+                                link_title: 'Fossil Fishes'
+                                type: '6'
+                            below:
+                                '50000 Home 6391':
+                                    link:
+                                        link_path: node/451
+                                        router_path: node/%
+                                        link_title: Home
+                                        type: '6'
+                                '50001 Research 6191':
+                                    link:
+                                        link_path: node/1356
+                                        router_path: node/%
+                                        link_title: Research
+                                        type: '6'
+                                '50002 Collections 9691':
+                                    link:
+                                        link_path: node/726
+                                        router_path: node/%
+                                        link_title: Collections
+                                        type: '6'
+                                '50003 People 7672':
+                                    link:
+                                        link_path: explore/department/geology/fossil-fishes/people
+                                        router_path: explore/department/%/%/people
+                                        link_title: People
+                                        type: '0'
+                                '50004 History 6311':
+                                    link:
+                                        link_path: node/1281
+                                        router_path: node/%
+                                        link_title: History
+                                        type: '6'
+                                '50005 Policies 6611':
+                                    link:
+                                        link_path: node/3791
+                                        router_path: node/%
+                                        link_title: Policies
+                                        type: '6'
+                        '50000 Fossil Invertebrates 5411':
+                            link:
+                                link_path: node/466
+                                router_path: node/%
+                                link_title: 'Fossil Invertebrates'
+                                type: '6'
+                            below:
+                                '49950 Home 6396':
+                                    link:
+                                        link_path: node/466
+                                        router_path: node/%
+                                        link_title: Home
+                                        type: '6'
+                                '49952 Research 6631':
+                                    link:
+                                        link_path: node/3811
+                                        router_path: node/%
+                                        link_title: Research
+                                        type: '6'
+                                '49953 Collections 9696':
+                                    link:
+                                        link_path: node/746
+                                        router_path: node/%
+                                        link_title: Collections
+                                        type: '6'
+                                    below:
+                                        '50000 Mazon Creek Fossil Invertebrates 11591':
+                                            link:
+                                                link_path: node/5941
+                                                router_path: node/%
+                                                link_title: 'Mazon Creek Fossil Invertebrates'
+                                                type: '6'
+                                '49954 People 7682':
+                                    link:
+                                        link_path: explore/department/geology/fossil-invertebrates/people
+                                        router_path: explore/department/%/%/people
+                                        link_title: People
+                                        type: '0'
+                                '49955 History 18756':
+                                    link:
+                                        link_path: node/14471
+                                        router_path: node/%
+                                        link_title: History
+                                        type: '6'
+                                '49956 Policies 6621':
+                                    link:
+                                        link_path: node/3801
+                                        router_path: node/%
+                                        link_title: Policies
+                                        type: '6'
+                        '50000 Fossil Mammals and Synapsids 5416':
+                            link:
+                                link_path: node/471
+                                router_path: node/%
+                                link_title: 'Fossil Mammals and Synapsids'
+                                type: '6'
+                            below:
+                                '50000 Home 6401':
+                                    link:
+                                        link_path: node/471
+                                        router_path: node/%
+                                        link_title: Home
+                                        type: '6'
+                                '50001 Research 6646':
+                                    link:
+                                        link_path: node/3826
+                                        router_path: node/%
+                                        link_title: Research
+                                        type: '6'
+                                '50002 Collections 9706':
+                                    link:
+                                        link_path: node/3876
+                                        router_path: node/%
+                                        link_title: Collections
+                                        type: '6'
+                                '50003 People 7692':
+                                    link:
+                                        link_path: explore/department/geology/fossil-mammals/people
+                                        router_path: explore/department/%/%/people
+                                        link_title: People
+                                        type: '0'
+                                '50004 History 6291':
+                                    link:
+                                        link_path: node/1411
+                                        router_path: node/%
+                                        link_title: History
+                                        type: '6'
+                                '50005 Policies 6651':
+                                    link:
+                                        link_path: node/3831
+                                        router_path: node/%
+                                        link_title: Policies
+                                        type: '6'
+                        '50000 Fossil Plants 5426':
+                            link:
+                                link_path: node/481
+                                router_path: node/%
+                                link_title: 'Fossil Plants'
+                                type: '6'
+                            below:
+                                '50000 Home 6406':
+                                    link:
+                                        link_path: node/481
+                                        router_path: node/%
+                                        link_title: Home
+                                        type: '6'
+                                '50001 Research 6656':
+                                    link:
+                                        link_path: node/3836
+                                        router_path: node/%
+                                        link_title: Research
+                                        type: '6'
+                                '50002 Collections 9711':
+                                    link:
+                                        link_path: node/806
+                                        router_path: node/%
+                                        link_title: Collections
+                                        type: '6'
+                                    below:
+                                        '50000 Mazon Creek flora 11586':
+                                            link:
+                                                link_path: node/5936
+                                                router_path: node/%
+                                                link_title: 'Mazon Creek flora'
+                                                type: '6'
+                                        '50000 Ohio University Paleobotanical Herbarium 18586':
+                                            link:
+                                                link_path: node/13966
+                                                router_path: node/%
+                                                link_title: 'Ohio University Paleobotanical Herbarium'
+                                                type: '6'
+                                '50003 People 7702':
+                                    link:
+                                        link_path: explore/department/geology/fossil-plants/people
+                                        router_path: explore/department/%/%/people
+                                        link_title: People
+                                        type: '0'
+                                '50004 History 6206':
+                                    link:
+                                        link_path: node/1516
+                                        router_path: node/%
+                                        link_title: History
+                                        type: '6'
+                                '50005 Facilities 6661':
+                                    link:
+                                        link_path: node/3841
+                                        router_path: node/%
+                                        link_title: Facilities
+                                        type: '6'
+                        '50000 Gems and Minerals 5431':
+                            link:
+                                link_path: node/486
+                                router_path: node/%
+                                link_title: 'Gems and Minerals'
+                                type: '6'
+                            below:
+                                '50000 Home 6411':
+                                    link:
+                                        link_path: node/486
+                                        router_path: node/%
+                                        link_title: Home
+                                        type: '6'
+                                '50001 Research 6666':
+                                    link:
+                                        link_path: node/3846
+                                        router_path: node/%
+                                        link_title: Research
+                                        type: '6'
+                                '50002 Collections 9716':
+                                    link:
+                                        link_path: node/851
+                                        router_path: node/%
+                                        link_title: Collections
+                                        type: '6'
+                                '50003 People 7712':
+                                    link:
+                                        link_path: explore/department/geology/gems/people
+                                        router_path: explore/department/%/%/people
+                                        link_title: People
+                                        type: '0'
+                                '50004 History 6281':
+                                    link:
+                                        link_path: node/1646
+                                        router_path: node/%
+                                        link_title: History
+                                        type: '6'
+                                '50005 Policies 6671':
+                                    link:
+                                        link_path: node/3851
+                                        router_path: node/%
+                                        link_title: Policies
+                                        type: '6'
+                        '50000 Geology Shows Left Rail Navigation (menu position rule) 17826':
+                            link:
+                                link_path: menu-position/8
+                                router_path: menu-position/%
+                                link_title: 'Geology Shows Left Rail Navigation (menu position rule)'
+                                type: '0'
+                        '50000 Meteorites 5436':
+                            link:
+                                link_path: node/491
+                                router_path: node/%
+                                link_title: Meteorites
+                                type: '6'
+                            below:
+                                '49950 Home 6426':
+                                    link:
+                                        link_path: node/491
+                                        router_path: node/%
+                                        link_title: Home
+                                        type: '6'
+                                '49951 Research 6681':
+                                    link:
+                                        link_path: node/3861
+                                        router_path: node/%
+                                        link_title: Research
+                                        type: '6'
+                                '49953 Collections 9721':
+                                    link:
+                                        link_path: node/886
+                                        router_path: node/%
+                                        link_title: Collections
+                                        type: '6'
+                                '49954 People 7722':
+                                    link:
+                                        link_path: explore/department/geology/meteorites/people
+                                        router_path: explore/department/%/%/people
+                                        link_title: People
+                                        type: '0'
+                                '49955 History 6251':
+                                    link:
+                                        link_path: node/1826
+                                        router_path: node/%
+                                        link_title: History
+                                        type: '6'
+                                '49956 Policies 6676':
+                                    link:
+                                        link_path: node/3856
+                                        router_path: node/%
+                                        link_title: Policies
+                                        type: '6'
+                        '50000 Polar Studies 5441':
+                            link:
+                                link_path: node/501
+                                router_path: node/%
+                                link_title: 'Polar Studies'
+                                type: '6'
+                            below:
+                                '50000 Home 6431':
+                                    link:
+                                        link_path: node/501
+                                        router_path: node/%
+                                        link_title: Home
+                                        type: '6'
+                                '50001 Research 6686':
+                                    link:
+                                        link_path: node/3866
+                                        router_path: node/%
+                                        link_title: Research
+                                        type: '6'
+                                '50003 People 7732':
+                                    link:
+                                        link_path: explore/department/geology/polar-studies/people
+                                        router_path: explore/department/%/%/people
+                                        link_title: People
+                                        type: '0'
+                                '50004 History 6696':
+                                    link:
+                                        link_path: node/3881
+                                        router_path: node/%
+                                        link_title: History
+                                        type: '6'
+                                '50005 Policies 6691':
+                                    link:
+                                        link_path: node/3871
+                                        router_path: node/%
+                                        link_title: Policies
+                                        type: '6'
+                        '50050 Preparation Lab 10091':
+                            link:
+                                link_path: node/6431
+                                router_path: node/%
+                                link_title: 'Preparation Lab'
+                                type: '6'
+                            below:
+                                '50000 Home 10401':
+                                    link:
+                                        link_path: node/6431
+                                        router_path: node/%
+                                        link_title: Home
+                                        type: '6'
+                                '50001 Research 10096':
+                                    link:
+                                        link_path: node/6436
+                                        router_path: node/%
+                                        link_title: Research
+                                        type: '6'
+                                '50002 Projects 10101':
+                                    link:
+                                        link_path: node/6441
+                                        router_path: node/%
+                                        link_title: Projects
+                                        type: '6'
+                                '50003 People 10406':
+                                    link:
+                                        link_path: explore/department/geology/fossil-prep/people
+                                        router_path: explore/department/%/%/people
+                                        link_title: People
+                                        type: '0'
+                                '50004 History 10106':
+                                    link:
+                                        link_path: node/6446
+                                        router_path: node/%
+                                        link_title: History
+                                        type: '6'
+                                '50005 Policies 10111':
+                                    link:
+                                        link_path: node/6451
+                                        router_path: node/%
+                                        link_title: Policies
+                                        type: '6'
+                '49959 Biological Sciences: Animals 2271':
+                    link:
+                        link_path: node/33
+                        router_path: node/%
+                        link_title: 'Biological Sciences: Animals'
+                        type: '6'
+                    below:
+                        '49951 Amphibians and Reptiles 2396':
+                            link:
+                                link_path: node/71
+                                router_path: node/%
+                                link_title: 'Amphibians and Reptiles'
+                                type: '6'
+                            below:
+                                '50000 Home 2474':
+                                    link:
+                                        link_path: node/71
+                                        router_path: node/%
+                                        link_title: Home
+                                        type: '6'
+                                '50001 Research 2471':
+                                    link:
+                                        link_path: node/89
+                                        router_path: node/%
+                                        link_title: Research
+                                        type: '6'
+                                '50002 Collections 9731':
+                                    link:
+                                        link_path: node/82
+                                        router_path: node/%
+                                        link_title: Collections
+                                        type: '6'
+                                    below:
+                                        '50000 Amphibian and Reptile Collections 10916':
+                                            link:
+                                                link_path: node/1166
+                                                router_path: node/%
+                                                link_title: 'Amphibian and Reptile Collections'
+                                                type: '6'
+                                '50003 People 2664':
+                                    link:
+                                        link_path: explore/department/zoology/amphibians-and-reptiles/people
+                                        router_path: explore/department/%/%/people
+                                        link_title: People
+                                        type: '0'
+                                '50004 History 6141':
+                                    link:
+                                        link_path: node/2381
+                                        router_path: node/%
+                                        link_title: History
+                                        type: '6'
+                                '50005 Loans/Visits 2473':
+                                    link:
+                                        link_path: node/91
+                                        router_path: node/%
+                                        link_title: Loans/Visits
+                                        type: '6'
+                        '49952 Birds 2397':
+                            link:
+                                link_path: node/72
+                                router_path: node/%
+                                link_title: Birds
+                                type: '6'
+                            below:
+                                '50000 Home 2475':
+                                    link:
+                                        link_path: node/72
+                                        router_path: node/%
+                                        link_title: Home
+                                        type: '6'
+                                '50001 Research 2480':
+                                    link:
+                                        link_path: node/92
+                                        router_path: node/%
+                                        link_title: Research
+                                        type: '6'
+                                    below:
+                                        '50000 From Finches to Ostriches: The Anatomy of a Museum Collection 10986':
+                                            link:
+                                                link_path: node/8241
+                                                router_path: node/%
+                                                link_title: 'From Finches to Ostriches: The Anatomy of a Museum Collection'
+                                                type: '6'
+                                '50002 Collections 9736':
+                                    link:
+                                        link_path: node/34
+                                        router_path: node/%
+                                        link_title: Collections
+                                        type: '6'
+                                    below:
+                                        '49951 Bird Egg Collection 11471':
+                                            link:
+                                                link_path: node/1126
+                                                router_path: node/%
+                                                link_title: 'Bird Egg Collection'
+                                                type: '6'
+                                        '49952 Bird Specimen Collection 11476':
+                                            link:
+                                                link_path: node/1141
+                                                router_path: node/%
+                                                link_title: 'Bird Specimen Collection'
+                                                type: '6'
+                                        '49953 Bird Tissue Collection 11481':
+                                            link:
+                                                link_path: node/1106
+                                                router_path: node/%
+                                                link_title: 'Bird Tissue Collection'
+                                                type: '6'
+                                '50003 People 2665':
+                                    link:
+                                        link_path: explore/department/zoology/birds/people
+                                        router_path: explore/department/%/%/people
+                                        link_title: People
+                                        type: '0'
+                                '50004 History 6161':
+                                    link:
+                                        link_path: node/2246
+                                        router_path: node/%
+                                        link_title: History
+                                        type: '6'
+                                '50005 Policies 2482':
+                                    link:
+                                        link_path: node/94
+                                        router_path: node/%
+                                        link_title: Policies
+                                        type: '6'
+                        '49952 Fishes 2398':
+                            link:
+                                link_path: node/73
+                                router_path: node/%
+                                link_title: Fishes
+                                type: '6'
+                            below:
+                                '50000 Home 2476':
+                                    link:
+                                        link_path: node/73
+                                        router_path: node/%
+                                        link_title: Home
+                                        type: '6'
+                                '50001 Research 2483':
+                                    link:
+                                        link_path: node/95
+                                        router_path: node/%
+                                        link_title: Research
+                                        type: '6'
+                                '50002 Collections 9741':
+                                    link:
+                                        link_path: node/27
+                                        router_path: node/%
+                                        link_title: Collections
+                                        type: '6'
+                                    below:
+                                        '50000 Cleared and Stained Fishes Collection 11486':
+                                            link:
+                                                link_path: node/656
+                                                router_path: node/%
+                                                link_title: 'Cleared and Stained Fishes Collection'
+                                                type: '6'
+                                        '50000 Fishes Collection 11491':
+                                            link:
+                                                link_path: node/561
+                                                router_path: node/%
+                                                link_title: 'Fishes Collection'
+                                                type: '6'
+                                        '50000 Fishes Collection Localities 11496':
+                                            link:
+                                                link_path: node/3206
+                                                router_path: node/%
+                                                link_title: 'Fishes Collection Localities'
+                                                type: '6'
+                                        '50000 Fishes Dried Skeleton Collection 11501':
+                                            link:
+                                                link_path: node/606
+                                                router_path: node/%
+                                                link_title: 'Fishes Dried Skeleton Collection'
+                                                type: '6'
+                                        '50000 Fishes Image Collection 11956':
+                                            link:
+                                                link_path: node/701
+                                                router_path: node/%
+                                                link_title: 'Fishes Image Collection'
+                                                type: '6'
+                                        '50000 Fishes Type Collection 11961':
+                                            link:
+                                                link_path: node/661
+                                                router_path: node/%
+                                                link_title: 'Fishes Type Collection'
+                                                type: '6'
+                                '50003 People 2666':
+                                    link:
+                                        link_path: explore/department/zoology/fishes/people
+                                        router_path: explore/department/%/%/people
+                                        link_title: People
+                                        type: '0'
+                                '50004 History 6276':
+                                    link:
+                                        link_path: node/1846
+                                        router_path: node/%
+                                        link_title: History
+                                        type: '6'
+                                '50005 Policies 2485':
+                                    link:
+                                        link_path: node/97
+                                        router_path: node/%
+                                        link_title: Policies
+                                        type: '6'
+                        '49954 Insects, Arachnids, and Myriapods 2399':
+                            link:
+                                link_path: node/74
+                                router_path: node/%
+                                link_title: 'Insects, Arachnids, and Myriapods'
+                                type: '6'
+                            below:
+                                '49950 Home 2477':
+                                    link:
+                                        link_path: node/74
+                                        router_path: node/%
+                                        link_title: Home
+                                        type: '6'
+                                '49951 Research 2486':
+                                    link:
+                                        link_path: node/98
+                                        router_path: node/%
+                                        link_title: Research
+                                        type: '6'
+                                '49952 Collections 9746':
+                                    link:
+                                        link_path: node/83
+                                        router_path: node/%
+                                        link_title: Collections
+                                        type: '6'
+                                    below:
+                                        '50000 All Arthropod Collections 11506':
+                                            link:
+                                                link_path: node/5441
+                                                router_path: node/%
+                                                link_title: 'All Arthropod Collections'
+                                                type: '6'
+                                        '50000 Ant (Formicidae) Collection 11511':
+                                            link:
+                                                link_path: node/5521
+                                                router_path: node/%
+                                                link_title: 'Ant (Formicidae) Collection'
+                                                type: '6'
+                                        '50000 Arachnida & Myriapoda Collections 11516':
+                                            link:
+                                                link_path: node/1036
+                                                router_path: node/%
+                                                link_title: 'Arachnida & Myriapoda Collections'
+                                                type: '6'
+                                        '50000 Bulk Sample Collection 11521':
+                                            link:
+                                                link_path: node/1061
+                                                router_path: node/%
+                                                link_title: 'Bulk Sample Collection'
+                                                type: '6'
+                                        '50000 Coleoptera Collection 11526':
+                                            link:
+                                                link_path: node/1011
+                                                router_path: node/%
+                                                link_title: 'Coleoptera Collection'
+                                                type: '6'
+                                        '50000 Lepidoptera Collection 11531':
+                                            link:
+                                                link_path: node/941
+                                                router_path: node/%
+                                                link_title: 'Lepidoptera Collection'
+                                                type: '6'
+                                        '50000 Vertebrate Ectoparasite Collection 11536':
+                                            link:
+                                                link_path: node/966
+                                                router_path: node/%
+                                                link_title: 'Vertebrate Ectoparasite Collection'
+                                                type: '6'
+                                '49953 People 2667':
+                                    link:
+                                        link_path: explore/department/zoology/insects/people
+                                        router_path: explore/department/%/%/people
+                                        link_title: People
+                                        type: '0'
+                                '49955 History 6166':
+                                    link:
+                                        link_path: node/2221
+                                        router_path: node/%
+                                        link_title: History
+                                        type: '6'
+                                '49956 Loans/Visits 2488':
+                                    link:
+                                        link_path: node/100
+                                        router_path: node/%
+                                        link_title: Loans/Visits
+                                        type: '6'
+                        '49955 Invertebrates 2400':
+                            link:
+                                link_path: node/75
+                                router_path: node/%
+                                link_title: Invertebrates
+                                type: '6'
+                            below:
+                                '50000 Home 2478':
+                                    link:
+                                        link_path: node/75
+                                        router_path: node/%
+                                        link_title: Home
+                                        type: '6'
+                                '50001 Research 2489':
+                                    link:
+                                        link_path: node/101
+                                        router_path: node/%
+                                        link_title: Research
+                                        type: '6'
+                                '50002 Collections 9751':
+                                    link:
+                                        link_path: node/84
+                                        router_path: node/%
+                                        link_title: Collections
+                                        type: '6'
+                                    below:
+                                        '50000 Hydrothermal Vent Invertebrate Collection 11541':
+                                            link:
+                                                link_path: node/876
+                                                router_path: node/%
+                                                link_title: 'Hydrothermal Vent Invertebrate Collection'
+                                                type: '6'
+                                        '50000 Invertebrates 11546':
+                                            link:
+                                                link_path: node/5301
+                                                router_path: node/%
+                                                link_title: Invertebrates
+                                                type: '6'
+                                        '50000 Invertebrates from Wood Falls 11551':
+                                            link:
+                                                link_path: node/896
+                                                router_path: node/%
+                                                link_title: 'Invertebrates from Wood Falls'
+                                                type: '6'
+                                        '50000 Malacological Journals and Newsletters 11556':
+                                            link:
+                                                link_path: node/856
+                                                router_path: node/%
+                                                link_title: 'Malacological Journals and Newsletters'
+                                                type: '6'
+                                        '50000 Mollusk Collection 11561':
+                                            link:
+                                                link_path: node/911
+                                                router_path: node/%
+                                                link_title: 'Mollusk Collection'
+                                                type: '6'
+                                        '50000 Non-Molluscan Invertebrate Collection 11566':
+                                            link:
+                                                link_path: node/921
+                                                router_path: node/%
+                                                link_title: 'Non-Molluscan Invertebrate Collection'
+                                                type: '6'
+                                '50003 People 2668':
+                                    link:
+                                        link_path: explore/department/zoology/invertebrates/people
+                                        router_path: explore/department/%/%/people
+                                        link_title: People
+                                        type: '0'
+                                '50004 History 6176':
+                                    link:
+                                        link_path: node/2046
+                                        router_path: node/%
+                                        link_title: History
+                                        type: '6'
+                                '50005 Policies 2491':
+                                    link:
+                                        link_path: node/103
+                                        router_path: node/%
+                                        link_title: Policies
+                                        type: '6'
+                        '49956 Mammals 2401':
+                            link:
+                                link_path: node/76
+                                router_path: node/%
+                                link_title: Mammals
+                                type: '6'
+                            below:
+                                '50000 Home 2479':
+                                    link:
+                                        link_path: node/76
+                                        router_path: node/%
+                                        link_title: Home
+                                        type: '6'
+                                '50001 Research 2492':
+                                    link:
+                                        link_path: node/104
+                                        router_path: node/%
+                                        link_title: Research
+                                        type: '6'
+                                '50002 Collections 9756':
+                                    link:
+                                        link_path: node/1336
+                                        router_path: node/%
+                                        link_title: Collections
+                                        type: '6'
+                                    below:
+                                        '50000 Mammal Collection 11571':
+                                            link:
+                                                link_path: node/786
+                                                router_path: node/%
+                                                link_title: 'Mammal Collection'
+                                                type: '6'
+                                        '50000 Mammal Taxonomy 11576':
+                                            link:
+                                                link_path: node/821
+                                                router_path: node/%
+                                                link_title: 'Mammal Taxonomy'
+                                                type: '6'
+                                '50003 People 2669':
+                                    link:
+                                        link_path: explore/department/zoology/mammals/people
+                                        router_path: explore/department/%/%/people
+                                        link_title: People
+                                        type: '0'
+                                '50004 History 6261':
+                                    link:
+                                        link_path: node/1886
+                                        router_path: node/%
+                                        link_title: History
+                                        type: '6'
+                                '50005 Policies 2494':
+                                    link:
+                                        link_path: node/106
+                                        router_path: node/%
+                                        link_title: Policies
+                                        type: '6'
+                        '50000 Zoology Shows Left Rail Navigation (menu position rule) 17841':
+                            link:
+                                link_path: menu-position/11
+                                router_path: menu-position/%
+                                link_title: 'Zoology Shows Left Rail Navigation (menu position rule)'
+                                type: '0'
+                '50000 Explore Science Blog page (menu position rule) 17881':
+                    link:
+                        link_path: menu-position/61
+                        router_path: menu-position/%
+                        link_title: 'Explore Science Blog page (menu position rule)'
+                        type: '0'
+                '50000 Science Action 9806':
+                    link:
+                        link_path: node/67
+                        router_path: node/%
+                        link_title: 'Science Action'
+                        type: '6'
+                '50021 Pritzker DNA Lab 2395':
+                    link:
+                        link_path: node/70
+                        router_path: node/%
+                        link_title: 'Pritzker DNA Lab'
+                        type: '6'
+                    below:
+                        '50000 Pritzker Lab Shows Left Rail Navigation (menu position rule) 17836':
+                            link:
+                                link_path: menu-position/10
+                                router_path: menu-position/%
+                                link_title: 'Pritzker Lab Shows Left Rail Navigation (menu position rule)'
+                                type: '0'
+        '49952 Conservation Efforts 3678':
+            link:
+                link_path: node/176
+                router_path: node/%
+                link_title: 'Conservation Efforts'
+                type: '6'
+            below:
+                '49950 Science Action 10356':
+                    link:
+                        link_path: node/67
+                        router_path: node/%
+                        link_title: 'Science Action'
+                        type: '6'
+                    below:
+                        '50000 ECCo Shows Left Rail Navigation (menu position rule) 17821':
+                            link:
+                                link_path: menu-position/7
+                                router_path: menu-position/%
+                                link_title: 'ECCo Shows Left Rail Navigation (menu position rule)'
+                                type: '0'
+                '49977 Conserving Collections 10491':
+                    link:
+                        link_path: node/7146
+                        router_path: node/%
+                        link_title: 'Conserving Collections'
+                        type: '6'
+                    below:
+                        '50000 Conserving Collections Shows Left Rail Navigation (menu position rule) 17876':
+                            link:
+                                link_path: menu-position/56
+                                router_path: menu-position/%
+                                link_title: 'Conserving Collections Shows Left Rail Navigation (menu position rule)'
+                                type: '0'
+                '50000 A  Greener Field 10531':
+                    link:
+                        link_path: node/7276
+                        router_path: node/%
+                        link_title: 'A  Greener Field'
+                        type: '6'
+                    below:
+                        '50000 Greener Field (menu position rule) 17756':
+                            link:
+                                link_path: menu-position/96
+                                router_path: menu-position/%
+                                link_title: 'Greener Field (menu position rule)'
+                                type: '0'
+                '50000 Cultural Heritage 10146':
+                    link:
+                        link_path: node/6511
+                        router_path: node/%
+                        link_title: 'Cultural Heritage'
+                        type: '6'
+                    below:
+                        '50000 Cultural Heritage Shows Left Rail Navigation (menu position rule) 17871':
+                            link:
+                                link_path: menu-position/51
+                                router_path: menu-position/%
+                                link_title: 'Cultural Heritage Shows Left Rail Navigation (menu position rule)'
+                                type: '0'
+        '49953 Explore Our Collections 2893':
+            link:
+                link_path: node/15
+                router_path: node/%
+                link_title: 'Explore Our Collections'
+                type: '6'
+            below:
+                '50000 Individual collections (menu position rule) 17796':
+                    link:
+                        link_path: menu-position/1
+                        router_path: menu-position/%
+                        link_title: 'Individual collections (menu position rule)'
+                        type: '0'
+                '50001 Conserving Collections 19457':
+                    link:
+                        link_path: node/7146
+                        router_path: node/%
+                        link_title: 'Conserving Collections'
+                        type: '6'
+                '50012 Library/Archives 10606':
+                    link:
+                        link_path: node/69
+                        router_path: node/%
+                        link_title: Library/Archives
+                        type: '6'
+                    below:
+                        '49997 Museum Archives 8416':
+                            link:
+                                link_path: node/5191
+                                router_path: node/%
+                                link_title: 'Museum Archives'
+                                type: '6'
+                            below:
+                                '50000 Home 8711':
+                                    link:
+                                        link_path: node/5191
+                                        router_path: node/%
+                                        link_title: Home
+                                        type: '6'
+                                '50002 Collections 9761':
+                                    link:
+                                        link_path: node/5206
+                                        router_path: node/%
+                                        link_title: Collections
+                                        type: '6'
+                                '50003 People 8726':
+                                    link:
+                                        link_path: explore/department/library/museum-archives/people
+                                        router_path: explore/department/%/%/people
+                                        link_title: People
+                                        type: '0'
+                                '50004 Policies 9081':
+                                    link:
+                                        link_path: node/5251
+                                        router_path: node/%
+                                        link_title: Policies
+                                        type: '6'
+                        '49999 Photo Archives 8411':
+                            link:
+                                link_path: node/5181
+                                router_path: node/%
+                                link_title: 'Photo Archives'
+                                type: '6'
+                            below:
+                                '50000 Home 8716':
+                                    link:
+                                        link_path: node/5181
+                                        router_path: node/%
+                                        link_title: Home
+                                        type: '6'
+                                '50001 Resources 9091':
+                                    link:
+                                        link_path: node/5261
+                                        router_path: node/%
+                                        link_title: Resources
+                                        type: '6'
+                                '50002 Collections 9766':
+                                    link:
+                                        link_path: node/5186
+                                        router_path: node/%
+                                        link_title: Collections
+                                        type: '6'
+                                    below:
+                                        '50000 Photo Archives - Africa Collection 10941':
+                                            link:
+                                                link_path: node/6996
+                                                router_path: node/%
+                                                link_title: 'Photo Archives - Africa Collection'
+                                                type: '6'
+                                        '50000 Photo Archives - Anthropology Collection 11601':
+                                            link:
+                                                link_path: node/6921
+                                                router_path: node/%
+                                                link_title: 'Photo Archives - Anthropology Collection'
+                                                type: '6'
+                                        '50000 Photo Archives - Botany Collection 11606':
+                                            link:
+                                                link_path: node/6926
+                                                router_path: node/%
+                                                link_title: 'Photo Archives - Botany Collection'
+                                                type: '6'
+                                        '50000 Photo Archives - Carl Akeley Collection 11581':
+                                            link:
+                                                link_path: node/6466
+                                                router_path: node/%
+                                                link_title: 'Photo Archives - Carl Akeley Collection'
+                                                type: '6'
+                                        '50000 Photo Archives - Charles Knight Collection 11611':
+                                            link:
+                                                link_path: node/7006
+                                                router_path: node/%
+                                                link_title: 'Photo Archives - Charles Knight Collection'
+                                                type: '6'
+                                        '50000 Photo Archives - Expedition Collection 11616':
+                                            link:
+                                                link_path: node/6986
+                                                router_path: node/%
+                                                link_title: 'Photo Archives - Expedition Collection'
+                                                type: '6'
+                                        '50000 Photo Archives - Geology Collection 11596':
+                                            link:
+                                                link_path: node/6916
+                                                router_path: node/%
+                                                link_title: 'Photo Archives - Geology Collection'
+                                                type: '6'
+                                        '50000 Photo Archives - Malvina Hoffman Collection 11621':
+                                            link:
+                                                link_path: node/6951
+                                                router_path: node/%
+                                                link_title: 'Photo Archives - Malvina Hoffman Collection'
+                                                type: '6'
+                                        '50000 Photo Archives - Native American Collection 11016':
+                                            link:
+                                                link_path: node/6906
+                                                router_path: node/%
+                                                link_title: 'Photo Archives - Native American Collection'
+                                                type: '6'
+                                        '50000 Photo Archives - Urban Landscapes 11626':
+                                            link:
+                                                link_path: node/6946
+                                                router_path: node/%
+                                                link_title: 'Photo Archives - Urban Landscapes'
+                                                type: '6'
+                                        '50000 Photo Archives - What happened to the Caveman dioramas? 12151':
+                                            link:
+                                                link_path: node/8726
+                                                router_path: node/%
+                                                link_title: 'Photo Archives - What happened to the Caveman dioramas?'
+                                                type: '6'
+                                        '50000 Photo Archives - Worcester Collection 10976':
+                                            link:
+                                                link_path: node/6991
+                                                router_path: node/%
+                                                link_title: 'Photo Archives - Worcester Collection'
+                                                type: '6'
+                                        '50000 Photo Archives - Zoology Collection 11631':
+                                            link:
+                                                link_path: node/5581
+                                                router_path: node/%
+                                                link_title: 'Photo Archives - Zoology Collection'
+                                                type: '6'
+                                        '50000 World''s Columbian Exposition of 1893 Collection 10946':
+                                            link:
+                                                link_path: node/4381
+                                                router_path: node/%
+                                                link_title: 'World''s Columbian Exposition of 1893 Collection'
+                                                type: '6'
+                                '50003 People 8731':
+                                    link:
+                                        link_path: explore/department/library/photo-archives/people
+                                        router_path: explore/department/%/%/people
+                                        link_title: People
+                                        type: '0'
+                                '50004 Policies 9096':
+                                    link:
+                                        link_path: node/5266
+                                        router_path: node/%
+                                        link_title: Policies
+                                        type: '6'
+                                '50005 Photography 9101':
+                                    link:
+                                        link_path: node/5271
+                                        router_path: node/%
+                                        link_title: Photography
+                                        type: '6'
+                        '50000 Library Shows Left Rail Navigation (menu position rule) 17831':
+                            link:
+                                link_path: menu-position/9
+                                router_path: menu-position/%
+                                link_title: 'Library Shows Left Rail Navigation (menu position rule)'
+                                type: '0'
+                        '50000 Rare Book Room 8421':
+                            link:
+                                link_path: node/5196
+                                router_path: node/%
+                                link_title: 'Rare Book Room'
+                                type: '6'
+                            below:
+                                '50000 Home 8721':
+                                    link:
+                                        link_path: node/5196
+                                        router_path: node/%
+                                        link_title: Home
+                                        type: '6'
+                                '50001 Resources 9106':
+                                    link:
+                                        link_path: node/5276
+                                        router_path: node/%
+                                        link_title: Resources
+                                        type: '6'
+                                '50002 Collections 9771':
+                                    link:
+                                        link_path: node/5201
+                                        router_path: node/%
+                                        link_title: Collections
+                                        type: '6'
+                                    below:
+                                        '50000 Edward E. Ayer Collection 11641':
+                                            link:
+                                                link_path: node/5306
+                                                router_path: node/%
+                                                link_title: 'Edward E. Ayer Collection'
+                                                type: '6'
+                                        '50000 John James Audubon Collection 11636':
+                                            link:
+                                                link_path: node/5661
+                                                router_path: node/%
+                                                link_title: 'John James Audubon Collection'
+                                                type: '6'
+                                '50003 People 8736':
+                                    link:
+                                        link_path: explore/department/library/rare-books/people
+                                        router_path: explore/department/%/%/people
+                                        link_title: People
+                                        type: '0'
+                                '50004 Policies 9121':
+                                    link:
+                                        link_path: node/5281
+                                        router_path: node/%
+                                        link_title: Policies
+                                        type: '6'
+                                '50005 Contact Us 9126':
+                                    link:
+                                        link_path: node/5286
+                                        router_path: node/%
+                                        link_title: 'Contact Us'
+                                        type: '6'
+        '49954 Research Resources 10341':
+            link:
+                link_path: node/6896
+                router_path: node/%
+                link_title: 'Research Resources'
+                type: '6'
+            below:
+                '49950 Collections Resource Center 10931':
+                    link:
+                        link_path: node/8236
+                        router_path: node/%
+                        link_title: 'Collections Resource Center'
+                        type: '6'
+                '50000 Publications 10351':
+                    link:
+                        link_path: node/6901
+                        router_path: node/%
+                        link_title: Publications
+                        type: '6'
+                    below:
+                        '50000 Fieldiana 10451':
+                            link:
+                                link_path: node/7031
+                                router_path: node/%
+                                link_title: Fieldiana
+                                type: '6'
+                '50005 Reports 9586':
+                    link:
+                        link_path: node/5656
+                        router_path: node/%
+                        link_title: Reports
+                        type: '6'
+                    below:
+                        '50000 C&R Annual Reports 9591':
+                            link:
+                                link_path: node/5326
+                                router_path: node/%
+                                link_title: 'C&R Annual Reports'
+                                type: '6'
+                        '50000 Environment, Culture, & Conservation (ECCo) Annual Reports 12621':
+                            link:
+                                link_path: node/9211
+                                router_path: node/%
+                                link_title: 'Environment, Culture, & Conservation (ECCo) Annual Reports'
+                                type: '6'
+                '50040 Newsletter Archive 16376':
+                    link:
+                        link_path: explore/crnewsletter
+                        router_path: explore/crnewsletter
+                        link_title: 'Newsletter Archive'
+                        type: '0'
+                    below:
+                        '50000 C&R Newsletters (menu position rule) 17761':
+                            link:
+                                link_path: menu-position/101
+                                router_path: menu-position/%
+                                link_title: 'C&R Newsletters (menu position rule)'
+                                type: '0'
+        '49955 Explore & Learn paths (menu position rule) 17886':
+            link:
+                link_path: menu-position/36
+                router_path: menu-position/%
+                link_title: 'Explore & Learn paths (menu position rule)'
+                type: '0'
+        '49956 Science Podcasts 16226':
+            link:
+                link_path: node/11911
+                router_path: node/%
+                link_title: 'Science Podcasts'
+                type: '6'
+            below:
+                '49950 The Brain Scoop 21126':
+                    link:
+                        link_path: node/18516
+                        router_path: node/%
+                        link_title: 'The Brain Scoop'
+                        type: '6'
+                '49951 Science at FMNH 12611':
+                    link:
+                        link_path: node/9186
+                        router_path: node/%
+                        link_title: 'Science at FMNH'
+                        type: '6'
+                    below:
+                        '50000 Science at FMNH videos (menu position rule) 17751':
+                            link:
+                                link_path: menu-position/106
+                                router_path: menu-position/%
+                                link_title: 'Science at FMNH videos (menu position rule)'
+                                type: '0'
+                '49951 The Field Revealed 16231':
+                    link:
+                        link_path: node/11866
+                        router_path: node/%
+                        link_title: 'The Field Revealed'
+                        type: '6'
+                '49952 What the Fish? 18896':
+                    link:
+                        link_path: node/14791
+                        router_path: node/%
+                        link_title: 'What the Fish?'
+                        type: '6'
+                '50005 Caring for a Collection 21501':
+                    link:
+                        link_path: node/18786
+                        router_path: node/%
+                        link_title: 'Caring for a Collection'
+                        type: '6'
+'49956 About Us 2670':
+    link:
+        link_path: node/108
+        router_path: node/%
+        link_title: 'About Us'
+        type: '6'
+    below:
+        '49950 History of the Museum 6711':
+            link:
+                link_path: node/3906
+                router_path: node/%
+                link_title: 'History of the Museum'
+                type: '6'
+            below:
+                '50000 Architecture 19396':
+                    link:
+                        link_path: node/12541
+                        router_path: node/%
+                        link_title: Architecture
+                        type: '6'
+                '50000 Brief History 10526':
+                    link:
+                        link_path: node/7271
+                        router_path: node/%
+                        link_title: 'Brief History'
+                        type: '6'
+                '50001 Timeline 9971':
+                    link:
+                        link_path: node/6251
+                        router_path: node/%
+                        link_title: Timeline
+                        type: '6'
+                '50002 Further Reading 10396':
+                    link:
+                        link_path: node/6911
+                        router_path: node/%
+                        link_title: 'Further Reading'
+                        type: '6'
+        '49951 Our Mission 21736':
+            link:
+                link_path: node/18876
+                router_path: node/%
+                link_title: 'Our Mission'
+                type: '6'
+        '49952 Traveling Exhibitions 3726':
+            link:
+                link_path: node/207
+                router_path: node/%
+                link_title: 'Traveling Exhibitions'
+                type: '6'
+            below:
+                '49951 A T. rex Named Sue 9156':
+                    link:
+                        link_path: node/5351
+                        router_path: node/%
+                        link_title: 'A T. rex Named Sue'
+                        type: '6'
+                '49962 Chocolate 9161':
+                    link:
+                        link_path: node/5356
+                        router_path: node/%
+                        link_title: Chocolate
+                        type: '6'
+                '49970 George Washington Carver 9166':
+                    link:
+                        link_path: node/5366
+                        router_path: node/%
+                        link_title: 'George Washington Carver'
+                        type: '6'
+                '49979 Nature Unleashed: Inside Natural Disasters 9171':
+                    link:
+                        link_path: node/5411
+                        router_path: node/%
+                        link_title: 'Nature Unleashed: Inside Natural Disasters'
+                        type: '6'
+                '49999 Mammoths and Mastodons: Titans of the Ice Age 9186':
+                    link:
+                        link_path: node/5451
+                        router_path: node/%
+                        link_title: 'Mammoths and Mastodons: Titans of the Ice Age'
+                        type: '6'
+                '50000 50 Years of Powwow 9791':
+                    link:
+                        link_path: node/6001
+                        router_path: node/%
+                        link_title: '50 Years of Powwow'
+                        type: '6'
+                '50000 A Celebration of Souls: Day of the Dead in Southern Mexico 9181':
+                    link:
+                        link_path: node/5421
+                        router_path: node/%
+                        link_title: 'A Celebration of Souls: Day of the Dead in Southern Mexico'
+                        type: '6'
+                '50000 Currently Traveling 19011':
+                    link:
+                        link_path: node/15781
+                        router_path: node/%
+                        link_title: 'Currently Traveling'
+                        type: '6'
+                '50000 The Machine Inside: Biomechanics 9176':
+                    link:
+                        link_path: node/5416
+                        router_path: node/%
+                        link_title: 'The Machine Inside: Biomechanics'
+                        type: '6'
+                '50003 Intellectual Property 19026':
+                    link:
+                        link_path: node/15811
+                        router_path: node/%
+                        link_title: 'Intellectual Property'
+                        type: '6'
+                '50003 Transforming Tradition: Pottery from Mata Ortíz 9191':
+                    link:
+                        link_path: node/5461
+                        router_path: node/%
+                        link_title: 'Transforming Tradition: Pottery from Mata Ortíz'
+                        type: '6'
+                '50016 Intellectual Property and Licensing 3728':
+                    link:
+                        link_path: node/209
+                        router_path: node/%
+                        link_title: 'Intellectual Property and Licensing'
+                        type: '6'
+        '49953 Press Materials 10556':
+            link:
+                link_path: node/7411
+                router_path: node/%
+                link_title: 'Press Materials'
+                type: '6'
+            below:
+                '50000 Exhibition Press Releases 3732':
+                    link:
+                        link_path: about/press/exhibitions
+                        router_path: about/press/exhibitions
+                        link_title: 'Exhibition Press Releases'
+                        type: '0'
+                '50001 Scientific Releases 3733':
+                    link:
+                        link_path: about/press/science
+                        router_path: about/press/science
+                        link_title: 'Scientific Releases'
+                        type: '0'
+                '50003 Archives 3735':
+                    link:
+                        link_path: about/press/archives
+                        router_path: about/press/archives
+                        link_title: Archives
+                        type: '0'
+        '49954 News 11946':
+            link:
+                link_path: about/news
+                router_path: about/news
+                link_title: News
+                type: '0'
+        '49955 Technology 19111':
+            link:
+                link_path: node/16081
+                router_path: node/%
+                link_title: Technology
+                type: '6'
+        '49956 Social Media 16786':
+            link:
+                link_path: node/12596
+                router_path: node/%
+                link_title: 'Social Media'
+                type: '6'
+        '49957 Multimedia Gallery 11951':
+            link:
+                link_path: about/gallery
+                router_path: about/gallery
+                link_title: 'Multimedia Gallery'
+                type: '0'
+        '49958 Our Staff 3729':
+            link:
+                link_path: about/staff
+                router_path: about/staff
+                link_title: 'Our Staff'
+                type: '0'
+            below:
+                '49950 Executive Staff 9141':
+                    link:
+                        link_path: about/staff/executive
+                        router_path: about/staff/executive
+                        link_title: 'Executive Staff'
+                        type: '0'
+                '49951 Board of Trustees 3730':
+                    link:
+                        link_path: node/210
+                        router_path: node/%
+                        link_title: 'Board of Trustees'
+                        type: '6'
+                '50000 User profiles (menu position rule) 17801':
+                    link:
+                        link_path: menu-position/3
+                        router_path: menu-position/%
+                        link_title: 'User profiles (menu position rule)'
+                        type: '0'
+        '49959 Career Opportunities 10316':
+            link:
+                link_path: node/6836
+                router_path: node/%
+                link_title: 'Career Opportunities'
+                type: '6'
+            below:
+                '49950 Open Positions 10236':
+                    link:
+                        link_path: node/6736
+                        router_path: node/%
+                        link_title: 'Open Positions'
+                        type: '6'
+                '49951 Internships 10226':
+                    link:
+                        link_path: node/6716
+                        router_path: node/%
+                        link_title: Internships
+                        type: '6'
+                '49953 Benefits 10331':
+                    link:
+                        link_path: node/6866
+                        router_path: node/%
+                        link_title: Benefits
+                        type: '6'
+                '49954 Research Scholarships and Grants 17251':
+                    link:
+                        link_path: node/4411
+                        router_path: node/%
+                        link_title: 'Research Scholarships and Grants'
+                        type: '6'
+        '49960 Volunteer Opportunities 6706':
+            link:
+                link_path: node/3901
+                router_path: node/%
+                link_title: 'Volunteer Opportunities'
+                type: '6'
+            below:
+                '50000 Administrative Volunteers 6956':
+                    link:
+                        link_path: node/4226
+                        router_path: node/%
+                        link_title: 'Administrative Volunteers'
+                        type: '6'
+                '50000 Public Floor & Education Volunteers 6836':
+                    link:
+                        link_path: node/4006
+                        router_path: node/%
+                        link_title: 'Public Floor & Education Volunteers'
+                        type: '6'
+                '50000 Scientific Volunteers 6946':
+                    link:
+                        link_path: node/4221
+                        router_path: node/%
+                        link_title: 'Scientific Volunteers'
+                        type: '6'
+                '50000 Teen Volunteers 10241':
+                    link:
+                        link_path: node/6741
+                        router_path: node/%
+                        link_title: 'Teen Volunteers'
+                        type: '6'
+                '50008 Volunteer Requirements & Perks 10246':
+                    link:
+                        link_path: node/4241
+                        router_path: node/%
+                        link_title: 'Volunteer Requirements & Perks'
+                        type: '6'
+        '49961 Annual Reports 12091':
+            link:
+                link_path: node/8591
+                router_path: node/%
+                link_title: 'Annual Reports'
+                type: '6'
+            below:
+                '50000 Archive 12156':
+                    link:
+                        link_path: node/8641
+                        router_path: node/%
+                        link_title: Archive
+                        type: '6'
+        '49962 Copyright Information 3737':
+            link:
+                link_path: node/217
+                router_path: node/%
+                link_title: 'Copyright Information'
+                type: '6'
+        '49963 About us paths (menu position rule) 17806':
+            link:
+                link_path: menu-position/41
+                router_path: menu-position/%
+                link_title: 'About us paths (menu position rule)'
+                type: '0'

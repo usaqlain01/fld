@@ -1,0 +1,36 @@
+'49950 Home 2459':
+    link:
+        link_path: node/67
+        router_path: node/%
+        link_title: Home
+        type: '6'
+'49951 Climate 2458':
+    link:
+        link_path: node/80
+        router_path: node/%
+        link_title: Climate
+        type: '6'
+'49951 Collections 10766':
+    link:
+        link_path: node/7601
+        router_path: node/%
+        link_title: Collections
+        type: '6'
+'49951 Inventories 2402':
+    link:
+        link_path: node/77
+        router_path: node/%
+        link_title: Inventories
+        type: '6'
+'49952 Communities 7751':
+    link:
+        link_path: node/5031
+        router_path: node/%
+        link_title: Communities
+        type: '6'
+'49953 About Us 2457':
+    link:
+        link_path: node/79
+        router_path: node/%
+        link_title: 'About Us'
+        type: '6'

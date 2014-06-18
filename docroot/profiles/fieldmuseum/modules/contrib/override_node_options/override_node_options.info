@@ -1,0 +1,12 @@
+name = Override node options
+description = "Allow non-admins to override the default publishing options for nodes they can edit."
+core = 7.x
+package = Permissions
+files[] = override_node_options.test
+
+; Information added by drupal.org packaging script on 2013-10-01
+version = "7.x-1.12+4-dev"
+core = "7.x"
+project = "override_node_options"
+datestamp = "1380621747"
+
