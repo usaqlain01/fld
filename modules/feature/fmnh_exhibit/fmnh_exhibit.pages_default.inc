@@ -198,14 +198,18 @@ function fmnh_exhibit_default_page_manager_pages() {
     ),
   );
   $display = new panels_display();
-  $display->layout = 'zen_no_wrapper';
+  $display->layout = 'l6';
   $display->layout_settings = array(
-    'main_classes' => '',
+    'top_classes' => '',
+    'main_classes' => 'promos--3up',
+    'nav_classes' => 'navSection',
   );
   $display->panel_settings = array(
     'style_settings' => array(
       'default' => NULL,
       'main' => NULL,
+      'top' => NULL,
+      'nav' => NULL,
     ),
   );
   $display->cache = array();
@@ -243,6 +247,106 @@ function fmnh_exhibit_default_page_manager_pages() {
     $pane->uuid = 'f50b682b-dbb1-4e7f-aebb-9d70fb2143f0';
     $display->content['new-f50b682b-dbb1-4e7f-aebb-9d70fb2143f0'] = $pane;
     $display->panels['main'][0] = 'new-f50b682b-dbb1-4e7f-aebb-9d70fb2143f0';
+    $pane = new stdClass();
+    $pane->pid = 'new-224d8a6e-280b-415f-81a3-0f88bb7bbca5';
+    $pane->panel = 'nav';
+    $pane->type = 'menu_tree';
+    $pane->subtype = 'main-menu';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'menu_name' => 'main-menu',
+      'parent_mlid' => 0,
+      'parent' => 'main-menu:0',
+      'title_link' => 0,
+      'admin_title' => '',
+      'level' => '1',
+      'follow' => 'active',
+      'depth' => '0',
+      'expanded' => 1,
+      'sort' => 0,
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '224d8a6e-280b-415f-81a3-0f88bb7bbca5';
+    $display->content['new-224d8a6e-280b-415f-81a3-0f88bb7bbca5'] = $pane;
+    $display->panels['nav'][0] = 'new-224d8a6e-280b-415f-81a3-0f88bb7bbca5';
+    $pane = new stdClass();
+    $pane->pid = 'new-f8ded911-2e77-413b-9c4b-6b8227af48de';
+    $pane->panel = 'top';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => '',
+      'title' => '',
+      'body' => '          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.
+',
+      'format' => 'unfiltered',
+      'substitute' => 1,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => array(
+        'element_title' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => 'p',
+          'class_enable' => 1,
+          'class' => 'p--intro',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
+      'style' => 'semantic_panels',
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'f8ded911-2e77-413b-9c4b-6b8227af48de';
+    $display->content['new-f8ded911-2e77-413b-9c4b-6b8227af48de'] = $pane;
+    $display->panels['top'][0] = 'new-f8ded911-2e77-413b-9c4b-6b8227af48de';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
