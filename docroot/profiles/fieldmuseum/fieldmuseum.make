@@ -56,6 +56,9 @@ projects[entitylist][download][type] = git
 projects[entityreference][subdir] = contrib
 projects[entityreference][version] = 1.1
 
+projects[facetapi][subdir] = contrib
+projects[facetapi][version] = 1.3
+
 projects[features][subdir] = contrib
 projects[features][version] = 2.0
 
@@ -169,6 +172,15 @@ projects[profile2][version] = 1.x-dev
 
 projects[redirect][subdir] = contrib
 projects[redirect][version] = 1.x-dev
+
+projects[search_api][subdir] = contrib
+projects[search_api][version] = 1.12
+
+projects[search_api_db][subdir] = contrib
+projects[search_api_db][version] = 1.3
+
+projects[search_api_page][subdir] = contrib
+projects[search_api_page][version] = 1.1
 
 projects[semantic_panels][subdir] = contrib
 projects[semantic_panels][version] = 1.2
