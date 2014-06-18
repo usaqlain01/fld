@@ -603,8 +603,6 @@ function fmnh_migrate_migrate_api() {
           'StratigraphyTerm',
           'ExhibitTerm',
         ),
-        'role_migration' => 'Role',
-        'picture_migration' => 'UserPicture',
         'description' => 'Migrate users',
         'source_connection' => 'migrate',
       ),
