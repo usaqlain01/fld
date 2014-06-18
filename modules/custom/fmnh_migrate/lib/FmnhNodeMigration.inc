@@ -239,32 +239,43 @@ class FmnhNodeMigration extends DrupalNode7Migration {
   }
 
   public function findNewMenuParentForNode($old_nid) {
-    $source_migrations = array(
-      'ArticleNode',
-      'BlogNode',
-      'CollectionNode',
-      'DepartmentNode',
-      'EducationalResourceArticleNode',
-      'ExhibitNode',
-      'FaqNode',
-      'ItineraryArticleNode',
-      'NewsForGeneralAudiencesArticleNode',
-      'NewsletterNode',
-      'PageNode',
-      'PhotoGalleryNode',
-      'PodcastNode',
-      'PressMaterialsArticleNode',
-      'ProgramArticleNode',
-      'PublicationArticleNode',
-      'ResearchScienceArticleNode',
-      'TravelingExhibitionNode',
-      'VideoNode',
-      'WebformNode',
-    );
+    /** @var $source_migrations array */
+    static $source_migrations = array();
+
+    if (empty($source_migrations)) {
+      $source_migrations = array(
+        'ArticleNode',
+        'BlogNode',
+        'CollectionNode',
+        'DepartmentNode',
+        'EducationalResourceArticleNode',
+        'ExhibitNode',
+        'FaqNode',
+        'ItineraryArticleNode',
+        'NewsForGeneralAudiencesArticleNode',
+        'NewsletterNode',
+        'PageNode',
+        'PhotoGalleryNode',
+        'PodcastNode',
+        'PressMaterialsArticleNode',
+        'ProgramArticleNode',
+        'PublicationArticleNode',
+        'ResearchScienceArticleNode',
+        'TravelingExhibitionNode',
+        'VideoNode',
+        'WebformNode',
+      );
+
+      // Instantiate each migration, and store back in the array.
+      foreach ($source_migrations as $key => $source_migration) {
+        $source_migrations[$key] = Migration::getInstance($source_migration);
+      }
+    }
+
     foreach ($source_migrations as $source_migration) {
-      $migration = \Migration::getInstance($source_migration);
+      /** @var \Migration $source_migration */
       // Break out of the loop as soon as a destination ID is found.
-      if ($destids = $migration->getMap()->lookupDestinationID(array($old_nid))) {
+      if ($destids = $source_migration->getMap()->lookupDestinationID(array($old_nid))) {
         if (!empty($destids['destid1'])) {
           $parent_item = menu_link_get_preferred('node/'. $destids['destid1']);
 
