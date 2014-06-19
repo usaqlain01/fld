@@ -13,9 +13,13 @@
         "phing/phing": "dev-master",
         "cac/autophing": "~1.3.3",
         "mongolito404/phingdrushtask": "7.1.*@dev",
-        "pear/versioncontrol_git": "*"
+        "pear-pear.php.net/VersionControl_Git": "*"
     },
     "repositories": [
+        {
+            "type": "pear",
+            "url": "http://pear.php.net"
+        },
         {
             "type": "package",
             "package": {
