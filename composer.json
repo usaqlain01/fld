@@ -1,6 +1,10 @@
 {
     "repositories": [
         {
+            "type": "pear",
+            "url": "http://pear.php.net"
+        },
+        {
             "type": "package",
             "package": {
                 "name": "mongolito404/phingdrushtask",
@@ -29,7 +33,8 @@
         "phpunit/phpunit": "4.1.*",
         "phing/phing": "~2.7",
         "cac/autophing": "~1.3.3",
-        "mongolito404/phingdrushtask": "7.1.*@dev"
+        "mongolito404/phingdrushtask": "7.1.*@dev",
+        "pear-pear.php.net/VersionControl_Git": "*"
     },
     "autoload": {
         "psr-4": {"": "lib/"}
