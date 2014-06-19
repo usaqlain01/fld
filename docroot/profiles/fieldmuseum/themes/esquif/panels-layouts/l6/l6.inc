@@ -12,7 +12,9 @@ $plugin = array(
   'theme'       => 'esquif_l6',
 
   'regions'     => array(
+    'top'       => t('Top'),
     'main'      => t('Main'),
+    'nav'       => t('Nav'),
   ),
 
   'settings form'     => 'esquif_l6_settings_form',

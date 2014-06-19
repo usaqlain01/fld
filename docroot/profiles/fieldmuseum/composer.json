@@ -9,7 +9,9 @@
         "raulfraile/ladybug": "dev-master",
         "symfony/debug": "~2.4",
         "drupal/drupal-extension": "1.0.*@stable",
-        "phpunit/phpunit": "4.1.*"
+        "phpunit/phpunit": "4.1.*",
+        "phing/phing": "~2.7",
+        "cac/autophing": "dev-master"
     },
     "autoload": {
         "psr-4": {"": "lib/"}

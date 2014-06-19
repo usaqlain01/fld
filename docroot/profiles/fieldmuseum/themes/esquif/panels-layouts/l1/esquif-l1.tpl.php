@@ -1,11 +1,12 @@
 <?php
-if ($main_classes) {
-  print '<div class="' . $main_classes . '">';
-  print $content['main'];
-  print '</div>';
+
+if ($hero_classes) {
+  print '<section class="' . $hero_classes . '">';
+  print $content['hero'];
+  print '</section>';
 }
 else {
-  print $content['main'];
+  print $content['hero'];
 }
 
 if ($top_classes) {
