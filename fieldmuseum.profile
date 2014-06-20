@@ -128,3 +128,12 @@ function fieldmuseum_imagecrop_effect(&$image, $data) {
 
   return imagecrop_effect($image, $data);
 }
+
+/**
+ * Implements hook_rdf_namespaces().
+ */
+function fieldmuseum_rdf_namespaces() {
+  return array(
+    'xlink' => 'http://www.w3.org/1999/xlink',
+  );
+}
