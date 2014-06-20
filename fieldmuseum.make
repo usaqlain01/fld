@@ -17,6 +17,9 @@ projects[bangpoundefq][type] = module
 projects[bangpoundefq][download][url] = https://github.com/bangpound/bangpoundefq.git
 projects[bangpoundefq][download][type] = git
 
+projects[better_formats][subdir] = contrib
+projects[better_formats][version] = contrib
+
 projects[classloader][subdir] = contrib
 projects[classloader][version] = 1.1
 
