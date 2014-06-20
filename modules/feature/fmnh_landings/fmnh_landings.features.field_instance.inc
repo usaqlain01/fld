@@ -175,7 +175,7 @@ function fmnh_landings_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'text',
         'settings' => array(
-          'field_formatter_class' => '',
+          'field_formatter_class' => 'hero__headline',
         ),
         'type' => 'text_default',
         'weight' => 0,
@@ -254,7 +254,7 @@ function fmnh_landings_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'text',
         'settings' => array(
-          'field_formatter_class' => '',
+          'field_formatter_class' => 'hero__subheadline',
         ),
         'type' => 'text_default',
         'weight' => 1,
