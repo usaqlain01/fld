@@ -9,6 +9,19 @@
 
 
 /**
+ * Implements HOOK_theme().
+ *
+ * We are simply using this hook as a convenient time to do some related work.
+ */
+function esquif_theme(&$existing, $type, $theme, $path) {
+  return array(
+    'button__search_box' => array(
+      'render element' => 'element',
+    ),
+  );
+}
+
+/**
  * Override or insert variables into the maintenance page template.
  *
  * @param $variables
@@ -464,4 +477,40 @@ function esquif_menu_breadcrumb_alter(&$active_trail, $item) {
   foreach ($active_trail as &$trail_item) {
     $trail_item['localized_options']['attributes']['class'] = 'breadcrumb__link';
   }
+}
+
+/**
+ * Override the theme of the submit button on the search box.
+ *
+ * @param $variables
+ * @return string
+ */
+function esquif_button__search_box($variables) {
+  $element = $variables['element'];
+  $element['#attributes']['type'] = 'submit';
+  element_set_attributes($element, array('id', 'name', 'value'));
+
+  $element['#attributes']['class'][] = 'form-' . $element['#button_type'];
+  if (!empty($element['#attributes']['disabled'])) {
+    $element['#attributes']['class'][] = 'form-button-disabled';
+  }
+
+  return '<button' . drupal_attributes($element['#attributes']) . '>'. $element['#children'] .'</button>';
+}
+
+/**
+ * Modify the search box.
+ *
+ * @param $form
+ * @param $form_state
+ */
+function esquif_form_search_block_form_alter(&$form, &$form_state) {
+  $form['search_block_form']['#attributes']['class'][] = 'search__input';
+  $form['search_block_form']['#attributes']['placeholder'] = 'Search fieldmuseum.org';
+  $form['search_block_form']['#size'] = 22;
+  $form['actions']['submit']['#attributes']['class'][] = 'search__button';
+  $form['actions']['submit']['#theme_wrappers'][0] = 'button__search_box';
+  $form['actions']['submit'][] = array(
+    '#markup' => '<svg class="icon icon--search search__icon" viewBox="0 0 500 500"><use xlink:href="#search"></use></svg><span class="is--visHidden">Search</span>',
+  );
 }
