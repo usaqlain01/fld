@@ -5,3 +5,29 @@
  */
 
 include_once 'fmnh_media.features.inc';
+
+/**
+ * @see theme_image_style
+ * @see theme_image
+ * @see https://gist.github.com/benlinton/6084bba1b0606eccc811
+ * @param $variables
+ * @param $hook
+ */
+function fmnh_media_preprocess_image_style(&$variables, $hook) {
+  $conflate_styles_prefixed = array('5x2', '5x3');
+  foreach ($conflate_styles_prefixed as $style_prefix) {
+    if (strpos($variables['style_name'], $style_prefix) === 0) {
+      $srcsets = array();
+      foreach (array_keys(image_styles()) as $style_name) {
+        if ($style_name != $variables['style_name'] && strpos($style_name, $style_prefix) === 0) {
+          list(, $candidate_string) = explode('_', $style_name);
+          $srcset = image_style_url($style_name, $variables['path']);
+          $srcset .= ' ';
+          $srcset .= $candidate_string;
+          $srcsets[] = $srcset;
+        }
+      }
+      $variables['attributes']['srcset'] = implode(',', $srcsets);
+    }
+  }
+}

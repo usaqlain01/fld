@@ -1,43 +1,689 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model xlink:href="/Users/bjd/.composer/vendor/phing/phing/etc/phing-grammar.rng"
+<?xml-model xlink:href="https://raw.githubusercontent.com/phingofficial/phing/master/etc/phing-grammar.rng"
         type="application/xml"
         schematypens="http://relaxng.org/ns/structure/1.0" ?>
+
 <project name="fieldmuseum" default="dist">
+    <autoloader />
+    <taskdef name="drush" classname="DrushTask" />
+    <import file="vendor/cac/autophing/lib/composer/composer.xml"></import>
 
     <!-- ============================================  -->
     <!-- Target: prepare                               -->
     <!-- ============================================  -->
     <target name="prepare">
-        <echo msg="Making directory ./docroot"/>
-        <mkdir dir="./docroot"/>
+        <echo msg="Making directory ./build"/>
+        <mkdir dir="./build"/>
     </target>
 
     <!-- ============================================  -->
     <!-- Target: build                                 -->
     <!-- ============================================  -->
     <target name="subtree-update" depends="prepare">
-        <exec command="git pull -s subtree -X subtree=docroot/profiles/fieldmuseum profile develop" />
+        <exec command="git pull -s subtree -X subtree=docroot/profiles/fieldmuseum profile develop"/>
     </target>
 
+    <target name="build" depends="init,clean,verify,analyze"/>
 
-    <target name="build" depends="prepare">
-        <echo msg="Running drush make..."/>
-        <exec command="drush make deploy.make docroot"/>
-    </target>
-
-    <target name="composer-update" depends="prepare">
-        <exec command="drush composer-json-rebuild" dir="./docroot" />
-        <exec command="drush composer-manager update --prefer-dist --no-dev --no-interaction --verbose --optimize-autoloader" dir="./docroot" />
+    <target name="composer-manager-update" depends="prepare">
+        <drush command="composer-json-rebuild" root="${project.basedir}/docroot"/>
+        <phingcall target="composer-install-dev">
+        </phingcall>
     </target>
 
     <target name="compass-compile" depends="prepare">
-        <exec command="compass compile -e production -s compressed" dir="./docroot/profiles/fieldmuseum/themes/temporary" />
-        <exec command="compass compile -e production -s compressed" dir="./docroot/profiles/fieldmuseum/themes/esquif" />
+        <exec command="compass compile -e production -s compressed" dir="docroot/profiles/fieldmuseum/themes/temporary"/>
     </target>
+
+    <target name="merge-tablexi" depends="prepare">
+        <property name="repo.dir" value="build/fieldmuseum-website" />
+        <resolvepath propertyName="repo.dir.resolved" file="${repo.dir}" />
+
+        <!-- Clone repository -->
+        <phingcall target="setup-git-repo">
+            <property name="repo.dir" value="${repo.dir.resolved}"/>
+            <property name="repo.url" value="git@github.com:tablexi/fieldmuseum-website.git"/>
+        </phingcall>
+
+        <copy todir="docroot/profiles/fieldmuseum/themes/esquif/css" overwrite="true">
+            <fileset dir="${repo.dir.resolved}/patternlab/source/css">
+                <include name="*.css"></include>
+                <exclude name="_*/**"></exclude>
+            </fileset>
+        </copy>
+
+        <copy todir="docroot/profiles/fieldmuseum/themes/esquif/js" overwrite="true">
+            <fileset dir="${repo.dir.resolved}/patternlab/source/js">
+                <include name="**"></include>
+                <exclude name="**/build/**"></exclude>
+                <exclude name="**/*.coffee"></exclude>
+                <exclude name="_*/**"></exclude>
+            </fileset>
+        </copy>
+
+        <copy todir="docroot/profiles/fieldmuseum/themes/esquif/bower_components" overwrite="true">
+            <fileset dir="${repo.dir.resolved}/patternlab/source/bower_components">
+                <include name="**"></include>
+            </fileset>
+        </copy>
+
+        <copy todir="docroot/profiles/fieldmuseum/themes/esquif/images" overwrite="true">
+            <fileset dir="${repo.dir.resolved}/patternlab/source/images">
+                <include name="**"></include>
+                <exclude name="_*/**"></exclude>
+            </fileset>
+        </copy>
+
+        <copy todir="docroot/profiles/fieldmuseum/themes/esquif/fonts" overwrite="true">
+            <fileset dir="${repo.dir.resolved}/patternlab/source/fonts">
+                <include name="**"></include>
+            </fileset>
+        </copy>
+    </target>
+
+
 
     <!-- ============================================  -->
     <!-- (DEFAULT)  Target: dist                       -->
     <!-- ============================================  -->
-    <target name="dist" depends="subtree-update,compass-compile,composer-update">
+    <target name="dist" depends="subtree-update,compass-compile,composer-manager-update,merge-tablexi">
+    </target>
+
+    <!-- ## Main targets -->
+
+    <!-- ### Build project
+
+    Do a complete build of the project by verifying code consistency and and
+    performing static analysis of the code.
+
+    This is the default build target.
+
+    Do not run `docs` for now. Generating documentation eats up memory and build
+    time and is largely obsolete when using GitHub. -->
+
+    <!-- ### Verify code consistency
+
+    Make sure that our code is clean and functional. -->
+    <target name="verify" depends="init,clean,lint-php-custom,check-php-debug,check-js-debug"/>
+
+    <!-- ### Analyze code
+
+    Perform static analysis of the code to generate statistics,identify potential
+    problems and opportunities for refactorings and make sure that the code
+    complies with coding standards. -->
+    <target name="analyze" depends="init,clean,phploc,phpmd,phpcpd">
+    </target>
+
+    <!-- ## Individual targets
+    These targets can be executed individually or grouped unless explicitly
+    stated as a part of the task.
+
+    **As a rule targets without descriptions should not be executed directly.** -->
+
+    <!-- ### PHP linting
+
+    Check files for syntax errors. -->
+    <target name="lint-php"
+            description="Check all PHP files for syntax errors using PHPLint"
+            depends="init">
+        <phplint haltonfailure="true">
+            <fileset refid="src.php"/>
+        </phplint>
+    </target>
+
+    <target name="lint-php-custom"
+            description="Check custom PHP files for syntax errors using PHPLint"
+            depends="init">
+        <phplint haltonfailure="true">
+            <fileset refid="src.php.custom"/>
+        </phplint>
+    </target>
+
+    <!-- ### Debug code detection
+
+    Code should not call functions which are usually used for debugging.
+    This belongs on developer environments - not VCS. This goes for mentioning
+    them in comments as well. -->
+    <target name="check-php-debug"
+            description="Check custom PHP code for debug statements"
+            depends="init">
+        <phingcall target="check-debug">
+            <property name="debug.language" value="PHP" override="true"/>
+            <property name="debug.pattern" value="(var_dump\(|dsm\(|dpm\()"
+                      override="true"/>
+            <property name="debug.fileset" value="src.php.custom"/>
+        </phingcall>
+    </target>
+
+    <target name="check-js-debug"
+            description="Check custom Javascript code for debug statements">
+        <phingcall target="check-debug">
+            <property name="debug.language" value="Javascript" override="true"/>
+            <property name="debug.pattern" value="(console\.log\()" override="true"/>
+            <property name="debug.fileset" value="src.js.custom"/>
+        </phingcall>
+    </target>
+
+    <!-- #### Check a fileset for debug code -->
+    <target name="check-debug"
+            depends="init">
+        <php function="strtolower" returnProperty="debug.language.lower">
+            <param value="${debug.language}"/>
+        </php>
+        <property name="debug.output"
+                  value="${project.logdir}/debug_${debug.language.lower}.txt"
+                  override="true"/>
+        <delete file="${debug.output}"/>
+        <append text="" destFile="${debug.output}"/>
+
+        <foreach target="check-debug-file" param="filename"
+                 absparam="absfilename">
+            <fileset refid="${debug.fileset}"/>
+        </foreach>
+
+        <loadfile property="debug.lines" file="${debug.output}"/>
+        <!-- Break if debug code is detected! -->
+        <if>
+            <not>
+                <equals arg1="${debug.lines}" arg2=""/>
+            </not>
+            <then>
+                <fail message="${debug.language} debug code detected:${line.separator}
+                       ${debug.lines}"/>
+            </then>
+        </if>
+    </target>
+
+    <!-- #### Check an individual file for debug code
+
+    No need to run `init` here. This target should only be called through parent
+    `check-debug` target. -->
+    <target name="check-debug-file">
+        <echo>Checking file for debug statements: ${absfilename}</echo>
+        <loadfile property="debug.lines" file="${absfilename}">
+            <filterchain>
+                <linecontainsregexp>
+                    <regexp pattern="${debug.pattern}"/>
+                </linecontainsregexp>
+            </filterchain>
+        </loadfile>
+        <if>
+            <not>
+                <equals arg1="${debug.lines}" arg2=""/>
+            </not>
+            <then>
+                <append text="${filename}:${line.separator}
+                      ${debug.lines}${line.separator}
+                      ${line.separator}"
+                        destFile="${debug.output}"/>
+            </then>
+        </if>
+    </target>
+
+    <!-- ### Detect code mess
+
+    Uses [PHPMD](http://phpmd.org/) to detect code mess and look for potential
+    problems. -->
+    <target name="phpmd"
+            description="Generate pmd.xml using PHPMD"
+            depends="init">
+        <!-- We do not use the unusedcode ruleset as Drupal hook implementations
+             usually are declared with all arguements but may not use them
+             all. -->
+        <phpmd rulesets="codesize,naming,design">
+            <fileset refid="src.php.custom"/>
+            <formatter type="xml" outfile="${project.logdir}/pmd.xml"/>
+        </phpmd>
+    </target>
+
+    <!-- ### Detect potential copy/pasting
+
+    Uses [phpcpd](https://github.com/sebastianbergmann/phpcpd) to detect duplicate
+    code. This indicates potential refactorings.-->
+    <target name="phpcpd"
+            description="Generate pmd-cpd.xml using phpcpd"
+            depends="init">
+        <phpcpd>
+            <fileset refid="src.php.custom"/>
+            <formatter type="pmd" outfile="${project.logdir}/pmd-cpd.xml"/>
+        </phpcpd>
+    </target>
+
+    <!-- ### Generate code statistics
+
+    Measures the size of the project using
+    [phploc](http://sebastianbergmann.github.com/phploc/) and generates
+    statistics. -->
+    <target name="phploc"
+            description="Generate phploc.csv using phploc"
+            depends="init">
+        <!-- Suffixes should be the same as included in the
+             src.php filesets -->
+        <phploc reportType="csv"
+                reportName="phploc" reportDirectory="${project.logdir}"
+                suffixes="php,module,inc,install,profile,test" countTests="true">
+            <fileset refid="src.php.custom"/>
+        </phploc>
+    </target>
+
+    <!-- ### Review code using PHP_CodeSniffer
+
+    The purpose and outcome of this target is the same as the coder-review
+    targets. In general [PHP_CodeSniffer](http://pear.php.net/package/PHP_CodeSniffer/)
+    is faster to execute but there does not seem to be a complete ruleset which
+    covers all of the
+    [Drupal coding standards](http://drupal.org/coding-standards).
+
+    Consequently `coder-review-d6/7` and not `phpcs` is used for the main targets.
+    -->
+    <target name="phpcs"
+            description="Generate checkstyle.xml using PHP_CodeSniffer"
+            depends="init">
+        <!-- Clone a repository containing Drupal code guidelines for
+             PHP_CodeSniffer. -->
+        <phingcall target="setup-git-repo">
+            <property name="repo.dir" value="${project.toolsdir}/drupalcs"/>
+            <property name="repo.url" value="${phpcs.drupalcs.repository.url}"/>
+        </phingcall>
+        <!-- There is no Phing task for PHP Codesniffer in v2.4.6.
+             It's coming for v2.5. Execute while we wait. -->
+        <exec command="phpcs --report=checkstyle
+                    --report-file=${project.logdir}/checkstyle-codesniffer.xml
+                    --standard=${project.toolsdir}/drupalcs/ruleset.xml
+                    --extensions=php,inc
+                    --ignore=*/contrib/*,*/*.features.*,*/*.field_group.inc,*/*.layout.*,*/*.pages_default.*,*/*.panels_default.*,*/*strongarm.inc,*/*.views_default.inc
+                    ${project.sitesdir}"
+              logoutput="true"/>
+    </target>
+
+    <!-- ## Helper targets
+
+    These targets are used throughout the project and should normally not be
+    executed directly.-->
+
+    <!-- ### Initialization
+
+    This target sets up many of the common resources used throughout the build.
+    All other targets except dependencies for this target should depend on this
+    unless specifically stated why. -->
+    <target name="init"
+            depends="load-properties, setup-dirs, make, setup-filesets"
+            unless="project.initialized">
+        <!-- Set property to prevent target from being executed multiple times -->
+        <property name="project.initialized" value="true"/>
+    </target>
+
+    <!-- ### Load properties
+
+    Loads a set of project specific properties from a `.properties` file.
+
+    These properties contain information regarding the individual project and/or
+    environment such as which version of Drupal you are using, how to create a
+    database and the names of your custom modules.
+
+    All available properties are described and set to a default value in
+    [`build.default.properties`](https://raw.github.com/reload/phing-drupal-template/master/build.default.properties).
+    You should create your own properties file by copying the
+    `build.default.properties` file to the root directory, rename it
+    `build.properties` and modify it according to your project.
+
+    Both property files are loaded so your custom `build.properties` file should
+    only contain properties where you want to override the default value e.g. set
+    your custom module code prefix or use a special version of one of the build
+    tools. -->
+    <target name="load-properties">
+        <php function="dirname" returnProperty="phing.dir">
+            <param value="${phing.file}"/>
+        </php>
+
+        <property name="project.basedir" value="${phing.dir}"/>
+
+        <!-- Use condition instead of unless property as we cannot unset properties in Phing -->
+        <if>
+            <or>
+                <!-- `istrue` evaluates to true is value is not set we need to check
+                     `isset` as well -->
+                <not>
+                    <istrue value="${project.properties.loaded}"/>
+                </not>
+                <not>
+                    <isset property="project.properties.loaded"/>
+                </not>
+            </or>
+            <then>
+                <!-- By default Jenkins runs Phing from the directory containing the build
+                file.  If this file is located in a subdirectory - e.g. when using Phing Drupal as a submodule - we need to reset the project basedir and reload properties.
+
+                NB: This only works if the subdirectory is directly within the Drupal
+                root directory. -->
+                <if>
+                    <!-- If `build.properties` exists then assume we have a
+                         project root directory -->
+                    <available file="${project.basedir}/../build.properties"/>
+                    <then>
+                        <resolvepath propertyName="project.basedir"
+                                     file="${project.basedir}/../"/>
+                    </then>
+                </if>
+
+                <!-- By default use default properties file
+                     `build.default.properties` -->
+                <property name="project.properties.file"
+                          value="${phing.dir}/build.default.properties"/>
+                <!-- Load the default properties.
+                     Override in case `load-properties` are called multiple times. -->
+                <property file="${project.properties.file}" override="true"/>
+
+                <!-- Allow override using `build.properties` in build file
+                     directory -->
+                <available file="${phing.dir}/build.properties"
+                           property="project.properties.file"
+                           value="${phing.dir}/build.properties"/>
+                <!-- Allow override using `build.properties` in project base
+                     directory -->
+                <available file="${project.basedir}/build.properties"
+                           property="project.properties.file"
+                           value="${project.basedir}/build.properties"/>
+
+                <!-- Load the overriding properties. -->
+                <property file="${project.properties.file}" override="true"/>
+
+                <!-- Set property to prevent unnecessary additional invocations of this target -->
+                <property name="project.properties.loaded" value="true"/>
+            </then>
+        </if>
+    </target>
+
+    <!-- ### Setup directories
+
+    Define working directories - where the individual parts of the build are and
+    should be located. These are used in other targets.
+
+    This is part of the initialization of the build. This target should only be
+    called from `init` target. -->
+    <target name="setup-dirs"
+            depends="load-properties">
+        <if>
+            <isset property="drupal.make.dir"/>
+            <then>
+                <property name="project.drupal.dir"
+                          value="${project.basedir}/${drupal.make.dir}"/>
+            </then>
+            <else>
+                <property name="project.drupal.dir"
+                          value="${project.basedir}"/>
+            </else>
+        </if>
+
+        <property name="project.sitesdir"
+                  value="${project.drupal.dir}/${project.code.dir}"/>
+        <property name="project.builddir"
+                  value="${project.basedir}/build"/>
+        <property name="project.toolsdir"
+                  value="${project.builddir}/tools"/>
+        <property name="project.coveragedir"
+                  value="${project.builddir}/coverage"/>
+        <property name="project.logdir"
+                  value="${project.builddir}/logs"/>
+        <property name="project.testdir"
+                  value="${project.builddir}/tests"/>
+    </target>
+
+    <!-- ### Drush Make
+
+    Download and install the source code for the site using Drush Make.
+
+    This target is only executed if the project uses make files as configured
+    in the `build.properties` file. Execution can also be skipped by setting the
+    `project.make.skip` property from the command line or in other targets.
+
+    This is part of the initialization of the build. This target should only be
+    called from `init` target. -->
+    <target name="make"
+            depends="load-properties"
+            if="drupal.make.file">
+        <if>
+            <or>
+                <not>
+                    <isset property="project.make.skip"/>
+                </not>
+                <not>
+                    <istrue value="${project.make.skip}"/>
+                </not>
+            </or>
+            <then>
+                <!-- Delete any prexisting builds -->
+                <delete dir="${project.drupal.dir}"/>
+
+                <!-- If the make file does not include a core Drupal project we need
+                     to download one separately. This should be defined in
+                     `build.properties`. -->
+                <if>
+                    <and>
+                        <isset property="drupal.make.nocore"/>
+                        <istrue value="${drupal.make.nocore}"/>
+                    </and>
+                    <then>
+                        <!-- Download the appropriate version of Drupal -->
+                        <drush command="dl" assume="yes">
+                            <param>drupal-${drupal.version}</param>
+                            <option name="drupal-project-rename">${drupal.make.dir}</option>
+                        </drush>
+
+                        <!-- Make the project in the project code directory. If using
+                             a directory inside the `sites` folder modules can be tested
+                             faster and easier when using the minimal profile. -->
+                        <drush command="make" assume="yes">
+                            <param>${drupal.make.file}</param>
+                            <option name="contrib-destination">${drupal.make.dir}/${project.code.dir}</option>
+                            <option name="no-core"/>
+                        </drush>
+
+                        <!-- Copy the install profile bundled with the make file to the
+                             appropriate directory. -->
+                        <copy todir="${project.drupal.dir}/profiles/${drupal.profile}/">
+                            <fileset dir="${project.basedir}">
+                                <include name="${drupal.profile}.*"/>
+                            </fileset>
+                        </copy>
+                    </then>
+                    <else>
+                        <drush command="make" assume="yes">
+                            <param>${drupal.make.file}</param>
+                            <param>${drupal.make.dir}</param>
+                        </drush>
+                    </else>
+                </if>
+
+                <if>
+                    <isset property="drupal.make.rewritebase"/>
+                    <then>
+                        <reflexive file="${project.drupal.dir}/.htaccess">
+                            <filterchain>
+                                <replaceregexp>
+                                    <regexp pattern="# RewriteBase [\w/]*"
+                                            replace="RewriteBase ${drupal.make.rewritebase}"/>
+                                </replaceregexp>
+                            </filterchain>
+                        </reflexive>
+                    </then>
+                </if>
+
+                <!-- Set property to prevent target from being executed multiple times -->
+                <property name="project.make.skip" value="true"/>
+            </then>
+            <else>
+                <echo>
+                    Skipping drush make.${line.separator}
+                    drupal.make.skip has been set to ${project.make.skip}.
+                </echo>
+            </else>
+        </if>
+    </target>
+
+    <!-- ### Setup file sets
+
+    Setup file sets - patterns for different aspects of the source code.
+    These are used in other targets.
+
+    This is part of the initialization of the build. This target should only be
+    called from `init` target. -->
+    <target name="setup-filesets"
+            depends="load-properties">
+        <!-- Define pattern sets for future reference -->
+
+        <!-- PHP files -->
+        <patternset id="php">
+            <include name="**/*.php"/>
+            <include name="**/*.module"/>
+            <include name="**/*.install"/>
+            <include name="**/*.inc"/>
+            <include name="**/*.profile"/>
+            <include name="**/*.test"/>
+        </patternset>
+
+        <!-- Javascript files -->
+        <patternset id="js">
+            <include name="**/*.js"/>
+            <!-- Minimized JavaScript files should not be analyzed.
+                 In their optimized state they can not be expexted
+                 to conform to coding standards. -->
+            <exclude name="**/*.min.js"/>
+        </patternset>
+
+        <!-- CSS files -->
+        <patternset id="css">
+            <include name="**/*.css"/>
+        </patternset>
+
+        <!-- Directories for community contributed code. We exclude these from
+             code analysis as we cannot be held responsible for any problems
+             here. -->
+        <patternset id="contrib">
+            <exclude name="**/contrib/**/*.*"/>
+            <exclude name="**/libraries/**/*.*"/>
+        </patternset>
+
+        <!-- We exclude generated files from We exclude these from code analysis
+             as we cannot be held responsible for any problems here. -->
+        <patternset id="generated">
+            <exclude name="**/*.features.*"/>
+            <exclude name="**/*.field_group.inc"/>
+            <exclude name="**/*.layouts.inc"/>
+            <exclude name="**/*.pages_default.inc"/>
+            <exclude name="**/*.panels_default.inc"/>
+            <exclude name="**/*.strongarm.inc"/>
+            <exclude name="**/*.views_default.inc"/>
+        </patternset>
+
+        <!-- Define file sets for future reference -->
+
+        <!-- All PHP files -->
+        <fileset id="src.php" dir="${project.drupal.dir}">
+            <patternset refid="php"/>
+        </fileset>
+
+        <!-- Custom PHP files -->
+        <fileset id="src.php.custom" dir="${project.sitesdir}">
+            <patternset refid="php"/>
+            <patternset refid="contrib"/>
+            <patternset refid="generated"/>
+        </fileset>
+
+        <!-- All Javascript files -->
+        <fileset id="src.js" dir="${project.drupal.dir}">
+            <patternset refid="js"/>
+        </fileset>
+
+        <!-- Custom Javascript files -->
+        <fileset id="src.js.custom" dir="${project.sitesdir}">
+            <patternset refid="js"/>
+            <patternset refid="contrib"/>
+        </fileset>
+
+        <!-- All CSS files -->
+        <fileset id="src.css" dir="${project.basedir}">
+            <patternset refid="css"/>
+        </fileset>
+
+        <!-- Custom CSS files -->
+        <fileset id="src.css.custom" dir="${project.sitesdir}">
+            <patternset refid="css"/>
+            <patternset refid="contrib"/>
+        </fileset>
+
+    </target>
+
+    <!-- ### Clean working environment  -->
+    <target name="clean"
+            description="Clean up and create artifact directories"
+            depends="setup-dirs"
+            unless="project.cleaned">
+        <!-- Delete any existing artifacts from a previous build.
+             Do not delete builddir. It may contain the build file! -->
+        <delete dir="${project.toolsdir}"/>
+        <delete dir="${project.coveragedir}"/>
+        <delete dir="${project.logdir}"/>
+        <delete dir="${project.testdir}"/>
+        <!-- Verbose. We need to make sure any database is deleted. Reinstalling
+             the site with an existing database causes the build to fail. -->
+        <delete file="${project.drupal.dir}/database.sqlite" verbose="true"/>
+        <!-- Remove leftover Drupal simpletest databases -->
+        <delete>
+            <fileset dir="${project.basedir}">
+                <include name="database.sqlite-simpletest*"/>
+            </fileset>
+        </delete>
+
+        <!-- Recreate directories for artifacts -->
+        <mkdir dir="${project.toolsdir}"/>
+        <mkdir dir="${project.coveragedir}"/>
+        <mkdir dir="${project.logdir}"/>
+        <mkdir dir="${project.testdir}"/>
+
+        <!-- Set property to prevent target from being executed multiple times -->
+        <property name="project.cleaned" value="true"/>
+    </target>
+
+    <!-- ### Clone a git repository -->
+    <target name="setup-git-repo">
+        <!-- Only clone if repository does not exist already -->
+        <if>
+            <not>
+                <available file="${repo.dir}"/>
+            </not>
+            <then>
+                <!-- Set revision to HEAD if not already defined -->
+                <property name="repo.revision" value="HEAD" override="false"/>
+
+                <echo>Cloning ${repo.url} ${repo.revision} into ${repo.dir}</echo>
+                <!-- The [`gitclone` task](http://www.phing.info/docs/guide/stable/chapters/appendixes/AppendixC-OptionalTasks.html#GitCloneTask)
+                     does not seem to work. Use exec instead. -->
+                <exec command="git clone ${repo.url} ${repo.dir}"/>
+                <exec command="git checkout ${repo.revision}" dir="${repo.dir}"/>
+            </then>
+        </if>
+    </target>
+
+    <!-- ### Download and apply a patch -->
+    <target name="apply-http-patch">
+        <php function="basename" returnProperty="patch.file">
+            <param>${patch.url}</param>
+        </php>
+
+        <!-- If patch has already been downloaded then we assume it has also been
+             applied -->
+        <if>
+            <not>
+                <available file="${project.toolsdir}/${patch.file}"/>
+            </not>
+            <then>
+                <httpget url="${patch.url}"
+                         dir="${project.toolsdir}"
+                         proxy="${phing.httpget.proxy}"/>
+                <patch patchfile="${project.toolsdir}/${patch.file}"
+                       dir="${patch.dir}" haltonfailure="true"/>
+            </then>
+        </if>
     </target>
 </project>

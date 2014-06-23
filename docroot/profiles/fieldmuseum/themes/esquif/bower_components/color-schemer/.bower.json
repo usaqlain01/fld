@@ -1,0 +1,24 @@
+{
+  "name": "color-schemer",
+  "version": "0.2.8",
+  "main": "stylesheets/_color-schemer.scss",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components"
+  ],
+  "dependencies": {
+    "scss-blend-modes": "git://github.com/heygrady/scss-blend-modes.git"
+  },
+  "homepage": "https://github.com/Team-Sass/color-schemer",
+  "_release": "0.2.8",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.2.8",
+    "commit": "3d96f15c01e80e95ea8ad194fe32e8f1264bad8b"
+  },
+  "_source": "git://github.com/Team-Sass/color-schemer.git",
+  "_target": "~0.2.8",
+  "_originalSource": "color-schemer",
+  "_direct": true
+}

@@ -1,0 +1,13 @@
+{
+  "name": "scss-blend-modes",
+  "homepage": "https://github.com/heygrady/scss-blend-modes",
+  "_release": "a787b33e81",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "a787b33e816d1fa6740a0782c5dff4d182410b41"
+  },
+  "_source": "git://github.com/heygrady/scss-blend-modes.git",
+  "_target": "*",
+  "_originalSource": "git://github.com/heygrady/scss-blend-modes.git"
+}

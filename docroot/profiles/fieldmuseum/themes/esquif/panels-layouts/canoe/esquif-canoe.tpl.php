@@ -14,9 +14,12 @@
  *   - $content['right']: Content in the right column.
  */
 ?>
-<section class="l--module">
-  <?php print $content['left']; ?>
-</section>
-<section class="l--module">
-  <?php print $content['right']; ?>
-</section>
+<div class="pageHeader__details l--2up">
+  <section class="l--module">
+    <?php print $content['left']; ?>
+  </section>
+  <section class="l--module">
+    <?php print $content['right']; ?>
+  </section>
+</div>
+<?php print $content['hero']; ?>

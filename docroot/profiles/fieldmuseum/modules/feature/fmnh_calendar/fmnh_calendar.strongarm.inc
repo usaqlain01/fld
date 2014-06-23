@@ -52,6 +52,9 @@ function fmnh_calendar_strongarm() {
       'diff_standard' => array(
         'custom_settings' => FALSE,
       ),
+      'event' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(

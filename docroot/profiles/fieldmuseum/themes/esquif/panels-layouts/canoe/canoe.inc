@@ -2,13 +2,14 @@
 
 // Plugin definition
 $plugin = array(
-  'title' => t('Canoe'),
-  'category' => t('Columns: 2'),
+  'title' => t('Page header'),
+  'category' => t('Organism'),
   'icon' => 'canoe.png',
   'theme' => 'esquif_canoe',
   'css' => 'canoe.css',
   'regions' => array(
     'left' => t('Left side'),
-    'right' => t('Right side')
+    'right' => t('Right side'),
+    'hero' => t('Hero'),
   ),
 );

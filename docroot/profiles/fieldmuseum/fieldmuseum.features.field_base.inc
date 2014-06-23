@@ -34,7 +34,9 @@ function fieldmuseum_field_default_field_bases() {
     ),
     'locked' => 0,
     'module' => 'text',
-    'settings' => array(),
+    'settings' => array(
+      'profile2_private' => FALSE,
+    ),
     'translatable' => 0,
     'type' => 'text_with_summary',
   );
@@ -247,13 +249,17 @@ function fieldmuseum_field_default_field_bases() {
     'locked' => 0,
     'module' => 'date',
     'settings' => array(
+      'cache_count' => 4,
+      'cache_enabled' => 0,
       'granularity' => array(
         'day' => 'day',
         'hour' => 'hour',
         'minute' => 'minute',
         'month' => 'month',
+        'second' => 0,
         'year' => 'year',
       ),
+      'profile2_private' => FALSE,
       'repeat' => 0,
       'timezone_db' => 'UTC',
       'todate' => 'optional',

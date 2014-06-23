@@ -1,0 +1,143 @@
+/* ----- Saner Defaults ----- */
+* {
+  background: transparent;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  color: #000;
+  text-shadow: none; }
+
+@page {
+  margin-top: 1.5cm;
+  margin-bottom: 1.5cm; }
+body {
+  margin-right: .25in;
+  margin-left: .25in; }
+  body:before {
+    display: block;
+    margin: 0 auto 0.125in;
+    padding-bottom: 0.25in;
+    border-bottom: 1pt solid black;
+    content: url("");
+    /* Insert Logo Here */
+    text-align: center; }
+
+/* ----- Link/Abbreviation Styles ----- */
+a {
+  color: #000 !important; }
+  a[href]:after {
+    content: " (" attr(href) ")";
+    word-wrap: break-word !important; }
+  a[href=""]:after, a[href^="#"]:after, a[href^="javascript"]:after, a[href^="mailto:"]:after {
+    display: none; }
+
+/* ----- Sensible Element Defaults ----- */
+h1 {
+  font-size: 24pt; }
+
+h2 {
+  font-size: 21pt; }
+
+h3 {
+  font-size: 18pt; }
+
+h4 {
+  font-size: 16pt; }
+
+h5 {
+  font-size: 14pt; }
+
+h6 {
+  font-size: 11pt; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 1em 0 0.5em;
+  text-decoration: none !important;
+  font-weight: 500;
+  font-family: "proxima-nova", "Helvetica Neue", Helmet, Freesans, sans-serif;
+  page-break-after: avoid !important; }
+
+p,
+li,
+small,
+mark {
+  margin: 0 0 0.5em;
+  font-size: 10pt;
+  font-family: "proxima-nova", "Helvetica Neue", Helmet, Freesans, sans-serif;
+  line-height: 14pt; }
+
+img {
+  display: block;
+  margin: 1em 0;
+  max-width: 3in;
+  height: auto !important; }
+
+pre {
+  border: 1px solid #999;
+  page-break-inside: avoid !important; }
+
+tr, img {
+  page-break-inside: avoid !important; }
+
+p, h1, h2, h3, h4, h5, h6 {
+  orphans: 3 !important;
+  widows: 3 !important; }
+
+figure {
+  margin: 0;
+  padding: 0; }
+
+blockquote {
+  margin: 1em 0;
+  padding: 2em 0;
+  border-top: 1pt solid black;
+  border-bottom: 1pt solid black;
+  text-align: center; }
+  blockquote footer {
+    text-align: right;
+    font-family: "proxima-nova", "Helvetica Neue", Helmet, Freesans, sans-serif; }
+
+address {
+  font-style: normal; }
+
+form {
+  margin: 0 0 10pt; }
+  form label {
+    display: block; }
+  form input,
+  form textarea,
+  form .chzn-container {
+    margin: 0.5em 0 1em;
+    width: 100%; }
+  form fieldset {
+    overflow: hidden;
+    margin: 0 0 10pt; }
+  form .field {
+    float: left;
+    margin-right: 3%;
+    width: 97%; }
+  form .field--third {
+    width: 30%; }
+  form .field--quarter {
+    width: 22%; }
+  form .field--half {
+    width: 47%; }
+
+table {
+  width: 100%; }
+
+td,
+th {
+  padding: 5pt;
+  border-top: 1pt solid black;
+  text-align: center; }
+
+/* ----- Chain up everything you want to remove from the page ----- */
+.delete-these-items {
+  display: none;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  width: 0;
+  height: 0; }
+
+/* ----- Site specific styles ----- */
