@@ -32,6 +32,7 @@ features[user_permission][] = override traveling_exhibit sticky option
 features[variable][] = diff_enable_revisions_page_node_traveling_exhibit
 features[variable][] = diff_show_preview_changes_node_traveling_exhibit
 features[variable][] = diff_view_mode_preview_node_traveling_exhibit
+features[variable][] = field_bundle_settings_node__traveling_exhibit
 features[variable][] = menu_options_traveling_exhibit
 features[variable][] = menu_parent_traveling_exhibit
 features[variable][] = node_options_traveling_exhibit
