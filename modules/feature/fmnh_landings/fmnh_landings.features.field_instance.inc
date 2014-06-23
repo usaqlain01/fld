@@ -55,13 +55,12 @@ function fmnh_landings_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'hidden',
-        'module' => 'image',
+        'module' => 'file_entity',
         'settings' => array(
           'field_formatter_class' => '',
-          'image_link' => '',
-          'image_style' => '',
+          'file_view_mode' => 'banner_5x2',
         ),
-        'type' => 'image',
+        'type' => 'file_rendered',
         'weight' => 0,
       ),
     ),
