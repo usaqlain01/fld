@@ -22,6 +22,9 @@ function fmnh_gallery_strongarm() {
       'full' => array(
         'custom_settings' => TRUE,
       ),
+      'event' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(),

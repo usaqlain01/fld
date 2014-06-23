@@ -46,6 +46,9 @@ function fmnh_program_strongarm() {
       'token' => array(
         'custom_settings' => FALSE,
       ),
+      'event' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(

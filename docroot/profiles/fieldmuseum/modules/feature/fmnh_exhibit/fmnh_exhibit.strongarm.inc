@@ -40,14 +40,14 @@ function fmnh_exhibit_strongarm() {
       'search_result' => array(
         'custom_settings' => FALSE,
       ),
-      'print' => array(
-        'custom_settings' => FALSE,
-      ),
       'media_gallery_block' => array(
         'custom_settings' => FALSE,
       ),
       'token' => array(
         'custom_settings' => FALSE,
+      ),
+      'event' => array(
+        'custom_settings' => TRUE,
       ),
     ),
     'extra_fields' => array(

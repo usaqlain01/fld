@@ -29,6 +29,12 @@ function fmnh_exhibit_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 5,
       ),
+      'event' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 13,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -37,10 +43,53 @@ function fmnh_exhibit_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
+    'fences_wrapper' => 'div',
     'field_name' => 'body',
     'label' => 'Body',
     'required' => 0,
     'settings' => array(
+      'better_formats' => array(
+        'allowed_formats' => array(
+          'filtered_html' => 'filtered_html',
+          'filtered_wysiwyg' => 'filtered_wysiwyg',
+          'full_html' => 'full_html',
+          'full_wysiwyg' => 'full_wysiwyg',
+          'markdown' => 'markdown',
+          'plain_text' => 'plain_text',
+          'unfiltered' => 'unfiltered',
+          'unfiltered_phrase_html' => 'unfiltered_phrase_html',
+        ),
+        'allowed_formats_toggle' => 0,
+        'default_order_toggle' => 0,
+        'default_order_wrapper' => array(
+          'formats' => array(
+            'filtered_html' => array(
+              'weight' => -9,
+            ),
+            'filtered_wysiwyg' => array(
+              'weight' => -10,
+            ),
+            'full_html' => array(
+              'weight' => -7,
+            ),
+            'full_wysiwyg' => array(
+              'weight' => -8,
+            ),
+            'markdown' => array(
+              'weight' => -6,
+            ),
+            'plain_text' => array(
+              'weight' => -3,
+            ),
+            'unfiltered' => array(
+              'weight' => -4,
+            ),
+            'unfiltered_phrase_html' => array(
+              'weight' => -5,
+            ),
+          ),
+        ),
+      ),
       'display_summary' => 0,
       'text_processing' => 1,
       'user_register_form' => FALSE,
@@ -78,6 +127,15 @@ function fmnh_exhibit_field_default_field_instances() {
         ),
         'type' => 'link_default',
         'weight' => 11,
+      ),
+      'event' => array(
+        'label' => 'hidden',
+        'module' => 'link',
+        'settings' => array(
+          'field_formatter_class' => '',
+        ),
+        'type' => 'link_default',
+        'weight' => 1,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -134,6 +192,12 @@ function fmnh_exhibit_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 8,
       ),
+      'event' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 10,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -180,6 +244,12 @@ function fmnh_exhibit_field_default_field_instances() {
         ),
         'type' => 'text_default',
         'weight' => 3,
+      ),
+      'event' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 11,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -233,6 +303,20 @@ function fmnh_exhibit_field_default_field_instances() {
         ),
         'type' => 'date_default',
         'weight' => 4,
+      ),
+      'event' => array(
+        'label' => 'hidden',
+        'module' => 'date',
+        'settings' => array(
+          'field_formatter_class' => '',
+          'format_type' => 'long',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+        ),
+        'type' => 'date_default',
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -300,6 +384,12 @@ function fmnh_exhibit_field_default_field_instances() {
         'type' => 'entityreference_label',
         'weight' => 1,
       ),
+      'event' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 12,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -342,6 +432,12 @@ function fmnh_exhibit_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 2,
       ),
+      'event' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 9,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -375,7 +471,7 @@ function fmnh_exhibit_field_default_field_instances() {
         'module' => 'file_entity',
         'settings' => array(
           'field_formatter_class' => 'banner__image',
-          'file_view_mode' => 'default',
+          'file_view_mode' => 'banner_5x2',
         ),
         'type' => 'file_rendered',
         'weight' => 0,
@@ -389,6 +485,12 @@ function fmnh_exhibit_field_default_field_instances() {
         ),
         'type' => 'file_rendered',
         'weight' => 0,
+      ),
+      'event' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 8,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -468,6 +570,12 @@ function fmnh_exhibit_field_default_field_instances() {
         'type' => 'entityreference_label',
         'weight' => 6,
       ),
+      'event' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 3,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -518,6 +626,12 @@ function fmnh_exhibit_field_default_field_instances() {
         ),
         'type' => 'entityreference_label',
         'weight' => 12,
+      ),
+      'event' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 2,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -570,6 +684,12 @@ function fmnh_exhibit_field_default_field_instances() {
         'type' => 'entityreference_label',
         'weight' => 5,
       ),
+      'event' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 4,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -620,6 +740,12 @@ function fmnh_exhibit_field_default_field_instances() {
         ),
         'type' => 'entityreference_label',
         'weight' => 3,
+      ),
+      'event' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 5,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -672,6 +798,12 @@ function fmnh_exhibit_field_default_field_instances() {
         'type' => 'entityreference_label',
         'weight' => 7,
       ),
+      'event' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 7,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -718,6 +850,12 @@ function fmnh_exhibit_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 10,
+      ),
+      'event' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 6,
       ),
       'teaser' => array(
         'label' => 'above',

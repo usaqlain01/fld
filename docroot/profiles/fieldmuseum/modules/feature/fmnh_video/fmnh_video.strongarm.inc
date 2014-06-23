@@ -31,6 +31,9 @@ function fmnh_video_strongarm() {
       'diff_standard' => array(
         'custom_settings' => FALSE,
       ),
+      'event' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
