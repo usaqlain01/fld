@@ -163,6 +163,25 @@ function esquif_preprocess_block(&$variables, $hook) {
 }
 // */
 
+
+/**
+ * Override or insert variables into the node templates.
+ *
+ * @param $variables
+ *   An array of variables to pass to the theme template.
+ * @param $hook
+ *   The name of the template being rendered ("node" in this case.)
+ */
+function esquif_preprocess_file_entity(&$variables, $hook) {
+
+  switch ($variables['view_mode']) {
+    case 'banner_5x2':
+    case 'banner_5x3':
+      $variables['theme_hook_suggestion'] = 'file_entity__banner';
+      break;
+  }
+}
+
 function esquif_preprocess(&$variables) {
   $variables['path_to_theme'] = drupal_get_path('theme', 'esquif');
 }
