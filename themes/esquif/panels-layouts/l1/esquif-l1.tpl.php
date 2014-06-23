@@ -1,23 +1,40 @@
 <?php
+?>
+<section class="summaries--3up">
+  <?php
+  if ($top_a_classes) {
+    print '<div class="' . $top_a_classes . '">';
+    print $content['top_a'];
+    print '</div>';
+  }
+  else {
+    print $content['top_a'];
+  }
+  ?>
+  <?php
+  if ($top_b_classes) {
+    print '<div class="' . $top_b_classes . '">';
+    print $content['top_b'];
+    print '</div>';
+  }
+  else {
+    print $content['top_b'];
+  }
+  ?>
+  <?php
+  if ($top_c_classes) {
+    print '<div class="' . $top_c_classes . '">';
+    print $content['top_c'];
+    print '</div>';
+  }
+  else {
+    print $content['top_c'];
+  }
+  ?>
+</section>
 
-if ($hero_classes) {
-  print '<section class="' . $hero_classes . '">';
-  print $content['hero'];
-  print '</section>';
-}
-else {
-  print $content['hero'];
-}
-
-if ($top_classes) {
-  print '<section class="' . $top_classes . '">';
-  print $content['top'];
-  print '</section>';
-}
-else {
-  print $content['top'];
-}
-
+<h2>Exhibitions On The Museum Floor</h2>
+<?php
 if ($bottom_classes) {
   print '<section class="' . $bottom_classes . '">';
   print $content['bottom'];
@@ -26,3 +43,4 @@ if ($bottom_classes) {
 else {
   print $content['bottom'];
 }
+?>
