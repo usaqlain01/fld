@@ -173,6 +173,9 @@ projects[profile2][version] = 1.x-dev
 projects[redirect][subdir] = contrib
 projects[redirect][version] = 1.x-dev
 
+projects[schemaorg][subdir] = contrib
+projects[schemaorg][version] = 1.x-dev
+
 projects[search_api][subdir] = contrib
 projects[search_api][version] = 1.12
 
