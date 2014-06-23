@@ -40,6 +40,9 @@ function fmnh_newsletter_strongarm() {
       'media_gallery_block' => array(
         'custom_settings' => FALSE,
       ),
+      'event' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(),

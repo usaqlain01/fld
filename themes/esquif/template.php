@@ -92,6 +92,8 @@ function esquif_preprocess_node(&$variables, $hook) {
     case 'banner':
       $variables['theme_hook_suggestion'] = 'node__banner';
       break;
+    case 'event':
+      $variables['theme_hook_suggestion'] = 'node__event_mode';
   }
 
   // Optionally, run node-type-specific preprocess functions, like

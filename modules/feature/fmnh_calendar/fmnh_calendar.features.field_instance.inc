@@ -26,6 +26,15 @@ function fmnh_calendar_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 3,
       ),
+      'event' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(
+          'field_formatter_class' => '',
+        ),
+        'type' => 'text_default',
+        'weight' => 3,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -63,6 +72,15 @@ function fmnh_calendar_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'above',
+        'module' => 'link',
+        'settings' => array(
+          'field_formatter_class' => '',
+        ),
+        'type' => 'link_default',
+        'weight' => 2,
+      ),
+      'event' => array(
         'label' => 'above',
         'module' => 'link',
         'settings' => array(
@@ -132,6 +150,20 @@ function fmnh_calendar_field_default_field_instances() {
         'type' => 'date_default',
         'weight' => 0,
       ),
+      'event' => array(
+        'label' => 'above',
+        'module' => 'date',
+        'settings' => array(
+          'field_formatter_class' => '',
+          'format_type' => 'long',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+        ),
+        'type' => 'date_default',
+        'weight' => 0,
+      ),
       'teaser' => array(
         'label' => 'above',
         'module' => 'date',
@@ -149,9 +181,10 @@ function fmnh_calendar_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
+    'fences_wrapper' => 'div',
     'field_name' => 'field_date',
     'label' => 'Date',
-    'required' => FALSE,
+    'required' => 0,
     'settings' => array(
       'default_value' => 'now',
       'default_value2' => 'blank',
@@ -161,13 +194,13 @@ function fmnh_calendar_field_default_field_instances() {
     ),
     'weight' => -4,
     'widget' => array(
+      'active' => 1,
       'module' => 'date',
       'settings' => array(
         'increment' => 15,
         'input_format' => 'm/d/Y - H:i:s',
         'input_format_custom' => '',
         'label_position' => 'above',
-        'repeat_collapsed' => 0,
         'text_parts' => array(),
         'year_range' => '-1:+1',
       ),
@@ -184,6 +217,16 @@ function fmnh_calendar_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'field_formatter_class' => '',
+          'link' => 1,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 1,
+      ),
+      'event' => array(
         'label' => 'above',
         'module' => 'entityreference',
         'settings' => array(
@@ -237,6 +280,16 @@ function fmnh_calendar_field_default_field_instances() {
         'type' => 'entityreference_label',
         'weight' => 5,
       ),
+      'event' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'field_formatter_class' => '',
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 5,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -273,6 +326,15 @@ function fmnh_calendar_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(
+          'field_formatter_class' => '',
+        ),
+        'type' => 'text_default',
+        'weight' => 4,
+      ),
+      'event' => array(
         'label' => 'above',
         'module' => 'text',
         'settings' => array(
