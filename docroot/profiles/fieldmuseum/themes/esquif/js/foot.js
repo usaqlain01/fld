@@ -325,7 +325,7 @@ $.event.setupHelper( [
        Begin resizer.coffee
   --------------------------------------------
    */
-  var Gallery;
+  var Gallery, exports;
 
   $(function() {
     var resizeTimeout;
@@ -1790,6 +1790,23 @@ pf.getWidthFromLength = function( length ) {
 
   /*
   --------------------------------------------
+       Begin utils.js.coffee
+  --------------------------------------------
+   */
+
+  exports = exports != null ? exports : this;
+
+  exports.delay = function(ms, func) {
+    return setTimeout(func, ms);
+  };
+
+  exports.cancel = function(id) {
+    return clearTimeout(id);
+  };
+
+
+  /*
+  --------------------------------------------
        Begin foot.coffee
   --------------------------------------------
    */
@@ -1824,7 +1841,7 @@ pf.getWidthFromLength = function( length ) {
    */
 
   $(function() {
-    return $.ajax('/images/icons/sprite.svg', {
+    return $.ajax('/profiles/fieldmuseum/themes/esquif/images/icons/sprite.svg', {
       dataType: 'html',
       success: function(data) {
         return $('head').append(data);
