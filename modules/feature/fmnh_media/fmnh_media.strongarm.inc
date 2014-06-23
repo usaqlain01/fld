@@ -31,6 +31,12 @@ function fmnh_media_strongarm() {
       'media_gallery_collection_thumbnail' => array(
         'custom_settings' => TRUE,
       ),
+      'banner_5x2' => array(
+        'custom_settings' => TRUE,
+      ),
+      'banner_5x3' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(),
@@ -60,10 +66,27 @@ function fmnh_media_strongarm() {
       'media_gallery_collection_thumbnail' => array(
         'custom_settings' => TRUE,
       ),
+      'banner_5x2' => array(
+        'custom_settings' => TRUE,
+      ),
+      'banner_5x3' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(),
-      'display' => array(),
+      'display' => array(
+        'file' => array(
+          'banner_5x2' => array(
+            'weight' => '0',
+            'visible' => TRUE,
+          ),
+          'banner_5x3' => array(
+            'weight' => '0',
+            'visible' => TRUE,
+          ),
+        ),
+      ),
     ),
   );
   $export['field_bundle_settings_file__image'] = $strongarm;
@@ -87,6 +110,12 @@ function fmnh_media_strongarm() {
         'custom_settings' => TRUE,
       ),
       'media_gallery_collection_thumbnail' => array(
+        'custom_settings' => TRUE,
+      ),
+      'banner_5x2' => array(
+        'custom_settings' => TRUE,
+      ),
+      'banner_5x3' => array(
         'custom_settings' => TRUE,
       ),
     ),
