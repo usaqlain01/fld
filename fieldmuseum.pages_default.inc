@@ -1792,8 +1792,13 @@ function fieldmuseum_default_page_manager_pages() {
   $display->layout = 'l2';
   $display->layout_settings = array(
     'callout_classes' => 'callout',
-    'top_classes' => 'l--3up',
-    'bottom_classes' => 'summaries--2up',
+    'top_a_classes' => 'l--module',
+    'top_b_classes' => 'l--module',
+    'top_c_classes' => 'l--module',
+    'bottom_a_classes' => 'summary',
+    'bottom_b_classes' => 'summary',
+    'bottom_c_classes' => 'summary',
+    'bottom_d_classes' => 'summary',
     'nav_classes' => 'navSection',
   );
   $display->panel_settings = array(
@@ -1804,6 +1809,13 @@ function fieldmuseum_default_page_manager_pages() {
       'top' => NULL,
       'bottom' => NULL,
       'nav' => NULL,
+      'top_b' => NULL,
+      'top_c' => NULL,
+      'bottom_b' => NULL,
+      'bottom_c' => NULL,
+      'bottom_d' => NULL,
+      'top_a' => NULL,
+      'bottom_a' => NULL,
     ),
   );
   $display->cache = array();
@@ -1811,6 +1823,115 @@ function fieldmuseum_default_page_manager_pages() {
   $display->uuid = '0e1fa6d2-0164-4626-b7f4-3dbb72c3c3fb';
   $display->content = array();
   $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-8c0a829e-465b-4961-ad1c-946e8b698ea7';
+    $pane->panel = 'bottom_a';
+    $pane->type = 'fieldable_panels_pane';
+    $pane->subtype = 'fpid:4';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'view_mode' => 'full',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '8c0a829e-465b-4961-ad1c-946e8b698ea7';
+    $display->content['new-8c0a829e-465b-4961-ad1c-946e8b698ea7'] = $pane;
+    $display->panels['bottom_a'][0] = 'new-8c0a829e-465b-4961-ad1c-946e8b698ea7';
+    $pane = new stdClass();
+    $pane->pid = 'new-31a06e62-c97c-4ced-b6bc-6124749653ae';
+    $pane->panel = 'bottom_b';
+    $pane->type = 'fieldable_panels_pane';
+    $pane->subtype = 'fpid:5';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'view_mode' => 'full',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '31a06e62-c97c-4ced-b6bc-6124749653ae';
+    $display->content['new-31a06e62-c97c-4ced-b6bc-6124749653ae'] = $pane;
+    $display->panels['bottom_b'][0] = 'new-31a06e62-c97c-4ced-b6bc-6124749653ae';
+    $pane = new stdClass();
+    $pane->pid = 'new-74056587-bcc5-4dba-8ae7-2ea8fe316ce7';
+    $pane->panel = 'bottom_c';
+    $pane->type = 'fieldable_panels_pane';
+    $pane->subtype = 'fpid:6';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'view_mode' => 'full',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '74056587-bcc5-4dba-8ae7-2ea8fe316ce7';
+    $display->content['new-74056587-bcc5-4dba-8ae7-2ea8fe316ce7'] = $pane;
+    $display->panels['bottom_c'][0] = 'new-74056587-bcc5-4dba-8ae7-2ea8fe316ce7';
+    $pane = new stdClass();
+    $pane->pid = 'new-ce89612a-6c18-4325-86b9-17c1e9e705a5';
+    $pane->panel = 'bottom_d';
+    $pane->type = 'fieldable_panels_pane';
+    $pane->subtype = 'fpid:7';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'view_mode' => 'full',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'ce89612a-6c18-4325-86b9-17c1e9e705a5';
+    $display->content['new-ce89612a-6c18-4325-86b9-17c1e9e705a5'] = $pane;
+    $display->panels['bottom_d'][0] = 'new-ce89612a-6c18-4325-86b9-17c1e9e705a5';
+    $pane = new stdClass();
+    $pane->pid = 'new-4c07d9c4-da40-4cf8-9eab-71cccbff43df';
+    $pane->panel = 'callout';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => 'Callout',
+      'title' => '',
+      'body' => '<p>The Field Museum is open ...</p>',
+      'format' => 'filtered_wysiwyg',
+      'substitute' => TRUE,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '4c07d9c4-da40-4cf8-9eab-71cccbff43df';
+    $display->content['new-4c07d9c4-da40-4cf8-9eab-71cccbff43df'] = $pane;
+    $display->panels['callout'][0] = 'new-4c07d9c4-da40-4cf8-9eab-71cccbff43df';
     $pane = new stdClass();
     $pane->pid = 'new-09d12684-6f9a-45c4-b381-3723c89883ac';
     $pane->panel = 'nav';
@@ -1843,6 +1964,121 @@ function fieldmuseum_default_page_manager_pages() {
     $pane->uuid = '09d12684-6f9a-45c4-b381-3723c89883ac';
     $display->content['new-09d12684-6f9a-45c4-b381-3723c89883ac'] = $pane;
     $display->panels['nav'][0] = 'new-09d12684-6f9a-45c4-b381-3723c89883ac';
+    $pane = new stdClass();
+    $pane->pid = 'new-af1aca4e-03ba-4da1-b553-6e81480c9a91';
+    $pane->panel = 'top_a';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => 'Marketing message',
+      'title' => '',
+      'body' => '<p>Tickets start at simus, et et ut rem simi, sequos solupturere mod maior aligenita none omnis moloriati adio. Met quo eos essene nustrupidus.</p>',
+      'format' => 'filtered_wysiwyg',
+      'substitute' => TRUE,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'af1aca4e-03ba-4da1-b553-6e81480c9a91';
+    $display->content['new-af1aca4e-03ba-4da1-b553-6e81480c9a91'] = $pane;
+    $display->panels['top_a'][0] = 'new-af1aca4e-03ba-4da1-b553-6e81480c9a91';
+    $pane = new stdClass();
+    $pane->pid = 'new-2f1047d9-be5e-4d5e-8dc4-2c8e7aca516d';
+    $pane->panel = 'top_b';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => 'Price list',
+      'title' => '',
+      'body' => '            <ul class="priceList">
+              <li class="priceList__item">
+                <div class="priceList__details">
+                  <span class="priceList__label">
+                    
+                  </span>
+                  <span class="priceList__price">$</span>
+                </div>
+                <p class="priceList__condition"></p>
+              </li>
+              <li class="priceList__item">
+                <div class="priceList__details">
+                  <span class="priceList__label">
+                    
+                  </span>
+                  <span class="priceList__price">$</span>
+                </div>
+                <p class="priceList__condition"></p>
+              </li>
+              <li class="priceList__item">
+                <div class="priceList__details">
+                  <span class="priceList__label">
+                    
+                  </span>
+                  <span class="priceList__price">$</span>
+                </div>
+                <p class="priceList__condition"></p>
+              </li>
+              <li class="priceList__item">
+                <div class="priceList__details">
+                  <span class="priceList__label">
+                    
+                  </span>
+                  <span class="priceList__price">$</span>
+                </div>
+                <p class="priceList__condition"></p>
+              </li>
+            </ul>
+',
+      'format' => 'unfiltered',
+      'substitute' => TRUE,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '2f1047d9-be5e-4d5e-8dc4-2c8e7aca516d';
+    $display->content['new-2f1047d9-be5e-4d5e-8dc4-2c8e7aca516d'] = $pane;
+    $display->panels['top_b'][0] = 'new-2f1047d9-be5e-4d5e-8dc4-2c8e7aca516d';
+    $pane = new stdClass();
+    $pane->pid = 'new-f97a12d3-5e05-4a44-9291-d34a0596f502';
+    $pane->panel = 'top_c';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => 'Ticket links',
+      'title' => '',
+      'body' => '            <a href="#" class="button--purchase">Purchase Tickets</a>
+            <a href="#" class="button--cta button--small">View Ticket Packages</a>
+',
+      'format' => 'filtered_wysiwyg',
+      'substitute' => TRUE,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'f97a12d3-5e05-4a44-9291-d34a0596f502';
+    $display->content['new-f97a12d3-5e05-4a44-9291-d34a0596f502'] = $pane;
+    $display->panels['top_c'][0] = 'new-f97a12d3-5e05-4a44-9291-d34a0596f502';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;

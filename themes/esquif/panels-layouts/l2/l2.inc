@@ -13,8 +13,13 @@ $plugin = array(
 
   'regions'     => array(
     'callout'  => t('Callout'),
-    'top'      => t('Top'),
-    'bottom'   => t('Bottom'),
+    'top_a'      => t('Top A'),
+    'top_b'      => t('Top B'),
+    'top_c'      => t('Top C'),
+    'bottom_a'   => t('Bottom A'),
+    'bottom_b'   => t('Bottom B'),
+    'bottom_c'   => t('Bottom C'),
+    'bottom_d'   => t('Bottom D'),
     'nav'      => t('Nav'),
   ),
 
