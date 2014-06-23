@@ -12,7 +12,15 @@ $plugin = array(
   'theme'       => 'esquif_l4',
 
   'regions'     => array(
-    'main'      => t('Main'),
+    'top_a'    => t('Top A'),
+    'top_b'    => t('Top B'),
+    'top_c'    => t('Top C'),
+    'middle_a' => t('Middle A'),
+    'middle_b' => t('Middle B'),
+    'middle_c' => t('Middle C'),
+    'bottom_a' => t('Bottom A'),
+    'bottom_b' => t('Bottom B'),
+    'bottom_c' => t('Bottom C'),
   ),
 
   'settings form'     => 'esquif_panels_settings_form',
