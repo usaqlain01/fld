@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'stojg\\crop' => array($vendorDir . '/stojg/crop/src'),
+    'ZaCoZa\\Assetic' => array($vendorDir . '/zacoza/assetic-filters/src'),
     'WebDriver' => array($vendorDir . '/instaclick/php-webdriver/lib'),
     'Twig_' => array($vendorDir . '/twig/twig/lib'),
     'Symfony\\Component\\Yaml\\' => array($vendorDir . '/symfony/yaml'),
@@ -43,4 +44,5 @@ return array(
     'Behat\\Mink' => array($vendorDir . '/behat/mink/src'),
     'Behat\\Gherkin' => array($vendorDir . '/behat/gherkin/src'),
     'Behat\\Behat' => array($vendorDir . '/behat/behat/src'),
+    'Assetic' => array($vendorDir . '/kriswallsmith/assetic/src'),
 );

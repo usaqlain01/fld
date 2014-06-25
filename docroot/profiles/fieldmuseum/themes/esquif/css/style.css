@@ -223,8 +223,8 @@ object {
 *:after,
 *:before {
   -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box; }
+     -moz-box-sizing: border-box;
+          box-sizing: border-box; }
 
 /*
 * Scut, a collection of Sass utilities
@@ -273,7 +273,7 @@ Version: 3.4.6 Timestamp: Sat Mar 22 22:30:15 EDT 2014
   text-decoration: none;
   border-radius: 4px;
   -webkit-background-clip: padding-box;
-  background-clip: padding-box;
+          background-clip: padding-box;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -283,7 +283,7 @@ Version: 3.4.6 Timestamp: Sat Mar 22 22:30:15 EDT 2014
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #eeeeee), color-stop(0.5, white));
   background-image: -webkit-linear-gradient(center bottom, #eeeeee 0%, white 50%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#ffffff', endColorstr = '#eeeeee', GradientType = 0);
-  background-image: -webkit-gradient(linear, left bottom, left top, from(#eeeeee), to(white));
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#eeeeee), color-stop(50%, white));
   background-image: -webkit-linear-gradient(bottom, #eeeeee 0%, white 50%);
   background-image: linear-gradient(to top, #eeeeee 0%, white 50%); }
 
@@ -293,7 +293,7 @@ Version: 3.4.6 Timestamp: Sat Mar 22 22:30:15 EDT 2014
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #eeeeee), color-stop(0.9, white));
   background-image: -webkit-linear-gradient(center bottom, #eeeeee 0%, white 90%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#eeeeee', GradientType=0);
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#eeeeee), to(white));
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#eeeeee), color-stop(90%, white));
   background-image: -webkit-linear-gradient(top, #eeeeee 0%, white 90%);
   background-image: linear-gradient(to bottom, #eeeeee 0%, white 90%); }
 
@@ -319,7 +319,7 @@ Version: 3.4.6 Timestamp: Sat Mar 22 22:30:15 EDT 2014
   font-size: 1px;
   text-decoration: none;
   border: 0;
-  background: url("/profiles/fieldmuseum/themes/esquif/images/forms/select2.png") right top no-repeat;
+  background: url("/images/forms/select2.png") right top no-repeat;
   cursor: pointer;
   outline: 0; }
 
@@ -393,12 +393,12 @@ Version: 3.4.6 Timestamp: Sat Mar 22 22:30:15 EDT 2014
   border-left: 1px solid #aaa;
   border-radius: 0 4px 4px 0;
   -webkit-background-clip: padding-box;
-  background-clip: padding-box;
+          background-clip: padding-box;
   background: #ccc;
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #cccccc), color-stop(0.6, #eeeeee));
   background-image: -webkit-linear-gradient(center bottom, #cccccc 0%, #eeeeee 60%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#eeeeee', endColorstr = '#cccccc', GradientType = 0);
-  background-image: -webkit-gradient(linear, left bottom, left top, from(#cccccc), to(#eeeeee));
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#cccccc), color-stop(60%, #eeeeee));
   background-image: -webkit-linear-gradient(bottom, #cccccc 0%, #eeeeee 60%);
   background-image: linear-gradient(to top, #cccccc 0%, #eeeeee 60%); }
 
@@ -406,7 +406,7 @@ Version: 3.4.6 Timestamp: Sat Mar 22 22:30:15 EDT 2014
   display: block;
   width: 100%;
   height: 100%;
-  background: url("/profiles/fieldmuseum/themes/esquif/images/forms/select2.png") no-repeat 0 1px; }
+  background: url("/images/forms/select2.png") no-repeat 0 1px; }
 
 .select2-search {
   display: inline-block;
@@ -432,23 +432,23 @@ Version: 3.4.6 Timestamp: Sat Mar 22 22:30:15 EDT 2014
   border-radius: 0;
   -webkit-box-shadow: none;
   box-shadow: none;
-  background: white url("/profiles/fieldmuseum/themes/esquif/images/forms/select2.png") no-repeat 100% -22px;
-  background: url("/profiles/fieldmuseum/themes/esquif/images/forms/select2.png") no-repeat 100% -22px, -webkit-gradient(linear, left bottom, left top, color-stop(0.85, white), color-stop(0.99, #eeeeee));
-  background: url("/profiles/fieldmuseum/themes/esquif/images/forms/select2.png") no-repeat 100% -22px, -webkit-linear-gradient(center bottom, white 85%, #eeeeee 99%);
-  background: url("/profiles/fieldmuseum/themes/esquif/images/forms/select2.png") no-repeat 100% -22px, -webkit-gradient(linear, left top, left bottom, from(white), to(#eeeeee)) 0 0;
-  background: url("/profiles/fieldmuseum/themes/esquif/images/forms/select2.png") no-repeat 100% -22px, -webkit-linear-gradient(top, white 85%, #eeeeee 99%) 0 0;
-  background: url("/profiles/fieldmuseum/themes/esquif/images/forms/select2.png") no-repeat 100% -22px, linear-gradient(to bottom, white 85%, #eeeeee 99%) 0 0; }
+  background: white url("/images/forms/select2.png") no-repeat 100% -22px;
+  background: url("/images/forms/select2.png") no-repeat 100% -22px, -webkit-gradient(linear, left bottom, left top, color-stop(0.85, white), color-stop(0.99, #eeeeee));
+  background: url("/images/forms/select2.png") no-repeat 100% -22px, -webkit-linear-gradient(center bottom, white 85%, #eeeeee 99%);
+  background: url("/images/forms/select2.png") no-repeat 100% -22px, -webkit-gradient(linear, left top, left bottom, color-stop(85%, white), color-stop(99%, #eeeeee)) 0 0;
+  background: url("/images/forms/select2.png") no-repeat 100% -22px, -webkit-linear-gradient(top, white 85%, #eeeeee 99%) 0 0;
+  background: url("/images/forms/select2.png") no-repeat 100% -22px, linear-gradient(to bottom, white 85%, #eeeeee 99%) 0 0; }
 
 .select2-drop.select2-drop-above .select2-search input {
   margin-top: 4px; }
 
 .select2-search input.select2-active {
-  background: white url("/profiles/fieldmuseum/themes/esquif/images/forms/select2-spinner.gif") no-repeat 100%;
-  background: url("/profiles/fieldmuseum/themes/esquif/images/forms/select2-spinner.gif") no-repeat 100%, -webkit-gradient(linear, left bottom, left top, color-stop(0.85, white), color-stop(0.99, #eeeeee));
-  background: url("/profiles/fieldmuseum/themes/esquif/images/forms/select2-spinner.gif") no-repeat 100%, -webkit-linear-gradient(center bottom, white 85%, #eeeeee 99%);
-  background: url("/profiles/fieldmuseum/themes/esquif/images/forms/select2-spinner.gif") no-repeat 100%, -webkit-gradient(linear, left top, left bottom, from(white), to(#eeeeee)) 0 0;
-  background: url("/profiles/fieldmuseum/themes/esquif/images/forms/select2-spinner.gif") no-repeat 100%, -webkit-linear-gradient(top, white 85%, #eeeeee 99%) 0 0;
-  background: url("/profiles/fieldmuseum/themes/esquif/images/forms/select2-spinner.gif") no-repeat 100%, linear-gradient(to bottom, white 85%, #eeeeee 99%) 0 0; }
+  background: white url("/images/forms/select2-spinner.gif") no-repeat 100%;
+  background: url("/images/forms/select2-spinner.gif") no-repeat 100%, -webkit-gradient(linear, left bottom, left top, color-stop(0.85, white), color-stop(0.99, #eeeeee));
+  background: url("/images/forms/select2-spinner.gif") no-repeat 100%, -webkit-linear-gradient(center bottom, white 85%, #eeeeee 99%);
+  background: url("/images/forms/select2-spinner.gif") no-repeat 100%, -webkit-gradient(linear, left top, left bottom, color-stop(85%, white), color-stop(99%, #eeeeee)) 0 0;
+  background: url("/images/forms/select2-spinner.gif") no-repeat 100%, -webkit-linear-gradient(top, white 85%, #eeeeee 99%) 0 0;
+  background: url("/images/forms/select2-spinner.gif") no-repeat 100%, linear-gradient(to bottom, white 85%, #eeeeee 99%) 0 0; }
 
 .select2-container-active .select2-choice,
 .select2-container-active .select2-choices {
@@ -467,7 +467,7 @@ Version: 3.4.6 Timestamp: Sat Mar 22 22:30:15 EDT 2014
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, white), color-stop(0.5, #eeeeee));
   background-image: -webkit-linear-gradient(center bottom, white 0%, #eeeeee 50%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#ffffff', GradientType=0);
-  background-image: -webkit-gradient(linear, left bottom, left top, from(white), to(#eeeeee));
+  background-image: -webkit-gradient(linear, left bottom, left top, from(white), color-stop(50%, #eeeeee));
   background-image: -webkit-linear-gradient(bottom, white 0%, #eeeeee 50%);
   background-image: linear-gradient(to top, white 0%, #eeeeee 50%); }
 
@@ -478,7 +478,7 @@ Version: 3.4.6 Timestamp: Sat Mar 22 22:30:15 EDT 2014
   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, white), color-stop(0.5, #eeeeee));
   background-image: -webkit-linear-gradient(center top, white 0%, #eeeeee 50%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#ffffff', GradientType=0);
-  background-image: -webkit-gradient(linear, left top, left bottom, from(white), to(#eeeeee));
+  background-image: -webkit-gradient(linear, left top, left bottom, from(white), color-stop(50%, #eeeeee));
   background-image: -webkit-linear-gradient(top, white 0%, #eeeeee 50%);
   background-image: linear-gradient(to bottom, white 0%, #eeeeee 50%); }
 
@@ -486,7 +486,7 @@ Version: 3.4.6 Timestamp: Sat Mar 22 22:30:15 EDT 2014
   background: transparent;
   border-left: none;
   -webkit-filter: none;
-  filter: none; }
+          filter: none; }
 
 .select2-dropdown-open .select2-choice .select2-arrow b {
   background-position: -18px 1px; }
@@ -595,7 +595,7 @@ disabled look for disabled choices in the results dropdown
   display: none; }
 
 .select2-more-results.select2-active {
-  background: #f4f4f4 url("/profiles/fieldmuseum/themes/esquif/images/forms/select2-spinner.gif") no-repeat 100%; }
+  background: #f4f4f4 url("/images/forms/select2-spinner.gif") no-repeat 100%; }
 
 .select2-more-results {
   background: #f4f4f4;
@@ -629,7 +629,7 @@ disabled look for disabled choices in the results dropdown
   background-color: #fff;
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(1%, #eeeeee), color-stop(15%, white));
   background-image: -webkit-linear-gradient(top, #eeeeee 1%, white 15%);
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#eeeeee), to(white));
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(1%, #eeeeee), color-stop(15%, white));
   background-image: linear-gradient(to bottom, #eeeeee 1%, white 15%); }
 
 .select2-locked {
@@ -669,7 +669,7 @@ html[dir="rtl"] .select2-container-multi .select2-choices li {
   background: transparent !important; }
 
 .select2-container-multi .select2-choices .select2-search-field input.select2-active {
-  background: white url("/profiles/fieldmuseum/themes/esquif/images/forms/select2-spinner.gif") no-repeat 100% !important; }
+  background: white url("/images/forms/select2-spinner.gif") no-repeat 100% !important; }
 
 .select2-default {
   color: #999 !important; }
@@ -686,7 +686,7 @@ html[dir="rtl"] .select2-container-multi .select2-choices li {
   -webkit-box-shadow: 0 0 2px white inset, 0 1px 0 rgba(0, 0, 0, 0.05);
   box-shadow: 0 0 2px white inset, 0 1px 0 rgba(0, 0, 0, 0.05);
   -webkit-background-clip: padding-box;
-  background-clip: padding-box;
+          background-clip: padding-box;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -696,7 +696,7 @@ html[dir="rtl"] .select2-container-multi .select2-choices li {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#f4f4f4', GradientType=0);
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(20%, #f4f4f4), color-stop(50%, #f0f0f0), color-stop(52%, #e8e8e8), color-stop(100%, #eeeeee));
   background-image: -webkit-linear-gradient(top, #f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
-  background-image: -webkit-gradient(linear, left bottom, left top, from(#f4f4f4), color-stop(50%, #f0f0f0), color-stop(52%, #e8e8e8), to(#eeeeee));
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(20%, #f4f4f4), color-stop(50%, #f0f0f0), color-stop(52%, #e8e8e8), to(#eeeeee));
   background-image: -webkit-linear-gradient(bottom, #f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
   background-image: linear-gradient(to top, #f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%); }
 
@@ -719,7 +719,7 @@ html[dir="rtl"] .select2-container-multi .select2-choices .select2-search-choice
   top: 4px;
   font-size: 1px;
   outline: none;
-  background: url("/profiles/fieldmuseum/themes/esquif/images/forms/select2.png") right top no-repeat; }
+  background: url("/images/forms/select2.png") right top no-repeat; }
 
 html[dir="rtl"] .select2-search-choice-close {
   right: auto;
@@ -786,94 +786,87 @@ html[dir="rtl"] .select2-search-choice-close {
   .select2-search-choice-close,
   .select2-container .select2-choice abbr,
   .select2-container .select2-choice .select2-arrow b {
-    background-image: url("/profiles/fieldmuseum/themes/esquif/images/forms/select2x2.png") !important;
+    background-image: url("/images/forms/select2x2.png") !important;
     background-repeat: no-repeat !important;
     -webkit-background-size: 60px 40px !important;
-    background-size: 60px 40px !important; }
+            background-size: 60px 40px !important; }
 
   .select2-search input {
     background-position: 100% -21px !important; } }
 .animate--drawerInDown, .socialLinks__link:hover .socialLinks__service, .socialLinks__link:focus .socialLinks__service, .animate--drawerOutUp, .socialLinks__service {
   -webkit-animation-duration: 0.25s;
-  animation-duration: 0.25s;
+          animation-duration: 0.25s;
   -webkit-animation-fill-mode: both;
-  animation-fill-mode: both; }
+          animation-fill-mode: both; }
 
 .promo__description, .banner__description {
   visibility: hidden;
   opacity: 0;
   -webkit-transition: opacity 0.25s, visibility 0s 0.25s;
-  transition: opacity 0.25s, visibility 0s 0.25s;
+          transition: opacity 0.25s, visibility 0s 0.25s;
   -webkit-perspective: 1200px;
-  -ms-perspective: 1200px;
-  perspective: 1200px; }
+          perspective: 1200px; }
   a:hover .promo__description, a:hover .banner__description {
     visibility: visible;
     opacity: 1;
     -webkit-transition: opacity 0.25s;
-    transition: opacity 0.25s; }
+            transition: opacity 0.25s; }
   .promo__description > *, .banner__description > * {
     opacity: 0.4;
     -webkit-transition: -webkit-transform 0.25s, opacity 0.25s;
-    transition: transform 0.25s, opacity 0.25s;
+            transition: transform 0.25s, opacity 0.25s;
     -webkit-transform: translateY(-25%) rotateX(35deg);
-    -ms-transform: translateY(-25%) rotateX(35deg);
-    transform: translateY(-25%) rotateX(35deg); }
+            transform: translateY(-25%) rotateX(35deg); }
     a:hover .promo__description > *, a:hover .banner__description > * {
       opacity: 1;
       -webkit-transform: rotateX(0deg);
-      -ms-transform: rotateX(0deg);
-      transform: rotateX(0deg); }
+              transform: rotateX(0deg); }
 
 @-webkit-keyframes drawerInDown {
   0% {
     opacity: 0;
     -webkit-transform: translateY(-100%);
-    transform: translateY(-100%); }
+            transform: translateY(-100%); }
 
   100% {
     -webkit-transform: translateY(0);
-    transform: translateY(0); } }
+            transform: translateY(0); } }
 
 @keyframes drawerInDown {
   0% {
     opacity: 0;
     -webkit-transform: translateY(-100%);
-    -ms-transform: translateY(-100%);
-    transform: translateY(-100%); }
+            transform: translateY(-100%); }
 
   100% {
     -webkit-transform: translateY(0);
-    -ms-transform: translateY(0);
-    transform: translateY(0); } }
+            transform: translateY(0); } }
 .animate--drawerInDown, .socialLinks__link:hover .socialLinks__service, .socialLinks__link:focus .socialLinks__service {
   -webkit-animation-name: drawerInDown;
-  animation-name: drawerInDown; }
+          animation-name: drawerInDown; }
 
 @-webkit-keyframes drawerOutUp {
   0% {
     -webkit-transform: translateY(0);
-    transform: translateY(0); }
+            transform: translateY(0); }
 
   100% {
     opacity: 0;
     -webkit-transform: translateY(-100%);
-    transform: translateY(-100%); } }
+            transform: translateY(-100%); } }
 
 @keyframes drawerOutUp {
   0% {
     -webkit-transform: translateY(0);
-    -ms-transform: translateY(0);
-    transform: translateY(0); }
+            transform: translateY(0); }
 
   100% {
     opacity: 0;
     -webkit-transform: translateY(-100%);
-    -ms-transform: translateY(-100%);
-    transform: translateY(-100%); } }
+            transform: translateY(-100%); } }
 .animate--drawerOutUp, .socialLinks__service {
   -webkit-animation-name: drawerOutUp;
-  animation-name: drawerOutUp; }
+          animation-name: drawerOutUp; }
 
 .promo__description, .search__visible, .priceList__details, .banner__description, .navMain a, .navMain__list, .navMain__primary, .navMain__global, .navGlobal, .navGlobal__item {
   display: -webkit-box;
@@ -886,90 +879,90 @@ html[dir="rtl"] .select2-search-choice-close {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
-  -moz-box-orient: vertical;
-  -moz-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column; }
+     -moz-box-orient: vertical;
+     -moz-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column; }
 
 .navGlobal {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
   -webkit-flex-direction: row;
-  -moz-box-orient: horizontal;
-  -moz-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row; }
+     -moz-box-orient: horizontal;
+     -moz-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row; }
 
 .navMain__list {
   -webkit-flex-wrap: nowrap;
-  -ms-flex-wrap: nowrap;
-  flex-wrap: nowrap; }
+      -ms-flex-wrap: nowrap;
+          flex-wrap: nowrap; }
 
 .navGlobal {
   -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap; }
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap; }
 
 .navMain__list, .navMain__primary, .navMain__global, .navGlobal {
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
-  -moz-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between; }
+     -moz-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between; }
 
 .navGlobal__item {
   -webkit-box-pack: center;
   -webkit-justify-content: center;
-  -moz-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center; }
+     -moz-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
 
 .promo__description, .banner__description, .navMain a, .navMain__list {
   -webkit-box-align: center;
   -webkit-align-items: center;
-  -moz-box-align: center;
-  -ms-flex-align: center;
-  align-items: center; }
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
 
 .priceList__details {
   -webkit-box-align: baseline;
   -webkit-align-items: baseline;
-  -moz-box-align: baseline;
-  -ms-flex-align: baseline;
-  align-items: baseline; }
+     -moz-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline; }
 
 .navMain__primary, .navMain__global, .navGlobal {
   -webkit-box-align: stretch;
   -webkit-align-items: stretch;
-  -moz-box-align: stretch;
-  -ms-flex-align: stretch;
-  align-items: stretch; }
+     -moz-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch; }
 
 .search__visible, .navMain__list, .navGlobal, .navGlobal__item {
   -webkit-align-content: stretch;
-  -ms-flex-line-pack: stretch;
-  align-content: stretch; }
+      -ms-flex-line-pack: stretch;
+          align-content: stretch; }
 
 .promo__description p, .search__input, .priceList__details:before, .navMain__primary, .navMain__global, .navGlobal {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
-  -moz-box-flex: 1;
-  -ms-flex: 1;
-  flex: 1; }
+     -moz-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1; }
 
 .priceList__details:before {
   -webkit-box-ordinal-group: 3;
   -webkit-order: 2;
-  -moz-box-ordinal-group: 3;
-  -ms-flex-order: 2;
-  order: 2; }
+     -moz-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2; }
 
 .priceList__price {
   -webkit-box-ordinal-group: 4;
   -webkit-order: 3;
-  -moz-box-ordinal-group: 4;
-  -ms-flex-order: 3;
-  order: 3; }
+     -moz-box-ordinal-group: 4;
+      -ms-flex-order: 3;
+          order: 3; }
 
 /* "unicode #" iconName */
 .list--unstyled li, .promo__categories li, .excerpt__date, .excerpt__author, .excerpt__categories, .promo__category, .socialLinks__item, .contentLinks__item, .carousel__item, .navMain__item, .navGlobal__item, .navList__item, .breadcrumb__item, .filters__item, .pagination__first, .pagination__item, .pagination__last, .pagination__gap, .pagination__active, .navTarget__item, .navFooter__item {
@@ -1010,7 +1003,7 @@ body {
   z-index: 2;
   background: white;
   -webkit-box-shadow: 0 5px 25px rgba(51, 51, 51, 0.25);
-  box-shadow: 0 5px 25px rgba(51, 51, 51, 0.25); }
+          box-shadow: 0 5px 25px rgba(51, 51, 51, 0.25); }
 
 .l--body__content {
   width: -webkit-calc(100% - (250px + 50px));
@@ -1139,7 +1132,7 @@ img::-moz-selection {
 .disableHover .l--content {
   pointer-events: none; }
 
-hr, .rule--standard, .rule--thick, .rule--deco, .heading--stroked:after, .pageFooter__social h4:after, .targetPoint__title:after, .excerpt__header:after {
+hr, .rule--standard, .rule--thick, .rule--deco, .heading--stroked:after, .pageFooter__social h4:after, .targetPoint__title:after, .explore__heading:after, .excerpt__header:after {
   border: 0;
   margin: 50px 0; }
 
@@ -1151,7 +1144,7 @@ hr, .rule--standard {
   height: 2px;
   background: #9a9a9a; }
 
-.rule--deco, .heading--stroked:after, .pageFooter__social h4:after, .targetPoint__title:after, .excerpt__header:after {
+.rule--deco, .heading--stroked:after, .pageFooter__social h4:after, .targetPoint__title:after, .explore__heading:after, .excerpt__header:after {
   border-top: 1px solid silver;
   border-bottom: 1px solid silver;
   height: 5px;
@@ -1161,7 +1154,7 @@ hr, .rule--standard {
   margin-right: 100px;
   margin-left: 100px; }
 
-.scale--0, .scale--1, h1, .scale--3, h3, .scale--4, h4, .scale--5, h5, .summary__title, .scale--6, h6 {
+.scale--0, .scale--1, h1, .scale--3, h3, .scale--4, h4, .scale--5, h5, .summary__title, .explore__subheading, .scale--6, h6 {
   color: #333333;
   text-transform: none; }
 
@@ -1187,7 +1180,7 @@ hr, .rule--standard {
   font-weight: 800;
   font-size: 1.5em; }
 
-.scale--5, h5, .summary__title {
+.scale--5, h5, .summary__title, .explore__subheading {
   text-transform: uppercase;
   font-weight: 700;
   font-size: 1.125em; }
@@ -1207,11 +1200,11 @@ h1, h2, h3, h4, h5, h6 {
   h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
     margin-top: 0; }
 
-.heading--stroked, .pageFooter__social h4, .targetPoint__title {
+.heading--stroked, .pageFooter__social h4, .targetPoint__title, .explore__heading {
   position: relative;
   overflow: hidden;
   padding-right: 50px; }
-  .heading--stroked:after, .pageFooter__social h4:after, .targetPoint__title:after {
+  .heading--stroked:after, .pageFooter__social h4:after, .targetPoint__title:after, .explore__heading:after {
     position: absolute;
     bottom: 0.5em;
     margin: 0;
@@ -1297,7 +1290,7 @@ pre {
   .button--cta:hover .button__leader, .button--buy:hover .button__leader, .button:hover .button__leader, .link--directions:hover .button__leader, .button--cta:focus .button__leader, .button--buy:focus .button__leader, .button:focus .button__leader, .link--directions:focus .button__leader {
     background: #333333;
     -webkit-transition: none;
-    transition: none; }
+            transition: none; }
 
 .button--cta, .button--buy {
   padding: 0.5em 1em;
@@ -1334,7 +1327,7 @@ pre {
   color: white;
   font-weight: 800;
   -webkit-transition: all ease-in-out 0.2s;
-  transition: all ease-in-out 0.2s; }
+          transition: all ease-in-out 0.2s; }
   .button .button__leader, .link--directions .button__leader {
     margin: -0.4em 0.4em -0.4em -0.8em;
     padding: 0.5em 0.4em 0.5em;
@@ -1362,10 +1355,10 @@ pre {
 a {
   color: #84a726;
   -webkit-transition: all ease-in-out 0.2s;
-  transition: all ease-in-out 0.2s; }
+          transition: all ease-in-out 0.2s; }
   a:hover, a:visited, a:focus {
     -webkit-transition: none;
-    transition: none; }
+            transition: none; }
   a:hover, a:focus {
     color: #497d8d; }
   a:active {
@@ -1391,7 +1384,7 @@ a {
       .link--more:after {
         background-image: url("../images/icons/sprite_2x.png");
         -webkit-background-size: 11px 18px;
-        background-size: 11px 18px; } }
+                background-size: 11px 18px; } }
   .navFilters .link--more {
     font-size: 0.875rem;
     text-transform: capitalize; }
@@ -1415,7 +1408,7 @@ a {
       .link--top:after {
         background-image: url("../images/icons/sprite_2x.png");
         -webkit-background-size: 11px 18px;
-        background-size: 11px 18px; } }
+                background-size: 11px 18px; } }
 
 .pageHeader .link--directions {
   border-color: white;
@@ -1616,7 +1609,7 @@ dd {
   font-size: 1em;
   line-height: 1.2;
   -webkit-transition: all ease-in-out 0.2s;
-  transition: all ease-in-out 0.2s; }
+          transition: all ease-in-out 0.2s; }
   .promo:hover .promo__title {
     background: #84a726; }
 
@@ -1628,7 +1621,7 @@ dd {
   font-weight: 700;
   line-height: 1.1;
   -webkit-transition: all ease-in-out 0.2s;
-  transition: all ease-in-out 0.2s; }
+          transition: all ease-in-out 0.2s; }
   .promo:hover .promo__categories {
     background: black; }
 
@@ -1683,8 +1676,8 @@ dd {
   border-radius: 4px;
   color: white;
   -webkit-transform: translateY(-100%);
-  -ms-transform: translateY(-100%);
-  transform: translateY(-100%); }
+      -ms-transform: translateY(-100%);
+          transform: translateY(-100%); }
 
 .socialLinks__icon {
   display: block;
@@ -1805,6 +1798,8 @@ dd {
 
 .contentLinks {
   margin: 1em 0; }
+  .explore .contentLinks {
+    margin: 1em -10px; }
 
 .contentLinks__item {
   width: 48%;
@@ -1824,6 +1819,10 @@ dd {
     display: block;
     text-decoration: none;
     font-weight: 700; }
+  .contentLinks--full .contentLinks__item {
+    float: none;
+    margin: 0;
+    width: 100%; }
 
 .priceList {
   font-family: "proxima-nova", "Helvetica Neue", Helmet, Freesans, sans-serif; }
@@ -1920,7 +1919,7 @@ dd {
   color: white;
   opacity: 0;
   -webkit-transition: all ease-in-out 0.2s;
-  transition: all ease-in-out 0.2s;
+          transition: all ease-in-out 0.2s;
   pointer-events: none; }
   .tooltip:hover .tooltip__content, .tooltip:focus .tooltip__content {
     visibility: visible;
@@ -2426,8 +2425,8 @@ dd {
   padding: 0 0 0 325px;
   background-color: #84a726;
   background-position: 50% top;
-  -webkit-background-size: cover;
-  background-size: cover;
+  -webkit-background-size: cover cover;
+          background-size: cover;
   color: white; }
   .l--main .pageHeader {
     margin: 0 -50px 25px -325px; }
@@ -2483,7 +2482,7 @@ dd {
   background-image: url(../images/bg/footer/sue.svg);
   background-position: 100% 50%;
   -webkit-background-size: 900px 555px;
-  background-size: 900px 555px;
+          background-size: 900px 555px;
   /* Size of sue.png */
   background-repeat: no-repeat;
   font-size: 0.875rem; }
@@ -2641,7 +2640,7 @@ dd {
   padding: 25px 12.5px 12.5px; }
   .targetPoint:target {
     -webkit-animation: target-fade 1s 1.5s 1 backwards;
-    animation: target-fade 1s 1.5s 1 backwards; }
+            animation: target-fade 1s 1.5s 1 backwards; }
 
 @-webkit-keyframes target-fade {
   0% {
@@ -2656,6 +2655,15 @@ dd {
 
   100% {
     background-color: white; } }
+.explore {
+  margin-top: 50px; }
+
+.explore__heading {
+  margin-bottom: 0; }
+
+.explore__subheading {
+  margin: 25px 0 12.5px; }
+
 /* --- ALT Hero treatment --- */
 .pageHeader--alt {
   border-bottom-left-radius: 4px;

@@ -1,5 +1,5 @@
 name = PDF
-description = Display PDF file in Drupal without external readers and plugins. 
+description = Display PDF file in Drupal without external readers and plugins.
 
 core = 7.x
 dependencies[] = file
@@ -7,10 +7,9 @@ dependencies[] = libraries
 
 files[] = includes/pdf.field.inc
 
-
-; Information added by Drupal.org packaging script on 2014-06-05
-version = "7.x-1.5+9-dev"
+; Information added by Drupal.org packaging script on 2014-06-24
+version = "7.x-1.5+11-dev"
 core = "7.x"
 project = "pdf"
-datestamp = "1401983333"
+datestamp = "1403607228"
 
