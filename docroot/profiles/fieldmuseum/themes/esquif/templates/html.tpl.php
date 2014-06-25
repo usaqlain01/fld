@@ -24,12 +24,8 @@
   <meta http-equiv="cleartype" content="on">
 
   <?php print $styles; ?>
-  <!-- Javascripts that need to load in the head. -->
-  <script type="text/javascript" src="<?php print $base_path . $path_to_theme; ?>/js/head.js"></script>
-  <!--[if lt IE 9]>
-    <script type="text/javascript" src="<?php print $base_path . $path_to_theme; ?>/js/head-ltie9.js"></script>
-  <![endif]-->
   <?php print $scripts; ?>
+  <?php print render($head_ltie9); ?>
 </head>
 <body class="<?php print $classes; ?>" <?php print $attributes;?>>
   <?php print $page_top; ?>

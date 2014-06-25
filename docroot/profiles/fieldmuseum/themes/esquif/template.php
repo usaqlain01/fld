@@ -47,15 +47,25 @@ function esquif_preprocess_maintenance_page(&$variables, $hook) {
  * @param $hook
  *   The name of the template being rendered ("html" in this case.)
  */
-/* -- Delete this line if you want to use this function
 function esquif_preprocess_html(&$variables, $hook) {
-  $variables['sample_variable'] = t('Lorem ipsum.');
+  $variables['head_ltie9'] = array(
+    '#type' => 'html_tag',
+    '#tag' => 'script',
+    '#attributes' => array(
+      'type' => 'text/javascript',
+      'src' => drupal_get_path('theme', 'esquif') . '/js/head-ltie9.js',
+    ),
+    '#value' => '',
+    '#browsers' => array(
+      'IE' => 'lte IE 8',
+      '!IE' => FALSE,
+    ),
+  );
 
   // The body tag's classes are controlled by the $classes_array variable. To
   // remove a class from $classes_array, use array_diff().
   //$variables['classes_array'] = array_diff($variables['classes_array'], array('class-to-remove'));
 }
-// */
 
 /**
  * Override or insert variables into the page templates.
@@ -75,7 +85,9 @@ function esquif_preprocess_page(&$variables, $hook) {
   h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='//use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
 })(document);
 EOT;
-  drupal_add_js($script, array('type' => 'inline'));
+  drupal_add_js($script, array('type' => 'inline', 'scope' => 'header_force'));
+
+  drupal_add_js(drupal_get_path('theme', 'esquif') .'/js/head.js', array('scope' => 'header_force'));
 }
 
 /**
@@ -534,4 +546,15 @@ function esquif_form_search_block_form_alter(&$form, &$form_state) {
   $form['actions']['submit'][] = array(
     '#markup' => '<svg class="icon icon--search search__icon" viewBox="0 0 500 500"><use xlink:href="#search"></use></svg><span class="is--visHidden">Search</span>',
   );
+}
+
+function esquif_js_alter(&$js) {
+  foreach ($js as &$script) {
+    if ($script['scope'] == 'header') {
+      $script['scope'] = 'footer';
+    }
+    if ($script['scope'] == 'header_force') {
+      $script['scope'] = 'header';
+    }
+  }
 }

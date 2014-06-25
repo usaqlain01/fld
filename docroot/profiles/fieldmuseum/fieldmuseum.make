@@ -18,7 +18,7 @@ projects[bangpoundefq][download][url] = https://github.com/bangpound/bangpoundef
 projects[bangpoundefq][download][type] = git
 
 projects[better_formats][subdir] = contrib
-projects[better_formats][version] = contrib
+projects[better_formats][version] = 1.x-dev
 
 projects[classloader][subdir] = contrib
 projects[classloader][version] = 1.1
@@ -109,6 +109,9 @@ projects[invisimail][version] = 1.1
 
 projects[job_scheduler][subdir] = contrib
 projects[job_scheduler][version] = 2.x-dev
+
+projects[jquery_update][subdir] = contrib
+projects[jquery_update][version] = 2.x-dev
 
 projects[libraries][subdir] = contrib
 projects[libraries][version] = 2.2

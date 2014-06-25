@@ -51,6 +51,7 @@ stylesheets[all][] = system.theme.css
 
 ; Then we add our own stylesheet.
 stylesheets[screen][] = css/style.css
+stylesheets[screen][] = css/overrides.css
 stylesheets[print][] = css/print.css
 
 ; Built-in conditional stylesheet support has been removed from Zen 7.x-5.x.
