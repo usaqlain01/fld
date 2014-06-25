@@ -141,6 +141,52 @@ function fmnh_program_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-program-field_grade_level'
+  $field_instances['node-program-field_grade_level'] = array(
+    'bundle' => 'program',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'field_formatter_class' => '',
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 6,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'fences_wrapper' => 'div',
+    'field_name' => 'field_grade_level',
+    'label' => 'Grade level',
+    'required' => 0,
+    'settings' => array(
+      'behaviors' => array(
+        'taxonomy-index' => array(
+          'status' => TRUE,
+        ),
+      ),
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_buttons',
+      'weight' => 10,
+    ),
+  );
+
   // Exported field_instance: 'node-program-field_image'
   $field_instances['node-program-field_image'] = array(
     'bundle' => 'program',
@@ -260,6 +306,7 @@ function fmnh_program_field_default_field_instances() {
   t('Always visible');
   t('Audience');
   t('Body');
+  t('Grade level');
   t('If a program has no events linked to it, the program will not appear in the places it normally would. If the program should always be visible even if there are no planned events, check this box.');
   t('Image');
   t('References');
