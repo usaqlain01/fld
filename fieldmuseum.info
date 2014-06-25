@@ -44,6 +44,7 @@ dependencies[] = page_manager
 dependencies[] = panels
 dependencies[] = panels_mini
 dependencies[] = pathauto
+dependencies[] = rdf
 dependencies[] = region_panels_mini
 dependencies[] = search
 dependencies[] = semantic_panels
