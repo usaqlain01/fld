@@ -18,7 +18,9 @@
         "phing/phing": "dev-master",
         "cac/autophing": "~1.3.3",
         "mongolito404/phingdrushtask": "7.1.*@dev",
-        "pear-pear.php.net/VersionControl_Git": "*"
+        "pear-pear.php.net/VersionControl_Git": "*",
+        "kriswallsmith/assetic": "~1.2@dev",
+        "zacoza/assetic-filters": "dev-master"
     },
     "repositories": [
         {

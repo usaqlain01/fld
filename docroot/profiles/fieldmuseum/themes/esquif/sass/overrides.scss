@@ -1,0 +1,29 @@
+%drupal-region {
+  ul, ol {
+    li::before {
+      display: none;
+    }
+  }
+  ul.inline {
+    margin: 0;
+    li {
+      display: inline;
+    }
+  }
+}
+
+.panels-ipe-region {
+  @extend %drupal-region;
+}
+
+.region-page-top {
+  @extend %drupal-region;
+}
+
+.contextual-links-wrapper {
+  @extend %drupal-region;
+}
+
+.krumo-root {
+  @extend %drupal-region;
+}

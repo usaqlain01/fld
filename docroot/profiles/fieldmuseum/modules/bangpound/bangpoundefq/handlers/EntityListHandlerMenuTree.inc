@@ -21,6 +21,14 @@ class EntityListHandlerMenuTree implements EntityListHandler {
   public function __construct(Array $config = array()) {
     $defaults = array(
       'entity_type' => 'node',
+      'menu_name'   => 'navigation',
+      'parent_mlid' => 0,
+      'parent'      => '',
+      'level'       => 1,
+      'follow'      => 1,
+      'depth'       => 0,
+      'expanded'    => 0,
+      'sort'        => 0,
     );
     $this->config = array_merge($defaults, $config);
   }
@@ -148,19 +156,7 @@ class EntityListHandlerMenuTree implements EntityListHandler {
    * @return array
    */
   public function execute() {
-    $config = array(
-      'menu_name'   => 'navigation',
-      'parent_mlid' => 0,
-      'parent'      => '',
-      'title_link'  => 0,
-      'admin_title' => '',
-      'level'       => 1,
-      'follow'      => 1,
-      'depth'       => 0,
-      'expanded'    => 0,
-      'sort'        => 0,
-    );
-    $tree = menu_tree_block_data($config);
+    $tree = menu_tree_block_data($this->config);
     $entity_links = array();
     bangpoundefq_menu_tree_collect_entity_links($tree, $entity_links, $this->entityType());
     $entities = entity_load($this->entityType(), array_keys($entity_links));
@@ -191,6 +187,25 @@ class EntityListHandlerMenuTree implements EntityListHandler {
       '#options' => $options,
       '#required' => TRUE,
     );
+
+    // Load the standard config form.
+    module_load_include('inc', 'menu_block', 'menu_block.admin');
+    // Create a pseudo form state.
+    $sub_form_state = array('values' => $this->config);
+    $form += menu_block_configure_form($form, $sub_form_state);
+    unset($form['display_options']);
+    unset($form['title_link']);
+    unset($form['admin_title']);
+
+    // Set the options to a simple list of menu links for the configured menu.
+    $menus = menu_block_get_all_menus();
+    $form['parent']['#options'] = menu_parent_options(array($this->config['menu_name'] => $menus[$this->config['menu_name']]), array('mlid' => 0));
+    // Hide the Parent item option for the special "active" menu.
+    if ($this->config['menu_name'] == MENU_TREE__CURRENT_PAGE_MENU) {
+      $form['parent']['#type'] = 'hidden';
+    }
+    // Remove CSS class hooks for jQuery script on parent select.
+    unset($form['parent']['#attributes']);
     return $form;
   }
 }

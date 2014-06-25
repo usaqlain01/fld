@@ -1,0 +1,20 @@
+{
+    "name": "zacoza/assetic-filters",
+    "description": "",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Simon Degraeve",
+            "email": "simon.degraeve@gmail.com"
+        }
+    ],
+    "require": {
+        "kriswallsmith/assetic": "1.2.*@dev",
+        "php": ">=5.3.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "ZaCoZa\\Assetic": "src/"
+        }
+    }
+}

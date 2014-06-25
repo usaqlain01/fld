@@ -4,7 +4,8 @@
 // Always use getFieldInfo() to get a valid reference to the correct data.
 var _fieldInfoStorage = {};
 // Keeps track of information relevant to each format, such as editor settings.
-var formatInfo = {};
+// Always use getFormatInfo() to get a reference to a format's data.
+var _formatInfoStorage = {};
 
 /**
  * Returns field specific editor data.
@@ -22,25 +23,29 @@ var formatInfo = {};
  * No external code should need access to this, and it may likely change in the
  * future.
  *
+ * Can be used to just test if data exists for a field by passing false/null as
+ * the defaultData argument and check if the return value evaluates to true.
+ *
  * @param fieldId
- *  The id of the field to get data for.
+ *   The id of the field to get data for.
  * @param defaultData
- *  Used internally to set initial data for a field.
+ *   Used internally to set initial data for a field.
  *
  * @returns
- *  A reference to an object with the following properties:
- *  - activeFormat: A string with the active format id.
- *  - enabled: A boolean, true if the editor is attached.
- *  - formats: An object with one sub-object for each available format, holding
- *    format specific state data for this field.
- *  - summary: An optional string with the id of a corresponding summary field.
- *  - trigger: A string with the id of the format selector for the field.
+ *   A reference to an object with the following properties:
+ *   - activeFormat: A string with the active format id.
+ *   - enabled: A boolean, true if the editor is attached.
+ *   - formats: An object with one sub-object for each available format, holding
+ *     format specific state data for this field.
+ *   - summary: An optional string with the id of a corresponding summary field.
+ *   - trigger: A string with the id of the format selector for the field.
+ *   - getFormatInfo: Shortcut method to getFormatInfo(fieldInfo.activeFormat).
  */
 function getFieldInfo(fieldId, defaultData) {
   if (!_fieldInfoStorage[fieldId]) {
     var baseFieldId = (fieldId.indexOf('--') === -1 ? fieldId : fieldId.substr(0, fieldId.indexOf('--')));
     if (!_fieldInfoStorage[baseFieldId]) {
-      if (defaultData) {
+      if (typeof defaultData !== 'undefined') {
         _fieldInfoStorage[baseFieldId] = defaultData;
       }
       else {
@@ -50,6 +55,43 @@ function getFieldInfo(fieldId, defaultData) {
     return _fieldInfoStorage[baseFieldId];
   }
   return _fieldInfoStorage[fieldId];
+}
+
+/**
+ * Returns format specific editor data.
+ *
+ * Do not modify the returned object unless you really know what you're doing.
+ * No external code should need access to this, and it may likely change in the
+ * future.
+ *
+ * Can be used to just test if data exists for a format by passing false/null as
+ * the defaultData argument and check if the return value evaluates to true.
+ *
+ * @param formatId
+ *   The id of a format to get data for.
+ * @param defaultData
+ *   Used internally to set initial data for a format.
+ *
+ * @returns
+ *   A reference to an object with the following properties:
+ *   - editor: A string with the id of the editor attached to the format.
+ *     'none' if no editor profile is associated with the format.
+ *   - enabled: True if the editor is active.
+ *   - toggle: True if the editor can be toggled on/off by the user.
+ *   - editorSettings: A structure holding editor settings for this format.
+ */
+function getFormatInfo(formatId, defaultData) {
+  if (!_formatInfoStorage[formatId]) {
+    if (typeof defaultData !== 'undefined') {
+      _formatInfoStorage[formatId] = defaultData;
+    }
+    else {
+      return {
+        editor: 'none',
+      };
+    }
+  }
+  return _formatInfoStorage[formatId];
 }
 
 /**
@@ -95,28 +137,37 @@ Drupal.behaviors.attachWysiwyg = {
       return;
     }
 
-    // Specifically target input elements in case selectbox wrappers have
-    // hidden the real element and cloned its attributes.
     $('.wysiwyg:input', context).once('wysiwyg', function () {
+      var $this = $('#' + this.id, context), trigger = settings.wysiwyg.triggers[this.id];
       // Skip processing if the trigger is unknown or does not exist in this
       // document. Can happen after a form was removed but Drupal.ajax keeps a
       // lingering reference to the form and calls Drupal.attachBehaviors().
-      if (!this.id || typeof settings.wysiwyg.triggers[this.id] === 'undefined' || !document.getElementById(this.id)) {
+      if (!trigger || !$this.length) {
         return;
       }
-      var $this = $(this);
 
-      var trigger = settings.wysiwyg.triggers[this.id];
+      var $selectbox;
+      if (trigger.select) {
+        // Specifically target input elements in case selectbox wrappers have
+        // hidden the real element and cloned its attributes.
+        $selectbox = $('#' + trigger.select + ':input', context);
+      }
+
       // Create the field info if this field (or one with the same base id)
       // does not already exist.
       var fieldInfo = getFieldInfo(trigger.field, {
-          activeFormat: 'format' + this.value,
-          formats: {},
-          trigger: this.id,
-          summary: trigger.summary,
-          enabled: null,
-          resizable: trigger.resizable
+        activeFormat: 'format' + ($selectbox ? $selectbox.val() : trigger.activeFormat),
+        formats: {},
+        resizable: trigger.resizable,
+        getFormatInfo: function () {
+          return getFormatInfo(this.activeFormat);
+        }
       });
+      // Always update these since Drupal generates new ids on AJAX calls.
+      if (trigger.select) {
+        fieldInfo.select = trigger.select;
+      }
+      fieldInfo.summary = trigger.summary;
       for (var format in trigger) {
         if (format.indexOf('format') != 0) {
           continue;
@@ -125,47 +176,56 @@ Drupal.behaviors.attachWysiwyg = {
           fieldInfo.formats[format] = {
             'enabled': trigger[format].status
           }
+          if (trigger[format].skip_summary) {
+            fieldInfo.formats[format].skip_summary = true;
+          }
         }
         // Build the cache of format/profile settings.
-        if (!formatInfo[format]) {
+        var formatInfo = getFormatInfo(format, null);
+        if (!formatInfo) {
           var formatSettings = {};
           // Settings can be missing if the editor isn't configured yet.
           if (settings.wysiwyg.configs[trigger[format].editor]) {
             formatSettings = settings.wysiwyg.configs[trigger[format].editor][format];
           }
-          formatInfo[format] = {
+          formatInfo = getFormatInfo(format, {
             editor: trigger[format].editor,
             toggle: trigger[format].toggle,
             editorSettings: processObjectTypes(formatSettings)
-          };
+          });
         }
       }
-      fieldInfo.enabled = fieldInfo.formats['format' + this.value].enabled;
+      fieldInfo.enabled = fieldInfo.formats[fieldInfo.activeFormat].enabled;
       // Directly attach this editor, if the input format is enabled or there is
       // only one input format at all.
-      if ($this.is(':input')) {
-        Drupal.wysiwygAttach(context, trigger.field);
-      }
+      Drupal.wysiwygAttach(context, trigger.field);
       // Attach onChange handlers to input format selector elements.
-      if ($this.is('select')) {
-        $this.change((function(context, fieldId) {
+      if ($selectbox && $selectbox.is('select')) {
+        $selectbox.change((function(context, fieldId) {
           return function (event) {
             Drupal.wysiwygDetach(context, fieldId);
             // Field state is fetched by reference.
             var currentField = getFieldInfo(fieldId);
             // Save the state of the current format.
-            currentField.formats[currentField.activeFormat].enabled = currentField.enabled;
+            if (currentField.formats[currentField.activeFormat]) {
+              currentField.formats[currentField.activeFormat].enabled = currentField.enabled;
+            }
             // Switch format/profile.
             currentField.activeFormat = 'format' + this.value;
-            // Load the state from the new format..
-            currentField.enabled = currentField.formats[currentField.activeFormat].enabled;
+            // Load the state from the new format.
+            if (currentField.formats[currentField.activeFormat]) {
+              currentField.enabled = currentField.formats[currentField.activeFormat].enabled;
+            }
+            else {
+              currentField.enabled = false;
+            }
             // Attaching again will use the changed field state.
             Drupal.wysiwygAttach(context, fieldId);
           }
         })(context, trigger.field));
       }
       // Detach any editor when the containing form is submitted.
-      $('#' + trigger.field).parents('form').submit((function (context, fieldId) {
+      $this.closest('form').submit((function (context, fieldId) {
         return function (event) {
           // Do not detach if the event was cancelled.
           if (event.isDefaultPrevented()) {
@@ -190,7 +250,7 @@ Drupal.behaviors.attachWysiwyg = {
       wysiwygs = $('.wysiwyg:input', context).removeOnce('wysiwyg');
     }
     wysiwygs.each(function () {
-      Drupal.wysiwygDetach(context, settings.wysiwyg.triggers[this.id].field, trigger);
+      Drupal.wysiwygDetach(context, this.id, trigger);
     });
   }
 };
@@ -213,14 +273,15 @@ Drupal.behaviors.attachWysiwyg = {
  */
 Drupal.wysiwygAttach = function(context, fieldId) {
   var fieldInfo = getFieldInfo(fieldId),
-      editor = formatInfo[fieldInfo.activeFormat].editor;
+      formatInfo = fieldInfo.getFormatInfo(),
+      editor = formatInfo.editor;
   if (typeof Drupal.wysiwyg.editor.attach[editor] == 'function') {
     // Store this field id, so (external) plugins can use it.
     // @todo Wrong point in time. Probably can only supported by editors which
     //   support an onFocus() or similar event.
     Drupal.wysiwyg.activeId = fieldId;
     // Attach or update toggle link, if enabled.
-    if (formatInfo[fieldInfo.activeFormat].toggle) {
+    if (formatInfo.toggle) {
       Drupal.wysiwygAttachToggleLink(context, fieldId);
     }
     // Otherwise, ensure that toggle link is hidden.
@@ -228,11 +289,11 @@ Drupal.wysiwygAttach = function(context, fieldId) {
       $('#wysiwyg-toggle-' + fieldId).hide();
     }
     // Clone editor settings to be sure they don't get altered.
-    var editorSettings = jQuery.extend(true, {}, formatInfo[fieldInfo.activeFormat].editorSettings);
+    var editorSettings = jQuery.extend(true, {}, formatInfo.editorSettings);
     // Attach to main field.
     attachToField(context, {'status': fieldInfo.enabled, 'editor': editor, 'field': fieldId, 'format': fieldInfo.activeFormat, 'resizable': fieldInfo.resizable}, editorSettings);
     // Attach to summary field.
-    if (fieldInfo.summary) {
+    if (fieldInfo.summary && (!fieldInfo.formats[fieldInfo.activeFormat] || !fieldInfo.formats[fieldInfo.activeFormat].skip_summary)) {
       // If the summary wrapper is hidden, attach when it's made visible.
       if ($('#' + fieldInfo.summary).parents('.text-summary-wrapper').is(':visible')) {
         attachToField(context, {'status': fieldInfo.enabled, 'editor': editor, 'field': fieldInfo.summary, 'format': fieldInfo.activeFormat, 'resizable': fieldInfo.resizable}, editorSettings);
@@ -308,7 +369,7 @@ function attachToField(context, params, editorSettings) {
  */
 Drupal.wysiwygDetach = function (context, fieldId, trigger) {
   var fieldInfo = getFieldInfo(fieldId),
-      editor = formatInfo[fieldInfo.activeFormat].editor;
+      editor = fieldInfo.getFormatInfo().editor,
   trigger = trigger || 'unload';
   // Detach from main field.
   detachFromField(context, {'editor': editor, 'status': fieldInfo.enabled, 'field': fieldId}, trigger);
@@ -369,14 +430,14 @@ function detachFromField(context, params, trigger) {
  */
 Drupal.wysiwygAttachToggleLink = function(context, fieldId) {
   var fieldInfo = getFieldInfo(fieldId),
-      editor = formatInfo[fieldInfo.activeFormat].editor;
+      editor = fieldInfo.getFormatInfo().editor;
   if (!$('#wysiwyg-toggle-' + fieldId, context).length) {
     var text = document.createTextNode(fieldInfo.enabled ? Drupal.settings.wysiwyg.disable : Drupal.settings.wysiwyg.enable),
       a = document.createElement('a'),
       div = document.createElement('div');
     $(a).attr({ id: 'wysiwyg-toggle-' + fieldId, href: 'javascript:void(0);' }).append(text);
     $(div).addClass('wysiwyg-toggle-wrapper').append(a);
-    if ($('#' + fieldInfo.trigger).closest('.fieldset-wrapper').prepend(div).length == 0) {
+    if ($('#' + fieldInfo.select).closest('.fieldset-wrapper').prepend(div).length == 0) {
       // Fall back to inserting the link right after the field.
       $('#' + fieldId).after(div);
     };
@@ -403,6 +464,7 @@ Drupal.wysiwyg.toggleWysiwyg = function (event) {
   Drupal.wysiwygDetach(context, fieldId);
   // Toggling the enabled state indirectly toggles use of the 'none' editor.
   fieldInfo.enabled = !fieldInfo.enabled;
+  fieldInfo.formats[fieldInfo.activeFormat].enabled = fieldInfo.enabled;
   // Attach based on new parameters.
   Drupal.wysiwygAttach(context, fieldId);
   $(this).html(fieldInfo.enabled ? Drupal.settings.wysiwyg.disable : Drupal.settings.wysiwyg.enable).blur();

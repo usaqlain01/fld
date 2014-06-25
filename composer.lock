@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "10d304a433b99dbe9dcb781dc2dfd57e",
+    "hash": "530af636620f06bae71af9e1b9713cb7",
     "packages": [
         {
             "name": "stojg/crop",
@@ -938,6 +938,80 @@
                 "webtest"
             ],
             "time": "2013-10-04 15:03:51"
+        },
+        {
+            "name": "kriswallsmith/assetic",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kriswallsmith/assetic.git",
+                "reference": "964340e69361802eddf51e8eaa85acbd1c621edf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kriswallsmith/assetic/zipball/964340e69361802eddf51e8eaa85acbd1c621edf",
+                "reference": "964340e69361802eddf51e8eaa85acbd1c621edf",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.1",
+                "symfony/process": "~2.1"
+            },
+            "require-dev": {
+                "cssmin/cssmin": "*",
+                "joliclic/javascript-packer": "*",
+                "kamicane/packager": "*",
+                "leafo/lessphp": "*",
+                "leafo/scssphp": "*",
+                "leafo/scssphp-compass": "*",
+                "mrclay/minify": "*",
+                "patchwork/jsqueeze": "*",
+                "phpunit/phpunit": "~3.7",
+                "psr/log": "~1.0",
+                "ptachoire/cssembed": "*",
+                "twig/twig": "~1.6"
+            },
+            "suggest": {
+                "leafo/lessphp": "Assetic provides the integration with the lessphp LESS compiler",
+                "leafo/scssphp": "Assetic provides the integration with the scssphp SCSS compiler",
+                "leafo/scssphp-compass": "Assetic provides the integration with the SCSS compass plugin",
+                "patchwork/jsqueeze": "Assetic provides the integration with the JSqueeze JavaScript compressor",
+                "ptachoire/cssembed": "Assetic provides the integration with phpcssembed to embed data uris",
+                "twig/twig": "Assetic provides the integration with the Twig templating engine"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Assetic": "src/"
+                },
+                "files": [
+                    "src/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kris Wallsmith",
+                    "email": "kris.wallsmith@gmail.com",
+                    "homepage": "http://kriswallsmith.net/"
+                }
+            ],
+            "description": "Asset Management for PHP",
+            "homepage": "https://github.com/kriswallsmith/assetic",
+            "keywords": [
+                "assets",
+                "compression",
+                "minification"
+            ],
+            "time": "2014-05-05 12:59:42"
         },
         {
             "name": "mongolito404/phingdrushtask",
@@ -2680,6 +2754,44 @@
                 "templating"
             ],
             "time": "2014-02-13 10:19:29"
+        },
+        {
+            "name": "zacoza/assetic-filters",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/SimonDegraeve/assetic-filters.git",
+                "reference": "c1a16eb93faa8eb0d325e525dfd0bf77720fa400"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/SimonDegraeve/assetic-filters/zipball/c1a16eb93faa8eb0d325e525dfd0bf77720fa400",
+                "reference": "c1a16eb93faa8eb0d325e525dfd0bf77720fa400",
+                "shasum": ""
+            },
+            "require": {
+                "kriswallsmith/assetic": "1.2.*@dev",
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "ZaCoZa\\Assetic": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Simon Degraeve",
+                    "email": "simon.degraeve@gmail.com",
+                    "homepage": "http://about.me/SimonDegraeve",
+                    "role": "Developer"
+                }
+            ],
+            "time": "2014-02-05 02:01:30"
         }
     ],
     "aliases": [],
@@ -2690,7 +2802,9 @@
         "raulfraile/ladybug": 20,
         "drupal/drupal-extension": 0,
         "phing/phing": 20,
-        "mongolito404/phingdrushtask": 20
+        "mongolito404/phingdrushtask": 20,
+        "kriswallsmith/assetic": 20,
+        "zacoza/assetic-filters": 20
     },
     "platform": {
         "php": ">=5.3.0"
