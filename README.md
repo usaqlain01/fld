@@ -22,7 +22,7 @@ drush @fieldmusefacelift.test migrate-import --all
 
 ```bash
 drush --yes rsync @fldmuse.prod:%files/ sites/default/files -v
-rsync -azv -e ssh /Users/bjd/nobackup/fldmuse/docroot/sites/default/files/ fieldmusefacelift@srv-3298.devcloud.hosting.acquia.com:/vol/ebs1/gfs/home/fieefacelift/prod/migrate/files
+rsync -azv -e ssh /Users/bjd/nobackup/fldmuse/docroot/sites/default/files/ fieldmusefacelift@srv-3298.devcloud.hosting.acquia.com:/vol/ebs1/gfs/home/fieldmusefacelift/prod/migrate/files
 ```
 
 ```bash
