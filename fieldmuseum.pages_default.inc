@@ -212,7 +212,7 @@ function fieldmuseum_default_page_manager_pages() {
   );
   $page->menu = array(
     'type' => 'normal',
-    'title' => 'Conservation efforts',
+    'title' => 'Conservation & Community',
     'name' => 'main-menu',
     'weight' => '0',
     'parent' => array(
@@ -243,7 +243,20 @@ function fieldmuseum_default_page_manager_pages() {
     'body_classes_to_add' => '',
     'css_id' => '',
     'css' => '',
-    'contexts' => array(),
+    'contexts' => array(
+      0 => array(
+        'identifier' => 'List: Menu children',
+        'keyword' => 'list',
+        'name' => 'entitylist:menu_children',
+        'use_pager' => FALSE,
+        'pager_id' => NULL,
+        'range' => array(
+          'offset' => 0,
+          'limit' => 10,
+        ),
+        'id' => 1,
+      ),
+    ),
     'relationships' => array(),
   );
   $display = new panels_display();
@@ -258,10 +271,65 @@ function fieldmuseum_default_page_manager_pages() {
     ),
   );
   $display->cache = array();
-  $display->title = '';
+  $display->title = 'Conservation & Community';
   $display->uuid = 'd13a4cc2-43a3-4b2d-8787-8fa340e2c254';
   $display->content = array();
   $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-ebb1f5b0-9656-44b1-a9fd-6cb55ecd2233';
+    $pane->panel = 'main';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => 'Description',
+      'title' => '',
+      'body' => '<p>Words go here.</p>',
+      'format' => 'filtered_wysiwyg',
+      'substitute' => 1,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'ebb1f5b0-9656-44b1-a9fd-6cb55ecd2233';
+    $display->content['new-ebb1f5b0-9656-44b1-a9fd-6cb55ecd2233'] = $pane;
+    $display->panels['main'][0] = 'new-ebb1f5b0-9656-44b1-a9fd-6cb55ecd2233';
+    $pane = new stdClass();
+    $pane->pid = 'new-df892670-1900-49ec-8177-f53b249c6f1d';
+    $pane->panel = 'main';
+    $pane->type = 'entity_range';
+    $pane->subtype = 'entity_range';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'range' => array(
+        'offset' => '0',
+        'limit' => '10',
+      ),
+      'view_mode' => 'node:teaser',
+      'use_pager' => FALSE,
+      'pager_id' => 0,
+      'context' => 'context_entitylist:menu_children_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = 'df892670-1900-49ec-8177-f53b249c6f1d';
+    $display->content['new-df892670-1900-49ec-8177-f53b249c6f1d'] = $pane;
+    $display->panels['main'][1] = 'new-df892670-1900-49ec-8177-f53b249c6f1d';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
@@ -319,7 +387,7 @@ function fieldmuseum_default_page_manager_pages() {
   $handler->conf = array(
     'title' => 'Panel',
     'no_blocks' => 0,
-    'pipeline' => 'standard',
+    'pipeline' => 'ipe',
     'body_classes_to_remove' => '',
     'body_classes_to_add' => '',
     'css_id' => '',
@@ -619,7 +687,7 @@ function fieldmuseum_default_page_manager_pages() {
   $handler->conf = array(
     'title' => 'Panel',
     'no_blocks' => 0,
-    'pipeline' => 'standard',
+    'pipeline' => 'ipe',
     'body_classes_to_remove' => '',
     'body_classes_to_add' => '',
     'css_id' => '',
@@ -1152,7 +1220,7 @@ function fieldmuseum_default_page_manager_pages() {
   $handler->conf = array(
     'title' => 'Landing page',
     'no_blocks' => 0,
-    'pipeline' => 'standard',
+    'pipeline' => 'ipe',
     'body_classes_to_remove' => '',
     'body_classes_to_add' => '',
     'css_id' => '',
@@ -1454,9 +1522,9 @@ function fieldmuseum_default_page_manager_pages() {
     $pane->configuration = array(
       'admin_title' => 'Free-form message',
       'title' => '',
-      'body' => 'Lorem ipsum dolor sit amet, alii nominati periculis in vis, reque apeirian ei mei. Ut mei justo electram aliquando, an quo persius antiopam iracundia. Malorum quaerendum ut nam, te quo aliquam maiorum voluptatum. Ad aliquam comprehensam vel. Brute viderer reprimique ne usu. Lucilius euripidis voluptatum nec ut.',
+      'body' => 'New content.',
       'format' => 'markdown',
-      'substitute' => TRUE,
+      'substitute' => 1,
     );
     $pane->cache = array();
     $pane->style = array(
@@ -1842,7 +1910,7 @@ function fieldmuseum_default_page_manager_pages() {
   $handler->conf = array(
     'title' => 'Panel',
     'no_blocks' => 0,
-    'pipeline' => 'standard',
+    'pipeline' => 'ipe',
     'body_classes_to_remove' => '',
     'body_classes_to_add' => '',
     'css_id' => '',
@@ -2505,7 +2573,7 @@ function fieldmuseum_default_page_manager_pages() {
   $handler->conf = array(
     'title' => 'Panel',
     'no_blocks' => 0,
-    'pipeline' => 'standard',
+    'pipeline' => 'ipe',
     'body_classes_to_remove' => '',
     'body_classes_to_add' => '',
     'css_id' => '',
@@ -2794,7 +2862,7 @@ function fieldmuseum_default_page_manager_pages() {
   $handler->conf = array(
     'title' => 'Panel',
     'no_blocks' => 0,
-    'pipeline' => 'standard',
+    'pipeline' => 'ipe',
     'body_classes_to_remove' => '',
     'body_classes_to_add' => '',
     'css_id' => '',
