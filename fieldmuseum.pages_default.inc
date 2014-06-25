@@ -190,6 +190,227 @@ function fieldmuseum_default_page_manager_pages() {
   $page = new stdClass();
   $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
   $page->api_version = 1;
+  $page->name = 'citizen_science';
+  $page->task = 'page';
+  $page->admin_title = 'Citizen science';
+  $page->admin_description = '';
+  $page->path = 'science/community-science';
+  $page->access = array(
+    'plugins' => array(
+      0 => array(
+        'name' => 'perm',
+        'settings' => array(
+          'perm' => 'access content',
+        ),
+        'context' => 'logged-in-user',
+        'not' => FALSE,
+      ),
+    ),
+    'logic' => 'and',
+  );
+  $page->menu = array(
+    'type' => 'normal',
+    'title' => 'Citizen science',
+    'name' => 'main-menu',
+    'weight' => '0',
+    'parent' => array(
+      'type' => 'none',
+      'title' => '',
+      'name' => 'navigation',
+      'weight' => '0',
+    ),
+  );
+  $page->arguments = array();
+  $page->conf = array(
+    'admin_paths' => FALSE,
+  );
+  $page->default_handlers = array();
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'page_citizen_science_panel_context';
+  $handler->task = 'page';
+  $handler->subtask = 'citizen_science';
+  $handler->handler = 'panel_context';
+  $handler->weight = 0;
+  $handler->conf = array(
+    'title' => 'Panel',
+    'no_blocks' => 0,
+    'pipeline' => 'ipe',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => '',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(
+      0 => array(
+        'identifier' => 'List: Menu children',
+        'keyword' => 'list',
+        'name' => 'entitylist:menu_children',
+        'use_pager' => FALSE,
+        'pager_id' => NULL,
+        'range' => array(
+          'offset' => 0,
+          'limit' => 10,
+        ),
+        'id' => 1,
+      ),
+    ),
+    'relationships' => array(),
+  );
+  $display = new panels_display();
+  $display->layout = 'l6c';
+  $display->layout_settings = array(
+    'main_classes' => '',
+    'nav_classes' => 'navSection',
+  );
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'main' => NULL,
+      'nav' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = 'Citizen Science';
+  $display->uuid = '8cde62ee-0aa7-4c9d-a99b-ede543299d0a';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-f857977f-6aa4-4335-aba6-7a691e65d11f';
+    $pane->panel = 'main';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => 'Intro',
+      'title' => '',
+      'body' => '<p>Words go here.</p>',
+      'format' => 'filtered_wysiwyg',
+      'substitute' => 1,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'f857977f-6aa4-4335-aba6-7a691e65d11f';
+    $display->content['new-f857977f-6aa4-4335-aba6-7a691e65d11f'] = $pane;
+    $display->panels['main'][0] = 'new-f857977f-6aa4-4335-aba6-7a691e65d11f';
+    $pane = new stdClass();
+    $pane->pid = 'new-30c19363-e3ad-4342-a884-a2f4cf3edffd';
+    $pane->panel = 'main';
+    $pane->type = 'entity_range';
+    $pane->subtype = 'entity_range';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'range' => array(
+        'offset' => '0',
+        'limit' => '10',
+      ),
+      'view_mode' => 'node:teaser',
+      'use_pager' => FALSE,
+      'pager_id' => 0,
+      'context' => 'context_entitylist:menu_children_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => array(
+        'element_title' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => 'section',
+          'class_enable' => 1,
+          'class' => 'promos--2up',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
+      'style' => 'semantic_panels',
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = '30c19363-e3ad-4342-a884-a2f4cf3edffd';
+    $display->content['new-30c19363-e3ad-4342-a884-a2f4cf3edffd'] = $pane;
+    $display->panels['main'][1] = 'new-30c19363-e3ad-4342-a884-a2f4cf3edffd';
+    $pane = new stdClass();
+    $pane->pid = 'new-875794e6-9060-457f-9072-481c0d94daff';
+    $pane->panel = 'nav';
+    $pane->type = 'menu_tree';
+    $pane->subtype = 'main-menu';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'menu_name' => 'main-menu',
+      'parent_mlid' => 0,
+      'parent' => 'main-menu:0',
+      'title_link' => 0,
+      'admin_title' => '',
+      'level' => '1',
+      'follow' => 'child',
+      'depth' => '1',
+      'expanded' => 0,
+      'sort' => 0,
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '875794e6-9060-457f-9072-481c0d94daff';
+    $display->content['new-875794e6-9060-457f-9072-481c0d94daff'] = $pane;
+    $display->panels['nav'][0] = 'new-875794e6-9060-457f-9072-481c0d94daff';
+  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->title_pane = 'new-f857977f-6aa4-4335-aba6-7a691e65d11f';
+  $handler->conf['display'] = $display;
+  $page->default_handlers[$handler->name] = $handler;
+  $pages['citizen_science'] = $page;
+
+  $page = new stdClass();
+  $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
+  $page->api_version = 1;
   $page->name = 'conservation_efforts';
   $page->task = 'page';
   $page->admin_title = 'Conservation efforts';
