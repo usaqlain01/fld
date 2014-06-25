@@ -20,6 +20,7 @@ function fieldmuseum_entitylist_defaults() {
   $list->handler_plugin = 'EntityListHandlerMenuTree';
   $list->handler_config = array(
     'entity_type' => 'node',
+    'menu_name' => 'main-menu',
   );
   $export['menu_children'] = $list;
 
