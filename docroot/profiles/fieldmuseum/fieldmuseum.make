@@ -59,6 +59,9 @@ projects[entitylist][download][type] = git
 projects[entityreference][subdir] = contrib
 projects[entityreference][version] = 1.1
 
+projects[environment_indicator][subdir] = contrib
+projects[environment_indicator][contrib] = 2.5
+
 projects[facetapi][subdir] = contrib
 projects[facetapi][version] = 1.3
 
