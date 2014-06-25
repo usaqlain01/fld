@@ -3210,6 +3210,227 @@ function fieldmuseum_default_page_manager_pages() {
   $page = new stdClass();
   $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
   $page->api_version = 1;
+  $page->name = 'virtual_visits';
+  $page->task = 'page';
+  $page->admin_title = 'Virtual visits';
+  $page->admin_description = '';
+  $page->path = 'educators/virtual-visits';
+  $page->access = array(
+    'plugins' => array(
+      0 => array(
+        'name' => 'perm',
+        'settings' => array(
+          'perm' => 'access content',
+        ),
+        'context' => 'logged-in-user',
+        'not' => FALSE,
+      ),
+    ),
+    'logic' => 'and',
+  );
+  $page->menu = array(
+    'type' => 'normal',
+    'title' => 'Virtual visits',
+    'name' => 'main-menu',
+    'weight' => '0',
+    'parent' => array(
+      'type' => 'none',
+      'title' => '',
+      'name' => 'navigation',
+      'weight' => '0',
+    ),
+  );
+  $page->arguments = array();
+  $page->conf = array(
+    'admin_paths' => FALSE,
+  );
+  $page->default_handlers = array();
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'page_virtual_visits_panel_context';
+  $handler->task = 'page';
+  $handler->subtask = 'virtual_visits';
+  $handler->handler = 'panel_context';
+  $handler->weight = 0;
+  $handler->conf = array(
+    'title' => 'Panel',
+    'no_blocks' => 0,
+    'pipeline' => 'ipe',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => '',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(
+      0 => array(
+        'identifier' => 'List: Menu children',
+        'keyword' => 'list',
+        'name' => 'entitylist:menu_children',
+        'use_pager' => FALSE,
+        'pager_id' => NULL,
+        'range' => array(
+          'offset' => 0,
+          'limit' => 10,
+        ),
+        'id' => 1,
+      ),
+    ),
+    'relationships' => array(),
+  );
+  $display = new panels_display();
+  $display->layout = 'l6a';
+  $display->layout_settings = array(
+    'main_classes' => '',
+    'nav_classes' => 'navSection',
+  );
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'main' => NULL,
+      'nav' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = 'Virtual visits';
+  $display->uuid = '54f7cabb-c571-4d8d-8883-940257f44929';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-76a45531-1880-4858-8329-d8e7d860dd51';
+    $pane->panel = 'main';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => 'Description',
+      'title' => '',
+      'body' => '<p>Words go here.</p>',
+      'format' => 'filtered_wysiwyg',
+      'substitute' => TRUE,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '76a45531-1880-4858-8329-d8e7d860dd51';
+    $display->content['new-76a45531-1880-4858-8329-d8e7d860dd51'] = $pane;
+    $display->panels['main'][0] = 'new-76a45531-1880-4858-8329-d8e7d860dd51';
+    $pane = new stdClass();
+    $pane->pid = 'new-61828bf9-f2f5-4684-a8a4-f25f5af43451';
+    $pane->panel = 'main';
+    $pane->type = 'entity_range';
+    $pane->subtype = 'entity_range';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'range' => array(
+        'offset' => '0',
+        'limit' => '10',
+      ),
+      'view_mode' => 'node:teaser',
+      'use_pager' => FALSE,
+      'pager_id' => 0,
+      'context' => 'context_entitylist:menu_children_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => array(
+        'element_title' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => 'section',
+          'class_enable' => 1,
+          'class' => 'promos--3up',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
+      'style' => 'semantic_panels',
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = '61828bf9-f2f5-4684-a8a4-f25f5af43451';
+    $display->content['new-61828bf9-f2f5-4684-a8a4-f25f5af43451'] = $pane;
+    $display->panels['main'][1] = 'new-61828bf9-f2f5-4684-a8a4-f25f5af43451';
+    $pane = new stdClass();
+    $pane->pid = 'new-68645001-3b6c-4454-a364-f5fc6814a814';
+    $pane->panel = 'nav';
+    $pane->type = 'menu_tree';
+    $pane->subtype = 'main-menu';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'menu_name' => 'main-menu',
+      'parent_mlid' => 0,
+      'parent' => 'main-menu:0',
+      'title_link' => 0,
+      'admin_title' => '',
+      'level' => '1',
+      'follow' => 'active',
+      'depth' => '2',
+      'expanded' => 1,
+      'sort' => 0,
+      'override_title' => 1,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '68645001-3b6c-4454-a364-f5fc6814a814';
+    $display->content['new-68645001-3b6c-4454-a364-f5fc6814a814'] = $pane;
+    $display->panels['nav'][0] = 'new-68645001-3b6c-4454-a364-f5fc6814a814';
+  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->title_pane = 'new-76a45531-1880-4858-8329-d8e7d860dd51';
+  $handler->conf['display'] = $display;
+  $page->default_handlers[$handler->name] = $handler;
+  $pages['virtual_visits'] = $page;
+
+  $page = new stdClass();
+  $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
+  $page->api_version = 1;
   $page->name = 'ways_to_give';
   $page->task = 'page';
   $page->admin_title = 'Ways to Give';
