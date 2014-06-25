@@ -110,6 +110,9 @@ projects[invisimail][version] = 1.1
 projects[job_scheduler][subdir] = contrib
 projects[job_scheduler][version] = 2.x-dev
 
+projects[jquery_update][subdir] = contrib
+projects[jquery_update][version] = 2.x-dev
+
 projects[libraries][subdir] = contrib
 projects[libraries][version] = 2.2
 
