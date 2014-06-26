@@ -1,8 +1,12 @@
+%tablexi-reset-ul {
+  li::before {
+    display: none;
+  }
+}
+
 %drupal-region {
   ul, ol {
-    li::before {
-      display: none;
-    }
+    @extend %tablexi-reset-ul;
   }
   ul.inline {
     margin: 0;
@@ -26,4 +30,11 @@
 
 .krumo-root {
   @extend %drupal-region;
+}
+
+ul.tabs {
+  @extend %tablexi-reset-ul;
+  li {
+    padding: 0;
+  }
 }
