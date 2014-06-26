@@ -35,7 +35,6 @@ features[field_group][] = group_science_tags|node|collection|form
 features[field_group][] = group_stratigraphy|node|collection|form
 features[field_group][] = group_topic|node|collection|form
 features[field_instance][] = node-collection-body
-features[field_instance][] = node-collection-field_acknowledgement
 features[field_instance][] = node-collection-field_acknowledgements
 features[field_instance][] = node-collection-field_audience
 features[field_instance][] = node-collection-field_collections_loan

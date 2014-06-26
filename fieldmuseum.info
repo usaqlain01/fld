@@ -72,7 +72,6 @@ features[environment_indicator_environment][] = production
 features[environment_indicator_environment][] = test
 features[features_api][] = api:2
 features[field_base][] = body
-features[field_base][] = field_acknowledgement
 features[field_base][] = field_acknowledgements
 features[field_base][] = field_action_link
 features[field_base][] = field_attachment
