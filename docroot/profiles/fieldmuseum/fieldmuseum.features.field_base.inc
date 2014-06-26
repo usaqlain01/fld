@@ -41,33 +41,6 @@ function fieldmuseum_field_default_field_bases() {
     'type' => 'text_with_summary',
   );
 
-  // Exported field_base: 'field_acknowledgement'
-  $field_bases['field_acknowledgement'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_acknowledgement',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
-    'indexes' => array(
-      'format' => array(
-        0 => 'format',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'text',
-    'settings' => array(),
-    'translatable' => 0,
-    'type' => 'text_long',
-  );
-
   // Exported field_base: 'field_acknowledgements'
   $field_bases['field_acknowledgements'] = array(
     'active' => 1,
@@ -276,7 +249,14 @@ function fieldmuseum_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_exhibit',
-    'foreign keys' => array(),
+    'foreign keys' => array(
+      'node' => array(
+        'columns' => array(
+          'target_id' => 'nid',
+        ),
+        'table' => 'node',
+      ),
+    ),
     'indexes' => array(
       'target_id' => array(
         0 => 'target_id',
@@ -308,11 +288,18 @@ function fieldmuseum_field_default_field_bases() {
   // Exported field_base: 'field_grade_level'
   $field_bases['field_grade_level'] = array(
     'active' => 1,
-    'cardinality' => 1,
+    'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_grade_level',
-    'foreign keys' => array(),
+    'foreign keys' => array(
+      'taxonomy_term_data' => array(
+        'columns' => array(
+          'target_id' => 'tid',
+        ),
+        'table' => 'taxonomy_term_data',
+      ),
+    ),
     'indexes' => array(
       'target_id' => array(
         0 => 'target_id',
@@ -410,7 +397,14 @@ function fieldmuseum_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_person',
-    'foreign keys' => array(),
+    'foreign keys' => array(
+      'users' => array(
+        'columns' => array(
+          'target_id' => 'uid',
+        ),
+        'table' => 'users',
+      ),
+    ),
     'indexes' => array(
       'target_id' => array(
         0 => 'target_id',
@@ -583,7 +577,14 @@ function fieldmuseum_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_topic',
-    'foreign keys' => array(),
+    'foreign keys' => array(
+      'taxonomy_term_data' => array(
+        'columns' => array(
+          'target_id' => 'tid',
+        ),
+        'table' => 'taxonomy_term_data',
+      ),
+    ),
     'indexes' => array(
       'target_id' => array(
         0 => 'target_id',

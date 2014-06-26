@@ -88,8 +88,10 @@ class DepartmentTermMigration extends TermToNodeMigration
       $row->menu = array(
         'enabled' => true,
         'link_title' => $row->name,
+        'description' => '',
         'menu_name' => 'menu-graveyard',
         'plid' => 0,
+        'mlid' => null,
       );
     }
     else {

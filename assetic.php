@@ -8,94 +8,6 @@ use Assetic\Asset\AssetCollection;
 use Assetic\Asset\FileAsset;
 use Assetic\Asset\GlobAsset;
 
-class CodekitFilter implements \Assetic\Filter\FilterInterface, \Assetic\Filter\DependencyExtractorInterface {
-
-    private $includes;
-
-    public function __construct(\Assetic\Filter\CoffeeScriptFilter $coffee) {
-        $this->coffee = $coffee;
-    }
-
-    /**
-     * Filters an asset after it has been loaded.
-     *
-     * @param \Assetic\Asset\AssetInterface $asset An asset
-     */
-    public function filterLoad(\Assetic\Asset\AssetInterface $asset)
-    {
-        $sourceRoot = $asset->getSourceRoot();
-        $sourcePath = $asset->getSourcePath();
-        $pattern = '/# @codekit-([a-z]+) "(.+?)"/';
-        $matches = array();
-        preg_match_all($pattern, $asset->getContent(), $matches);
-
-        foreach (array_keys($matches[0]) as $key) {
-            $importPath = $matches[2][$key];
-            $importRoot = $sourceRoot;
-            $importSource = $importRoot.'/'.$importPath;
-            $filters = array();
-            if (strrpos($importPath, '.coffee', -7)) {
-                $filters[] = $this->coffee;
-            }
-            $include = new FileAsset($importSource, $filters, $importRoot, $importPath);
-
-            $this->includes[$sourceRoot .'/'. $sourcePath][$matches[1][$key]][] = $include;
-        }
-    }
-
-    /**
-     * Filters an asset just before it's dumped.
-     *
-     * @param \Assetic\Asset\AssetInterface $asset An asset
-     */
-    public function filterDump(\Assetic\Asset\AssetInterface $asset)
-    {
-        $sourceRoot = $asset->getSourceRoot();
-        $sourcePath = $asset->getSourcePath();
-        if ($this->includes[$sourceRoot .'/'. $sourcePath]) {
-            $content = '(function ($, Drupal, window, document, undefined) {' . PHP_EOL;
-            if (isset($this->includes[$sourceRoot .'/'. $sourcePath]['prepend'])) {
-                /** @var \Assetic\Asset\AssetInterface $include_asset */
-                foreach ($this->includes[$sourceRoot .'/'. $sourcePath]['prepend'] as $include_asset) {
-                    $filename = basename($include_asset->getSourcePath());
-                    $prefix = <<<EOT
-  /*
-  --------------------------------------------
-       Begin $filename
-  --------------------------------------------
-   */
-EOT;
-
-                    $content .= $prefix . PHP_EOL . $include_asset->dump() . PHP_EOL;
-                }
-            }
-            $content .= $asset->getContent();
-            if (isset($this->includes[$sourceRoot .'/'. $sourcePath]['append'])) {
-                foreach ($this->includes[$sourceRoot .'/'. $sourcePath]['append'] as $include_asset) {
-                    $content .= $prefix . PHP_EOL . $include_asset->dump() . PHP_EOL;
-                }
-            }
-            $content .= PHP_EOL . '})(jQuery, Drupal, this, this.document);';
-            $asset->setContent($content);
-        }
-    }
-
-    /**
-     * Returns child assets.
-     *
-     * @param \Assetic\Factory\AssetFactory $factory The asset factory
-     * @param string $content The asset content
-     * @param string $loadPath An optional load path
-     *
-     * @return \Assetic\Asset\AssetInterface[] Child assets
-     */
-    public function getChildren(\Assetic\Factory\AssetFactory $factory, $content, $loadPath = null)
-    {
-        return array();
-        // TODO: Implement getChildren() method.
-    }
-}
-
 $source_dir = __DIR__ .'/build/fieldmuseum-website/patternlab/source';
 $target_dir = __DIR__ .'/docroot/profiles/fieldmuseum/themes/esquif';
 
@@ -114,7 +26,7 @@ $finder = \Symfony\Component\Finder\Finder::create()->files()->depth(0)->name('*
 /** @var \Symfony\Component\Finder\SplFileInfo $file  */
 foreach ($finder as $file) {
     $asset = new FileAsset($file->getPathname(), array(
-        new \CodekitFilter($coffee),
+        new \Bangpound\Assetic\Filter\CodekitCoffeeScriptFilter($coffee),
         $coffee,
     ));
     $asset->setTargetPath('/js/'. $file->getBasename('.coffee'). '.js');

@@ -6,5 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Bangpound\\Assetic\\Filter\\' => array($vendorDir . '/bangpound/assetic-codekit'),
     '' => array($baseDir . '/docroot/profiles/fieldmuseum/lib'),
 );
