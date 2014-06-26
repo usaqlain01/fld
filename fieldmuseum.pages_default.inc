@@ -4331,18 +4331,20 @@ function fieldmuseum_default_page_manager_pages() {
     'relationships' => array(),
   );
   $display = new panels_display();
-  $display->layout = 'zen_no_wrapper';
+  $display->layout = 'l6c';
   $display->layout_settings = array(
     'main_classes' => '',
+    'nav_classes' => '',
   );
   $display->panel_settings = array(
     'style_settings' => array(
       'default' => NULL,
       'main' => NULL,
+      'nav' => NULL,
     ),
   );
   $display->cache = array();
-  $display->title = '';
+  $display->title = 'Teacher professional development';
   $display->uuid = '370002fa-5668-44b1-9cb8-f33407985b7a';
   $display->content = array();
   $display->panels = array();
@@ -4370,7 +4372,39 @@ function fieldmuseum_default_page_manager_pages() {
     $pane->uuid = '76b12dd7-fe1e-42d1-993e-724efd2eb7f1';
     $display->content['new-76b12dd7-fe1e-42d1-993e-724efd2eb7f1'] = $pane;
     $display->panels['main'][0] = 'new-76b12dd7-fe1e-42d1-993e-724efd2eb7f1';
-  $display->hide_title = PANELS_TITLE_PANE;
+    $pane = new stdClass();
+    $pane->pid = 'new-b5823e7b-8977-408e-8b6f-41dbf8122c92';
+    $pane->panel = 'nav';
+    $pane->type = 'menu_tree';
+    $pane->subtype = 'main-menu';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'menu_name' => 'main-menu',
+      'parent_mlid' => 0,
+      'parent' => 'main-menu:0',
+      'title_link' => 0,
+      'admin_title' => '',
+      'level' => '2',
+      'follow' => 'active',
+      'depth' => '0',
+      'expanded' => 0,
+      'sort' => 0,
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'b5823e7b-8977-408e-8b6f-41dbf8122c92';
+    $display->content['new-b5823e7b-8977-408e-8b6f-41dbf8122c92'] = $pane;
+    $display->panels['nav'][0] = 'new-b5823e7b-8977-408e-8b6f-41dbf8122c92';
+  $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = 'new-76b12dd7-fe1e-42d1-993e-724efd2eb7f1';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
