@@ -3569,45 +3569,64 @@ function fieldmuseum_default_page_manager_pages() {
   $handler->conf = array(
     'title' => 'Panel',
     'no_blocks' => 0,
-    'pipeline' => 'standard',
+    'pipeline' => 'ipe',
     'body_classes_to_remove' => '',
     'body_classes_to_add' => '',
     'css_id' => '',
     'css' => '',
-    'contexts' => array(),
+    'contexts' => array(
+      0 => array(
+        'identifier' => 'List: Menu children',
+        'keyword' => 'list',
+        'name' => 'entitylist:menu_children',
+        'use_pager' => FALSE,
+        'pager_id' => NULL,
+        'range' => array(
+          'offset' => 0,
+          'limit' => 10,
+        ),
+        'id' => 1,
+      ),
+    ),
     'relationships' => array(),
   );
   $display = new panels_display();
-  $display->layout = 'zen_no_wrapper';
+  $display->layout = 'l6d';
   $display->layout_settings = array(
-    'main_classes' => '',
+    'top_classes' => '',
+    'bottom_classes' => '',
+    'nav_classes' => '',
   );
   $display->panel_settings = array(
     'style_settings' => array(
       'default' => NULL,
       'main' => NULL,
+      'top' => NULL,
+      'bottom' => NULL,
+      'nav' => NULL,
     ),
   );
   $display->cache = array();
-  $display->title = '';
-  $display->uuid = 'f436dcf0-4bbc-4cc9-8ce2-6995af08308e';
+  $display->title = 'Research and Collections';
+  $display->uuid = '96b9dabb-2f52-4198-8d88-21d92f5f3449';
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-4e3eacb8-331b-4619-a7b9-66107ce20b2c';
-    $pane->panel = 'main';
+    $pane->pid = 'new-1d40aca6-d611-471f-b7d5-7539e227b24f';
+    $pane->panel = 'nav';
     $pane->type = 'menu_tree';
     $pane->subtype = 'main-menu';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
       'menu_name' => 'main-menu',
-      'parent_mlid' => 'main-menu:0',
+      'parent_mlid' => 0,
+      'parent' => 'main-menu:0',
       'title_link' => 0,
       'admin_title' => '',
-      'level' => '1',
-      'follow' => 'child',
-      'depth' => 0,
+      'level' => '2',
+      'follow' => 0,
+      'depth' => '0',
       'expanded' => 0,
       'sort' => 0,
       'override_title' => 0,
@@ -3616,17 +3635,46 @@ function fieldmuseum_default_page_manager_pages() {
     $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,
-      'style' => 'naked',
     );
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = '4e3eacb8-331b-4619-a7b9-66107ce20b2c';
-    $display->content['new-4e3eacb8-331b-4619-a7b9-66107ce20b2c'] = $pane;
-    $display->panels['main'][0] = 'new-4e3eacb8-331b-4619-a7b9-66107ce20b2c';
-  $display->hide_title = PANELS_TITLE_PANE;
-  $display->title_pane = 'new-4e3eacb8-331b-4619-a7b9-66107ce20b2c';
+    $pane->uuid = '1d40aca6-d611-471f-b7d5-7539e227b24f';
+    $display->content['new-1d40aca6-d611-471f-b7d5-7539e227b24f'] = $pane;
+    $display->panels['nav'][0] = 'new-1d40aca6-d611-471f-b7d5-7539e227b24f';
+    $pane = new stdClass();
+    $pane->pid = 'new-3ae6c59f-4c65-48c8-8ea2-247eea254045';
+    $pane->panel = 'top';
+    $pane->type = 'entity_range';
+    $pane->subtype = 'entity_range';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'range' => array(
+        'offset' => '0',
+        'limit' => '10',
+      ),
+      'view_mode' => 'node:teaser',
+      'use_pager' => FALSE,
+      'pager_id' => 0,
+      'context' => 'context_entitylist:menu_children_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '3ae6c59f-4c65-48c8-8ea2-247eea254045';
+    $display->content['new-3ae6c59f-4c65-48c8-8ea2-247eea254045'] = $pane;
+    $display->panels['top'][0] = 'new-3ae6c59f-4c65-48c8-8ea2-247eea254045';
+  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->title_pane = '0';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
   $pages['research_collections'] = $page;
