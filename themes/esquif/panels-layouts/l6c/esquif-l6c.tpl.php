@@ -8,7 +8,8 @@
     }
     else {
       print $content['main'];
-    }    ?>
+    }
+    ?>
   </div>
 
   <div class="l--body__nav js--sticky" style="">
