@@ -409,8 +409,8 @@ function fieldmuseum_default_panels_mini() {
     $pane->access = array();
     $pane->configuration = array(
       'menu_name' => 'main-menu',
-      'parent_mlid' => 1671,
-      'parent' => 'main-menu:1671',
+      'parent_mlid' => 6736,
+      'parent' => 'main-menu:6736',
       'title_link' => 1,
       'admin_title' => '',
       'level' => '1',
@@ -1574,28 +1574,6 @@ function fieldmuseum_default_panels_mini() {
   $display->uuid = '5d2a50ad-a92f-47be-8c27-53be528af5f6';
   $display->content = array();
   $display->panels = array();
-    $pane = new stdClass();
-    $pane->pid = 'new-a6616a78-02d5-476b-a003-eb262223126b';
-    $pane->panel = 'hero';
-    $pane->type = 'fieldable_panels_pane';
-    $pane->subtype = 'fpid:1';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'view_mode' => 'full',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'style' => 'naked',
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = 'a6616a78-02d5-476b-a003-eb262223126b';
-    $display->content['new-a6616a78-02d5-476b-a003-eb262223126b'] = $pane;
-    $display->panels['hero'][0] = 'new-a6616a78-02d5-476b-a003-eb262223126b';
     $pane = new stdClass();
     $pane->pid = 'new-36139c6c-b2f2-404d-a735-d0f11e4d04b4';
     $pane->panel = 'left';
