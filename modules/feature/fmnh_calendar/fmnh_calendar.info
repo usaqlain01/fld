@@ -66,6 +66,7 @@ features[variable][] = node_options_event
 features[variable][] = node_preview_event
 features[variable][] = node_submitted_event
 features[variable][] = pathauto_node_event_pattern
+features[views_view][] = calendar
 features[views_view][] = events_admin
 files[] = lib/UpcomingEventsEFQ.inc
 files[] = lib/EventsStartingSoonEFQ.inc
