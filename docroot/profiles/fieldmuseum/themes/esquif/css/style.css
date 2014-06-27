@@ -1314,6 +1314,10 @@ pre {
     background: #707070;
     color: white; }
 
+.button--tiny {
+  font-size: 0.785em;
+  padding: 0.25em 0.5em; }
+
 .button--cta {
   background: #a0c6d2; }
   .button--cta:focus, .button--cta:hover {
@@ -1948,6 +1952,33 @@ dd {
   font-style: italic;
   font-size: 1.2em;
   line-height: 1.4; }
+
+.article__image {
+  position: relative;
+  margin: 25px -0.75em;
+  padding: 0.75em;
+  border: 1px solid #e9e9e9;
+  border-radius: 4px;
+  text-align: center; }
+  .article__image img {
+    position: relative;
+    display: block;
+    margin: auto;
+    border: 1px solid #333333; }
+  .article__image figcaption {
+    margin-top: 1.15em;
+    color: #9a9a9a;
+    font-style: italic;
+    font-size: 0.875em;
+    line-height: 1.2; }
+  .article__image.article__image--left {
+    float: left;
+    margin-right: 25px;
+    width: 40%; }
+  .article__image.article__image--right {
+    float: right;
+    margin-left: 25px;
+    width: 40%; }
 
 .banner {
   border-radius: 4px;
