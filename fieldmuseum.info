@@ -119,7 +119,6 @@ features[page_manager_pages][] = event_spaces_gallery
 features[page_manager_pages][] = exhibitions_and_events
 features[page_manager_pages][] = field_trip_programs
 features[page_manager_pages][] = give_now
-features[page_manager_pages][] = history
 features[page_manager_pages][] = home
 features[page_manager_pages][] = learning_resources
 features[page_manager_pages][] = make_a_gift
