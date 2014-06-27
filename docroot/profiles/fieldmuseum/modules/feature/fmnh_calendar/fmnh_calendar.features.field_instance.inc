@@ -209,6 +209,60 @@ function fmnh_calendar_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-event-field_price'
+  $field_instances['node-event-field_price'] = array(
+    'bundle' => 'event',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'field_formatter_class' => '',
+          'prefix_suffix' => TRUE,
+          'scale' => 2,
+          'thousand_separator' => ' ',
+        ),
+        'type' => 'number_decimal',
+        'weight' => 6,
+      ),
+      'event' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'fences_wrapper' => 'div',
+    'field_name' => 'field_price',
+    'label' => 'Price',
+    'required' => 0,
+    'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '$',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 47,
+    ),
+  );
+
   // Exported field_instance: 'node-event-field_program'
   $field_instances['node-event-field_program'] = array(
     'bundle' => 'event',
@@ -376,6 +430,7 @@ function fmnh_calendar_field_default_field_instances() {
   t('Body');
   t('Date');
   t('Exhibit or program');
+  t('Price');
   t('References');
   t('Summary');
 

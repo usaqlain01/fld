@@ -508,14 +508,16 @@ function fmnh_calendar_default_page_manager_pages() {
     'relationships' => array(),
   );
   $display = new panels_display();
-  $display->layout = 'zen_no_wrapper';
+  $display->layout = 'l7';
   $display->layout_settings = array(
     'main_classes' => '',
+    'nav_classes' => 'navSection',
   );
   $display->panel_settings = array(
     'style_settings' => array(
       'default' => NULL,
       'main' => NULL,
+      'nav' => NULL,
     ),
   );
   $display->cache = array();
@@ -524,24 +526,13 @@ function fmnh_calendar_default_page_manager_pages() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-9f36b04d-8d1d-4f4a-9450-41b6ca0e3bf3';
+    $pane->pid = 'new-24c915bb-8ea2-406c-8105-05e795ed347b';
     $pane->panel = 'main';
-    $pane->type = 'entity_range';
-    $pane->subtype = 'entity_range';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'calendar-panel_pane_1';
     $pane->shown = TRUE;
     $pane->access = array();
-    $pane->configuration = array(
-      'range' => array(
-        'offset' => '0',
-        'limit' => '10',
-      ),
-      'view_mode' => 'node:teaser',
-      'use_pager' => FALSE,
-      'pager_id' => 0,
-      'context' => 'relationship_entitylist_relationship:events_by_audience_1',
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
+    $pane->configuration = array();
     $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,
@@ -550,12 +541,12 @@ function fmnh_calendar_default_page_manager_pages() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = '9f36b04d-8d1d-4f4a-9450-41b6ca0e3bf3';
-    $display->content['new-9f36b04d-8d1d-4f4a-9450-41b6ca0e3bf3'] = $pane;
-    $display->panels['main'][0] = 'new-9f36b04d-8d1d-4f4a-9450-41b6ca0e3bf3';
+    $pane->uuid = '24c915bb-8ea2-406c-8105-05e795ed347b';
+    $display->content['new-24c915bb-8ea2-406c-8105-05e795ed347b'] = $pane;
+    $display->panels['main'][0] = 'new-24c915bb-8ea2-406c-8105-05e795ed347b';
     $pane = new stdClass();
     $pane->pid = 'new-25f33a1a-5b68-4515-ab5c-718002845669';
-    $pane->panel = 'main';
+    $pane->panel = 'nav';
     $pane->type = 'menu_tree';
     $pane->subtype = 'main-menu';
     $pane->shown = TRUE;
@@ -580,12 +571,12 @@ function fmnh_calendar_default_page_manager_pages() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 1;
+    $pane->position = 0;
     $pane->locks = array();
     $pane->uuid = '25f33a1a-5b68-4515-ab5c-718002845669';
     $display->content['new-25f33a1a-5b68-4515-ab5c-718002845669'] = $pane;
-    $display->panels['main'][1] = 'new-25f33a1a-5b68-4515-ab5c-718002845669';
-  $display->hide_title = PANELS_TITLE_FIXED;
+    $display->panels['nav'][0] = 'new-25f33a1a-5b68-4515-ab5c-718002845669';
+  $display->hide_title = PANELS_TITLE_PANE;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;

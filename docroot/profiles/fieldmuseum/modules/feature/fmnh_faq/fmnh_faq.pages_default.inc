@@ -59,7 +59,7 @@ function fmnh_faq_default_page_manager_pages() {
   $handler->conf = array(
     'title' => 'Panel',
     'no_blocks' => 0,
-    'pipeline' => 'standard',
+    'pipeline' => 'ipe',
     'body_classes_to_remove' => '',
     'body_classes_to_add' => '',
     'css_id' => '',
@@ -71,13 +71,14 @@ function fmnh_faq_default_page_manager_pages() {
   $display->layout = 'l9';
   $display->layout_settings = array(
     'main_classes' => 'l--body__content',
-    'sidebar_classes' => 'l--body__nav',
+    'nav_classes' => '',
   );
   $display->panel_settings = array(
     'style_settings' => array(
       'default' => NULL,
       'main' => NULL,
       'sidebar' => NULL,
+      'nav' => NULL,
     ),
   );
   $display->cache = array();
@@ -85,6 +86,57 @@ function fmnh_faq_default_page_manager_pages() {
   $display->uuid = 'be2181af-0d38-47fa-8164-670ccfd492fb';
   $display->content = array();
   $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-2ffb3d34-18ad-4484-9e7a-e1d1ddf1c976';
+    $pane->panel = 'main';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'faq-panel_pane_1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '2ffb3d34-18ad-4484-9e7a-e1d1ddf1c976';
+    $display->content['new-2ffb3d34-18ad-4484-9e7a-e1d1ddf1c976'] = $pane;
+    $display->panels['main'][0] = 'new-2ffb3d34-18ad-4484-9e7a-e1d1ddf1c976';
+    $pane = new stdClass();
+    $pane->pid = 'new-7e7b2c90-7329-43d7-815e-e14ba2bed4dd';
+    $pane->panel = 'nav';
+    $pane->type = 'menu_tree';
+    $pane->subtype = 'main-menu';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'menu_name' => 'main-menu',
+      'parent_mlid' => 0,
+      'parent' => 'main-menu:0',
+      'title_link' => 0,
+      'admin_title' => '',
+      'level' => '2',
+      'follow' => 0,
+      'depth' => '0',
+      'expanded' => 0,
+      'sort' => 0,
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '7e7b2c90-7329-43d7-815e-e14ba2bed4dd';
+    $display->content['new-7e7b2c90-7329-43d7-815e-e14ba2bed4dd'] = $pane;
+    $display->panels['nav'][0] = 'new-7e7b2c90-7329-43d7-815e-e14ba2bed4dd';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
