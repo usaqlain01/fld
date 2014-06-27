@@ -126,6 +126,7 @@ features[page_manager_pages][] = meeting_spaces
 features[page_manager_pages][] = museum_members
 features[page_manager_pages][] = newsletter_archive
 features[page_manager_pages][] = partnerships
+features[page_manager_pages][] = plan_your_special_event
 features[page_manager_pages][] = plan_your_visit
 features[page_manager_pages][] = publications
 features[page_manager_pages][] = research_collections
