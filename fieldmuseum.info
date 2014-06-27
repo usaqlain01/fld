@@ -137,6 +137,7 @@ features[page_manager_pages][] = research_collections
 features[page_manager_pages][] = research_resources
 features[page_manager_pages][] = science_and_research
 features[page_manager_pages][] = science_blogs
+features[page_manager_pages][] = science_blogs_filtered
 features[page_manager_pages][] = shop
 features[page_manager_pages][] = subscribe
 features[page_manager_pages][] = support_the_museum
