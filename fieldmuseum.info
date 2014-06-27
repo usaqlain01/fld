@@ -140,6 +140,7 @@ features[page_manager_pages][] = support_the_museum
 features[page_manager_pages][] = teacher_professional_development
 features[page_manager_pages][] = tickets
 features[page_manager_pages][] = virtual_visits
+features[page_manager_pages][] = volunteer
 features[page_manager_pages][] = ways_to_give
 features[panels_mini][] = footer
 features[panels_mini][] = header
