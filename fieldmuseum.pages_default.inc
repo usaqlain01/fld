@@ -2866,7 +2866,7 @@ function fieldmuseum_default_page_manager_pages() {
   $page->api_version = 1;
   $page->name = 'museum_members';
   $page->task = 'page';
-  $page->admin_title = 'Members';
+  $page->admin_title = 'Membership info';
   $page->admin_description = '';
   $page->path = 'support/members';
   $page->access = array(
@@ -2881,12 +2881,10 @@ function fieldmuseum_default_page_manager_pages() {
       ),
     ),
     'logic' => 'and',
-    'type' => 'none',
-    'settings' => NULL,
   );
   $page->menu = array(
     'type' => 'normal',
-    'title' => 'Members',
+    'title' => 'Membership info',
     'name' => 'main-menu',
     'weight' => '0',
     'parent' => array(
@@ -2912,32 +2910,109 @@ function fieldmuseum_default_page_manager_pages() {
   $handler->conf = array(
     'title' => 'Panel',
     'no_blocks' => 0,
-    'pipeline' => 'standard',
+    'pipeline' => 'ipe',
     'body_classes_to_remove' => '',
     'body_classes_to_add' => '',
     'css_id' => '',
     'css' => '',
-    'contexts' => array(),
+    'contexts' => array(
+      0 => array(
+        'identifier' => 'List: Menu children',
+        'keyword' => 'list',
+        'name' => 'entitylist:menu_children',
+        'use_pager' => FALSE,
+        'pager_id' => NULL,
+        'range' => array(
+          'offset' => 0,
+          'limit' => 10,
+        ),
+        'id' => 1,
+      ),
+    ),
     'relationships' => array(),
   );
   $display = new panels_display();
-  $display->layout = 'l6a';
+  $display->layout = 'l10c';
   $display->layout_settings = array(
     'main_classes' => '',
+    'nav_classes' => '',
   );
   $display->panel_settings = array(
     'style_settings' => array(
       'default' => NULL,
       'main' => NULL,
+      'nav' => NULL,
     ),
   );
   $display->cache = array();
-  $display->title = 'Members';
-  $display->uuid = '21992d69-55f7-4dc3-8243-33644b61b8ae';
+  $display->title = 'Membership info';
+  $display->uuid = '500e50f1-c5be-4784-9fc8-510e1c3a07ea';
   $display->content = array();
   $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-db17e7e2-36cf-47b7-b2ba-9801ef172b31';
+    $pane->panel = 'main';
+    $pane->type = 'entity_range';
+    $pane->subtype = 'entity_range';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'range' => array(
+        'offset' => '0',
+        'limit' => '10',
+      ),
+      'view_mode' => 'node:teaser',
+      'use_pager' => FALSE,
+      'pager_id' => 0,
+      'context' => 'context_entitylist:menu_children_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'db17e7e2-36cf-47b7-b2ba-9801ef172b31';
+    $display->content['new-db17e7e2-36cf-47b7-b2ba-9801ef172b31'] = $pane;
+    $display->panels['main'][0] = 'new-db17e7e2-36cf-47b7-b2ba-9801ef172b31';
+    $pane = new stdClass();
+    $pane->pid = 'new-04529f33-a545-44ef-890b-55ff0c31e062';
+    $pane->panel = 'nav';
+    $pane->type = 'menu_tree';
+    $pane->subtype = 'main-menu';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'menu_name' => 'main-menu',
+      'parent_mlid' => 0,
+      'parent' => 'main-menu:0',
+      'title_link' => 0,
+      'admin_title' => '',
+      'level' => '2',
+      'follow' => 0,
+      'depth' => '0',
+      'expanded' => 0,
+      'sort' => 0,
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '04529f33-a545-44ef-890b-55ff0c31e062';
+    $display->content['new-04529f33-a545-44ef-890b-55ff0c31e062'] = $pane;
+    $display->panels['nav'][0] = 'new-04529f33-a545-44ef-890b-55ff0c31e062';
   $display->hide_title = PANELS_TITLE_FIXED;
-  $display->title_pane = '0';
+  $display->title_pane = 'new-db17e7e2-36cf-47b7-b2ba-9801ef172b31';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
   $pages['museum_members'] = $page;
