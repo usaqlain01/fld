@@ -117,6 +117,7 @@ features[page_manager_pages][] = contact_us
 features[page_manager_pages][] = contact_us_rfp
 features[page_manager_pages][] = corporate_giving
 features[page_manager_pages][] = educators
+features[page_manager_pages][] = educators_blogs
 features[page_manager_pages][] = event_spaces
 features[page_manager_pages][] = event_spaces_gallery
 features[page_manager_pages][] = exhibitions_and_events
