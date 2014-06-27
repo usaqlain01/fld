@@ -113,6 +113,7 @@ features[page_manager_handlers][] = contact_site_panel_context
 features[page_manager_pages][] = auxiliary_groups
 features[page_manager_pages][] = citizen_science
 features[page_manager_pages][] = conservation_efforts
+features[page_manager_pages][] = corporate_giving
 features[page_manager_pages][] = educators
 features[page_manager_pages][] = event_spaces
 features[page_manager_pages][] = event_spaces_gallery
