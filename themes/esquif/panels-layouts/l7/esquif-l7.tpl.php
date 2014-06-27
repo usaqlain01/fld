@@ -11,12 +11,13 @@
     }
     ?>
   </div>
-  <div class="l--body__nav">
+
+  <div class="l--body__nav js--sticky">
     <?php
     if ($nav_classes) {
-      print '<div class="' . $nav_classes . '">';
+      print '<nav class="' . $nav_classes . '" role="navigation">';
       print $content['nav'];
-      print '</div>';
+      print '</nav>';
     }
     else {
       print $content['nav'];
