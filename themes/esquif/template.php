@@ -513,6 +513,24 @@ function esquif_menu_breadcrumb_alter(&$active_trail, $item) {
 }
 
 /**
+ * Returns HTML for a "more" link, like those used in blocks.
+ *
+ * @param $variables
+ *   An associative array containing:
+ *   - url: The URL of the main page.
+ *   - title: A descriptive verb for the link, like 'Read more'.
+ */
+function esquif_more_link($variables) {
+  $options = array(
+    'attributes' => array(
+      'title' => $variables['title'],
+      'class' => 'link--more',
+    )
+  );
+  return l(t('More'), $variables['url'], $options);
+}
+
+/**
  * Override the theme of the submit button on the search box.
  *
  * @param $variables
