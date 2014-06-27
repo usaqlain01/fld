@@ -4838,6 +4838,205 @@ function fieldmuseum_default_page_manager_pages() {
   $page = new stdClass();
   $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
   $page->api_version = 1;
+  $page->name = 'science_blogs';
+  $page->task = 'page';
+  $page->admin_title = 'Science blogs';
+  $page->admin_description = '';
+  $page->path = 'science/blog';
+  $page->access = array(
+    'plugins' => array(
+      0 => array(
+        'name' => 'perm',
+        'settings' => array(
+          'perm' => 'access content',
+        ),
+        'context' => 'logged-in-user',
+        'not' => FALSE,
+      ),
+    ),
+    'logic' => 'and',
+  );
+  $page->menu = array(
+    'type' => 'normal',
+    'title' => 'Blogs & videos',
+    'name' => 'main-menu',
+    'weight' => '0',
+    'parent' => array(
+      'type' => 'none',
+      'title' => '',
+      'name' => 'navigation',
+      'weight' => '0',
+    ),
+  );
+  $page->arguments = array();
+  $page->conf = array(
+    'admin_paths' => FALSE,
+  );
+  $page->default_handlers = array();
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'page_science_blogs_panel_context';
+  $handler->task = 'page';
+  $handler->subtask = 'science_blogs';
+  $handler->handler = 'panel_context';
+  $handler->weight = 0;
+  $handler->conf = array(
+    'title' => 'Panel',
+    'no_blocks' => 0,
+    'pipeline' => 'ipe',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => '',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(
+      0 => array(
+        'identifier' => 'Taxonomy term',
+        'keyword' => 'taxonomy_term',
+        'name' => 'entity:taxonomy_term',
+        'entity_id' => '901',
+        'id' => 1,
+      ),
+    ),
+    'relationships' => array(
+      0 => array(
+        'identifier' => 'List: Blogs',
+        'keyword' => 'list',
+        'name' => 'entitylist_relationship:blogs',
+        'use_pager' => TRUE,
+        'pager_id' => NULL,
+        'range' => array(
+          'offset' => 0,
+          'limit' => 10,
+        ),
+        'context' => array(
+          0 => 'context_entity:taxonomy_term_1',
+        ),
+        'id' => 1,
+      ),
+    ),
+  );
+  $display = new panels_display();
+  $display->layout = 'l12';
+  $display->layout_settings = array(
+    'top_classes' => '',
+    'top_a_classes' => '',
+    'top_b_classes' => '',
+    'top_c_classes' => '',
+    'bottom_classes' => '',
+    'nav_classes' => '',
+  );
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'top' => NULL,
+      'top_a' => NULL,
+      'top_b' => NULL,
+      'top_c' => NULL,
+      'bottom' => NULL,
+      'nav' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = 'Blogs and Videos';
+  $display->uuid = '231137e8-83c9-4391-ac05-3a37318043c2';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-16bd296a-65df-4c10-ace2-6ab923bf700a';
+    $pane->panel = 'bottom';
+    $pane->type = 'entity_range';
+    $pane->subtype = 'entity_range';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'range' => array(
+        'offset' => '0',
+        'limit' => '10',
+      ),
+      'view_mode' => 'node:teaser',
+      'use_pager' => FALSE,
+      'pager_id' => 0,
+      'context' => 'relationship_entitylist_relationship:blogs_1',
+      'override_title' => 1,
+      'override_title_text' => 'Recent Blog Posts',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '16bd296a-65df-4c10-ace2-6ab923bf700a';
+    $display->content['new-16bd296a-65df-4c10-ace2-6ab923bf700a'] = $pane;
+    $display->panels['bottom'][0] = 'new-16bd296a-65df-4c10-ace2-6ab923bf700a';
+    $pane = new stdClass();
+    $pane->pid = 'new-2c6fb7c4-4c49-480b-9b90-a30a85c76ff1';
+    $pane->panel = 'bottom';
+    $pane->type = 'pager';
+    $pane->subtype = 'pager';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'type' => 'full',
+      'context' => 'relationship_entitylist_relationship:blogs_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = '2c6fb7c4-4c49-480b-9b90-a30a85c76ff1';
+    $display->content['new-2c6fb7c4-4c49-480b-9b90-a30a85c76ff1'] = $pane;
+    $display->panels['bottom'][1] = 'new-2c6fb7c4-4c49-480b-9b90-a30a85c76ff1';
+    $pane = new stdClass();
+    $pane->pid = 'new-9221d713-ef05-46d6-bfde-29cb849c03e4';
+    $pane->panel = 'nav';
+    $pane->type = 'menu_tree';
+    $pane->subtype = 'main-menu';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'menu_name' => 'main-menu',
+      'parent_mlid' => 0,
+      'parent' => 'main-menu:0',
+      'title_link' => 0,
+      'admin_title' => '',
+      'level' => '2',
+      'follow' => 0,
+      'depth' => '0',
+      'expanded' => 0,
+      'sort' => 0,
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '9221d713-ef05-46d6-bfde-29cb849c03e4';
+    $display->content['new-9221d713-ef05-46d6-bfde-29cb849c03e4'] = $pane;
+    $display->panels['nav'][0] = 'new-9221d713-ef05-46d6-bfde-29cb849c03e4';
+  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->title_pane = 'new-9221d713-ef05-46d6-bfde-29cb849c03e4';
+  $handler->conf['display'] = $display;
+  $page->default_handlers[$handler->name] = $handler;
+  $pages['science_blogs'] = $page;
+
+  $page = new stdClass();
+  $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
+  $page->api_version = 1;
   $page->name = 'shop';
   $page->task = 'page';
   $page->admin_title = 'Shop';

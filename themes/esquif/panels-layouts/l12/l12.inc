@@ -12,7 +12,12 @@ $plugin = array(
   'theme'       => 'esquif_l12',
 
   'regions'     => array(
-    'main'      => t('Main'),
+    'top'      => t('Top'),
+    'top_a'      => t('Top A'),
+    'top_b'      => t('Top B'),
+    'top_c'      => t('Top C'),
+    'bottom'      => t('Bottom'),
+    'nav'       => t('Nav'),
   ),
 
   'settings form'     => 'esquif_panels_settings_form',
