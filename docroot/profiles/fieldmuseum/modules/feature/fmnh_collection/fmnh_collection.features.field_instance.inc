@@ -57,47 +57,6 @@ function fmnh_collection_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-collection-field_acknowledgement'
-  $field_instances['node-collection-field_acknowledgement'] = array(
-    'bundle' => 'collection',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'text',
-        'settings' => array(
-          'field_formatter_class' => '',
-        ),
-        'type' => 'text_default',
-        'weight' => 16,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_acknowledgement',
-    'label' => 'Acknowledgements',
-    'required' => FALSE,
-    'settings' => array(
-      'text_processing' => 1,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'module' => 'text',
-      'settings' => array(
-        'rows' => 5,
-      ),
-      'type' => 'text_textarea',
-      'weight' => 50,
-    ),
-  );
-
   // Exported field_instance: 'node-collection-field_acknowledgements'
   $field_instances['node-collection-field_acknowledgements'] = array(
     'bundle' => 'collection',

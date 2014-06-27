@@ -83,12 +83,17 @@ function fmnh_traveling_exhibit_default_page_manager_pages() {
   $display = new panels_display();
   $display->layout = 'l6e';
   $display->layout_settings = array(
-    'main_classes' => '',
+    'top_classes' => '',
+    'bottom_classes' => '',
+    'nav_classes' => 'navSection',
   );
   $display->panel_settings = array(
     'style_settings' => array(
       'default' => NULL,
       'main' => NULL,
+      'top' => NULL,
+      'bottom' => NULL,
+      'nav' => NULL,
     ),
   );
   $display->cache = array();
@@ -97,8 +102,40 @@ function fmnh_traveling_exhibit_default_page_manager_pages() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-395510ba-6e64-4dc7-9ac7-02610d31c674';
-    $pane->panel = 'main';
+    $pane->pid = 'new-3014d5f0-775e-47d6-a086-c41eaad690eb';
+    $pane->panel = 'nav';
+    $pane->type = 'menu_tree';
+    $pane->subtype = 'main-menu';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'menu_name' => 'main-menu',
+      'parent_mlid' => 0,
+      'parent' => 'main-menu:0',
+      'title_link' => 0,
+      'admin_title' => '',
+      'level' => '2',
+      'follow' => 0,
+      'depth' => '0',
+      'expanded' => 0,
+      'sort' => 0,
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '3014d5f0-775e-47d6-a086-c41eaad690eb';
+    $display->content['new-3014d5f0-775e-47d6-a086-c41eaad690eb'] = $pane;
+    $display->panels['nav'][0] = 'new-3014d5f0-775e-47d6-a086-c41eaad690eb';
+    $pane = new stdClass();
+    $pane->pid = 'new-36b238ab-5187-4545-9b48-7096535c2be9';
+    $pane->panel = 'top';
     $pane->type = 'entity_range';
     $pane->subtype = 'entity_range';
     $pane->shown = TRUE;
@@ -117,15 +154,55 @@ function fmnh_traveling_exhibit_default_page_manager_pages() {
     );
     $pane->cache = array();
     $pane->style = array(
-      'settings' => NULL,
+      'settings' => array(
+        'element_title' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => 'section',
+          'class_enable' => 1,
+          'class' => 'promos--3up',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
+      'style' => 'semantic_panels',
     );
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = '395510ba-6e64-4dc7-9ac7-02610d31c674';
-    $display->content['new-395510ba-6e64-4dc7-9ac7-02610d31c674'] = $pane;
-    $display->panels['main'][0] = 'new-395510ba-6e64-4dc7-9ac7-02610d31c674';
+    $pane->uuid = '36b238ab-5187-4545-9b48-7096535c2be9';
+    $display->content['new-36b238ab-5187-4545-9b48-7096535c2be9'] = $pane;
+    $display->panels['top'][0] = 'new-36b238ab-5187-4545-9b48-7096535c2be9';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;

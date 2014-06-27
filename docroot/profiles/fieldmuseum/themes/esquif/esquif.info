@@ -51,6 +51,8 @@ stylesheets[all][] = system.theme.css
 
 ; Then we add our own stylesheet.
 stylesheets[screen][] = css/style.css
+stylesheets[screen][] = css/messages.css
+stylesheets[screen][] = css/tabs.css
 stylesheets[screen][] = css/overrides.css
 stylesheets[print][] = css/print.css
 
