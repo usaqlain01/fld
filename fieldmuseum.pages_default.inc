@@ -4899,56 +4899,104 @@ function fieldmuseum_default_page_manager_pages() {
     'body_classes_to_add' => '',
     'css_id' => '',
     'css' => '',
-    'contexts' => array(),
+    'contexts' => array(
+      0 => array(
+        'identifier' => 'List: Menu children',
+        'keyword' => 'list',
+        'name' => 'entitylist:menu_children',
+        'use_pager' => FALSE,
+        'pager_id' => NULL,
+        'range' => array(
+          'offset' => 0,
+          'limit' => 10,
+        ),
+        'id' => 1,
+      ),
+    ),
     'relationships' => array(),
   );
   $display = new panels_display();
-  $display->layout = 'zen_no_wrapper';
+  $display->layout = 'l10';
   $display->layout_settings = array(
     'main_classes' => '',
+    'nav_classes' => 'navSection',
   );
   $display->panel_settings = array(
     'style_settings' => array(
       'default' => NULL,
       'main' => NULL,
+      'nav' => NULL,
     ),
   );
   $display->cache = array();
-  $display->title = '';
+  $display->title = 'Ways to give';
   $display->uuid = 'fe1d18c2-5f59-4c25-9aaa-928505089749';
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-717c7453-7c83-416f-b4f0-d58316cfe1dc';
+    $pane->pid = 'new-dec9f2bb-00af-4966-ba94-9f7d1e07ae0b';
     $pane->panel = 'main';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
+    $pane->type = 'entity_range';
+    $pane->subtype = 'entity_range';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'admin_title' => '',
-      'title' => 'Ways to Give',
-      'body' => 'Intention: 
-
-* tell a compelling story about how donations have a direct impact on The Field advancing it\'s mission forward
-* include summaries of each of the ways that a person could give to the organization, with calls to action for potential donors to find out more by clicking through to the page that has the extended information for each giving opportunity.',
-      'format' => 'markdown',
-      'substitute' => TRUE,
+      'range' => array(
+        'offset' => '0',
+        'limit' => '10',
+      ),
+      'view_mode' => 'node:teaser',
+      'use_pager' => FALSE,
+      'pager_id' => 0,
+      'context' => 'context_entitylist:menu_children_1',
+      'override_title' => 0,
+      'override_title_text' => '',
     );
     $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,
-      'style' => 'naked',
     );
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = '717c7453-7c83-416f-b4f0-d58316cfe1dc';
-    $display->content['new-717c7453-7c83-416f-b4f0-d58316cfe1dc'] = $pane;
-    $display->panels['main'][0] = 'new-717c7453-7c83-416f-b4f0-d58316cfe1dc';
-  $display->hide_title = PANELS_TITLE_PANE;
-  $display->title_pane = 'new-717c7453-7c83-416f-b4f0-d58316cfe1dc';
+    $pane->uuid = 'dec9f2bb-00af-4966-ba94-9f7d1e07ae0b';
+    $display->content['new-dec9f2bb-00af-4966-ba94-9f7d1e07ae0b'] = $pane;
+    $display->panels['main'][0] = 'new-dec9f2bb-00af-4966-ba94-9f7d1e07ae0b';
+    $pane = new stdClass();
+    $pane->pid = 'new-bcf09a9b-0a46-4142-aa67-1e54ece897e9';
+    $pane->panel = 'nav';
+    $pane->type = 'menu_tree';
+    $pane->subtype = 'main-menu';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'menu_name' => 'main-menu',
+      'parent_mlid' => 0,
+      'parent' => 'main-menu:0',
+      'title_link' => 0,
+      'admin_title' => '',
+      'level' => '2',
+      'follow' => 0,
+      'depth' => '0',
+      'expanded' => 0,
+      'sort' => 0,
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'bcf09a9b-0a46-4142-aa67-1e54ece897e9';
+    $display->content['new-bcf09a9b-0a46-4142-aa67-1e54ece897e9'] = $pane;
+    $display->panels['nav'][0] = 'new-bcf09a9b-0a46-4142-aa67-1e54ece897e9';
+  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->title_pane = '0';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
   $pages['ways_to_give'] = $page;
