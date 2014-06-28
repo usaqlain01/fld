@@ -110,6 +110,7 @@ features[metatag][] = global:frontpage
 features[node][] = article
 features[node][] = page
 features[page_manager_handlers][] = contact_site_panel_context
+features[page_manager_pages][] = about_the_museum
 features[page_manager_pages][] = auxiliary_groups
 features[page_manager_pages][] = citizen_science
 features[page_manager_pages][] = conservation_efforts
