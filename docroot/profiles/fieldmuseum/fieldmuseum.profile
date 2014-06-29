@@ -15,9 +15,6 @@ function fieldmuseum_system_info_alter(&$info, $file, $type) {
   if ($type == 'module' && $file->name == 'fieldmuseum') {
     $info['hidden'] = FALSE;
   }
-  if ($type == 'theme') {
-    $info['regions']['navbar'] = t('Navbar region');
-  }
 }
 
 /**
@@ -202,3 +199,26 @@ function fieldmuseum_composer_json_alter(&$json) {
   $json['minimum-stability'] = 'dev';
   $json['prefer-stable'] = true;
 }
+
+function fieldmuseum_date_format_types() {
+  return array(
+    'year_only' => t('Year only'),
+    'month_only' => t('Month only'),
+  );
+}
+
+function fieldmuseum_date_formats() {
+  return array(
+    array(
+      'type' => 'year_only',
+      'format' => 'Y',
+      'locales' => array(),
+    ),
+    array(
+      'type' => 'month_only',
+      'format' => 'F',
+      'locales' => array(),
+    ),
+  );
+}
+

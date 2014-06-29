@@ -3044,7 +3044,7 @@
         "source": {
             "type": "git",
             "url": "https://caxy.codebasehq.com/field-museum-main-site/assetic-app.git",
-            "reference": "c4984aef36f778a00c38efe5226587b76679c677"
+            "reference": "b5f03291e8ad8eab32cdde7925dd5c5b311879cd"
         },
         "require": {
             "bangpound/assetic-codekit": "1.0.*@dev",
@@ -3059,7 +3059,7 @@
             "symfony/yaml": "~2.3",
             "zacoza/assetic-filters": "dev-master"
         },
-        "time": "2014-06-29 12:51:03",
+        "time": "2014-06-29 18:27:29",
         "bin": [
             "bin/assetic"
         ],
