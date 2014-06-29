@@ -22,6 +22,6 @@
     <?php print $content['right']; ?>
   </section>
 </div>
-<figure class="hero <?php print $classes; ?>" style="background-image: url('<?php print file_create_url($hero_image->uri); ?>')">
+<figure class="hero"<?php if ($hero_image): ?> style="background-image: url('<?php print file_create_url($hero_image->uri); ?>')"<?php endif; ?>>
   <?php print $content['hero']; ?>
 </figure>
