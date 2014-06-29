@@ -409,8 +409,8 @@ function fieldmuseum_default_panels_mini() {
     $pane->access = array();
     $pane->configuration = array(
       'menu_name' => 'main-menu',
-      'parent_mlid' => 6736,
-      'parent' => 'main-menu:6736',
+      'parent_mlid' => 8781,
+      'parent' => 'main-menu:8781',
       'title_link' => 1,
       'admin_title' => '',
       'level' => '1',
@@ -473,100 +473,14 @@ function fieldmuseum_default_panels_mini() {
     $display->content['new-2db08ebc-583e-414d-b4f7-2bb76e4ed0ae'] = $pane;
     $display->panels['main_a'][5] = 'new-2db08ebc-583e-414d-b4f7-2bb76e4ed0ae';
     $pane = new stdClass();
-    $pane->pid = 'new-7f2848a4-7202-42d5-a6bb-b88b081dea5f';
+    $pane->pid = 'new-85e07ff1-3c95-4e44-8e7b-dfbeab9c1794';
     $pane->panel = 'main_b';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
+    $pane->type = 'fieldable_panels_pane';
+    $pane->subtype = 'fpid:21';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'admin_title' => 'social media',
-      'title' => 'Explore The Field Museum’s Social Network',
-      'body' => '<h4>Connect With Us</h4>
-      <p>Our online community enjoys exclusive daily content and fun features
-        like <em>Mammal Mondays</em> and <em>Insect of the Week</em>. Discover
-        astounding photos, watch behind-the-scenes videos, answer trivia
-        questions, and voice your opinions. Ask questions, share your own
-        photos and memories, and meet your fellow citizen scientists.
-        We&rsquo;re your up-to-the-minute source for Museum news and
-        information, and we want you to join the conversation!
-      </p>
-<ul class="socialLinks">
-  <li class="socialLinks__item">
-    <a class="socialLinks__link socialLinks__link--facebook" href="http://facebook.com/fieldmuseum">
-      <svg class="icon icon--facebook socialLinks__icon" viewBox="0 0 500 500">
-        <use xlink:href="#facebook"></use>
-      </svg>
-      <span class=\'socialLinks__service\'>Facebook</span>
-    </a>
-  </li>
-  <li class="socialLinks__item">
-    <a class="socialLinks__link socialLinks__link--twitter" href="http://twitter.com/fieldmuseum">
-      <svg class="icon icon--twitter socialLinks__icon" viewBox="0 0 500 500">
-        <use xlink:href="#twitter"></use>
-      </svg>
-      <span class=\'socialLinks__service\'>Twitter</span>
-    </a>
-  </li>
-  <li class="socialLinks__item">
-    <a class="socialLinks__link socialLinks__link--twitter socialLinks__link--sue" href="https://twitter.com/SUEtheTrex">
-      <svg class="icon icon--sue socialLinks__icon" viewBox="0 0 500 500">
-        <use xlink:href="#sue"></use>
-      </svg>
-      <span class=\'socialLinks__service\'>SUE the T. Rex</span>
-    </a>
-  </li>
-  <li class="socialLinks__item">
-    <a class="socialLinks__link socialLinks__link--pinterest" href="http://foursquare.com/fieldmuseum">
-      <svg class="icon icon--pinterest socialLinks__icon" viewBox="0 0 500 500">
-        <use xlink:href="#pinterest"></use>
-      </svg>
-      <span class=\'socialLinks__service\'>Pinterest</span>
-    </a>
-  </li>
-  <li class="socialLinks__item">
-    <a class="socialLinks__link socialLinks__link--youtube" href="http://youtube.com/user/thebrainscoop">
-      <svg class="icon icon--youtube socialLinks__icon" viewBox="0 0 500 500">
-        <use xlink:href="#youtube"></use>
-      </svg>
-      <span class=\'socialLinks__service\'>The Brain Scoop</span>
-    </a>
-  </li>
-  <li class="socialLinks__item">
-    <a class="socialLinks__link socialLinks__link--vimeo" href="http://vimeo.com/fieldmuseum">
-      <svg class="icon icon--vimeo socialLinks__icon" viewBox="0 0 500 500">
-        <use xlink:href="#vimeo"></use>
-      </svg>
-      <span class=\'socialLinks__service\'>Vimeo</span>
-    </a>
-  </li>
-  <li class="socialLinks__item">
-    <a class="socialLinks__link socialLinks__link--flickr" href="http://flickr.com/groups/fieldmuseum">
-      <svg class="icon icon--flickr socialLinks__icon" viewBox="0 0 500 500">
-        <use xlink:href="#flickr"></use>
-      </svg>
-      <span class=\'socialLinks__service\'>Flickr</span>
-    </a>
-  </li>
-  <li class="socialLinks__item">
-    <a class="socialLinks__link socialLinks__link--tumblr" href="http://fieldmuseumphotoarchives.tumblr.com">
-      <svg class="icon icon--tumblr socialLinks__icon" viewBox="0 0 500 500">
-        <use xlink:href="#tumblr"></use>
-      </svg>
-      <span class=\'socialLinks__service\'>Tumblr</span>
-    </a>
-  </li>
-  <li class="socialLinks__item">
-    <a class="socialLinks__link socialLinks__link--instagram" href="http://instagram.com/fieldmuseum">
-      <svg class="icon icon--instagram socialLinks__icon" viewBox="0 0 500 500">
-        <use xlink:href="#instagram"></use>
-      </svg>
-      <span class=\'socialLinks__service\'>Instagram</span>
-    </a>
-  </li>
-</ul>',
-      'format' => 'unfiltered',
-      'substitute' => TRUE,
+      'view_mode' => 'full',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -616,9 +530,9 @@ function fieldmuseum_default_panels_mini() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = '7f2848a4-7202-42d5-a6bb-b88b081dea5f';
-    $display->content['new-7f2848a4-7202-42d5-a6bb-b88b081dea5f'] = $pane;
-    $display->panels['main_b'][0] = 'new-7f2848a4-7202-42d5-a6bb-b88b081dea5f';
+    $pane->uuid = '85e07ff1-3c95-4e44-8e7b-dfbeab9c1794';
+    $display->content['new-85e07ff1-3c95-4e44-8e7b-dfbeab9c1794'] = $pane;
+    $display->panels['main_b'][0] = 'new-85e07ff1-3c95-4e44-8e7b-dfbeab9c1794';
     $pane = new stdClass();
     $pane->pid = 'new-c316be17-87bd-40a1-a1da-09d9488cd1cc';
     $pane->panel = 'secondary_a';

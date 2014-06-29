@@ -1,4 +1,3 @@
-<section class="hero <?php print $classes; ?>"<?php print $attributes; ?>>
-  <?php print render($title_suffix); ?>
+<figcaption class="hero__caption">
   <?php print $fields; ?>
-</section>
+</figcaption>
