@@ -22,24 +22,6 @@ function esquif_theme(&$existing, $type, $theme, $path) {
 }
 
 /**
- * Override or insert variables into the maintenance page template.
- *
- * @param $variables
- *   An array of variables to pass to the theme template.
- * @param $hook
- *   The name of the template being rendered ("maintenance_page" in this case.)
- */
-/* -- Delete this line if you want to use this function
-function esquif_preprocess_maintenance_page(&$variables, $hook) {
-  // When a variable is manipulated or added in preprocess_html or
-  // preprocess_page, that same work is probably needed for the maintenance page
-  // as well, so we can just re-use those functions to do that work here.
-  esquif_preprocess_html($variables, $hook);
-  esquif_preprocess_page($variables, $hook);
-}
-// */
-
-/**
  * Override or insert variables into the html templates.
  *
  * @param $variables
@@ -115,20 +97,6 @@ function esquif_preprocess_node(&$variables, $hook) {
     $function($variables, $hook);
   }
 }
-
-/**
- * Override or insert variables into the comment templates.
- *
- * @param $variables
- *   An array of variables to pass to the theme template.
- * @param $hook
- *   The name of the template being rendered ("comment" in this case.)
- */
-/* -- Delete this line if you want to use this function
-function esquif_preprocess_comment(&$variables, $hook) {
-  $variables['sample_variable'] = t('Lorem ipsum.');
-}
-// */
 
 /**
  * Override or insert variables into the region templates.

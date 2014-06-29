@@ -142,46 +142,6 @@ function fieldmuseum_rdf_namespaces() {
 }
 
 /**
- * @return array
-function fieldmuseum_navbar() {
-  $items = array();
-
-  $items['region'] = array(
-    // Include the navbar_tab_wrapper to style the link like a navbar tab.
-    // Exclude the theme wrapper if custom styling is desired.
-    '#type' => 'navbar_item',
-    'tab' => array(
-      '#type' => 'link',
-      '#title' => t('Region'),
-      '#options' => array(
-        'attributes' => array(
-          'title' => t('Region'),
-        ),
-      ),
-    ),
-    'tray' => array(
-      '#heading' => t('What'),
-      'messages' => array(
-        '#markup' => drupal_get_region_content('navbar'),
-      ),
-      '#pre_render' => array(
-      ),
-    ),
-    '#weight' => 125,
-  );
-
-  return $items;
-}
-*/
-
-/**
- * @param $page
-function fieldmuseum_page_alter(&$page) {
-  drupal_add_region_content('navbar', drupal_render($page['navbar']));
-}
- */
-
-/**
  * Form for layout settings.
  */
 function esquif_panels_settings_form(&$display, $layout, $settings) {
