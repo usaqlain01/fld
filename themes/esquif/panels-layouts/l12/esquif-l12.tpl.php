@@ -20,8 +20,7 @@
       print '<div class="' . $top_classes . '">';
       print $content['top'];
       print '</div>';
-    }
-    else {
+    } else {
       print $content['top'];
     }
     ?>
@@ -31,24 +30,21 @@
         print '<div class="' . $top_a_classes . '">';
         print $content['top_a'];
         print '</div>';
-      }
-      else {
+      } else {
         print $content['top_a'];
       }
       if ($top_b_classes) {
         print '<div class="' . $top_b_classes . '">';
         print $content['top_b'];
         print '</div>';
-      }
-      else {
+      } else {
         print $content['top_b'];
       }
       if ($top_c_classes) {
         print '<div class="' . $top_c_classes . '">';
         print $content['top_c'];
         print '</div>';
-      }
-      else {
+      } else {
         print $content['top_c'];
       }
       ?>
@@ -59,12 +55,10 @@
       print '<div class="' . $bottom_classes . '">';
       print $content['bottom'];
       print '</div>';
-    }
-    else {
+    } else {
       print $content['bottom'];
     }
     ?>
-
 
   </div>
   <div class="l--body__nav js--sticky">
@@ -73,8 +67,7 @@
       print '<nav class="' . $nav_classes . '" role="navigation">';
       print $content['nav'];
       print '</nav>';
-    }
-    else {
+    } else {
       print $content['nav'];
     }
     ?>

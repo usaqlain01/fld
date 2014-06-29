@@ -3,8 +3,7 @@ if ($main_classes) {
   print '<div class="' . $main_classes . '">';
   print $content['main'];
   print '</div>';
-}
-else {
+} else {
   print $content['main'];
 }
 
@@ -12,8 +11,7 @@ if ($banners_classes) {
   print '<section class="' . $banners_classes . '">';
   print $content['banners'];
   print '</section>';
-}
-else {
+} else {
   print $content['banners'];
 }
 
@@ -23,8 +21,7 @@ if ($bottom_left_classes) {
   print '<div class="' . $bottom_left_classes . '">';
   print $content['bottom_left'];
   print '</div>';
-}
-else {
+} else {
   print $content['bottom_left'];
 }
 
@@ -32,8 +29,7 @@ if ($bottom_right_classes) {
   print '<div class="' . $bottom_right_classes . '">';
   print $content['bottom_right'];
   print '</div>';
-}
-else {
+} else {
   print $content['bottom_right'];
 }
 

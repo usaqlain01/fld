@@ -16,14 +16,14 @@
 <div class="l--body">
   <div class="l--body__content">
     <?php
-if ($main_classes) {
-  print '<div class="' . $main_classes . '">';
-  print $content['main'];
-  print '</div>';
-}
-else {
-  print $content['main'];
-    }    ?>
+    if ($main_classes) {
+      print '<div class="' . $main_classes . '">';
+      print $content['main'];
+      print '</div>';
+    } else {
+      print $content['main'];
+    }
+    ?>
   </div>
 
   <div class="l--body__nav js--sticky">
@@ -32,8 +32,9 @@ else {
       print '<nav class="' . $nav_classes . '" role="navigation">';
       print $content['nav'];
       print '</nav>';
-}    else {
+    } else {
       print $content['nav'];
-}    ?>
+    }
+    ?>
   </div>
 </div>
