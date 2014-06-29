@@ -853,3 +853,22 @@ function esquif_pager_last($variables) {
 
   return $output;
 }
+
+/**
+ * Takes file context from mini panel for use as background image of header.
+ *
+ * @param $variables
+ * @param $hook
+ */
+function esquif_preprocess_esquif_canoe(&$variables, $hook) {
+  /** @var panels_display $display */
+  $display = $variables['display'];
+
+  ctools_include('context');
+  $requiredcontexts = array(new ctools_context_required(t('Background image'), 'entity:file'));
+  if ($contexts = ctools_context_filter($display->context, $requiredcontexts)) {
+    $context = reset($contexts);
+    $file = $context->data;
+    $variables['hero_image'] = $file;
+  }
+}

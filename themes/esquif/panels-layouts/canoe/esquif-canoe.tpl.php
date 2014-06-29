@@ -22,4 +22,6 @@
     <?php print $content['right']; ?>
   </section>
 </div>
-<?php print $content['hero']; ?>
+<figure class="hero <?php print $classes; ?>" style="background-image: url('<?php print file_create_url($hero_image->uri); ?>')">
+  <?php print $content['hero']; ?>
+</figure>
