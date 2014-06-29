@@ -32,6 +32,7 @@
     </target>
 
     <target name="compass-compile" depends="prepare">
+        <exec command="compass compile -e production -s compressed" dir="docroot/profiles/fieldmuseum/themes/esquif"/>
         <exec command="compass compile -e production -s compressed" dir="docroot/profiles/fieldmuseum/themes/temporary"/>
     </target>
 
@@ -44,22 +45,6 @@
             <property name="repo.dir" value="${repo.dir.resolved}"/>
             <property name="repo.url" value="git@github.com:tablexi/fieldmuseum-website.git"/>
         </phingcall>
-
-        <copy todir="docroot/profiles/fieldmuseum/themes/esquif/css" overwrite="true">
-            <fileset dir="${repo.dir.resolved}/patternlab/source/css">
-                <include name="*.css"></include>
-                <exclude name="_*/**"></exclude>
-            </fileset>
-        </copy>
-
-        <copy todir="docroot/profiles/fieldmuseum/themes/esquif/js" overwrite="true">
-            <fileset dir="${repo.dir.resolved}/patternlab/source/js">
-                <include name="**"></include>
-                <exclude name="**/build/**"></exclude>
-                <exclude name="**/*.coffee"></exclude>
-                <exclude name="_*/**"></exclude>
-            </fileset>
-        </copy>
 
         <copy todir="docroot/profiles/fieldmuseum/themes/esquif/bower_components" overwrite="true">
             <fileset dir="${repo.dir.resolved}/patternlab/source/bower_components">
@@ -79,6 +64,8 @@
                 <include name="**"></include>
             </fileset>
         </copy>
+
+        <exec command="vendor/bin/assetic"/>
     </target>
 
 

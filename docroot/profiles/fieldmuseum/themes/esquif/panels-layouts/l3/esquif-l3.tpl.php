@@ -3,8 +3,7 @@ if ($callout_classes) {
   print '<section class="' . $callout_classes . '">';
   print $content['callout'];
   print '</section>';
-}
-else {
+} else {
   print $content['callout'];
 }
 ?>
@@ -17,24 +16,21 @@ else {
         print '<div class="' . $top_a_classes . '">';
         print $content['top_a'];
         print '</div>';
-      }
-      else {
+      } else {
         print $content['top_a'];
       }
       if ($top_b_classes) {
         print '<div class="' . $top_b_classes . '">';
         print $content['top_b'];
         print '</div>';
-      }
-      else {
+      } else {
         print $content['top_b'];
       }
       if ($top_c_classes) {
         print '<div class="' . $top_c_classes . '">';
         print $content['top_c'];
         print '</div>';
-      }
-      else {
+      } else {
         print $content['top_c'];
       }
       ?>
@@ -44,8 +40,7 @@ else {
       print '<div class="' . $middle_classes . '">';
       print $content['middle'];
       print '</div>';
-    }
-    else {
+    } else {
       print $content['middle'];
     }
     ?>
@@ -55,24 +50,21 @@ else {
         print '<div class="' . $bottom_a_classes . '">';
         print $content['bottom_a'];
         print '</div>';
-      }
-      else {
+      } else {
         print $content['bottom_a'];
       }
       if ($bottom_b_classes) {
         print '<div class="' . $bottom_b_classes . '">';
         print $content['bottom_b'];
         print '</div>';
-      }
-      else {
+      } else {
         print $content['bottom_b'];
       }
       if ($bottom_c_classes) {
         print '<div class="' . $bottom_c_classes . '">';
         print $content['bottom_c'];
         print '</div>';
-      }
-      else {
+      } else {
         print $content['bottom_c'];
       }
       ?>
@@ -84,8 +76,7 @@ else {
       print '<nav class="' . $nav_classes . '" role="navigation">';
       print $content['nav'];
       print '</nav>';
-    }
-    else {
+    } else {
       print $content['nav'];
     }
     ?>

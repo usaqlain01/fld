@@ -6,8 +6,7 @@
     print '<div class="' . $top_a_classes . '">';
     print $content['top_a'];
     print '</div>';
-  }
-  else {
+  } else {
     print $content['top_a'];
   }
   ?>
@@ -16,8 +15,7 @@
     print '<div class="' . $top_b_classes . '">';
     print $content['top_b'];
     print '</div>';
-  }
-  else {
+  } else {
     print $content['top_b'];
   }
   ?>
@@ -26,8 +24,7 @@
     print '<div class="' . $top_c_classes . '">';
     print $content['top_c'];
     print '</div>';
-  }
-  else {
+  } else {
     print $content['top_c'];
   }
   ?>
@@ -39,8 +36,7 @@ if ($bottom_classes) {
   print '<section class="' . $bottom_classes . '">';
   print $content['bottom'];
   print '</section>';
-}
-else {
+} else {
   print $content['bottom'];
 }
 ?>

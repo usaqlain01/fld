@@ -1,12 +1,11 @@
 <div class="l--body js--stickyParent">
   <div class="l--body__content">
-<?php
+    <?php
     if ($top_classes) {
       print '<div class="' . $top_classes . '">';
       print $content['top'];
-  print '</div>';
-}
-else {
+      print '</div>';
+    } else {
       print $content['top'];
     }
     ?>
@@ -16,8 +15,7 @@ else {
       print '<div class="' . $bottom_classes . '">';
       print $content['bottom'];
       print '</div>';
-    }
-    else {
+    } else {
       print $content['bottom'];
     }
     ?>
@@ -29,7 +27,7 @@ else {
       print '<nav class="' . $nav_classes . '" role="navigation">';
       print $content['nav'];
       print '</nav>';
-    }    else {
+    } else {
       print $content['nav'];
     }
     ?>

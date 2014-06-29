@@ -20,8 +20,7 @@
       print '<div class="' . $main_classes . '">';
       print $content['main'];
       print '</div>';
-    }
-    else {
+    } else {
       print $content['main'];
     }    ?>
   </div>
@@ -32,8 +31,7 @@
       print '<nav class="' . $nav_classes . '" role="navigation">';
       print $content['nav'];
       print '</nav>';
-    }
-    else {
+    } else {
       print $content['nav'];
     }
     ?>

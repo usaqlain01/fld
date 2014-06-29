@@ -3,8 +3,7 @@ if ($callout_classes) {
   print '<section class="' . $callout_classes . '">';
   print $content['callout'];
   print '</section>';
-}
-else {
+} else {
   print $content['callout'];
 }
 ?>
@@ -14,32 +13,28 @@ else {
     print '<div class="' . $top_a_classes . '">';
     print $content['top_a'];
     print '</div>';
-  }
-  else {
+  } else {
     print $content['top_a'];
   }
   if ($top_b_classes) {
     print '<div class="' . $top_b_classes . '">';
     print $content['top_b'];
     print '</div>';
-  }
-  else {
+  } else {
     print $content['top_b'];
   }
   if ($bottom_a_classes) {
     print '<div class="' . $bottom_a_classes . '">';
     print $content['bottom_a'];
     print '</div>';
-  }
-  else {
+  } else {
     print $content['bottom_a'];
   }
   if ($bottom_b_classes) {
     print '<div class="' . $bottom_b_classes . '">';
     print $content['bottom_b'];
     print '</div>';
-  }
-  else {
+  } else {
     print $content['bottom_b'];
   }
   ?>
