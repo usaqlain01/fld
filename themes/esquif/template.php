@@ -110,7 +110,6 @@ function esquif_preprocess_region(&$variables, $hook) {
 
   if ($variables['region'] == 'header') {
     $variables['classes_array'][] = 'pageHeader';
-    $variables['classes_array'][] = 'l--2up';
   }
 
   if ($variables['region'] == 'footer') {
@@ -130,18 +129,16 @@ function esquif_preprocess_region(&$variables, $hook) {
  * @param $hook
  *   The name of the template being rendered ("block" in this case.)
  */
-/* -- Delete this line if you want to use this function
 function esquif_preprocess_block(&$variables, $hook) {
   // Add a count to all the blocks in the region.
   // $variables['classes_array'][] = 'count-' . $variables['block_id'];
 
   // By default, Zen will use the block--no-wrapper.tpl.php for the main
   // content. This optional bit of code undoes that:
-  //if ($variables['block_html_id'] == 'block-system-main') {
-  //  $variables['theme_hook_suggestions'] = array_diff($variables['theme_hook_suggestions'], array('block__no_wrapper'));
-  //}
+  if (strpos($variables['block_html_id'], 'block-panels-mini-header') === 0) {
+    $variables['theme_hook_suggestions'][] = 'block__no_wrapper';
+  }
 }
-// */
 
 
 /**
