@@ -197,3 +197,8 @@ function esquif_panels_settings_submit(&$form_state, &$display, $layout, $settin
   }
   unset($form_state['layout_settings']);
 }
+
+function fieldmuseum_composer_json_alter(&$json) {
+  $json['minimum-stability'] = 'dev';
+  $json['prefer-stable'] = true;
+}
