@@ -15,9 +15,6 @@ function fieldmuseum_system_info_alter(&$info, $file, $type) {
   if ($type == 'module' && $file->name == 'fieldmuseum') {
     $info['hidden'] = FALSE;
   }
-  if ($type == 'theme') {
-    $info['regions']['navbar'] = t('Navbar region');
-  }
 }
 
 /**
