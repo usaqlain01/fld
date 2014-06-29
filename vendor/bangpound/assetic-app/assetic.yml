@@ -1,0 +1,12 @@
+assetic.read_from: /Users/bjd/workspace/caxy/fieldmusefacelift/build/fieldmuseum-website/patternlab/source
+assetic.write_to: /Users/bjd/workspace/caxy/fieldmusefacelift/docroot/profiles/fieldmuseum/themes/esquif
+assetic.filter.compass.bin: /Users/bjd/.rvm/gems/ruby-1.9.3-p545@fmnh/bin/compass
+assetic.filter.coffeescript.bin: /usr/local/bin/coffee
+assetic.filter.autoprefixer.bin: /usr/local/bin/autoprefixer
+assetic.filter.autoprefixer.browsers:
+    - > 1%
+    - last 3 versions
+    - ff >= 17
+    - opera >= 12.1
+    - ie >= 8
+    - Android >= 3
