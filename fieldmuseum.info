@@ -129,6 +129,7 @@ features[page_manager_pages][] = individual_giving
 features[page_manager_pages][] = learning_resources
 features[page_manager_pages][] = make_a_gift
 features[page_manager_pages][] = meeting_spaces
+features[page_manager_pages][] = membership_blog
 features[page_manager_pages][] = museum_members
 features[page_manager_pages][] = newsletter_archive
 features[page_manager_pages][] = partnerships
