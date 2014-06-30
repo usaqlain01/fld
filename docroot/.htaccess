@@ -58,7 +58,7 @@ DirectoryIndex index.php index.html index.htm
 
   # Enable X-AH-*-Redirect headers:
   #   ...for certain host(s)...
-  RewriteCond %{HTTP_HOST} "^(www\.)?fieldmuseum\.org$"
+  ## RewriteCond %{HTTP_HOST} "^(www\.)?fieldmuseum\.org$"
   #   ...and ommitting this path:
   RewriteCond %{THE_REQUEST} !explore/department/ecco/getinvolvedinstewardship
   #   ...see ticket#15066-110965
