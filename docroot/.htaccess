@@ -58,7 +58,7 @@ DirectoryIndex index.php index.html index.htm
 
   # Enable X-AH-*-Redirect headers:
   #   ...for certain host(s)...
-  ## RewriteCond %{HTTP_HOST} "^(www\.)?fieldmuseum\.org$"
+   RewriteCond %{HTTP_HOST} "^(www\.)?fieldmuseum\.org$"
   #   ...and ommitting this path:
   RewriteCond %{THE_REQUEST} !explore/department/ecco/getinvolvedinstewardship
   #   ...see ticket#15066-110965
@@ -71,8 +71,9 @@ DirectoryIndex index.php index.html index.htm
   RewriteRule . - [E=DO_REDIRECT:true]
 
   # Depending on variable, output the headers for Varnish to handle.
-  Header set X-AH-Tablet-Redirect "http://m.fieldmuseum.org" env=DO_REDIRECT
-  Header set X-AH-Mobile-Redirect "http://m.fieldmuseum.org" env=DO_REDIRECT
+  ## DEPRECATED REDIRECT, now that FPM is being used this is now managed in the settings.php file
+  ## Header set X-AH-Tablet-Redirect "http://m.fieldmuseum.org" env=DO_REDIRECT
+  ## Header set X-AH-Mobile-Redirect "http://m.fieldmuseum.org" env=DO_REDIRECT
 
 
 

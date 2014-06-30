@@ -480,3 +480,27 @@ if (!empty($_SERVER["AH_SITE_NAME"])) {
     $conf["file_private_path"] = "/mnt/files/fldmusestg/files-private";
   }
 }
+
+// FPM mobile redirect compatibility snippet
+if (isset($_ENV['HTTP_HOST'])) {
+  switch ($_ENV['HTTP_HOST']) {
+    //Acquia Production
+    case 'fieldmuseum.org':
+    case 'www.fieldmuseum.org':
+      header('X-AH-Tablet-Redirect: http://m.fieldmuseum.org');
+      header('X-AH-Mobile-Redirect: http://m.fieldmuseum.org');
+      break;
+    //Acquia Staging env
+    case 'fldmusestg.prod.acquia-sites.com':
+    case 'staging.fieldmuseum.org':
+      header('X-AH-Tablet-Redirect: http://m.fieldmuseum.org');
+      header('X-AH-Mobile-Redirect: http://m.fieldmuseum.org');
+      break;
+    //Acquia Development env
+    case 'fldmusedev.prod.acquia-sites.com':
+      header('X-AH-Tablet-Redirect: http://m.fieldmuseum.org');
+      header('X-AH-Mobile-Redirect: http://m.fieldmuseum.org');
+      break;
+
+  }
+}
