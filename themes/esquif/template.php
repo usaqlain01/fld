@@ -30,12 +30,40 @@ function esquif_theme(&$existing, $type, $theme, $path) {
  *   The name of the template being rendered ("html" in this case.)
  */
 function esquif_preprocess_html(&$variables, $hook) {
-  $variables['head_ltie9'] = array(
+  $variables['head_conditional_scripts'] = array(
     '#type' => 'html_tag',
     '#tag' => 'script',
     '#attributes' => array(
       'type' => 'text/javascript',
-      'src' => drupal_get_path('theme', 'esquif') . '/js/head-ltie9.js',
+      'src' => base_path() . drupal_get_path('theme', 'esquif') . '/js/head-ltie9.js',
+    ),
+    '#value' => '',
+    '#browsers' => array(
+      'IE' => 'lte IE 8',
+      '!IE' => FALSE,
+    ),
+  );
+
+  $variables['foot_conditional_scripts'] = array();
+  $variables['foot_conditional_scripts'][] = array(
+    '#type' => 'html_tag',
+    '#tag' => 'script',
+    '#attributes' => array(
+      'type' => 'text/javascript',
+      'src' => base_path() . drupal_get_path('theme', 'esquif') . '/js/foot-ltie10.js',
+    ),
+    '#value' => '',
+    '#browsers' => array(
+      'IE' => 'lte IE 9',
+      '!IE' => FALSE,
+    ),
+  );
+  $variables['foot_conditional_scripts'][] = array(
+    '#type' => 'html_tag',
+    '#tag' => 'script',
+    '#attributes' => array(
+      'type' => 'text/javascript',
+      'src' => base_path() . drupal_get_path('theme', 'esquif') . '/js/foot-ltie9.js',
     ),
     '#value' => '',
     '#browsers' => array(
