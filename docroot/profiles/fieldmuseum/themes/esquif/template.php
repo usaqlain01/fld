@@ -30,12 +30,40 @@ function esquif_theme(&$existing, $type, $theme, $path) {
  *   The name of the template being rendered ("html" in this case.)
  */
 function esquif_preprocess_html(&$variables, $hook) {
-  $variables['head_ltie9'] = array(
+  $variables['head_conditional_scripts'] = array(
     '#type' => 'html_tag',
     '#tag' => 'script',
     '#attributes' => array(
       'type' => 'text/javascript',
-      'src' => drupal_get_path('theme', 'esquif') . '/js/head-ltie9.js',
+      'src' => base_path() . drupal_get_path('theme', 'esquif') . '/js/head-ltie9.js',
+    ),
+    '#value' => '',
+    '#browsers' => array(
+      'IE' => 'lte IE 8',
+      '!IE' => FALSE,
+    ),
+  );
+
+  $variables['foot_conditional_scripts'] = array();
+  $variables['foot_conditional_scripts'][] = array(
+    '#type' => 'html_tag',
+    '#tag' => 'script',
+    '#attributes' => array(
+      'type' => 'text/javascript',
+      'src' => base_path() . drupal_get_path('theme', 'esquif') . '/js/foot-ltie10.js',
+    ),
+    '#value' => '',
+    '#browsers' => array(
+      'IE' => 'lte IE 9',
+      '!IE' => FALSE,
+    ),
+  );
+  $variables['foot_conditional_scripts'][] = array(
+    '#type' => 'html_tag',
+    '#tag' => 'script',
+    '#attributes' => array(
+      'type' => 'text/javascript',
+      'src' => base_path() . drupal_get_path('theme', 'esquif') . '/js/foot-ltie9.js',
     ),
     '#value' => '',
     '#browsers' => array(
@@ -337,9 +365,15 @@ function esquif_links__system_main_menu($variables) {
  * @param $hook
  */
 function esquif_preprocess_menu_block_wrapper(&$variables, $hook) {
-  if ($variables['theme_hook_suggestion'] == 'menu_block_wrapper__main_menu') {
+  if ($variables['theme_hook_suggestion'] == 'menu_block_wrapper__main_menu__footer') {
     foreach (element_children($variables['content']) as $child) {
       $variables['content'][$child]['#attributes']['class'][] = 'navFooter__item';
+    }
+  }
+
+  if ($variables['theme_hook_suggestion'] == 'menu_block_wrapper__main_menu__section') {
+    foreach (element_children($variables['content']) as $child) {
+      $variables['content'][$child]['#attributes']['class'][] = 'navLevel1__item';
     }
   }
 }
@@ -350,7 +384,7 @@ function esquif_preprocess_menu_block_wrapper(&$variables, $hook) {
  * @param $variables
  * @return string
  */
-function esquif_menu_tree__menu_block__ctools_main_menu_1($variables) {
+function esquif_menu_tree__menu_block__footer($variables) {
   return '<ul class="navFooter__list menu">' . $variables['tree'] . '</ul>';
 }
 
@@ -360,48 +394,8 @@ function esquif_menu_tree__menu_block__ctools_main_menu_1($variables) {
  * @param $variables
  * @return string
  */
-function esquif_menu_tree__menu_block__ctools_main_menu_2($variables) {
-  return esquif_menu_tree__menu_block__ctools_main_menu_1($variables);
-}
-
-/**
- * Theme override for footer menu.
- *
- * @param $variables
- * @return string
- */
-function esquif_menu_tree__menu_block__ctools_main_menu_3($variables) {
-  return esquif_menu_tree__menu_block__ctools_main_menu_1($variables);
-}
-
-/**
- * Theme override for footer menu.
- *
- * @param $variables
- * @return string
- */
-function esquif_menu_tree__menu_block__ctools_main_menu_4($variables) {
-  return esquif_menu_tree__menu_block__ctools_main_menu_1($variables);
-}
-
-/**
- * Theme override for footer menu.
- *
- * @param $variables
- * @return string
- */
-function esquif_menu_tree__menu_block__ctools_main_menu_5($variables) {
-  return esquif_menu_tree__menu_block__ctools_main_menu_1($variables);
-}
-
-/**
- * Theme override for footer menu.
- *
- * @param $variables
- * @return string
- */
-function esquif_menu_tree__menu_block__ctools_main_menu_6($variables) {
-  return esquif_menu_tree__menu_block__ctools_main_menu_1($variables);
+function esquif_menu_tree__menu_block__section($variables) {
+  return '<ul class="navLevel1 menu">' . $variables['tree'] . '</ul>';
 }
 
 /**
@@ -484,6 +478,7 @@ function esquif_menu_breadcrumb_alter(&$active_trail, $item) {
  *   An associative array containing:
  *   - url: The URL of the main page.
  *   - title: A descriptive verb for the link, like 'Read more'.
+ * @return string
  */
 function esquif_more_link($variables) {
   $options = array(
@@ -531,6 +526,14 @@ function esquif_form_search_block_form_alter(&$form, &$form_state) {
   );
 }
 
+/**
+ * Implement hook_js_alter().
+ *
+ * This forces all header-scope (default scope) javascript to the footer but
+ * allows a scope of 'header_force' to be in the header scope.
+ *
+ * @param $js
+ */
 function esquif_js_alter(&$js) {
   foreach ($js as &$script) {
     if ($script['scope'] == 'header') {
@@ -542,6 +545,10 @@ function esquif_js_alter(&$js) {
   }
 }
 
+/**
+ * @param $variables
+ * @return string
+ */
 function esquif_pager($variables) {
   $tags = $variables['tags'];
   $element = $variables['element'];
@@ -652,6 +659,10 @@ function esquif_pager($variables) {
   }
 }
 
+/**
+ * @param $variables
+ * @return string
+ */
 function esquif_item_list__pager($variables) {
   $items = $variables['items'];
   $title = $variables['title'];
@@ -749,6 +760,7 @@ function esquif_pager_first($variables) {
  *   - parameters: An associative array of query string parameters to append to
  *     the pager links.
  *
+ * @return string
  * @ingroup themeable
  */
 function esquif_pager_previous($variables) {
@@ -792,6 +804,7 @@ function esquif_pager_previous($variables) {
  *   - parameters: An associative array of query string parameters to append to
  *     the pager links.
  *
+ * @return string
  * @ingroup themeable
  */
 function esquif_pager_next($variables) {

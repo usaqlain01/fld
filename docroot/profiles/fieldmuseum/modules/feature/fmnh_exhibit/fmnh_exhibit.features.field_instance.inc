@@ -169,7 +169,7 @@ function fmnh_exhibit_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 53,
+      'weight' => 10,
     ),
   );
 
@@ -657,7 +657,7 @@ function fmnh_exhibit_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'entityreference_autocomplete',
-      'weight' => 54,
+      'weight' => 11,
     ),
   );
 
@@ -832,6 +832,62 @@ function fmnh_exhibit_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-exhibit-field_ticketed'
+  $field_instances['node-exhibit-field_ticketed'] = array(
+    'bundle' => 'exhibit',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'banner' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(
+          'field_formatter_class' => '',
+        ),
+        'type' => 'list_default',
+        'weight' => 13,
+      ),
+      'event' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'fences_wrapper' => 'div',
+    'field_name' => 'field_ticketed',
+    'label' => 'Ticketed',
+    'required' => 1,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_buttons',
+      'weight' => 7,
+    ),
+  );
+
   // Exported field_instance: 'node-exhibit-field_topic'
   $field_instances['node-exhibit-field_topic'] = array(
     'bundle' => 'exhibit',
@@ -895,6 +951,7 @@ function fmnh_exhibit_field_default_field_instances() {
   t('Science Focus');
   t('Stratigraphy');
   t('These are the opening and closing dates of the exhibition.');
+  t('Ticketed');
   t('Topic');
 
   return $field_instances;
