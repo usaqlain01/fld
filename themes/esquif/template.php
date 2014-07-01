@@ -365,7 +365,7 @@ function esquif_links__system_main_menu($variables) {
  * @param $hook
  */
 function esquif_preprocess_menu_block_wrapper(&$variables, $hook) {
-  if ($variables['theme_hook_suggestion'] == 'menu_block_wrapper__main_menu') {
+  if ($variables['theme_hook_suggestion'] == 'menu_block_wrapper__main_menu__footer') {
     foreach (element_children($variables['content']) as $child) {
       $variables['content'][$child]['#attributes']['class'][] = 'navFooter__item';
     }
@@ -378,58 +378,8 @@ function esquif_preprocess_menu_block_wrapper(&$variables, $hook) {
  * @param $variables
  * @return string
  */
-function esquif_menu_tree__menu_block__ctools_main_menu_1($variables) {
+function esquif_menu_tree__menu_block__footer($variables) {
   return '<ul class="navFooter__list menu">' . $variables['tree'] . '</ul>';
-}
-
-/**
- * Theme override for footer menu.
- *
- * @param $variables
- * @return string
- */
-function esquif_menu_tree__menu_block__ctools_main_menu_2($variables) {
-  return esquif_menu_tree__menu_block__ctools_main_menu_1($variables);
-}
-
-/**
- * Theme override for footer menu.
- *
- * @param $variables
- * @return string
- */
-function esquif_menu_tree__menu_block__ctools_main_menu_3($variables) {
-  return esquif_menu_tree__menu_block__ctools_main_menu_1($variables);
-}
-
-/**
- * Theme override for footer menu.
- *
- * @param $variables
- * @return string
- */
-function esquif_menu_tree__menu_block__ctools_main_menu_4($variables) {
-  return esquif_menu_tree__menu_block__ctools_main_menu_1($variables);
-}
-
-/**
- * Theme override for footer menu.
- *
- * @param $variables
- * @return string
- */
-function esquif_menu_tree__menu_block__ctools_main_menu_5($variables) {
-  return esquif_menu_tree__menu_block__ctools_main_menu_1($variables);
-}
-
-/**
- * Theme override for footer menu.
- *
- * @param $variables
- * @return string
- */
-function esquif_menu_tree__menu_block__ctools_main_menu_6($variables) {
-  return esquif_menu_tree__menu_block__ctools_main_menu_1($variables);
 }
 
 /**

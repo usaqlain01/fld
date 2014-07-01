@@ -60,6 +60,7 @@ function fieldmuseum_default_panels_mini() {
       'sort' => 0,
       'override_title' => 0,
       'override_title_text' => '',
+      'identifier' => 'footer',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -132,6 +133,7 @@ function fieldmuseum_default_panels_mini() {
       'sort' => 0,
       'override_title' => 0,
       'override_title_text' => '',
+      'identifier' => 'footer',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -204,6 +206,7 @@ function fieldmuseum_default_panels_mini() {
       'sort' => 0,
       'override_title' => 0,
       'override_title_text' => '',
+      'identifier' => 'footer',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -276,6 +279,7 @@ function fieldmuseum_default_panels_mini() {
       'sort' => 0,
       'override_title' => 0,
       'override_title_text' => '',
+      'identifier' => 'footer',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -348,6 +352,7 @@ function fieldmuseum_default_panels_mini() {
       'sort' => 0,
       'override_title' => 0,
       'override_title_text' => '',
+      'identifier' => 'footer',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -420,6 +425,7 @@ function fieldmuseum_default_panels_mini() {
       'sort' => 0,
       'override_title' => 0,
       'override_title_text' => '',
+      'identifier' => 'footer',
     );
     $pane->cache = array();
     $pane->style = array(
