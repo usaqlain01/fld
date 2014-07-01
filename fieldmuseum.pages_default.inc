@@ -2555,7 +2555,20 @@ function fieldmuseum_default_page_manager_pages() {
     'body_classes_to_add' => '',
     'css_id' => '',
     'css' => '',
-    'contexts' => array(),
+    'contexts' => array(
+      0 => array(
+        'identifier' => 'List: Field trip programs',
+        'keyword' => 'list',
+        'name' => 'entitylist:field_trip_programs',
+        'use_pager' => TRUE,
+        'pager_id' => NULL,
+        'range' => array(
+          'offset' => 0,
+          'limit' => 10,
+        ),
+        'id' => 1,
+      ),
+    ),
     'relationships' => array(),
   );
   $display = new panels_display();
@@ -2576,6 +2589,60 @@ function fieldmuseum_default_page_manager_pages() {
   $display->uuid = '29dae451-7137-44fd-a6bc-fd5eb79071ea';
   $display->content = array();
   $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-e757ca39-3d90-48a7-9b8c-c63cacdd1492';
+    $pane->panel = 'main';
+    $pane->type = 'entity_range';
+    $pane->subtype = 'entity_range';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'range' => array(
+        'offset' => '0',
+        'limit' => '10',
+      ),
+      'view_mode' => 'node:teaser',
+      'use_pager' => FALSE,
+      'pager_id' => 0,
+      'context' => 'context_entitylist:field_trip_programs_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'e757ca39-3d90-48a7-9b8c-c63cacdd1492';
+    $display->content['new-e757ca39-3d90-48a7-9b8c-c63cacdd1492'] = $pane;
+    $display->panels['main'][0] = 'new-e757ca39-3d90-48a7-9b8c-c63cacdd1492';
+    $pane = new stdClass();
+    $pane->pid = 'new-88362ccc-79a4-472c-a091-6101815b41b1';
+    $pane->panel = 'main';
+    $pane->type = 'pager';
+    $pane->subtype = 'pager';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'type' => 'full',
+      'context' => 'context_entitylist:field_trip_programs_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = '88362ccc-79a4-472c-a091-6101815b41b1';
+    $display->content['new-88362ccc-79a4-472c-a091-6101815b41b1'] = $pane;
+    $display->panels['main'][1] = 'new-88362ccc-79a4-472c-a091-6101815b41b1';
     $pane = new stdClass();
     $pane->pid = 'new-7480f094-23af-4ffa-8c1d-10da8efcc047';
     $pane->panel = 'nav';
