@@ -7,9 +7,9 @@ dependencies[] = metatag
 files[] = metatag_context.test
 configure = admin/config/search/metatags/context
 
-; Information added by Drupal.org packaging script on 2014-06-29
-version = "7.x-1.0-beta9+35-dev"
+; Information added by Drupal.org packaging script on 2014-07-01
+version = "7.x-1.0-beta9+37-dev"
 core = "7.x"
 project = "metatag"
-datestamp = "1404009828"
+datestamp = "1404183228"
 

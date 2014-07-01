@@ -25,25 +25,13 @@
 
   <?php print $styles; ?>
   <?php print $scripts; ?>
-  <?php print render($head_ltie9); ?>
+  <?php print render($head_conditional_scripts); ?>
 </head>
 <body class="<?php print $classes; ?>" <?php print $attributes;?>>
   <?php print $page_top; ?>
   <?php print $page; ?>
   <?php print $page_bottom; ?>
-  <!-- Loads jQuery and everything needed for the page to render properly -->
-  <script type="text/javascript" src="<?php print $base_path . $path_to_theme; ?>/js/foot.js"></script>
-
-  <!--[if lte IE 9]>
-      <!-- Loads IE9 and below scripts -->
-  <script type="text/javascript" src="<?php print $base_path . $path_to_theme; ?>/js/foot-ltie10.js"></script>
-  <![endif]-->
-
-  <!--[if lte IE 8]>
-      <!-- Loads IE8 and below scripts -->
-  <script type="text/javascript" src="<?php print $base_path . $path_to_theme; ?>/js/foot-ltie9.js"></script>
-  <![endif]-->
-
+  <?php print render($foot_conditional_scripts); ?>
   <!-- This waits until the page load event triggers and then writes defer.js to the page. This is the fastest way to load the page and ensure this is a non-blocking script. -->
   <script>
     (function() {

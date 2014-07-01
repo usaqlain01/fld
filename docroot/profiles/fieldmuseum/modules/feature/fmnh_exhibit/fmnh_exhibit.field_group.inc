@@ -133,7 +133,7 @@ function fmnh_exhibit_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Public Tags',
-    'weight' => '7',
+    'weight' => '8',
     'children' => array(
       0 => 'group_audience',
       1 => 'group_grade_level',
@@ -216,7 +216,7 @@ function fmnh_exhibit_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Science tags',
-    'weight' => '55',
+    'weight' => '12',
     'children' => array(
       0 => 'group_location_region',
       1 => 'group_research_area',

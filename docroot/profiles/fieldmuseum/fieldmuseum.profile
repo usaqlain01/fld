@@ -195,11 +195,24 @@ function esquif_panels_settings_submit(&$form_state, &$display, $layout, $settin
   unset($form_state['layout_settings']);
 }
 
+/**
+ * Implement hook_composer_json_alter().
+ *
+ * This allows dependencies to specify unstable dependencies without forcing everything
+ * to be unstable.
+ *
+ * @param $json
+ */
 function fieldmuseum_composer_json_alter(&$json) {
   $json['minimum-stability'] = 'dev';
   $json['prefer-stable'] = true;
 }
 
+/**
+ * Implement hook_date_format_types().
+ *
+ * @return array
+ */
 function fieldmuseum_date_format_types() {
   return array(
     'year_only' => t('Year only'),
@@ -207,6 +220,11 @@ function fieldmuseum_date_format_types() {
   );
 }
 
+/**
+ * Implement hook_date_formats().
+ *
+ * @return array
+ */
 function fieldmuseum_date_formats() {
   return array(
     array(
@@ -222,3 +240,68 @@ function fieldmuseum_date_formats() {
   );
 }
 
+/**
+ * Alter the menu block content type plugin settings form to support a theme hook identifier.
+ *
+ * @param $form
+ * @param $form_state
+ */
+function fieldmuseum_form_menu_block_menu_tree_content_type_edit_form_alter(&$form, &$form_state) {
+  $conf = $form_state['conf'];
+  $form['identifier'] = array(
+    '#type' => 'textfield',
+    '#default_value' => !empty($conf['identifier']) ? $conf['identifier'] : '',
+    '#title' => t('Template identifier'),
+    '#description' => t('This identifier will be added as a template suggestion to display this node: menu_tree--IDENTIFIER.tpl.php. Please see the Drupal theming guide for information about template suggestions.'),
+  );
+  $form['#submit'][] = 'fieldmuseum_form_menu_block_menu_tree_content_type_edit_form_submit';
+}
+
+/**
+ * Save the identifier in the conf array.
+ *
+ * @param $form
+ * @param $form_state
+ */
+function fieldmuseum_form_menu_block_menu_tree_content_type_edit_form_submit($form, &$form_state) {
+  if (isset($form_state['values']['identifier'])) {
+    $form_state['conf']['identifier'] = $form_state['values']['identifier'];
+  }
+}
+
+/**
+ * Alter the plugin's callbacks to replace the render callback with ours.
+ *
+ * @param $plugin
+ * @param $info
+ */
+function fieldmuseum_ctools_plugin_post_alter(&$plugin, &$info) {
+  // Override a function defined by the plugin.
+  if ($info['type'] == 'content_types' && $plugin['name'] == 'menu_tree') {
+    $plugin['render callback'] = 'fieldmuseum_menu_block_menu_tree_content_type_render';
+  }
+}
+
+/**
+ * Call the original callback and then add new theme suggestions based on the identifier.
+ *
+ * @param $subtype
+ * @param $conf
+ * @param $args
+ * @param $context
+ * @return stdClass
+ */
+function fieldmuseum_menu_block_menu_tree_content_type_render($subtype, $conf, $args, $context) {
+
+  $block = menu_block_menu_tree_content_type_render($subtype, $conf, $args, $context);
+  if (isset($conf['identifier'])) {
+    array_unshift($block->content['#theme'], 'menu_block_wrapper__main_menu__'. $conf['identifier']);
+    array_unshift($block->content['#content']['#theme_wrappers'], 'menu_tree__menu_block__main_menu__'. $conf['identifier']);
+
+    foreach (element_children($block->content['#content']) as $key) {
+      array_unshift($block->content['#content'][$key]['#theme'], 'menu_link__menu_block__main_menu__'. $conf['identifier']);
+    }
+  }
+
+  return $block;
+}

@@ -1187,24 +1187,25 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phingofficial/phing.git",
-                "reference": "903e8b2ae1a81af3c3d6a6415be34deae08e75ed"
+                "reference": "1e06b42fa8f4c5119eda8e9dd39c412250435e24"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phingofficial/phing/zipball/903e8b2ae1a81af3c3d6a6415be34deae08e75ed",
-                "reference": "903e8b2ae1a81af3c3d6a6415be34deae08e75ed",
+                "url": "https://api.github.com/repos/phingofficial/phing/zipball/1e06b42fa8f4c5119eda8e9dd39c412250435e24",
+                "reference": "1e06b42fa8f4c5119eda8e9dd39c412250435e24",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.2.0"
             },
             "require-dev": {
+                "phpdocumentor/phpdocumentor": "2.x",
                 "phpunit/phpunit": ">=3.7"
             },
             "suggest": {
                 "pdepend/pdepend": "PHP version of JDepend",
                 "pear/archive_tar": "Tar file management class",
-                "pear/versioncontorl_git": "A library that provides OO interface to handle Git repository",
+                "pear/versioncontrol_git": "A library that provides OO interface to handle Git repository",
                 "pear/versioncontrol_svn": "A simple OO-style interface for Subversion, the free/open-source version control system",
                 "phpdocumentor/phpdocumentor": "Documentation Generator for PHP",
                 "phploc/phploc": "A tool for quickly measuring the size of a PHP project",
@@ -1249,7 +1250,7 @@
                 "task",
                 "tool"
             ],
-            "time": "2014-06-26 13:39:32"
+            "time": "2014-07-01 14:18:47"
         },
         {
             "name": "phpunit/php-code-coverage",

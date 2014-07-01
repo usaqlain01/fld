@@ -28,6 +28,7 @@ function fmnh_media_preprocess_image_style(&$variables, $hook) {
         }
       }
       $variables['attributes']['srcset'] = implode(',', $srcsets);
+      $variables['attributes']['class'][] = 'js--pictureFill';
     }
   }
 }
