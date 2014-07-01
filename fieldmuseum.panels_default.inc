@@ -691,7 +691,15 @@ function fieldmuseum_default_panels_mini() {
   $mini->admin_title = 'Header';
   $mini->admin_description = '';
   $mini->requiredcontexts = array();
-  $mini->contexts = array();
+  $mini->contexts = array(
+    0 => array(
+      'identifier' => 'File',
+      'keyword' => 'file',
+      'name' => 'entity:file',
+      'entity_id' => '80846',
+      'id' => 1,
+    ),
+  );
   $mini->relationships = array();
   $display = new panels_display();
   $display->layout = 'canoe';
@@ -884,7 +892,15 @@ function fieldmuseum_default_panels_mini() {
   $mini->admin_title = 'Header (about)';
   $mini->admin_description = '';
   $mini->requiredcontexts = array();
-  $mini->contexts = array();
+  $mini->contexts = array(
+    0 => array(
+      'identifier' => 'File',
+      'keyword' => 'file',
+      'name' => 'entity:file',
+      'entity_id' => '80846',
+      'id' => 1,
+    ),
+  );
   $mini->relationships = array();
   $display = new panels_display();
   $display->layout = 'canoe';
@@ -916,27 +932,110 @@ function fieldmuseum_default_panels_mini() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-a6616a78-02d5-476b-a003-eb262223126b';
+    $pane->pid = 'new-c808ef36-2bfe-4645-8f10-7256f41dc6b4';
     $pane->panel = 'hero';
     $pane->type = 'fieldable_panels_pane';
-    $pane->subtype = 'fpid:1';
+    $pane->subtype = 'fpid:61';
     $pane->shown = TRUE;
-    $pane->access = array();
+    $pane->access = array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'path_visibility',
+          'settings' => array(
+            'visibility_setting' => '1',
+            'paths' => 'about',
+          ),
+          'context' => 'empty',
+          'not' => FALSE,
+        ),
+      ),
+    );
     $pane->configuration = array(
       'view_mode' => 'full',
     );
     $pane->cache = array();
     $pane->style = array(
-      'style' => 'naked',
       'settings' => NULL,
+      'style' => 'naked',
     );
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = 'a6616a78-02d5-476b-a003-eb262223126b';
-    $display->content['new-a6616a78-02d5-476b-a003-eb262223126b'] = $pane;
-    $display->panels['hero'][0] = 'new-a6616a78-02d5-476b-a003-eb262223126b';
+    $pane->uuid = 'c808ef36-2bfe-4645-8f10-7256f41dc6b4';
+    $display->content['new-c808ef36-2bfe-4645-8f10-7256f41dc6b4'] = $pane;
+    $display->panels['hero'][0] = 'new-c808ef36-2bfe-4645-8f10-7256f41dc6b4';
+    $pane = new stdClass();
+    $pane->pid = 'new-b8efb35b-3316-4911-be47-4e609c6b2fbf';
+    $pane->panel = 'hero';
+    $pane->type = 'page_breadcrumb';
+    $pane->subtype = 'page_breadcrumb';
+    $pane->shown = TRUE;
+    $pane->access = array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'path_visibility',
+          'settings' => array(
+            'visibility_setting' => '0',
+            'paths' => 'about',
+          ),
+          'context' => 'empty',
+          'not' => FALSE,
+        ),
+      ),
+    );
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => array(
+        'element_title' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
+      'style' => 'semantic_panels',
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = 'b8efb35b-3316-4911-be47-4e609c6b2fbf';
+    $display->content['new-b8efb35b-3316-4911-be47-4e609c6b2fbf'] = $pane;
+    $display->panels['hero'][1] = 'new-b8efb35b-3316-4911-be47-4e609c6b2fbf';
     $pane = new stdClass();
     $pane->pid = 'new-36139c6c-b2f2-404d-a735-d0f11e4d04b4';
     $pane->panel = 'left';
@@ -1077,7 +1176,15 @@ function fieldmuseum_default_panels_mini() {
   $mini->admin_title = 'Header (at the field)';
   $mini->admin_description = '';
   $mini->requiredcontexts = array();
-  $mini->contexts = array();
+  $mini->contexts = array(
+    0 => array(
+      'identifier' => 'File',
+      'keyword' => 'file',
+      'name' => 'entity:file',
+      'entity_id' => '80846',
+      'id' => 1,
+    ),
+  );
   $mini->relationships = array();
   $display = new panels_display();
   $display->layout = 'canoe';
@@ -1109,27 +1216,110 @@ function fieldmuseum_default_panels_mini() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-a6616a78-02d5-476b-a003-eb262223126b';
+    $pane->pid = 'new-b80a7348-a8cb-42ba-9769-b3ed923919fc';
     $pane->panel = 'hero';
     $pane->type = 'fieldable_panels_pane';
-    $pane->subtype = 'fpid:1';
+    $pane->subtype = 'fpid:86';
     $pane->shown = TRUE;
-    $pane->access = array();
+    $pane->access = array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'path_visibility',
+          'settings' => array(
+            'visibility_setting' => '1',
+            'paths' => 'at-the-field',
+          ),
+          'context' => 'empty',
+          'not' => FALSE,
+        ),
+      ),
+    );
     $pane->configuration = array(
       'view_mode' => 'full',
     );
     $pane->cache = array();
     $pane->style = array(
-      'style' => 'naked',
       'settings' => NULL,
+      'style' => 'naked',
     );
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = 'a6616a78-02d5-476b-a003-eb262223126b';
-    $display->content['new-a6616a78-02d5-476b-a003-eb262223126b'] = $pane;
-    $display->panels['hero'][0] = 'new-a6616a78-02d5-476b-a003-eb262223126b';
+    $pane->uuid = 'b80a7348-a8cb-42ba-9769-b3ed923919fc';
+    $display->content['new-b80a7348-a8cb-42ba-9769-b3ed923919fc'] = $pane;
+    $display->panels['hero'][0] = 'new-b80a7348-a8cb-42ba-9769-b3ed923919fc';
+    $pane = new stdClass();
+    $pane->pid = 'new-a3edb486-89bb-4fe7-9625-5aeb149b5017';
+    $pane->panel = 'hero';
+    $pane->type = 'page_breadcrumb';
+    $pane->subtype = 'page_breadcrumb';
+    $pane->shown = TRUE;
+    $pane->access = array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'path_visibility',
+          'settings' => array(
+            'visibility_setting' => '0',
+            'paths' => 'at-the-field',
+          ),
+          'context' => 'empty',
+          'not' => FALSE,
+        ),
+      ),
+    );
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => array(
+        'element_title' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
+      'style' => 'semantic_panels',
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = 'a3edb486-89bb-4fe7-9625-5aeb149b5017';
+    $display->content['new-a3edb486-89bb-4fe7-9625-5aeb149b5017'] = $pane;
+    $display->panels['hero'][1] = 'new-a3edb486-89bb-4fe7-9625-5aeb149b5017';
     $pane = new stdClass();
     $pane->pid = 'new-36139c6c-b2f2-404d-a735-d0f11e4d04b4';
     $pane->panel = 'left';
@@ -1270,7 +1460,15 @@ function fieldmuseum_default_panels_mini() {
   $mini->admin_title = 'Header (educators)';
   $mini->admin_description = '';
   $mini->requiredcontexts = array();
-  $mini->contexts = array();
+  $mini->contexts = array(
+    0 => array(
+      'identifier' => 'File',
+      'keyword' => 'file',
+      'name' => 'entity:file',
+      'entity_id' => '80846',
+      'id' => 1,
+    ),
+  );
   $mini->relationships = array();
   $display = new panels_display();
   $display->layout = 'canoe';
@@ -1302,27 +1500,69 @@ function fieldmuseum_default_panels_mini() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-a6616a78-02d5-476b-a003-eb262223126b';
+    $pane->pid = 'new-e6ca484f-acc7-4a91-8053-8923d2e5b5a2';
     $pane->panel = 'hero';
     $pane->type = 'fieldable_panels_pane';
-    $pane->subtype = 'fpid:1';
+    $pane->subtype = 'fpid:81';
     $pane->shown = TRUE;
-    $pane->access = array();
+    $pane->access = array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'path_visibility',
+          'settings' => array(
+            'visibility_setting' => '1',
+            'paths' => 'educators',
+          ),
+          'context' => 'empty',
+          'not' => FALSE,
+        ),
+      ),
+    );
     $pane->configuration = array(
       'view_mode' => 'full',
     );
     $pane->cache = array();
     $pane->style = array(
-      'style' => 'naked',
       'settings' => NULL,
     );
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = 'a6616a78-02d5-476b-a003-eb262223126b';
-    $display->content['new-a6616a78-02d5-476b-a003-eb262223126b'] = $pane;
-    $display->panels['hero'][0] = 'new-a6616a78-02d5-476b-a003-eb262223126b';
+    $pane->uuid = 'e6ca484f-acc7-4a91-8053-8923d2e5b5a2';
+    $display->content['new-e6ca484f-acc7-4a91-8053-8923d2e5b5a2'] = $pane;
+    $display->panels['hero'][0] = 'new-e6ca484f-acc7-4a91-8053-8923d2e5b5a2';
+    $pane = new stdClass();
+    $pane->pid = 'new-4a7f7450-9ca3-4269-88a4-9936491a0626';
+    $pane->panel = 'hero';
+    $pane->type = 'page_breadcrumb';
+    $pane->subtype = 'page_breadcrumb';
+    $pane->shown = TRUE;
+    $pane->access = array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'path_visibility',
+          'settings' => array(
+            'visibility_setting' => '0',
+            'paths' => 'educators',
+          ),
+          'context' => 'empty',
+          'not' => FALSE,
+        ),
+      ),
+    );
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = '4a7f7450-9ca3-4269-88a4-9936491a0626';
+    $display->content['new-4a7f7450-9ca3-4269-88a4-9936491a0626'] = $pane;
+    $display->panels['hero'][1] = 'new-4a7f7450-9ca3-4269-88a4-9936491a0626';
     $pane = new stdClass();
     $pane->pid = 'new-36139c6c-b2f2-404d-a735-d0f11e4d04b4';
     $pane->panel = 'left';
@@ -1463,7 +1703,15 @@ function fieldmuseum_default_panels_mini() {
   $mini->admin_title = 'Header (home)';
   $mini->admin_description = '';
   $mini->requiredcontexts = array();
-  $mini->contexts = array();
+  $mini->contexts = array(
+    0 => array(
+      'identifier' => 'File',
+      'keyword' => 'file',
+      'name' => 'entity:file',
+      'entity_id' => '80846',
+      'id' => 1,
+    ),
+  );
   $mini->relationships = array();
   $display = new panels_display();
   $display->layout = 'canoe';
@@ -1494,6 +1742,28 @@ function fieldmuseum_default_panels_mini() {
   $display->uuid = '5d2a50ad-a92f-47be-8c27-53be528af5f6';
   $display->content = array();
   $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-08223496-4c50-4c27-8e40-b5230b9097c3';
+    $pane->panel = 'hero';
+    $pane->type = 'fieldable_panels_pane';
+    $pane->subtype = 'fpid:1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'view_mode' => 'full',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+      'style' => 'naked',
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '08223496-4c50-4c27-8e40-b5230b9097c3';
+    $display->content['new-08223496-4c50-4c27-8e40-b5230b9097c3'] = $pane;
+    $display->panels['hero'][0] = 'new-08223496-4c50-4c27-8e40-b5230b9097c3';
     $pane = new stdClass();
     $pane->pid = 'new-36139c6c-b2f2-404d-a735-d0f11e4d04b4';
     $pane->panel = 'left';
@@ -1634,7 +1904,15 @@ function fieldmuseum_default_panels_mini() {
   $mini->admin_title = 'Header (science)';
   $mini->admin_description = '';
   $mini->requiredcontexts = array();
-  $mini->contexts = array();
+  $mini->contexts = array(
+    0 => array(
+      'identifier' => 'File',
+      'keyword' => 'file',
+      'name' => 'entity:file',
+      'entity_id' => '80846',
+      'id' => 1,
+    ),
+  );
   $mini->relationships = array();
   $display = new panels_display();
   $display->layout = 'canoe';
@@ -1666,27 +1944,69 @@ function fieldmuseum_default_panels_mini() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-a6616a78-02d5-476b-a003-eb262223126b';
+    $pane->pid = 'new-3b43833b-0fda-455c-97dc-3f1062c30ead';
     $pane->panel = 'hero';
     $pane->type = 'fieldable_panels_pane';
-    $pane->subtype = 'fpid:1';
+    $pane->subtype = 'fpid:71';
     $pane->shown = TRUE;
-    $pane->access = array();
+    $pane->access = array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'path_visibility',
+          'settings' => array(
+            'visibility_setting' => '1',
+            'paths' => 'science',
+          ),
+          'context' => 'empty',
+          'not' => FALSE,
+        ),
+      ),
+    );
     $pane->configuration = array(
       'view_mode' => 'full',
     );
     $pane->cache = array();
     $pane->style = array(
-      'style' => 'naked',
       'settings' => NULL,
     );
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = 'a6616a78-02d5-476b-a003-eb262223126b';
-    $display->content['new-a6616a78-02d5-476b-a003-eb262223126b'] = $pane;
-    $display->panels['hero'][0] = 'new-a6616a78-02d5-476b-a003-eb262223126b';
+    $pane->uuid = '3b43833b-0fda-455c-97dc-3f1062c30ead';
+    $display->content['new-3b43833b-0fda-455c-97dc-3f1062c30ead'] = $pane;
+    $display->panels['hero'][0] = 'new-3b43833b-0fda-455c-97dc-3f1062c30ead';
+    $pane = new stdClass();
+    $pane->pid = 'new-1f6ce464-cb32-4c0c-9992-8b2626e056a4';
+    $pane->panel = 'hero';
+    $pane->type = 'page_breadcrumb';
+    $pane->subtype = 'page_breadcrumb';
+    $pane->shown = TRUE;
+    $pane->access = array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'path_visibility',
+          'settings' => array(
+            'visibility_setting' => '0',
+            'paths' => 'science',
+          ),
+          'context' => 'empty',
+          'not' => FALSE,
+        ),
+      ),
+    );
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = '1f6ce464-cb32-4c0c-9992-8b2626e056a4';
+    $display->content['new-1f6ce464-cb32-4c0c-9992-8b2626e056a4'] = $pane;
+    $display->panels['hero'][1] = 'new-1f6ce464-cb32-4c0c-9992-8b2626e056a4';
     $pane = new stdClass();
     $pane->pid = 'new-36139c6c-b2f2-404d-a735-d0f11e4d04b4';
     $pane->panel = 'left';
@@ -1827,7 +2147,15 @@ function fieldmuseum_default_panels_mini() {
   $mini->admin_title = 'Header (support)';
   $mini->admin_description = '';
   $mini->requiredcontexts = array();
-  $mini->contexts = array();
+  $mini->contexts = array(
+    0 => array(
+      'identifier' => 'File',
+      'keyword' => 'file',
+      'name' => 'entity:file',
+      'entity_id' => '80846',
+      'id' => 1,
+    ),
+  );
   $mini->relationships = array();
   $display = new panels_display();
   $display->layout = 'canoe';
@@ -1859,10 +2187,10 @@ function fieldmuseum_default_panels_mini() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-a6616a78-02d5-476b-a003-eb262223126b';
+    $pane->pid = 'new-7fba28dd-5ca3-471d-aaae-8ff3de26f0b4';
     $pane->panel = 'hero';
     $pane->type = 'fieldable_panels_pane';
-    $pane->subtype = 'fpid:1';
+    $pane->subtype = 'fpid:76';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -1870,16 +2198,47 @@ function fieldmuseum_default_panels_mini() {
     );
     $pane->cache = array();
     $pane->style = array(
-      'style' => 'naked',
       'settings' => NULL,
+      'style' => 'naked',
     );
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = 'a6616a78-02d5-476b-a003-eb262223126b';
-    $display->content['new-a6616a78-02d5-476b-a003-eb262223126b'] = $pane;
-    $display->panels['hero'][0] = 'new-a6616a78-02d5-476b-a003-eb262223126b';
+    $pane->uuid = '7fba28dd-5ca3-471d-aaae-8ff3de26f0b4';
+    $display->content['new-7fba28dd-5ca3-471d-aaae-8ff3de26f0b4'] = $pane;
+    $display->panels['hero'][0] = 'new-7fba28dd-5ca3-471d-aaae-8ff3de26f0b4';
+    $pane = new stdClass();
+    $pane->pid = 'new-0849ed1d-30f8-4643-ae96-ce9a0ea3416d';
+    $pane->panel = 'hero';
+    $pane->type = 'page_breadcrumb';
+    $pane->subtype = 'page_breadcrumb';
+    $pane->shown = TRUE;
+    $pane->access = array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'path_visibility',
+          'settings' => array(
+            'visibility_setting' => '0',
+            'paths' => 'support',
+          ),
+          'context' => 'empty',
+          'not' => FALSE,
+        ),
+      ),
+    );
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = '0849ed1d-30f8-4643-ae96-ce9a0ea3416d';
+    $display->content['new-0849ed1d-30f8-4643-ae96-ce9a0ea3416d'] = $pane;
+    $display->panels['hero'][1] = 'new-0849ed1d-30f8-4643-ae96-ce9a0ea3416d';
     $pane = new stdClass();
     $pane->pid = 'new-36139c6c-b2f2-404d-a735-d0f11e4d04b4';
     $pane->panel = 'left';
@@ -2020,7 +2379,15 @@ function fieldmuseum_default_panels_mini() {
   $mini->admin_title = 'Header (visit)';
   $mini->admin_description = '';
   $mini->requiredcontexts = array();
-  $mini->contexts = array();
+  $mini->contexts = array(
+    0 => array(
+      'identifier' => 'File',
+      'keyword' => 'file',
+      'name' => 'entity:file',
+      'entity_id' => '80846',
+      'id' => 1,
+    ),
+  );
   $mini->relationships = array();
   $display = new panels_display();
   $display->layout = 'canoe';
@@ -2052,10 +2419,10 @@ function fieldmuseum_default_panels_mini() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-a6616a78-02d5-476b-a003-eb262223126b';
+    $pane->pid = 'new-201b7378-f94d-4f65-8297-a6917ab1280c';
     $pane->panel = 'hero';
     $pane->type = 'fieldable_panels_pane';
-    $pane->subtype = 'fpid:1';
+    $pane->subtype = 'fpid:66';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -2063,16 +2430,87 @@ function fieldmuseum_default_panels_mini() {
     );
     $pane->cache = array();
     $pane->style = array(
-      'style' => 'naked',
       'settings' => NULL,
+      'style' => 'naked',
     );
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = 'a6616a78-02d5-476b-a003-eb262223126b';
-    $display->content['new-a6616a78-02d5-476b-a003-eb262223126b'] = $pane;
-    $display->panels['hero'][0] = 'new-a6616a78-02d5-476b-a003-eb262223126b';
+    $pane->uuid = '201b7378-f94d-4f65-8297-a6917ab1280c';
+    $display->content['new-201b7378-f94d-4f65-8297-a6917ab1280c'] = $pane;
+    $display->panels['hero'][0] = 'new-201b7378-f94d-4f65-8297-a6917ab1280c';
+    $pane = new stdClass();
+    $pane->pid = 'new-6236a505-f290-459f-8a7e-aa3d8ef5bedc';
+    $pane->panel = 'hero';
+    $pane->type = 'page_breadcrumb';
+    $pane->subtype = 'page_breadcrumb';
+    $pane->shown = TRUE;
+    $pane->access = array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'path_visibility',
+          'settings' => array(
+            'visibility_setting' => '0',
+            'paths' => 'visit',
+          ),
+          'context' => 'empty',
+          'not' => FALSE,
+        ),
+      ),
+    );
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => array(
+        'element_title' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
+      'style' => 'semantic_panels',
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = '6236a505-f290-459f-8a7e-aa3d8ef5bedc';
+    $display->content['new-6236a505-f290-459f-8a7e-aa3d8ef5bedc'] = $pane;
+    $display->panels['hero'][1] = 'new-6236a505-f290-459f-8a7e-aa3d8ef5bedc';
     $pane = new stdClass();
     $pane->pid = 'new-36139c6c-b2f2-404d-a735-d0f11e4d04b4';
     $pane->panel = 'left';
