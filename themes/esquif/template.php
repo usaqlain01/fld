@@ -370,6 +370,12 @@ function esquif_preprocess_menu_block_wrapper(&$variables, $hook) {
       $variables['content'][$child]['#attributes']['class'][] = 'navFooter__item';
     }
   }
+
+  if ($variables['theme_hook_suggestion'] == 'menu_block_wrapper__main_menu__section') {
+    foreach (element_children($variables['content']) as $child) {
+      $variables['content'][$child]['#attributes']['class'][] = 'navLevel1__item';
+    }
+  }
 }
 
 /**
@@ -380,6 +386,16 @@ function esquif_preprocess_menu_block_wrapper(&$variables, $hook) {
  */
 function esquif_menu_tree__menu_block__footer($variables) {
   return '<ul class="navFooter__list menu">' . $variables['tree'] . '</ul>';
+}
+
+/**
+ * Theme override for footer menu.
+ *
+ * @param $variables
+ * @return string
+ */
+function esquif_menu_tree__menu_block__section($variables) {
+  return '<ul class="navLevel1 menu">' . $variables['tree'] . '</ul>';
 }
 
 /**
