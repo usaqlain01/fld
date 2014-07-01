@@ -195,11 +195,24 @@ function esquif_panels_settings_submit(&$form_state, &$display, $layout, $settin
   unset($form_state['layout_settings']);
 }
 
+/**
+ * Implement hook_composer_json_alter().
+ *
+ * This allows dependencies to specify unstable dependencies without forcing everything
+ * to be unstable.
+ *
+ * @param $json
+ */
 function fieldmuseum_composer_json_alter(&$json) {
   $json['minimum-stability'] = 'dev';
   $json['prefer-stable'] = true;
 }
 
+/**
+ * Implement hook_date_format_types().
+ *
+ * @return array
+ */
 function fieldmuseum_date_format_types() {
   return array(
     'year_only' => t('Year only'),
@@ -207,6 +220,11 @@ function fieldmuseum_date_format_types() {
   );
 }
 
+/**
+ * Implement hook_date_formats().
+ *
+ * @return array
+ */
 function fieldmuseum_date_formats() {
   return array(
     array(

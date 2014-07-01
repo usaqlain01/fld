@@ -478,6 +478,7 @@ function esquif_menu_breadcrumb_alter(&$active_trail, $item) {
  *   An associative array containing:
  *   - url: The URL of the main page.
  *   - title: A descriptive verb for the link, like 'Read more'.
+ * @return string
  */
 function esquif_more_link($variables) {
   $options = array(
@@ -525,6 +526,14 @@ function esquif_form_search_block_form_alter(&$form, &$form_state) {
   );
 }
 
+/**
+ * Implement hook_js_alter().
+ *
+ * This forces all header-scope (default scope) javascript to the footer but
+ * allows a scope of 'header_force' to be in the header scope.
+ *
+ * @param $js
+ */
 function esquif_js_alter(&$js) {
   foreach ($js as &$script) {
     if ($script['scope'] == 'header') {
@@ -536,6 +545,10 @@ function esquif_js_alter(&$js) {
   }
 }
 
+/**
+ * @param $variables
+ * @return string
+ */
 function esquif_pager($variables) {
   $tags = $variables['tags'];
   $element = $variables['element'];
@@ -646,6 +659,10 @@ function esquif_pager($variables) {
   }
 }
 
+/**
+ * @param $variables
+ * @return string
+ */
 function esquif_item_list__pager($variables) {
   $items = $variables['items'];
   $title = $variables['title'];
@@ -743,6 +760,7 @@ function esquif_pager_first($variables) {
  *   - parameters: An associative array of query string parameters to append to
  *     the pager links.
  *
+ * @return string
  * @ingroup themeable
  */
 function esquif_pager_previous($variables) {
@@ -786,6 +804,7 @@ function esquif_pager_previous($variables) {
  *   - parameters: An associative array of query string parameters to append to
  *     the pager links.
  *
+ * @return string
  * @ingroup themeable
  */
 function esquif_pager_next($variables) {
