@@ -59,7 +59,7 @@ function fmnh_exhibit_strongarm() {
           'weight' => '3',
         ),
         'path' => array(
-          'weight' => '11',
+          'weight' => '9',
         ),
       ),
       'display' => array(),
