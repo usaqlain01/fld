@@ -492,7 +492,7 @@ function fieldmuseum_default_panels_mini() {
     $pane->style = array(
       'settings' => array(
         'element_title' => array(
-          'type' => '',
+          'type' => 'h4',
           'class_enable' => 0,
           'class' => '',
           'attributes' => array(),
