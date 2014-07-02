@@ -14,7 +14,7 @@ include_once 'fmnh_media.features.inc';
  * @param $hook
  */
 function fmnh_media_preprocess_image_style(&$variables, $hook) {
-  $conflate_styles_prefixed = array('5x2', '5x3');
+  $conflate_styles_prefixed = array('5x2', '5x3', '1x2', '3x4');
   foreach ($conflate_styles_prefixed as $style_prefix) {
     if (strpos($variables['style_name'], $style_prefix) === 0) {
       $srcsets = array();
