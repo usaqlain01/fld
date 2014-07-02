@@ -88,14 +88,59 @@ function fmnh_media_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'file',
+    'fences_wrapper' => 'div',
     'field_name' => 'field_caption',
-    'label' => 'field_caption',
-    'required' => FALSE,
+    'label' => 'Caption',
+    'required' => 0,
     'settings' => array(
-      'text_processing' => 0,
+      'better_formats' => array(
+        'allowed_formats' => array(
+          'filtered_html' => 'filtered_html',
+          'filtered_wysiwyg' => 'filtered_wysiwyg',
+          'full_html' => 'full_html',
+          'full_wysiwyg' => 'full_wysiwyg',
+          'markdown' => 'markdown',
+          'plain_text' => 'plain_text',
+          'unfiltered' => 'unfiltered',
+          'unfiltered_phrase_html' => 'unfiltered_phrase_html',
+        ),
+        'allowed_formats_toggle' => 0,
+        'default_order_toggle' => 0,
+        'default_order_wrapper' => array(
+          'formats' => array(
+            'filtered_html' => array(
+              'weight' => -9,
+            ),
+            'filtered_wysiwyg' => array(
+              'weight' => -10,
+            ),
+            'full_html' => array(
+              'weight' => -7,
+            ),
+            'full_wysiwyg' => array(
+              'weight' => -8,
+            ),
+            'markdown' => array(
+              'weight' => -6,
+            ),
+            'plain_text' => array(
+              'weight' => -3,
+            ),
+            'unfiltered' => array(
+              'weight' => -4,
+            ),
+            'unfiltered_phrase_html' => array(
+              'weight' => -5,
+            ),
+          ),
+        ),
+      ),
+      'text_processing' => 1,
       'user_register_form' => FALSE,
+      'wysiwyg_override' => 1,
     ),
     'widget' => array(
+      'active' => 1,
       'module' => 'text',
       'settings' => array(
         'rows' => 5,
@@ -183,14 +228,59 @@ function fmnh_media_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'file',
+    'fences_wrapper' => 'div',
     'field_name' => 'field_credit',
-    'label' => 'field_credit',
-    'required' => FALSE,
+    'label' => 'Credit',
+    'required' => 0,
     'settings' => array(
-      'text_processing' => 0,
+      'better_formats' => array(
+        'allowed_formats' => array(
+          'filtered_html' => 'filtered_html',
+          'filtered_wysiwyg' => 'filtered_wysiwyg',
+          'full_html' => 'full_html',
+          'full_wysiwyg' => 'full_wysiwyg',
+          'markdown' => 'markdown',
+          'plain_text' => 'plain_text',
+          'unfiltered' => 'unfiltered',
+          'unfiltered_phrase_html' => 'unfiltered_phrase_html',
+        ),
+        'allowed_formats_toggle' => 0,
+        'default_order_toggle' => 0,
+        'default_order_wrapper' => array(
+          'formats' => array(
+            'filtered_html' => array(
+              'weight' => -9,
+            ),
+            'filtered_wysiwyg' => array(
+              'weight' => -10,
+            ),
+            'full_html' => array(
+              'weight' => -7,
+            ),
+            'full_wysiwyg' => array(
+              'weight' => -8,
+            ),
+            'markdown' => array(
+              'weight' => -6,
+            ),
+            'plain_text' => array(
+              'weight' => -3,
+            ),
+            'unfiltered' => array(
+              'weight' => -4,
+            ),
+            'unfiltered_phrase_html' => array(
+              'weight' => -5,
+            ),
+          ),
+        ),
+      ),
+      'text_processing' => 1,
       'user_register_form' => FALSE,
+      'wysiwyg_override' => 1,
     ),
     'widget' => array(
+      'active' => 1,
       'module' => 'text',
       'settings' => array(
         'size' => 60,
@@ -202,8 +292,8 @@ function fmnh_media_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('field_caption');
-  t('field_credit');
+  t('Caption');
+  t('Credit');
 
   return $field_instances;
 }
