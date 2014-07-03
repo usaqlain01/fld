@@ -76,6 +76,12 @@ function fmnh_media_ctools_plugin_directory($module, $plugin) {
 function theme_tablexi_gallery($variables) {
   $node = $variables['node'];
   $items = field_get_items('node', $node, 'media_gallery_file');
+  $item = reset($items);
+  $href = image_style_url('2x1_1200w', $item['uri']);
+  $src = image_style_url('2x1_800w', $item['uri']);
+  $srcset = implode(',', fmnh_media_srcset('2x1', $item['uri']));
+  $alt = $item['alt'];
+  $caption = $item['field_caption'][LANGUAGE_NONE][0]['safe_value'];
 
   $output = '';
   $output .= <<<EOT
@@ -90,13 +96,11 @@ function theme_tablexi_gallery($variables) {
 		<div class="viewer__viewport js--viewer__items">
 <!-- Viewer item -->
 			<figure class="viewer__item js--viewer__item is--active">
-				<a class="viewer__link" href="http://placehold.it/1200x600&amp;text=Large+(1x)">
+				<a class="viewer__link" href="$href">
 <!-- CAXY: Don't focus on these image sizes just yet. Let us work through the responsive layer and then we'll supply image size targets. -->
 <!-- CAXY: We'll also update the sizes attribute after we've passed in the responsive layer. -->
-				<img class="viewer__image" src="http://placehold.it/800x400&amp;text=Medium+(1x)" srcset="http://placehold.it/500x250&amp;text=Small+(1x) 500w, http://placehold.it/800x400&amp;text=Medium+(1x) 800w, http://placehold.it/1000x500&amp;text=Small+(2x) 1000w, http://placehold.it/1200x600&amp;text=Large+(1x) 1200w, http://placehold.it/1600x800&amp;text=Medium+(2x) 1600w, http://placehold.it/2400x1200&amp;text=Large+(2x) 2400w" sizes="100vw" alt="Lorem ipsum." /> </a>
-				<figcaption class="viewer__caption">
-					Lorem ipsum dolor sit amet, consectetur adipisicing.
-				</ficaption>
+				<img class="viewer__image" src="$src" srcset="$srcset" sizes="100vw" alt="$alt" /> </a>
+				<figcaption class="viewer__caption">$caption</ficaption>
 			</figure>
 
 <!-- Viewer loader -->
