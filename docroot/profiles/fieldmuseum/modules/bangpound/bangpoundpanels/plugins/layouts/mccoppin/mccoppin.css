@@ -1,0 +1,27 @@
+/**
+ * @file
+ * McCoppin panel layout
+**/
+.mccoppin-container {
+  margin-bottom: 1em;
+}
+
+@media (min-width: 480px) {
+  .mccoppin-column-content-region {
+    min-height: 1px;
+    width: 34.043%;
+    float: left;
+  }
+
+  .mccoppin-column-content-region-inner {
+    margin-right: 20px;
+  }
+
+  .mccoppin-column3 {
+    width: 31.915%;
+  }
+
+  .mccoppin-column3-inner {
+    margin-right: 0;
+  }
+}

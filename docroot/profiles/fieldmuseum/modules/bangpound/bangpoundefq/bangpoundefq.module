@@ -177,7 +177,7 @@ function bangpoundefq_entitylist_handlers() {
  * @param $entity_links
  *   An array in which to store the collected node links.
  */
-function bangpoundefq_menu_tree_collect_entity_links(&$tree, &$entity_links, $entity_type) {
+function bangpoundefq_menu_tree_collect_entity_links(&$tree, &$entity_links, $entity_type, $access) {
   $info = entity_get_info($entity_type);
   $path = preg_replace('/%' . DRUPAL_PHP_FUNCTION_PATTERN . '/', '%', $info['path']);
   foreach ($tree as $key => $v) {
@@ -185,11 +185,13 @@ function bangpoundefq_menu_tree_collect_entity_links(&$tree, &$entity_links, $en
       $entity_id = substr($tree[$key]['link']['link_path'], strlen($path) - 1);
       if (is_numeric($entity_id)) {
         $entity_links[$entity_id][$tree[$key]['link']['mlid']] = &$tree[$key]['link'];
-        $tree[$key]['link']['access'] = FALSE;
+        if (!$access) {
+          $tree[$key]['link']['access'] = $access;
+        }
       }
     }
     if ($tree[$key]['below']) {
-      bangpoundefq_menu_tree_collect_entity_links($tree[$key]['below'], $entity_links, $entity_type);
+      bangpoundefq_menu_tree_collect_entity_links($tree[$key]['below'], $entity_links, $entity_type, $access);
     }
   }
 }

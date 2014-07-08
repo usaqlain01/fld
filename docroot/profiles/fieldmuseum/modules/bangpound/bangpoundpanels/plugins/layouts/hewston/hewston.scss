@@ -1,0 +1,46 @@
+/**
+ * @file
+ * Hewston panel layout
+**/
+
+@import "../base";
+
+.hewston-container {
+  margin-bottom: 1em;
+}
+
+@include breakpoint($breakpoint-iphone-width) {
+  .hewston-slider {
+    min-height: 1px;
+    float: left;
+    width: 68.085%;
+  }
+
+  .hewston-slider-inner {
+    margin-right: $gutter-width;
+  }
+
+  .hewston-slider-gutter {
+    min-height: 1px;
+    float: left;
+    width: 31.915%;
+  }
+
+  .hewston-middle-region {
+    min-height: 1px;
+    width: 34.043%;
+    float: left;
+  }
+
+  .hewston-middle-region-inner {
+    margin-right: $gutter-width;
+  }
+
+  .hewston-column3 {
+    width: 31.915%;
+  }
+
+  .hewston-column3-inner {
+    margin-right: 0;
+  }
+}

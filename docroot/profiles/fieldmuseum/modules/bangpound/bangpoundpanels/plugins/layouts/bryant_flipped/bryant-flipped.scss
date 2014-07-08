@@ -1,0 +1,28 @@
+/**
+ * @file
+ * Bryant Flipped panel layout
+**/
+
+@import "../base";
+
+.bryant-flipped-container {
+  margin-bottom: 1em;
+}
+
+@include breakpoint($breakpoint-iphone-width) {
+  .bryant-flipped-sidebar {
+    min-height: 1px;
+    width: 21.277%;
+    float: left;
+  }
+
+  .bryant-flipped-content {
+    min-height: 1px;
+    float: left;
+    width: 78.723%;
+  }
+
+  .bryant-flipped-content-inner {
+    margin-right: $gutter-width;
+  }
+}

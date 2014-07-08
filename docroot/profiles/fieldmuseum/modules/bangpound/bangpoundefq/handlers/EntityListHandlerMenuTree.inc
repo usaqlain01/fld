@@ -22,6 +22,7 @@ class EntityListHandlerMenuTree implements EntityListHandler {
     $defaults = array(
       'entity_type' => 'node',
       'menu_name'   => 'navigation',
+      'access' => TRUE,
     );
     $this->config = array_merge($defaults, $config);
   }
@@ -155,7 +156,7 @@ class EntityListHandlerMenuTree implements EntityListHandler {
     $config['follow'] = 'child';
     $tree = menu_tree_block_data($config);
     $entity_links = array();
-    bangpoundefq_menu_tree_collect_entity_links($tree, $entity_links, $this->entityType());
+    bangpoundefq_menu_tree_collect_entity_links($tree, $entity_links, $this->entityType(), $config['access']);
     $entities = entity_load($this->entityType(), array_keys($entity_links));
     return $entities;
   }
@@ -184,6 +185,12 @@ class EntityListHandlerMenuTree implements EntityListHandler {
       '#default_value' => $this->config['entity_type'],
       '#options' => $options,
       '#required' => TRUE,
+    );
+    $form['access'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Access'),
+      '#default_value' => $this->config['access'],
+      '#description' => t('Should entities rendered here be visible when the same menu is rendered elsewhere?'),
     );
 
     $menus = menu_block_get_all_menus();

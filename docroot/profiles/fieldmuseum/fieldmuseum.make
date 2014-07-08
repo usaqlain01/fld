@@ -17,6 +17,11 @@ projects[bangpoundefq][type] = module
 projects[bangpoundefq][download][url] = https://github.com/bangpound/bangpoundefq.git
 projects[bangpoundefq][download][type] = git
 
+projects[bangpoundpanels][subdir] = bangpound
+projects[bangpoundpanels][type] = module
+projects[bangpoundpanels][download][url] = https://github.com/bangpound/bangpoundpanels.git
+projects[bangpoundpanels][download][type] = git
+
 projects[bangpoundshare][subdir] = bangpound
 projects[bangpoundshare][type] = module
 projects[bangpoundshare][download][url] = https://github.com/bangpound/bangpoundshare.git
@@ -268,12 +273,6 @@ libraries[markdown][directory_name] = markdown
 libraries[markdown][destination] = libraries
 libraries[markdown][type] = library
 libraries[markdown][download][tag] = x1.2.8
-
-libraries[modernizr][download][type] = file
-libraries[modernizr][download][url] = http://modernizr.com/downloads/modernizr-latest.js
-libraries[modernizr][directory_name] = modernizr
-libraries[modernizr][destination] = libraries
-libraries[modernizr][type] = library
 
 libraries[pdf.js][download][type] = git
 libraries[pdf.js][download][url] = https://github.com/mozilla/pdf.js.git

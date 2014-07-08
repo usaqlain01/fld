@@ -1,0 +1,69 @@
+<?php
+
+/**
+ * Implements hook_panels_pre_render().
+ *
+ * Force style settings on panes in regions whose style has a 'pane style'.
+ */
+function bangpoundpanels_panels_pre_render($display, $renderer) {
+  $styles = panels_get_styles();
+  $default = !empty($display->panel_settings['style']) ? $display->panel_settings['style'] : 'default';
+
+  // Loop through each region of the display to inspect the region's style.
+  foreach (array_keys($renderer->plugins['layout']['regions']) as $region_id) {
+
+    // If the region's style has not been set or is -1 (display default), use display
+    // default.
+    if (empty($display->panel_settings[$region_id]['style']) || $display->panel_settings[$region_id]['style'] == -1) {
+      $style = $styles[$default];
+    }
+
+    // Otherwise, use the region's style.
+    else {
+      $style = $styles[$display->panel_settings[$region_id]['style']];
+    }
+
+    // If the region's style has a 'pane style' property, rewrite the style settings for
+    // every pane in that region.
+    if (isset($style['pane style'])) {
+      foreach ($display->panels[$region_id] as $pane_id) {
+        $display->content[$pane_id]->style['style'] = $style['pane style'];
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_contextual_links_view_alter().
+ */
+function bangpoundpanels_contextual_links_view_alter(&$element, &$items) {
+
+  // Add contextual link to edit mini block content.
+  if (isset($element['#element']['#block']) && $element['#element']['#block']->module == 'panels_mini' && user_access('administer mini panels')) {
+    $element['#links']['panels_mini-edit'] = array(
+      'title' => 'Edit panel',
+      'href' => 'admin/structure/mini-panels/list/'. $element['#element']['#block']->delta .'/edit/content',
+      'query' => drupal_get_destination(),
+    );
+  }
+}
+
+/**
+ * Implements hook_schema_alter().
+ */
+function bangpoundpanels_schema_alter(&$schema) {
+  if (module_exists('panels')) {
+    // Set default styles to naked.
+    $schema['panels_display']['fields']['panel_settings']['object default']['style'] = variable_get('bangpoundpanels_display_default_style', 'naked');
+    $schema['panels_pane']['fields']['style']['object default']['style'] = variable_get('bangpoundpanels_pane_default_style', 'naked');
+  }
+}
+
+/**
+ * Implements hook_ctools_plugin_directory()
+ */
+function bangpoundpanels_ctools_plugin_directory($module, $plugin) {
+  if (($module == 'ctools' && $plugin == 'content_types') || ($module == 'panels' && ($plugin == 'styles' || $plugin == 'layouts'))) {
+    return 'plugins/' . $plugin;
+  }
+}

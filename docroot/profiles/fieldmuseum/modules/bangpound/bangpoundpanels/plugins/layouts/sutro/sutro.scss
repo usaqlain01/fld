@@ -1,0 +1,30 @@
+/**
+ * @file
+ * Sutro panel layout
+**/
+
+@import "../base";
+
+.sutro-container {
+  margin-bottom: 1em;
+}
+
+@include breakpoint($breakpoint-iphone-width) {
+  .sutro-column {
+    min-height: 1px;
+    width: 51.064%;
+    float: left;
+  }
+
+  .sutro-column-inner {
+    margin-right: $gutter-width;
+  }
+
+  .sutro-column2 {
+    width: 48.936%;
+  }
+
+  .sutro-column2-inner {
+    margin-right: 0;
+  }
+}

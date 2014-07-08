@@ -1,0 +1,26 @@
+/**
+ * @file
+ * Phelan panel layout
+**/
+
+@import "../base";
+
+.phelan-container {
+  margin-bottom: 1em;
+}
+
+@include breakpoint($breakpoint-iphone-width) {
+  .phelan-column {
+    min-height: 1px;
+    width: 51.064%;
+    float: left;
+  }
+
+  .phelan-column1-inner {
+    margin-right: $gutter-width;
+  }
+
+  .phelan-column2 {
+    width: 48.936%;
+  }
+}

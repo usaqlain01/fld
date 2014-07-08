@@ -1,0 +1,39 @@
+/**
+ * @file
+ * Bartlett panel layout
+**/
+
+@import "../base";
+
+.bartlett-container,
+.bartlett-content-header {
+  margin-bottom: 1em;
+}
+
+@include breakpoint($breakpoint-iphone-width) {
+  .bartlett-column {
+    width: 34.043%;
+    float: left;
+  }
+
+  .bartlett-column-inner {
+    margin-right: $gutter-width;
+  }
+
+  .bartlett-content-container {
+/* This is floated to the left of the sidebar, which is styled by the generic
+   "bartlett-column" class */
+    float: left;
+    width: 65.957%;
+    .bartlett-content-column1 {
+      width: 51.613%;
+    }
+    .bartlett-content-column2 {
+      width: 48.387%;
+    }
+  }
+
+  .bartlett-content-column2-inner {
+    margin-right: 0;
+  }
+}

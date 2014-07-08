@@ -1,0 +1,24 @@
+/**
+ * @file
+ * Burr panel layout
+**/
+.burr-container {
+  margin-bottom: 1em;
+}
+
+@media (min-width: 480px) {
+  .burr-sidebar {
+    min-height: 1px;
+    width: 34.043%;
+    float: left;
+  }
+
+  .burr-sidebar-inner {
+    margin-right: 20px;
+  }
+
+  .burr-content {
+    float: left;
+    width: 65.957%;
+  }
+}

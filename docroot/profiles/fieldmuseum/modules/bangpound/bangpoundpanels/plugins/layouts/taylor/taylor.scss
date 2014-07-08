@@ -1,0 +1,34 @@
+/**
+ * @file
+ * Taylor panel layout
+**/
+
+@import "../base";
+
+.taylor-container {
+  margin-bottom: 1em;
+}
+
+@include breakpoint($breakpoint-iphone-width) {
+  .taylor-half {
+    width: 51.064%;
+    float: left;
+  }
+
+  .taylor-quarter1 {
+    min-height: 1px;
+    width: 25.532%;
+    float: left;
+  }
+
+  .taylor-half-inner,
+  .taylor-quarter1-inner {
+    margin-right: $gutter-width;
+  }
+
+  .taylor-quarter2 {
+    min-height: 1px;
+    width: 23.404%;
+    float: left;
+  }
+}

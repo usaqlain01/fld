@@ -1,0 +1,42 @@
+/**
+ * @file
+ * Webb panel layout
+**/
+
+@import "../base";
+
+.webb-container,
+.webb-content-header {
+  margin-bottom: 1em;
+}
+
+@include breakpoint($breakpoint-iphone-width) {
+  .webb-column {
+    min-height: 1px;
+    width: 34.043%; /* 320 / 940 */
+    float: left;
+  }
+
+  .webb-column-inner {
+    margin-right: $gutter-width;
+  }
+
+  .webb-content-column2-inner {
+    margin-right: 0;
+  }
+
+  .webb-content-container { /* This is floated to the left of the sidebar,
+    which is styled by the generic "webb-column" class */
+    min-height: 1px;
+    float: left;
+    width: 65.957%; /* 620 / 940 */
+  }
+
+  .webb-content-column1 {
+    width: 51.613%; /* 320 / 620 */
+  }
+
+  .webb-content-column2 {
+    width: 48.387%; /* 300 / 620 */
+  }
+}
