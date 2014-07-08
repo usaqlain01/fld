@@ -915,3 +915,18 @@ function esquif_preprocess_esquif_canoe(&$variables, $hook) {
     $variables['hero_image'] = $file;
   }
 }
+
+/**
+ * @see theme_links
+ * @param array $variables
+ * @return string
+ */
+function esquif_links__node__sharing($variables) {
+  $variables['attributes']['class'][] = 'socialShare';
+  foreach ($variables['links'] as $key => $value) {
+    unset($variables['links'][$key]);
+    $key .= ' socialShare__item';
+    $variables['links'][$key] = $value;
+  }
+  return theme_links($variables);
+}
