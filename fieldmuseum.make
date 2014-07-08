@@ -269,12 +269,6 @@ libraries[markdown][destination] = libraries
 libraries[markdown][type] = library
 libraries[markdown][download][tag] = x1.2.8
 
-libraries[modernizr][download][type] = file
-libraries[modernizr][download][url] = http://modernizr.com/downloads/modernizr-latest.js
-libraries[modernizr][directory_name] = modernizr
-libraries[modernizr][destination] = libraries
-libraries[modernizr][type] = library
-
 libraries[pdf.js][download][type] = git
 libraries[pdf.js][download][url] = https://github.com/mozilla/pdf.js.git
 libraries[pdf.js][destination] = libraries
