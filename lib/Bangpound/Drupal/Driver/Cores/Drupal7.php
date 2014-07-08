@@ -9,13 +9,13 @@ class Drupal7 extends BaseDriver {
   /**
    * Given a node object, expand fields to match the format expected by node_save().
    *
-   * @param stdClass $entity
+   * @param \stdClass $entity
    *   Entity object.
    * @param string $entityType
    *   Entity type, defaults to node.
    * @param string $bundle
    *   Entity bundle.
-   * @return \Bangpound\Drupal\Driver\Cores\stdClass|\Drupal\Driver\Cores\stdClass|\stdClass
+   * @return \stdClass
    */
   function expandEntityFields(\stdClass $entity, $entityType = 'node', $bundle = '') {
     if ($entityType === 'node' && !$bundle) {
