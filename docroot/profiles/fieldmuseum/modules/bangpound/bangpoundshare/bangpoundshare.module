@@ -1,0 +1,326 @@
+<?php
+
+function bangpoundshare_menu() {
+  $items['admin/config/services/share/stats'] = array(
+    'title' => 'Statistics',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('bangpoundshare_admin'),
+    'file' => 'bangpoundshare.admin.inc',
+    'access arguments' => array('administer site configuration'),
+    'type' => MENU_LOCAL_TASK,
+  );
+  return $items;
+}
+
+/**
+ * Implements hook_menu_alter().
+ *
+ * Instead of rewriting ctools export UI's hook_menu implementations, alter
+ * the callback items to have a common menu item.
+ */
+function bangpoundshare_menu_alter(&$items) {
+  $items['admin/config/services/share'] = $items['admin/config/services/share/links'];
+  $items['admin/config/services/share']['title'] = '!&# Share';
+  $items['admin/config/services/share/links']['type'] = MENU_DEFAULT_LOCAL_TASK;
+}
+
+/**
+ * Implement hook_ctools_plugin_directory().
+ */
+function bangpoundshare_ctools_plugin_directory($module, $plugin) {
+  if ($module == 'ctools' && ($plugin == 'export_ui' || $plugin == 'access')) {
+    return 'plugins/' . $plugin;
+  }
+  if ($module == 'bangpoundshare' && $plugin == 'services') {
+    return 'plugins/services';
+  }
+}
+
+/**
+ * Implements hook_ctools_plugin_api().
+ */
+function bangpoundshare_ctools_plugin_api($module, $api) {
+  if ($module == 'bangpoundshare' && $api == 'links') {
+    return array('version' => 1);
+  }
+}
+
+/**
+ * Implement hook_entity_view().
+ */
+function bangpoundshare_entity_view($entity, $type, $view_mode, $langcode) {
+  $fast_access = variable_get('bangpoundshare_fast_access', array());
+  if (!isset($fast_access[$type]) || (!in_array($view_mode, $fast_access[$type]))) {
+    return;
+  }
+
+  ctools_include('export');
+  ctools_include('context');
+
+  // Load up any contexts we might be using.
+  $context = array();
+  $context[] = ctools_context_create('entity:'. $type, $entity);
+  $context[] = ctools_context_create('string', $view_mode);
+
+  $links = array();
+  $args = array('entity_type' => $type);
+  $items = ctools_export_load_object('bangpoundshare_links', 'conditions', $args);
+  foreach ($items as $item) {
+
+    if (empty($item) || !empty($item->disabled)) {
+      continue;
+    }
+
+    // Every item in this set will have the same requiredcontexts which are determined by
+    // the entity and the view mode.
+    if (!isset($contexts)) {
+      $contexts = ctools_context_match_required_contexts($item->requiredcontexts, $context);
+    }
+    $item->context = ctools_context_load_contexts($item, FALSE, $contexts);
+
+    if (!ctools_access($item->access, $item->context)) {
+      continue;
+    }
+
+    $link = array();
+
+    $link['path'] = ctools_context_keyword_substitute($item->path, array(), $item->context, array('sanitize' => FALSE));
+    $url = parse_url($link['path']);
+    if (isset($url['query'])) {
+      $link['path'] = strtr($link['path'], array('?' . $url['query'] => ''));
+      $link['query'] = drupal_get_query_array($url['query']);
+    }
+    if (isset($url['fragment'])) {
+      $link['path'] = strtr($link['path'], array('#' . $url['fragment'] => ''));
+      $link['fragment'] = $url['fragment'];
+    }
+    $link['href'] = rtrim($link['path'], '?');
+    $link['title'] = $item->text;
+    $link['html'] = !empty($item->html) ? TRUE : FALSE;
+    $link['attributes'] = $item->attributes;
+
+    $links[$item->name] = $link;
+  }
+
+  if (!empty($links)) {
+    $entity->content['links']['sharing'] = array(
+      '#theme' => 'links__'. $type .'__sharing',
+      '#links' => $links,
+      '#attributes' => array('class' => array('links', 'inline')),
+    );
+    $entity->content['links']['#attached']['library'][] = array('bangpoundshare', 'links');
+  }
+
+  // Update statistics.
+  $types = variable_get('bangpoundshare_stats_entity_types', array('node'));
+  if (in_array($type, $types)) {
+
+    ctools_include('plugins');
+    $plugins = array();
+    foreach (variable_get('bangpoundshare_stats_plugins', array()) as $plugin) {
+      $plugins[$plugin] = ctools_get_plugins('bangpoundshare', 'services', $plugin);
+    }
+
+    $queue = DrupalQueue::get('bangpoundshare_stats');
+
+    list($id) = entity_extract_ids($type, $entity);
+    $results = bangpoundshare_load($type, $id);
+    foreach ($plugins as $plugin) {
+      if (isset($results[$plugin['name']])) {
+        $result = current($results[$plugin['name']]);
+        if (($plugin['max_age'] < (time() - $result['changed'])) && empty($result['pending'])) {
+          db_update('bangpoundshare_stats')
+            ->fields(array(
+              'pending' => 1,
+            ))
+            ->condition('entity_type', $type)
+            ->condition('entity_id', $id)
+            ->condition('service', $plugin['name'])
+            ->execute();
+        }
+      }
+      else {
+        $data = array(
+          'entity_type' => $type,
+          'entity_id' => $id,
+          'refresh' => time(),
+          'service' => $plugin['name'],
+          'metric' => $plugin['metrics'][0],
+          'pending' => 1,
+        );
+        $queue->createItem($data);
+      }
+    }
+  }
+}
+
+/**
+ * Returns analytics for a URL.
+ */
+function bangpoundshare_data($entity_type, $entity, $service_id) {
+  ctools_include('plugins');
+
+  $uri = entity_uri($entity_type, $entity);
+  $uri['options']['absolute'] = TRUE;
+  $url = url($uri['path'], $uri['options']);
+  $plugin = ctools_get_plugins('bangpoundshare', 'services', $service_id);
+  $handler = bangpoundshare_get_handler($plugin);
+  $handler->request($url);
+  $handler->parse();
+  return $handler->result();
+}
+
+/**
+ * Loads statistics for a URL.
+ */
+function bangpoundshare_load($entity_type, $entity_id) {
+  $results = db_select('bangpoundshare_stats', 'a')
+    ->fields('a', array('service', 'metric', 'value', 'refresh', 'changed', 'pending'))
+    ->condition('entity_type', $entity_type)
+    ->condition('entity_id', $entity_id)
+    ->execute()
+    ->fetchAll();
+
+  $analytics = array();
+
+  foreach ($results as $result) {
+    $analytics[$result->service][$result->metric] = array(
+      'value' => $result->value,
+      'changed' => $result->changed,
+      'pending' => $result->pending,
+    );
+  }
+
+  return $analytics;
+}
+
+/**
+ * Saves statistics for a URL.
+ */
+function bangpoundshare_save($row) {
+  $plugin = ctools_get_plugins('bangpoundshare', 'services', $row->service);
+  foreach ($plugin['metrics'] as $metric) {
+    db_merge('bangpoundshare_stats')
+      ->key(array(
+        'entity_type' => $row->entity_type,
+        'entity_id' => $row->entity_id,
+        'service' => $row->service,
+        'metric' => $metric,
+      ))
+      ->fields(array(
+        'value' => is_array($row->value) ? $row->value[$metric] : $row->value,
+        'refresh' => time() + $plugin['max_age'],
+        'changed' => time(),
+        'pending' => 0,
+      ))
+      ->execute();
+  }
+}
+
+/**
+ * Implements hook_views_api().
+ */
+function bangpoundshare_views_api() {
+  return array(
+    'api' => 3,
+  );
+}
+
+/**
+ * Implement hook_cron().
+ */
+function bangpoundshare_cron() {
+
+  // Reset expired items in the default queue implementation table. If that's
+  // not used, this will simply be a no-op.
+  db_update('bangpoundshare_stats')
+    ->fields(array(
+      'expire' => 0,
+    ))
+    ->condition('expire', 0, '<>')
+    ->condition('expire', REQUEST_TIME, '<')
+    ->execute();
+}
+
+/**
+ * Implements hook_cron_queue_info().
+ */
+function bangpoundshare_cron_queue_info() {
+  $queues['bangpoundshare_stats'] = array(
+    'worker callback' => 'bangpoundshare_refresh',
+    'time' => 60,
+  );
+  return $queues;
+}
+
+function bangpoundshare_refresh($data) {
+  $entities = entity_load($data->entity_type, array($data->entity_id), array(), FALSE);
+  $entity = reset($entities);
+
+  $result = new stdClass;
+  $result->entity_type = $data->entity_type;
+  $result->entity_id = $data->entity_id;
+  $result->service = $data->service;
+
+  $value = bangpoundshare_data($data->entity_type, $entity, $data->service);
+  if ($value) {
+    $result->value = $value;
+  }
+  else {
+    $result->value = 0;
+  }
+  bangpoundshare_save($result);
+}
+
+/**
+ * Implements hook_ctools_plugin_type().
+ */
+function bangpoundshare_ctools_plugin_type() {
+  $plugins['services'] = array(
+    'defaults' => array(
+      'max_age' => 3600,
+      'handler' => array(
+        'class' => 'ServiceLinksAnalyticsService',
+      ),
+      'metrics' => array(
+        'count',
+      ),
+    ),
+  );
+  return $plugins;
+}
+
+function bangpoundshare_get_handler($plugin) {
+  $cache = &drupal_static(__FUNCTION__, array());
+  if (empty($cache[$plugin['name']])) {
+    $class = ctools_plugin_get_class($plugin, 'handler');
+
+    if ($class) {
+      $cache[$plugin['name']] = new $class();
+      $cache[$plugin['name']]->init($plugin);
+    }
+  }
+  return !empty($cache[$plugin['name']]) ? $cache[$plugin['name']] : FALSE;
+}
+
+/**
+ * Implements hook_entity_delete().
+ */
+function bangpoundshare_entity_delete($entity, $type) {
+  list($id) = entity_extract_ids($type, $entity);
+  db_delete('bangpoundshare_stats')->condition('entity_type', $type)->condition('entity_id', $id)->execute();
+}
+
+/**
+ * Implements hook_library().
+ */
+function bangpoundshare_library() {
+  $libraries['links'] = array(
+    'title' => '!&# Share links',
+    'version' => '1.0-dev',
+    'js' => array(
+      drupal_get_path('module', 'bangpoundshare') . '/bangpoundshare.links.js' => array(),
+    ),
+  );
+  return $libraries;
+}

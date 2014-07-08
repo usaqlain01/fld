@@ -6,9 +6,9 @@ php = 5.3
 
 configure = admin/config/system/composer-manager
 
-; Information added by Drupal.org packaging script on 2014-06-04
-version = "7.x-1.5"
+; Information added by Drupal.org packaging script on 2014-07-03
+version = "7.x-1.6"
 core = "7.x"
 project = "composer_manager"
-datestamp = "1401900829"
+datestamp = "1404408230"
 

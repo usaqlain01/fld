@@ -1,0 +1,34 @@
+/**
+ * @file
+ * Whelan panel layout
+**/
+
+@import "../base";
+
+.whelan-container {
+  margin-bottom: 1em;
+}
+
+@include breakpoint($breakpoint-iphone-width) {
+  .whelan-column-content-region {
+    min-height: 1px;
+    width: 25.532%;
+    float: left;
+  }
+
+  .whelan-column-content-region-inner {
+    margin-right: $gutter-width;
+  }
+
+  .whelan-column2 {
+    width: 23.404%;
+  }
+
+  .whelan-column2-inner {
+    margin-right: 0;
+  }
+
+  .whelan-content {
+    width: 51.064%;
+  }
+}

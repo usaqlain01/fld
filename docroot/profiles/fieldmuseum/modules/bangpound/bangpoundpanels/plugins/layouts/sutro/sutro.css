@@ -1,0 +1,27 @@
+/**
+ * @file
+ * Sutro panel layout
+**/
+.sutro-container {
+  margin-bottom: 1em;
+}
+
+@media (min-width: 480px) {
+  .sutro-column {
+    min-height: 1px;
+    width: 51.064%;
+    float: left;
+  }
+
+  .sutro-column-inner {
+    margin-right: 20px;
+  }
+
+  .sutro-column2 {
+    width: 48.936%;
+  }
+
+  .sutro-column2-inner {
+    margin-right: 0;
+  }
+}

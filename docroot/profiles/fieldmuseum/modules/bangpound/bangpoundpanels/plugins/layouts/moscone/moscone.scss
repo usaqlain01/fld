@@ -1,0 +1,28 @@
+/**
+ * @file
+ * Moscone panel layout
+**/
+
+@import "../base";
+
+.moscone-container {
+  margin-bottom: 1em;
+}
+
+@include breakpoint($breakpoint-iphone-width) {
+  .moscone-sidebar {
+    min-height: 1px;
+    width: 34.043%;
+    float: left;
+  }
+
+  .moscone-sidebar-inner {
+    margin-right: $gutter-width;
+  }
+
+  .moscone-content {
+    min-height: 1px;
+    width: 65.957%;
+    float: left;
+  }
+}

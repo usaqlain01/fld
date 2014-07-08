@@ -1,0 +1,27 @@
+/**
+ * @file
+ * Brenham panel layout
+**/
+
+@import "../base";
+
+.brenham-container {
+  margin-bottom: 1em;
+}
+
+@include breakpoint($breakpoint-iphone-width) {
+  .brenham-sidebar {
+    min-height: 1px;
+    width: 34.043%;
+    float: left;
+  }
+
+  .brenham-sidebar-inner {
+    margin-right: $gutter-width;
+  }
+
+  .brenham-content {
+    width: 65.957%;
+    float: left;
+  }
+}

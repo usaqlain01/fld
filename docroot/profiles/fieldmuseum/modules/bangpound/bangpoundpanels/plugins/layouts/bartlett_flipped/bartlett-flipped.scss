@@ -1,0 +1,50 @@
+/**
+ * @file
+ * Bartlett Flipped panel layout
+**/
+
+@import "../base";
+
+.bartlett-flipped-container,
+.bartlett-flipped-content-header {
+  margin-bottom: 1em;
+}
+
+@include breakpoint($breakpoint-iphone-width) {
+  .bartlett-flipped-column {
+    width: 34.043%;
+    float: left;
+  }
+
+  .bartlett-flipped-column-inner {
+    margin-right: $gutter-width;
+  }
+
+  .bartlett-flipped-content-column2-inner,
+  .bartlett-flipped-sidebar-inner {
+    margin-right: 0;
+  }
+
+  .bartlett-flipped .bartlett-flipped-sidebar {
+    width: 31.915%;
+  }
+
+  .bartlett-flipped-content-container { /* This is floated to the left of the sidebar,
+  which is styled by the generic "bartlett-flipped-column" class */
+    float: left;
+    width: 68.085%;
+  }
+
+  .bartlett-flipped-content-container-inner {
+    margin-right: $gutter-width;
+  }
+
+  .bartlett-flipped-content-container {
+    .bartlett-flipped-content-column1 {
+      width: 51.613%;
+    }
+    .bartlett-flipped-content-column2 {
+      width: 48.387%;
+    }
+  }
+}

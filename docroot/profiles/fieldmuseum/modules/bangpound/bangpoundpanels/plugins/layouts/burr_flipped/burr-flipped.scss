@@ -1,0 +1,27 @@
+/**
+ * @file
+ * Burr panel layout
+**/
+
+@import "../base";
+
+.burr-flipped-container {
+  margin-bottom: 1em;
+}
+
+@include breakpoint($breakpoint-iphone-width) {
+  .burr-flipped-sidebar {
+    min-height: 1px;
+    width: 31.915%;
+    float: left;
+  }
+
+  .burr-flipped-content {
+    float: left;
+    width: 68.085%;
+  }
+
+  .burr-flipped-content-inner {
+    margin-right: $gutter-width;
+  }
+}

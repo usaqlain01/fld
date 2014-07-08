@@ -1,0 +1,30 @@
+/**
+ * @file
+ * Sutro Double panel layout
+**/
+
+@import "../base";
+
+.sutro-double-container {
+  margin-bottom: 1em;
+}
+
+@include breakpoint($breakpoint-iphone-width) {
+  .sutro-double-column {
+    min-height: 1px;
+    width: 51.064%;
+    float: left;
+  }
+
+  .sutro-double-column-inner {
+    margin-right: $gutter-width;
+  }
+
+  .sutro-double-column2 {
+    width: 48.936%;
+  }
+
+  .sutro-double-column2-inner {
+    margin-right: 0;
+  }
+}

@@ -1,0 +1,199 @@
+<?php
+
+/**
+ * Schema for CTools custom content.
+ */
+function bangpoundshare_schema() {
+  $schema = bangpoundshare_schema_1();
+
+  $schema['bangpoundshare_stats'] = array(
+    'description' => 'TODO: please describe this table!',
+    'fields' => array(
+      'entity_type' => array(
+        'description' => 'The entity type this data is attached to',
+        'type' => 'varchar',
+        'length' => '128',
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'entity_id' => array(
+        'description' => 'The entity id this data is attached to',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'service' => array(
+        'description' => 'Name of service',
+        'type' => 'varchar',
+        'length' => '255',
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'metric' => array(
+        'description' => 'Service metric',
+        'type' => 'varchar',
+        'length' => '255',
+        'not null' => TRUE,
+        'default' => 'count',
+      ),
+      'value' => array(
+        'description' => 'Actual stats',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => FALSE,
+      ),
+      'changed' => array(
+        'description' => 'Timestamp when the item was last updated.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => FALSE,
+        'default' => 0,
+      ),
+      'refresh' => array(
+        'description' => 'Timestamp when the item should be refreshed (max age).',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => FALSE,
+        'default' => 0,
+      ),
+      'expire' => array(
+        'description' => 'Timestamp when the claim lease expires on the item.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => FALSE,
+        'default' => 0,
+      ),
+      'pending' => array(
+        'description' => 'Flag indicates if item should be updated',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+        'size' => 'tiny',
+      ),
+    ),
+    'primary key' => array('entity_type', 'entity_id', 'service', 'metric'),
+    'indexes' => array(
+      'expire' => array('expire'),
+      'refresh' => array('refresh'),
+      'value' => array('value'),
+    ),
+  );
+
+  return $schema;
+}
+
+function bangpoundshare_schema_1() {
+  $schema = array();
+
+  $schema['bangpoundshare_links'] = array(
+    'description' => 'TODO: please describe this table!',
+    'export' => array(
+      'identifier' => 'link',
+      'primary key' => 'lid',
+      'object' => 'bangpoundShareLink',
+      'api' => array(
+        'owner' => 'bangpoundshare',
+        'api' => 'links',
+        'minimum_version' => 1,
+        'current_version' => 1,
+      ),
+    ),
+    'fields' => array(
+      'lid' => array(
+        'description' => 'TODO: please describe this field!',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'no export' => TRUE,
+      ),
+      'name' => array(
+        'type' => 'varchar',
+        'length' => '255',
+        'description' => 'Unique ID for this content. Used to identify it programmatically.',
+      ),
+      'admin_title' => array(
+        'type' => 'varchar',
+        'length' => '255',
+        'description' => 'Administrative title for this content.',
+      ),
+      'admin_description' => array(
+        'type' => 'text',
+        'size' => 'big',
+        'description' => 'Administrative description for this content.',
+        'object default' => '',
+      ),
+      'category' => array(
+        'type' => 'varchar',
+        'length' => '255',
+        'description' => 'Administrative category for this content.',
+      ),
+      'entity_type' => array(
+        'type' => 'varchar',
+        'length' => 128,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'The entity type this data is attached to.',
+      ),
+      'contexts' => array(
+        'type' => 'text',
+        'size' => 'big',
+        'serialize' => TRUE,
+        'object default' => array(),
+        'description' => 'An array of contexts embedded into the panel.',
+      ),
+      'relationships' => array(
+        'type' => 'text',
+        'size' => 'big',
+        'serialize' => TRUE,
+        'object default' => array(),
+        'description' => 'An array of relationships embedded into the panel.',
+      ),
+      'access' => array(
+        'type' => 'text',
+        'size' => 'big',
+        'description' => 'Access configuration for this path.',
+        'not null' => TRUE,
+        'serialize' => TRUE,
+        'object default' => array(),
+      ),
+      'text' => array(
+        'description' => 'TODO: please describe this field!',
+        'type' => 'varchar',
+        'length' => '255',
+        'not null' => FALSE,
+      ),
+      'path' => array(
+        'description' => 'TODO: please describe this field!',
+        'type' => 'varchar',
+        'length' => '255',
+        'not null' => FALSE,
+      ),
+      'html' => array(
+        'type' => 'int',
+        'size' => 'tiny',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'attributes' => array(
+        'description' => 'TODO: please describe this field!',
+        'type' => 'text',
+        'size' => 'big',
+        'serialize' => TRUE,
+        'object default' => array(
+          'class' => array(),
+        ),
+      ),
+    ),
+    'primary key' => array('lid'),
+  );
+
+  return $schema;
+}
+
+/**
+ * Implements hook_enable().
+ */
+function bangpoundshare_enable() {
+  variable_set('queue_class_bangpoundshare_stats', 'ServiceLinksAnalyticsQueue');
+}
