@@ -10,6 +10,8 @@ configure = admin/structure/fieldable-panels-panes
 
 files[] = includes/PanelsPaneController.class.php
 files[] = includes/translation.handler.fieldable_panels_pane.inc
+files[] = includes/fieldable_panels_pane.migrate.inc
+
 files[] = plugins/views/fieldable_panels_panes_handler_argument_bundle.inc
 files[] = plugins/views/fieldable_panels_panes_handler_field_bundle.inc
 files[] = plugins/views/fieldable_panels_panes_handler_field_delete_entity.inc
@@ -30,9 +32,9 @@ files[] = fieldable_panels_panes.info.inc
 ; Inline Entity Form integration.
 files[] = includes/FieldablePanelsPaneInlineEntityFormController.class.php
 
-; Information added by Drupal.org packaging script on 2014-06-10
-version = "7.x-1.5+15-dev"
+; Information added by Drupal.org packaging script on 2014-07-07
+version = "7.x-1.5+18-dev"
 core = "7.x"
 project = "fieldable_panels_panes"
-datestamp = "1402436628"
+datestamp = "1404767029"
 

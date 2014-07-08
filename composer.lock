@@ -1187,12 +1187,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phingofficial/phing.git",
-                "reference": "1e06b42fa8f4c5119eda8e9dd39c412250435e24"
+                "reference": "1b66576d8117dce9fb3590f1b72749d527f42a3d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phingofficial/phing/zipball/1e06b42fa8f4c5119eda8e9dd39c412250435e24",
-                "reference": "1e06b42fa8f4c5119eda8e9dd39c412250435e24",
+                "url": "https://api.github.com/repos/phingofficial/phing/zipball/1b66576d8117dce9fb3590f1b72749d527f42a3d",
+                "reference": "1b66576d8117dce9fb3590f1b72749d527f42a3d",
                 "shasum": ""
             },
             "require": {
@@ -1250,7 +1250,7 @@
                 "task",
                 "tool"
             ],
-            "time": "2014-07-01 14:18:47"
+            "time": "2014-07-02 13:17:29"
         },
         {
             "name": "phpunit/php-code-coverage",

@@ -58,10 +58,10 @@ Drupal.media.popups.mediaBrowser = function (onSelect, globalOptions, pluginOpti
   var mediaIframe = Drupal.media.popups.getPopupIframe(browserSrc, 'mediaBrowser');
   // Attach the onLoad event
   mediaIframe.bind('load', options, options.widget.onLoad);
+
   /**
    * Setting up the modal dialog
    */
-
   var ok = 'OK';
   var notSelected = 'You have not selected anything!';
 
@@ -288,16 +288,20 @@ Drupal.media.popups.mediaFieldEditor.getDefaults = function () {
  */
 Drupal.media.popups.getDialogOptions = function () {
   return {
-    title: Drupal.t('Media browser'),
     buttons: {},
-    dialogClass: 'media-wrapper',
-    modal: true,
-    draggable: false,
-    resizable: false,
-    width: 'auto',
-    height: 'auto',
-    position: 'center',
-    zIndex: 10000,
+    dialogClass: Drupal.settings.media.dialogOptions.dialogclass,
+    modal: Drupal.settings.media.dialogOptions.modal,
+    draggable: Drupal.settings.media.dialogOptions.draggable,
+    resizable: Drupal.settings.media.dialogOptions.resizable,
+    minWidth: Drupal.settings.media.dialogOptions.minwidth,
+    width: Drupal.settings.media.dialogOptions.width,
+    height: Drupal.settings.media.dialogOptions.height,
+    position: Drupal.settings.media.dialogOptions.position,
+    overlay: {
+      backgroundColor: Drupal.settings.media.dialogOptions.overlay.backgroundcolor,
+      opacity: Drupal.settings.media.dialogOptions.overlay.opacity
+    },
+    zIndex: Drupal.settings.media.dialogOptions.zindex,
     close: function (event, ui) {
       $(event.target).remove();
     }
