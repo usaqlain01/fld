@@ -17,6 +17,11 @@ projects[bangpoundefq][type] = module
 projects[bangpoundefq][download][url] = https://github.com/bangpound/bangpoundefq.git
 projects[bangpoundefq][download][type] = git
 
+projects[bangpoundpanels][subdir] = bangpound
+projects[bangpoundpanels][type] = module
+projects[bangpoundpanels][download][url] = https://github.com/bangpound/bangpoundpanels.git
+projects[bangpoundpanels][download][type] = git
+
 projects[bangpoundshare][subdir] = bangpound
 projects[bangpoundshare][type] = module
 projects[bangpoundshare][download][url] = https://github.com/bangpound/bangpoundshare.git
