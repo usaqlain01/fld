@@ -75,7 +75,12 @@ function fieldmuseum_ctools_plugin_directory($module, $plugin) {
  * Implement hook_image_effect_info_alter().
  */
 function fieldmuseum_image_effect_info_alter(&$effects) {
-  $effects['imagecrop_javascript']['effect callback'] = 'fieldmuseum_imagecrop_effect';
+  if ($effects['imagecrop_javascript']['effect callback'] == 'imagecrop_effect') {
+    $effects['imagecrop_javascript']['effect callback'] = 'fieldmuseum_imagecrop_effect';
+  }
+  if ($effects['imagecrop_reuse']['effect callback'] == 'imagecrop_reuse_effect') {
+    $effects['imagecrop_reuse']['effect callback'] = 'fieldmuseum_imagecrop_reuse_effect';
+  }
 }
 
 /**
@@ -85,6 +90,26 @@ function fieldmuseum_image_effect_info_alter(&$effects) {
  * smartcrop.
  */
 function fieldmuseum_imagecrop_effect(&$image, $data) {
+  return fieldmuseum_smartcrop($image, $data, 'imagecrop_effect');
+}
+
+/**
+ * @param $image
+ * @param $data
+ * @return mixed
+ */
+function fieldmuseum_imagecrop_reuse_effect(&$image, $data) {
+  $GLOBALS['imagecrop_style'] = $data['imagecrop_style'];
+  return fieldmuseum_smartcrop($image, $data, 'imagecrop_reuse_effect');
+}
+
+/**
+ * @param $image
+ * @param $data
+ * @param $callback
+ * @return mixed
+ */
+function fieldmuseum_smartcrop(&$image, $data, $callback) {
   $fid = db_select('file_managed')
     ->fields('file_managed', array('fid'))
     ->condition('uri', $image->source)
@@ -126,7 +151,7 @@ function fieldmuseum_imagecrop_effect(&$image, $data) {
     }
   }
 
-  return imagecrop_effect($image, $data);
+  return $callback($image, $data);
 }
 
 /**

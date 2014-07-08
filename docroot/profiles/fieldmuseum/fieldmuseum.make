@@ -152,6 +152,9 @@ projects[multiform][version] = 1.1
 projects[navbar][subdir] = contrib
 projects[navbar][version] = 1.x-dev
 
+projects[node_convert][subdir] = contrib
+projects[node_convert][version] = 1.2
+
 projects[oembed][subdir] = contrib
 projects[oembed][version] = 1.x-dev
 
