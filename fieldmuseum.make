@@ -24,7 +24,7 @@ projects[classloader][subdir] = contrib
 projects[classloader][version] = 1.1
 
 projects[composer_manager][subdir] = contrib
-projects[composer_manager][version] = 1.5
+projects[composer_manager][version] = 1.6
 
 projects[ctools][subdir] = contrib
 projects[ctools][version] = 1.4
@@ -63,7 +63,7 @@ projects[environment_indicator][subdir] = contrib
 projects[environment_indicator][contrib] = 2.5
 
 projects[facetapi][subdir] = contrib
-projects[facetapi][version] = 1.3
+projects[facetapi][version] = 1.4
 
 projects[features][subdir] = contrib
 projects[features][version] = 2.0
