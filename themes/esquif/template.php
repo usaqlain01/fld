@@ -393,15 +393,17 @@ function esquif_links__system_main_menu($variables) {
  * @param $hook
  */
 function esquif_preprocess_menu_block_wrapper(&$variables, $hook) {
-  if ($variables['theme_hook_suggestion'] == 'menu_block_wrapper__main_menu__footer') {
-    foreach (element_children($variables['content']) as $child) {
-      $variables['content'][$child]['#attributes']['class'][] = 'navFooter__item';
+  if (isset($variables['theme_hook_suggestion'])) {
+    if ($variables['theme_hook_suggestion'] == 'menu_block_wrapper__main_menu__footer') {
+      foreach (element_children($variables['content']) as $child) {
+        $variables['content'][$child]['#attributes']['class'][] = 'navFooter__item';
+      }
     }
-  }
 
-  if ($variables['theme_hook_suggestion'] == 'menu_block_wrapper__main_menu__section') {
-    foreach (element_children($variables['content']) as $child) {
-      $variables['content'][$child]['#attributes']['class'][] = 'navLevel1__item';
+    if ($variables['theme_hook_suggestion'] == 'menu_block_wrapper__main_menu__section') {
+      foreach (element_children($variables['content']) as $child) {
+        $variables['content'][$child]['#attributes']['class'][] = 'navLevel1__item';
+      }
     }
   }
 }
