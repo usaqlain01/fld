@@ -98,6 +98,34 @@ EOT;
   drupal_add_js($script, array('type' => 'inline', 'scope' => 'header_force'));
 
   drupal_add_js(drupal_get_path('theme', 'esquif') .'/js/head.js', array('scope' => 'header_force'));
+
+  /** @see zen_preprocess_html */
+  // Use the menu item page callback to add template suggestions
+  $menu_item = menu_get_item();
+  if ($menu_item) {
+    switch ($menu_item['page_callback']) {
+      case 'views_page':
+        // Is this a Views page?
+        $variables['theme_hook_suggestions'][] = 'page__views';
+        break;
+      case 'page_manager_blog':
+      case 'page_manager_blog_user':
+      case 'page_manager_contact_site':
+      case 'page_manager_contact_user':
+      case 'page_manager_node_add':
+      case 'page_manager_node_edit':
+      case 'page_manager_node_view_page':
+      case 'page_manager_page_execute':
+      case 'page_manager_poll':
+      case 'page_manager_search_page':
+      case 'page_manager_term_view_page':
+      case 'page_manager_user_edit_page':
+      case 'page_manager_user_view_page':
+        // Is this a Panels page?
+        $variables['theme_hook_suggestions'][] = 'page__panels';
+        break;
+    }
+  }
 }
 
 /**
@@ -365,15 +393,17 @@ function esquif_links__system_main_menu($variables) {
  * @param $hook
  */
 function esquif_preprocess_menu_block_wrapper(&$variables, $hook) {
-  if ($variables['theme_hook_suggestion'] == 'menu_block_wrapper__main_menu__footer') {
-    foreach (element_children($variables['content']) as $child) {
-      $variables['content'][$child]['#attributes']['class'][] = 'navFooter__item';
+  if (isset($variables['theme_hook_suggestion'])) {
+    if ($variables['theme_hook_suggestion'] == 'menu_block_wrapper__main_menu__footer') {
+      foreach (element_children($variables['content']) as $child) {
+        $variables['content'][$child]['#attributes']['class'][] = 'navFooter__item';
+      }
     }
-  }
 
-  if ($variables['theme_hook_suggestion'] == 'menu_block_wrapper__main_menu__section') {
-    foreach (element_children($variables['content']) as $child) {
-      $variables['content'][$child]['#attributes']['class'][] = 'navLevel1__item';
+    if ($variables['theme_hook_suggestion'] == 'menu_block_wrapper__main_menu__section') {
+      foreach (element_children($variables['content']) as $child) {
+        $variables['content'][$child]['#attributes']['class'][] = 'navLevel1__item';
+      }
     }
   }
 }
@@ -884,4 +914,19 @@ function esquif_preprocess_esquif_canoe(&$variables, $hook) {
     $file = $context->data;
     $variables['hero_image'] = $file;
   }
+}
+
+/**
+ * @see theme_links
+ * @param array $variables
+ * @return string
+ */
+function esquif_links__node__sharing($variables) {
+  $variables['attributes']['class'][] = 'socialShare';
+  foreach ($variables['links'] as $key => $value) {
+    unset($variables['links'][$key]);
+    $key .= ' socialShare__item';
+    $variables['links'][$key] = $value;
+  }
+  return theme_links($variables);
 }

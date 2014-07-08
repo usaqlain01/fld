@@ -17,6 +17,11 @@ projects[bangpoundefq][type] = module
 projects[bangpoundefq][download][url] = https://github.com/bangpound/bangpoundefq.git
 projects[bangpoundefq][download][type] = git
 
+projects[bangpoundshare][subdir] = bangpound
+projects[bangpoundshare][type] = module
+projects[bangpoundshare][download][url] = https://github.com/bangpound/bangpoundshare.git
+projects[bangpoundshare][download][type] = git
+
 projects[better_formats][subdir] = contrib
 projects[better_formats][version] = 1.x-dev
 
@@ -24,7 +29,7 @@ projects[classloader][subdir] = contrib
 projects[classloader][version] = 1.1
 
 projects[composer_manager][subdir] = contrib
-projects[composer_manager][version] = 1.5
+projects[composer_manager][version] = 1.6
 
 projects[ctools][subdir] = contrib
 projects[ctools][version] = 1.4
@@ -63,7 +68,7 @@ projects[environment_indicator][subdir] = contrib
 projects[environment_indicator][contrib] = 2.5
 
 projects[facetapi][subdir] = contrib
-projects[facetapi][version] = 1.3
+projects[facetapi][version] = 1.4
 
 projects[features][subdir] = contrib
 projects[features][version] = 2.0
