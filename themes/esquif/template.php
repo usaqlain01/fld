@@ -146,6 +146,8 @@ function esquif_preprocess_node(&$variables, $hook) {
       $variables['theme_hook_suggestion'] = 'node__event_mode';
   }
 
+  $variables['classes_array'][] = $variables['view_mode'];
+
   // Optionally, run node-type-specific preprocess functions, like
   // esquif_preprocess_node_page() or esquif_preprocess_node_story().
   $function = __FUNCTION__ . '_' . $variables['node']->type;
