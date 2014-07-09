@@ -146,6 +146,8 @@ function esquif_preprocess_node(&$variables, $hook) {
       $variables['theme_hook_suggestion'] = 'node__event_mode';
   }
 
+  $variables['classes_array'][] = $variables['view_mode'];
+
   // Optionally, run node-type-specific preprocess functions, like
   // esquif_preprocess_node_page() or esquif_preprocess_node_story().
   $function = __FUNCTION__ . '_' . $variables['node']->type;
@@ -761,6 +763,7 @@ function esquif_item_list__pager($variables) {
  *   - parameters: An associative array of query string parameters to append to
  *     the pager links.
  *
+ * @return string
  * @ingroup themeable
  */
 function esquif_pager_first($variables) {
@@ -876,6 +879,7 @@ function esquif_pager_next($variables) {
  *   - parameters: An associative array of query string parameters to append to
  *     the pager links.
  *
+ * @return string
  * @ingroup themeable
  */
 function esquif_pager_last($variables) {
