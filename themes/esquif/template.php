@@ -763,6 +763,7 @@ function esquif_item_list__pager($variables) {
  *   - parameters: An associative array of query string parameters to append to
  *     the pager links.
  *
+ * @return string
  * @ingroup themeable
  */
 function esquif_pager_first($variables) {
@@ -878,6 +879,7 @@ function esquif_pager_next($variables) {
  *   - parameters: An associative array of query string parameters to append to
  *     the pager links.
  *
+ * @return string
  * @ingroup themeable
  */
 function esquif_pager_last($variables) {
