@@ -19,6 +19,7 @@ features[field_base][] = field_gallery
 features[field_instance][] = node-traveling_exhibit-body
 features[field_instance][] = node-traveling_exhibit-field_gallery
 features[node][] = traveling_exhibit
+features[page_manager_handlers][] = node_view_panel_context_5
 features[page_manager_pages][] = traveling_exhibitions
 features[user_permission][] = create traveling_exhibit content
 features[user_permission][] = delete any traveling_exhibit content

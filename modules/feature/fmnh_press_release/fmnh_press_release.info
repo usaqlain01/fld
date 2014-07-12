@@ -16,6 +16,7 @@ features[entitylist_lists][] = press_releases
 features[features_api][] = api:2
 features[field_instance][] = node-press_release-body
 features[node][] = press_release
+features[page_manager_handlers][] = node_view_panel_context_4
 features[page_manager_pages][] = press_materials
 features[user_permission][] = create press_release content
 features[user_permission][] = delete any press_release content

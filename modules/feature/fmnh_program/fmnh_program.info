@@ -43,6 +43,7 @@ features[field_instance][] = node-program-field_grade_level
 features[field_instance][] = node-program-field_image
 features[field_instance][] = node-program-field_references
 features[node][] = program
+features[page_manager_handlers][] = node_view_panel_context_7
 features[page_manager_pages][] = programs
 features[user_permission][] = create program content
 features[user_permission][] = delete any program content
