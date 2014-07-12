@@ -98,7 +98,7 @@ function fmnh_program_default_page_manager_pages() {
         'pager_id' => NULL,
         'range' => array(
           'offset' => 0,
-          'limit' => 10,
+          'limit' => 12,
         ),
         'context' => array(
           0 => 'argument_term_1',
@@ -148,9 +148,9 @@ function fmnh_program_default_page_manager_pages() {
     $pane->configuration = array(
       'range' => array(
         'offset' => '0',
-        'limit' => '10',
+        'limit' => '12',
       ),
-      'view_mode' => 'node:teaser',
+      'view_mode' => 'node:promo',
       'use_pager' => FALSE,
       'pager_id' => 0,
       'context' => 'relationship_entitylist_relationship:programs_for_audience_1',
@@ -159,7 +159,47 @@ function fmnh_program_default_page_manager_pages() {
     );
     $pane->cache = array();
     $pane->style = array(
-      'settings' => NULL,
+      'settings' => array(
+        'element_title' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => 'section',
+          'class_enable' => 1,
+          'class' => 'promos--3up',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
+      'style' => 'semantic_panels',
     );
     $pane->css = array();
     $pane->extras = array();
@@ -287,7 +327,7 @@ function fmnh_program_default_page_manager_pages() {
   $handler->conf = array(
     'title' => 'unfiltered',
     'no_blocks' => 0,
-    'pipeline' => 'standard',
+    'pipeline' => 'ipe',
     'body_classes_to_remove' => '',
     'body_classes_to_add' => '',
     'css_id' => '',
@@ -301,7 +341,7 @@ function fmnh_program_default_page_manager_pages() {
         'pager_id' => NULL,
         'range' => array(
           'offset' => 0,
-          'limit' => 10,
+          'limit' => 12,
         ),
         'id' => 1,
       ),
@@ -338,9 +378,9 @@ function fmnh_program_default_page_manager_pages() {
     $pane->configuration = array(
       'range' => array(
         'offset' => '0',
-        'limit' => '10',
+        'limit' => '12',
       ),
-      'view_mode' => 'node:teaser',
+      'view_mode' => 'node:promo',
       'use_pager' => FALSE,
       'pager_id' => 0,
       'context' => 'context_entitylist:programs_1',
@@ -349,7 +389,47 @@ function fmnh_program_default_page_manager_pages() {
     );
     $pane->cache = array();
     $pane->style = array(
-      'settings' => NULL,
+      'settings' => array(
+        'element_title' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => 'section',
+          'class_enable' => 1,
+          'class' => 'promos--3up',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
+      'style' => 'semantic_panels',
     );
     $pane->css = array();
     $pane->extras = array();
