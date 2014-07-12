@@ -32,7 +32,7 @@ function fmnh_exhibit_strongarm() {
         'custom_settings' => FALSE,
       ),
       'banner' => array(
-        'custom_settings' => TRUE,
+        'custom_settings' => FALSE,
       ),
       'search_index' => array(
         'custom_settings' => FALSE,
@@ -48,6 +48,12 @@ function fmnh_exhibit_strongarm() {
       ),
       'event' => array(
         'custom_settings' => TRUE,
+      ),
+      'promo' => array(
+        'custom_settings' => TRUE,
+      ),
+      'summary' => array(
+        'custom_settings' => FALSE,
       ),
     ),
     'extra_fields' => array(
