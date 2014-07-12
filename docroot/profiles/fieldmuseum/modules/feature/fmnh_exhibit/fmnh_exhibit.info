@@ -61,6 +61,7 @@ features[field_instance][] = node-exhibit-field_stratigraphy
 features[field_instance][] = node-exhibit-field_ticketed
 features[field_instance][] = node-exhibit-field_topic
 features[node][] = exhibit
+features[page_manager_handlers][] = node_view_panel_context_6
 features[page_manager_pages][] = exhibitions
 features[page_manager_pages][] = exhibitions_coming_soon
 features[page_manager_pages][] = exhibitions_past
