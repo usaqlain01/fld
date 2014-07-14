@@ -139,8 +139,9 @@ EOT;
 function esquif_preprocess_node(&$variables, $hook) {
 
   switch ($variables['view_mode']) {
-    case 'banner':
-      $variables['theme_hook_suggestion'] = 'node__banner';
+    case 'promo':
+      $variables['theme_hook_suggestion'] = 'node__promo';
+      $variables['title_attributes_array']['class'][] = 'promo__title';
       break;
     case 'event':
       $variables['theme_hook_suggestion'] = 'node__event_mode';
