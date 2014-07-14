@@ -99,6 +99,9 @@ projects[field_formatter_settings][version] = 1.1
 projects[file_entity][subdir] = contrib
 projects[file_entity][version] = 2.x-dev
 
+projects[google_analytics][subdir] = contrib
+projects[google_analytics][version] = 2.x-dev
+
 projects[google_cse][subdir] = contrib
 projects[google_cse][version] = 2.x-dev
 
