@@ -327,6 +327,8 @@ function fieldmuseum_default_page_manager_pages() {
       ),
     ),
     'logic' => 'and',
+    'type' => 'none',
+    'settings' => NULL,
   );
   $page->menu = array(
     'type' => 'normal',
@@ -3780,7 +3782,7 @@ function fieldmuseum_default_page_manager_pages() {
   $display->layout_settings = array(
     'main_classes' => '',
     'banners_classes' => 'banners',
-    'bottom_left_classes' => 'l--module',
+    'bottom_left_classes' => '',
     'bottom_right_classes' => 'l--module',
   );
   $display->panel_settings = array(
@@ -3895,9 +3897,9 @@ function fieldmuseum_default_page_manager_pages() {
     $pane->style = array(
       'settings' => array(
         'element_title' => array(
-          'type' => 'h2',
+          'type' => 'h3',
           'class_enable' => 1,
-          'class' => 'scale--5',
+          'class' => 'summary__title',
           'attributes' => array(),
           'link_enabled' => 0,
           'link' => array(
@@ -3910,9 +3912,9 @@ function fieldmuseum_default_page_manager_pages() {
           'attributes_array' => array(),
         ),
         'element_content' => array(
-          'type' => '',
-          'class_enable' => 0,
-          'class' => '',
+          'type' => 'div',
+          'class_enable' => 1,
+          'class' => 'summary__description',
           'attributes' => array(),
           'link_enabled' => 0,
           'link' => array(
@@ -3925,9 +3927,9 @@ function fieldmuseum_default_page_manager_pages() {
           'attributes_array' => array(),
         ),
         'element_wrapper' => array(
-          'type' => '',
-          'class_enable' => 0,
-          'class' => '',
+          'type' => 'div',
+          'class_enable' => 1,
+          'class' => 'summary',
           'attributes' => array(),
           'attributes_array' => array(),
         ),
@@ -3971,9 +3973,9 @@ function fieldmuseum_default_page_manager_pages() {
           'attributes_array' => array(),
         ),
         'element_content' => array(
-          'type' => '',
-          'class_enable' => 0,
-          'class' => '',
+          'type' => 'div',
+          'class_enable' => 1,
+          'class' => 'summary__description',
           'attributes' => array(),
           'link_enabled' => 0,
           'link' => array(
@@ -3986,9 +3988,9 @@ function fieldmuseum_default_page_manager_pages() {
           'attributes_array' => array(),
         ),
         'element_wrapper' => array(
-          'type' => '',
-          'class_enable' => 0,
-          'class' => '',
+          'type' => 'h3',
+          'class_enable' => 1,
+          'class' => 'summary__title',
           'attributes' => array(),
           'attributes_array' => array(),
         ),
