@@ -145,6 +145,11 @@ function esquif_preprocess_node(&$variables, $hook) {
       break;
     case 'event':
       $variables['theme_hook_suggestion'] = 'node__event_mode';
+      break;
+    case 'summary':
+      $variables['theme_hook_suggestion'] = 'node__summary';
+      $variables['title_attributes_array']['class'][] = 'summary__title';
+      break;
   }
 
   $variables['classes_array'][] = $variables['view_mode'];
