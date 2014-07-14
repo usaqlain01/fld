@@ -15,7 +15,7 @@ if ($banners_classes) {
   print $content['banners'];
 }
 
-print '<div class="l--2up">';
+print '<div class="summaries--2up">';
 
 if ($bottom_left_classes) {
   print '<div class="' . $bottom_left_classes . '">';

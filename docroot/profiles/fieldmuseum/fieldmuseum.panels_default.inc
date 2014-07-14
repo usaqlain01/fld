@@ -540,144 +540,71 @@ function fieldmuseum_default_panels_mini() {
     $display->content['new-85e07ff1-3c95-4e44-8e7b-dfbeab9c1794'] = $pane;
     $display->panels['main_b'][0] = 'new-85e07ff1-3c95-4e44-8e7b-dfbeab9c1794';
     $pane = new stdClass();
-    $pane->pid = 'new-c316be17-87bd-40a1-a1da-09d9488cd1cc';
+    $pane->pid = 'new-04855e97-840e-4cd9-9337-b2131ab33580';
     $pane->panel = 'secondary_a';
-    $pane->type = 'custom';
-    $pane->subtype = 'hours';
+    $pane->type = 'fieldable_panels_pane';
+    $pane->subtype = 'fpid:336';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'admin_title' => '',
-      'title' => '',
-      'body' => '',
-      'format' => 'markdown',
-      'substitute' => TRUE,
+      'view_mode' => 'full',
     );
     $pane->cache = array();
     $pane->style = array(
-      'settings' => array(
-        'element_title' => array(
-          'type' => '',
-          'class_enable' => 0,
-          'class' => '',
-          'attributes' => array(),
-          'link_enabled' => 0,
-          'link' => array(
-            'path' => '',
-            'class_enable' => 0,
-            'class' => '',
-            'attributes' => array(),
-            'attributes_array' => array(),
-          ),
-          'attributes_array' => array(),
-        ),
-        'element_content' => array(
-          'type' => '0',
-          'class_enable' => 0,
-          'class' => '',
-          'attributes' => array(),
-          'link_enabled' => 0,
-          'link' => array(
-            'path' => '',
-            'class_enable' => 0,
-            'class' => '',
-            'attributes' => array(),
-            'attributes_array' => array(),
-          ),
-          'attributes_array' => array(),
-        ),
-        'element_wrapper' => array(
-          'type' => 'p',
-          'class_enable' => 0,
-          'class' => '',
-          'attributes' => array(),
-          'attributes_array' => array(),
-        ),
-        'add_default_classes' => 1,
-      ),
-      'style' => 'semantic_panels',
+      'style' => 'naked',
+      'settings' => NULL,
     );
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = 'c316be17-87bd-40a1-a1da-09d9488cd1cc';
-    $display->content['new-c316be17-87bd-40a1-a1da-09d9488cd1cc'] = $pane;
-    $display->panels['secondary_a'][0] = 'new-c316be17-87bd-40a1-a1da-09d9488cd1cc';
+    $pane->uuid = '04855e97-840e-4cd9-9337-b2131ab33580';
+    $display->content['new-04855e97-840e-4cd9-9337-b2131ab33580'] = $pane;
+    $display->panels['secondary_a'][0] = 'new-04855e97-840e-4cd9-9337-b2131ab33580';
     $pane = new stdClass();
-    $pane->pid = 'new-61e13361-dffd-4890-981f-8a46660e3eaa';
+    $pane->pid = 'new-1b6b3565-5603-40cf-83f6-132e0dbacc6f';
     $pane->panel = 'secondary_a';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
+    $pane->type = 'fieldable_panels_pane';
+    $pane->subtype = 'fpid:341';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'admin_title' => 'Address',
-      'title' => '',
-      'body' => '<p itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress">
-        <span itemprop="streetAddress">1400 S. Lake Shore Drive</span>,
-        <span itemprop="addressLocality">Chicago</span>,
-        <span itemprop="addressRegion">IL</span>
-        <span itemprop="postalCode">60605-2496</span>
-      </p>
-      <p>
-        <span itemprop="telephone">(312) 922-9410</span> •
-        <a href="#">Contact Us</a> •
-        <a href="#">Copyright Information</a>
-      </p>',
-      'format' => 'unfiltered',
-      'substitute' => TRUE,
+      'view_mode' => 'full',
     );
     $pane->cache = array();
     $pane->style = array(
-      'settings' => NULL,
       'style' => 'naked',
+      'settings' => NULL,
     );
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 1;
     $pane->locks = array();
-    $pane->uuid = '61e13361-dffd-4890-981f-8a46660e3eaa';
-    $display->content['new-61e13361-dffd-4890-981f-8a46660e3eaa'] = $pane;
-    $display->panels['secondary_a'][1] = 'new-61e13361-dffd-4890-981f-8a46660e3eaa';
+    $pane->uuid = '1b6b3565-5603-40cf-83f6-132e0dbacc6f';
+    $display->content['new-1b6b3565-5603-40cf-83f6-132e0dbacc6f'] = $pane;
+    $display->panels['secondary_a'][1] = 'new-1b6b3565-5603-40cf-83f6-132e0dbacc6f';
     $pane = new stdClass();
-    $pane->pid = 'new-75081374-00b9-43af-948e-626f4f1d86ad';
+    $pane->pid = 'new-c7aba39b-4671-4fa5-804b-3fd98bc7b240';
     $pane->panel = 'secondary_b';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
+    $pane->type = 'fieldable_panels_pane';
+    $pane->subtype = 'fpid:346';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'admin_title' => 'Subscribe to newsletter',
-      'title' => '',
-      'body' => '    <a class="newsletter" href="{{url}}">
-      <figure class="newsletter__icon">
-        <svg class="icon icon--envelope" viewBox="0 0 500 500" preserveAspectRatio="none">
-          <use xlink:href="#envelope"></use>
-        </svg>
-      </figure>
-      <h4>Subscribe to our Newsletter</h4>
-      <p>
-        Be among the first to learn about exciting exhibitions, programs, events,
-        and more!
-      </p>
-    </a>
-',
-      'format' => 'unfiltered',
-      'substitute' => TRUE,
+      'view_mode' => 'full',
     );
     $pane->cache = array();
     $pane->style = array(
-      'settings' => NULL,
       'style' => 'naked',
+      'settings' => NULL,
     );
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = '75081374-00b9-43af-948e-626f4f1d86ad';
-    $display->content['new-75081374-00b9-43af-948e-626f4f1d86ad'] = $pane;
-    $display->panels['secondary_b'][0] = 'new-75081374-00b9-43af-948e-626f4f1d86ad';
+    $pane->uuid = 'c7aba39b-4671-4fa5-804b-3fd98bc7b240';
+    $display->content['new-c7aba39b-4671-4fa5-804b-3fd98bc7b240'] = $pane;
+    $display->panels['secondary_b'][0] = 'new-c7aba39b-4671-4fa5-804b-3fd98bc7b240';
   $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = '0';
   $mini->display = $display;
@@ -749,110 +676,6 @@ function fieldmuseum_default_panels_mini() {
     $pane->uuid = 'cbfb9024-4680-4b8c-a992-477fc3adc4b6';
     $display->content['new-cbfb9024-4680-4b8c-a992-477fc3adc4b6'] = $pane;
     $display->panels['hero'][0] = 'new-cbfb9024-4680-4b8c-a992-477fc3adc4b6';
-    $pane = new stdClass();
-    $pane->pid = 'new-36139c6c-b2f2-404d-a735-d0f11e4d04b4';
-    $pane->panel = 'left';
-    $pane->type = 'custom';
-    $pane->subtype = 'hours';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'admin_title' => '',
-      'title' => '',
-      'body' => '',
-      'format' => 'markdown',
-      'substitute' => TRUE,
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => array(
-        'element_title' => array(
-          'type' => '0',
-          'class_enable' => 0,
-          'class' => '',
-          'attributes' => array(),
-          'link_enabled' => 0,
-          'link' => array(
-            'path' => '',
-            'class_enable' => 0,
-            'class' => '',
-            'attributes' => array(),
-            'attributes_array' => array(),
-          ),
-          'attributes_array' => array(),
-        ),
-        'element_content' => array(
-          'type' => '0',
-          'class_enable' => 0,
-          'class' => '',
-          'attributes' => array(),
-          'link_enabled' => 0,
-          'link' => array(
-            'path' => '',
-            'class_enable' => 0,
-            'class' => '',
-            'attributes' => array(),
-            'attributes_array' => array(),
-          ),
-          'attributes_array' => array(),
-        ),
-        'element_wrapper' => array(
-          'type' => 'p',
-          'class_enable' => 0,
-          'class' => '',
-          'attributes' => array(),
-          'attributes_array' => array(),
-        ),
-        'add_default_classes' => 1,
-      ),
-      'style' => 'semantic_panels',
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = '36139c6c-b2f2-404d-a735-d0f11e4d04b4';
-    $display->content['new-36139c6c-b2f2-404d-a735-d0f11e4d04b4'] = $pane;
-    $display->panels['left'][0] = 'new-36139c6c-b2f2-404d-a735-d0f11e4d04b4';
-    $pane = new stdClass();
-    $pane->pid = 'new-e0461da1-d072-406b-b573-1d76ca4b5716';
-    $pane->panel = 'left';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'admin_title' => 'Directions link',
-      'title' => '',
-      'body' => '<a class="button link--directions" href="/visit/directions">
-  <span class="button__leader">
-    <svg class="icon icon--car" viewBox="0 0 500 500">
-      <use xlink:href="#car"></use>
-    </svg>
-    <svg class="icon icon--train" viewBox="0 0 500 500">
-      <use xlink:href="#train"></use>
-    </svg>
-    <svg class="icon icon--bus" viewBox="0 0 500 500">
-      <use xlink:href="#bus"></use>
-    </svg>
-  </span>
-  Get Directions
-</a>',
-      'format' => 'unfiltered',
-      'substitute' => TRUE,
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'style' => 'naked',
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 1;
-    $pane->locks = array();
-    $pane->uuid = 'e0461da1-d072-406b-b573-1d76ca4b5716';
-    $display->content['new-e0461da1-d072-406b-b573-1d76ca4b5716'] = $pane;
-    $display->panels['left'][1] = 'new-e0461da1-d072-406b-b573-1d76ca4b5716';
     $pane = new stdClass();
     $pane->pid = 'new-8d44160c-cf91-460b-9e8a-f7beba88e0f7';
     $pane->panel = 'right';
@@ -1034,110 +857,6 @@ function fieldmuseum_default_panels_mini() {
     $display->content['new-b8efb35b-3316-4911-be47-4e609c6b2fbf'] = $pane;
     $display->panels['hero'][1] = 'new-b8efb35b-3316-4911-be47-4e609c6b2fbf';
     $pane = new stdClass();
-    $pane->pid = 'new-36139c6c-b2f2-404d-a735-d0f11e4d04b4';
-    $pane->panel = 'left';
-    $pane->type = 'custom';
-    $pane->subtype = 'hours';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'admin_title' => '',
-      'title' => '',
-      'body' => '',
-      'format' => 'markdown',
-      'substitute' => TRUE,
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => array(
-        'element_title' => array(
-          'type' => '0',
-          'class_enable' => 0,
-          'class' => '',
-          'attributes' => array(),
-          'link_enabled' => 0,
-          'link' => array(
-            'path' => '',
-            'class_enable' => 0,
-            'class' => '',
-            'attributes' => array(),
-            'attributes_array' => array(),
-          ),
-          'attributes_array' => array(),
-        ),
-        'element_content' => array(
-          'type' => '0',
-          'class_enable' => 0,
-          'class' => '',
-          'attributes' => array(),
-          'link_enabled' => 0,
-          'link' => array(
-            'path' => '',
-            'class_enable' => 0,
-            'class' => '',
-            'attributes' => array(),
-            'attributes_array' => array(),
-          ),
-          'attributes_array' => array(),
-        ),
-        'element_wrapper' => array(
-          'type' => 'p',
-          'class_enable' => 0,
-          'class' => '',
-          'attributes' => array(),
-          'attributes_array' => array(),
-        ),
-        'add_default_classes' => 1,
-      ),
-      'style' => 'semantic_panels',
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = '36139c6c-b2f2-404d-a735-d0f11e4d04b4';
-    $display->content['new-36139c6c-b2f2-404d-a735-d0f11e4d04b4'] = $pane;
-    $display->panels['left'][0] = 'new-36139c6c-b2f2-404d-a735-d0f11e4d04b4';
-    $pane = new stdClass();
-    $pane->pid = 'new-e0461da1-d072-406b-b573-1d76ca4b5716';
-    $pane->panel = 'left';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'admin_title' => 'Directions link',
-      'title' => '',
-      'body' => '<a class="button link--directions" href="/visit/directions">
-  <span class="button__leader">
-    <svg class="icon icon--car" viewBox="0 0 500 500">
-      <use xlink:href="#car"></use>
-    </svg>
-    <svg class="icon icon--train" viewBox="0 0 500 500">
-      <use xlink:href="#train"></use>
-    </svg>
-    <svg class="icon icon--bus" viewBox="0 0 500 500">
-      <use xlink:href="#bus"></use>
-    </svg>
-  </span>
-  Get Directions
-</a>',
-      'format' => 'unfiltered',
-      'substitute' => TRUE,
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'style' => 'naked',
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 1;
-    $pane->locks = array();
-    $pane->uuid = 'e0461da1-d072-406b-b573-1d76ca4b5716';
-    $display->content['new-e0461da1-d072-406b-b573-1d76ca4b5716'] = $pane;
-    $display->panels['left'][1] = 'new-e0461da1-d072-406b-b573-1d76ca4b5716';
-    $pane = new stdClass();
     $pane->pid = 'new-8d44160c-cf91-460b-9e8a-f7beba88e0f7';
     $pane->panel = 'right';
     $pane->type = 'block';
@@ -1318,110 +1037,6 @@ function fieldmuseum_default_panels_mini() {
     $display->content['new-a3edb486-89bb-4fe7-9625-5aeb149b5017'] = $pane;
     $display->panels['hero'][1] = 'new-a3edb486-89bb-4fe7-9625-5aeb149b5017';
     $pane = new stdClass();
-    $pane->pid = 'new-36139c6c-b2f2-404d-a735-d0f11e4d04b4';
-    $pane->panel = 'left';
-    $pane->type = 'custom';
-    $pane->subtype = 'hours';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'admin_title' => '',
-      'title' => '',
-      'body' => '',
-      'format' => 'markdown',
-      'substitute' => TRUE,
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => array(
-        'element_title' => array(
-          'type' => '0',
-          'class_enable' => 0,
-          'class' => '',
-          'attributes' => array(),
-          'link_enabled' => 0,
-          'link' => array(
-            'path' => '',
-            'class_enable' => 0,
-            'class' => '',
-            'attributes' => array(),
-            'attributes_array' => array(),
-          ),
-          'attributes_array' => array(),
-        ),
-        'element_content' => array(
-          'type' => '0',
-          'class_enable' => 0,
-          'class' => '',
-          'attributes' => array(),
-          'link_enabled' => 0,
-          'link' => array(
-            'path' => '',
-            'class_enable' => 0,
-            'class' => '',
-            'attributes' => array(),
-            'attributes_array' => array(),
-          ),
-          'attributes_array' => array(),
-        ),
-        'element_wrapper' => array(
-          'type' => 'p',
-          'class_enable' => 0,
-          'class' => '',
-          'attributes' => array(),
-          'attributes_array' => array(),
-        ),
-        'add_default_classes' => 1,
-      ),
-      'style' => 'semantic_panels',
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = '36139c6c-b2f2-404d-a735-d0f11e4d04b4';
-    $display->content['new-36139c6c-b2f2-404d-a735-d0f11e4d04b4'] = $pane;
-    $display->panels['left'][0] = 'new-36139c6c-b2f2-404d-a735-d0f11e4d04b4';
-    $pane = new stdClass();
-    $pane->pid = 'new-e0461da1-d072-406b-b573-1d76ca4b5716';
-    $pane->panel = 'left';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'admin_title' => 'Directions link',
-      'title' => '',
-      'body' => '<a class="button link--directions" href="/visit/directions">
-  <span class="button__leader">
-    <svg class="icon icon--car" viewBox="0 0 500 500">
-      <use xlink:href="#car"></use>
-    </svg>
-    <svg class="icon icon--train" viewBox="0 0 500 500">
-      <use xlink:href="#train"></use>
-    </svg>
-    <svg class="icon icon--bus" viewBox="0 0 500 500">
-      <use xlink:href="#bus"></use>
-    </svg>
-  </span>
-  Get Directions
-</a>',
-      'format' => 'unfiltered',
-      'substitute' => TRUE,
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'style' => 'naked',
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 1;
-    $pane->locks = array();
-    $pane->uuid = 'e0461da1-d072-406b-b573-1d76ca4b5716';
-    $display->content['new-e0461da1-d072-406b-b573-1d76ca4b5716'] = $pane;
-    $display->panels['left'][1] = 'new-e0461da1-d072-406b-b573-1d76ca4b5716';
-    $pane = new stdClass();
     $pane->pid = 'new-8d44160c-cf91-460b-9e8a-f7beba88e0f7';
     $pane->panel = 'right';
     $pane->type = 'block';
@@ -1561,110 +1176,6 @@ function fieldmuseum_default_panels_mini() {
     $display->content['new-4a7f7450-9ca3-4269-88a4-9936491a0626'] = $pane;
     $display->panels['hero'][1] = 'new-4a7f7450-9ca3-4269-88a4-9936491a0626';
     $pane = new stdClass();
-    $pane->pid = 'new-36139c6c-b2f2-404d-a735-d0f11e4d04b4';
-    $pane->panel = 'left';
-    $pane->type = 'custom';
-    $pane->subtype = 'hours';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'admin_title' => '',
-      'title' => '',
-      'body' => '',
-      'format' => 'markdown',
-      'substitute' => TRUE,
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => array(
-        'element_title' => array(
-          'type' => '0',
-          'class_enable' => 0,
-          'class' => '',
-          'attributes' => array(),
-          'link_enabled' => 0,
-          'link' => array(
-            'path' => '',
-            'class_enable' => 0,
-            'class' => '',
-            'attributes' => array(),
-            'attributes_array' => array(),
-          ),
-          'attributes_array' => array(),
-        ),
-        'element_content' => array(
-          'type' => '0',
-          'class_enable' => 0,
-          'class' => '',
-          'attributes' => array(),
-          'link_enabled' => 0,
-          'link' => array(
-            'path' => '',
-            'class_enable' => 0,
-            'class' => '',
-            'attributes' => array(),
-            'attributes_array' => array(),
-          ),
-          'attributes_array' => array(),
-        ),
-        'element_wrapper' => array(
-          'type' => 'p',
-          'class_enable' => 0,
-          'class' => '',
-          'attributes' => array(),
-          'attributes_array' => array(),
-        ),
-        'add_default_classes' => 1,
-      ),
-      'style' => 'semantic_panels',
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = '36139c6c-b2f2-404d-a735-d0f11e4d04b4';
-    $display->content['new-36139c6c-b2f2-404d-a735-d0f11e4d04b4'] = $pane;
-    $display->panels['left'][0] = 'new-36139c6c-b2f2-404d-a735-d0f11e4d04b4';
-    $pane = new stdClass();
-    $pane->pid = 'new-e0461da1-d072-406b-b573-1d76ca4b5716';
-    $pane->panel = 'left';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'admin_title' => 'Directions link',
-      'title' => '',
-      'body' => '<a class="button link--directions" href="/visit/directions">
-  <span class="button__leader">
-    <svg class="icon icon--car" viewBox="0 0 500 500">
-      <use xlink:href="#car"></use>
-    </svg>
-    <svg class="icon icon--train" viewBox="0 0 500 500">
-      <use xlink:href="#train"></use>
-    </svg>
-    <svg class="icon icon--bus" viewBox="0 0 500 500">
-      <use xlink:href="#bus"></use>
-    </svg>
-  </span>
-  Get Directions
-</a>',
-      'format' => 'unfiltered',
-      'substitute' => TRUE,
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'style' => 'naked',
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 1;
-    $pane->locks = array();
-    $pane->uuid = 'e0461da1-d072-406b-b573-1d76ca4b5716';
-    $display->content['new-e0461da1-d072-406b-b573-1d76ca4b5716'] = $pane;
-    $display->panels['left'][1] = 'new-e0461da1-d072-406b-b573-1d76ca4b5716';
-    $pane = new stdClass();
     $pane->pid = 'new-8d44160c-cf91-460b-9e8a-f7beba88e0f7';
     $pane->panel = 'right';
     $pane->type = 'block';
@@ -1761,110 +1272,6 @@ function fieldmuseum_default_panels_mini() {
     $pane->uuid = '08223496-4c50-4c27-8e40-b5230b9097c3';
     $display->content['new-08223496-4c50-4c27-8e40-b5230b9097c3'] = $pane;
     $display->panels['hero'][0] = 'new-08223496-4c50-4c27-8e40-b5230b9097c3';
-    $pane = new stdClass();
-    $pane->pid = 'new-36139c6c-b2f2-404d-a735-d0f11e4d04b4';
-    $pane->panel = 'left';
-    $pane->type = 'custom';
-    $pane->subtype = 'hours';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'admin_title' => '',
-      'title' => '',
-      'body' => '',
-      'format' => 'markdown',
-      'substitute' => TRUE,
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => array(
-        'element_title' => array(
-          'type' => '0',
-          'class_enable' => 0,
-          'class' => '',
-          'attributes' => array(),
-          'link_enabled' => 0,
-          'link' => array(
-            'path' => '',
-            'class_enable' => 0,
-            'class' => '',
-            'attributes' => array(),
-            'attributes_array' => array(),
-          ),
-          'attributes_array' => array(),
-        ),
-        'element_content' => array(
-          'type' => '0',
-          'class_enable' => 0,
-          'class' => '',
-          'attributes' => array(),
-          'link_enabled' => 0,
-          'link' => array(
-            'path' => '',
-            'class_enable' => 0,
-            'class' => '',
-            'attributes' => array(),
-            'attributes_array' => array(),
-          ),
-          'attributes_array' => array(),
-        ),
-        'element_wrapper' => array(
-          'type' => 'p',
-          'class_enable' => 0,
-          'class' => '',
-          'attributes' => array(),
-          'attributes_array' => array(),
-        ),
-        'add_default_classes' => 1,
-      ),
-      'style' => 'semantic_panels',
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = '36139c6c-b2f2-404d-a735-d0f11e4d04b4';
-    $display->content['new-36139c6c-b2f2-404d-a735-d0f11e4d04b4'] = $pane;
-    $display->panels['left'][0] = 'new-36139c6c-b2f2-404d-a735-d0f11e4d04b4';
-    $pane = new stdClass();
-    $pane->pid = 'new-e0461da1-d072-406b-b573-1d76ca4b5716';
-    $pane->panel = 'left';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'admin_title' => 'Directions link',
-      'title' => '',
-      'body' => '<a class="button link--directions" href="/visit/directions">
-  <span class="button__leader">
-    <svg class="icon icon--car" viewBox="0 0 500 500">
-      <use xlink:href="#car"></use>
-    </svg>
-    <svg class="icon icon--train" viewBox="0 0 500 500">
-      <use xlink:href="#train"></use>
-    </svg>
-    <svg class="icon icon--bus" viewBox="0 0 500 500">
-      <use xlink:href="#bus"></use>
-    </svg>
-  </span>
-  Get Directions
-</a>',
-      'format' => 'unfiltered',
-      'substitute' => TRUE,
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'style' => 'naked',
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 1;
-    $pane->locks = array();
-    $pane->uuid = 'e0461da1-d072-406b-b573-1d76ca4b5716';
-    $display->content['new-e0461da1-d072-406b-b573-1d76ca4b5716'] = $pane;
-    $display->panels['left'][1] = 'new-e0461da1-d072-406b-b573-1d76ca4b5716';
     $pane = new stdClass();
     $pane->pid = 'new-8d44160c-cf91-460b-9e8a-f7beba88e0f7';
     $pane->panel = 'right';
@@ -2005,110 +1412,6 @@ function fieldmuseum_default_panels_mini() {
     $display->content['new-1f6ce464-cb32-4c0c-9992-8b2626e056a4'] = $pane;
     $display->panels['hero'][1] = 'new-1f6ce464-cb32-4c0c-9992-8b2626e056a4';
     $pane = new stdClass();
-    $pane->pid = 'new-36139c6c-b2f2-404d-a735-d0f11e4d04b4';
-    $pane->panel = 'left';
-    $pane->type = 'custom';
-    $pane->subtype = 'hours';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'admin_title' => '',
-      'title' => '',
-      'body' => '',
-      'format' => 'markdown',
-      'substitute' => TRUE,
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => array(
-        'element_title' => array(
-          'type' => '0',
-          'class_enable' => 0,
-          'class' => '',
-          'attributes' => array(),
-          'link_enabled' => 0,
-          'link' => array(
-            'path' => '',
-            'class_enable' => 0,
-            'class' => '',
-            'attributes' => array(),
-            'attributes_array' => array(),
-          ),
-          'attributes_array' => array(),
-        ),
-        'element_content' => array(
-          'type' => '0',
-          'class_enable' => 0,
-          'class' => '',
-          'attributes' => array(),
-          'link_enabled' => 0,
-          'link' => array(
-            'path' => '',
-            'class_enable' => 0,
-            'class' => '',
-            'attributes' => array(),
-            'attributes_array' => array(),
-          ),
-          'attributes_array' => array(),
-        ),
-        'element_wrapper' => array(
-          'type' => 'p',
-          'class_enable' => 0,
-          'class' => '',
-          'attributes' => array(),
-          'attributes_array' => array(),
-        ),
-        'add_default_classes' => 1,
-      ),
-      'style' => 'semantic_panels',
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = '36139c6c-b2f2-404d-a735-d0f11e4d04b4';
-    $display->content['new-36139c6c-b2f2-404d-a735-d0f11e4d04b4'] = $pane;
-    $display->panels['left'][0] = 'new-36139c6c-b2f2-404d-a735-d0f11e4d04b4';
-    $pane = new stdClass();
-    $pane->pid = 'new-e0461da1-d072-406b-b573-1d76ca4b5716';
-    $pane->panel = 'left';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'admin_title' => 'Directions link',
-      'title' => '',
-      'body' => '<a class="button link--directions" href="/visit/directions">
-  <span class="button__leader">
-    <svg class="icon icon--car" viewBox="0 0 500 500">
-      <use xlink:href="#car"></use>
-    </svg>
-    <svg class="icon icon--train" viewBox="0 0 500 500">
-      <use xlink:href="#train"></use>
-    </svg>
-    <svg class="icon icon--bus" viewBox="0 0 500 500">
-      <use xlink:href="#bus"></use>
-    </svg>
-  </span>
-  Get Directions
-</a>',
-      'format' => 'unfiltered',
-      'substitute' => TRUE,
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'style' => 'naked',
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 1;
-    $pane->locks = array();
-    $pane->uuid = 'e0461da1-d072-406b-b573-1d76ca4b5716';
-    $display->content['new-e0461da1-d072-406b-b573-1d76ca4b5716'] = $pane;
-    $display->panels['left'][1] = 'new-e0461da1-d072-406b-b573-1d76ca4b5716';
-    $pane = new stdClass();
     $pane->pid = 'new-8d44160c-cf91-460b-9e8a-f7beba88e0f7';
     $pane->panel = 'right';
     $pane->type = 'block';
@@ -2236,110 +1539,6 @@ function fieldmuseum_default_panels_mini() {
     $pane->uuid = '0849ed1d-30f8-4643-ae96-ce9a0ea3416d';
     $display->content['new-0849ed1d-30f8-4643-ae96-ce9a0ea3416d'] = $pane;
     $display->panels['hero'][1] = 'new-0849ed1d-30f8-4643-ae96-ce9a0ea3416d';
-    $pane = new stdClass();
-    $pane->pid = 'new-36139c6c-b2f2-404d-a735-d0f11e4d04b4';
-    $pane->panel = 'left';
-    $pane->type = 'custom';
-    $pane->subtype = 'hours';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'admin_title' => '',
-      'title' => '',
-      'body' => '',
-      'format' => 'markdown',
-      'substitute' => TRUE,
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => array(
-        'element_title' => array(
-          'type' => '0',
-          'class_enable' => 0,
-          'class' => '',
-          'attributes' => array(),
-          'link_enabled' => 0,
-          'link' => array(
-            'path' => '',
-            'class_enable' => 0,
-            'class' => '',
-            'attributes' => array(),
-            'attributes_array' => array(),
-          ),
-          'attributes_array' => array(),
-        ),
-        'element_content' => array(
-          'type' => '0',
-          'class_enable' => 0,
-          'class' => '',
-          'attributes' => array(),
-          'link_enabled' => 0,
-          'link' => array(
-            'path' => '',
-            'class_enable' => 0,
-            'class' => '',
-            'attributes' => array(),
-            'attributes_array' => array(),
-          ),
-          'attributes_array' => array(),
-        ),
-        'element_wrapper' => array(
-          'type' => 'p',
-          'class_enable' => 0,
-          'class' => '',
-          'attributes' => array(),
-          'attributes_array' => array(),
-        ),
-        'add_default_classes' => 1,
-      ),
-      'style' => 'semantic_panels',
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = '36139c6c-b2f2-404d-a735-d0f11e4d04b4';
-    $display->content['new-36139c6c-b2f2-404d-a735-d0f11e4d04b4'] = $pane;
-    $display->panels['left'][0] = 'new-36139c6c-b2f2-404d-a735-d0f11e4d04b4';
-    $pane = new stdClass();
-    $pane->pid = 'new-e0461da1-d072-406b-b573-1d76ca4b5716';
-    $pane->panel = 'left';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'admin_title' => 'Directions link',
-      'title' => '',
-      'body' => '<a class="button link--directions" href="/visit/directions">
-  <span class="button__leader">
-    <svg class="icon icon--car" viewBox="0 0 500 500">
-      <use xlink:href="#car"></use>
-    </svg>
-    <svg class="icon icon--train" viewBox="0 0 500 500">
-      <use xlink:href="#train"></use>
-    </svg>
-    <svg class="icon icon--bus" viewBox="0 0 500 500">
-      <use xlink:href="#bus"></use>
-    </svg>
-  </span>
-  Get Directions
-</a>',
-      'format' => 'unfiltered',
-      'substitute' => TRUE,
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'style' => 'naked',
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 1;
-    $pane->locks = array();
-    $pane->uuid = 'e0461da1-d072-406b-b573-1d76ca4b5716';
-    $display->content['new-e0461da1-d072-406b-b573-1d76ca4b5716'] = $pane;
-    $display->panels['left'][1] = 'new-e0461da1-d072-406b-b573-1d76ca4b5716';
     $pane = new stdClass();
     $pane->pid = 'new-8d44160c-cf91-460b-9e8a-f7beba88e0f7';
     $pane->panel = 'right';
@@ -2508,110 +1707,6 @@ function fieldmuseum_default_panels_mini() {
     $pane->uuid = '6236a505-f290-459f-8a7e-aa3d8ef5bedc';
     $display->content['new-6236a505-f290-459f-8a7e-aa3d8ef5bedc'] = $pane;
     $display->panels['hero'][1] = 'new-6236a505-f290-459f-8a7e-aa3d8ef5bedc';
-    $pane = new stdClass();
-    $pane->pid = 'new-36139c6c-b2f2-404d-a735-d0f11e4d04b4';
-    $pane->panel = 'left';
-    $pane->type = 'custom';
-    $pane->subtype = 'hours';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'admin_title' => '',
-      'title' => '',
-      'body' => '',
-      'format' => 'markdown',
-      'substitute' => TRUE,
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => array(
-        'element_title' => array(
-          'type' => '0',
-          'class_enable' => 0,
-          'class' => '',
-          'attributes' => array(),
-          'link_enabled' => 0,
-          'link' => array(
-            'path' => '',
-            'class_enable' => 0,
-            'class' => '',
-            'attributes' => array(),
-            'attributes_array' => array(),
-          ),
-          'attributes_array' => array(),
-        ),
-        'element_content' => array(
-          'type' => '0',
-          'class_enable' => 0,
-          'class' => '',
-          'attributes' => array(),
-          'link_enabled' => 0,
-          'link' => array(
-            'path' => '',
-            'class_enable' => 0,
-            'class' => '',
-            'attributes' => array(),
-            'attributes_array' => array(),
-          ),
-          'attributes_array' => array(),
-        ),
-        'element_wrapper' => array(
-          'type' => 'p',
-          'class_enable' => 0,
-          'class' => '',
-          'attributes' => array(),
-          'attributes_array' => array(),
-        ),
-        'add_default_classes' => 1,
-      ),
-      'style' => 'semantic_panels',
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = '36139c6c-b2f2-404d-a735-d0f11e4d04b4';
-    $display->content['new-36139c6c-b2f2-404d-a735-d0f11e4d04b4'] = $pane;
-    $display->panels['left'][0] = 'new-36139c6c-b2f2-404d-a735-d0f11e4d04b4';
-    $pane = new stdClass();
-    $pane->pid = 'new-e0461da1-d072-406b-b573-1d76ca4b5716';
-    $pane->panel = 'left';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'admin_title' => 'Directions link',
-      'title' => '',
-      'body' => '<a class="button link--directions" href="/visit/directions">
-  <span class="button__leader">
-    <svg class="icon icon--car" viewBox="0 0 500 500">
-      <use xlink:href="#car"></use>
-    </svg>
-    <svg class="icon icon--train" viewBox="0 0 500 500">
-      <use xlink:href="#train"></use>
-    </svg>
-    <svg class="icon icon--bus" viewBox="0 0 500 500">
-      <use xlink:href="#bus"></use>
-    </svg>
-  </span>
-  Get Directions
-</a>',
-      'format' => 'unfiltered',
-      'substitute' => TRUE,
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'style' => 'naked',
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 1;
-    $pane->locks = array();
-    $pane->uuid = 'e0461da1-d072-406b-b573-1d76ca4b5716';
-    $display->content['new-e0461da1-d072-406b-b573-1d76ca4b5716'] = $pane;
-    $display->panels['left'][1] = 'new-e0461da1-d072-406b-b573-1d76ca4b5716';
     $pane = new stdClass();
     $pane->pid = 'new-8d44160c-cf91-460b-9e8a-f7beba88e0f7';
     $pane->panel = 'right';

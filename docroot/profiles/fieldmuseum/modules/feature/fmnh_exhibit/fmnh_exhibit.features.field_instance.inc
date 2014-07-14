@@ -273,7 +273,7 @@ function fmnh_exhibit_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'text',
         'settings' => array(
-          'field_formatter_class' => '',
+          'field_formatter_class' => 'promo__description',
         ),
         'type' => 'text_default',
         'weight' => 1,
@@ -542,7 +542,7 @@ function fmnh_exhibit_field_default_field_instances() {
         'module' => 'file_entity',
         'settings' => array(
           'field_formatter_class' => '',
-          'file_view_mode' => 'default',
+          'file_view_mode' => 'banner_5x2',
         ),
         'type' => 'file_rendered',
         'weight' => 0,

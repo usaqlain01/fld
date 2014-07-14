@@ -130,6 +130,58 @@ function fmnh_calendar_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-event-field_audience'
+  $field_instances['node-event-field_audience'] = array(
+    'bundle' => 'event',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'field_formatter_class' => '',
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 7,
+      ),
+      'event' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'fences_wrapper' => 'div',
+    'field_name' => 'field_audience',
+    'label' => 'Audience',
+    'required' => 0,
+    'settings' => array(
+      'behaviors' => array(
+        'taxonomy-index' => array(
+          'status' => TRUE,
+        ),
+      ),
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_buttons',
+      'weight' => 49,
+    ),
+  );
+
   // Exported field_instance: 'node-event-field_date'
   $field_instances['node-event-field_date'] = array(
     'bundle' => 'event',
@@ -427,6 +479,7 @@ function fmnh_calendar_field_default_field_instances() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Action link');
+  t('Audience');
   t('Body');
   t('Date');
   t('Exhibit or program');
