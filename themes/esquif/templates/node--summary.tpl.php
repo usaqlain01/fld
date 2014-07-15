@@ -40,16 +40,3 @@
     <?php print render($content['comments']); ?>
   </div>
 </div>
-<div class="summary">
-  <figure>
-    <img class="summary__image" src="http://placehold.it/2000x1200&amp;text=5:3" alt="5:3 Image">
-  </figure>
-  <h3 class="summary__title">
-    <a href="#">Summary Title</a>
-  </h3>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit.
-    </p>
-    <a class="link--more" href="#">Lorem ipsum dolor.</a>
-  </div>
-</div>
