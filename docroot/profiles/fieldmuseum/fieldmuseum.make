@@ -69,6 +69,9 @@ projects[entitylist][download][type] = git
 projects[entityreference][subdir] = contrib
 projects[entityreference][version] = 1.1
 
+projects[entity_soft_delete][subdir] = contrib
+projects[entity_soft_delete][version] = 1.0-alpha1
+
 projects[environment_indicator][subdir] = contrib
 projects[environment_indicator][contrib] = 2.5
 
