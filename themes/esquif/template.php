@@ -223,6 +223,12 @@ function esquif_preprocess_file_entity(&$variables, $hook) {
   }
 }
 
+/**
+ * Implement hook_preprocess().
+ *
+ * @param $variables
+ * @param $hook
+ */
 function esquif_preprocess(&$variables, $hook) {
   $variables['path_to_theme'] = drupal_get_path('theme', 'esquif');
 
