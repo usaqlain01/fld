@@ -223,8 +223,26 @@ function esquif_preprocess_file_entity(&$variables, $hook) {
   }
 }
 
-function esquif_preprocess(&$variables) {
+function esquif_preprocess(&$variables, $hook) {
   $variables['path_to_theme'] = drupal_get_path('theme', 'esquif');
+
+  // Add page layout template code to the body class attribute.
+  if (strpos($hook, 'esquif_') === 0) {
+    // Cut off 'esquif_'
+    $template = substr($hook, 7);
+
+    // Ignore templates that are not named for Table XI wireframes
+    if ((strlen($template) <= 3) && (strpos($template, 'l') === 0 || strpos($template, 'c') === 0)) {
+
+      // Add the template family to the class attribute.
+      ctools_class_add('t--'. substr($template, 0, 2));
+
+      // When the template is a child of a template family, separate the modifier with a hyphen.
+      if (strlen($template) === 3) {
+        ctools_class_add('t--'. substr($template, 0, 2) .'-'. substr($template, 2, 1));
+      }
+    }
+  }
 }
 
 /**
