@@ -1931,6 +1931,7 @@ Gallery = (function() {
     $carousel = $(carousel);
     return $carousel.elastislide({
       minItems: config.minCarouselItems,
+      imgSizeItemSelector: '.carousel__image',
       onClick: (function(_this) {
         return function(carouselItem, index, event) {
           return _this.selectCarouselItem(carouselItem);
