@@ -305,9 +305,10 @@ function esquif_links__system_main_menu($variables) {
     $value['title'] = '<span class="navGlobal__label" itemprop="name">'. check_plain($value['title']) .'</span>';
     $value['attributes'] = array(
       'itemprop' => 'url',
+      'class' => array('button'),
     );
     $value['html'] = TRUE;
-    $embedded_variables['links'][$key] = $value;
+    $embedded_variables['links'][$key] = _esquif_header_menu_link($value);
   }
 
   // Append class attribute values to primary menu links. The key of the array is used
@@ -332,7 +333,7 @@ function esquif_links__system_main_menu($variables) {
       'submenu' => TRUE,
     ),
     'navMain__item navMain__global' => array(
-      'title' => theme('links__global', $embedded_variables),
+      'title' => '<p class="nav__hours">Open 9am – 5pm every day except Christmas</p>'. theme('links__global', $embedded_variables),
       'html' => true,
       'submenu' => TRUE,
     )
@@ -963,4 +964,27 @@ function esquif_links__node__sharing($variables) {
     $variables['links'][$key] = $value;
   }
   return theme_links($variables);
+}
+
+/**
+ * @param $link
+ * @return mixed
+ */
+function _esquif_header_menu_link($link) {
+  switch ($link['href']) {
+    case 'node/6601':
+      $link['attributes']['class'][] = 'link--directions';
+      $link['title'] .= '<span class="button__leader">';
+      $link['title'] .= '<svg class="icon icon--car" viewBox="0 0 500 500"><use xlink:href="#car"></use></svg>';
+      $link['title'] .= '<svg class="icon icon--train" viewBox="0 0 500 500"><use xlink:href="#train"></use></svg>';
+      $link['title'] .= '<svg class="icon icon--bus" viewBox="0 0 500 500"><use xlink:href="#bus"></use></svg>';
+      $link['title'] .= '</span>';
+      break;
+    case 'tickets':
+      $link['title'] .= '<span class="button__leader">';
+      $link['title'] .= '<svg class="icon icon--ticket-2" viewBox="0 0 500 500"><use xlink:href="#ticket-2"></use></svg>';
+      $link['title'] .= '</span>';
+      break;
+  }
+  return $link;
 }
