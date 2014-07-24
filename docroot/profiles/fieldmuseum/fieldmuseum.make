@@ -30,6 +30,9 @@ projects[bangpoundshare][download][type] = git
 projects[better_formats][subdir] = contrib
 projects[better_formats][version] = 1.x-dev
 
+projects[cf][subdir] = contrib
+projects[cf][version] = 2.0
+
 projects[classloader][subdir] = contrib
 projects[classloader][version] = 1.1
 
@@ -161,6 +164,9 @@ projects[migrate_d2d][version] = 2.x-dev
 
 projects[migrate][subdir] = contrib
 projects[migrate][version] = 2.x-dev
+
+projects[mollom][subdir] = contrib
+projects[mollom][version] 2.10
 
 projects[multiform][subdir] = contrib
 projects[multiform][version] = 1.1
