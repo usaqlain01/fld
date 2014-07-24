@@ -326,7 +326,7 @@ function googleanalytics_admin_settings_form($form_state) {
       '#type' => 'textfield',
     );
     $form['googleanalytics_custom_dimension']['indexes'][$i]['value'] = array(
-      '#default_value' => isset($googleanalytics_custom_dimension['indexes'][$i]['value']) ? $googleanalytics_custom_dimension['indexes'][$i]['value'] : '',
+      '#default_value' => isset($googleanalytics_custom_dimension[$i]['value']) ? $googleanalytics_custom_dimension[$i]['value'] : '',
       '#description' => t('The custom dimension value.'),
       '#maxlength' => 255,
       '#title' => t('Custom dimension value #@index', array('@index' => $i)),
@@ -377,7 +377,7 @@ function googleanalytics_admin_settings_form($form_state) {
       '#type' => 'textfield',
     );
     $form['googleanalytics_custom_metric']['indexes'][$i]['value'] = array(
-      '#default_value' => isset($googleanalytics_custom_metric['indexes'][$i]['value']) ? $googleanalytics_custom_metric['indexes'][$i]['value'] : '',
+      '#default_value' => isset($googleanalytics_custom_metric[$i]['value']) ? $googleanalytics_custom_metric[$i]['value'] : '',
       '#description' => t('The custom metric value.'),
       '#maxlength' => 255,
       '#title' => t('Custom metric value #@index', array('@index' => $i)),
@@ -475,10 +475,21 @@ function googleanalytics_admin_settings_form_validate($form, &$form_state) {
   // Trim custom dimensions and metrics.
   foreach ($form_state['values']['googleanalytics_custom_dimension']['indexes'] as $dimension) {
     $form_state['values']['googleanalytics_custom_dimension']['indexes'][$dimension['index']]['value'] = trim($dimension['value']);
+    // Remove empty values from the array.
+    if (!drupal_strlen($form_state['values']['googleanalytics_custom_dimension']['indexes'][$dimension['index']]['value'])) {
+      unset($form_state['values']['googleanalytics_custom_dimension']['indexes'][$dimension['index']]);
+    }
   }
+  $form_state['values']['googleanalytics_custom_dimension'] = $form_state['values']['googleanalytics_custom_dimension']['indexes'];
+
   foreach ($form_state['values']['googleanalytics_custom_metric']['indexes'] as $metric) {
     $form_state['values']['googleanalytics_custom_metric']['indexes'][$metric['index']]['value'] = trim($metric['value']);
+    // Remove empty values from the array.
+    if (!drupal_strlen($form_state['values']['googleanalytics_custom_metric']['indexes'][$metric['index']]['value'])) {
+      unset($form_state['values']['googleanalytics_custom_metric']['indexes'][$metric['index']]);
+    }
   }
+  $form_state['values']['googleanalytics_custom_metric'] = $form_state['values']['googleanalytics_custom_metric']['indexes'];
 
   // Trim some text values.
   $form_state['values']['googleanalytics_account'] = trim($form_state['values']['googleanalytics_account']);
