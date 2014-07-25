@@ -114,6 +114,45 @@ function fmnh_project_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-project-field_audience'
+  $field_instances['node-project-field_audience'] = array(
+    'bundle' => 'project',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'field_formatter_class' => '',
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 4,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_audience',
+    'label' => 'Audience',
+    'required' => FALSE,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_buttons',
+      'weight' => 48,
+    ),
+  );
+
   // Exported field_instance: 'node-project-field_image'
   $field_instances['node-project-field_image'] = array(
     'bundle' => 'project',
@@ -230,6 +269,7 @@ function fmnh_project_field_default_field_instances() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Action link');
+  t('Audience');
   t('Body');
   t('Image');
   t('References');
