@@ -52,6 +52,9 @@ projects[diff][version] = 3.2
 projects[disqus][subdir] = contrib
 projects[disqus][version] = 1.10
 
+projects[draggableviews][subdir] = contrib
+projects[draggableviews][version] = 2.x-dev
+
 projects[editableviews][subdir] = contrib
 projects[editableviews][version] = 1.0-beta8
 
