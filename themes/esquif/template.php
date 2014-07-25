@@ -204,6 +204,26 @@ function esquif_preprocess_block(&$variables, $hook) {
   }
 }
 
+/**
+ *
+ */
+function esquif_preprocess_field(&$variables, $hook) {
+  $element = $variables['element'];
+
+  // Add specific suggestions that can override the default implementation.
+  $variables['theme_hook_suggestions'][] = 'field__' . $element['#view_mode'] . '__' . $element['#field_name'] . '__' . $element['#bundle'];
+}
+
+function esquif_field__event__field_date__event($variables) {
+  $output = '';
+
+  // Render the items.
+  foreach ($variables['items'] as $delta => $item) {
+    $output .= drupal_render($item);
+  }
+
+  return $output;
+}
 
 /**
  * Override or insert variables into the node templates.
@@ -1007,4 +1027,34 @@ function _esquif_header_menu_link($link) {
       break;
   }
   return $link;
+}
+
+/**
+ *
+ */
+
+/**
+ * Template preprocess function for displaying a single date.
+ */
+function esquif_preprocess_date_display_single(&$variables) {
+  $variables['attributes']['class'][] = 'date-display-single';
+  $variables['attributes']['class'][] = 'eventsList__time';
+}
+
+/**
+ * Returns HTML for a date element formatted as a single date.
+ */
+function esquif_date_display_single($variables) {
+  $date = $variables['date'];
+  $timezone = $variables['timezone'];
+  $attributes = $variables['attributes'];
+
+  // Wrap the result with the attributes.
+  $output = '<time' . drupal_attributes($attributes) . '>' . $date . $timezone . '</time>';
+
+  if ($variables['add_microdata']) {
+    $output .= '<meta' . drupal_attributes($variables['microdata']['value']['#attributes']) . '/>';
+  }
+
+  return $output;
 }
