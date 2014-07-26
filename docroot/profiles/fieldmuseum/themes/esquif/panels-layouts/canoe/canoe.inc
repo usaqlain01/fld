@@ -8,8 +8,7 @@ $plugin = array(
   'theme' => 'esquif_canoe',
   'css' => 'canoe.css',
   'regions' => array(
-    'left' => t('Left side'),
-    'right' => t('Right side'),
+    'search' => t('Search'),
     'hero' => t('Hero'),
   ),
 );
