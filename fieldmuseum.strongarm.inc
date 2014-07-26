@@ -78,7 +78,7 @@ function fieldmuseum_strongarm() {
         'custom_settings' => FALSE,
       ),
       'summary' => array(
-        'custom_settings' => FALSE,
+        'custom_settings' => TRUE,
       ),
       'media_gallery_block' => array(
         'custom_settings' => FALSE,
@@ -90,13 +90,13 @@ function fieldmuseum_strongarm() {
     'extra_fields' => array(
       'form' => array(
         'metatags' => array(
-          'weight' => '40',
+          'weight' => '5',
         ),
         'title' => array(
-          'weight' => '-5',
+          'weight' => '0',
         ),
         'path' => array(
-          'weight' => '30',
+          'weight' => '4',
         ),
       ),
       'display' => array(),

@@ -73,6 +73,7 @@ function fmnh_program_field_default_field_bases() {
           'audience' => 'audience',
         ),
       ),
+      'profile2_private' => FALSE,
       'target_type' => 'taxonomy_term',
     ),
     'translatable' => 0,

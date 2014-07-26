@@ -183,8 +183,9 @@ function fmnh_project_field_default_field_instances() {
     'settings' => array(
       'description_field' => 0,
       'file_directory' => '[current-user:name]/[current-date:custom:Y]/[current-date:custom:m]/[current-date:custom:d]',
-      'file_extensions' => 'txt',
+      'file_extensions' => 'jpg gif jpeg png',
       'imagecrop' => array(
+        '2x1_2400w' => 0,
         '5x2_2400w' => '5x2_2400w',
         '5x3_2400w' => '5x3_2400w',
         'large' => 'large',
