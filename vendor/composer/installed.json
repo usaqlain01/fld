@@ -2993,9 +2993,81 @@
         "homepage": "http://symfony.com"
     },
     {
-        "name": "kriswallsmith/assetic",
+        "name": "phing/phing",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/phingofficial/phing.git",
+            "reference": "acfa381c5c92dbfd86694199000e57face0e80cf"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/phingofficial/phing/zipball/acfa381c5c92dbfd86694199000e57face0e80cf",
+            "reference": "acfa381c5c92dbfd86694199000e57face0e80cf",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.2.0"
+        },
+        "require-dev": {
+            "phpdocumentor/phpdocumentor": "2.x",
+            "phpunit/phpunit": ">=3.7"
+        },
+        "suggest": {
+            "pdepend/pdepend": "PHP version of JDepend",
+            "pear/archive_tar": "Tar file management class",
+            "pear/versioncontrol_git": "A library that provides OO interface to handle Git repository",
+            "pear/versioncontrol_svn": "A simple OO-style interface for Subversion, the free/open-source version control system",
+            "phpdocumentor/phpdocumentor": "Documentation Generator for PHP",
+            "phploc/phploc": "A tool for quickly measuring the size of a PHP project",
+            "phpmd/phpmd": "PHP version of PMD tool",
+            "phpunit/php-code-coverage": "Library that provides collection, processing, and rendering functionality for PHP code coverage information",
+            "phpunit/phpunit": "The PHP Unit Testing Framework",
+            "sebastian/phpcpd": "Copy/Paste Detector (CPD) for PHP code",
+            "tedivm/jshrink": "Javascript Minifier built in PHP"
+        },
+        "time": "2014-07-26 13:11:01",
+        "bin": [
+            "bin/phing"
+        ],
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "classmap": [
+                "classes/phing/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "include-path": [
+            "classes"
+        ],
+        "license": [
+            "LGPL-3.0"
+        ],
+        "authors": [
+            {
+                "name": "Phing Community",
+                "homepage": "http://www.phing.info/trac/wiki/Development/Contributors"
+            },
+            {
+                "name": "Michiel Rook",
+                "email": "mrook@php.net"
+            }
+        ],
+        "description": "PHing Is Not GNU make; it's a PHP project build system or build tool based on Apache Ant.",
+        "homepage": "http://www.phing.info/",
+        "keywords": [
+            "build",
+            "phing",
+            "task",
+            "tool"
+        ]
+    },
+    {
+        "name": "kriswallsmith/assetic",
+        "version": "v1.2.0-alpha1",
+        "version_normalized": "1.2.0.0-alpha1",
         "source": {
             "type": "git",
             "url": "https://github.com/kriswallsmith/assetic.git",
@@ -3040,7 +3112,7 @@
                 "dev-master": "1.2-dev"
             }
         },
-        "installation-source": "source",
+        "installation-source": "dist",
         "autoload": {
             "psr-0": {
                 "Assetic": "src/"
@@ -3066,79 +3138,6 @@
             "assets",
             "compression",
             "minification"
-        ]
-    },
-    {
-        "name": "phing/phing",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/phingofficial/phing.git",
-            "reference": "fb5d51bddb2123e3cb5500232771496206848d47"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/phingofficial/phing/zipball/fb5d51bddb2123e3cb5500232771496206848d47",
-            "reference": "fb5d51bddb2123e3cb5500232771496206848d47",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.2.0"
-        },
-        "require-dev": {
-            "phpdocumentor/phpdocumentor": "2.x",
-            "phpunit/phpunit": ">=3.7"
-        },
-        "suggest": {
-            "pdepend/pdepend": "PHP version of JDepend",
-            "pear/archive_tar": "Tar file management class",
-            "pear/versioncontrol_git": "A library that provides OO interface to handle Git repository",
-            "pear/versioncontrol_svn": "A simple OO-style interface for Subversion, the free/open-source version control system",
-            "phpdocumentor/phpdocumentor": "Documentation Generator for PHP",
-            "phploc/phploc": "A tool for quickly measuring the size of a PHP project",
-            "phpmd/phpmd": "PHP version of PMD tool",
-            "phpunit/php-code-coverage": "Library that provides collection, processing, and rendering functionality for PHP code coverage information",
-            "phpunit/phpunit": "The PHP Unit Testing Framework",
-            "sebastian/phpcpd": "Copy/Paste Detector (CPD) for PHP code",
-            "tedivm/jshrink": "Javascript Minifier built in PHP"
-        },
-        "time": "2014-07-18 13:19:27",
-        "bin": [
-            "bin/phing"
-        ],
-        "type": "library",
-        "installation-source": "source",
-        "autoload": {
-            "classmap": [
-                "classes/phing/"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "include-path": [
-            "classes"
-        ],
-        "license": [
-            "LGPL-3.0"
-        ],
-        "authors": [
-            {
-                "name": "Michiel Rook",
-                "email": "mrook@php.net",
-                "role": "Lead"
-            },
-            {
-                "name": "Phing Community",
-                "homepage": "http://www.phing.info/trac/wiki/Development/Contributors"
-            }
-        ],
-        "description": "PHing Is Not GNU make; it's a PHP project build system or build tool based on Apache Ant.",
-        "homepage": "http://www.phing.info/",
-        "keywords": [
-            "build",
-            "phing",
-            "task",
-            "tool"
         ]
     }
 ]

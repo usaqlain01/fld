@@ -204,6 +204,26 @@ function esquif_preprocess_block(&$variables, $hook) {
   }
 }
 
+/**
+ *
+ */
+function esquif_preprocess_field(&$variables, $hook) {
+  $element = $variables['element'];
+
+  // Add specific suggestions that can override the default implementation.
+  $variables['theme_hook_suggestions'][] = 'field__' . $element['#view_mode'] . '__' . $element['#field_name'] . '__' . $element['#bundle'];
+}
+
+function esquif_field__event__field_date__event($variables) {
+  $output = '';
+
+  // Render the items.
+  foreach ($variables['items'] as $delta => $item) {
+    $output .= drupal_render($item);
+  }
+
+  return $output;
+}
 
 /**
  * Override or insert variables into the node templates.
@@ -305,9 +325,10 @@ function esquif_links__system_main_menu($variables) {
     $value['title'] = '<span class="navGlobal__label" itemprop="name">'. check_plain($value['title']) .'</span>';
     $value['attributes'] = array(
       'itemprop' => 'url',
+      'class' => array('button'),
     );
     $value['html'] = TRUE;
-    $embedded_variables['links'][$key] = $value;
+    $embedded_variables['links'][$key] = _esquif_header_menu_link($value);
   }
 
   // Append class attribute values to primary menu links. The key of the array is used
@@ -332,7 +353,7 @@ function esquif_links__system_main_menu($variables) {
       'submenu' => TRUE,
     ),
     'navMain__item navMain__global' => array(
-      'title' => theme('links__global', $embedded_variables),
+      'title' => '<p class="nav__hours">Open 9am – 5pm every day except Christmas</p>'. theme('links__global', $embedded_variables),
       'html' => true,
       'submenu' => TRUE,
     )
@@ -578,6 +599,8 @@ function esquif_button__search_box($variables) {
  * @param $form_state
  */
 function esquif_form_search_block_form_alter(&$form, &$form_state) {
+  $form['#attributes']['class'][] = 'search';
+  $form['#attributes']['role'] = 'search';
   $form['search_block_form']['#attributes']['class'][] = 'search__input';
   $form['search_block_form']['#attributes']['placeholder'] = 'Search fieldmuseum.org';
   $form['search_block_form']['#size'] = 22;
@@ -963,4 +986,75 @@ function esquif_links__node__sharing($variables) {
     $variables['links'][$key] = $value;
   }
   return theme_links($variables);
+}
+
+/**
+ * @see theme_form
+ * @param $variables
+ * @return string
+ */
+function esquif_form($variables) {
+  $element = $variables['element'];
+  if (isset($element['#action'])) {
+    $element['#attributes']['action'] = drupal_strip_dangerous_protocols($element['#action']);
+  }
+  element_set_attributes($element, array('method', 'id'));
+  if (empty($element['#attributes']['accept-charset'])) {
+    $element['#attributes']['accept-charset'] = "UTF-8";
+  }
+  // Anonymous DIV to satisfy XHTML compliance.
+  return '<form' . drupal_attributes($element['#attributes']) . '>' . $element['#children'] . '</form>';
+}
+
+/**
+ * @param $link
+ * @return mixed
+ */
+function _esquif_header_menu_link($link) {
+  switch ($link['href']) {
+    case 'node/6601':
+      $link['attributes']['class'][] = 'link--directions';
+      $link['title'] .= '<span class="button__leader">';
+      $link['title'] .= '<svg class="icon icon--car" viewBox="0 0 500 500"><use xlink:href="#car"></use></svg>';
+      $link['title'] .= '<svg class="icon icon--train" viewBox="0 0 500 500"><use xlink:href="#train"></use></svg>';
+      $link['title'] .= '<svg class="icon icon--bus" viewBox="0 0 500 500"><use xlink:href="#bus"></use></svg>';
+      $link['title'] .= '</span>';
+      break;
+    case 'tickets':
+      $link['title'] .= '<span class="button__leader">';
+      $link['title'] .= '<svg class="icon icon--ticket-2" viewBox="0 0 500 500"><use xlink:href="#ticket-2"></use></svg>';
+      $link['title'] .= '</span>';
+      break;
+  }
+  return $link;
+}
+
+/**
+ *
+ */
+
+/**
+ * Template preprocess function for displaying a single date.
+ */
+function esquif_preprocess_date_display_single(&$variables) {
+  $variables['attributes']['class'][] = 'date-display-single';
+  $variables['attributes']['class'][] = 'eventsList__time';
+}
+
+/**
+ * Returns HTML for a date element formatted as a single date.
+ */
+function esquif_date_display_single($variables) {
+  $date = $variables['date'];
+  $timezone = $variables['timezone'];
+  $attributes = $variables['attributes'];
+
+  // Wrap the result with the attributes.
+  $output = '<time' . drupal_attributes($attributes) . '>' . $date . $timezone . '</time>';
+
+  if ($variables['add_microdata']) {
+    $output .= '<meta' . drupal_attributes($variables['microdata']['value']['#attributes']) . '/>';
+  }
+
+  return $output;
 }

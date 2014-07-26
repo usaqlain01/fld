@@ -67,8 +67,10 @@ function fmnh_calendar_field_default_field_bases() {
         'target_bundles' => array(
           'exhibit' => 'exhibit',
           'program' => 'program',
+          'project' => 'project',
         ),
       ),
+      'profile2_private' => FALSE,
       'target_type' => 'node',
     ),
     'translatable' => 0,

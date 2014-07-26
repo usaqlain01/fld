@@ -638,7 +638,7 @@ function fieldmuseum_default_panels_mini() {
       'main' => array(),
       'default' => NULL,
       'left' => NULL,
-      'right' => NULL,
+      'search' => NULL,
       'hero' => NULL,
     ),
     'main' => array(
@@ -648,7 +648,7 @@ function fieldmuseum_default_panels_mini() {
     'left' => array(
       'style' => 'naked',
     ),
-    'right' => array(
+    'search' => array(
       'style' => 'naked',
     ),
   );
@@ -678,7 +678,7 @@ function fieldmuseum_default_panels_mini() {
     $display->panels['hero'][0] = 'new-cbfb9024-4680-4b8c-a992-477fc3adc4b6';
     $pane = new stdClass();
     $pane->pid = 'new-8d44160c-cf91-460b-9e8a-f7beba88e0f7';
-    $pane->panel = 'right';
+    $pane->panel = 'search';
     $pane->type = 'block';
     $pane->subtype = 'search-form';
     $pane->shown = TRUE;
@@ -698,7 +698,7 @@ function fieldmuseum_default_panels_mini() {
     $pane->locks = array();
     $pane->uuid = '8d44160c-cf91-460b-9e8a-f7beba88e0f7';
     $display->content['new-8d44160c-cf91-460b-9e8a-f7beba88e0f7'] = $pane;
-    $display->panels['right'][0] = 'new-8d44160c-cf91-460b-9e8a-f7beba88e0f7';
+    $display->panels['search'][0] = 'new-8d44160c-cf91-460b-9e8a-f7beba88e0f7';
   $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = 'new-8d44160c-cf91-460b-9e8a-f7beba88e0f7';
   $mini->display = $display;
@@ -732,7 +732,7 @@ function fieldmuseum_default_panels_mini() {
       'main' => array(),
       'default' => NULL,
       'left' => NULL,
-      'right' => NULL,
+      'search' => NULL,
       'hero' => NULL,
     ),
     'main' => array(
@@ -742,7 +742,7 @@ function fieldmuseum_default_panels_mini() {
     'left' => array(
       'style' => 'naked',
     ),
-    'right' => array(
+    'search' => array(
       'style' => 'naked',
     ),
   );
@@ -858,7 +858,7 @@ function fieldmuseum_default_panels_mini() {
     $display->panels['hero'][1] = 'new-b8efb35b-3316-4911-be47-4e609c6b2fbf';
     $pane = new stdClass();
     $pane->pid = 'new-8d44160c-cf91-460b-9e8a-f7beba88e0f7';
-    $pane->panel = 'right';
+    $pane->panel = 'search';
     $pane->type = 'block';
     $pane->subtype = 'search-form';
     $pane->shown = TRUE;
@@ -878,7 +878,7 @@ function fieldmuseum_default_panels_mini() {
     $pane->locks = array();
     $pane->uuid = '8d44160c-cf91-460b-9e8a-f7beba88e0f7';
     $display->content['new-8d44160c-cf91-460b-9e8a-f7beba88e0f7'] = $pane;
-    $display->panels['right'][0] = 'new-8d44160c-cf91-460b-9e8a-f7beba88e0f7';
+    $display->panels['search'][0] = 'new-8d44160c-cf91-460b-9e8a-f7beba88e0f7';
   $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = 'new-8d44160c-cf91-460b-9e8a-f7beba88e0f7';
   $mini->display = $display;
@@ -897,7 +897,7 @@ function fieldmuseum_default_panels_mini() {
       'identifier' => 'File',
       'keyword' => 'file',
       'name' => 'entity:file',
-      'entity_id' => '80846',
+      'entity_id' => '81701',
       'id' => 1,
     ),
   );
@@ -912,7 +912,7 @@ function fieldmuseum_default_panels_mini() {
       'main' => array(),
       'default' => NULL,
       'left' => NULL,
-      'right' => NULL,
+      'search' => NULL,
       'hero' => NULL,
     ),
     'main' => array(
@@ -922,7 +922,7 @@ function fieldmuseum_default_panels_mini() {
     'left' => array(
       'style' => 'naked',
     ),
-    'right' => array(
+    'search' => array(
       'style' => 'naked',
     ),
   );
@@ -1038,7 +1038,7 @@ function fieldmuseum_default_panels_mini() {
     $display->panels['hero'][1] = 'new-a3edb486-89bb-4fe7-9625-5aeb149b5017';
     $pane = new stdClass();
     $pane->pid = 'new-8d44160c-cf91-460b-9e8a-f7beba88e0f7';
-    $pane->panel = 'right';
+    $pane->panel = 'search';
     $pane->type = 'block';
     $pane->subtype = 'search-form';
     $pane->shown = TRUE;
@@ -1058,7 +1058,7 @@ function fieldmuseum_default_panels_mini() {
     $pane->locks = array();
     $pane->uuid = '8d44160c-cf91-460b-9e8a-f7beba88e0f7';
     $display->content['new-8d44160c-cf91-460b-9e8a-f7beba88e0f7'] = $pane;
-    $display->panels['right'][0] = 'new-8d44160c-cf91-460b-9e8a-f7beba88e0f7';
+    $display->panels['search'][0] = 'new-8d44160c-cf91-460b-9e8a-f7beba88e0f7';
   $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = 'new-8d44160c-cf91-460b-9e8a-f7beba88e0f7';
   $mini->display = $display;
@@ -1077,7 +1077,7 @@ function fieldmuseum_default_panels_mini() {
       'identifier' => 'File',
       'keyword' => 'file',
       'name' => 'entity:file',
-      'entity_id' => '80846',
+      'entity_id' => '81706',
       'id' => 1,
     ),
   );
@@ -1092,7 +1092,7 @@ function fieldmuseum_default_panels_mini() {
       'main' => array(),
       'default' => NULL,
       'left' => NULL,
-      'right' => NULL,
+      'search' => NULL,
       'hero' => NULL,
     ),
     'main' => array(
@@ -1102,7 +1102,7 @@ function fieldmuseum_default_panels_mini() {
     'left' => array(
       'style' => 'naked',
     ),
-    'right' => array(
+    'search' => array(
       'style' => 'naked',
     ),
   );
@@ -1177,7 +1177,7 @@ function fieldmuseum_default_panels_mini() {
     $display->panels['hero'][1] = 'new-4a7f7450-9ca3-4269-88a4-9936491a0626';
     $pane = new stdClass();
     $pane->pid = 'new-8d44160c-cf91-460b-9e8a-f7beba88e0f7';
-    $pane->panel = 'right';
+    $pane->panel = 'search';
     $pane->type = 'block';
     $pane->subtype = 'search-form';
     $pane->shown = TRUE;
@@ -1197,7 +1197,7 @@ function fieldmuseum_default_panels_mini() {
     $pane->locks = array();
     $pane->uuid = '8d44160c-cf91-460b-9e8a-f7beba88e0f7';
     $display->content['new-8d44160c-cf91-460b-9e8a-f7beba88e0f7'] = $pane;
-    $display->panels['right'][0] = 'new-8d44160c-cf91-460b-9e8a-f7beba88e0f7';
+    $display->panels['search'][0] = 'new-8d44160c-cf91-460b-9e8a-f7beba88e0f7';
   $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = 'new-8d44160c-cf91-460b-9e8a-f7beba88e0f7';
   $mini->display = $display;
@@ -1231,7 +1231,7 @@ function fieldmuseum_default_panels_mini() {
       'main' => array(),
       'default' => NULL,
       'left' => NULL,
-      'right' => NULL,
+      'search' => NULL,
       'hero' => NULL,
     ),
     'main' => array(
@@ -1241,7 +1241,7 @@ function fieldmuseum_default_panels_mini() {
     'left' => array(
       'style' => 'naked',
     ),
-    'right' => array(
+    'search' => array(
       'style' => 'naked',
     ),
   );
@@ -1274,7 +1274,7 @@ function fieldmuseum_default_panels_mini() {
     $display->panels['hero'][0] = 'new-08223496-4c50-4c27-8e40-b5230b9097c3';
     $pane = new stdClass();
     $pane->pid = 'new-8d44160c-cf91-460b-9e8a-f7beba88e0f7';
-    $pane->panel = 'right';
+    $pane->panel = 'search';
     $pane->type = 'block';
     $pane->subtype = 'search-form';
     $pane->shown = TRUE;
@@ -1294,7 +1294,7 @@ function fieldmuseum_default_panels_mini() {
     $pane->locks = array();
     $pane->uuid = '8d44160c-cf91-460b-9e8a-f7beba88e0f7';
     $display->content['new-8d44160c-cf91-460b-9e8a-f7beba88e0f7'] = $pane;
-    $display->panels['right'][0] = 'new-8d44160c-cf91-460b-9e8a-f7beba88e0f7';
+    $display->panels['search'][0] = 'new-8d44160c-cf91-460b-9e8a-f7beba88e0f7';
   $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = 'new-8d44160c-cf91-460b-9e8a-f7beba88e0f7';
   $mini->display = $display;
@@ -1313,7 +1313,7 @@ function fieldmuseum_default_panels_mini() {
       'identifier' => 'File',
       'keyword' => 'file',
       'name' => 'entity:file',
-      'entity_id' => '80846',
+      'entity_id' => '81691',
       'id' => 1,
     ),
   );
@@ -1328,7 +1328,7 @@ function fieldmuseum_default_panels_mini() {
       'main' => array(),
       'default' => NULL,
       'left' => NULL,
-      'right' => NULL,
+      'search' => NULL,
       'hero' => NULL,
     ),
     'main' => array(
@@ -1338,7 +1338,7 @@ function fieldmuseum_default_panels_mini() {
     'left' => array(
       'style' => 'naked',
     ),
-    'right' => array(
+    'search' => array(
       'style' => 'naked',
     ),
   );
@@ -1413,7 +1413,7 @@ function fieldmuseum_default_panels_mini() {
     $display->panels['hero'][1] = 'new-1f6ce464-cb32-4c0c-9992-8b2626e056a4';
     $pane = new stdClass();
     $pane->pid = 'new-8d44160c-cf91-460b-9e8a-f7beba88e0f7';
-    $pane->panel = 'right';
+    $pane->panel = 'search';
     $pane->type = 'block';
     $pane->subtype = 'search-form';
     $pane->shown = TRUE;
@@ -1433,7 +1433,7 @@ function fieldmuseum_default_panels_mini() {
     $pane->locks = array();
     $pane->uuid = '8d44160c-cf91-460b-9e8a-f7beba88e0f7';
     $display->content['new-8d44160c-cf91-460b-9e8a-f7beba88e0f7'] = $pane;
-    $display->panels['right'][0] = 'new-8d44160c-cf91-460b-9e8a-f7beba88e0f7';
+    $display->panels['search'][0] = 'new-8d44160c-cf91-460b-9e8a-f7beba88e0f7';
   $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = 'new-8d44160c-cf91-460b-9e8a-f7beba88e0f7';
   $mini->display = $display;
@@ -1452,7 +1452,7 @@ function fieldmuseum_default_panels_mini() {
       'identifier' => 'File',
       'keyword' => 'file',
       'name' => 'entity:file',
-      'entity_id' => '80846',
+      'entity_id' => '81686',
       'id' => 1,
     ),
   );
@@ -1467,7 +1467,7 @@ function fieldmuseum_default_panels_mini() {
       'main' => array(),
       'default' => NULL,
       'left' => NULL,
-      'right' => NULL,
+      'search' => NULL,
       'hero' => NULL,
     ),
     'main' => array(
@@ -1477,7 +1477,7 @@ function fieldmuseum_default_panels_mini() {
     'left' => array(
       'style' => 'naked',
     ),
-    'right' => array(
+    'search' => array(
       'style' => 'naked',
     ),
   );
@@ -1541,7 +1541,7 @@ function fieldmuseum_default_panels_mini() {
     $display->panels['hero'][1] = 'new-0849ed1d-30f8-4643-ae96-ce9a0ea3416d';
     $pane = new stdClass();
     $pane->pid = 'new-8d44160c-cf91-460b-9e8a-f7beba88e0f7';
-    $pane->panel = 'right';
+    $pane->panel = 'search';
     $pane->type = 'block';
     $pane->subtype = 'search-form';
     $pane->shown = TRUE;
@@ -1561,7 +1561,7 @@ function fieldmuseum_default_panels_mini() {
     $pane->locks = array();
     $pane->uuid = '8d44160c-cf91-460b-9e8a-f7beba88e0f7';
     $display->content['new-8d44160c-cf91-460b-9e8a-f7beba88e0f7'] = $pane;
-    $display->panels['right'][0] = 'new-8d44160c-cf91-460b-9e8a-f7beba88e0f7';
+    $display->panels['search'][0] = 'new-8d44160c-cf91-460b-9e8a-f7beba88e0f7';
   $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = 'new-8d44160c-cf91-460b-9e8a-f7beba88e0f7';
   $mini->display = $display;
@@ -1580,7 +1580,7 @@ function fieldmuseum_default_panels_mini() {
       'identifier' => 'File',
       'keyword' => 'file',
       'name' => 'entity:file',
-      'entity_id' => '80846',
+      'entity_id' => '81696',
       'id' => 1,
     ),
   );
@@ -1595,7 +1595,7 @@ function fieldmuseum_default_panels_mini() {
       'main' => array(),
       'default' => NULL,
       'left' => NULL,
-      'right' => NULL,
+      'search' => NULL,
       'hero' => NULL,
     ),
     'main' => array(
@@ -1605,7 +1605,7 @@ function fieldmuseum_default_panels_mini() {
     'left' => array(
       'style' => 'naked',
     ),
-    'right' => array(
+    'search' => array(
       'style' => 'naked',
     ),
   );
@@ -1709,7 +1709,7 @@ function fieldmuseum_default_panels_mini() {
     $display->panels['hero'][1] = 'new-6236a505-f290-459f-8a7e-aa3d8ef5bedc';
     $pane = new stdClass();
     $pane->pid = 'new-8d44160c-cf91-460b-9e8a-f7beba88e0f7';
-    $pane->panel = 'right';
+    $pane->panel = 'search';
     $pane->type = 'block';
     $pane->subtype = 'search-form';
     $pane->shown = TRUE;
@@ -1729,7 +1729,7 @@ function fieldmuseum_default_panels_mini() {
     $pane->locks = array();
     $pane->uuid = '8d44160c-cf91-460b-9e8a-f7beba88e0f7';
     $display->content['new-8d44160c-cf91-460b-9e8a-f7beba88e0f7'] = $pane;
-    $display->panels['right'][0] = 'new-8d44160c-cf91-460b-9e8a-f7beba88e0f7';
+    $display->panels['search'][0] = 'new-8d44160c-cf91-460b-9e8a-f7beba88e0f7';
   $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = 'new-8d44160c-cf91-460b-9e8a-f7beba88e0f7';
   $mini->display = $display;

@@ -13,7 +13,7 @@ function fieldmuseum_taxonomy_default_vocabularies() {
       'name' => 'Audience',
       'machine_name' => 'audience',
       'description' => '',
-      'hierarchy' => 0,
+      'hierarchy' => 1,
       'module' => 'taxonomy',
       'weight' => 0,
       'rdf_mapping' => array(

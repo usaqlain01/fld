@@ -5,3 +5,10 @@
  */
 
 include_once 'fmnh_exhibit.features.inc';
+
+function fmnh_exhibit_admin_paths() {
+  return array(
+    'at-the-field/admin' => TRUE,
+    'at-the-field/*/admin' => TRUE,
+  );
+}

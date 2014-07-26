@@ -52,6 +52,9 @@ projects[diff][version] = 3.2
 projects[disqus][subdir] = contrib
 projects[disqus][version] = 1.10
 
+projects[draggableviews][subdir] = contrib
+projects[draggableviews][version] = 2.x-dev
+
 projects[editableviews][subdir] = contrib
 projects[editableviews][version] = 1.0-beta8
 
@@ -79,7 +82,7 @@ projects[environment_indicator][subdir] = contrib
 projects[environment_indicator][contrib] = 2.5
 
 projects[facetapi][subdir] = contrib
-projects[facetapi][version] = 1.4
+projects[facetapi][version] = 1.5
 
 projects[features][subdir] = contrib
 projects[features][version] = 2.0
@@ -208,7 +211,7 @@ projects[schemaorg][subdir] = contrib
 projects[schemaorg][version] = 1.x-dev
 
 projects[search_api][subdir] = contrib
-projects[search_api][version] = 1.12
+projects[search_api][version] = 1.13
 
 projects[search_api_db][subdir] = contrib
 projects[search_api_db][version] = 1.3

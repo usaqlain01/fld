@@ -14,12 +14,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/* globals assert, bytesToString, CIDToUnicodeMaps, error, ExpertCharset,
-           ExpertSubsetCharset, FileReaderSync, GlyphsUnicode, info, isArray,
-           isNum, ISOAdobeCharset, Stream, stringToArray, stringToBytes,
-           string32, TextDecoder, warn, Lexer, Util, FONT_IDENTITY_MATRIX,
-           FontRendererFactory, shadow, isString, IdentityCMap, Name,
-           CMapFactory, PDFJS, readUint32, FontType */
+/* globals FONT_IDENTITY_MATRIX, FontType, warn, GlyphsUnicode, error, string32,
+           readUint32, stringToArray, Stream, FontRendererFactory, shadow,
+           bytesToString, info, assert, IdentityCMap, Name, CMapFactory, PDFJS,
+           isNum, Lexer, isArray, ISOAdobeCharset, ExpertCharset,
+           ExpertSubsetCharset, Util */
 
 'use strict';
 
@@ -3430,13 +3429,14 @@ var Font = (function FontClosure() {
               break;
             }
             var customNames = [];
+            var strBuf = [];
             while (font.pos < end) {
               var stringLength = font.getByte();
-              var string = '';
+              strBuf.length = stringLength;
               for (i = 0; i < stringLength; ++i) {
-                string += String.fromCharCode(font.getByte());
+                strBuf[i] = String.fromCharCode(font.getByte());
               }
-              customNames.push(string);
+              customNames.push(strBuf.join(''));
             }
             glyphNames = [];
             for (i = 0; i < numGlyphs; ++i) {

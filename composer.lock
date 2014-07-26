@@ -1127,7 +1127,7 @@
         },
         {
             "name": "kriswallsmith/assetic",
-            "version": "dev-master",
+            "version": "v1.2.0-alpha1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kriswallsmith/assetic.git",
@@ -1247,12 +1247,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phingofficial/phing.git",
-                "reference": "fb5d51bddb2123e3cb5500232771496206848d47"
+                "reference": "acfa381c5c92dbfd86694199000e57face0e80cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phingofficial/phing/zipball/fb5d51bddb2123e3cb5500232771496206848d47",
-                "reference": "fb5d51bddb2123e3cb5500232771496206848d47",
+                "url": "https://api.github.com/repos/phingofficial/phing/zipball/acfa381c5c92dbfd86694199000e57face0e80cf",
+                "reference": "acfa381c5c92dbfd86694199000e57face0e80cf",
                 "shasum": ""
             },
             "require": {
@@ -1293,13 +1293,12 @@
             ],
             "authors": [
                 {
-                    "name": "Michiel Rook",
-                    "email": "mrook@php.net",
-                    "role": "Lead"
-                },
-                {
                     "name": "Phing Community",
                     "homepage": "http://www.phing.info/trac/wiki/Development/Contributors"
+                },
+                {
+                    "name": "Michiel Rook",
+                    "email": "mrook@php.net"
                 }
             ],
             "description": "PHing Is Not GNU make; it's a PHP project build system or build tool based on Apache Ant.",
@@ -1310,7 +1309,7 @@
                 "task",
                 "tool"
             ],
-            "time": "2014-07-18 13:19:27"
+            "time": "2014-07-26 13:11:01"
         },
         {
             "name": "phpunit/php-code-coverage",

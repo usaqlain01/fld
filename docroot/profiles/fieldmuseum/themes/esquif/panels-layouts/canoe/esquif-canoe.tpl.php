@@ -14,14 +14,7 @@
  *   - $content['right']: Content in the right column.
  */
 ?>
-<div class="pageHeader__details l--2up">
-  <section class="l--module">
-    <?php print $content['left']; ?>
-  </section>
-  <section class="l--module">
-    <?php print $content['right']; ?>
-  </section>
-</div>
+<?php print $content['search']; ?>
 <figure class="hero"<?php if (isset($hero_image)): ?> style="background-image: url('<?php print file_create_url($hero_image->uri); ?>')"<?php endif; ?>>
   <?php print $content['hero']; ?>
 </figure>
