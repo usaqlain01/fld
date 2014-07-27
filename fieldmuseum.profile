@@ -321,7 +321,7 @@ function fieldmuseum_menu_block_menu_tree_content_type_render($subtype, $conf, $
   $block = menu_block_menu_tree_content_type_render($subtype, $conf, $args, $context);
   if ($block->content && isset($conf['identifier'])) {
     array_unshift($block->content['#theme'], 'menu_block_wrapper__main_menu__'. $conf['identifier']);
-    array_unshift($block->content['#content']['#theme_wrappers'], 'menu_tree__menu_block__main_menu__'. $conf['identifier']);
+    array_unshift($block->content['#content']['#theme_wrappers'][0], 'menu_tree__menu_block__main_menu__'. $conf['identifier']);
 
     foreach (element_children($block->content['#content']) as $key) {
       array_unshift($block->content['#content'][$key]['#theme'], 'menu_link__menu_block__main_menu__'. $conf['identifier']);

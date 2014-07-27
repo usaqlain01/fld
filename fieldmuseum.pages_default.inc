@@ -3353,6 +3353,7 @@ function fieldmuseum_default_page_manager_pages() {
       'sort' => 0,
       'override_title' => 0,
       'override_title_text' => '',
+      'identifier' => 'content',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -3456,6 +3457,7 @@ function fieldmuseum_default_page_manager_pages() {
       'sort' => 0,
       'override_title' => 0,
       'override_title_text' => '',
+      'identifier' => 'content',
     );
     $pane->cache = array();
     $pane->style = array(
