@@ -64,6 +64,7 @@ features[variable][] = node_options_program
 features[variable][] = node_preview_program
 features[variable][] = node_submitted_program
 features[variable][] = pathauto_node_program_pattern
+features[views_view][] = program_events
 features[views_view][] = programs
 files[] = lib/ProgramsByAudienceEFQ.inc
 files[] = lib/ProgramListEFQ.inc

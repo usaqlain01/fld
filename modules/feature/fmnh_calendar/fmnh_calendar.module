@@ -29,7 +29,7 @@ function fmnh_calendar_menu() {
  * @return bool
  */
 function fmnh_calendar_new_event_access($node) {
-  if (in_array($node->type, array('program', 'exhibit')) && user_access('create event content')) {
+  if (in_array($node->type, array('program', 'exhibit', 'project')) && user_access('create event content')) {
     return TRUE;
   }
   return FALSE;
@@ -98,4 +98,51 @@ function fmnh_calendar_admin_paths() {
     'node/*/event/add' => TRUE,
   );
   return $paths;
+}
+
+function fmnh_calendar_preprocess_node(&$variables, $hook) {
+  $node = $variables['node'];
+  if ($node->type == 'event' && $variables['view_mode'] == 'teaser') {
+    $variables['title_attributes_array']['class'][] = 'eventSummary__title';
+  }
+  else if ($node->type == 'event' && $variables['view_mode'] == 'full') {
+    $variables['title_attributes_array']['class'][] = 'article__title';
+  }
+}
+
+
+function fmnh_calendar_entity_prepare_view($entities, $type, $langcode) {
+  if ($type == 'node') {
+    foreach ($entities as &$entity) {
+      list($id, $vid, $bundle) = entity_extract_ids($type, $entity);
+      if ($bundle == 'event') {
+        $items = field_get_items('node', $entity, 'field_program');
+        if ($items) {
+          $program_node = $items[0]['entity'];
+          foreach (array('body', 'field_image') as $field_name) {
+            if (_fmnh_calendar_field_is_empty($type, $entity, $field_name)) {
+              $entity->{$field_name} = $program_node->{$field_name};
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+function _fmnh_calendar_field_is_empty($entity_type, $entity, $field_name, $langcode = NULL) {
+  $field = field_info_field($field_name);
+  $function = $field['module'] . '_field_is_empty';
+
+  if (function_exists($function)) {
+    $items = field_get_items($entity_type, $entity, $field_name, $langcode);
+    if ($items) {
+      foreach ($items as $item) {
+        return $function($field, $item);
+      }
+    }
+    else {
+      return TRUE;
+    }
+  }
 }

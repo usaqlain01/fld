@@ -6,7 +6,9 @@
     print '</div>';
   } else {
     print $content['main'];
-  }
+  }    ?>
+
+  <?php
   if ($nav_classes) {
     print '<div class="' . $nav_classes . '">';
     print $content['nav'];

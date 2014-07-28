@@ -29,13 +29,11 @@
   }
   ?>
 </section>
-
-<h2>Exhibitions On The Museum Floor</h2>
 <?php
 if ($bottom_classes) {
-  print '<section class="' . $bottom_classes . '">';
+  print '<div class="' . $bottom_classes . '">';
   print $content['bottom'];
-  print '</section>';
+  print '</div>';
 } else {
   print $content['bottom'];
 }

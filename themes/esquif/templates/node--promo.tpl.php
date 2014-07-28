@@ -15,4 +15,5 @@
     </figure>
     <h3<?php print $title_attributes; ?>><?php print $title; ?></h3>
   </a>
+  <?php print render($content['links']); ?>
 </div>
