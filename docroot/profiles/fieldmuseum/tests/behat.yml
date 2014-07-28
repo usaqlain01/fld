@@ -2,6 +2,9 @@ default:
     paths:
         bootstrap: "%behat.paths.features%/bootstrap"
         features: features
+    formatter:
+        classes:
+            csv_statistics: 'Behat\CommonFormatters\CsvStatisticsFormatter'
     extensions:
         Behat\MinkExtension\Extension:
             base_url: "http://fieldmuseum.local:8083"
