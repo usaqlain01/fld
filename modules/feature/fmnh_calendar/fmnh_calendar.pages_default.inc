@@ -465,23 +465,7 @@ function fmnh_calendar_default_page_manager_pages() {
     'css_id' => '',
     'css' => '',
     'contexts' => array(),
-    'relationships' => array(
-      0 => array(
-        'identifier' => 'List: Events by audience',
-        'keyword' => 'list',
-        'name' => 'entitylist_relationship:events_by_audience',
-        'use_pager' => TRUE,
-        'pager_id' => NULL,
-        'range' => array(
-          'offset' => 0,
-          'limit' => 10,
-        ),
-        'context' => array(
-          0 => 'argument_term_1',
-        ),
-        'id' => 1,
-      ),
-    ),
+    'relationships' => array(),
     'access' => array(
       'plugins' => array(
         0 => array(
@@ -514,30 +498,6 @@ function fmnh_calendar_default_page_manager_pages() {
   $display->uuid = '88c633b0-4dab-40c2-b254-3e54f705ef91';
   $display->content = array();
   $display->panels = array();
-    $pane = new stdClass();
-    $pane->pid = 'new-e4b0bc30-61aa-41ee-9db8-fb52fdb0a268';
-    $pane->panel = 'main';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'events-panel_pane_1';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'context' => array(
-        0 => 'argument_term_1',
-      ),
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'style' => 'default',
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = 'e4b0bc30-61aa-41ee-9db8-fb52fdb0a268';
-    $display->content['new-e4b0bc30-61aa-41ee-9db8-fb52fdb0a268'] = $pane;
-    $display->panels['main'][0] = 'new-e4b0bc30-61aa-41ee-9db8-fb52fdb0a268';
     $pane = new stdClass();
     $pane->pid = 'new-25f33a1a-5b68-4515-ab5c-718002845669';
     $pane->panel = 'nav';
@@ -592,15 +552,9 @@ function fmnh_calendar_default_page_manager_pages() {
     'css' => '',
     'contexts' => array(
       0 => array(
-        'identifier' => 'List: Upcoming events',
-        'keyword' => 'list',
-        'name' => 'entitylist:upcoming_events',
-        'use_pager' => TRUE,
-        'pager_id' => 0,
-        'range' => array(
-          'offset' => 0,
-          'limit' => 10,
-        ),
+        'identifier' => 'View: Calendar: Upcoming Events',
+        'keyword' => 'view',
+        'name' => 'view:calendar-ctools_context_2',
         'id' => 1,
       ),
     ),
@@ -609,8 +563,8 @@ function fmnh_calendar_default_page_manager_pages() {
   $display = new panels_display();
   $display->layout = 'l7';
   $display->layout_settings = array(
-    'main_classes' => '',
-    'nav_classes' => 'navSection',
+    'main_classes' => 'l--body__content',
+    'nav_classes' => 'l--body__nav js--sticky',
   );
   $display->panel_settings = array(
     'style_settings' => array(
@@ -625,29 +579,71 @@ function fmnh_calendar_default_page_manager_pages() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-b38f968d-821a-4e03-a887-4ca554049888';
+    $pane->pid = 'new-478e0ac3-1835-4866-87a2-cddce499c4d3';
     $pane->panel = 'main';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'events-panel_pane_1';
+    $pane->type = 'views_row';
+    $pane->subtype = 'views_row';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'context' => array(
-        0 => 'empty',
-      ),
+      'rows' => NULL,
+      'use_fields' => NULL,
+      'fields' => NULL,
+      'context' => 'context_view:calendar-ctools_context_2_1',
+      'override_title' => 0,
+      'override_title_text' => '',
     );
     $pane->cache = array();
     $pane->style = array(
-      'style' => 'default',
-      'settings' => NULL,
+      'style' => 'semantic_panels',
+      'settings' => array(
+        'element_title' => array(
+          'type' => 'h1',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => 'section',
+          'class_enable' => 1,
+          'class' => 'events',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
     );
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = 'b38f968d-821a-4e03-a887-4ca554049888';
-    $display->content['new-b38f968d-821a-4e03-a887-4ca554049888'] = $pane;
-    $display->panels['main'][0] = 'new-b38f968d-821a-4e03-a887-4ca554049888';
+    $pane->uuid = '478e0ac3-1835-4866-87a2-cddce499c4d3';
+    $display->content['new-478e0ac3-1835-4866-87a2-cddce499c4d3'] = $pane;
+    $display->panels['main'][0] = 'new-478e0ac3-1835-4866-87a2-cddce499c4d3';
     $pane = new stdClass();
     $pane->pid = 'new-25f33a1a-5b68-4515-ab5c-718002845669';
     $pane->panel = 'nav';
@@ -728,7 +724,7 @@ function fmnh_calendar_default_page_manager_pages() {
     $pane->uuid = '25f33a1a-5b68-4515-ab5c-718002845669';
     $display->content['new-25f33a1a-5b68-4515-ab5c-718002845669'] = $pane;
     $display->panels['nav'][0] = 'new-25f33a1a-5b68-4515-ab5c-718002845669';
-  $display->hide_title = PANELS_TITLE_PANE;
+  $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
