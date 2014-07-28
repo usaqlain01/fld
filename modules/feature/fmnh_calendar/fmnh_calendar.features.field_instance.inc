@@ -96,7 +96,7 @@ function fmnh_calendar_field_default_field_instances() {
           'field_formatter_class' => '',
         ),
         'type' => 'link_default',
-        'weight' => 2,
+        'weight' => 1,
       ),
     ),
     'entity_type' => 'node',
@@ -221,17 +221,9 @@ function fmnh_calendar_field_default_field_instances() {
       ),
       'teaser' => array(
         'label' => 'hidden',
-        'module' => 'date',
-        'settings' => array(
-          'field_formatter_class' => '',
-          'format_type' => 'long',
-          'fromto' => 'both',
-          'multiple_from' => '',
-          'multiple_number' => '',
-          'multiple_to' => '',
-        ),
-        'type' => 'date_default',
-        'weight' => 0,
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 3,
       ),
     ),
     'entity_type' => 'node',
@@ -260,6 +252,62 @@ function fmnh_calendar_field_default_field_instances() {
       ),
       'type' => 'date_select',
       'weight' => -4,
+    ),
+  );
+
+  // Exported field_instance: 'node-event-field_image'
+  $field_instances['node-event-field_image'] = array(
+    'bundle' => 'event',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'file',
+        'settings' => array(
+          'field_formatter_class' => '',
+        ),
+        'type' => 'file_default',
+        'weight' => 8,
+      ),
+      'event' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_image',
+    'label' => 'Image',
+    'required' => FALSE,
+    'settings' => array(
+      'description_field' => 0,
+      'file_directory' => '',
+      'file_extensions' => 'txt',
+      'max_filesize' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'media',
+      'settings' => array(
+        'allowed_schemes' => array(
+          0 => 'public',
+          1 => 'private',
+        ),
+        'allowed_types' => array(
+          0 => 'image',
+        ),
+        'browser_plugins' => array(),
+      ),
+      'type' => 'media_generic',
+      'weight' => 51,
     ),
   );
 
@@ -300,7 +348,7 @@ function fmnh_calendar_field_default_field_instances() {
           'thousand_separator' => ' ',
         ),
         'type' => 'number_decimal',
-        'weight' => 1,
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'node',
@@ -466,7 +514,7 @@ function fmnh_calendar_field_default_field_instances() {
           'field_formatter_class' => '',
         ),
         'type' => 'text_default',
-        'weight' => 3,
+        'weight' => 2,
       ),
     ),
     'entity_type' => 'node',
@@ -496,6 +544,7 @@ function fmnh_calendar_field_default_field_instances() {
   t('Body');
   t('Date');
   t('Exhibit or program');
+  t('Image');
   t('Price');
   t('References');
   t('Summary');

@@ -10,14 +10,32 @@
 <article class="eventSummary node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 
   <figure class="eventSummary__image">
-    <img src="http://placehold.it/300x300&amp;text=1x1" alt="Square Thumbnail">
+    <?php print render($content['field_image']); ?>
   </figure>
   <?php if ($unpublished): ?>
     <mark class="unpublished"><?php print t('Unpublished'); ?></mark>
   <?php endif; ?>
-
   <section class="eventSummary__details">
-    <?php print render($content['field_date']); ?>
+    <?php
+      $items = field_get_items('node', $node, 'field_date');
+      foreach ($items as $item) {
+        $date = new DateObject($item['value'], $item['timezone'], date_type_format($item['date_type']));
+        print '<time class="eventSummary__datetime" property="schema:startDate" datatype="xsd:dateTime" content="'. $date->format('c') .'">';
+        print '<span class="eventSummary__date">';
+        print $date->format('l, F j');
+        print '</span> ';
+        print ' <span class="eventSummary__time">';
+        if (intval($date->format('i')) > 0) {
+          print $date->format('g:ia');
+        }
+        else {
+          print $date->format('ga');
+        }
+        print '</span>';
+        print '</time>';
+      }
+    ?>
+    <?php print render($content['field_ticket_link']); ?>
     <?php print render($title_prefix); ?>
     <?php if (!$page && $title): ?>
       <h3<?php print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a></h3>
