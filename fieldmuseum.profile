@@ -330,3 +330,19 @@ function fieldmuseum_menu_block_menu_tree_content_type_render($subtype, $conf, $
 
   return $block;
 }
+
+/**
+ * Theme function to hide create content links for deprecated content types.
+ *
+ * This is done here so that access isn't completely removed.
+ *
+ * @param $variables
+ * @param $hook
+ */
+function fieldmuseum_preprocess_node_add_list(&$variables, $hook) {
+  foreach ($variables['content'] as $key => $link) {
+    if (in_array($link['router_path'], array('node/add/newsletter', 'node/add/article'))) {
+      unset($variables['content'][$key]);
+    }
+  }
+}
