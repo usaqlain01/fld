@@ -3144,18 +3144,6 @@ function fieldmuseum_default_page_manager_pages() {
     'css_id' => '',
     'css' => '',
     'contexts' => array(
-      0 => array(
-        'identifier' => 'List: Current exhibitions',
-        'keyword' => 'list',
-        'name' => 'entitylist:current_exhibitions',
-        'use_pager' => FALSE,
-        'pager_id' => 0,
-        'range' => array(
-          'offset' => 0,
-          'limit' => 3,
-        ),
-        'id' => 1,
-      ),
       1 => array(
         'identifier' => 'List: Upcoming events',
         'keyword' => 'list_2',
@@ -3168,6 +3156,12 @@ function fieldmuseum_default_page_manager_pages() {
         ),
         'id' => 1,
       ),
+      2 => array(
+        'identifier' => 'View: Exhibitions: Current exhibitions',
+        'keyword' => 'view',
+        'name' => 'view:exhibitions-ctools_context_2',
+        'id' => 1,
+      ),
     ),
     'relationships' => array(),
   );
@@ -3177,7 +3171,7 @@ function fieldmuseum_default_page_manager_pages() {
     'top_a_classes' => 'summary',
     'top_b_classes' => 'summary',
     'top_c_classes' => 'summary',
-    'bottom_classes' => 'promos--3up',
+    'bottom_classes' => '',
   );
   $display->panel_settings = array(
     'style_settings' => array(
@@ -3197,31 +3191,28 @@ function fieldmuseum_default_page_manager_pages() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-91b6980d-0fb6-4d6a-a3e2-52f60d261004';
+    $pane->pid = 'new-58a5f1c6-6b3f-4ad6-a217-ca30d2398aea';
     $pane->panel = 'bottom';
-    $pane->type = 'entity_range';
-    $pane->subtype = 'entity_range';
+    $pane->type = 'views_row';
+    $pane->subtype = 'views_row';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'range' => array(
-        'offset' => '0',
-        'limit' => '3',
-      ),
-      'view_mode' => 'node:promo',
-      'use_pager' => FALSE,
-      'pager_id' => 0,
-      'context' => 'context_entitylist:current_exhibitions_1',
-      'override_title' => 0,
-      'override_title_text' => '',
+      'rows' => array(),
+      'use_fields' => 0,
+      'fields' => array(),
+      'context' => 'context_view:exhibitions-ctools_context_2_1',
+      'override_title' => 1,
+      'override_title_text' => 'Exhibitions On The Museum Floor',
     );
     $pane->cache = array();
     $pane->style = array(
+      'style' => 'semantic_panels',
       'settings' => array(
         'element_title' => array(
-          'type' => '0',
-          'class_enable' => 0,
-          'class' => '',
+          'type' => 'h2',
+          'class_enable' => 1,
+          'class' => 'heading--stroked',
           'attributes' => array(),
           'link_enabled' => 0,
           'link' => array(
@@ -3234,9 +3225,9 @@ function fieldmuseum_default_page_manager_pages() {
           'attributes_array' => array(),
         ),
         'element_content' => array(
-          'type' => '0',
-          'class_enable' => 0,
-          'class' => '',
+          'type' => 'section',
+          'class_enable' => 1,
+          'class' => 'promos--3up',
           'attributes' => array(),
           'link_enabled' => 0,
           'link' => array(
@@ -3249,23 +3240,22 @@ function fieldmuseum_default_page_manager_pages() {
           'attributes_array' => array(),
         ),
         'element_wrapper' => array(
-          'type' => 'section',
-          'class_enable' => 1,
-          'class' => 'promos--3up',
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
           'attributes' => array(),
           'attributes_array' => array(),
         ),
         'add_default_classes' => 1,
       ),
-      'style' => 'semantic_panels',
     );
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = '91b6980d-0fb6-4d6a-a3e2-52f60d261004';
-    $display->content['new-91b6980d-0fb6-4d6a-a3e2-52f60d261004'] = $pane;
-    $display->panels['bottom'][0] = 'new-91b6980d-0fb6-4d6a-a3e2-52f60d261004';
+    $pane->uuid = '58a5f1c6-6b3f-4ad6-a217-ca30d2398aea';
+    $display->content['new-58a5f1c6-6b3f-4ad6-a217-ca30d2398aea'] = $pane;
+    $display->panels['bottom'][0] = 'new-58a5f1c6-6b3f-4ad6-a217-ca30d2398aea';
     $pane = new stdClass();
     $pane->pid = 'new-4dd3f6b3-0396-44ff-8c7c-bae11eb19919';
     $pane->panel = 'top_a';
@@ -3278,7 +3268,47 @@ function fieldmuseum_default_page_manager_pages() {
     );
     $pane->cache = array();
     $pane->style = array(
-      'settings' => NULL,
+      'settings' => array(
+        'element_title' => array(
+          'type' => 'h3',
+          'class_enable' => 1,
+          'class' => 'summary__title',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => 'at-the-field/exhibitions',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => 'div',
+          'class_enable' => 1,
+          'class' => 'summary__description',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
+      'style' => 'semantic_panels',
     );
     $pane->css = array();
     $pane->extras = array();
@@ -3307,6 +3337,7 @@ function fieldmuseum_default_page_manager_pages() {
       'sort' => 0,
       'override_title' => 0,
       'override_title_text' => '',
+      'identifier' => 'content',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -3332,8 +3363,47 @@ function fieldmuseum_default_page_manager_pages() {
     );
     $pane->cache = array();
     $pane->style = array(
-      'style' => 'default',
-      'settings' => NULL,
+      'style' => 'semantic_panels',
+      'settings' => array(
+        'element_title' => array(
+          'type' => 'h3',
+          'class_enable' => 1,
+          'class' => 'summary__title',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => 'div',
+          'class_enable' => 1,
+          'class' => 'summary__description',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
     );
     $pane->css = array();
     $pane->extras = array();
@@ -3362,6 +3432,7 @@ function fieldmuseum_default_page_manager_pages() {
       'sort' => 0,
       'override_title' => 0,
       'override_title_text' => '',
+      'identifier' => 'content',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -3465,6 +3536,7 @@ function fieldmuseum_default_page_manager_pages() {
       'sort' => 0,
       'override_title' => 0,
       'override_title_text' => '',
+      'identifier' => 'content',
     );
     $pane->cache = array();
     $pane->style = array(

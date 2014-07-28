@@ -150,6 +150,9 @@ function esquif_preprocess_node(&$variables, $hook) {
       $variables['theme_hook_suggestion'] = 'node__summary';
       $variables['title_attributes_array']['class'][] = 'summary__title';
       break;
+    case 'full':
+      $variables['theme_hook_suggestions'][] = 'node__'. $variables['type'] .'__'. $variables['view_mode'];
+      break;
   }
 
   $variables['classes_array'][] = $variables['view_mode'];
@@ -458,6 +461,12 @@ function esquif_preprocess_menu_block_wrapper(&$variables, $hook) {
         $variables['content'][$child]['#attributes']['class'][] = 'navLevel1__item';
       }
     }
+
+    if ($variables['theme_hook_suggestion'] == 'menu_block_wrapper__main_menu__content') {
+      foreach (element_children($variables['content']) as $child) {
+        $variables['content'][$child]['#attributes']['class'][] = 'contentLinks__item';
+      }
+    }
   }
 }
 
@@ -467,18 +476,28 @@ function esquif_preprocess_menu_block_wrapper(&$variables, $hook) {
  * @param $variables
  * @return string
  */
-function esquif_menu_tree__menu_block__footer($variables) {
+function esquif_menu_tree__menu_block__main_menu__footer($variables) {
   return '<ul class="navFooter__list menu">' . $variables['tree'] . '</ul>';
 }
 
 /**
- * Theme override for footer menu.
+ * Theme override for section menu.
  *
  * @param $variables
  * @return string
  */
-function esquif_menu_tree__menu_block__section($variables) {
+function esquif_menu_tree__menu_block__main_menu__section($variables) {
   return '<ul class="navLevel1 menu">' . $variables['tree'] . '</ul>';
+}
+
+/**
+ * Theme override for content menu.
+ *
+ * @param $variables
+ * @return string
+ */
+function esquif_menu_tree__menu_block__main_menu__content($variables) {
+  return '<ul class="contentLinks">' . $variables['tree'] . '</ul>';
 }
 
 /**

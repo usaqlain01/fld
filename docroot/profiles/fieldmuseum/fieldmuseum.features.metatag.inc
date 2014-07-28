@@ -49,9 +49,6 @@ function fieldmuseum_metatag_export_default() {
       'generator' => array(
         'value' => 'Drupal 7 (http://drupal.org)',
       ),
-      'copyright' => array(
-        'value' => 'Copyright The Field Museum, [current-date:custom:Y]',
-      ),
       'image_src' => array(
         'value' => '',
       ),
@@ -221,9 +218,6 @@ function fieldmuseum_metatag_export_default() {
       'twitter:description' => array(
         'value' => '[site:slogan]',
       ),
-      'twitter:image' => array(
-        'value' => '',
-      ),
       'twitter:image:width' => array(
         'value' => '',
       ),
@@ -306,6 +300,12 @@ function fieldmuseum_metatag_export_default() {
         'value' => '',
       ),
       'yandex_webmaster_verification' => array(
+        'value' => '',
+      ),
+      'rights' => array(
+        'value' => 'Copyright The Field Museum, [current-date:custom:Y]',
+      ),
+      'twitter:image:src' => array(
         'value' => '',
       ),
     ),

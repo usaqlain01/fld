@@ -12,7 +12,6 @@ $plugin = array(
   'theme'       => 'esquif_l6',
 
   'regions'     => array(
-    'top'       => t('Top'),
     'main'      => t('Main'),
     'nav'       => t('Nav'),
   ),
