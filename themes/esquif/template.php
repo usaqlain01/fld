@@ -457,15 +457,28 @@ function esquif_preprocess_menu_block_wrapper(&$variables, $hook) {
     }
 
     if ($variables['theme_hook_suggestion'] == 'menu_block_wrapper__main_menu__section') {
-      foreach (element_children($variables['content']) as $child) {
-        $variables['content'][$child]['#attributes']['class'][] = 'navLevel1__item';
-      }
+      _esquif_preprocess_menu_block_wrapper__section($variables['content']);
     }
 
     if ($variables['theme_hook_suggestion'] == 'menu_block_wrapper__main_menu__content') {
       foreach (element_children($variables['content']) as $child) {
         $variables['content'][$child]['#attributes']['class'][] = 'contentLinks__item';
       }
+    }
+  }
+}
+
+/**
+ * Helper to add theme suggestion to menu child items recursively.
+ *
+ * @param $variables
+ */
+function _esquif_preprocess_menu_block_wrapper__section(&$variables) {
+  foreach (element_children($variables) as $child) {
+    $depth = $variables[$child]['#original_link']['depth'] - 1;
+    $variables[$child]['#attributes']['class'][] = 'navLevel'. $depth .'__item';
+    if (!empty($variables[$child]['#below'])) {
+      _esquif_preprocess_menu_block_wrapper__section($variables[$child]['#below']);
     }
   }
 }
@@ -1076,4 +1089,16 @@ function esquif_date_display_single($variables) {
   }
 
   return $output;
+}
+
+function esquif_menu_link__menu_block__main_menu__section($variables) {
+  $element = &$variables['element'];
+  foreach ($element['#attributes']['class'] as $class) {
+    if (0 === strpos($class, 'navLevel')) {
+      $prefix = substr($class, 0, strpos($class, '__'));
+      $element['#localized_options']['attributes']['class'][] = $prefix .'__link';
+    }
+  }
+
+  return theme_menu_link($variables);
 }
