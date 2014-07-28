@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * Default simple view template to display a list of rows.
@@ -7,7 +8,7 @@
  */
 ?>
 <?php if (!empty($title)): ?>
-  <h2 class="events__heading"><?php print $title; ?></h2>
+  <h3><?php print $title; ?></h3>
 <?php endif; ?>
 <?php foreach ($rows as $id => $row): ?>
   <?php print $row; ?>

@@ -443,7 +443,7 @@ function googleanalytics_update_7200() {
 
   // ga.js code will cause the tracker to break. Remove custom code snippets.
   $googleanalytics_codesnippet_before = variable_get('googleanalytics_codesnippet_before', '');
-  if (!empty($googleanalytics_codesnippet_before)) {
+  if (!empty($googleanalytics_codesnippet_before) && stristr($googleanalytics_codesnippet_before, '_gaq.push(')) {
     variable_set('googleanalytics_codesnippet_before_backup_7200', $googleanalytics_codesnippet_before);
     variable_del('googleanalytics_codesnippet_before');
     drupal_set_message(Database::getConnection()->prefixTables("A backup of your previous Google Analytics code snippet has been saved in database table '{variable}' as 'googleanalytics_codesnippet_before_backup_7200'. You need to manually upgrade the custom 'before' code snippet."), 'warning');
@@ -451,7 +451,7 @@ function googleanalytics_update_7200() {
   }
 
   $googleanalytics_codesnippet_after = variable_get('googleanalytics_codesnippet_after', '');
-  if (!empty($googleanalytics_codesnippet_after)) {
+  if (!empty($googleanalytics_codesnippet_after) && stristr($googleanalytics_codesnippet_after, '_gaq.push(')) {
     variable_set('googleanalytics_codesnippet_after_backup_7200', $googleanalytics_codesnippet_after);
     variable_del('googleanalytics_codesnippet_after');
     drupal_set_message(Database::getConnection()->prefixTables("A backup of your previous Google Analytics code snippet has been saved in database table '{variable}' as 'googleanalytics_codesnippet_before_backup_7200'. You need to manually upgrade the custom 'before' code snippet."), 'warning');
@@ -486,10 +486,24 @@ function googleanalytics_update_7202() {
 function googleanalytics_update_7203() {
   $googleanalytics_custom_dimension = variable_get('googleanalytics_custom_dimension', array());
   if (isset($googleanalytics_custom_dimension['indexes'])) {
+    foreach ($googleanalytics_custom_dimension['indexes'] as $dimension) {
+      $googleanalytics_custom_dimension['indexes'][$dimension['index']]['value'] = trim($dimension['value']);
+      // Remove empty values from the array.
+      if (!drupal_strlen($googleanalytics_custom_dimension['indexes'][$dimension['index']]['value'])) {
+        unset($googleanalytics_custom_dimension['indexes'][$dimension['index']]);
+      }
+    }
     variable_set('googleanalytics_custom_dimension', $googleanalytics_custom_dimension['indexes']);
   }
   $googleanalytics_custom_metric = variable_get('googleanalytics_custom_metric', array());
   if (isset($googleanalytics_custom_metric['indexes'])) {
+    foreach ($googleanalytics_custom_metric['indexes'] as $dimension) {
+      $googleanalytics_custom_metric['indexes'][$dimension['index']]['value'] = trim($dimension['value']);
+      // Remove empty values from the array.
+      if (!drupal_strlen($googleanalytics_custom_metric['indexes'][$dimension['index']]['value'])) {
+        unset($googleanalytics_custom_metric['indexes'][$dimension['index']]);
+      }
+    }
     variable_set('googleanalytics_custom_metric', $googleanalytics_custom_metric['indexes']);
   }
 

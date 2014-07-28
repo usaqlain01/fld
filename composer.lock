@@ -3043,6 +3043,7 @@
         "mongolito404/phingdrushtask": 20,
         "bangpound/assetic-app": 20
     },
+    "prefer-stable": true,
     "platform": {
         "php": ">=5.3.0"
     },
