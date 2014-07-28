@@ -113,6 +113,10 @@ projects[google_analytics][version] = 2.x-dev
 
 projects[google_cse][subdir] = contrib
 projects[google_cse][version] = 2.x-dev
+projects[google_cse][type] = module
+projects[google_cse][download][url] = https://github.com/bangpound/google_cse.git
+projects[google_cse][download][type] = git
+projects[google_cse][download][branch] = CSEv2
 
 projects[imagecrop][subdir] = contrib
 projects[imagecrop][type] = module
