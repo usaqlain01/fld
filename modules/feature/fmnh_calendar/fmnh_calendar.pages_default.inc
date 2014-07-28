@@ -1075,6 +1075,7 @@ function fmnh_calendar_default_page_manager_pages() {
           'type' => array(
             'exhibit' => 'exhibit',
             'program' => 'program',
+            'project' => 'project',
           ),
         ),
         'context' => 'argument_entity_id:node_1',

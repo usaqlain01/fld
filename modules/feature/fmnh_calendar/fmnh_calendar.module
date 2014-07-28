@@ -29,7 +29,7 @@ function fmnh_calendar_menu() {
  * @return bool
  */
 function fmnh_calendar_new_event_access($node) {
-  if (in_array($node->type, array('program', 'exhibit')) && user_access('create event content')) {
+  if (in_array($node->type, array('program', 'exhibit', 'project')) && user_access('create event content')) {
     return TRUE;
   }
   return FALSE;
