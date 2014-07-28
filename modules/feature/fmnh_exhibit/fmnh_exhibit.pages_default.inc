@@ -206,7 +206,7 @@ function fmnh_exhibit_default_page_manager_handlers() {
       'title_link' => 0,
       'admin_title' => '',
       'level' => '2',
-      'follow' => 'active',
+      'follow' => 0,
       'depth' => '0',
       'expanded' => 0,
       'sort' => 0,
