@@ -391,6 +391,544 @@ function fmnh_landings_default_panels_mini() {
   $mini = new stdClass();
   $mini->disabled = FALSE; /* Edit this to true to make a default mini disabled initially */
   $mini->api_version = 1;
+  $mini->name = 'home_landing';
+  $mini->category = 'Landing';
+  $mini->admin_title = 'Home landing';
+  $mini->admin_description = '';
+  $mini->requiredcontexts = array();
+  $mini->contexts = array();
+  $mini->relationships = array();
+  $display = new panels_display();
+  $display->layout = 'zen_no_wrapper';
+  $display->layout_settings = array(
+    'main_classes' => '',
+  );
+  $display->panel_settings = array(
+    'style' => 'default',
+    'style_settings' => array(
+      'default' => NULL,
+      'main' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = '';
+  $display->uuid = 'c1f4a1bd-4674-4663-aa14-65ac697f61bd';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-26163151-327b-4493-a48a-a3e451cee047';
+    $pane->panel = 'main';
+    $pane->type = 'panels_mini';
+    $pane->subtype = 'home_landing_science';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'semantic_panels',
+      'settings' => array(
+        'element_title' => array(
+          'type' => 'h2',
+          'class_enable' => 1,
+          'class' => 'heading--stroked',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => 'div',
+          'class_enable' => 1,
+          'class' => 'summary',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '26163151-327b-4493-a48a-a3e451cee047';
+    $display->content['new-26163151-327b-4493-a48a-a3e451cee047'] = $pane;
+    $display->panels['main'][0] = 'new-26163151-327b-4493-a48a-a3e451cee047';
+    $pane = new stdClass();
+    $pane->pid = 'new-b0b6d031-34b1-41b2-86ea-51633ac84be9';
+    $pane->panel = 'main';
+    $pane->type = 'panels_mini';
+    $pane->subtype = 'home_landing_events';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'semantic_panels',
+      'settings' => array(
+        'element_title' => array(
+          'type' => 'h2',
+          'class_enable' => 1,
+          'class' => 'heading--stroked',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => 'div',
+          'class_enable' => 1,
+          'class' => 'summary',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = 'b0b6d031-34b1-41b2-86ea-51633ac84be9';
+    $display->content['new-b0b6d031-34b1-41b2-86ea-51633ac84be9'] = $pane;
+    $display->panels['main'][1] = 'new-b0b6d031-34b1-41b2-86ea-51633ac84be9';
+  $display->hide_title = PANELS_TITLE_NONE;
+  $display->title_pane = '0';
+  $mini->display = $display;
+  $export['home_landing'] = $mini;
+
+  $mini = new stdClass();
+  $mini->disabled = FALSE; /* Edit this to true to make a default mini disabled initially */
+  $mini->api_version = 1;
+  $mini->name = 'home_landing_events';
+  $mini->category = 'Landing';
+  $mini->admin_title = 'Home landing events';
+  $mini->admin_description = '';
+  $mini->requiredcontexts = array();
+  $mini->contexts = array(
+    1 => array(
+      'identifier' => 'List: Upcoming events',
+      'keyword' => 'list_2',
+      'name' => 'entitylist:upcoming_events',
+      'use_pager' => FALSE,
+      'pager_id' => NULL,
+      'range' => array(
+        'offset' => 0,
+        'limit' => 5,
+      ),
+      'id' => 1,
+    ),
+  );
+  $mini->relationships = array();
+  $display = new panels_display();
+  $display->layout = 'zen_no_wrapper';
+  $display->layout_settings = array(
+    'main_classes' => '',
+  );
+  $display->panel_settings = array(
+    'style' => 'default',
+    'style_settings' => array(
+      'default' => NULL,
+      'main' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = 'Events at The Field';
+  $display->uuid = 'c1f4a1bd-4674-4663-aa14-65ac697f61bd';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-03854895-ddbe-4b14-b533-af64dd2d2ea9';
+    $pane->panel = 'main';
+    $pane->type = 'node';
+    $pane->subtype = 'node';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'nid' => '14261',
+      'links' => 1,
+      'leave_node_title' => 1,
+      'identifier' => 'summary__naked',
+      'build_mode' => 'summary',
+      'link_node_title' => 1,
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'naked',
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '03854895-ddbe-4b14-b533-af64dd2d2ea9';
+    $display->content['new-03854895-ddbe-4b14-b533-af64dd2d2ea9'] = $pane;
+    $display->panels['main'][0] = 'new-03854895-ddbe-4b14-b533-af64dd2d2ea9';
+    $pane = new stdClass();
+    $pane->pid = 'new-a67d5b81-b462-4dbe-a74a-33992f8e6fc9';
+    $pane->panel = 'main';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => 'Rule (tight)',
+      'title' => '',
+      'body' => '<hr class="rule--tight" />',
+      'format' => 'unfiltered',
+      'substitute' => 1,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'naked',
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = 'a67d5b81-b462-4dbe-a74a-33992f8e6fc9';
+    $display->content['new-a67d5b81-b462-4dbe-a74a-33992f8e6fc9'] = $pane;
+    $display->panels['main'][1] = 'new-a67d5b81-b462-4dbe-a74a-33992f8e6fc9';
+    $pane = new stdClass();
+    $pane->pid = 'new-66560f6a-fd8b-4229-8ef3-55e405440b6d';
+    $pane->panel = 'main';
+    $pane->type = 'entity_range';
+    $pane->subtype = 'entity_range';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'range' => array(
+        'offset' => '0',
+        'limit' => '5',
+      ),
+      'view_mode' => 'node:event',
+      'use_pager' => FALSE,
+      'pager_id' => 0,
+      'context' => 'context_entitylist:upcoming_events_1',
+      'override_title' => 1,
+      'override_title_text' => 'This Week at The Field',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'semantic_panels',
+      'settings' => array(
+        'element_title' => array(
+          'type' => 'h4',
+          'class_enable' => 1,
+          'class' => 'scale--5',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => 'ul',
+          'class_enable' => 1,
+          'class' => 'eventsList',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 2;
+    $pane->locks = array();
+    $pane->uuid = '66560f6a-fd8b-4229-8ef3-55e405440b6d';
+    $display->content['new-66560f6a-fd8b-4229-8ef3-55e405440b6d'] = $pane;
+    $display->panels['main'][2] = 'new-66560f6a-fd8b-4229-8ef3-55e405440b6d';
+  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->title_pane = '0';
+  $mini->display = $display;
+  $export['home_landing_events'] = $mini;
+
+  $mini = new stdClass();
+  $mini->disabled = FALSE; /* Edit this to true to make a default mini disabled initially */
+  $mini->api_version = 1;
+  $mini->name = 'home_landing_exhibitions';
+  $mini->category = 'Landing';
+  $mini->admin_title = 'Home landing exhibitions';
+  $mini->admin_description = '';
+  $mini->requiredcontexts = array();
+  $mini->contexts = array(
+    0 => array(
+      'identifier' => 'List: Promoted exhibitions',
+      'keyword' => 'list',
+      'name' => 'entitylist:promoted_exhibitions',
+      'use_pager' => FALSE,
+      'pager_id' => NULL,
+      'range' => array(
+        'offset' => 0,
+        'limit' => 3,
+      ),
+      'id' => 1,
+    ),
+  );
+  $mini->relationships = array();
+  $display = new panels_display();
+  $display->layout = 'zen_no_wrapper';
+  $display->layout_settings = array(
+    'main_classes' => '',
+  );
+  $display->panel_settings = array(
+    'style' => 'default',
+    'style_settings' => array(
+      'default' => NULL,
+      'main' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = 'Exhibitions On The Museum Floor';
+  $display->uuid = 'c1f4a1bd-4674-4663-aa14-65ac697f61bd';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-0b7e8763-317f-435a-bfbe-fd05c7d12506';
+    $pane->panel = 'main';
+    $pane->type = 'entity';
+    $pane->subtype = 'entity';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'index' => '1',
+      'view_mode' => 'node:promo',
+      'use_pager' => FALSE,
+      'pager_id' => 0,
+      'context' => 'context_entitylist:promoted_exhibitions_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+      'style' => 'naked',
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '0b7e8763-317f-435a-bfbe-fd05c7d12506';
+    $display->content['new-0b7e8763-317f-435a-bfbe-fd05c7d12506'] = $pane;
+    $display->panels['main'][0] = 'new-0b7e8763-317f-435a-bfbe-fd05c7d12506';
+    $pane = new stdClass();
+    $pane->pid = 'new-e17aa475-ebcc-44d9-a2c8-5475e37c1548';
+    $pane->panel = 'main';
+    $pane->type = 'entity';
+    $pane->subtype = 'entity';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'index' => '2',
+      'view_mode' => 'node:promo',
+      'use_pager' => FALSE,
+      'pager_id' => 0,
+      'context' => 'context_entitylist:promoted_exhibitions_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+      'style' => 'naked',
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = 'e17aa475-ebcc-44d9-a2c8-5475e37c1548';
+    $display->content['new-e17aa475-ebcc-44d9-a2c8-5475e37c1548'] = $pane;
+    $display->panels['main'][1] = 'new-e17aa475-ebcc-44d9-a2c8-5475e37c1548';
+    $pane = new stdClass();
+    $pane->pid = 'new-64c4c056-b3c7-4afd-8796-35e7f9d62988';
+    $pane->panel = 'main';
+    $pane->type = 'entity';
+    $pane->subtype = 'entity';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'index' => '3',
+      'view_mode' => 'node:promo',
+      'use_pager' => FALSE,
+      'pager_id' => 0,
+      'context' => 'context_entitylist:promoted_exhibitions_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+      'style' => 'naked',
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 2;
+    $pane->locks = array();
+    $pane->uuid = '64c4c056-b3c7-4afd-8796-35e7f9d62988';
+    $display->content['new-64c4c056-b3c7-4afd-8796-35e7f9d62988'] = $pane;
+    $display->panels['main'][2] = 'new-64c4c056-b3c7-4afd-8796-35e7f9d62988';
+  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->title_pane = '0';
+  $mini->display = $display;
+  $export['home_landing_exhibitions'] = $mini;
+
+  $mini = new stdClass();
+  $mini->disabled = FALSE; /* Edit this to true to make a default mini disabled initially */
+  $mini->api_version = 1;
+  $mini->name = 'home_landing_science';
+  $mini->category = 'Landing';
+  $mini->admin_title = 'Home landing science';
+  $mini->admin_description = '';
+  $mini->requiredcontexts = array();
+  $mini->contexts = array();
+  $mini->relationships = array();
+  $display = new panels_display();
+  $display->layout = 'zen_no_wrapper';
+  $display->layout_settings = array(
+    'main_classes' => '',
+  );
+  $display->panel_settings = array(
+    'style' => 'default',
+    'style_settings' => array(
+      'default' => NULL,
+      'main' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = 'Science at the Field';
+  $display->uuid = 'e1066c30-a0c3-44d7-af97-fc917179032c';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-b5e7ee32-0b6e-4420-8830-9addccfb13f0';
+    $pane->panel = 'main';
+    $pane->type = 'node';
+    $pane->subtype = 'node';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'nid' => '12956',
+      'links' => 1,
+      'leave_node_title' => 1,
+      'identifier' => 'summary__naked',
+      'build_mode' => 'summary',
+      'link_node_title' => 1,
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'naked',
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'b5e7ee32-0b6e-4420-8830-9addccfb13f0';
+    $display->content['new-b5e7ee32-0b6e-4420-8830-9addccfb13f0'] = $pane;
+    $display->panels['main'][0] = 'new-b5e7ee32-0b6e-4420-8830-9addccfb13f0';
+    $pane = new stdClass();
+    $pane->pid = 'new-fec69ff5-25a8-443c-93af-cd001bcf34c7';
+    $pane->panel = 'main';
+    $pane->type = 'fieldable_panels_pane';
+    $pane->subtype = 'fpid:2';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'view_mode' => 'naked',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'naked',
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = 'fec69ff5-25a8-443c-93af-cd001bcf34c7';
+    $display->content['new-fec69ff5-25a8-443c-93af-cd001bcf34c7'] = $pane;
+    $display->panels['main'][1] = 'new-fec69ff5-25a8-443c-93af-cd001bcf34c7';
+  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->title_pane = 'new-b5e7ee32-0b6e-4420-8830-9addccfb13f0';
+  $mini->display = $display;
+  $export['home_landing_science'] = $mini;
+
+  $mini = new stdClass();
+  $mini->disabled = FALSE; /* Edit this to true to make a default mini disabled initially */
+  $mini->api_version = 1;
   $mini->name = 'science_landing';
   $mini->category = 'Landing';
   $mini->admin_title = 'Science landing';

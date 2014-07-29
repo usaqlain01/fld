@@ -152,7 +152,10 @@ function esquif_preprocess_node(&$variables, $hook) {
       break;
   }
 
-  $variables['classes_array'][] = $variables['view_mode'];
+  // Unsightly hack that avoids adding summary to wrapper of embedded nodes on home page.
+  if (!in_array('node__panel__summary__naked', $variables['theme_hook_suggestions'])) {
+    $variables['classes_array'][] = $variables['view_mode'];
+  }
 
   // Optionally, run node-type-specific preprocess functions, like
   // esquif_preprocess_node_page() or esquif_preprocess_node_story().
@@ -1140,4 +1143,8 @@ function esquif_preprocess_views_view_list(&$variables, $hook) {
       $variables['classes_array'][$id] = isset($variables['classes'][$id]) ? implode(' ', $variables['classes'][$id]) : '';
     }
   }
+}
+
+function esquif_preprocess_fieldable_panels_pane(&$variables) {
+  $variables['theme_hook_suggestions'][] = 'fieldable_panels_pane__' . $variables['elements']['#element']->bundle .'__'. $variables['elements']['#view_mode'];
 }
