@@ -13,8 +13,8 @@ function fmnh_landings_default_panels_mini() {
   $mini = new stdClass();
   $mini->disabled = FALSE; /* Edit this to true to make a default mini disabled initially */
   $mini->api_version = 1;
-  $mini->name = 'planning_your_visit';
-  $mini->category = '';
+  $mini->name = 'visit_landing';
+  $mini->category = 'Landing';
   $mini->admin_title = 'Planning Your Visit';
   $mini->admin_description = '';
   $mini->requiredcontexts = array();
@@ -128,13 +128,13 @@ function fmnh_landings_default_panels_mini() {
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $mini->display = $display;
-  $export['planning_your_visit'] = $mini;
+  $export['visit_landing'] = $mini;
 
   $mini = new stdClass();
   $mini->disabled = FALSE; /* Edit this to true to make a default mini disabled initially */
   $mini->api_version = 1;
   $mini->name = 'science_landing';
-  $mini->category = '';
+  $mini->category = 'Landing';
   $mini->admin_title = 'Science landing';
   $mini->admin_description = '';
   $mini->requiredcontexts = array();

@@ -6566,7 +6566,7 @@ function fieldmuseum_default_page_manager_pages() {
     $pane->pid = 'new-9963d2d2-d4a8-47d7-8f18-341343fd6b01';
     $pane->panel = 'main';
     $pane->type = 'panels_mini';
-    $pane->subtype = 'planning_your_visit';
+    $pane->subtype = 'visit_landing';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
