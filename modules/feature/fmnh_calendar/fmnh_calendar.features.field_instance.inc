@@ -519,6 +519,69 @@ function fmnh_calendar_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-event-field_ticket_link'
+  $field_instances['node-event-field_ticket_link'] = array(
+    'bundle' => 'event',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'link',
+        'settings' => array(
+          'field_formatter_class' => '',
+        ),
+        'type' => 'link_default',
+        'weight' => 8,
+      ),
+      'event' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'fences_wrapper' => 'span',
+    'field_name' => 'field_ticket_link',
+    'label' => 'Ticket link',
+    'required' => 0,
+    'settings' => array(
+      'attributes' => array(
+        'class' => 'button--buy eventSummary__offer',
+        'configurable_title' => 0,
+        'rel' => '',
+        'target' => 'default',
+        'title' => '',
+      ),
+      'display' => array(
+        'url_cutoff' => 80,
+      ),
+      'enable_tokens' => 1,
+      'rel_remove' => 'default',
+      'title' => 'value',
+      'title_maxlength' => 128,
+      'title_value' => '<span class="button__leader">[node:field_price]</span> Buy Ticket',
+      'url' => 0,
+      'user_register_form' => FALSE,
+      'validate_url' => 1,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'link',
+      'settings' => array(),
+      'type' => 'link_field',
+      'weight' => 6,
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('Action link');
@@ -530,6 +593,7 @@ function fmnh_calendar_field_default_field_instances() {
   t('Price');
   t('References');
   t('Summary');
+  t('Ticket link');
 
   return $field_instances;
 }
