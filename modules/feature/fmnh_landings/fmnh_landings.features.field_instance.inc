@@ -24,7 +24,7 @@ function fmnh_landings_field_default_field_instances() {
           'field_formatter_class' => '',
         ),
         'type' => 'text_default',
-        'weight' => 1,
+        'weight' => 2,
       ),
     ),
     'entity_type' => 'fieldable_panels_pane',
@@ -43,7 +43,7 @@ function fmnh_landings_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => -1,
+      'weight' => 2,
     ),
   );
 
@@ -108,7 +108,7 @@ function fmnh_landings_field_default_field_instances() {
         ),
       ),
       'type' => 'media_generic',
-      'weight' => -3,
+      'weight' => 0,
     ),
   );
 
@@ -126,7 +126,7 @@ function fmnh_landings_field_default_field_instances() {
           'field_formatter_class' => 'contentLinks__item',
         ),
         'type' => 'link_default',
-        'weight' => 2,
+        'weight' => 3,
       ),
     ),
     'entity_type' => 'fieldable_panels_pane',
@@ -159,7 +159,7 @@ function fmnh_landings_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 1,
+      'weight' => 3,
     ),
   );
 
@@ -339,7 +339,7 @@ function fmnh_landings_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'fieldable_panels_pane',
-    'fences_wrapper' => 'div',
+    'fences_wrapper' => 'no_wrapper',
     'field_name' => 'field_body',
     'label' => 'Body',
     'required' => 0,
