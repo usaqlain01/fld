@@ -30,9 +30,6 @@ projects[bangpoundshare][download][type] = git
 projects[better_formats][subdir] = contrib
 projects[better_formats][version] = 1.x-dev
 
-projects[cf][subdir] = contrib
-projects[cf][version] = 2.0
-
 projects[classloader][subdir] = contrib
 projects[classloader][version] = 1.1
 
@@ -75,8 +72,6 @@ projects[entitylist][download][type] = git
 projects[entityreference][subdir] = contrib
 projects[entityreference][version] = 1.1
 
-projects[entity_soft_delete][subdir] = contrib
-projects[entity_soft_delete][version] = 1.0-alpha1
 
 projects[environment_indicator][subdir] = contrib
 projects[environment_indicator][contrib] = 2.5
