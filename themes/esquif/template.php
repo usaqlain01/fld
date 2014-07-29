@@ -140,7 +140,7 @@ function esquif_preprocess_node(&$variables, $hook) {
 
   switch ($variables['view_mode']) {
     case 'promo':
-      $variables['theme_hook_suggestion'] = 'node__promo';
+      $variables['theme_hook_suggestions'][] = 'node__promo';
       $variables['title_attributes_array']['class'][] = 'promo__title';
       break;
     case 'summary':
