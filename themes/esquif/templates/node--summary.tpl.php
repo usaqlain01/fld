@@ -9,11 +9,13 @@
 ?>
 <div class="node-<?php print $node->nid; ?> <?php print $classes; ?>"<?php print $attributes; ?>>
 
+  <figure>
+    <?php print render($content['field_image']); ?>
+  </figure>
+
   <?php if ($title_prefix || $title_suffix || $display_submitted || $unpublished || !$page && $title): ?>
     <?php print render($title_prefix); ?>
-    <?php if (!$page && $title): ?>
       <h3<?php print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a></h3>
-    <?php endif; ?>
     <?php print render($title_suffix); ?>
 
     <?php if ($display_submitted): ?>
@@ -31,11 +33,8 @@
     <?php
       // We hide the comments and links now so that we can render them later.
       hide($content['comments']);
-      hide($content['links']);
       print render($content);
     ?>
-
-    <?php print render($content['links']); ?>
 
     <?php print render($content['comments']); ?>
   </div>
