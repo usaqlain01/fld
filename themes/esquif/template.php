@@ -720,13 +720,13 @@ function esquif_pager($variables) {
   if ($pager_total[$element] > 1) {
     if ($li_first) {
       $items[] = array(
-        'class' => array('pager-first'),
+        'class' => array('pagination__item', 'pagination__first'),
         'data' => $li_first,
       );
     }
     if ($li_previous) {
       $items[] = array(
-        'class' => array('pager-previous'),
+        'class' => array('pagination__item', 'pagination__prev'),
         'data' => $li_previous,
       );
     }
@@ -867,6 +867,10 @@ function esquif_pager_first($variables) {
   $text = $variables['text'];
   $element = $variables['element'];
   $parameters = $variables['parameters'];
+  $attributes = array(
+    'class' => array('pagination__link')
+  );
+
   global $pager_page_array;
   $output = '';
 
