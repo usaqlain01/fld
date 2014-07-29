@@ -8956,6 +8956,306 @@ function fieldmuseum_default_page_manager_pages() {
   $page = new stdClass();
   $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
   $page->api_version = 1;
+  $page->name = 'tickets_and_hours';
+  $page->task = 'page';
+  $page->admin_title = 'Tickets and hours';
+  $page->admin_description = '';
+  $page->path = 'visit/admission-and-hours';
+  $page->access = array(
+    'plugins' => array(
+      0 => array(
+        'name' => 'perm',
+        'settings' => array(
+          'perm' => 'access content',
+        ),
+        'context' => 'logged-in-user',
+        'not' => FALSE,
+      ),
+    ),
+    'logic' => 'and',
+  );
+  $page->menu = array(
+    'type' => 'normal',
+    'title' => 'Admission and hours',
+    'name' => 'main-menu',
+    'weight' => '0',
+    'parent' => array(
+      'type' => 'none',
+      'title' => '',
+      'name' => 'navigation',
+      'weight' => '0',
+    ),
+  );
+  $page->arguments = array();
+  $page->conf = array(
+    'admin_paths' => FALSE,
+  );
+  $page->default_handlers = array();
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'page_tickets_and_hours_panel_context';
+  $handler->task = 'page';
+  $handler->subtask = 'tickets_and_hours';
+  $handler->handler = 'panel_context';
+  $handler->weight = 0;
+  $handler->conf = array(
+    'title' => 'Panel',
+    'no_blocks' => 0,
+    'pipeline' => 'ipe',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => '',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(),
+  );
+  $display = new panels_display();
+  $display->layout = 'l8';
+  $display->layout_settings = array(
+    'main_classes' => '',
+  );
+  $display->panel_settings = array(
+    'style' => 'naked',
+    'style_settings' => array(
+      'default' => NULL,
+      'main' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = '';
+  $display->uuid = '21b6876f-4a2c-4f61-9a2d-f83113ff8675';
+  $display->content = array();
+  $display->panels = array();
+  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->title_pane = '0';
+  $handler->conf['display'] = $display;
+  $page->default_handlers[$handler->name] = $handler;
+  $pages['tickets_and_hours'] = $page;
+
+  $page = new stdClass();
+  $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
+  $page->api_version = 1;
+  $page->name = 'virtual_tours';
+  $page->task = 'page';
+  $page->admin_title = 'Virtual tours';
+  $page->admin_description = '';
+  $page->path = 'visit/special-events/virtual-tours';
+  $page->access = array(
+    'plugins' => array(
+      0 => array(
+        'name' => 'perm',
+        'settings' => array(
+          'perm' => 'access content',
+        ),
+        'context' => 'logged-in-user',
+        'not' => FALSE,
+      ),
+    ),
+    'logic' => 'and',
+  );
+  $page->menu = array(
+    'type' => 'normal',
+    'title' => 'Virtual tours',
+    'name' => 'main-menu',
+    'weight' => '0',
+    'parent' => array(
+      'type' => 'none',
+      'title' => '',
+      'name' => 'navigation',
+      'weight' => '0',
+    ),
+  );
+  $page->arguments = array();
+  $page->conf = array(
+    'admin_paths' => FALSE,
+  );
+  $page->default_handlers = array();
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'page_virtual_tours_panel_context';
+  $handler->task = 'page';
+  $handler->subtask = 'virtual_tours';
+  $handler->handler = 'panel_context';
+  $handler->weight = 0;
+  $handler->conf = array(
+    'title' => 'Panel',
+    'no_blocks' => 0,
+    'pipeline' => 'ipe',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => '',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(
+      0 => array(
+        'identifier' => 'List: Menu children (hide children from other menus)',
+        'keyword' => 'list',
+        'name' => 'entitylist:menu_children',
+        'use_pager' => FALSE,
+        'pager_id' => NULL,
+        'range' => array(
+          'offset' => 0,
+          'limit' => 0,
+        ),
+        'id' => 1,
+      ),
+    ),
+    'relationships' => array(),
+  );
+  $display = new panels_display();
+  $display->layout = 'l6a';
+  $display->layout_settings = array(
+    'main_classes' => 'l--body__content js--stickyParent',
+    'nav_classes' => 'l--body__nav js--sticky',
+  );
+  $display->panel_settings = array(
+    'style' => 'default',
+    'style_settings' => array(
+      'default' => NULL,
+      'main' => NULL,
+      'nav' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = 'Virtual tours';
+  $display->uuid = 'e0b8fa88-d458-47bc-8f61-345a65888900';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-151aacc7-17b2-40f0-8fd0-5e0343768db7';
+    $pane->panel = 'main';
+    $pane->type = 'fieldable_panels_pane';
+    $pane->subtype = 'fpid:421';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'view_mode' => 'full',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'default',
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '151aacc7-17b2-40f0-8fd0-5e0343768db7';
+    $display->content['new-151aacc7-17b2-40f0-8fd0-5e0343768db7'] = $pane;
+    $display->panels['main'][0] = 'new-151aacc7-17b2-40f0-8fd0-5e0343768db7';
+    $pane = new stdClass();
+    $pane->pid = 'new-8569e08e-d5d9-4ae9-950d-118d59485bdb';
+    $pane->panel = 'main';
+    $pane->type = 'entity_range';
+    $pane->subtype = 'entity_range';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'range' => array(
+        'offset' => '0',
+        'limit' => '0',
+      ),
+      'view_mode' => 'node:teaser',
+      'use_pager' => FALSE,
+      'pager_id' => 0,
+      'context' => 'context_entitylist:menu_children_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'default',
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = '8569e08e-d5d9-4ae9-950d-118d59485bdb';
+    $display->content['new-8569e08e-d5d9-4ae9-950d-118d59485bdb'] = $pane;
+    $display->panels['main'][1] = 'new-8569e08e-d5d9-4ae9-950d-118d59485bdb';
+    $pane = new stdClass();
+    $pane->pid = 'new-e42d3cbb-24a9-48ef-9e54-f43f26537e4e';
+    $pane->panel = 'nav';
+    $pane->type = 'menu_tree';
+    $pane->subtype = 'main-menu';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'menu_name' => 'main-menu',
+      'parent_mlid' => 0,
+      'parent' => 'main-menu:0',
+      'title_link' => 0,
+      'admin_title' => '',
+      'level' => '2',
+      'follow' => 0,
+      'depth' => '0',
+      'expanded' => 0,
+      'sort' => 0,
+      'override_title' => 1,
+      'override_title_text' => '',
+      'identifier' => 'section',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'semantic_panels',
+      'settings' => array(
+        'element_title' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => 'nav',
+          'class_enable' => 1,
+          'class' => 'navSection',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'e42d3cbb-24a9-48ef-9e54-f43f26537e4e';
+    $display->content['new-e42d3cbb-24a9-48ef-9e54-f43f26537e4e'] = $pane;
+    $display->panels['nav'][0] = 'new-e42d3cbb-24a9-48ef-9e54-f43f26537e4e';
+  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->title_pane = 'new-e42d3cbb-24a9-48ef-9e54-f43f26537e4e';
+  $handler->conf['display'] = $display;
+  $page->default_handlers[$handler->name] = $handler;
+  $pages['virtual_tours'] = $page;
+
+  $page = new stdClass();
+  $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
+  $page->api_version = 1;
   $page->name = 'virtual_visits';
   $page->task = 'page';
   $page->admin_title = 'Virtual visits';
