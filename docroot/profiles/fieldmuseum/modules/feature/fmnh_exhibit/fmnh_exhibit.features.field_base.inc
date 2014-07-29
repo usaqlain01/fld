@@ -74,7 +74,6 @@ function fmnh_exhibit_field_default_field_bases() {
           'exhibit_type' => 'exhibit_type',
         ),
       ),
-      'profile2_private' => FALSE,
       'target_type' => 'taxonomy_term',
     ),
     'translatable' => 0,

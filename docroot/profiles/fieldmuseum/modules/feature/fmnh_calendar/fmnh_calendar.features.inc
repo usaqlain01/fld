@@ -45,3 +45,90 @@ function fmnh_calendar_node_info() {
   );
   return $items;
 }
+
+/**
+ * Implements hook_rdf_default_mappings().
+ */
+function fmnh_calendar_rdf_default_mappings() {
+  $schemaorg = array();
+
+  // Exported RDF mapping: event
+  $schemaorg['node']['event'] = array(
+    'rdftype' => array(
+      0 => 'schema:Event',
+      1 => 'sioc:Item',
+      2 => 'foaf:Document',
+    ),
+    'title' => array(
+      'predicates' => array(
+        0 => 'schema:name',
+      ),
+    ),
+    'created' => array(
+      'predicates' => array(
+        0 => 'dc:date',
+        1 => 'dc:created',
+      ),
+      'datatype' => 'xsd:dateTime',
+      'callback' => 'date_iso8601',
+    ),
+    'changed' => array(
+      'predicates' => array(
+        0 => 'dc:modified',
+      ),
+      'datatype' => 'xsd:dateTime',
+      'callback' => 'date_iso8601',
+    ),
+    'body' => array(
+      'predicates' => array(
+        0 => 'content:encoded',
+      ),
+    ),
+    'uid' => array(
+      'predicates' => array(
+        0 => 'sioc:has_creator',
+      ),
+      'type' => 'rel',
+    ),
+    'name' => array(
+      'predicates' => array(
+        0 => 'schema:name',
+      ),
+    ),
+    'comment_count' => array(
+      'predicates' => array(
+        0 => 'sioc:num_replies',
+      ),
+      'datatype' => 'xsd:integer',
+    ),
+    'last_activity' => array(
+      'predicates' => array(
+        0 => 'sioc:last_activity_date',
+      ),
+      'datatype' => 'xsd:dateTime',
+      'callback' => 'date_iso8601',
+    ),
+    'field_audience' => array(
+      'predicates' => array(),
+    ),
+    'field_references' => array(
+      'predicates' => array(),
+    ),
+    'field_program' => array(
+      'predicates' => array(),
+    ),
+    'field_date' => array(
+      'predicates' => array(
+        0 => 'schema:startDate',
+      ),
+    ),
+    'url' => array(
+      'predicates' => array(
+        0 => 'schema:url',
+      ),
+      'type' => 'rel',
+    ),
+  );
+
+  return $schemaorg;
+}

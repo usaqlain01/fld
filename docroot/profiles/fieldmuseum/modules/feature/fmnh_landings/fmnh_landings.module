@@ -5,3 +5,14 @@
  */
 
 include_once 'fmnh_landings.features.inc';
+
+/**
+ * @param $variables
+ * @param $hook
+ * @see template_preprocess_node
+ */
+function fmnh_landings_preprocess_fieldable_panels_pane(&$variables, $hook) {
+  $entity = $variables['elements']['#fieldable_panels_pane'];
+  $variables['title'] = check_plain($entity->title);
+  $variables['url'] = $entity->path;
+}

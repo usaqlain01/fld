@@ -51,3 +51,13 @@ function fmnh_collection_node_view($node, $view_mode, $langcode) {
     }
   }
 }
+
+function fmnh_collection_menu_position_rule_plugins() {
+  return array(
+    'dept_collection' => array(
+      'form_callback' => 'fmnh_collection_menu_position_condition_dept_collection_form',
+      'condition_callback' => 'fmnh_collection_menu_position_condition_dept_collection',
+      'file' => 'plugins/fmnh_collection.dept_collection.inc',
+    ),
+  );
+}
