@@ -30,9 +30,6 @@ projects[bangpoundshare][download][type] = git
 projects[better_formats][subdir] = contrib
 projects[better_formats][version] = 1.x-dev
 
-projects[cf][subdir] = contrib
-projects[cf][version] = 2.0
-
 projects[classloader][subdir] = contrib
 projects[classloader][version] = 1.1
 
@@ -75,8 +72,8 @@ projects[entitylist][download][type] = git
 projects[entityreference][subdir] = contrib
 projects[entityreference][version] = 1.1
 
-projects[entity_soft_delete][subdir] = contrib
-projects[entity_soft_delete][version] = 1.0-alpha1
+projects[entityqueue][subdir] = contrib
+projects[entityqueue][version] = 1.0-alpha3
 
 projects[environment_indicator][subdir] = contrib
 projects[environment_indicator][contrib] = 2.5
@@ -113,6 +110,10 @@ projects[google_analytics][version] = 2.x-dev
 
 projects[google_cse][subdir] = contrib
 projects[google_cse][version] = 2.x-dev
+projects[google_cse][type] = module
+projects[google_cse][download][url] = https://github.com/bangpound/google_cse.git
+projects[google_cse][download][type] = git
+projects[google_cse][download][branch] = CSEv2
 
 projects[imagecrop][subdir] = contrib
 projects[imagecrop][type] = module

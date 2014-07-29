@@ -10,6 +10,10 @@ function fieldmuseum_entity_view_mode_info() {
     'label' => t('Promo'),
     'custom_settings' => TRUE,
   );
+  $view_modes['taxonomy_term']['promo'] = array(
+    'label' => t('Promo'),
+    'custom_settings' => TRUE,
+  );
   $view_modes['node']['summary'] = array(
     'label' => t('Summary'),
     'custom_settings' => TRUE,
