@@ -207,6 +207,16 @@ function esquif_preprocess_block(&$variables, $hook) {
   }
 }
 
+function esquif_preprocess_taxonomy_term(&$variables, $hook) {
+  switch ($variables['view_mode']) {
+    case 'promo':
+      $variables['theme_hook_suggestions'][] = 'taxonomy_term__promo';
+      $variables['classes_array'][] = 'promo';
+      $variables['title_attributes_array']['class'][] = 'promo__title';
+      break;
+  }
+}
+
 /**
  *
  */
@@ -1101,4 +1111,20 @@ function esquif_menu_link__menu_block__main_menu__section($variables) {
   }
 
   return theme_menu_link($variables);
+}
+
+/**
+ * Preprocess function to overcome the way views replaces __ with --.
+ *
+ * @param $variables
+ * @param $hook
+ */
+function esquif_preprocess_views_view_list(&$variables, $hook) {
+  $rows = $variables['rows'];
+  if ('categoryLinks' == $variables['class']) {
+    foreach (array_keys($rows) as $id) {
+      $variables['classes'][$id][] = 'categoryLinks__item';
+      $variables['classes_array'][$id] = isset($variables['classes'][$id]) ? implode(' ', $variables['classes'][$id]) : '';
+    }
+  }
 }
