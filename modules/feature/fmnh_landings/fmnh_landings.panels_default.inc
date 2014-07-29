@@ -154,6 +154,341 @@ function fmnh_landings_default_panels_mini() {
   $mini = new stdClass();
   $mini->disabled = FALSE; /* Edit this to true to make a default mini disabled initially */
   $mini->api_version = 1;
+  $mini->name = 'exhibitions_and_events_landing';
+  $mini->category = 'Landing';
+  $mini->admin_title = 'Exhibitions and events landing';
+  $mini->admin_description = '';
+  $mini->requiredcontexts = array();
+  $mini->contexts = array(
+    1 => array(
+      'identifier' => 'List: Upcoming events',
+      'keyword' => 'list_2',
+      'name' => 'entitylist:upcoming_events',
+      'use_pager' => FALSE,
+      'pager_id' => NULL,
+      'range' => array(
+        'offset' => 0,
+        'limit' => 0,
+      ),
+      'id' => 1,
+    ),
+  );
+  $mini->relationships = array();
+  $display = new panels_display();
+  $display->layout = 'zen_no_wrapper';
+  $display->layout_settings = array(
+    'main_classes' => '',
+  );
+  $display->panel_settings = array(
+    'style' => 'default',
+    'style_settings' => array(
+      'default' => NULL,
+      'main' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = '';
+  $display->uuid = 'e39d3066-c5a3-4d00-a3f8-641b51e3cec8';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-4dd3f6b3-0396-44ff-8c7c-bae11eb19919';
+    $pane->panel = 'main';
+    $pane->type = 'fieldable_panels_pane';
+    $pane->subtype = 'fpid:16';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'view_mode' => 'full',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => array(
+        'element_title' => array(
+          'type' => 'h3',
+          'class_enable' => 1,
+          'class' => 'summary__title',
+          'attributes' => array(),
+          'link_enabled' => 1,
+          'link' => array(
+            'path' => 'at-the-field/exhibitions',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => 'div',
+          'class_enable' => 1,
+          'class' => 'summary__description',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => 'div',
+          'class_enable' => 1,
+          'class' => 'summary',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
+      'style' => 'semantic_panels',
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '4dd3f6b3-0396-44ff-8c7c-bae11eb19919';
+    $display->content['new-4dd3f6b3-0396-44ff-8c7c-bae11eb19919'] = $pane;
+    $display->panels['main'][0] = 'new-4dd3f6b3-0396-44ff-8c7c-bae11eb19919';
+    $pane = new stdClass();
+    $pane->pid = 'new-d660e9e1-5e72-4eed-8a92-05b999184a57';
+    $pane->panel = 'main';
+    $pane->type = 'fieldable_panels_pane';
+    $pane->subtype = 'fpid:246';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'view_mode' => 'full',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'semantic_panels',
+      'settings' => array(
+        'element_title' => array(
+          'type' => 'h3',
+          'class_enable' => 1,
+          'class' => 'summary__title',
+          'attributes' => array(),
+          'link_enabled' => 1,
+          'link' => array(
+            'path' => 'at-the-field/programs',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => 'div',
+          'class_enable' => 1,
+          'class' => 'summary__description',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => 'div',
+          'class_enable' => 1,
+          'class' => 'summary',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = 'd660e9e1-5e72-4eed-8a92-05b999184a57';
+    $display->content['new-d660e9e1-5e72-4eed-8a92-05b999184a57'] = $pane;
+    $display->panels['main'][1] = 'new-d660e9e1-5e72-4eed-8a92-05b999184a57';
+    $pane = new stdClass();
+    $pane->pid = 'new-6a80f4e9-cfd5-4b4e-ad57-e3a821eb5441';
+    $pane->panel = 'main';
+    $pane->type = 'entity_range';
+    $pane->subtype = 'entity_range';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'range' => array(
+        'offset' => '0',
+        'limit' => '5',
+      ),
+      'view_mode' => 'node:event',
+      'use_pager' => FALSE,
+      'pager_id' => 0,
+      'context' => 'context_entitylist:upcoming_events_1',
+      'override_title' => 1,
+      'override_title_text' => 'Upcoming events',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => array(
+        'element_title' => array(
+          'type' => 'h3',
+          'class_enable' => 1,
+          'class' => 'summary__title',
+          'attributes' => array(),
+          'link_enabled' => 1,
+          'link' => array(
+            'path' => 'at-the-field/calendar',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => 'ul',
+          'class_enable' => 1,
+          'class' => 'eventsList',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => 'div',
+          'class_enable' => 1,
+          'class' => 'summary',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
+      'style' => 'semantic_panels',
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 2;
+    $pane->locks = array();
+    $pane->uuid = '6a80f4e9-cfd5-4b4e-ad57-e3a821eb5441';
+    $display->content['new-6a80f4e9-cfd5-4b4e-ad57-e3a821eb5441'] = $pane;
+    $display->panels['main'][2] = 'new-6a80f4e9-cfd5-4b4e-ad57-e3a821eb5441';
+  $display->hide_title = PANELS_TITLE_NONE;
+  $display->title_pane = '0';
+  $mini->display = $display;
+  $export['exhibitions_and_events_landing'] = $mini;
+
+  $mini = new stdClass();
+  $mini->disabled = FALSE; /* Edit this to true to make a default mini disabled initially */
+  $mini->api_version = 1;
+  $mini->name = 'science_landing';
+  $mini->category = 'Landing';
+  $mini->admin_title = 'Science landing';
+  $mini->admin_description = '';
+  $mini->requiredcontexts = array();
+  $mini->contexts = array();
+  $mini->relationships = array();
+  $display = new panels_display();
+  $display->layout = 'zen_no_wrapper';
+  $display->layout_settings = array(
+    'main_classes' => '',
+  );
+  $display->panel_settings = array(
+    'style' => 'default',
+    'style_settings' => array(
+      'default' => NULL,
+      'main' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = '';
+  $display->uuid = '72ddcdc4-c67a-4878-988a-7b542ba2347f';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-35903402-4dca-4000-b537-7a426de082bf';
+    $pane->panel = 'main';
+    $pane->type = 'fieldable_panels_pane';
+    $pane->subtype = 'fpid:8';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'view_mode' => 'full',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+      'style' => 'naked',
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '35903402-4dca-4000-b537-7a426de082bf';
+    $display->content['new-35903402-4dca-4000-b537-7a426de082bf'] = $pane;
+    $display->panels['main'][0] = 'new-35903402-4dca-4000-b537-7a426de082bf';
+    $pane = new stdClass();
+    $pane->pid = 'new-023119be-c0ab-4ebb-a46c-d3283e1e25a1';
+    $pane->panel = 'main';
+    $pane->type = 'fieldable_panels_pane';
+    $pane->subtype = 'fpid:9';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'view_mode' => 'full',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+      'style' => 'naked',
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = '023119be-c0ab-4ebb-a46c-d3283e1e25a1';
+    $display->content['new-023119be-c0ab-4ebb-a46c-d3283e1e25a1'] = $pane;
+    $display->panels['main'][1] = 'new-023119be-c0ab-4ebb-a46c-d3283e1e25a1';
+    $pane = new stdClass();
+    $pane->pid = 'new-d866853d-695d-4c9b-ae0b-df338e6ada8e';
+    $pane->panel = 'main';
+    $pane->type = 'fieldable_panels_pane';
+    $pane->subtype = 'fpid:10';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'view_mode' => 'full',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+      'style' => 'naked',
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 2;
+    $pane->locks = array();
+    $pane->uuid = 'd866853d-695d-4c9b-ae0b-df338e6ada8e';
+    $display->content['new-d866853d-695d-4c9b-ae0b-df338e6ada8e'] = $pane;
+    $display->panels['main'][2] = 'new-d866853d-695d-4c9b-ae0b-df338e6ada8e';
+  $display->hide_title = PANELS_TITLE_NONE;
+  $display->title_pane = '0';
+  $mini->display = $display;
+  $export['science_landing'] = $mini;
+
+  $mini = new stdClass();
+  $mini->disabled = FALSE; /* Edit this to true to make a default mini disabled initially */
+  $mini->api_version = 1;
   $mini->name = 'visit_landing';
   $mini->category = 'Landing';
   $mini->admin_title = 'Planning Your Visit';
@@ -270,104 +605,6 @@ function fmnh_landings_default_panels_mini() {
   $display->title_pane = '0';
   $mini->display = $display;
   $export['visit_landing'] = $mini;
-
-  $mini = new stdClass();
-  $mini->disabled = FALSE; /* Edit this to true to make a default mini disabled initially */
-  $mini->api_version = 1;
-  $mini->name = 'science_landing';
-  $mini->category = 'Landing';
-  $mini->admin_title = 'Science landing';
-  $mini->admin_description = '';
-  $mini->requiredcontexts = array();
-  $mini->contexts = array();
-  $mini->relationships = array();
-  $display = new panels_display();
-  $display->layout = 'zen_no_wrapper';
-  $display->layout_settings = array(
-    'main_classes' => '',
-  );
-  $display->panel_settings = array(
-    'style' => 'default',
-    'style_settings' => array(
-      'default' => NULL,
-      'main' => NULL,
-    ),
-  );
-  $display->cache = array();
-  $display->title = '';
-  $display->uuid = '72ddcdc4-c67a-4878-988a-7b542ba2347f';
-  $display->content = array();
-  $display->panels = array();
-    $pane = new stdClass();
-    $pane->pid = 'new-35903402-4dca-4000-b537-7a426de082bf';
-    $pane->panel = 'main';
-    $pane->type = 'fieldable_panels_pane';
-    $pane->subtype = 'fpid:8';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'view_mode' => 'full',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-      'style' => 'naked',
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = '35903402-4dca-4000-b537-7a426de082bf';
-    $display->content['new-35903402-4dca-4000-b537-7a426de082bf'] = $pane;
-    $display->panels['main'][0] = 'new-35903402-4dca-4000-b537-7a426de082bf';
-    $pane = new stdClass();
-    $pane->pid = 'new-023119be-c0ab-4ebb-a46c-d3283e1e25a1';
-    $pane->panel = 'main';
-    $pane->type = 'fieldable_panels_pane';
-    $pane->subtype = 'fpid:9';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'view_mode' => 'full',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-      'style' => 'naked',
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 1;
-    $pane->locks = array();
-    $pane->uuid = '023119be-c0ab-4ebb-a46c-d3283e1e25a1';
-    $display->content['new-023119be-c0ab-4ebb-a46c-d3283e1e25a1'] = $pane;
-    $display->panels['main'][1] = 'new-023119be-c0ab-4ebb-a46c-d3283e1e25a1';
-    $pane = new stdClass();
-    $pane->pid = 'new-d866853d-695d-4c9b-ae0b-df338e6ada8e';
-    $pane->panel = 'main';
-    $pane->type = 'fieldable_panels_pane';
-    $pane->subtype = 'fpid:10';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'view_mode' => 'full',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-      'style' => 'naked',
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 2;
-    $pane->locks = array();
-    $pane->uuid = 'd866853d-695d-4c9b-ae0b-df338e6ada8e';
-    $display->content['new-d866853d-695d-4c9b-ae0b-df338e6ada8e'] = $pane;
-    $display->panels['main'][2] = 'new-d866853d-695d-4c9b-ae0b-df338e6ada8e';
-  $display->hide_title = PANELS_TITLE_NONE;
-  $display->title_pane = '0';
-  $mini->display = $display;
-  $export['science_landing'] = $mini;
 
   return $export;
 }
