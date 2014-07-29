@@ -32,6 +32,13 @@ function fmnh_blog_entityqueue_api($module = NULL, $api = NULL) {
 }
 
 /**
+ * Implements hook_views_api().
+ */
+function fmnh_blog_views_api($module = NULL, $api = NULL) {
+  return array("api" => "3.0");
+}
+
+/**
  * Implements hook_node_info().
  */
 function fmnh_blog_node_info() {
