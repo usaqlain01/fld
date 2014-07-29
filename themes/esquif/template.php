@@ -147,7 +147,7 @@ function esquif_preprocess_node(&$variables, $hook) {
       $variables['theme_hook_suggestions'][] = 'node__summary';
       $variables['title_attributes_array']['class'][] = 'summary__title';
       break;
-    case 'full':
+    default:
       $variables['theme_hook_suggestions'][] = 'node__'. $variables['type'] .'__'. $variables['view_mode'];
       break;
   }
@@ -210,6 +210,11 @@ function esquif_preprocess_taxonomy_term(&$variables, $hook) {
       $variables['theme_hook_suggestions'][] = 'taxonomy_term__promo';
       $variables['classes_array'][] = 'promo';
       $variables['title_attributes_array']['class'][] = 'promo__title';
+      break;
+    case 'summary':
+      $variables['theme_hook_suggestions'][] = 'taxonomy_term__summary';
+      $variables['classes_array'][] = 'summary';
+      $variables['title_attributes_array']['class'][] = 'summary__title';
       break;
   }
 }
@@ -1121,6 +1126,13 @@ function esquif_preprocess_views_view_list(&$variables, $hook) {
   if ('categoryLinks' == $variables['class']) {
     foreach (array_keys($rows) as $id) {
       $variables['classes'][$id][] = 'categoryLinks__item';
+      $variables['classes_array'][$id] = isset($variables['classes'][$id]) ? implode(' ', $variables['classes'][$id]) : '';
+    }
+  }
+
+  if ('contentLinks--full' == $variables['class']) {
+    foreach (array_keys($rows) as $id) {
+      $variables['classes'][$id][] = 'contentLinks__item';
       $variables['classes_array'][$id] = isset($variables['classes'][$id]) ? implode(' ', $variables['classes'][$id]) : '';
     }
   }
