@@ -142,6 +142,12 @@ function fieldmuseum_rdf_default_mappings() {
       ),
       'type' => 'rel',
     ),
+    'field_action_link' => array(
+      'predicates' => array(),
+    ),
+    'field_summary' => array(
+      'predicates' => array(),
+    ),
   );
 
   return $schemaorg;
