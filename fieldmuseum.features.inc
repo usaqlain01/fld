@@ -74,10 +74,13 @@ function fieldmuseum_rdf_default_mappings() {
     'rdftype' => array(
       0 => 'sioc:Item',
       1 => 'foaf:Document',
+      2 => 'schema:Article',
     ),
     'title' => array(
       'predicates' => array(
         0 => 'dc:title',
+        1 => 'schema:name',
+        2 => 'schema:headline',
       ),
     ),
     'created' => array(
@@ -98,6 +101,7 @@ function fieldmuseum_rdf_default_mappings() {
     'body' => array(
       'predicates' => array(
         0 => 'content:encoded',
+        1 => 'schema:articleBody',
       ),
     ),
     'uid' => array(
@@ -109,6 +113,7 @@ function fieldmuseum_rdf_default_mappings() {
     'name' => array(
       'predicates' => array(
         0 => 'foaf:name',
+        1 => 'schema:name',
       ),
     ),
     'comment_count' => array(
@@ -130,6 +135,12 @@ function fieldmuseum_rdf_default_mappings() {
     ),
     'field_references' => array(
       'predicates' => array(),
+    ),
+    'url' => array(
+      'predicates' => array(
+        0 => 'schema:url',
+      ),
+      'type' => 'rel',
     ),
   );
 
