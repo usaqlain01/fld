@@ -4441,12 +4441,12 @@ $(function() {
   var footerSizing, selector;
   selector = {
     footer: '.pageFooter',
-    body: '.l--main'
+    body: 'body'
   };
   footerSizing = function() {
     var footHeight;
     footHeight = $(selector.footer).outerHeight();
-    return $(selector.body).attr("style", "margin-bottom: " + footHeight + "px");
+    return $(selector.body).attr("style", "padding-bottom: " + footHeight + "px");
   };
   footerSizing();
   return $(window).on('delayedResize', function() {
@@ -4469,8 +4469,8 @@ $(function() {
     label_text = label.text();
     label.remove();
     return $(this).iCheck({
-      checkboxClass: 'icheck',
-      radioClass: 'iradio',
+      checkboxClass: 'input--checkbox',
+      radioClass: 'input--radio',
       checkedClass: 'is--selected',
       uncheckedClass: 'is--unselected',
       disabledClass: 'is--disabled',
