@@ -30,7 +30,7 @@ function fmnh_media_field_default_field_instances() {
         'weight' => 6,
       ),
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'text',
         'settings' => array(
           'field_formatter_class' => '',
@@ -170,7 +170,7 @@ function fmnh_media_field_default_field_instances() {
         'weight' => 7,
       ),
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'text',
         'settings' => array(
           'field_formatter_class' => '',

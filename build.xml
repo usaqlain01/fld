@@ -33,7 +33,6 @@
 
     <target name="compass-compile" depends="prepare">
         <exec command="compass compile -e production -s compressed" dir="docroot/profiles/fieldmuseum/themes/esquif"/>
-        <exec command="compass compile -e production -s compressed" dir="docroot/profiles/fieldmuseum/themes/temporary"/>
     </target>
 
     <target name="merge-tablexi" depends="prepare">
