@@ -3,7 +3,7 @@
     <?php print render($content['field_image']); ?>
   </figure>
   <?php print render($title_prefix); ?>
-  <h3 class="summary__title"><a href="<?php print $path; ?>"><?php print $title; ?></a></h3>
+  <h3 class="summary__title"><a href="<?php print $url; ?>"><?php print $title; ?></a></h3>
   <?php print render($title_suffix); ?>
 
   <div class="summary__description">
