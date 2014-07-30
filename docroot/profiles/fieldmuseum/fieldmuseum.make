@@ -78,6 +78,9 @@ projects[entityqueue][version] = 1.0-alpha3
 projects[environment_indicator][subdir] = contrib
 projects[environment_indicator][contrib] = 2.5
 
+projects[eva][subdir] = contrib
+projects[eva][version] = 1.x-dev
+
 projects[facetapi][subdir] = contrib
 projects[facetapi][version] = 1.5
 

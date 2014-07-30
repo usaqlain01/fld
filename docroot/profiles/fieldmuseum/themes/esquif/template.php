@@ -140,19 +140,22 @@ function esquif_preprocess_node(&$variables, $hook) {
 
   switch ($variables['view_mode']) {
     case 'promo':
-      $variables['theme_hook_suggestion'] = 'node__promo';
+      $variables['theme_hook_suggestions'][] = 'node__promo';
       $variables['title_attributes_array']['class'][] = 'promo__title';
       break;
     case 'summary':
       $variables['theme_hook_suggestions'][] = 'node__summary';
       $variables['title_attributes_array']['class'][] = 'summary__title';
       break;
-    case 'full':
+    default:
       $variables['theme_hook_suggestions'][] = 'node__'. $variables['type'] .'__'. $variables['view_mode'];
       break;
   }
 
-  $variables['classes_array'][] = $variables['view_mode'];
+  // Unsightly hack that avoids adding summary to wrapper of embedded nodes on home page.
+  if (!in_array('node__panel__summary__naked', $variables['theme_hook_suggestions'])) {
+    $variables['classes_array'][] = $variables['view_mode'];
+  }
 
   // Optionally, run node-type-specific preprocess functions, like
   // esquif_preprocess_node_page() or esquif_preprocess_node_story().
@@ -210,6 +213,11 @@ function esquif_preprocess_taxonomy_term(&$variables, $hook) {
       $variables['theme_hook_suggestions'][] = 'taxonomy_term__promo';
       $variables['classes_array'][] = 'promo';
       $variables['title_attributes_array']['class'][] = 'promo__title';
+      break;
+    case 'summary':
+      $variables['theme_hook_suggestions'][] = 'taxonomy_term__summary';
+      $variables['classes_array'][] = 'summary';
+      $variables['title_attributes_array']['class'][] = 'summary__title';
       break;
   }
 }
@@ -715,13 +723,13 @@ function esquif_pager($variables) {
   if ($pager_total[$element] > 1) {
     if ($li_first) {
       $items[] = array(
-        'class' => array('pager-first'),
+        'class' => array('pagination__item', 'pagination__first'),
         'data' => $li_first,
       );
     }
     if ($li_previous) {
       $items[] = array(
-        'class' => array('pager-previous'),
+        'class' => array('pagination__item', 'pagination__prev'),
         'data' => $li_previous,
       );
     }
@@ -862,6 +870,10 @@ function esquif_pager_first($variables) {
   $text = $variables['text'];
   $element = $variables['element'];
   $parameters = $variables['parameters'];
+  $attributes = array(
+    'class' => array('pagination__link')
+  );
+
   global $pager_page_array;
   $output = '';
 
@@ -1124,4 +1136,15 @@ function esquif_preprocess_views_view_list(&$variables, $hook) {
       $variables['classes_array'][$id] = isset($variables['classes'][$id]) ? implode(' ', $variables['classes'][$id]) : '';
     }
   }
+
+  if ('contentLinks--full' == $variables['class']) {
+    foreach (array_keys($rows) as $id) {
+      $variables['classes'][$id][] = 'contentLinks__item';
+      $variables['classes_array'][$id] = isset($variables['classes'][$id]) ? implode(' ', $variables['classes'][$id]) : '';
+    }
+  }
+}
+
+function esquif_preprocess_fieldable_panels_pane(&$variables) {
+  $variables['theme_hook_suggestions'][] = 'fieldable_panels_pane__' . $variables['elements']['#element']->bundle .'__'. $variables['elements']['#view_mode'];
 }
