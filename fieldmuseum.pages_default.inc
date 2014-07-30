@@ -8797,20 +8797,566 @@ function fieldmuseum_default_page_manager_pages() {
   $display = new panels_display();
   $display->layout = 'l8';
   $display->layout_settings = array(
-    'main_classes' => '',
+    'main_classes' => 'l--body__content',
+    'nav_classes' => 'l--body__nav js--sticky',
   );
   $display->panel_settings = array(
     'style' => 'naked',
     'style_settings' => array(
       'default' => NULL,
       'main' => NULL,
+      'nav' => NULL,
     ),
   );
   $display->cache = array();
-  $display->title = '';
+  $display->title = 'Tickets & Hours';
   $display->uuid = '21b6876f-4a2c-4f61-9a2d-f83113ff8675';
   $display->content = array();
   $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-7e8fabf3-d899-4a77-80d5-4d26e655e35d';
+    $pane->panel = 'main';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => '',
+      'title' => '',
+      'body' => '<h1>
+  Tickets & Hours
+</h1>
+<section class="callout">
+  <p>
+    The Field Museum is open from 9am-5pm every day of the year, except Christmas Day. Last admission is at 4pm daily.
+  </p>
+</section>
+<p>
+  The Crown Family PlayLab is free with Basic admission and is open Thursdays through Mondays from 10am to 4pm. The last admission for the PlayLab is 3pm. <a href="#" class="link--more">Find Out More</a>
+</p>
+<h2 class="heading--stroked">
+  CityPass
+</h2>
+<div class="l--2up">
+  <div class="l--module">
+    <p>
+      <strong>Save 49%</strong> or more on admission to 5 famous Chicago attractions! 
+    </p>
+    <a href="#" class="button--cta ">Explore the CityPass</a> 
+  </div>
+  <div class="l--module">
+    <ul class="priceList">
+      <li class="priceList__item"> 
+      <div class="priceList__details">
+        <span class="priceList__label"> Adults </span> <span class="priceList__price">$94</span> 
+      </div>
+      </li>
+      <li class="priceList__item"> 
+      <div class="priceList__details">
+        <span class="priceList__label"> Children </span> <span class="priceList__price">$79</span> 
+      </div>
+      <p class="priceList__condition">
+        (ages 3 – 11)
+      </p>
+      </li>
+    </ul>
+    <a href="#" class="button--buy "> <span class="button__leader"> <svg class="icon icon--ticket-2" viewbox="0 0 500 500"> <use xlink:href="#ticket-2"></use> </svg> </span> Buy CityPass Online </a> 
+  </div>
+</div>
+<h2 class="heading--stroked">
+  Field Museum Tickets
+</h2>
+
+<!-- CAXY: This will only be displayed at wide content column widths. That CSS is NOT written yet, but the markup is complete. -->
+<section class="tickets is--visible--wide">
+  <header class="tickets__header">
+    <h4 class="tickets__heading">
+      <svg class="icon icon--ticket-3 tickets__icon" viewbox="0 0 500 500"> <use xlink:href="#ticket-3"></use> </svg> All Access 
+    </h4>
+    <h4 class="tickets__heading">
+      <svg class="icon icon--ticket-2 tickets__icon" viewbox="0 0 500 500"> <use xlink:href="#ticket-2"></use> </svg> Discovery 
+    </h4>
+    <h4 class="tickets__heading">
+      <svg class="icon icon--ticket-1 tickets__icon" viewbox="0 0 500 500"> <use xlink:href="#ticket-1"></use> </svg> Basic 
+    </h4>
+    <p class="tickets__details">
+      See it all! Our All-Access Pass entitles you entry into special exhibitions, <a href="#">The EY 3D Theater</a>, <a href="#">Underground Adventure</a>, and all of the permanent exhibitions at The Field Museum.
+    </p>
+    <p class="tickets__details">
+      Explore all of the permanent exhibitions at The Field Museum, plus <a href="#">The EY 3D Theater</a> or special exhibition or <a href="#">Underground Adventure</a>!
+    </p>
+    <p class="tickets__details">
+      Enjoy exploring all of the permanent exhibitions of the Museum. This package does not include special exhibitions or <a href="#">The EY 3D Theater</a> or <a href="#">Underground Adventure</a>.
+    </p>
+    <button class="tickets__toggle js--toggleTickets">Learn More About Our Ticket Packages</button> 
+  </header>
+  <section class="ticketMatrix">
+    <div class="ticketMatrix__column">
+      <h3 class="ticketMatrix__heading">
+        <a href="#" class="ticketMatrix__link">Permanent Exhibitions</a> 
+      </h3>
+      <h3 class="ticketMatrix__heading">
+        <a href="#" class="ticketMatrix__link">Ticketed Exhibitions</a> 
+      </h3>
+      <h3 class="ticketMatrix__heading">
+        <a href="#" class="ticketMatrix__link">3D Movies</a> 
+      </h3>
+    </div>
+    <div class="ticketMatrix__column">
+      <div class="ticketMatrix__cell">
+        <i class="icon--circle ticketMatrix__icon"></i> 
+      </div>
+      <div class="ticketMatrix__cell">
+        <i class="icon--circle ticketMatrix__icon"></i> 
+      </div>
+      <div class="ticketMatrix__cell ticketMatrix__cell--text">
+        <p>
+          Your <strong>All Access Pass</strong> includes a single 3D Movie.
+        </p>
+      </div>
+    </div>
+    <div class="ticketMatrix__column">
+      <div class="ticketMatrix__cell">
+        <i class="icon--circle ticketMatrix__icon"></i> 
+      </div>
+      <div class="ticketMatrix__cell ticketMatrix__cell--text ticketMatrix__cell--double">
+        <p>
+          Your <strong>Discovery Pass</strong> includes a single ticketed exhibition or a 3D Movie.
+        </p>
+      </div>
+    </div>
+    <div class="ticketMatrix__column">
+      <div class="ticketMatrix__cell">
+        <i class="icon--circle ticketMatrix__icon"></i> 
+      </div>
+      <div class="ticketMatrix__cell ticketMatrix__cell--text ticketMatrix__cell--double ticketMatrix__cell--disabled">
+        <p>
+          Ticketed exhibitions and 3D Movies are not included with a <strong>Basic Ticket</strong>.
+        </p>
+      </div>
+    </div>
+  </section>
+  <section class="tickets__pricing">
+    <ul class="priceList">
+      <li class="priceList__item"> 
+      <div class="priceList__details">
+        <span class="priceList__label"> Adults </span> <span class="priceList__price">$31</span> 
+      </div>
+      <p class="priceList__condition">
+        &nbsp;
+      </p>
+      </li>
+      <li class="priceList__item"> 
+      <div class="priceList__details">
+        <span class="priceList__label"> Children </span> <span class="priceList__price">$21</span> 
+      </div>
+      <p class="priceList__condition">
+        (ages 3 – 11)
+      </p>
+      </li>
+      <li class="priceList__item"> 
+      <div class="priceList__details">
+        <span class="priceList__label"> Seniors </span> <span class="priceList__price">$25</span> 
+      </div>
+      <p class="priceList__condition">
+        (ages 65+)
+      </p>
+      </li>
+      <li class="priceList__item"> 
+      <div class="priceList__details">
+        <span class="priceList__label"> Students </span> <span class="priceList__price">$25</span> 
+      </div>
+      <p class="priceList__condition">
+        (w/ valid ID)
+      </p>
+      </li>
+    </ul>
+    <ul class="priceList">
+      <li class="priceList__item"> 
+      <div class="priceList__details">
+        <span class="priceList__label"> Adults </span> <span class="priceList__price">$25</span> 
+      </div>
+      <p class="priceList__condition">
+        &nbsp;
+      </p>
+      </li>
+      <li class="priceList__item"> 
+      <div class="priceList__details">
+        <span class="priceList__label"> Children </span> <span class="priceList__price">$18</span> 
+      </div>
+      <p class="priceList__condition">
+        (ages 3 – 11)
+      </p>
+      </li>
+      <li class="priceList__item"> 
+      <div class="priceList__details">
+        <span class="priceList__label"> Seniors </span> <span class="priceList__price">$20</span> 
+      </div>
+      <p class="priceList__condition">
+        (ages 65+)
+      </p>
+      </li>
+      <li class="priceList__item"> 
+      <div class="priceList__details">
+        <span class="priceList__label"> Students </span> <span class="priceList__price">$20</span> 
+      </div>
+      <p class="priceList__condition">
+        (w/ valid ID)
+      </p>
+      </li>
+    </ul>
+    <ul class="priceList">
+      <li class="priceList__item"> 
+      <div class="priceList__details">
+        <span class="priceList__label"> Adults </span> <span class="priceList__price">$18</span> 
+      </div>
+      <p class="priceList__condition">
+        &nbsp;
+      </p>
+      </li>
+      <li class="priceList__item"> 
+      <div class="priceList__details">
+        <span class="priceList__label"> Children </span> <span class="priceList__price">$13</span> 
+      </div>
+      <p class="priceList__condition">
+        (ages 3 – 11)
+      </p>
+      </li>
+      <li class="priceList__item"> 
+      <div class="priceList__details">
+        <span class="priceList__label"> Seniors </span> <span class="priceList__price">$15</span> 
+      </div>
+      <p class="priceList__condition">
+        (ages 65+)
+      </p>
+      </li>
+      <li class="priceList__item"> 
+      <div class="priceList__details">
+        <span class="priceList__label"> Students </span> <span class="priceList__price">$15</span> 
+      </div>
+      <p class="priceList__condition">
+        (w/ valid ID)
+      </p>
+      </li>
+    </ul>
+  </section>
+  <section class="tickets__buttons">
+    <div class="tickets__button">
+      <a href="#" class="button--buy button--full"> <span class="button__leader"> <svg class="icon icon--ticket-3" viewbox="0 0 500 500"> <use xlink:href="#ticket-3"></use> </svg> </span> All Access Pass </a> 
+    </div>
+    <div class="tickets__button">
+      <a href="#" class="button--buy button--full"> <span class="button__leader"> <svg class="icon icon--ticket-2" viewbox="0 0 500 500"> <use xlink:href="#ticket-2"></use> </svg> </span> Discovery Pass </a> 
+    </div>
+    <div class="tickets__button">
+      <a href="#" class="button--buy button--full"> <span class="button__leader"> <svg class="icon icon--ticket-1" viewbox="0 0 500 500"> <use xlink:href="#ticket-1"></use> </svg> </span> Basic Pass </a> 
+    </div>
+  </section>
+</section>
+
+<!-- CAXY: This will only be displayed at narrow content column widths. That CSS is NOT written yet, but the markup is complete. -->
+<section class="tickets--stacked is--visible--narrow">
+  <section class="tickets__type">
+    <article class="tickets__article">
+      <h4 class="tickets__heading">
+        <svg class="icon icon--ticket-3 tickets__icon" viewbox="0 0 500 500"> <use xlink:href="#ticket-3"></use> </svg> All Access 
+      </h4>
+      <p class="tickets__details">
+        See it all! Our All-Access Pass entitles you entry into special exhibitions, <a href="#">The EY 3D Theater</a>, <a href="#">Underground Adventure</a>, and all of the permanent exhibitions at The Field Museum.
+      </p>
+      <ul class="priceList">
+        <li class="priceList__item"> 
+        <div class="priceList__details">
+          <span class="priceList__label"> Adults </span> <span class="priceList__price">$31</span> 
+        </div>
+        <p class="priceList__condition">
+          &nbsp;
+        </p>
+        </li>
+        <li class="priceList__item"> 
+        <div class="priceList__details">
+          <span class="priceList__label"> Children </span> <span class="priceList__price">$21</span> 
+        </div>
+        <p class="priceList__condition">
+          (ages 3 – 11)
+        </p>
+        </li>
+        <li class="priceList__item"> 
+        <div class="priceList__details">
+          <span class="priceList__label"> Seniors </span> <span class="priceList__price">$25</span> 
+        </div>
+        <p class="priceList__condition">
+          (ages 65+)
+        </p>
+        </li>
+        <li class="priceList__item"> 
+        <div class="priceList__details">
+          <span class="priceList__label"> Students </span> <span class="priceList__price">$25</span> 
+        </div>
+        <p class="priceList__condition">
+          (w/ valid ID)
+        </p>
+        </li>
+      </ul>
+      <h5 class="tickets__subheading">
+        Includes:
+      </h5>
+      <ul class="tickets__included">
+        <li><a href="#">Permanent Exhibitions</a></li>
+        <li><a href="#">Ticketed Exhibitions</a></li>
+        <li><a href="#">3D Movies</a></li>
+      </ul>
+      <p class="tickets__disclaimer">
+        Your <strong>All Access Pass</strong> includes a single 3D Movie.
+      </p>
+    </article>
+  </section>
+  <section class="tickets__type">
+    <article class="tickets__article">
+      <h4 class="tickets__heading">
+        <svg class="icon icon--ticket-2 tickets__icon" viewbox="0 0 500 500"> <use xlink:href="#ticket-2"></use> </svg> Discovery 
+      </h4>
+      <p class="tickets__details">
+        Explore all of the permanent exhibitions at The Field Museum, plus <a href="#">The EY 3D Theater</a> or special exhibition or <a href="#">Underground Adventure</a>!
+      </p>
+      <ul class="priceList">
+        <li class="priceList__item"> 
+        <div class="priceList__details">
+          <span class="priceList__label"> Adults </span> <span class="priceList__price">$25</span> 
+        </div>
+        <p class="priceList__condition">
+          &nbsp;
+        </p>
+        </li>
+        <li class="priceList__item"> 
+        <div class="priceList__details">
+          <span class="priceList__label"> Children </span> <span class="priceList__price">$18</span> 
+        </div>
+        <p class="priceList__condition">
+          (ages 3 – 11)
+        </p>
+        </li>
+        <li class="priceList__item"> 
+        <div class="priceList__details">
+          <span class="priceList__label"> Seniors </span> <span class="priceList__price">$20</span> 
+        </div>
+        <p class="priceList__condition">
+          (ages 65+)
+        </p>
+        </li>
+        <li class="priceList__item"> 
+        <div class="priceList__details">
+          <span class="priceList__label"> Students </span> <span class="priceList__price">$20</span> 
+        </div>
+        <p class="priceList__condition">
+          (w/ valid ID)
+        </p>
+        </li>
+      </ul>
+      <h5 class="tickets__subheading">
+        Includes:
+      </h5>
+      <ul class="tickets__included">
+        <li><a href="#">Permanent Exhibitions</a></li>
+        <li><a href="#">Ticketed Exhibitions</a></li>
+        <li><a href="#">3D Movies</a></li>
+      </ul>
+      <p class="tickets__disclaimer">
+        Your <strong>Discovery Pass</strong> includes a single ticketed exhibition or a 3D Movie.
+      </p>
+    </article>
+  </section>
+  <section class="tickets__type">
+    <article class="tickets__article">
+      <h4 class="tickets__heading">
+        <svg class="icon icon--ticket-1 tickets__icon" viewbox="0 0 500 500"> <use xlink:href="#ticket-1"></use> </svg> Basic 
+      </h4>
+      <p class="tickets__details">
+        Enjoy exploring all of the permanent exhibitions of the Museum. This package does not include special exhibitions or <a href="#">The EY 3D Theater</a> or <a href="#">Underground Adventure</a>.
+      </p>
+      <ul class="priceList">
+        <li class="priceList__item"> 
+        <div class="priceList__details">
+          <span class="priceList__label"> Adults </span> <span class="priceList__price">$18</span> 
+        </div>
+        <p class="priceList__condition">
+          &nbsp;
+        </p>
+        </li>
+        <li class="priceList__item"> 
+        <div class="priceList__details">
+          <span class="priceList__label"> Children </span> <span class="priceList__price">$13</span> 
+        </div>
+        <p class="priceList__condition">
+          (ages 3 – 11)
+        </p>
+        </li>
+        <li class="priceList__item"> 
+        <div class="priceList__details">
+          <span class="priceList__label"> Seniors </span> <span class="priceList__price">$15</span> 
+        </div>
+        <p class="priceList__condition">
+          (ages 65+)
+        </p>
+        </li>
+        <li class="priceList__item"> 
+        <div class="priceList__details">
+          <span class="priceList__label"> Students </span> <span class="priceList__price">$15</span> 
+        </div>
+        <p class="priceList__condition">
+          (w/ valid ID)
+        </p>
+        </li>
+      </ul>
+      <h5 class="tickets__subheading">
+        Includes:
+      </h5>
+      <ul class="tickets__included">
+        <li><a href="#">Permanent Exhibitions</a></li>
+      </ul>
+      <p class="tickets__disclaimer">
+        Ticketed exhibitions and 3D Movies are not included with a <strong>Basic Ticket</strong>.
+      </p>
+    </article>
+  </section>
+</section>
+<h2 class="heading--stroked">
+  Membership Pricing
+</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Individual</th>
+      <th>Family Plus</th>
+      <th>Family</th>
+      <th>Student & Senior</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td> 
+      <p>
+        $85 for 1yr<br />
+        $160 for 2yrs
+      </p>
+      </td>
+      <td> 
+      <p>
+        $145 for 1yr<br />
+        $280 for 2yrs
+      </p>
+      </td>
+      <td> 
+      <p>
+        $120 for 1yr<br />
+        $230 for 2yrs
+      </p>
+      </td>
+      <td> 
+      <p>
+        $70 for 1yr<br />
+        $130 for 2yrs
+      </p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<a href="#" class="button--cta ">View Membership Benefits</a> 
+',
+      'format' => 'unfiltered',
+      'substitute' => TRUE,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'naked',
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '7e8fabf3-d899-4a77-80d5-4d26e655e35d';
+    $display->content['new-7e8fabf3-d899-4a77-80d5-4d26e655e35d'] = $pane;
+    $display->panels['main'][0] = 'new-7e8fabf3-d899-4a77-80d5-4d26e655e35d';
+    $pane = new stdClass();
+    $pane->pid = 'new-5bc88435-61bd-440e-bf27-29bb212bd739';
+    $pane->panel = 'nav';
+    $pane->type = 'menu_tree';
+    $pane->subtype = 'main-menu';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'menu_name' => 'main-menu',
+      'parent_mlid' => 0,
+      'parent' => 'main-menu:0',
+      'title_link' => 0,
+      'admin_title' => '',
+      'level' => '2',
+      'follow' => 0,
+      'depth' => '0',
+      'expanded' => 0,
+      'sort' => 0,
+      'override_title' => 1,
+      'override_title_text' => '',
+      'identifier' => 'section',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'semantic_panels',
+      'settings' => array(
+        'element_title' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => 'nav',
+          'class_enable' => 1,
+          'class' => 'navSection',
+          'attributes' => array(
+            'role' => array(
+              'enabled' => 1,
+              'value' => 'navigation',
+            ),
+          ),
+          'attributes_array' => array(
+            'role' => 'navigation',
+          ),
+        ),
+        'add_default_classes' => 1,
+      ),
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '5bc88435-61bd-440e-bf27-29bb212bd739';
+    $display->content['new-5bc88435-61bd-440e-bf27-29bb212bd739'] = $pane;
+    $display->panels['nav'][0] = 'new-5bc88435-61bd-440e-bf27-29bb212bd739';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
