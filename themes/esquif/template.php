@@ -148,7 +148,7 @@ function esquif_preprocess_node(&$variables, $hook) {
       $variables['title_attributes_array']['class'][] = 'summary__title';
       break;
     default:
-      $variables['theme_hook_suggestions'][] = 'node__'. $variables['type'] .'__'. $variables['view_mode'];
+      array_splice($variables['theme_hook_suggestions'], 1, 0, array('node__'. $variables['type'] .'__'. $variables['view_mode']));
       break;
   }
 

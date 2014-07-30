@@ -71,7 +71,7 @@ function fieldmuseum_field_default_field_instances() {
           'field_formatter_class' => '',
         ),
         'type' => 'text_default',
-        'weight' => 1,
+        'weight' => 3,
       ),
       'summary' => array(
         'label' => 'hidden',
@@ -154,7 +154,7 @@ function fieldmuseum_field_default_field_instances() {
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
-      'weight' => 2,
+      'weight' => 4,
     ),
   );
 
@@ -166,10 +166,13 @@ function fieldmuseum_field_default_field_instances() {
     'description' => 'This link is displayed as a button next to the title of this page.',
     'display' => array(
       'default' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 4,
+        'label' => 'hidden',
+        'module' => 'link',
+        'settings' => array(
+          'field_formatter_class' => '',
+        ),
+        'type' => 'link_default',
+        'weight' => 0,
       ),
       'summary' => array(
         'label' => 'above',
@@ -191,7 +194,7 @@ function fieldmuseum_field_default_field_instances() {
     'required' => 0,
     'settings' => array(
       'attributes' => array(
-        'class' => '',
+        'class' => 'button--cta',
         'configurable_title' => 0,
         'rel' => '',
         'target' => 'default',
@@ -214,7 +217,7 @@ function fieldmuseum_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 7,
+      'weight' => 1,
     ),
   );
 
@@ -232,7 +235,7 @@ function fieldmuseum_field_default_field_instances() {
           'file_view_mode' => 'default',
         ),
         'type' => 'file_rendered',
-        'weight' => 0,
+        'weight' => 1,
       ),
       'summary' => array(
         'label' => 'hidden',
@@ -300,7 +303,7 @@ function fieldmuseum_field_default_field_instances() {
         ),
       ),
       'type' => 'media_generic',
-      'weight' => 1,
+      'weight' => 2,
     ),
   );
 
@@ -319,7 +322,7 @@ function fieldmuseum_field_default_field_instances() {
           'link' => FALSE,
         ),
         'type' => 'entityreference_label',
-        'weight' => 2,
+        'weight' => 4,
       ),
       'summary' => array(
         'label' => 'above',
@@ -351,7 +354,7 @@ function fieldmuseum_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'entityreference_autocomplete',
-      'weight' => 3,
+      'weight' => 5,
     ),
   );
 
@@ -363,10 +366,13 @@ function fieldmuseum_field_default_field_instances() {
     'description' => 'The message appears above the body and below the image on a full view of this page.',
     'display' => array(
       'default' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 3,
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(
+          'field_formatter_class' => 'message message--cta',
+        ),
+        'type' => 'text_default',
+        'weight' => 2,
       ),
       'summary' => array(
         'label' => 'above',
@@ -429,7 +435,7 @@ function fieldmuseum_field_default_field_instances() {
           ),
         ),
       ),
-      'text_processing' => 0,
+      'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -439,7 +445,7 @@ function fieldmuseum_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 9,
+      'weight' => 3,
     ),
   );
 
