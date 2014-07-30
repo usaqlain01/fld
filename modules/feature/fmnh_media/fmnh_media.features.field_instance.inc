@@ -137,7 +137,7 @@ function fmnh_media_field_default_field_instances() {
       ),
       'text_processing' => 1,
       'user_register_form' => FALSE,
-      'wysiwyg_override' => 1,
+      'wysiwyg_override' => 0,
     ),
     'widget' => array(
       'active' => 1,
@@ -277,7 +277,7 @@ function fmnh_media_field_default_field_instances() {
       ),
       'text_processing' => 1,
       'user_register_form' => FALSE,
-      'wysiwyg_override' => 1,
+      'wysiwyg_override' => 0,
     ),
     'widget' => array(
       'active' => 1,
