@@ -143,11 +143,8 @@ function esquif_preprocess_node(&$variables, $hook) {
       $variables['theme_hook_suggestion'] = 'node__promo';
       $variables['title_attributes_array']['class'][] = 'promo__title';
       break;
-    case 'event':
-      $variables['theme_hook_suggestion'] = 'node__event_mode';
-      break;
     case 'summary':
-      $variables['theme_hook_suggestion'] = 'node__summary';
+      $variables['theme_hook_suggestions'][] = 'node__summary';
       $variables['title_attributes_array']['class'][] = 'summary__title';
       break;
     case 'full':
@@ -204,6 +201,16 @@ function esquif_preprocess_block(&$variables, $hook) {
   // content. This optional bit of code undoes that:
   if (strpos($variables['block_html_id'], 'block-panels-mini-header') === 0) {
     $variables['theme_hook_suggestions'][] = 'block__no_wrapper';
+  }
+}
+
+function esquif_preprocess_taxonomy_term(&$variables, $hook) {
+  switch ($variables['view_mode']) {
+    case 'promo':
+      $variables['theme_hook_suggestions'][] = 'taxonomy_term__promo';
+      $variables['classes_array'][] = 'promo';
+      $variables['title_attributes_array']['class'][] = 'promo__title';
+      break;
   }
 }
 
@@ -457,15 +464,28 @@ function esquif_preprocess_menu_block_wrapper(&$variables, $hook) {
     }
 
     if ($variables['theme_hook_suggestion'] == 'menu_block_wrapper__main_menu__section') {
-      foreach (element_children($variables['content']) as $child) {
-        $variables['content'][$child]['#attributes']['class'][] = 'navLevel1__item';
-      }
+      _esquif_preprocess_menu_block_wrapper__section($variables['content']);
     }
 
     if ($variables['theme_hook_suggestion'] == 'menu_block_wrapper__main_menu__content') {
       foreach (element_children($variables['content']) as $child) {
         $variables['content'][$child]['#attributes']['class'][] = 'contentLinks__item';
       }
+    }
+  }
+}
+
+/**
+ * Helper to add theme suggestion to menu child items recursively.
+ *
+ * @param $variables
+ */
+function _esquif_preprocess_menu_block_wrapper__section(&$variables) {
+  foreach (element_children($variables) as $child) {
+    $depth = $variables[$child]['#original_link']['depth'] - 1;
+    $variables[$child]['#attributes']['class'][] = 'navLevel'. $depth .'__item';
+    if (!empty($variables[$child]['#below'])) {
+      _esquif_preprocess_menu_block_wrapper__section($variables[$child]['#below']);
     }
   }
 }
@@ -1076,4 +1096,32 @@ function esquif_date_display_single($variables) {
   }
 
   return $output;
+}
+
+function esquif_menu_link__menu_block__main_menu__section($variables) {
+  $element = &$variables['element'];
+  foreach ($element['#attributes']['class'] as $class) {
+    if (0 === strpos($class, 'navLevel')) {
+      $prefix = substr($class, 0, strpos($class, '__'));
+      $element['#localized_options']['attributes']['class'][] = $prefix .'__link';
+    }
+  }
+
+  return theme_menu_link($variables);
+}
+
+/**
+ * Preprocess function to overcome the way views replaces __ with --.
+ *
+ * @param $variables
+ * @param $hook
+ */
+function esquif_preprocess_views_view_list(&$variables, $hook) {
+  $rows = $variables['rows'];
+  if ('categoryLinks' == $variables['class']) {
+    foreach (array_keys($rows) as $id) {
+      $variables['classes'][$id][] = 'categoryLinks__item';
+      $variables['classes_array'][$id] = isset($variables['classes'][$id]) ? implode(' ', $variables['classes'][$id]) : '';
+    }
+  }
 }

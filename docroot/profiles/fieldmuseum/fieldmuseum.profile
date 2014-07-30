@@ -323,12 +323,25 @@ function fieldmuseum_menu_block_menu_tree_content_type_render($subtype, $conf, $
     array_unshift($block->content['#theme'], 'menu_block_wrapper__main_menu__'. $conf['identifier']);
     array_unshift($block->content['#content']['#theme_wrappers'][0], 'menu_tree__menu_block__main_menu__'. $conf['identifier']);
 
-    foreach (element_children($block->content['#content']) as $key) {
-      array_unshift($block->content['#content'][$key]['#theme'], 'menu_link__menu_block__main_menu__'. $conf['identifier']);
-    }
+    _fieldmuseum_menu_block_menu_tree_theme_helper($block->content['#content'], $conf['identifier']);
   }
 
   return $block;
+}
+
+/**
+ * Helper to add theme suggestion to menu child items recursively.
+ *
+ * @param $links
+ * @param $identifier
+ */
+function _fieldmuseum_menu_block_menu_tree_theme_helper(&$links, $identifier) {
+  foreach (element_children($links) as $key) {
+    array_unshift($links[$key]['#theme'], 'menu_link__menu_block__main_menu__'. $identifier);
+    if (!empty($links[$key]['#below'])) {
+      _fieldmuseum_menu_block_menu_tree_theme_helper($links[$key]['#below'], $identifier);
+    }
+  }
 }
 
 /**
