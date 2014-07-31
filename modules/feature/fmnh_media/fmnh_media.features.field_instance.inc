@@ -74,6 +74,15 @@ function fmnh_media_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'primary_2x1' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(
+          'field_formatter_class' => '',
+        ),
+        'type' => 'text_default',
+        'weight' => 6,
+      ),
       'square' => array(
         'label' => 'hidden',
         'module' => 'text',
@@ -222,6 +231,15 @@ function fmnh_media_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 0,
+      ),
+      'primary_2x1' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(
+          'field_formatter_class' => '',
+        ),
+        'type' => 'text_default',
+        'weight' => 7,
       ),
       'square' => array(
         'label' => 'hidden',
