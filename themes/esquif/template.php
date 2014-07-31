@@ -372,6 +372,7 @@ function esquif_links__system_main_menu($variables) {
     $value['title'] = '<span class="navMain__label" itemprop="name">'. check_plain($value['title']) .'</span>';
     $value['attributes'] = array(
       'itemprop' => 'url',
+      'class' => array(),
     );
     $value['html'] = TRUE;
     $links[$key] = $value;
