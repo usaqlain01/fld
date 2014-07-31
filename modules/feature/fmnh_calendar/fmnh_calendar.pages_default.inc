@@ -84,14 +84,14 @@ function fmnh_calendar_default_page_manager_handlers() {
       'override_title' => 0,
       'override_title_text' => '',
       'identifier' => '',
-      'link' => 1,
+      'link' => 0,
       'leave_node_title' => 1,
       'build_mode' => 'full',
       'context' => 'argument_entity_id:node_1',
     );
     $pane->cache = array();
     $pane->style = array(
-      'style' => 'default',
+      'style' => 'naked',
       'settings' => NULL,
     );
     $pane->css = array();
@@ -147,7 +147,7 @@ function fmnh_calendar_default_page_manager_handlers() {
       'depth' => '0',
       'expanded' => 0,
       'sort' => 0,
-      'override_title' => 0,
+      'override_title' => 1,
       'override_title_text' => '',
       'identifier' => 'section',
     );
@@ -202,8 +202,8 @@ function fmnh_calendar_default_page_manager_handlers() {
     $pane->uuid = 'ff4fa71a-8b0e-48cd-bef9-4e2aa0e02434';
     $display->content['new-ff4fa71a-8b0e-48cd-bef9-4e2aa0e02434'] = $pane;
     $display->panels['nav'][1] = 'new-ff4fa71a-8b0e-48cd-bef9-4e2aa0e02434';
-  $display->hide_title = PANELS_TITLE_NONE;
-  $display->title_pane = '0';
+  $display->hide_title = PANELS_TITLE_PANE;
+  $display->title_pane = 'new-1cf5d3c2-70fd-44bc-8bd1-9117d8f7f5f1';
   $handler->conf['display'] = $display;
   $export['node_view_panel_context'] = $handler;
 
