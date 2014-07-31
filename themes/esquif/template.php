@@ -612,7 +612,7 @@ function esquif_breadcrumb($variables) {
  */
 function esquif_menu_breadcrumb_alter(&$active_trail, $item) {
   foreach ($active_trail as &$trail_item) {
-    $trail_item['localized_options']['attributes']['class'] = 'breadcrumb__link';
+    $trail_item['localized_options']['attributes']['class'] = array('breadcrumb__link');
   }
 }
 
