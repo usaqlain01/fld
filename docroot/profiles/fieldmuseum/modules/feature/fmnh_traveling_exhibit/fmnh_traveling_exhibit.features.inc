@@ -33,6 +33,7 @@ function fmnh_traveling_exhibit_node_info() {
       'help' => '',
     ),
   );
+  drupal_alter('node_info', $items);
   return $items;
 }
 
@@ -101,6 +102,13 @@ function fmnh_traveling_exhibit_rdf_default_mappings() {
       'predicates' => array(),
     ),
     'field_attachment' => array(
+      'predicates' => array(),
+      'type' => 'rel',
+    ),
+    'field_references' => array(
+      'predicates' => array(),
+    ),
+    'field_image' => array(
       'predicates' => array(),
       'type' => 'rel',
     ),

@@ -30,6 +30,7 @@ function fmnh_project_node_info() {
       'help' => '',
     ),
   );
+  drupal_alter('node_info', $items);
   return $items;
 }
 
@@ -48,6 +49,7 @@ function fmnh_project_rdf_default_mappings() {
     'title' => array(
       'predicates' => array(
         0 => 'dc:title',
+        1 => 'schema:name',
       ),
     ),
     'created' => array(
@@ -68,6 +70,7 @@ function fmnh_project_rdf_default_mappings() {
     'body' => array(
       'predicates' => array(
         0 => 'content:encoded',
+        1 => 'schema:articleBody',
       ),
     ),
     'uid' => array(
@@ -79,6 +82,7 @@ function fmnh_project_rdf_default_mappings() {
     'name' => array(
       'predicates' => array(
         0 => 'foaf:name',
+        1 => 'schema:name',
       ),
     ),
     'comment_count' => array(
@@ -96,6 +100,12 @@ function fmnh_project_rdf_default_mappings() {
     ),
     'field_image' => array(
       'predicates' => array(),
+      'type' => 'rel',
+    ),
+    'url' => array(
+      'predicates' => array(
+        0 => 'schema:url',
+      ),
       'type' => 'rel',
     ),
   );

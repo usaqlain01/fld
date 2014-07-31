@@ -165,6 +165,21 @@ function esquif_preprocess_node(&$variables, $hook) {
   }
 }
 
+function esquif_preprocess_node_learning_resource(&$variables, $hook) {
+  $variables['title_attributes_array']['class'][] = 'resource__title';
+
+  $items = field_get_items('node', $variables['node'], 'field_attachment');
+  $field = field_info_field('field_attachment');
+  if ($items) {
+    foreach ($items as $item) {
+      if (!file_field_is_empty($item, $field)) {
+        $variables['node_url'] = file_create_url($item['uri']);
+        break;
+      }
+    }
+  }
+}
+
 /**
  * Override or insert variables into the region templates.
  *
@@ -597,7 +612,7 @@ function esquif_breadcrumb($variables) {
  */
 function esquif_menu_breadcrumb_alter(&$active_trail, $item) {
   foreach ($active_trail as &$trail_item) {
-    $trail_item['localized_options']['attributes']['class'] = 'breadcrumb__link';
+    $trail_item['localized_options']['attributes']['class'] = array('breadcrumb__link');
   }
 }
 
