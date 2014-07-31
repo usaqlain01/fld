@@ -15,7 +15,6 @@ function fmnh_faq_user_default_permissions() {
     'name' => 'create faq content',
     'roles' => array(
       'administrator' => 'administrator',
-      'author' => 'author',
     ),
     'module' => 'node',
   );
@@ -25,8 +24,6 @@ function fmnh_faq_user_default_permissions() {
     'name' => 'delete any faq content',
     'roles' => array(
       'administrator' => 'administrator',
-      'publisher' => 'publisher',
-      'reviewer' => 'reviewer',
     ),
     'module' => 'node',
   );
@@ -36,8 +33,6 @@ function fmnh_faq_user_default_permissions() {
     'name' => 'delete own faq content',
     'roles' => array(
       'administrator' => 'administrator',
-      'publisher' => 'publisher',
-      'reviewer' => 'reviewer',
     ),
     'module' => 'node',
   );
@@ -56,8 +51,6 @@ function fmnh_faq_user_default_permissions() {
     'name' => 'edit any faq content',
     'roles' => array(
       'administrator' => 'administrator',
-      'publisher' => 'publisher',
-      'reviewer' => 'reviewer',
     ),
     'module' => 'node',
   );
@@ -67,7 +60,6 @@ function fmnh_faq_user_default_permissions() {
     'name' => 'edit own faq content',
     'roles' => array(
       'administrator' => 'administrator',
-      'author' => 'author',
     ),
     'module' => 'node',
   );
