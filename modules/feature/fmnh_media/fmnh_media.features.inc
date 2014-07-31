@@ -22,6 +22,29 @@ function fmnh_media_ctools_plugin_api($module = NULL, $api = NULL) {
 function fmnh_media_image_default_styles() {
   $styles = array();
 
+  // Exported image style: 1x1_300w.
+  $styles['1x1_300w'] = array(
+    'name' => '1x1_300w',
+    'label' => '1x1 300w',
+    'effects' => array(
+      237 => array(
+        'label' => 'Scale and crop',
+        'help' => 'Scale and crop will maintain the aspect-ratio of the original image, then crop the larger dimension. This is most useful for creating perfectly square thumbnails without stretching the image.',
+        'effect callback' => 'image_scale_and_crop_effect',
+        'dimensions callback' => 'image_resize_dimensions',
+        'form callback' => 'image_resize_form',
+        'summary theme' => 'image_resize_summary',
+        'module' => 'image',
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 300,
+          'height' => 300,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
   // Exported image style: 2x1_1000w.
   $styles['2x1_1000w'] = array(
     'name' => '2x1_1000w',

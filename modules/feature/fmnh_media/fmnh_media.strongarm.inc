@@ -102,6 +102,9 @@ function fmnh_media_strongarm() {
       'token' => array(
         'custom_settings' => FALSE,
       ),
+      'square' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(),
@@ -116,6 +119,10 @@ function fmnh_media_strongarm() {
             'visible' => TRUE,
           ),
           'default' => array(
+            'weight' => '0',
+            'visible' => TRUE,
+          ),
+          'square' => array(
             'weight' => '0',
             'visible' => TRUE,
           ),

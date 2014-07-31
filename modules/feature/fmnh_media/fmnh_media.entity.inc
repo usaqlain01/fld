@@ -2,6 +2,10 @@
 
 
 function fmnh_media_entity_view_mode_info() {
+  $view_modes['file']['square'] = array(
+    'label' => t('Square'),
+    'custom_settings' => TRUE,
+  );
   $view_modes['file']['banner_5x2'] = array(
     'label' => t('Banner 5x2'),
     'custom_settings' => TRUE,
