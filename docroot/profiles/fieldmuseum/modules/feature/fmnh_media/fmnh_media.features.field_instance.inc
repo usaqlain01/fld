@@ -74,6 +74,24 @@ function fmnh_media_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'primary_2x1' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(
+          'field_formatter_class' => '',
+        ),
+        'type' => 'text_default',
+        'weight' => 6,
+      ),
+      'square' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(
+          'field_formatter_class' => '',
+        ),
+        'type' => 'text_default',
+        'weight' => 6,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -137,7 +155,7 @@ function fmnh_media_field_default_field_instances() {
       ),
       'text_processing' => 1,
       'user_register_form' => FALSE,
-      'wysiwyg_override' => 1,
+      'wysiwyg_override' => 0,
     ),
     'widget' => array(
       'active' => 1,
@@ -214,6 +232,24 @@ function fmnh_media_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'primary_2x1' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(
+          'field_formatter_class' => '',
+        ),
+        'type' => 'text_default',
+        'weight' => 7,
+      ),
+      'square' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(
+          'field_formatter_class' => '',
+        ),
+        'type' => 'text_default',
+        'weight' => 7,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -277,7 +313,7 @@ function fmnh_media_field_default_field_instances() {
       ),
       'text_processing' => 1,
       'user_register_form' => FALSE,
-      'wysiwyg_override' => 1,
+      'wysiwyg_override' => 0,
     ),
     'widget' => array(
       'active' => 1,

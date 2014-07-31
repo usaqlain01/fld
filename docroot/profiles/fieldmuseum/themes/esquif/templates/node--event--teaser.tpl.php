@@ -34,8 +34,9 @@
         print '</span>';
         print '</time>';
       }
+      hide($content['field_date']);
     ?>
-    <?php print render($content['field_ticket_link']); ?>
+    <?php print render($content['field_ticket_link']); hide($content['field_price']); ?>
     <?php print render($title_prefix); ?>
     <?php if (!$page && $title): ?>
       <h3<?php print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a></h3>

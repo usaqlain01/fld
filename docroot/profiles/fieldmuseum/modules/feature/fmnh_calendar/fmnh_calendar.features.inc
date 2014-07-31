@@ -81,7 +81,8 @@ function fmnh_calendar_rdf_default_mappings() {
     ),
     'body' => array(
       'predicates' => array(
-        0 => 'content:encoded',
+        0 => 'schema:description',
+        1 => 'content:encoded',
       ),
     ),
     'uid' => array(
@@ -127,6 +128,13 @@ function fmnh_calendar_rdf_default_mappings() {
         0 => 'schema:url',
       ),
       'type' => 'rel',
+    ),
+    'field_image' => array(
+      'predicates' => array(),
+      'type' => 'rel',
+    ),
+    'field_summary' => array(
+      'predicates' => array(),
     ),
   );
 

@@ -8,14 +8,15 @@
  */
 ?>
 <article class="article node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
-
-  <?php print render($title_prefix); ?>
-  <h1<?php print $title_attributes; ?>><?php print $title; ?></h1>
-  <?php print render($title_suffix); ?>
+  <header class="l--flex--titleButton">
+    <?php print render($title_prefix); ?>
+    <h1<?php print $title_attributes; ?>><?php print $title; ?></h1>
+    <?php print render($title_suffix); ?>
+    <?php print render($content['field_action_link']); ?>
+  </header>
 
   <?php print render($content['field_image']); ?>
   <?php print render($content['field_summary']); ?>
-
   <section class="article__body"<?php print drupal_attributes(rdf_rdfa_attributes($node->rdf_mapping['body'])); ?>>
     <?php print render($content['body']); ?>
   </section>

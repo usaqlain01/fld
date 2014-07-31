@@ -29,6 +29,7 @@ features[file_display][] = model__default__file_model_qt
 features[file_display][] = model__default__file_model_x3d
 features[file_display][] = video__media_gallery_thumbnail__oembed_image
 features[file_display][] = video__wysiwyg__oembed_thumbnail
+features[image][] = 1x1_300w
 features[image][] = 2x1_1000w
 features[image][] = 2x1_1200w
 features[image][] = 2x1_1600w
