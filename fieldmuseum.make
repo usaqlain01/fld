@@ -85,7 +85,7 @@ projects[facetapi][subdir] = contrib
 projects[facetapi][version] = 1.5
 
 projects[features][subdir] = contrib
-projects[features][version] = 2.0
+projects[features][version] = 2.1
 
 projects[feeds][subdir] = contrib
 projects[feeds][version] = 2.x-dev

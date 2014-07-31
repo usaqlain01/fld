@@ -30,5 +30,6 @@ function fmnh_learning_resource_node_info() {
       'help' => '',
     ),
   );
+  drupal_alter('node_info', $items);
   return $items;
 }

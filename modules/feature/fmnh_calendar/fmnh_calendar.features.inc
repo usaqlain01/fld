@@ -43,6 +43,7 @@ function fmnh_calendar_node_info() {
       'help' => '',
     ),
   );
+  drupal_alter('node_info', $items);
   return $items;
 }
 
