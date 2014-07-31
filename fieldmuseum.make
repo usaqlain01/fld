@@ -202,6 +202,11 @@ projects[pathauto][version] = 1.2
 projects[pdf][subdir] = contrib
 projects[pdf][version] = 1.x-dev
 
+projects[pdf_to_imagefield][subdir] = contrib
+projects[pdf_to_imagefield][version] = 3.3
+projects[pdf_to_imagefield][patch][url] = https://gist.githubusercontent.com/bangpound/fb2b942df603c13692d5/raw/0ff1443afed46ae8b183b1f1b1358d6c551a1d09/pdf_to_image_file_support.patch
+projects[pdf_to_imagefield][patch][md5] = 60f69c5dbc7b18c18e8098de6e58e7aa
+
 projects[plupload][subdir] = contrib
 projects[plupload][version] = 1.6
 
