@@ -128,6 +128,10 @@ function fmnh_calendar_rdf_default_mappings() {
       ),
       'type' => 'rel',
     ),
+    'field_image' => array(
+      'predicates' => array(),
+      'type' => 'rel',
+    ),
   );
 
   return $schemaorg;

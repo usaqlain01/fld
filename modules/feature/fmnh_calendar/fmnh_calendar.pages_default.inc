@@ -404,7 +404,7 @@ function fmnh_calendar_default_page_manager_pages() {
     ),
   );
   $display->cache = array();
-  $display->title = 'Events';
+  $display->title = 'Calendar';
   $display->uuid = '88c633b0-4dab-40c2-b254-3e54f705ef91';
   $display->content = array();
   $display->panels = array();
@@ -554,7 +554,7 @@ function fmnh_calendar_default_page_manager_pages() {
     $pane->uuid = '25f33a1a-5b68-4515-ab5c-718002845669';
     $display->content['new-25f33a1a-5b68-4515-ab5c-718002845669'] = $pane;
     $display->panels['nav'][0] = 'new-25f33a1a-5b68-4515-ab5c-718002845669';
-  $display->hide_title = PANELS_TITLE_NONE;
+  $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
