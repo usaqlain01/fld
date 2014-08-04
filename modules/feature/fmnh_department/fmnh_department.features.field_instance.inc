@@ -118,12 +118,13 @@ function fmnh_department_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
-        'module' => 'file',
+        'label' => 'hidden',
+        'module' => 'file_entity',
         'settings' => array(
           'field_formatter_class' => '',
+          'file_view_mode' => 'primary_2x1',
         ),
-        'type' => 'file_default',
+        'type' => 'file_rendered',
         'weight' => 1,
       ),
       'promo' => array(
