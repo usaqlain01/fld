@@ -1196,3 +1196,19 @@ function esquif_node_view_alter(&$build, $type) {
     $build['links']['node']['#links']['node-readmore']['attributes']['class'] = 'link--more';
   }
 }
+
+function esquif_taxonomy_term_view_alter(&$build, $type) {
+  if ('promo' == $build['#view_mode']) {
+    unset($build['description']['#prefix']);
+    unset($build['description']['#suffix']);
+  }
+}
+
+function esquif_field__field_image($variables) {
+  $output = '';
+  foreach ($variables['items'] as $delta => $item) {
+    $output .= drupal_render($item);
+  }
+
+  return $output;
+}

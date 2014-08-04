@@ -44,13 +44,10 @@
 <div id="taxonomy-term-<?php print $term->tid; ?>" class="<?php print $classes; ?>"<?php print $attributes; ?>>
   <a class="promo_link" href="<?php print $term_url; ?>">
     <figure>
-      <img class="promo__image" itemprop="image" src="http://placehold.it/2000x1200&amp;text=5:3" alt="5:3 Image" />
+      <?php print render($content['field_image']); ?>
       <figcaption class="promo__description">
 
-        <p itemprop="description">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit sed do
-          eiusmod tempor.
-        </p>
+        <?php print render($content['description']); ?>
 
       </figcaption>
       <?php print render($content); ?>
