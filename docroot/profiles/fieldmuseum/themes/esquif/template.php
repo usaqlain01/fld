@@ -165,6 +165,16 @@ function esquif_preprocess_node(&$variables, $hook) {
   }
 }
 
+function esquif_preprocess_node_blog(&$variables, $hook) {
+  $variables['classes_array'][] = 'article';
+  $variables['title_attributes_array']['class'][] = 'article__title';
+}
+
+function esquif_preprocess_node_collection(&$variables, $hook) {
+  $variables['classes_array'][] = 'collection';
+  $variables['title_attributes_array']['class'][] = 'collection__title';
+}
+
 function esquif_preprocess_node_learning_resource(&$variables, $hook) {
   $variables['title_attributes_array']['class'][] = 'resource__title';
 
@@ -491,6 +501,12 @@ function esquif_preprocess_menu_block_wrapper(&$variables, $hook) {
       _esquif_preprocess_menu_block_wrapper__section($variables['content']);
     }
 
+    if ($variables['theme_hook_suggestion'] == 'menu_block_wrapper__main_menu__focus') {
+      foreach (element_children($variables['content']) as $child) {
+        $variables['content'][$child]['#attributes']['class'][] = 'navList__item';
+      }
+    }
+
     if ($variables['theme_hook_suggestion'] == 'menu_block_wrapper__main_menu__content') {
       foreach (element_children($variables['content']) as $child) {
         $variables['content'][$child]['#attributes']['class'][] = 'contentLinks__item';
@@ -532,6 +548,16 @@ function esquif_menu_tree__menu_block__main_menu__footer($variables) {
  */
 function esquif_menu_tree__menu_block__main_menu__section($variables) {
   return '<ul class="navLevel1 menu">' . $variables['tree'] . '</ul>';
+}
+
+/**
+ * Theme override for focus menu.
+ *
+ * @param $variables
+ * @return string
+ */
+function esquif_menu_tree__menu_block__main_menu__focus($variables) {
+  return '<ul class="navList">' . $variables['tree'] . '</ul>';
 }
 
 /**
@@ -1163,4 +1189,10 @@ function esquif_preprocess_views_view_list(&$variables, $hook) {
 
 function esquif_preprocess_fieldable_panels_pane(&$variables) {
   $variables['theme_hook_suggestions'][] = 'fieldable_panels_pane__' . $variables['elements']['#element']->bundle .'__'. $variables['elements']['#view_mode'];
+}
+
+function esquif_node_view_alter(&$build, $type) {
+  if ('teaser' == $build['#view_mode']) {
+    $build['links']['node']['#links']['node-readmore']['attributes']['class'] = 'link--more';
+  }
 }
