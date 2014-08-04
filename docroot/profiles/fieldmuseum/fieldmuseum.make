@@ -149,7 +149,7 @@ projects[link][subdir] = contrib
 projects[link][version] = 1.2
 
 projects[markdown][subdir] = contrib
-projects[markdown][version] = 2.x-dev
+projects[markdown][version] = 1.2
 
 projects[media_gallery][subdir] = contrib
 projects[media_gallery][version] = 2.x-dev
