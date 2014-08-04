@@ -185,20 +185,20 @@ function fieldmuseum_strongarm() {
       'default' => array(
         'status' => 0,
         'default' => 0,
-        'default display' => 0,
         'choice' => 0,
+        'selection' => 0,
       ),
       'teaser' => array(
         'status' => 0,
         'default' => 0,
-        'default display' => 0,
         'choice' => 0,
+        'selection' => 0,
       ),
       'summary' => array(
         'status' => 0,
         'default' => 0,
-        'default display' => 0,
         'choice' => 0,
+        'selection' => 0,
       ),
     ),
   );
