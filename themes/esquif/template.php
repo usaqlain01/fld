@@ -165,6 +165,11 @@ function esquif_preprocess_node(&$variables, $hook) {
   }
 }
 
+function esquif_preprocess_node_blog(&$variables, $hook) {
+  $variables['classes_array'][] = 'article';
+  $variables['title_attributes_array']['class'][] = 'article__title';
+}
+
 function esquif_preprocess_node_collection(&$variables, $hook) {
   $variables['classes_array'][] = 'collection';
   $variables['title_attributes_array']['class'][] = 'collection__title';
