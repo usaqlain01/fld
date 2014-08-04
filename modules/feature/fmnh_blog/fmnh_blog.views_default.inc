@@ -74,8 +74,8 @@ function fmnh_blog_views_default_views() {
     'video' => 'video',
   );
 
-  /* Display: EVA Field */
-  $handler = $view->new_display('entity_view', 'EVA Field', 'entity_view_1');
+  /* Display: Topic blog */
+  $handler = $view->new_display('entity_view', 'Topic blog', 'entity_view_1');
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '4';
