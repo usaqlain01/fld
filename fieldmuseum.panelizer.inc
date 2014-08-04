@@ -393,7 +393,7 @@ function fieldmuseum_panelizer_defaults() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-0c2fb05b-0811-411d-b530-9c57479ce8c7';
+    $pane->pid = 'new-93220544-33d3-41b4-93ad-e8f3752b5e41';
     $pane->panel = 'main';
     $pane->type = 'node_content';
     $pane->subtype = 'node_content';
@@ -412,21 +412,21 @@ function fieldmuseum_panelizer_defaults() {
     );
     $pane->cache = array();
     $pane->style = array(
-      'style' => 'default',
+      'style' => 'naked',
       'settings' => NULL,
     );
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = '0c2fb05b-0811-411d-b530-9c57479ce8c7';
-    $display->content['new-0c2fb05b-0811-411d-b530-9c57479ce8c7'] = $pane;
-    $display->panels['main'][0] = 'new-0c2fb05b-0811-411d-b530-9c57479ce8c7';
+    $pane->uuid = '93220544-33d3-41b4-93ad-e8f3752b5e41';
+    $display->content['new-93220544-33d3-41b4-93ad-e8f3752b5e41'] = $pane;
+    $display->panels['main'][0] = 'new-93220544-33d3-41b4-93ad-e8f3752b5e41';
     $pane = new stdClass();
-    $pane->pid = 'new-11d66df2-e2b6-4310-bfa2-cbcabf8e0e7d';
+    $pane->pid = 'new-ab11ba0d-f2af-4e70-86b7-417b52082b36';
     $pane->panel = 'main';
     $pane->type = 'fieldable_panels_pane';
-    $pane->subtype = 'fpid:447';
+    $pane->subtype = 'fpid:466';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -434,16 +434,55 @@ function fieldmuseum_panelizer_defaults() {
     );
     $pane->cache = array();
     $pane->style = array(
-      'style' => 'default',
-      'settings' => NULL,
+      'style' => 'semantic_panels',
+      'settings' => array(
+        'element_title' => array(
+          'type' => 'h2',
+          'class_enable' => 1,
+          'class' => 'heading--stroked',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
     );
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 1;
     $pane->locks = array();
-    $pane->uuid = '11d66df2-e2b6-4310-bfa2-cbcabf8e0e7d';
-    $display->content['new-11d66df2-e2b6-4310-bfa2-cbcabf8e0e7d'] = $pane;
-    $display->panels['main'][1] = 'new-11d66df2-e2b6-4310-bfa2-cbcabf8e0e7d';
+    $pane->uuid = 'ab11ba0d-f2af-4e70-86b7-417b52082b36';
+    $display->content['new-ab11ba0d-f2af-4e70-86b7-417b52082b36'] = $pane;
+    $display->panels['main'][1] = 'new-ab11ba0d-f2af-4e70-86b7-417b52082b36';
     $pane = new stdClass();
     $pane->pid = 'new-83634cf0-90f9-4dcb-af56-54620931333e';
     $pane->panel = 'nav';
@@ -546,7 +585,7 @@ function fieldmuseum_panelizer_defaults() {
     $display->content['new-fc0b78dd-e31c-433c-944b-e50078ca8698'] = $pane;
     $display->panels['nav'][1] = 'new-fc0b78dd-e31c-433c-944b-e50078ca8698';
   $display->hide_title = PANELS_TITLE_PANE;
-  $display->title_pane = 'new-0c2fb05b-0811-411d-b530-9c57479ce8c7';
+  $display->title_pane = 'new-93220544-33d3-41b4-93ad-e8f3752b5e41';
   $panelizer->display = $display;
   $export['node:page:c1_h'] = $panelizer;
 
