@@ -108,6 +108,9 @@ function fmnh_media_strongarm() {
       'primary_2x1' => array(
         'custom_settings' => TRUE,
       ),
+      'headshot' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(),
@@ -130,6 +133,10 @@ function fmnh_media_strongarm() {
             'visible' => TRUE,
           ),
           'primary_2x1' => array(
+            'weight' => '0',
+            'visible' => TRUE,
+          ),
+          'headshot' => array(
             'weight' => '0',
             'visible' => TRUE,
           ),
