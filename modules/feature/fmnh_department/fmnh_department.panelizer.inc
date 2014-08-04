@@ -65,35 +65,165 @@ function fmnh_department_panelizer_defaults() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-56838b3d-fa37-42d7-93cf-596147fc8910';
+    $pane->pid = 'new-b0c5c5b1-ad15-40f3-a315-15b964972c31';
     $pane->panel = 'main';
-    $pane->type = 'node_content';
-    $pane->subtype = 'node_content';
+    $pane->type = 'node_title';
+    $pane->subtype = 'node_title';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'links' => 1,
-      'no_extras' => 1,
+      'link' => 0,
+      'markup' => 'h1',
+      'id' => '',
+      'class' => '',
+      'context' => 'panelizer',
       'override_title' => 0,
       'override_title_text' => '',
-      'identifier' => '',
-      'link' => 0,
-      'leave_node_title' => 1,
-      'build_mode' => 'full',
-      'context' => 'panelizer',
     );
     $pane->cache = array();
     $pane->style = array(
-      'style' => 'default',
+      'style' => 'naked',
       'settings' => NULL,
     );
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = '56838b3d-fa37-42d7-93cf-596147fc8910';
-    $display->content['new-56838b3d-fa37-42d7-93cf-596147fc8910'] = $pane;
-    $display->panels['main'][0] = 'new-56838b3d-fa37-42d7-93cf-596147fc8910';
+    $pane->uuid = 'b0c5c5b1-ad15-40f3-a315-15b964972c31';
+    $display->content['new-b0c5c5b1-ad15-40f3-a315-15b964972c31'] = $pane;
+    $display->panels['main'][0] = 'new-b0c5c5b1-ad15-40f3-a315-15b964972c31';
+    $pane = new stdClass();
+    $pane->pid = 'new-c64d32d0-95cc-45f7-a70b-c68b6e9f4718';
+    $pane->panel = 'main';
+    $pane->type = 'entity_field';
+    $pane->subtype = 'node:field_image';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'label' => 'title',
+      'formatter' => 'file_rendered',
+      'delta_limit' => 0,
+      'delta_offset' => '0',
+      'delta_reversed' => FALSE,
+      'formatter_settings' => array(
+        'file_view_mode' => 'primary_2x1',
+      ),
+      'context' => 'panelizer',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'naked',
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = 'c64d32d0-95cc-45f7-a70b-c68b6e9f4718';
+    $display->content['new-c64d32d0-95cc-45f7-a70b-c68b6e9f4718'] = $pane;
+    $display->panels['main'][1] = 'new-c64d32d0-95cc-45f7-a70b-c68b6e9f4718';
+    $pane = new stdClass();
+    $pane->pid = 'new-7e9a77ce-6e6e-4f77-97bb-c64280d67175';
+    $pane->panel = 'main';
+    $pane->type = 'entity_field';
+    $pane->subtype = 'node:body';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'label' => 'title',
+      'formatter' => 'text_default',
+      'delta_limit' => 0,
+      'delta_offset' => '0',
+      'delta_reversed' => FALSE,
+      'formatter_settings' => array(),
+      'context' => 'panelizer',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'naked',
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 2;
+    $pane->locks = array();
+    $pane->uuid = '7e9a77ce-6e6e-4f77-97bb-c64280d67175';
+    $display->content['new-7e9a77ce-6e6e-4f77-97bb-c64280d67175'] = $pane;
+    $display->panels['main'][2] = 'new-7e9a77ce-6e6e-4f77-97bb-c64280d67175';
+    $pane = new stdClass();
+    $pane->pid = 'new-c030e82d-c9e7-4070-a64a-aeb941837125';
+    $pane->panel = 'main';
+    $pane->type = 'entity_range';
+    $pane->subtype = 'entity_range';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'range' => array(
+        'offset' => '0',
+        'limit' => '10',
+      ),
+      'view_mode' => 'node:teaser',
+      'use_pager' => FALSE,
+      'pager_id' => 0,
+      'context' => 'relationship_entitylist_relationship:collections_of_department_1',
+      'override_title' => 1,
+      'override_title_text' => '%node:title Collections',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'semantic_panels',
+      'settings' => array(
+        'element_title' => array(
+          'type' => 'h2',
+          'class_enable' => 1,
+          'class' => 'heading--stroked',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 3;
+    $pane->locks = array();
+    $pane->uuid = 'c030e82d-c9e7-4070-a64a-aeb941837125';
+    $display->content['new-c030e82d-c9e7-4070-a64a-aeb941837125'] = $pane;
+    $display->panels['main'][3] = 'new-c030e82d-c9e7-4070-a64a-aeb941837125';
     $pane = new stdClass();
     $pane->pid = 'new-4d87cf10-353c-4eea-8679-409010040835';
     $pane->panel = 'nav';
@@ -118,8 +248,54 @@ function fmnh_department_panelizer_defaults() {
     );
     $pane->cache = array();
     $pane->style = array(
-      'style' => 'default',
-      'settings' => NULL,
+      'style' => 'semantic_panels',
+      'settings' => array(
+        'element_title' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => 'nav',
+          'class_enable' => 1,
+          'class' => 'navSection',
+          'attributes' => array(
+            'role' => array(
+              'enabled' => 1,
+              'value' => 'navigation',
+            ),
+          ),
+          'attributes_array' => array(
+            'role' => 'navigation',
+          ),
+        ),
+        'add_default_classes' => 1,
+      ),
     );
     $pane->css = array();
     $pane->extras = array();
@@ -129,7 +305,7 @@ function fmnh_department_panelizer_defaults() {
     $display->content['new-4d87cf10-353c-4eea-8679-409010040835'] = $pane;
     $display->panels['nav'][0] = 'new-4d87cf10-353c-4eea-8679-409010040835';
   $display->hide_title = PANELS_TITLE_PANE;
-  $display->title_pane = 'new-56838b3d-fa37-42d7-93cf-596147fc8910';
+  $display->title_pane = '0';
   $panelizer->display = $display;
   $export['node:department:default'] = $panelizer;
 
