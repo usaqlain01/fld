@@ -208,21 +208,33 @@ function fmnh_department_default_page_manager_pages() {
     'css_id' => '',
     'css' => '',
     'contexts' => array(),
-    'relationships' => array(),
+    'relationships' => array(
+      0 => array(
+        'identifier' => 'View: Staff',
+        'keyword' => 'view',
+        'name' => 'view_from_argument:staff-ctools_context_1',
+        'context' => array(
+          0 => 'argument_entity_id:node_1',
+        ),
+        'id' => 1,
+      ),
+    ),
     'access' => array(
       'plugins' => array(),
       'logic' => 'and',
     ),
   );
   $display = new panels_display();
-  $display->layout = 'zen_no_wrapper';
+  $display->layout = 'l17a';
   $display->layout_settings = array(
-    'main_classes' => '',
+    'main_classes' => 'l--body__content',
+    'nav_classes' => 'l--body__nav js--sticky',
   );
   $display->panel_settings = array(
     'style_settings' => array(
       'default' => NULL,
       'main' => NULL,
+      'nav' => NULL,
     ),
   );
   $display->cache = array();
@@ -231,31 +243,153 @@ function fmnh_department_default_page_manager_pages() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-9b169951-fe80-4a59-ad53-eccb8c0a6d51';
+    $pane->pid = 'new-95ec96aa-b64d-4bd2-832c-56fd3e1fc2ff';
     $pane->panel = 'main';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'people-panel_pane_1';
+    $pane->type = 'views_row';
+    $pane->subtype = 'views_row';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'context' => array(
-        0 => 'argument_entity_id:node_1',
-      ),
+      'rows' => array(),
+      'use_fields' => 0,
+      'fields' => array(),
+      'context' => 'relationship_view_from_argument:staff-ctools_context_1_1',
+      'override_title' => 0,
+      'override_title_text' => '',
     );
     $pane->cache = array();
     $pane->style = array(
-      'settings' => NULL,
-      'style' => 'naked',
+      'style' => 'semantic_panels',
+      'settings' => array(
+        'element_title' => array(
+          'type' => 'div',
+          'class_enable' => 1,
+          'class' => 'persons--2up',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => '',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => '',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
     );
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = '9b169951-fe80-4a59-ad53-eccb8c0a6d51';
-    $display->content['new-9b169951-fe80-4a59-ad53-eccb8c0a6d51'] = $pane;
-    $display->panels['main'][0] = 'new-9b169951-fe80-4a59-ad53-eccb8c0a6d51';
+    $pane->uuid = '95ec96aa-b64d-4bd2-832c-56fd3e1fc2ff';
+    $display->content['new-95ec96aa-b64d-4bd2-832c-56fd3e1fc2ff'] = $pane;
+    $display->panels['main'][0] = 'new-95ec96aa-b64d-4bd2-832c-56fd3e1fc2ff';
+    $pane = new stdClass();
+    $pane->pid = 'new-07320c6f-b9f8-420f-8b45-d7262cf86ef7';
+    $pane->panel = 'nav';
+    $pane->type = 'menu_tree';
+    $pane->subtype = 'main-menu';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'menu_name' => 'main-menu',
+      'parent_mlid' => 0,
+      'parent' => 'main-menu:0',
+      'title_link' => 0,
+      'admin_title' => '',
+      'level' => '2',
+      'follow' => 0,
+      'depth' => '0',
+      'expanded' => 0,
+      'sort' => 0,
+      'override_title' => 1,
+      'override_title_text' => '',
+      'identifier' => 'section',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'semantic_panels',
+      'settings' => array(
+        'element_title' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => 'nav',
+          'class_enable' => 1,
+          'class' => 'navSection',
+          'attributes' => array(
+            'role' => array(
+              'enabled' => 1,
+              'value' => 'navigation',
+            ),
+          ),
+          'attributes_array' => array(
+            'role' => 'navigation',
+          ),
+        ),
+        'add_default_classes' => 1,
+      ),
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '07320c6f-b9f8-420f-8b45-d7262cf86ef7';
+    $display->content['new-07320c6f-b9f8-420f-8b45-d7262cf86ef7'] = $pane;
+    $display->panels['nav'][0] = 'new-07320c6f-b9f8-420f-8b45-d7262cf86ef7';
   $display->hide_title = PANELS_TITLE_PANE;
-  $display->title_pane = 'new-9b169951-fe80-4a59-ad53-eccb8c0a6d51';
+  $display->title_pane = '0';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
   $pages['department_people'] = $page;
