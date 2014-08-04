@@ -55,6 +55,7 @@ features[page_manager_pages][] = department_collections
 features[page_manager_pages][] = department_people
 features[panelizer_defaults][] = node:department:default
 features[panelizer_defaults][] = node:department:l14a
+features[panelizer_defaults][] = node:department:l14b
 features[user_permission][] = create department content
 features[user_permission][] = delete any department content
 features[user_permission][] = delete own department content
