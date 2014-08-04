@@ -65,7 +65,7 @@ function fmnh_calendar_strongarm() {
         'custom_settings' => FALSE,
       ),
       'summary' => array(
-        'custom_settings' => TRUE,
+        'custom_settings' => FALSE,
       ),
       'media_gallery_block' => array(
         'custom_settings' => FALSE,
