@@ -3956,7 +3956,7 @@ function fieldmuseum_default_page_manager_pages() {
         'pager_id' => NULL,
         'range' => array(
           'offset' => 0,
-          'limit' => 10,
+          'limit' => 12,
         ),
         'id' => 1,
       ),
@@ -4052,7 +4052,7 @@ function fieldmuseum_default_page_manager_pages() {
     $pane->configuration = array(
       'range' => array(
         'offset' => '0',
-        'limit' => '10',
+        'limit' => '12',
       ),
       'view_mode' => 'node:promo',
       'use_pager' => FALSE,
@@ -8022,7 +8022,7 @@ function fieldmuseum_default_page_manager_pages() {
     ),
   );
   $display->cache = array();
-  $display->title = '';
+  $display->title = 'Science';
   $display->uuid = '86abd588-1ecf-4a03-926f-d7098a870c45';
   $display->content = array();
   $display->panels = array();
@@ -8336,7 +8336,7 @@ function fieldmuseum_default_page_manager_pages() {
     $pane->uuid = '3df6a502-9ab4-463e-8ce7-902284fb7c79';
     $display->content['new-3df6a502-9ab4-463e-8ce7-902284fb7c79'] = $pane;
     $display->panels['nav'][0] = 'new-3df6a502-9ab4-463e-8ce7-902284fb7c79';
-  $display->hide_title = PANELS_TITLE_NONE;
+  $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;

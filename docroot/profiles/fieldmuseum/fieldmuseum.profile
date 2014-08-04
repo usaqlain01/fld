@@ -359,3 +359,57 @@ function fieldmuseum_preprocess_node_add_list(&$variables, $hook) {
     }
   }
 }
+
+/**
+ * Implements hook_panels_pane_content_alter().
+ */
+function fieldmuseum_panels_pane_content_alter($content, $pane, $panel_args, $context, $render, $display) {
+  if (isset($pane->style['style'])) {
+    $plugin = panels_get_style($pane->style['style']);
+    if ($plugin['name'] == 'naked') {
+      if ($content && !is_array($content->content)) {
+        $content->content = array(
+          '#markup' => $content->content,
+        );
+      }
+      if ($pane->style['settings']['children']) {
+        foreach (element_children($content->content) as $child_key) {
+          $content->content[$child_key]['#panels_pane'] = array(
+            'pane' => $pane,
+          );
+        }
+      }
+      else {
+        $content->content['#panels_pane'] = array(
+          'pane' => $pane,
+        );
+      }
+    }
+  }
+}
+
+/**
+ * Implement hook_preprocess().
+ */
+function fieldmuseum_preprocess(&$variables, $hook) {
+  // Pull out the pane object that was stashed earlier.
+  if ($hook == 'panels_pane') {
+    if (isset($variables['content']['#panels_pane'])) {
+      $pane = $variables['content']['#panels_pane']['pane'];
+    }
+  }
+  else {
+    $info = theme_get_registry(FALSE);
+    if (isset($info[$hook]['render element'])) {
+      $element = &$variables[$info[$hook]['render element']];
+      if (isset($element['#panels_pane'])) {
+        $pane = $element['#panels_pane']['pane'];
+      }
+    }
+  }
+  if (isset($pane)) {
+    if (isset($pane->css['css_class'])) {
+      $variables['classes_array'] = array_unique(array_merge($variables['classes_array'], array($pane->css['css_class'])));
+    }
+  }
+}
