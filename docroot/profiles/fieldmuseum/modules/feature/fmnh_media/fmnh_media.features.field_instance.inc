@@ -38,6 +38,15 @@ function fmnh_media_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 6,
       ),
+      'headshot' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(
+          'field_formatter_class' => '',
+        ),
+        'type' => 'text_default',
+        'weight' => 6,
+      ),
       'media_gallery_block_thumbnail' => array(
         'label' => 'above',
         'settings' => array(),
@@ -188,6 +197,15 @@ function fmnh_media_field_default_field_instances() {
         'weight' => 7,
       ),
       'default' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(
+          'field_formatter_class' => '',
+        ),
+        'type' => 'text_default',
+        'weight' => 7,
+      ),
+      'headshot' => array(
         'label' => 'hidden',
         'module' => 'text',
         'settings' => array(

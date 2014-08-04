@@ -10,5 +10,9 @@ function fmnh_staff_entity_view_mode_info() {
     'label' => t('Summary'),
     'custom_settings' => TRUE,
   );
+  $view_modes['file']['headshot'] = array(
+    'label' => t('Headshot'),
+    'custom_settings' => TRUE,
+  );
   return $view_modes;
 }

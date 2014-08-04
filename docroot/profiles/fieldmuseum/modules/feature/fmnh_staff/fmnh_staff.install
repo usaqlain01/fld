@@ -1,0 +1,18 @@
+<?php
+
+/**
+ * Generate profile labels.
+ */
+function fmnh_staff_update_7000(&$sandbox) {
+  $query = new EntityFieldQuery();
+  $query->entityCondition('entity_type', 'profile2');
+  $query->entityCondition('bundle', 'main');
+  $result = $query->execute();
+  if (!empty($result['profile2'])) {
+    $context = array('entity_type' => 'profile2');
+    $entities = entity_load('profile2', array_keys($result['profile2']));
+    foreach ($entities as $entity) {
+      auto_entitylabel_entity_update_action($entity, $context);
+    }
+  }
+}

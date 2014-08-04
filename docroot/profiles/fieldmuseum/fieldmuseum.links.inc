@@ -43,6 +43,8 @@ function fieldmuseum_default_bangpoundshare_links() {
         'name' => 'node_type',
         'settings' => array(
           'type' => array(
+            'blog' => 'blog',
+            'collection' => 'collection',
             'page' => 'page',
           ),
         ),
@@ -107,6 +109,8 @@ function fieldmuseum_default_bangpoundshare_links() {
         'name' => 'node_type',
         'settings' => array(
           'type' => array(
+            'blog' => 'blog',
+            'collection' => 'collection',
             'page' => 'page',
           ),
         ),
@@ -171,6 +175,8 @@ function fieldmuseum_default_bangpoundshare_links() {
         'name' => 'node_type',
         'settings' => array(
           'type' => array(
+            'blog' => 'blog',
+            'collection' => 'collection',
             'page' => 'page',
           ),
         ),
