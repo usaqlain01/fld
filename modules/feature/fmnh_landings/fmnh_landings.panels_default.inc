@@ -775,7 +775,10 @@ function fmnh_landings_default_panels_mini() {
       'settings' => NULL,
       'style' => 'naked',
     );
-    $pane->css = array();
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'banner banner--primary',
+    );
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
@@ -803,7 +806,10 @@ function fmnh_landings_default_panels_mini() {
       'settings' => NULL,
       'style' => 'naked',
     );
-    $pane->css = array();
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'banner banner--secondary',
+    );
     $pane->extras = array();
     $pane->position = 1;
     $pane->locks = array();
@@ -831,7 +837,10 @@ function fmnh_landings_default_panels_mini() {
       'settings' => NULL,
       'style' => 'naked',
     );
-    $pane->css = array();
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'banner banner--secondary',
+    );
     $pane->extras = array();
     $pane->position = 2;
     $pane->locks = array();

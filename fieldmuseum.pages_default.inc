@@ -3956,7 +3956,7 @@ function fieldmuseum_default_page_manager_pages() {
         'pager_id' => NULL,
         'range' => array(
           'offset' => 0,
-          'limit' => 10,
+          'limit' => 12,
         ),
         'id' => 1,
       ),
@@ -4052,7 +4052,7 @@ function fieldmuseum_default_page_manager_pages() {
     $pane->configuration = array(
       'range' => array(
         'offset' => '0',
-        'limit' => '10',
+        'limit' => '12',
       ),
       'view_mode' => 'node:promo',
       'use_pager' => FALSE,
