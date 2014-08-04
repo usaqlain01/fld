@@ -16,9 +16,9 @@ files[] = metatag.inc
 files[] = metatag.migrate.inc
 files[] = metatag.test
 
-; Information added by Drupal.org packaging script on 2014-07-28
-version = "7.x-1.0-rc1+3-dev"
+; Information added by Drupal.org packaging script on 2014-08-02
+version = "7.x-1.0-rc1+5-dev"
 core = "7.x"
 project = "metatag"
-datestamp = "1406518128"
+datestamp = "1406953128"
 

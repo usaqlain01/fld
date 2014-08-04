@@ -48,13 +48,13 @@ Filters that should be run after Markdown filter includes:
 The "Limit allowed HTML tags" filter is a special case:
 
 For best security, ensure that it is run after the Markdown filter and
-that only markup you would like to allow via HTML and/or Markdown is
-configured to be allowed.
+that only markup you would like to allow in via HTML and/or Markdown is
+configured to be allowed via the it.
 
 If you on the other hand want to make sure that all converted Markdown
-text is perserved, run it before the Markdown filter. Note that blockquoting
-with Markdown doesn't work in this case since "Limit allowed HTML tags" filter
-converts the ">" in to "&gt;".
+text is perserved, run it after the Markdown filter. Note that
+blockquoting with Markdown doesn't work when run after "Limit allowed
+HTML tags". It converts the ">" in to "&gt;".
 
 
 Smartypants support:
@@ -69,22 +69,12 @@ Typogrify module if you are interested in Smartypants support.
 
 Installation:
 ------------
-1. Download and unpack the Markdown and Libraries modules in your modules folder
+1. Download and unpack the Markdown module directory in your modules folder
    (this will usually be "sites/all/modules/").
-2. Go to "Administer" -> "Modules" and enable the modules.
-3. Download and unpack the Markdown Extra library in your libraries folder (this
-   will usually be "sites/all/libraries"). It's available at
-   http://michelf.ca/projects/php-markdown/extra/
-   Drush users can run `drush markdown-plugin`.
-4. Set up a new text format or add Markdown support to an text format at
+2. Go to "Administer" -> "Modules" and enable the module.
+3. Set up a new text format or add Markdown support to an text format at
    Administer -> Configuration -> Content Authoring -> Text formats
 
-Alternative Library Support:
----------------------------
-
-Since Markdown module started supporting Libraries module, an extending module
-providing an alternative Markdown library should declare hook_libraries_info_alter
-and change $libraries['markdown'] array.
 
 Credits:
 -------

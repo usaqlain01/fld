@@ -105,6 +105,7 @@ features[field_instance][] = node-page-field_action_link
 features[field_instance][] = node-page-field_image
 features[field_instance][] = node-page-field_references
 features[field_instance][] = node-page-field_summary
+features[field_instance][] = taxonomy_term-topic-field_image
 features[filter][] = filtered_html
 features[filter][] = filtered_wysiwyg
 features[filter][] = full_html

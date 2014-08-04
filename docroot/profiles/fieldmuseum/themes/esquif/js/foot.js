@@ -1823,7 +1823,7 @@ $(function() {
     });
     alertState = store.get("alert");
     if (alertState !== "hidden") {
-      storeWithExpiration.set("alert", "hidden", 30000);
+      storeWithExpiration.set("alert", "hidden", 86400000);
     }
     return false;
   });

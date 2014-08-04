@@ -1,0 +1,4 @@
+name = Field Museum analytics
+core = 7.x
+package = The Field Museum
+dependencies[] = googleanalytics (>=2.0)

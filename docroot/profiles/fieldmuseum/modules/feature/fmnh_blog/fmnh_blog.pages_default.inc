@@ -47,8 +47,8 @@ function fmnh_blog_default_page_manager_handlers() {
   $display = new panels_display();
   $display->layout = 'c2a';
   $display->layout_settings = array(
-    'main_classes' => '',
-    'nav_classes' => '',
+    'main_classes' => 'l--body__content',
+    'nav_classes' => 'l--body__nav js--sticky',
   );
   $display->panel_settings = array(
     'style' => 'default',
@@ -83,7 +83,7 @@ function fmnh_blog_default_page_manager_handlers() {
     );
     $pane->cache = array();
     $pane->style = array(
-      'style' => 'default',
+      'style' => 'naked',
       'settings' => NULL,
     );
     $pane->css = array();
@@ -139,7 +139,7 @@ function fmnh_blog_default_page_manager_handlers() {
     );
     $pane->cache = array();
     $pane->style = array(
-      'style' => 'default',
+      'style' => 'naked',
       'settings' => NULL,
     );
     $pane->css = array();

@@ -99,6 +99,26 @@ function fmnh_staff_default_page_manager_pages() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
+    $pane->pid = 'new-ccb0fd05-9876-459e-b8a1-74aa05b154d2';
+    $pane->panel = 'main';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'departments-panel_pane_1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'default',
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'ccb0fd05-9876-459e-b8a1-74aa05b154d2';
+    $display->content['new-ccb0fd05-9876-459e-b8a1-74aa05b154d2'] = $pane;
+    $display->panels['main'][0] = 'new-ccb0fd05-9876-459e-b8a1-74aa05b154d2';
+    $pane = new stdClass();
     $pane->pid = 'new-dcba5fa9-2afb-4d7a-b5cd-4625b70c466d';
     $pane->panel = 'main';
     $pane->type = 'entity_range';
@@ -119,15 +139,55 @@ function fmnh_staff_default_page_manager_pages() {
     );
     $pane->cache = array();
     $pane->style = array(
-      'settings' => NULL,
+      'settings' => array(
+        'element_title' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => 'div',
+          'class_enable' => 1,
+          'class' => 'persons--2up',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
+      'style' => 'semantic_panels',
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 0;
+    $pane->position = 1;
     $pane->locks = array();
     $pane->uuid = 'dcba5fa9-2afb-4d7a-b5cd-4625b70c466d';
     $display->content['new-dcba5fa9-2afb-4d7a-b5cd-4625b70c466d'] = $pane;
-    $display->panels['main'][0] = 'new-dcba5fa9-2afb-4d7a-b5cd-4625b70c466d';
+    $display->panels['main'][1] = 'new-dcba5fa9-2afb-4d7a-b5cd-4625b70c466d';
     $pane = new stdClass();
     $pane->pid = 'new-d89a2165-9794-4a36-86fb-629fcb88ec04';
     $pane->panel = 'main';
@@ -147,11 +207,11 @@ function fmnh_staff_default_page_manager_pages() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 1;
+    $pane->position = 2;
     $pane->locks = array();
     $pane->uuid = 'd89a2165-9794-4a36-86fb-629fcb88ec04';
     $display->content['new-d89a2165-9794-4a36-86fb-629fcb88ec04'] = $pane;
-    $display->panels['main'][1] = 'new-d89a2165-9794-4a36-86fb-629fcb88ec04';
+    $display->panels['main'][2] = 'new-d89a2165-9794-4a36-86fb-629fcb88ec04';
     $pane = new stdClass();
     $pane->pid = 'new-68ce6f91-e6b7-4da9-8fa7-5e506d1f296e';
     $pane->panel = 'nav';
