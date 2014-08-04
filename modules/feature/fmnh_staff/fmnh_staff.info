@@ -4,6 +4,7 @@ package = The Field Museum
 dependencies[] = ctools
 dependencies[] = email
 dependencies[] = entity
+dependencies[] = entity_token
 dependencies[] = entitylist
 dependencies[] = entityreference
 dependencies[] = features
