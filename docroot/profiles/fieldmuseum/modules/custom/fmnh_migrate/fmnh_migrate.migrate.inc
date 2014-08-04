@@ -361,6 +361,25 @@ function fmnh_migrate_migrate_api() {
         ),
         'source_connection' => 'migrate',
       ),
+      'SubsectionNode' => array(
+        'class_name' => 'SubsectionNodeMigration',
+        'group_name' => 'fmnh_node',
+        'source_type' => 'subsection_homepage',
+        'destination_type' => 'page',
+        'dependencies' => array(
+          'DepartmentTerm',
+          'AudioFile',
+          'DefaultFile',
+          'DocumentFile',
+          'ImageFile',
+          'VideoFile',
+        ),
+        'description' => 'Migrate subsection landing pages',
+        'source_options' => array(
+          'track_changes' => TRUE,
+        ),
+        'source_connection' => 'migrate',
+      ),
       'ArticleNode' => array(
         'class_name' => 'ArticleNodeMigration',
         'group_name' => 'fmnh_node_article',

@@ -6,7 +6,7 @@ class BlogListEFQ extends NodeListEFQ
     parent::__construct($config, $arguments);
     $tids = $this->getChildTermIds($arguments[0]->data);
     $tids[] = $arguments[0]->data->tid;
-    $this->entityCondition('bundle', 'blog');
+    $this->entityCondition('bundle', array('blog', 'podcast', 'video'));
     $this->fieldCondition('field_topic', 'target_id', $tids);
   }
 
