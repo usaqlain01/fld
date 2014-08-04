@@ -5,3 +5,12 @@
  */
 
 include_once 'fmnh_staff.features.inc';
+
+/**
+ *
+ */
+function fmnh_staff_admin_paths() {
+  return array(
+    'profile-main/*/edit' => TRUE,
+  );
+}

@@ -52,10 +52,27 @@ function fmnh_staff_strongarm() {
       'token' => array(
         'custom_settings' => FALSE,
       ),
+      'page' => array(
+        'custom_settings' => FALSE,
+      ),
+      'teaser' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(),
-      'display' => array(),
+      'display' => array(
+        'blogs_entity_view_2' => array(
+          'default' => array(
+            'weight' => '7',
+            'visible' => TRUE,
+          ),
+          'summary' => array(
+            'weight' => '10',
+            'visible' => FALSE,
+          ),
+        ),
+      ),
     ),
   );
   $export['field_bundle_settings_profile2__main'] = $strongarm;
