@@ -1,53 +1,5 @@
 [
     {
-        "name": "stojg/crop",
-        "version": "1.2.8",
-        "version_normalized": "1.2.8.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/stojg/crop.git",
-            "reference": "ab11747a89ba0e2d04d4dd4be8db836a67af251a"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/stojg/crop/zipball/ab11747a89ba0e2d04d4dd4be8db836a67af251a",
-            "reference": "ab11747a89ba0e2d04d4dd4be8db836a67af251a",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.0"
-        },
-        "time": "2014-05-21 12:36:43",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "stojg\\crop": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "BSD-2"
-        ],
-        "authors": [
-            {
-                "name": "Stig Lindqvist",
-                "email": "stojg.lindqvist@gmail.com",
-                "homepage": "https://stojg.se/"
-            },
-            {
-                "name": "Julien Deniau jdeniau",
-                "email": "julien.deniau@gmail.com",
-                "homepage": "http://www.mapado.com"
-            }
-        ],
-        "description": "Image cropping classes",
-        "homepage": "http://github.com/stojg/crop",
-        "keywords": [
-            "image"
-        ]
-    },
-    {
         "name": "behat/gherkin",
         "version": "v2.3.5",
         "version_normalized": "2.3.5.0",
@@ -3138,6 +3090,54 @@
             "property",
             "property path",
             "reflection"
+        ]
+    },
+    {
+        "name": "stojg/crop",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/stojg/crop.git",
+            "reference": "07d338504c3e9e58d68f1d267b0137811c9b34d2"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/stojg/crop/zipball/07d338504c3e9e58d68f1d267b0137811c9b34d2",
+            "reference": "07d338504c3e9e58d68f1d267b0137811c9b34d2",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "time": "2014-07-16 20:38:47",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "stojg\\crop": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-2"
+        ],
+        "authors": [
+            {
+                "name": "Stig Lindqvist",
+                "email": "stojg.lindqvist@gmail.com",
+                "homepage": "http://www.stojg.se/"
+            },
+            {
+                "name": "Julien DENIAU",
+                "email": "julien.deniau@gmail.com",
+                "homepage": "http://www.mapado.com"
+            }
+        ],
+        "description": "Image cropping classes",
+        "homepage": "http://github.com/stojg/crop",
+        "keywords": [
+            "image"
         ]
     }
 ]
