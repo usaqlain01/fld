@@ -26,6 +26,15 @@ function fmnh_department_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 0,
       ),
+      'promo' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(
+          'field_formatter_class' => '',
+        ),
+        'type' => 'text_default',
+        'weight' => 1,
+      ),
       'teaser' => array(
         'label' => 'hidden',
         'module' => 'text',
@@ -74,6 +83,12 @@ function fmnh_department_field_default_field_instances() {
         'type' => 'entityreference_label',
         'weight' => 4,
       ),
+      'promo' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 7,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -104,14 +119,22 @@ function fmnh_department_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'image',
+        'module' => 'file',
         'settings' => array(
           'field_formatter_class' => '',
-          'image_link' => '',
-          'image_style' => '',
         ),
-        'type' => 'image',
+        'type' => 'file_default',
         'weight' => 1,
+      ),
+      'promo' => array(
+        'label' => 'hidden',
+        'module' => 'file_entity',
+        'settings' => array(
+          'field_formatter_class' => '',
+          'file_view_mode' => 'banner_5x3',
+        ),
+        'type' => 'file_rendered',
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -184,6 +207,12 @@ function fmnh_department_field_default_field_instances() {
         'type' => 'link_default',
         'weight' => 5,
       ),
+      'promo' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 5,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -237,6 +266,12 @@ function fmnh_department_field_default_field_instances() {
         'type' => 'entityreference_label',
         'weight' => 6,
       ),
+      'promo' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 4,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -282,6 +317,12 @@ function fmnh_department_field_default_field_instances() {
         'type' => 'entityreference_label',
         'weight' => 6,
       ),
+      'promo' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 3,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -324,6 +365,12 @@ function fmnh_department_field_default_field_instances() {
         ),
         'type' => 'entityreference_label',
         'weight' => 5,
+      ),
+      'promo' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 6,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -370,6 +417,12 @@ function fmnh_department_field_default_field_instances() {
         'type' => 'entityreference_label',
         'weight' => 3,
       ),
+      'promo' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 8,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -415,6 +468,12 @@ function fmnh_department_field_default_field_instances() {
         'type' => 'entityreference_label',
         'weight' => 7,
       ),
+      'promo' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 2,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -459,6 +518,12 @@ function fmnh_department_field_default_field_instances() {
         ),
         'type' => 'entityreference_label',
         'weight' => 2,
+      ),
+      'promo' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 9,
       ),
       'teaser' => array(
         'label' => 'above',
