@@ -15,3 +15,66 @@ function fmnh_department_admin_paths() {
   );
   return $paths;
 }
+
+/**
+ * Implement hook_menu_block_tree_alter().
+ *
+ * @param $tree
+ * @param $config
+ */
+function fmnh_department_menu_block_tree_alter(&$tree, $config) {
+  if (isset($config['identifier']) && 'section' == $config['identifier']) {
+    $item = menu_get_item();
+    if ('node/%' == $item['path']) {
+      $node = menu_get_object();
+
+      if ('department' == $node->type) {
+
+        // Extract the local tasks to move to the main menu.
+        $tasks = menu_local_tasks();
+        $links = array();
+        foreach ($tasks['tabs']['output'] as $link) {
+          if ($link['#link']['path'] == 'node/%/collections' || $link['#link']['path'] == 'node/%/people') {
+            $links[] = $link['#link'];
+          }
+        }
+
+        $menu_link = menu_link_get_preferred($item['href']);
+        $i = 1;
+
+        $mlids = array();
+        while ($i < $menu_link['depth']) {
+          $mlids[] = $menu_link['p' . $i++];
+        }
+        $mlids[] = $menu_link['mlid'];
+
+        _fmnh_department_find_and_inject($tree, $mlids, $links);
+      }
+    }
+  }
+}
+
+function _fmnh_department_find_and_inject(&$tree, &$mlids, $links) {
+  while ($mlid = array_shift($mlids)) {
+    foreach ($tree as &$menu_link) {
+      if ($menu_link['link']['mlid'] == $mlid) {
+        if (!empty($mlids)) {
+          _fmnh_department_find_and_inject($menu_link['below'], $mlids, $links);
+        }
+        else {
+          foreach ($links as $mlid => $link) {
+            $link['hidden'] = FALSE;
+            $link['has_children'] = FALSE;
+            $link['in_active_trail'] = FALSE;
+            $link['mlid'] = $mlid;
+            $link['depth'] = $menu_link['link']['depth'] + 1;
+            $menu_link['below'][(50000 + $link['weight']) . ' ' . $link['title'] . ' ' . $link['mlid']] = array(
+              'link' => $link,
+              'below' => array(),
+            );
+          }
+        }
+      }
+    }
+  }
+}
