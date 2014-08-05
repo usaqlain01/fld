@@ -1,16 +1,9 @@
 <?php
 
 /**
- * Clear cache.
- */
-function fmnh_department_update_7000(&$sandbox) {
-  drupal_flush_all_caches();
-}
-
-/**
  * Update existing menu links with entity metadata.
  */
-function fmnh_department_update_7001(&$sandbox) {
+function fmnh_department_update_7000(&$sandbox) {
   if (!isset($sandbox['progress'])) {
     $sandbox['progress'] = 0;
     $sandbox['current_mlid'] = 0;
