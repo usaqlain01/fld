@@ -4428,7 +4428,14 @@ $(function() {
       }
     }
   });
-  return $(window).trigger("delayedResize");
+  $(window).trigger("delayedResize");
+  return $("body").on("click", ".gsc-tabHeader.gsc-tabhInactive", function() {
+    return $(this).animate({
+      opacity: 1
+    }, 500, function() {
+      return $(window).trigger("delayedResize");
+    });
+  });
 });
 
   /*
