@@ -142,6 +142,7 @@ function esquif_preprocess_node(&$variables, $hook) {
     case 'promo':
       $variables['theme_hook_suggestions'][] = 'node__promo';
       $variables['title_attributes_array']['class'][] = 'promo__title';
+      $variables['content']['field_image'][0]['file']['#item']['attributes']['class'][] = 'promo__image';
       break;
     case 'summary':
       $variables['theme_hook_suggestions'][] = 'node__summary';
