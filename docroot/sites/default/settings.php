@@ -34,7 +34,19 @@ $conf['composer_manager_file_dir'] = '../';
 if (file_exists('/var/www/site-php')) {
   require('/var/www/site-php/fieldmusefacelift/fieldmusefacelift-settings.inc');
   if ($_ENV['AH_SITE_ENVIRONMENT']) {
+
+    // Use memcache.
+    // @see https://docs.acquia.com/cloud/performance/memcached
+    $conf['cache_backends'][] = './profiles/fieldmuseum/modules/contrib/memcache/memcache.inc';
+    $conf['cache_default_class'] = 'MemCacheDrupal';
+    $conf['cache_class_cache_field'] = 'DrupalDatabaseCache';
+    $conf['cache_class_cache_filter'] = 'DrupalDatabaseCache';
+    $conf['cache_class_cache_form'] = 'DrupalDatabaseCache';
+
+    // Avoid delegate errors in Imagemagick processing.
     $_ENV['MAGICKCODERMODULE_PATH'] = '/usr/lib/ImageMagick-6.6.9/modules-Q16/coders';
+
+    // Set the temp filesystem.
     $conf['file_temporary_path'] = '/mnt/tmp/fieldmusefacelift.'. $_ENV['AH_SITE_ENVIRONMENT'];
     switch ($_ENV['AH_SITE_ENVIRONMENT']) {
       case 'dev':
