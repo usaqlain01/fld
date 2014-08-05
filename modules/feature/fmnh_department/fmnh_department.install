@@ -1,0 +1,23 @@
+<?php
+
+/**
+ * Update existing menu links with entity metadata.
+ */
+function fmnh_department_update_7000(&$sandbox) {
+  foreach (entity_get_info() as $info) {
+    if (isset($info['path'])) {
+      // @see menu_router_rebuild
+      $parts = explode('/', $info['path'], MENU_MAX_PARTS);
+      foreach ($parts as $k => $part) {
+        if (preg_match('/^%(|' . DRUPAL_PHP_FUNCTION_PATTERN . ')$/', $part, $matches)) {
+          $parts[$k] = '%';
+        }
+      }
+      $mlids = db_query('SELECT mlid FROM {menu_links} WHERE router_path = :path', array(':path' => implode('/', $parts)))->fetchCol();
+      foreach ($mlids as $mlid) {
+        $link = menu_link_load($mlid);
+        menu_link_save($link);
+      }
+    }
+  }
+}
