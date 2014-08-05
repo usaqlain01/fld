@@ -1,9 +1,16 @@
 <?php
 
 /**
- * Update existing menu links with entity metadata.
+ * Clear cache.
  */
 function fmnh_department_update_7000(&$sandbox) {
+  drupal_flush_all_caches();
+}
+
+/**
+ * Update existing menu links with entity metadata.
+ */
+function fmnh_department_update_7001(&$sandbox) {
   foreach (entity_get_info() as $info) {
     if (isset($info['path'])) {
       // @see menu_router_rebuild
