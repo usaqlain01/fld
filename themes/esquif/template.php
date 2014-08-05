@@ -140,9 +140,14 @@ function esquif_preprocess_node(&$variables, $hook) {
 
   switch ($variables['view_mode']) {
     case 'promo':
-      $variables['theme_hook_suggestions'][] = 'node__promo';
+      array_splice($variables['theme_hook_suggestions'], 1, 0, array('node__'. $variables['view_mode']));
       $variables['title_attributes_array']['class'][] = 'promo__title';
-      $variables['content']['field_image'][0]['file']['#item']['attributes']['class'][] = 'promo__image';
+      if (in_array('node__panel__banner', $variables['theme_hook_suggestions'])) {
+        $variables['content']['field_image'][0]['file']['#item']['attributes']['class'][] = 'banner__image';
+      }
+      else {
+        $variables['content']['field_image'][0]['file']['#item']['attributes']['class'][] = 'promo__image';
+      }
       break;
     case 'summary':
       $variables['theme_hook_suggestions'][] = 'node__summary';
@@ -156,6 +161,11 @@ function esquif_preprocess_node(&$variables, $hook) {
   // Unsightly hack that avoids adding summary to wrapper of embedded nodes on home page.
   if (!in_array('node__panel__summary__naked', $variables['theme_hook_suggestions'])) {
     $variables['classes_array'][] = $variables['view_mode'];
+  }
+
+  // Unsightly hack that removes promo class attribute from banner themed nodes on home page.
+  if (in_array('node__panel__banner', $variables['theme_hook_suggestions'])) {
+    $variables['classes_array'] = array_diff($variables['classes_array'], array('promo'));
   }
 
   // Optionally, run node-type-specific preprocess functions, like
