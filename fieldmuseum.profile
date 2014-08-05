@@ -100,6 +100,14 @@ function fieldmuseum_imagecrop_effect(&$image, $data) {
  */
 function fieldmuseum_imagecrop_reuse_effect(&$image, $data) {
   $GLOBALS['imagecrop_style'] = $data['imagecrop_style'];
+  $style = image_style_load($data['imagecrop_style']);
+  foreach ($style['effects'] as $effect) {
+    if ($effect['name'] == 'imagecrop_javascript') {
+      $data['width'] = $effect['data']['width'];
+      $data['height'] = $effect['data']['height'];
+      break;
+    }
+  }
   return fieldmuseum_smartcrop($image, $data, 'imagecrop_reuse_effect');
 }
 
