@@ -11,20 +11,27 @@ function fmnh_department_update_7000(&$sandbox) {
  * Update existing menu links with entity metadata.
  */
 function fmnh_department_update_7001(&$sandbox) {
-  foreach (entity_get_info() as $info) {
-    if (isset($info['path'])) {
-      // @see menu_router_rebuild
-      $parts = explode('/', $info['path'], MENU_MAX_PARTS);
-      foreach ($parts as $k => $part) {
-        if (preg_match('/^%(|' . DRUPAL_PHP_FUNCTION_PATTERN . ')$/', $part, $matches)) {
-          $parts[$k] = '%';
-        }
-      }
-      $mlids = db_query('SELECT mlid FROM {menu_links} WHERE router_path = :path', array(':path' => implode('/', $parts)))->fetchCol();
-      foreach ($mlids as $mlid) {
-        $link = menu_link_load($mlid);
-        menu_link_save($link);
-      }
-    }
+  if (!isset($sandbox['progress'])) {
+    $sandbox['progress'] = 0;
+    $sandbox['current_mlid'] = 0;
+    $sandbox['max'] = db_query('SELECT COUNT(DISTINCT mlid) FROM {menu_links} WHERE router_path = :path', array(':path' => 'node/%'))->fetchField() - 1;
+  }
+
+  $mlids = db_select('menu_links')->fields('menu_links', array('mlid'))
+    ->condition('router_path', 'node/%')
+    ->condition('mlid', $sandbox['current_mlid'], '>')
+    ->range(0, 1)
+    ->orderBy('mlid', 'ASC')
+    ->execute()
+    ->fetchCol()
+  ;
+
+  foreach ($mlids as $mlid) {
+    $link = menu_link_load($mlid);
+    menu_link_save($link);
+
+    $sandbox['progress']++;
+    $sandbox['current_mlid'] = $mlid;
+    $sandbox['#finished'] = empty($sandbox['max']) ? 1 : ($sandbox['progress'] / $sandbox['max']);
   }
 }
