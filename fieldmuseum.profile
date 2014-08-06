@@ -80,6 +80,23 @@ function fieldmuseum_image_effect_info_alter(&$effects) {
   }
   if ($effects['imagecrop_reuse']['effect callback'] == 'imagecrop_reuse_effect') {
     $effects['imagecrop_reuse']['effect callback'] = 'fieldmuseum_imagecrop_reuse_effect';
+    $effects['imagecrop_reuse']['dimensions callback'] = 'fieldmuseum_imagecrop_reuse_dimensions';
+  }
+}
+
+/**
+ * Image dimensions callback; Image javascript crop.
+ */
+function fieldmuseum_imagecrop_reuse_dimensions(array &$dimensions, array $data) {
+  if ($dimensions['width'] && $dimensions['height']) {
+    // The new image will have the exact dimensions defined for the effect.
+    $style = image_style_load($data['imagecrop_style']);
+    foreach ($style['effects'] as $effect) {
+      if ($effect['name'] == 'imagecrop_javascript') {
+        $dimensions['width'] = $effect['data']['width'];
+        $dimensions['height'] = $effect['data']['height'];
+      }
+    }
   }
 }
 
