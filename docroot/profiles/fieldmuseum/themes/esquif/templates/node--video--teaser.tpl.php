@@ -8,7 +8,7 @@
  */
 ?>
 <article class="excerpt node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
-  <?php print render($content['field_image']); ?>
+  <?php print render($content['field_video']); ?>
   <?php if ($title_prefix || $title_suffix || $display_submitted || $unpublished || !$page && $title): ?>
     <header class="excerpt__header">
       <?php print render($title_prefix); ?>

@@ -179,6 +179,25 @@ function esquif_preprocess_node(&$variables, $hook) {
 function esquif_preprocess_node_blog(&$variables, $hook) {
   $variables['classes_array'][] = 'article';
   $variables['title_attributes_array']['class'][] = 'article__title';
+  if ($variables['view_mode'] == 'teaser') {
+    $variables['content']['field_image'][0]['file']['#item']['attributes']['class'][] = 'excerpt__image';
+  }
+}
+
+function esquif_preprocess_node_podcast(&$variables, $hook) {
+  $variables['classes_array'][] = 'article';
+  $variables['title_attributes_array']['class'][] = 'article__title';
+  if ($variables['view_mode'] == 'teaser') {
+    $variables['content']['field_image'][0]['file']['#item']['attributes']['class'][] = 'excerpt__image';
+  }
+}
+
+function esquif_preprocess_node_video(&$variables, $hook) {
+  $variables['classes_array'][] = 'article';
+  $variables['title_attributes_array']['class'][] = 'article__title';
+  if ($variables['view_mode'] == 'teaser') {
+    $variables['content']['field_video'][0]['file']['#item']['attributes']['class'][] = 'excerpt__image';
+  }
 }
 
 function esquif_preprocess_node_collection(&$variables, $hook) {
@@ -1222,4 +1241,11 @@ function esquif_field__field_image($variables) {
   }
 
   return $output;
+}
+
+function esquif_entity_view_mode_alter(&$view_mode, $context) {
+  // For nodes, change the view mode when it is teaser.
+  if (drupal_is_front_page() && $context['entity_type'] == 'file') {
+    $view_mode = 'banner_5x2';
+  }
 }

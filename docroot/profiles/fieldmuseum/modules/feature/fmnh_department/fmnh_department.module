@@ -20,31 +20,33 @@ function fmnh_department_admin_paths() {
  * Implement hook_menu_link_alter().
  */
 function fmnh_department_menu_link_alter(&$item) {
-  foreach (entity_get_info() as $entity_type => $info) {
-    if (isset($info['path'])) {
-      // @see menu_router_rebuild
-      $parts = explode('/', $info['path'], MENU_MAX_PARTS);
-      $position = 0;
+  if ($item['module'] == 'menu') {
+    foreach (entity_get_info() as $entity_type => $info) {
+      if (isset($info['path'])) {
+        // @see menu_router_rebuild
+        $parts = explode('/', $info['path'], MENU_MAX_PARTS);
+        $position = 0;
 
-      foreach ($parts as $k => $part) {
-        if (preg_match('/^%(|' . DRUPAL_PHP_FUNCTION_PATTERN . ')$/', $part, $matches)) {
-          $parts[$k] = '%';
-          $position = $k;
+        foreach ($parts as $k => $part) {
+          if (preg_match('/^%(|' . DRUPAL_PHP_FUNCTION_PATTERN . ')$/', $part, $matches)) {
+            $parts[$k] = '%';
+            $position = $k;
+          }
         }
-      }
 
-      $router_item = menu_get_item($item['link_path']);
+        $router_item = menu_get_item($item['link_path']);
 
-      if ($router_item['path'] == implode('/', $parts)) {
-        $entity = menu_get_object($entity_type, $position, $item['link_path']);
-        if ($entity) {
-          list($id, $vid, $bundle) = entity_extract_ids($entity_type, $entity);
-          $item['options']['entity'] = array(
-            'entity_type' => $entity_type,
-            'id' => $id,
-            'vid' => $vid,
-            'bundle' => $bundle,
-          );
+        if ($router_item['path'] == implode('/', $parts)) {
+          $entity = menu_get_object($entity_type, $position, $item['link_path']);
+          if ($entity) {
+            list($id, $vid, $bundle) = entity_extract_ids($entity_type, $entity);
+            $item['options']['entity'] = array(
+              'entity_type' => $entity_type,
+              'id' => $id,
+              'vid' => $vid,
+              'bundle' => $bundle,
+            );
+          }
         }
       }
     }

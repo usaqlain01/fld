@@ -50,7 +50,7 @@
   <?php print render($title_suffix); ?>
   <div class="summary__description">
     <?php print render($content['description']); ?>
-    <a class="link--more" href="<?php print $term_url; ?>">Lorem ipsum dolor.</a>
+    <a class="link--more" href="<?php print $term_url; ?>">Read more</a>
   </div>
   <?php print render($content); ?>
 </div>

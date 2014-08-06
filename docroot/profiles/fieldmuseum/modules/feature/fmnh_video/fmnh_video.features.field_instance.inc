@@ -416,7 +416,7 @@ function fmnh_video_field_default_field_instances() {
         'module' => 'file_entity',
         'settings' => array(
           'field_formatter_class' => '',
-          'file_view_mode' => 'banner_5x2',
+          'file_view_mode' => 'banner_5x3',
         ),
         'type' => 'file_rendered',
         'weight' => 0,
