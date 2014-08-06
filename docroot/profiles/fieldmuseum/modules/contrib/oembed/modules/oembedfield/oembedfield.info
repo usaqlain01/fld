@@ -5,9 +5,9 @@ core = 7.x
 hidden = TRUE
 dependencies[] = oembedcore
 dependencies[] = link
-; Information added by Drupal.org packaging script on 2014-04-12
-version = "7.x-1.0-rc2+24-dev"
+; Information added by Drupal.org packaging script on 2014-08-06
+version = "7.x-1.0-rc2+25-dev"
 core = "7.x"
 project = "oembed"
-datestamp = "1397333660"
+datestamp = "1407296028"
 

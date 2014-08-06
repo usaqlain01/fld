@@ -160,6 +160,14 @@ function file_build_content($file, $view_mode = 'full', $langcode = NULL) {
   // Remove previously built content, if exists.
   $file->content = array();
 
+  // Allow modules to change the view mode.
+  $context = array(
+    'entity_type' => 'file',
+    'entity' => $file,
+    'langcode' => $langcode,
+  );
+  drupal_alter('entity_view_mode', $view_mode, $context);
+
   // Build the actual file display.
   // @todo Figure out how to clean this crap up.
   $file->content['file'] = file_view_file($file, $view_mode, $langcode);
