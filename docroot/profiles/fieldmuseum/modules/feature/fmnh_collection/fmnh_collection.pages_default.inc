@@ -47,8 +47,8 @@ function fmnh_collection_default_page_manager_handlers() {
   $display = new panels_display();
   $display->layout = 'c2b';
   $display->layout_settings = array(
-    'main_classes' => '',
-    'nav_classes' => '',
+    'main_classes' => 'l--body__content',
+    'nav_classes' => 'l--body__nav js--sticky',
   );
   $display->panel_settings = array(
     'style' => 'default',
@@ -76,14 +76,14 @@ function fmnh_collection_default_page_manager_handlers() {
       'override_title' => 0,
       'override_title_text' => '',
       'identifier' => '',
-      'link' => 1,
-      'leave_node_title' => 0,
+      'link' => 0,
+      'leave_node_title' => 1,
       'build_mode' => 'full',
       'context' => 'argument_entity_id:node_1',
     );
     $pane->cache = array();
     $pane->style = array(
-      'style' => 'default',
+      'style' => 'naked',
       'settings' => NULL,
     );
     $pane->css = array();
@@ -94,20 +94,24 @@ function fmnh_collection_default_page_manager_handlers() {
     $display->content['new-ade04418-6395-4302-84c8-0989233e2c14'] = $pane;
     $display->panels['main'][0] = 'new-ade04418-6395-4302-84c8-0989233e2c14';
     $pane = new stdClass();
-    $pane->pid = 'new-305364d0-fdb0-4d3f-b387-3ea0e8bb7c86';
+    $pane->pid = 'new-0bc5d187-ed53-407a-9a37-50a57c43d05b';
     $pane->panel = 'main';
-    $pane->type = 'node_content_arbitrary';
-    $pane->subtype = 'node_content_arbitrary';
+    $pane->type = 'entity_field';
+    $pane->subtype = 'node:field_references';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
+      'label' => 'title',
+      'formatter' => 'entityreference_label',
+      'delta_limit' => '0',
+      'delta_offset' => '0',
+      'delta_reversed' => 0,
+      'formatter_settings' => array(
+        'link' => 0,
+      ),
+      'context' => 'argument_entity_id:node_1',
       'override_title' => 0,
       'override_title_text' => '',
-      'build_mode' => 'full',
-      'identifier' => '',
-      'property_path' => 'content[disqus]',
-      'link' => 1,
-      'context' => 'argument_entity_id:node_1',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -118,9 +122,9 @@ function fmnh_collection_default_page_manager_handlers() {
     $pane->extras = array();
     $pane->position = 1;
     $pane->locks = array();
-    $pane->uuid = '305364d0-fdb0-4d3f-b387-3ea0e8bb7c86';
-    $display->content['new-305364d0-fdb0-4d3f-b387-3ea0e8bb7c86'] = $pane;
-    $display->panels['main'][1] = 'new-305364d0-fdb0-4d3f-b387-3ea0e8bb7c86';
+    $pane->uuid = '0bc5d187-ed53-407a-9a37-50a57c43d05b';
+    $display->content['new-0bc5d187-ed53-407a-9a37-50a57c43d05b'] = $pane;
+    $display->panels['main'][1] = 'new-0bc5d187-ed53-407a-9a37-50a57c43d05b';
     $pane = new stdClass();
     $pane->pid = 'new-66258765-b9d3-4c9f-b781-7c93eea79944';
     $pane->panel = 'nav';
@@ -167,7 +171,7 @@ function fmnh_collection_default_page_manager_handlers() {
       'depth' => '0',
       'expanded' => 0,
       'sort' => 0,
-      'override_title' => 0,
+      'override_title' => 1,
       'override_title_text' => '',
       'identifier' => 'section',
     );

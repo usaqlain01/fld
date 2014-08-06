@@ -118,7 +118,7 @@ function fmnh_calendar_entity_prepare_view($entities, $type, $langcode) {
       if ($bundle == 'event') {
         $items = field_get_items('node', $entity, 'field_program');
         if ($items) {
-          $program_node = $items[0]['entity'];
+          $program_node = node_load($items[0]['target_id']);
           foreach (array('body', 'field_image') as $field_name) {
             if (_fmnh_calendar_field_is_empty($type, $entity, $field_name)) {
               $entity->{$field_name} = $program_node->{$field_name};

@@ -3,6 +3,7 @@ core = 7.x
 package = The Field Museum
 dependencies[] = ctools
 dependencies[] = date
+dependencies[] = draggableviews
 dependencies[] = entitylist
 dependencies[] = entityreference
 dependencies[] = features

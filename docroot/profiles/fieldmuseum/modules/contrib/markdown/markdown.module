@@ -31,25 +31,6 @@ function markdown_filter_info() {
 }
 
 /**
- * Implements hook_libraries_info().
- */
-function markdown_libraries_info() {
-  $libraries['markdown'] = array(
-    'name' => 'PHP Markdown Extra plugin',
-    'vendor url' => 'http://michelf.ca/projects/php-markdown/',
-    'download url' => 'http://littoral.michelf.ca/code/php-markdown/php-markdown-extra-1.2.5.zip',
-    'version' => '1.2.5',
-    'files' => array(
-      'php' => array(
-        'markdown.php',
-      ),
-    ),
-  );
-
-  return $libraries;
-}
-
-/**
  * Returns the markdown input filter tips.
  * @TODO: make it easier for translators.
  */
@@ -132,7 +113,7 @@ And now some code:
  */
 function _filter_markdown($text, $format) {
   if (!empty($text)) {
-    libraries_load('markdown');
+    module_load_include('php', 'markdown', 'markdown');
     $text = Markdown($text);
   }
 
@@ -143,7 +124,7 @@ function _filter_markdown($text, $format) {
  * Filter settings callback. Just provides a version overview.
  */
 function _filter_markdown_settings($form, &$form_state, $filter, $format, $defaults) {
-  libraries_load('markdown');
+  module_load_include('php', 'markdown', 'markdown');
 
   $settings['markdown_wrapper'] = array(
     '#type' => 'fieldset',

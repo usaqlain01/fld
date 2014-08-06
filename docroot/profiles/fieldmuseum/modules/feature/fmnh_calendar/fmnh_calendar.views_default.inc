@@ -305,7 +305,7 @@ function fmnh_calendar_views_default_views() {
   $handler->display->display_options['fields']['field_date_editable']['widget_type'] = 'date_popup';
   $handler->display->display_options['fields']['field_date_editable']['suppress_label'] = 0;
   $handler->display->display_options['fields']['field_date_editable']['suppress_description'] = 0;
-  /* Field: Content: Summary (editable) */
+  /* Field: Content: Message (editable) */
   $handler->display->display_options['fields']['field_summary_editable']['id'] = 'field_summary_editable';
   $handler->display->display_options['fields']['field_summary_editable']['table'] = 'field_data_field_summary';
   $handler->display->display_options['fields']['field_summary_editable']['field'] = 'field_summary_editable';

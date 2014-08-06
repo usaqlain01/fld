@@ -1,0 +1,30 @@
+<?php
+
+/**
+ * Update existing menu links with entity metadata.
+ */
+function fmnh_department_update_7000(&$sandbox) {
+  if (!isset($sandbox['progress'])) {
+    $sandbox['progress'] = 0;
+    $sandbox['current_mlid'] = 0;
+    $sandbox['max'] = db_query('SELECT COUNT(DISTINCT mlid) FROM {menu_links} WHERE router_path = :path', array(':path' => 'node/%'))->fetchField() - 1;
+  }
+
+  $mlids = db_select('menu_links')->fields('menu_links', array('mlid'))
+    ->condition('router_path', 'node/%')
+    ->condition('mlid', $sandbox['current_mlid'], '>')
+    ->range(0, 1)
+    ->orderBy('mlid', 'ASC')
+    ->execute()
+    ->fetchCol()
+  ;
+
+  foreach ($mlids as $mlid) {
+    $link = menu_link_load($mlid);
+    menu_link_save($link);
+
+    $sandbox['progress']++;
+    $sandbox['current_mlid'] = $mlid;
+    $sandbox['#finished'] = empty($sandbox['max']) ? 1 : ($sandbox['progress'] / $sandbox['max']);
+  }
+}

@@ -33,7 +33,6 @@
 
     <target name="compass-compile" depends="prepare">
         <exec command="compass compile -e production -s compressed" dir="docroot/profiles/fieldmuseum/themes/esquif"/>
-        <exec command="compass compile -e production -s compressed" dir="docroot/profiles/fieldmuseum/themes/temporary"/>
     </target>
 
     <target name="merge-tablexi" depends="prepare">
@@ -68,12 +67,22 @@
         <exec command="vendor/bin/assetic"/>
     </target>
 
+    <target name="analytics" depends="prepare">
+        <property name="repo.dir" value="build/fieldmuseum-website" />
+        <resolvepath propertyName="repo.dir.resolved" file="${repo.dir}" />
+        <copy todir="docroot/profiles/fieldmuseum/modules/custom/fmnh_analytics/js" overwrite="true">
+            <fileset dir="${repo.dir.resolved}/javascripts">
+                <include name="*.js"></include>
+            </fileset>
+        </copy>
+    </target>
+
 
 
     <!-- ============================================  -->
     <!-- (DEFAULT)  Target: dist                       -->
     <!-- ============================================  -->
-    <target name="dist" depends="subtree-update,compass-compile,composer-manager-update,merge-tablexi">
+    <target name="dist" depends="subtree-update,compass-compile,composer-manager-update,merge-tablexi,analytics">
     </target>
 
     <!-- ## Main targets -->

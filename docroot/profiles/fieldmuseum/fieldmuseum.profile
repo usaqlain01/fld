@@ -80,6 +80,23 @@ function fieldmuseum_image_effect_info_alter(&$effects) {
   }
   if ($effects['imagecrop_reuse']['effect callback'] == 'imagecrop_reuse_effect') {
     $effects['imagecrop_reuse']['effect callback'] = 'fieldmuseum_imagecrop_reuse_effect';
+    $effects['imagecrop_reuse']['dimensions callback'] = 'fieldmuseum_imagecrop_reuse_dimensions';
+  }
+}
+
+/**
+ * Image dimensions callback; Image javascript crop.
+ */
+function fieldmuseum_imagecrop_reuse_dimensions(array &$dimensions, array $data) {
+  if ($dimensions['width'] && $dimensions['height']) {
+    // The new image will have the exact dimensions defined for the effect.
+    $style = image_style_load($data['imagecrop_style']);
+    foreach ($style['effects'] as $effect) {
+      if ($effect['name'] == 'imagecrop_javascript') {
+        $dimensions['width'] = $effect['data']['width'];
+        $dimensions['height'] = $effect['data']['height'];
+      }
+    }
   }
 }
 
@@ -100,6 +117,14 @@ function fieldmuseum_imagecrop_effect(&$image, $data) {
  */
 function fieldmuseum_imagecrop_reuse_effect(&$image, $data) {
   $GLOBALS['imagecrop_style'] = $data['imagecrop_style'];
+  $style = image_style_load($data['imagecrop_style']);
+  foreach ($style['effects'] as $effect) {
+    if ($effect['name'] == 'imagecrop_javascript') {
+      $data['width'] = $effect['data']['width'];
+      $data['height'] = $effect['data']['height'];
+      break;
+    }
+  }
   return fieldmuseum_smartcrop($image, $data, 'imagecrop_reuse_effect');
 }
 
@@ -356,6 +381,60 @@ function fieldmuseum_preprocess_node_add_list(&$variables, $hook) {
   foreach ($variables['content'] as $key => $link) {
     if (in_array($link['router_path'], array('node/add/newsletter', 'node/add/article'))) {
       unset($variables['content'][$key]);
+    }
+  }
+}
+
+/**
+ * Implements hook_panels_pane_content_alter().
+ */
+function fieldmuseum_panels_pane_content_alter($content, $pane, $panel_args, $context, $render, $display) {
+  if (isset($pane->style['style'])) {
+    $plugin = panels_get_style($pane->style['style']);
+    if ($plugin['name'] == 'naked') {
+      if ($content && !is_array($content->content)) {
+        $content->content = array(
+          '#markup' => $content->content,
+        );
+      }
+      if ($pane->style['settings']['children']) {
+        foreach (element_children($content->content) as $child_key) {
+          $content->content[$child_key]['#panels_pane'] = array(
+            'pane' => $pane,
+          );
+        }
+      }
+      else {
+        $content->content['#panels_pane'] = array(
+          'pane' => $pane,
+        );
+      }
+    }
+  }
+}
+
+/**
+ * Implement hook_preprocess().
+ */
+function fieldmuseum_preprocess(&$variables, $hook) {
+  // Pull out the pane object that was stashed earlier.
+  if ($hook == 'panels_pane') {
+    if (isset($variables['content']['#panels_pane'])) {
+      $pane = $variables['content']['#panels_pane']['pane'];
+    }
+  }
+  else {
+    $info = theme_get_registry(FALSE);
+    if (isset($info[$hook]['render element'])) {
+      $element = &$variables[$info[$hook]['render element']];
+      if (isset($element['#panels_pane'])) {
+        $pane = $element['#panels_pane']['pane'];
+      }
+    }
+  }
+  if (isset($pane)) {
+    if (isset($pane->css['css_class'])) {
+      $variables['classes_array'] = array_unique(array_merge($variables['classes_array'], array($pane->css['css_class'])));
     }
   }
 }

@@ -1,0 +1,25 @@
+<?php
+
+/**
+ * Implement hook_init().
+ */
+function fmnh_analytics_init() {
+  drupal_add_library('fmnh_analytics', 'analytics', TRUE);
+}
+
+/**
+ * Implement hook_library().
+ */
+function fmnh_analytics_library() {
+  $libraries['analytics'] = array(
+    'title' => 'FMNH Analytics',
+    'version' => '1.0',
+    'js' => array(
+      drupal_get_path('module', 'fmnh_analytics') . '/js/ga-custom.js' => array(),
+//      drupal_get_path('module', 'fmnh_analytics') . '/js/ga-custom-events.js' => array(),
+//      drupal_get_path('module', 'fmnh_analytics') . '/js/ga-custom-scroll.js' => array(),
+//      drupal_get_path('module', 'fmnh_analytics') . '/js/ga-disqus-callbacks.js' => array(),
+    ),
+  );
+  return $libraries;
+}

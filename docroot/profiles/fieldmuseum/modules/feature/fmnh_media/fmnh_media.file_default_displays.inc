@@ -20,6 +20,28 @@ function fmnh_media_file_default_displays() {
 
   $file_display = new stdClass();
   $file_display->api_version = 1;
+  $file_display->name = 'image__banner_5x2__file_field_image';
+  $file_display->weight = 0;
+  $file_display->status = TRUE;
+  $file_display->settings = array(
+    'image_style' => '5x2_800w',
+    'image_link' => '',
+  );
+  $export['image__banner_5x2__file_field_image'] = $file_display;
+
+  $file_display = new stdClass();
+  $file_display->api_version = 1;
+  $file_display->name = 'image__banner_5x3__file_field_image';
+  $file_display->weight = 0;
+  $file_display->status = TRUE;
+  $file_display->settings = array(
+    'image_style' => '5x3_1000w',
+    'image_link' => '',
+  );
+  $export['image__banner_5x3__file_field_image'] = $file_display;
+
+  $file_display = new stdClass();
+  $file_display->api_version = 1;
   $file_display->name = 'image__default__oembed_image';
   $file_display->weight = 10;
   $file_display->status = TRUE;
@@ -51,6 +73,28 @@ function fmnh_media_file_default_displays() {
     'title' => '[file:field_file_image_title_text]',
   );
   $export['image__preview__oembed_image'] = $file_display;
+
+  $file_display = new stdClass();
+  $file_display->api_version = 1;
+  $file_display->name = 'image__primary_2x1__file_field_image';
+  $file_display->weight = 0;
+  $file_display->status = TRUE;
+  $file_display->settings = array(
+    'image_style' => '2x1_800w',
+    'image_link' => '',
+  );
+  $export['image__primary_2x1__file_field_image'] = $file_display;
+
+  $file_display = new stdClass();
+  $file_display->api_version = 1;
+  $file_display->name = 'image__square__file_field_image';
+  $file_display->weight = 0;
+  $file_display->status = TRUE;
+  $file_display->settings = array(
+    'image_style' => '1x1_300w',
+    'image_link' => 'content',
+  );
+  $export['image__square__file_field_image'] = $file_display;
 
   $file_display = new stdClass();
   $file_display->api_version = 1;
@@ -93,6 +137,18 @@ function fmnh_media_file_default_displays() {
     'height' => '600',
   );
   $export['model__default__file_model_x3d'] = $file_display;
+
+  $file_display = new stdClass();
+  $file_display->api_version = 1;
+  $file_display->name = 'video__banner_5x3__oembed_image';
+  $file_display->weight = 0;
+  $file_display->status = TRUE;
+  $file_display->settings = array(
+    'image_style' => '5x3_500w',
+    'alt' => '[file:field_file_image_alt_text]',
+    'title' => '[file:field_file_image_title_text]',
+  );
+  $export['video__banner_5x3__oembed_image'] = $file_display;
 
   $file_display = new stdClass();
   $file_display->api_version = 1;

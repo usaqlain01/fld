@@ -72,6 +72,45 @@ function fmnh_media_strongarm() {
       'banner_5x3' => array(
         'custom_settings' => TRUE,
       ),
+      'teaser' => array(
+        'custom_settings' => TRUE,
+      ),
+      'preview' => array(
+        'custom_settings' => TRUE,
+      ),
+      'wysiwyg' => array(
+        'custom_settings' => TRUE,
+      ),
+      'entity_label' => array(
+        'custom_settings' => FALSE,
+      ),
+      'diff_standard' => array(
+        'custom_settings' => FALSE,
+      ),
+      'full' => array(
+        'custom_settings' => FALSE,
+      ),
+      'rss' => array(
+        'custom_settings' => FALSE,
+      ),
+      'search_index' => array(
+        'custom_settings' => FALSE,
+      ),
+      'search_result' => array(
+        'custom_settings' => FALSE,
+      ),
+      'token' => array(
+        'custom_settings' => FALSE,
+      ),
+      'square' => array(
+        'custom_settings' => TRUE,
+      ),
+      'primary_2x1' => array(
+        'custom_settings' => TRUE,
+      ),
+      'headshot' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(),
@@ -82,6 +121,22 @@ function fmnh_media_strongarm() {
             'visible' => TRUE,
           ),
           'banner_5x3' => array(
+            'weight' => '0',
+            'visible' => TRUE,
+          ),
+          'default' => array(
+            'weight' => '0',
+            'visible' => TRUE,
+          ),
+          'square' => array(
+            'weight' => '0',
+            'visible' => TRUE,
+          ),
+          'primary_2x1' => array(
+            'weight' => '0',
+            'visible' => TRUE,
+          ),
+          'headshot' => array(
             'weight' => '0',
             'visible' => TRUE,
           ),

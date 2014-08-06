@@ -43,6 +43,7 @@ function fmnh_exhibit_node_info() {
       'help' => '',
     ),
   );
+  drupal_alter('node_info', $items);
   return $items;
 }
 
@@ -125,6 +126,9 @@ function fmnh_exhibit_rdf_default_mappings() {
       'predicates' => array(
         0 => 'schema:offers',
       ),
+    ),
+    'field_banner_description' => array(
+      'predicates' => array(),
     ),
   );
 

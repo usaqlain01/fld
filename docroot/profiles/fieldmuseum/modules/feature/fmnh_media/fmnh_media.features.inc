@@ -22,6 +22,29 @@ function fmnh_media_ctools_plugin_api($module = NULL, $api = NULL) {
 function fmnh_media_image_default_styles() {
   $styles = array();
 
+  // Exported image style: 1x1_300w.
+  $styles['1x1_300w'] = array(
+    'name' => '1x1_300w',
+    'label' => '1x1 300w',
+    'effects' => array(
+      237 => array(
+        'label' => 'Scale and crop',
+        'help' => 'Scale and crop will maintain the aspect-ratio of the original image, then crop the larger dimension. This is most useful for creating perfectly square thumbnails without stretching the image.',
+        'effect callback' => 'image_scale_and_crop_effect',
+        'dimensions callback' => 'image_resize_dimensions',
+        'form callback' => 'image_resize_form',
+        'summary theme' => 'image_resize_summary',
+        'module' => 'image',
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 300,
+          'height' => 300,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
   // Exported image style: 2x1_1000w.
   $styles['2x1_1000w'] = array(
     'name' => '2x1_1000w',
@@ -38,6 +61,7 @@ function fmnh_media_image_default_styles() {
         'data' => array(
           'imagecrop_style' => '2x1_2400w',
         ),
+        'dimensions callback' => 'fieldmuseum_imagecrop_reuse_dimensions',
         'weight' => 1,
       ),
       6 => array(
@@ -75,6 +99,7 @@ function fmnh_media_image_default_styles() {
         'data' => array(
           'imagecrop_style' => '2x1_2400w',
         ),
+        'dimensions callback' => 'fieldmuseum_imagecrop_reuse_dimensions',
         'weight' => 1,
       ),
       16 => array(
@@ -112,6 +137,7 @@ function fmnh_media_image_default_styles() {
         'data' => array(
           'imagecrop_style' => '2x1_2400w',
         ),
+        'dimensions callback' => 'fieldmuseum_imagecrop_reuse_dimensions',
         'weight' => 1,
       ),
       26 => array(
@@ -194,6 +220,7 @@ function fmnh_media_image_default_styles() {
         'data' => array(
           'imagecrop_style' => '2x1_2400w',
         ),
+        'dimensions callback' => 'fieldmuseum_imagecrop_reuse_dimensions',
         'weight' => 1,
       ),
       46 => array(
@@ -231,6 +258,7 @@ function fmnh_media_image_default_styles() {
         'data' => array(
           'imagecrop_style' => '2x1_2400w',
         ),
+        'dimensions callback' => 'fieldmuseum_imagecrop_reuse_dimensions',
         'weight' => 1,
       ),
       56 => array(
@@ -268,6 +296,7 @@ function fmnh_media_image_default_styles() {
         'data' => array(
           'imagecrop_style' => '5x2_2400w',
         ),
+        'dimensions callback' => 'fieldmuseum_imagecrop_reuse_dimensions',
         'weight' => 1,
       ),
       66 => array(
@@ -305,6 +334,7 @@ function fmnh_media_image_default_styles() {
         'data' => array(
           'imagecrop_style' => '5x2_2400w',
         ),
+        'dimensions callback' => 'fieldmuseum_imagecrop_reuse_dimensions',
         'weight' => 1,
       ),
       76 => array(
@@ -342,6 +372,7 @@ function fmnh_media_image_default_styles() {
         'data' => array(
           'imagecrop_style' => '5x2_2400w',
         ),
+        'dimensions callback' => 'fieldmuseum_imagecrop_reuse_dimensions',
         'weight' => 1,
       ),
       86 => array(
@@ -383,7 +414,7 @@ function fmnh_media_image_default_styles() {
           'xoffset' => '',
           'yoffset' => '',
           'resizable' => 1,
-          'downscaling' => 0,
+          'downscaling' => 1,
           'aspect_ratio' => 'CROP',
           'disable_if_no_data' => 0,
         ),
@@ -424,6 +455,7 @@ function fmnh_media_image_default_styles() {
         'data' => array(
           'imagecrop_style' => '5x2_2400w',
         ),
+        'dimensions callback' => 'fieldmuseum_imagecrop_reuse_dimensions',
         'weight' => 1,
       ),
       106 => array(
@@ -461,6 +493,7 @@ function fmnh_media_image_default_styles() {
         'data' => array(
           'imagecrop_style' => '5x2_2400w',
         ),
+        'dimensions callback' => 'fieldmuseum_imagecrop_reuse_dimensions',
         'weight' => 1,
       ),
       116 => array(
@@ -498,6 +531,7 @@ function fmnh_media_image_default_styles() {
         'data' => array(
           'imagecrop_style' => '5x3_2400w',
         ),
+        'dimensions callback' => 'fieldmuseum_imagecrop_reuse_dimensions',
         'weight' => 1,
       ),
       126 => array(
@@ -535,6 +569,7 @@ function fmnh_media_image_default_styles() {
         'data' => array(
           'imagecrop_style' => '5x3_2400w',
         ),
+        'dimensions callback' => 'fieldmuseum_imagecrop_reuse_dimensions',
         'weight' => 1,
       ),
       136 => array(
@@ -572,6 +607,7 @@ function fmnh_media_image_default_styles() {
         'data' => array(
           'imagecrop_style' => '5x3_2400w',
         ),
+        'dimensions callback' => 'fieldmuseum_imagecrop_reuse_dimensions',
         'weight' => 1,
       ),
       146 => array(
@@ -613,7 +649,7 @@ function fmnh_media_image_default_styles() {
           'xoffset' => '',
           'yoffset' => '',
           'resizable' => 1,
-          'downscaling' => 0,
+          'downscaling' => 1,
           'aspect_ratio' => 'CROP',
           'disable_if_no_data' => 0,
         ),
@@ -654,6 +690,7 @@ function fmnh_media_image_default_styles() {
         'data' => array(
           'imagecrop_style' => '5x3_2400w',
         ),
+        'dimensions callback' => 'fieldmuseum_imagecrop_reuse_dimensions',
         'weight' => 1,
       ),
       166 => array(
@@ -691,6 +728,7 @@ function fmnh_media_image_default_styles() {
         'data' => array(
           'imagecrop_style' => '5x3_2400w',
         ),
+        'dimensions callback' => 'fieldmuseum_imagecrop_reuse_dimensions',
         'weight' => 1,
       ),
       176 => array(
@@ -732,7 +770,7 @@ function fmnh_media_image_default_styles() {
           'xoffset' => '',
           'yoffset' => '',
           'resizable' => 1,
-          'downscaling' => 1,
+          'downscaling' => 0,
           'aspect_ratio' => '',
           'disable_if_no_data' => 0,
         ),
@@ -777,7 +815,7 @@ function fmnh_media_image_default_styles() {
           'xoffset' => '',
           'yoffset' => '',
           'resizable' => 1,
-          'downscaling' => 1,
+          'downscaling' => 0,
           'aspect_ratio' => '',
           'disable_if_no_data' => 0,
         ),
@@ -822,7 +860,7 @@ function fmnh_media_image_default_styles() {
           'xoffset' => '',
           'yoffset' => '',
           'resizable' => 1,
-          'downscaling' => 1,
+          'downscaling' => 0,
           'aspect_ratio' => 'CROP',
           'disable_if_no_data' => 0,
         ),
@@ -863,6 +901,7 @@ function fmnh_media_image_default_styles() {
         'data' => array(
           'imagecrop_style' => 'thumbnail',
         ),
+        'dimensions callback' => 'fieldmuseum_imagecrop_reuse_dimensions',
         'weight' => -10,
       ),
       216 => array(
@@ -903,7 +942,7 @@ function fmnh_media_image_default_styles() {
           'xoffset' => '',
           'yoffset' => '',
           'resizable' => 1,
-          'downscaling' => 1,
+          'downscaling' => 0,
           'aspect_ratio' => '',
           'disable_if_no_data' => 0,
         ),
@@ -948,7 +987,7 @@ function fmnh_media_image_default_styles() {
           'xoffset' => '',
           'yoffset' => '',
           'resizable' => 1,
-          'downscaling' => 1,
+          'downscaling' => 0,
           'aspect_ratio' => 'CROP',
           'disable_if_no_data' => 0,
         ),
