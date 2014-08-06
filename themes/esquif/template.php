@@ -1242,3 +1242,10 @@ function esquif_field__field_image($variables) {
 
   return $output;
 }
+
+function esquif_entity_view_mode_alter(&$view_mode, $context) {
+  // For nodes, change the view mode when it is teaser.
+  if (drupal_is_front_page() && $context['entity_type'] == 'file') {
+    $view_mode = 'banner_5x2';
+  }
+}
