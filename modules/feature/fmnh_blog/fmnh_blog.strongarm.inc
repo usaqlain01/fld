@@ -34,6 +34,24 @@ function fmnh_blog_strongarm() {
       'event' => array(
         'custom_settings' => FALSE,
       ),
+      'promo' => array(
+        'custom_settings' => TRUE,
+      ),
+      'search_index' => array(
+        'custom_settings' => FALSE,
+      ),
+      'search_result' => array(
+        'custom_settings' => FALSE,
+      ),
+      'summary' => array(
+        'custom_settings' => TRUE,
+      ),
+      'media_gallery_block' => array(
+        'custom_settings' => FALSE,
+      ),
+      'token' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(

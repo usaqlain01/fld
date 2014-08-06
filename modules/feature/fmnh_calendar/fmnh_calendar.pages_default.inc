@@ -934,6 +934,7 @@ function fmnh_calendar_default_page_manager_pages() {
       'identifier' => 'Node: ID',
       'name' => 'entity_id:node',
       'settings' => array(),
+      'keyword' => 'node',
     ),
   );
   $page->conf = array(
