@@ -175,7 +175,7 @@ function fieldmuseum_default_page_manager_pages() {
     $pane->panel = 'main';
     $pane->type = 'fieldable_panels_pane';
     $pane->subtype = 'fpid:436';
-    $pane->shown = TRUE;
+    $pane->shown = FALSE;
     $pane->access = array();
     $pane->configuration = array(
       'view_mode' => 'full',
@@ -2545,28 +2545,6 @@ function fieldmuseum_default_page_manager_pages() {
     $display->content['new-fc09d2d5-fe5e-4be7-8729-867996f87b31'] = $pane;
     $display->panels['main'][0] = 'new-fc09d2d5-fe5e-4be7-8729-867996f87b31';
     $pane = new stdClass();
-    $pane->pid = 'new-1480c26e-8f39-4694-8af6-3c83707610ef';
-    $pane->panel = 'main';
-    $pane->type = 'fieldable_panels_pane';
-    $pane->subtype = 'fpid:41';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'view_mode' => 'full',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-      'style' => 'naked',
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 1;
-    $pane->locks = array();
-    $pane->uuid = '1480c26e-8f39-4694-8af6-3c83707610ef';
-    $display->content['new-1480c26e-8f39-4694-8af6-3c83707610ef'] = $pane;
-    $display->panels['main'][1] = 'new-1480c26e-8f39-4694-8af6-3c83707610ef';
-    $pane = new stdClass();
     $pane->pid = 'new-01791882-e256-439b-87b4-660c9ef7786e';
     $pane->panel = 'main';
     $pane->type = 'fieldable_panels_pane';
@@ -2583,55 +2561,11 @@ function fieldmuseum_default_page_manager_pages() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 2;
+    $pane->position = 1;
     $pane->locks = array();
     $pane->uuid = '01791882-e256-439b-87b4-660c9ef7786e';
     $display->content['new-01791882-e256-439b-87b4-660c9ef7786e'] = $pane;
-    $display->panels['main'][2] = 'new-01791882-e256-439b-87b4-660c9ef7786e';
-    $pane = new stdClass();
-    $pane->pid = 'new-e0833bc3-72da-4d35-b137-52994c1002f1';
-    $pane->panel = 'main';
-    $pane->type = 'fieldable_panels_pane';
-    $pane->subtype = 'fpid:46';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'view_mode' => 'full',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-      'style' => 'naked',
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 3;
-    $pane->locks = array();
-    $pane->uuid = 'e0833bc3-72da-4d35-b137-52994c1002f1';
-    $display->content['new-e0833bc3-72da-4d35-b137-52994c1002f1'] = $pane;
-    $display->panels['main'][3] = 'new-e0833bc3-72da-4d35-b137-52994c1002f1';
-    $pane = new stdClass();
-    $pane->pid = 'new-1706250f-2770-40cb-a535-c9017e794271';
-    $pane->panel = 'main';
-    $pane->type = 'fieldable_panels_pane';
-    $pane->subtype = 'fpid:56';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'view_mode' => 'full',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-      'style' => 'naked',
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 4;
-    $pane->locks = array();
-    $pane->uuid = '1706250f-2770-40cb-a535-c9017e794271';
-    $display->content['new-1706250f-2770-40cb-a535-c9017e794271'] = $pane;
-    $display->panels['main'][4] = 'new-1706250f-2770-40cb-a535-c9017e794271';
+    $display->panels['main'][1] = 'new-01791882-e256-439b-87b4-660c9ef7786e';
     $pane = new stdClass();
     $pane->pid = 'new-e2f497e4-c241-4534-aa3f-fe017d0e8475';
     $pane->panel = 'main';
@@ -2649,11 +2583,55 @@ function fieldmuseum_default_page_manager_pages() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 5;
+    $pane->position = 2;
     $pane->locks = array();
     $pane->uuid = 'e2f497e4-c241-4534-aa3f-fe017d0e8475';
     $display->content['new-e2f497e4-c241-4534-aa3f-fe017d0e8475'] = $pane;
-    $display->panels['main'][5] = 'new-e2f497e4-c241-4534-aa3f-fe017d0e8475';
+    $display->panels['main'][2] = 'new-e2f497e4-c241-4534-aa3f-fe017d0e8475';
+    $pane = new stdClass();
+    $pane->pid = 'new-1480c26e-8f39-4694-8af6-3c83707610ef';
+    $pane->panel = 'main';
+    $pane->type = 'fieldable_panels_pane';
+    $pane->subtype = 'fpid:41';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'view_mode' => 'full',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+      'style' => 'naked',
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 3;
+    $pane->locks = array();
+    $pane->uuid = '1480c26e-8f39-4694-8af6-3c83707610ef';
+    $display->content['new-1480c26e-8f39-4694-8af6-3c83707610ef'] = $pane;
+    $display->panels['main'][3] = 'new-1480c26e-8f39-4694-8af6-3c83707610ef';
+    $pane = new stdClass();
+    $pane->pid = 'new-e0833bc3-72da-4d35-b137-52994c1002f1';
+    $pane->panel = 'main';
+    $pane->type = 'fieldable_panels_pane';
+    $pane->subtype = 'fpid:46';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'view_mode' => 'full',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+      'style' => 'naked',
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 4;
+    $pane->locks = array();
+    $pane->uuid = 'e0833bc3-72da-4d35-b137-52994c1002f1';
+    $display->content['new-e0833bc3-72da-4d35-b137-52994c1002f1'] = $pane;
+    $display->panels['main'][4] = 'new-e0833bc3-72da-4d35-b137-52994c1002f1';
     $pane = new stdClass();
     $pane->pid = 'new-94d290ae-e000-4680-85ea-e13bc143bc3c';
     $pane->panel = 'main';
@@ -2671,11 +2649,33 @@ function fieldmuseum_default_page_manager_pages() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 6;
+    $pane->position = 5;
     $pane->locks = array();
     $pane->uuid = '94d290ae-e000-4680-85ea-e13bc143bc3c';
     $display->content['new-94d290ae-e000-4680-85ea-e13bc143bc3c'] = $pane;
-    $display->panels['main'][6] = 'new-94d290ae-e000-4680-85ea-e13bc143bc3c';
+    $display->panels['main'][5] = 'new-94d290ae-e000-4680-85ea-e13bc143bc3c';
+    $pane = new stdClass();
+    $pane->pid = 'new-1706250f-2770-40cb-a535-c9017e794271';
+    $pane->panel = 'main';
+    $pane->type = 'fieldable_panels_pane';
+    $pane->subtype = 'fpid:56';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'view_mode' => 'full',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+      'style' => 'naked',
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 6;
+    $pane->locks = array();
+    $pane->uuid = '1706250f-2770-40cb-a535-c9017e794271';
+    $display->content['new-1706250f-2770-40cb-a535-c9017e794271'] = $pane;
+    $display->panels['main'][6] = 'new-1706250f-2770-40cb-a535-c9017e794271';
     $pane = new stdClass();
     $pane->pid = 'new-0b3fb9f4-9cf7-4db5-a406-27ee5fbbae67';
     $pane->panel = 'main';
@@ -8755,8 +8755,8 @@ function fieldmuseum_default_page_manager_pages() {
           51 => 0,
           31 => 0,
         ),
-        'breadcrumb' => 1,
-        'transform' => 0,
+        'breadcrumb' => 0,
+        'transform' => 1,
       ),
     ),
   );
@@ -8802,8 +8802,8 @@ function fieldmuseum_default_page_manager_pages() {
   $display = new panels_display();
   $display->layout = 'l13';
   $display->layout_settings = array(
-    'main_classes' => '',
-    'nav_classes' => '',
+    'main_classes' => 'l--body__content',
+    'nav_classes' => 'l--body__nav js--sticky',
   );
   $display->panel_settings = array(
     'style_settings' => array(

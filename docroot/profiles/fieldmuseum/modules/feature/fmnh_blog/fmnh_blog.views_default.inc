@@ -122,6 +122,18 @@ function fmnh_blog_views_default_views() {
   $handler->display->display_options['bundles'] = array(
     0 => 'main',
   );
+
+  /* Display: Context */
+  $handler = $view->new_display('ctools_context', 'Context', 'ctools_context_1');
+  $handler->display->display_options['style_plugin'] = 'ctools_context';
+  $handler->display->display_options['row_plugin'] = 'node';
+  $handler->display->display_options['argument_input'] = array(
+    'field_topic_target_id' => array(
+      'type' => 'context',
+      'context' => 'entity:taxonomy_term.tid',
+      'context_optional' => 1,
+    ),
+  );
   $export['blogs'] = $view;
 
   $view = new view();

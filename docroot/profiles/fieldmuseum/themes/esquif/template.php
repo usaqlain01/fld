@@ -196,7 +196,7 @@ function esquif_preprocess_node_video(&$variables, $hook) {
   $variables['classes_array'][] = 'article';
   $variables['title_attributes_array']['class'][] = 'article__title';
   if ($variables['view_mode'] == 'teaser') {
-    $variables['content']['field_video'][0]['file']['#item']['attributes']['class'][] = 'excerpt__image';
+    $variables['content']['field_video'][0]['file']['#attributes']['class'][] = 'excerpt__image';
   }
 }
 
