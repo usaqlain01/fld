@@ -28,5 +28,23 @@ function fmnh_blog_entityqueue_default_queues() {
   );
   $export['featured_blogs'] = $queue;
 
+  $queue = new EntityQueue();
+  $queue->disabled = FALSE; /* Edit this to true to make a default queue disabled initially */
+  $queue->api_version = 1;
+  $queue->name = 'filter_menu';
+  $queue->label = 'Filter menu';
+  $queue->language = 'en';
+  $queue->handler = 'simple';
+  $queue->target_type = 'taxonomy_term';
+  $queue->settings = array(
+    'target_bundles' => array(
+      'topic' => 'topic',
+    ),
+    'min_size' => '0',
+    'max_size' => '0',
+    'act_as_queue' => 0,
+  );
+  $export['filter_menu'] = $queue;
+
   return $export;
 }
