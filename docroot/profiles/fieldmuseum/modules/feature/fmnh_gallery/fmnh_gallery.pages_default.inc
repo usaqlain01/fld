@@ -47,8 +47,8 @@ function fmnh_gallery_default_page_manager_handlers() {
   $display = new panels_display();
   $display->layout = 'c9';
   $display->layout_settings = array(
-    'main_classes' => '',
-    'nav_classes' => '',
+    'main_classes' => 'l--body__content',
+    'nav_classes' => 'l--body__nav js--sticky',
   );
   $display->panel_settings = array(
     'style_settings' => array(
@@ -188,8 +188,8 @@ function fmnh_gallery_default_page_manager_handlers() {
     $pane->uuid = '0b674d7f-bfe4-4af6-8d51-afd548b2f071';
     $display->content['new-0b674d7f-bfe4-4af6-8d51-afd548b2f071'] = $pane;
     $display->panels['nav'][1] = 'new-0b674d7f-bfe4-4af6-8d51-afd548b2f071';
-  $display->hide_title = PANELS_TITLE_FIXED;
-  $display->title_pane = '0';
+  $display->hide_title = PANELS_TITLE_PANE;
+  $display->title_pane = 'new-c3b1ab9b-435c-4323-894e-36b6b98ad0a3';
   $handler->conf['display'] = $display;
   $export['node_view_panel_context_3'] = $handler;
 

@@ -64,7 +64,7 @@ function fmnh_migrate_node_migrate_destination($node) {
 }
 
 function fmnh_migrate_source_node_access($sourceid1) {
-  if ($sourceid1) {
+  if ($sourceid1 && user_access('bypass node access')) {
     return TRUE;
   }
 }

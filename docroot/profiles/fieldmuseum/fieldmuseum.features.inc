@@ -23,6 +23,9 @@ function fieldmuseum_ctools_plugin_api($module = NULL, $api = NULL) {
   if ($module == "page_manager" && $api == "pages_default") {
     return array("version" => "1");
   }
+  if ($module == "panelizer" && $api == "panelizer") {
+    return array("version" => "1");
+  }
   if ($module == "panels_mini" && $api == "panels_default") {
     return array("version" => "1");
   }
@@ -60,6 +63,7 @@ function fieldmuseum_node_info() {
       'help' => '',
     ),
   );
+  drupal_alter('node_info', $items);
   return $items;
 }
 
@@ -141,6 +145,12 @@ function fieldmuseum_rdf_default_mappings() {
         0 => 'schema:url',
       ),
       'type' => 'rel',
+    ),
+    'field_action_link' => array(
+      'predicates' => array(),
+    ),
+    'field_summary' => array(
+      'predicates' => array(),
     ),
   );
 

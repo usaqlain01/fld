@@ -1,6 +1,6 @@
 {
     "require": {
-        "stojg/crop": "~1.2.6",
+        "stojg/crop": "dev-master",
         "symfony/yaml": "2.4.2"
     },
     "require-dev": {

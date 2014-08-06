@@ -13,7 +13,7 @@ $plugin = array(
 
   'regions'     => array(
     'main'      => t('Main'),
-    'nav'      => t('Nav'),
+    'nav'       => t('Nav'),
   ),
 
   'settings form'     => 'esquif_panels_settings_form',

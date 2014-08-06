@@ -140,15 +140,21 @@ function esquif_preprocess_node(&$variables, $hook) {
 
   switch ($variables['view_mode']) {
     case 'promo':
-      $variables['theme_hook_suggestions'][] = 'node__promo';
+      array_splice($variables['theme_hook_suggestions'], 1, 0, array('node__'. $variables['view_mode']));
       $variables['title_attributes_array']['class'][] = 'promo__title';
+      if (in_array('node__panel__banner', $variables['theme_hook_suggestions'])) {
+        $variables['content']['field_image'][0]['file']['#item']['attributes']['class'][] = 'banner__image';
+      }
+      else {
+        $variables['content']['field_image'][0]['file']['#item']['attributes']['class'][] = 'promo__image';
+      }
       break;
     case 'summary':
       $variables['theme_hook_suggestions'][] = 'node__summary';
       $variables['title_attributes_array']['class'][] = 'summary__title';
       break;
     default:
-      $variables['theme_hook_suggestions'][] = 'node__'. $variables['type'] .'__'. $variables['view_mode'];
+      array_splice($variables['theme_hook_suggestions'], 1, 0, array('node__'. $variables['type'] .'__'. $variables['view_mode']));
       break;
   }
 
@@ -157,11 +163,41 @@ function esquif_preprocess_node(&$variables, $hook) {
     $variables['classes_array'][] = $variables['view_mode'];
   }
 
+  // Unsightly hack that removes promo class attribute from banner themed nodes on home page.
+  if (in_array('node__panel__banner', $variables['theme_hook_suggestions'])) {
+    $variables['classes_array'] = array_diff($variables['classes_array'], array('promo'));
+  }
+
   // Optionally, run node-type-specific preprocess functions, like
   // esquif_preprocess_node_page() or esquif_preprocess_node_story().
   $function = __FUNCTION__ . '_' . $variables['node']->type;
   if (function_exists($function)) {
     $function($variables, $hook);
+  }
+}
+
+function esquif_preprocess_node_blog(&$variables, $hook) {
+  $variables['classes_array'][] = 'article';
+  $variables['title_attributes_array']['class'][] = 'article__title';
+}
+
+function esquif_preprocess_node_collection(&$variables, $hook) {
+  $variables['classes_array'][] = 'collection';
+  $variables['title_attributes_array']['class'][] = 'collection__title';
+}
+
+function esquif_preprocess_node_learning_resource(&$variables, $hook) {
+  $variables['title_attributes_array']['class'][] = 'resource__title';
+
+  $items = field_get_items('node', $variables['node'], 'field_attachment');
+  $field = field_info_field('field_attachment');
+  if ($items) {
+    foreach ($items as $item) {
+      if (!file_field_is_empty($item, $field)) {
+        $variables['node_url'] = file_create_url($item['uri']);
+        break;
+      }
+    }
   }
 }
 
@@ -357,6 +393,7 @@ function esquif_links__system_main_menu($variables) {
     $value['title'] = '<span class="navMain__label" itemprop="name">'. check_plain($value['title']) .'</span>';
     $value['attributes'] = array(
       'itemprop' => 'url',
+      'class' => array(),
     );
     $value['html'] = TRUE;
     $links[$key] = $value;
@@ -475,6 +512,12 @@ function esquif_preprocess_menu_block_wrapper(&$variables, $hook) {
       _esquif_preprocess_menu_block_wrapper__section($variables['content']);
     }
 
+    if ($variables['theme_hook_suggestion'] == 'menu_block_wrapper__main_menu__focus') {
+      foreach (element_children($variables['content']) as $child) {
+        $variables['content'][$child]['#attributes']['class'][] = 'navList__item';
+      }
+    }
+
     if ($variables['theme_hook_suggestion'] == 'menu_block_wrapper__main_menu__content') {
       foreach (element_children($variables['content']) as $child) {
         $variables['content'][$child]['#attributes']['class'][] = 'contentLinks__item';
@@ -516,6 +559,16 @@ function esquif_menu_tree__menu_block__main_menu__footer($variables) {
  */
 function esquif_menu_tree__menu_block__main_menu__section($variables) {
   return '<ul class="navLevel1 menu">' . $variables['tree'] . '</ul>';
+}
+
+/**
+ * Theme override for focus menu.
+ *
+ * @param $variables
+ * @return string
+ */
+function esquif_menu_tree__menu_block__main_menu__focus($variables) {
+  return '<ul class="navList">' . $variables['tree'] . '</ul>';
 }
 
 /**
@@ -597,7 +650,7 @@ function esquif_breadcrumb($variables) {
  */
 function esquif_menu_breadcrumb_alter(&$active_trail, $item) {
   foreach ($active_trail as &$trail_item) {
-    $trail_item['localized_options']['attributes']['class'] = 'breadcrumb__link';
+    $trail_item['localized_options']['attributes']['class'] = array('breadcrumb__link');
   }
 }
 
@@ -1147,4 +1200,26 @@ function esquif_preprocess_views_view_list(&$variables, $hook) {
 
 function esquif_preprocess_fieldable_panels_pane(&$variables) {
   $variables['theme_hook_suggestions'][] = 'fieldable_panels_pane__' . $variables['elements']['#element']->bundle .'__'. $variables['elements']['#view_mode'];
+}
+
+function esquif_node_view_alter(&$build, $type) {
+  if ('teaser' == $build['#view_mode']) {
+    $build['links']['node']['#links']['node-readmore']['attributes']['class'] = 'link--more';
+  }
+}
+
+function esquif_taxonomy_term_view_alter(&$build, $type) {
+  if ('promo' == $build['#view_mode']) {
+    unset($build['description']['#prefix']);
+    unset($build['description']['#suffix']);
+  }
+}
+
+function esquif_field__field_image($variables) {
+  $output = '';
+  foreach ($variables['items'] as $delta => $item) {
+    $output .= drupal_render($item);
+  }
+
+  return $output;
 }

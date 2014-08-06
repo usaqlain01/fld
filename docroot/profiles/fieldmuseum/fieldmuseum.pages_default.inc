@@ -468,8 +468,47 @@ function fieldmuseum_default_page_manager_pages() {
     );
     $pane->cache = array();
     $pane->style = array(
-      'style' => 'default',
-      'settings' => NULL,
+      'style' => 'semantic_panels',
+      'settings' => array(
+        'element_title' => array(
+          'type' => 'h4',
+          'class_enable' => 1,
+          'class' => 'report__title',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => 'section',
+          'class_enable' => 1,
+          'class' => 'report',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
     );
     $pane->css = array();
     $pane->extras = array();
@@ -954,8 +993,8 @@ function fieldmuseum_default_page_manager_pages() {
   $display = new panels_display();
   $display->layout = 'l6c';
   $display->layout_settings = array(
-    'main_classes' => '',
-    'nav_classes' => 'navSection',
+    'main_classes' => 'l--body__content',
+    'nav_classes' => 'l--body__nav js--sticky',
   );
   $display->panel_settings = array(
     'style_settings' => array(
@@ -970,30 +1009,66 @@ function fieldmuseum_default_page_manager_pages() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-f857977f-6aa4-4335-aba6-7a691e65d11f';
+    $pane->pid = 'new-f1a3e273-40ed-4d78-b2ae-09d56a6c6e8a';
     $pane->panel = 'main';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
+    $pane->type = 'fieldable_panels_pane';
+    $pane->subtype = 'fpid:486';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'admin_title' => 'Intro',
-      'title' => '',
-      'body' => '<p class="p1">Become a part of the research at The Field Museum by participating in our Citizen Science projects, specially designed for community participation. Your efforts can make a very real impact on our work and knowledge about the world.</p>',
-      'format' => 'filtered_wysiwyg',
-      'substitute' => 1,
+      'view_mode' => 'full',
     );
     $pane->cache = array();
     $pane->style = array(
-      'settings' => NULL,
+      'style' => 'semantic_panels',
+      'settings' => array(
+        'element_title' => array(
+          'type' => 'h1',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
     );
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = 'f857977f-6aa4-4335-aba6-7a691e65d11f';
-    $display->content['new-f857977f-6aa4-4335-aba6-7a691e65d11f'] = $pane;
-    $display->panels['main'][0] = 'new-f857977f-6aa4-4335-aba6-7a691e65d11f';
+    $pane->uuid = 'f1a3e273-40ed-4d78-b2ae-09d56a6c6e8a';
+    $display->content['new-f1a3e273-40ed-4d78-b2ae-09d56a6c6e8a'] = $pane;
+    $display->panels['main'][0] = 'new-f1a3e273-40ed-4d78-b2ae-09d56a6c6e8a';
     $pane = new stdClass();
     $pane->pid = 'new-30c19363-e3ad-4342-a884-a2f4cf3edffd';
     $pane->panel = 'main';
@@ -1006,7 +1081,7 @@ function fieldmuseum_default_page_manager_pages() {
         'offset' => '0',
         'limit' => '10',
       ),
-      'view_mode' => 'node:teaser',
+      'view_mode' => 'node:promo',
       'use_pager' => FALSE,
       'pager_id' => 0,
       'context' => 'context_entitylist:menu_children_1',
@@ -1145,7 +1220,7 @@ function fieldmuseum_default_page_manager_pages() {
     $display->content['new-875794e6-9060-457f-9072-481c0d94daff'] = $pane;
     $display->panels['nav'][0] = 'new-875794e6-9060-457f-9072-481c0d94daff';
   $display->hide_title = PANELS_TITLE_FIXED;
-  $display->title_pane = 'new-f857977f-6aa4-4335-aba6-7a691e65d11f';
+  $display->title_pane = '0';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
   $pages['citizen_science'] = $page;
@@ -1223,14 +1298,16 @@ function fieldmuseum_default_page_manager_pages() {
     'relationships' => array(),
   );
   $display = new panels_display();
-  $display->layout = 'zen_no_wrapper';
+  $display->layout = 'l6a';
   $display->layout_settings = array(
-    'main_classes' => '',
+    'main_classes' => 'l--body__content',
+    'nav_classes' => 'l--body__nav js--sticky',
   );
   $display->panel_settings = array(
     'style_settings' => array(
       'default' => NULL,
       'main' => NULL,
+      'nav' => NULL,
     ),
   );
   $display->cache = array();
@@ -1239,30 +1316,66 @@ function fieldmuseum_default_page_manager_pages() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-ebb1f5b0-9656-44b1-a9fd-6cb55ecd2233';
+    $pane->pid = 'new-a405e51a-5b32-4192-821a-e52826281b07';
     $pane->panel = 'main';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
+    $pane->type = 'fieldable_panels_pane';
+    $pane->subtype = 'fpid:496';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'admin_title' => 'Description',
-      'title' => '',
-      'body' => '<p class="p1">Whether it&#39;s helicoptering into the Amazonian rainforest or working with communities right here in Chicagoland, our Science Action team takes the science we do at the Museum and puts it to work to make a lasting impact on the environment and local cultures. With the diversity of life and cultures severely threatened around the world, the Museum&#39;s scientific expertise can play a major role in ensuring a strong future where diversity can thrive. Since 1999, the Museum&#39;s efforts have assisted governments in protecting more than 30 million acres of wilderness, and our work in the Chicago region has focused on bringing people and nature together in communities like Calumet and the Kankakee region.&nbsp;</p>',
-      'format' => 'filtered_wysiwyg',
-      'substitute' => 1,
+      'view_mode' => 'full',
     );
     $pane->cache = array();
     $pane->style = array(
-      'settings' => NULL,
+      'style' => 'semantic_panels',
+      'settings' => array(
+        'element_title' => array(
+          'type' => 'h1',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
     );
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = 'ebb1f5b0-9656-44b1-a9fd-6cb55ecd2233';
-    $display->content['new-ebb1f5b0-9656-44b1-a9fd-6cb55ecd2233'] = $pane;
-    $display->panels['main'][0] = 'new-ebb1f5b0-9656-44b1-a9fd-6cb55ecd2233';
+    $pane->uuid = 'a405e51a-5b32-4192-821a-e52826281b07';
+    $display->content['new-a405e51a-5b32-4192-821a-e52826281b07'] = $pane;
+    $display->panels['main'][0] = 'new-a405e51a-5b32-4192-821a-e52826281b07';
     $pane = new stdClass();
     $pane->pid = 'new-df892670-1900-49ec-8177-f53b249c6f1d';
     $pane->panel = 'main';
@@ -1275,7 +1388,7 @@ function fieldmuseum_default_page_manager_pages() {
         'offset' => '0',
         'limit' => '10',
       ),
-      'view_mode' => 'node:teaser',
+      'view_mode' => 'node:promo',
       'use_pager' => FALSE,
       'pager_id' => 0,
       'context' => 'context_entitylist:menu_children_1',
@@ -1284,7 +1397,47 @@ function fieldmuseum_default_page_manager_pages() {
     );
     $pane->cache = array();
     $pane->style = array(
-      'settings' => NULL,
+      'settings' => array(
+        'element_title' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => 'section',
+          'class_enable' => 1,
+          'class' => 'promos--3up',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
+      'style' => 'semantic_panels',
     );
     $pane->css = array();
     $pane->extras = array();
@@ -1293,6 +1446,86 @@ function fieldmuseum_default_page_manager_pages() {
     $pane->uuid = 'df892670-1900-49ec-8177-f53b249c6f1d';
     $display->content['new-df892670-1900-49ec-8177-f53b249c6f1d'] = $pane;
     $display->panels['main'][1] = 'new-df892670-1900-49ec-8177-f53b249c6f1d';
+    $pane = new stdClass();
+    $pane->pid = 'new-5465e72c-6e0f-4013-980f-1f80ff4d112e';
+    $pane->panel = 'nav';
+    $pane->type = 'menu_tree';
+    $pane->subtype = 'main-menu';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'menu_name' => 'main-menu',
+      'parent_mlid' => 0,
+      'parent' => 'main-menu:0',
+      'title_link' => 0,
+      'admin_title' => '',
+      'level' => '2',
+      'follow' => 0,
+      'depth' => '0',
+      'expanded' => 0,
+      'sort' => 0,
+      'override_title' => 1,
+      'override_title_text' => '',
+      'identifier' => 'section',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'semantic_panels',
+      'settings' => array(
+        'element_title' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => 'nav',
+          'class_enable' => 1,
+          'class' => 'navSection',
+          'attributes' => array(
+            'role' => array(
+              'enabled' => 1,
+              'value' => 'navigation',
+            ),
+          ),
+          'attributes_array' => array(
+            'role' => 'navigation',
+          ),
+        ),
+        'add_default_classes' => 1,
+      ),
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '5465e72c-6e0f-4013-980f-1f80ff4d112e';
+    $display->content['new-5465e72c-6e0f-4013-980f-1f80ff4d112e'] = $pane;
+    $display->panels['nav'][0] = 'new-5465e72c-6e0f-4013-980f-1f80ff4d112e';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
@@ -1361,8 +1594,8 @@ function fieldmuseum_default_page_manager_pages() {
   $display = new panels_display();
   $display->layout = 'l11a';
   $display->layout_settings = array(
-    'main_classes' => '',
-    'nav_classes' => '',
+    'main_classes' => 'l--body__content',
+    'nav_classes' => 'l--body__nav js--sticky',
   );
   $display->panel_settings = array(
     'style_settings' => array(
@@ -1372,10 +1605,200 @@ function fieldmuseum_default_page_manager_pages() {
     ),
   );
   $display->cache = array();
-  $display->title = '';
+  $display->title = 'Contact Us';
   $display->uuid = '8cfd6e26-54e1-4b71-99f6-2a5791512e6b';
   $display->content = array();
   $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-ca1c30ce-6d9d-4203-81d7-b96031d032d9';
+    $pane->panel = 'main';
+    $pane->type = 'node';
+    $pane->subtype = 'node';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'nid' => '14951',
+      'links' => 1,
+      'leave_node_title' => 0,
+      'identifier' => '',
+      'build_mode' => 'full',
+      'link_node_title' => 0,
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'semantic_panels',
+      'settings' => array(
+        'element_title' => array(
+          'type' => 'h1',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'ca1c30ce-6d9d-4203-81d7-b96031d032d9';
+    $display->content['new-ca1c30ce-6d9d-4203-81d7-b96031d032d9'] = $pane;
+    $display->panels['main'][0] = 'new-ca1c30ce-6d9d-4203-81d7-b96031d032d9';
+    $pane = new stdClass();
+    $pane->pid = 'new-46126256-3db9-411d-938f-cfb17f471a75';
+    $pane->panel = 'main';
+    $pane->type = 'fieldable_panels_pane';
+    $pane->subtype = 'fpid:451';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'view_mode' => 'full',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'semantic_panels',
+      'settings' => array(
+        'element_title' => array(
+          'type' => 'h2',
+          'class_enable' => 1,
+          'class' => 'heading--stroked',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => 'div',
+          'class_enable' => 1,
+          'class' => 'l--3up',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = '46126256-3db9-411d-938f-cfb17f471a75';
+    $display->content['new-46126256-3db9-411d-938f-cfb17f471a75'] = $pane;
+    $display->panels['main'][1] = 'new-46126256-3db9-411d-938f-cfb17f471a75';
+    $pane = new stdClass();
+    $pane->pid = 'new-76d5367a-15f2-42d0-8384-933bf238bf2d';
+    $pane->panel = 'main';
+    $pane->type = 'fieldable_panels_pane';
+    $pane->subtype = 'fpid:456';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'view_mode' => 'full',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'semantic_panels',
+      'settings' => array(
+        'element_title' => array(
+          'type' => 'h2',
+          'class_enable' => 1,
+          'class' => 'heading--stroked',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => 'div',
+          'class_enable' => 1,
+          'class' => 'l--3up',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 2;
+    $pane->locks = array();
+    $pane->uuid = '76d5367a-15f2-42d0-8384-933bf238bf2d';
+    $display->content['new-76d5367a-15f2-42d0-8384-933bf238bf2d'] = $pane;
+    $display->panels['main'][2] = 'new-76d5367a-15f2-42d0-8384-933bf238bf2d';
     $pane = new stdClass();
     $pane->pid = 'new-8dfd8a66-eff7-4ddd-b48e-2f2366e3f88b';
     $pane->panel = 'nav';
@@ -1456,8 +1879,8 @@ function fieldmuseum_default_page_manager_pages() {
     $pane->uuid = '8dfd8a66-eff7-4ddd-b48e-2f2366e3f88b';
     $display->content['new-8dfd8a66-eff7-4ddd-b48e-2f2366e3f88b'] = $pane;
     $display->panels['nav'][0] = 'new-8dfd8a66-eff7-4ddd-b48e-2f2366e3f88b';
-  $display->hide_title = PANELS_TITLE_FIXED;
-  $display->title_pane = 'new-8dfd8a66-eff7-4ddd-b48e-2f2366e3f88b';
+  $display->hide_title = PANELS_TITLE_PANE;
+  $display->title_pane = 'new-ca1c30ce-6d9d-4203-81d7-b96031d032d9';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
   $pages['contact_us'] = $page;
@@ -1535,7 +1958,7 @@ function fieldmuseum_default_page_manager_pages() {
     ),
   );
   $display->cache = array();
-  $display->title = '';
+  $display->title = 'Contact Us / RFP';
   $display->uuid = '8cfd6e26-54e1-4b71-99f6-2a5791512e6b';
   $display->content = array();
   $display->panels = array();
@@ -1550,7 +1973,49 @@ function fieldmuseum_default_page_manager_pages() {
       'view_mode' => 'full',
     );
     $pane->cache = array();
-    $pane->style = array();
+    $pane->style = array(
+      'settings' => array(
+        'element_title' => array(
+          'type' => 'h1',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
+      'style' => 'semantic_panels',
+    );
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
@@ -2351,7 +2816,7 @@ function fieldmuseum_default_page_manager_pages() {
     $pane->uuid = 'f809b661-13d2-48a1-9692-e5ff6aacc767';
     $display->content['new-f809b661-13d2-48a1-9692-e5ff6aacc767'] = $pane;
     $display->panels['main'][11] = 'new-f809b661-13d2-48a1-9692-e5ff6aacc767';
-  $display->hide_title = PANELS_TITLE_NONE;
+  $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
@@ -2443,8 +2908,8 @@ function fieldmuseum_default_page_manager_pages() {
   $display = new panels_display();
   $display->layout = 'l13';
   $display->layout_settings = array(
-    'main_classes' => '',
-    'nav_classes' => '',
+    'main_classes' => 'l--body__content',
+    'nav_classes' => 'l--body__nav js--sticky',
   );
   $display->panel_settings = array(
     'style_settings' => array(
@@ -2459,10 +2924,71 @@ function fieldmuseum_default_page_manager_pages() {
     ),
   );
   $display->cache = array();
-  $display->title = '%term:name';
+  $display->title = 'Educators blog';
   $display->uuid = '231137e8-83c9-4391-ac05-3a37318043c2';
   $display->content = array();
   $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-c649ccf2-f4c0-4094-aa19-4ba5b3101d84';
+    $pane->panel = 'main';
+    $pane->type = 'fieldable_panels_pane';
+    $pane->subtype = 'fpid:476';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'view_mode' => 'full',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'semantic_panels',
+      'settings' => array(
+        'element_title' => array(
+          'type' => 'h1',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'c649ccf2-f4c0-4094-aa19-4ba5b3101d84';
+    $display->content['new-c649ccf2-f4c0-4094-aa19-4ba5b3101d84'] = $pane;
+    $display->panels['main'][0] = 'new-c649ccf2-f4c0-4094-aa19-4ba5b3101d84';
     $pane = new stdClass();
     $pane->pid = 'new-16bd296a-65df-4c10-ace2-6ab923bf700a';
     $pane->panel = 'main';
@@ -2485,14 +3011,15 @@ function fieldmuseum_default_page_manager_pages() {
     $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,
+      'style' => 'naked',
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 0;
+    $pane->position = 1;
     $pane->locks = array();
     $pane->uuid = '16bd296a-65df-4c10-ace2-6ab923bf700a';
     $display->content['new-16bd296a-65df-4c10-ace2-6ab923bf700a'] = $pane;
-    $display->panels['main'][0] = 'new-16bd296a-65df-4c10-ace2-6ab923bf700a';
+    $display->panels['main'][1] = 'new-16bd296a-65df-4c10-ace2-6ab923bf700a';
     $pane = new stdClass();
     $pane->pid = 'new-2c6fb7c4-4c49-480b-9b90-a30a85c76ff1';
     $pane->panel = 'main';
@@ -2512,11 +3039,11 @@ function fieldmuseum_default_page_manager_pages() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 1;
+    $pane->position = 2;
     $pane->locks = array();
     $pane->uuid = '2c6fb7c4-4c49-480b-9b90-a30a85c76ff1';
     $display->content['new-2c6fb7c4-4c49-480b-9b90-a30a85c76ff1'] = $pane;
-    $display->panels['main'][1] = 'new-2c6fb7c4-4c49-480b-9b90-a30a85c76ff1';
+    $display->panels['main'][2] = 'new-2c6fb7c4-4c49-480b-9b90-a30a85c76ff1';
     $pane = new stdClass();
     $pane->pid = 'new-9221d713-ef05-46d6-bfde-29cb849c03e4';
     $pane->panel = 'nav';
@@ -3429,7 +3956,7 @@ function fieldmuseum_default_page_manager_pages() {
         'pager_id' => NULL,
         'range' => array(
           'offset' => 0,
-          'limit' => 10,
+          'limit' => 12,
         ),
         'id' => 1,
       ),
@@ -3439,8 +3966,8 @@ function fieldmuseum_default_page_manager_pages() {
   $display = new panels_display();
   $display->layout = 'l6a';
   $display->layout_settings = array(
-    'main_classes' => '',
-    'nav_classes' => '',
+    'main_classes' => 'l--body__content',
+    'nav_classes' => 'l--body__nav js--sticky',
   );
   $display->panel_settings = array(
     'style_settings' => array(
@@ -3466,7 +3993,47 @@ function fieldmuseum_default_page_manager_pages() {
     );
     $pane->cache = array();
     $pane->style = array(
-      'settings' => NULL,
+      'settings' => array(
+        'element_title' => array(
+          'type' => 'h1',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
+      'style' => 'semantic_panels',
     );
     $pane->css = array();
     $pane->extras = array();
@@ -3485,9 +4052,9 @@ function fieldmuseum_default_page_manager_pages() {
     $pane->configuration = array(
       'range' => array(
         'offset' => '0',
-        'limit' => '10',
+        'limit' => '12',
       ),
-      'view_mode' => 'node:teaser',
+      'view_mode' => 'node:promo',
       'use_pager' => FALSE,
       'pager_id' => 0,
       'context' => 'context_entitylist:field_trip_programs_1',
@@ -3496,7 +4063,47 @@ function fieldmuseum_default_page_manager_pages() {
     );
     $pane->cache = array();
     $pane->style = array(
-      'settings' => NULL,
+      'settings' => array(
+        'element_title' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => 'section',
+          'class_enable' => 1,
+          'class' => 'promos--3up',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
+      'style' => 'semantic_panels',
     );
     $pane->css = array();
     $pane->extras = array();
@@ -3944,8 +4551,8 @@ function fieldmuseum_default_page_manager_pages() {
   $display = new panels_display();
   $display->layout = 'l10';
   $display->layout_settings = array(
-    'main_classes' => '',
-    'nav_classes' => '',
+    'main_classes' => 'l--body__content',
+    'nav_classes' => 'l--body__nav js--sticky',
   );
   $display->panel_settings = array(
     'style_settings' => array(
@@ -3972,6 +4579,7 @@ function fieldmuseum_default_page_manager_pages() {
     $pane->cache = array();
     $pane->style = array(
       'style' => 'naked',
+      'settings' => NULL,
     );
     $pane->css = array();
     $pane->extras = array();
@@ -3992,7 +4600,7 @@ function fieldmuseum_default_page_manager_pages() {
         'offset' => '0',
         'limit' => '10',
       ),
-      'view_mode' => 'node:teaser',
+      'view_mode' => 'node:summary',
       'use_pager' => FALSE,
       'pager_id' => 0,
       'context' => 'context_entitylist:menu_children_1',
@@ -4001,7 +4609,47 @@ function fieldmuseum_default_page_manager_pages() {
     );
     $pane->cache = array();
     $pane->style = array(
-      'settings' => NULL,
+      'settings' => array(
+        'element_title' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => 'section',
+          'class_enable' => 1,
+          'class' => 'summaries--2up',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
+      'style' => 'semantic_panels',
     );
     $pane->css = array();
     $pane->extras = array();
@@ -4171,8 +4819,8 @@ function fieldmuseum_default_page_manager_pages() {
   $display = new panels_display();
   $display->layout = 'l15';
   $display->layout_settings = array(
-    'main_classes' => '',
-    'nav_classes' => '',
+    'main_classes' => 'l--body__content',
+    'nav_classes' => 'l--body__nav js--sticky',
   );
   $display->panel_settings = array(
     'style_settings' => array(
@@ -4198,8 +4846,47 @@ function fieldmuseum_default_page_manager_pages() {
     );
     $pane->cache = array();
     $pane->style = array(
-      'style' => 'default',
-      'settings' => NULL,
+      'style' => 'semantic_panels',
+      'settings' => array(
+        'element_title' => array(
+          'type' => 'h1',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
     );
     $pane->css = array();
     $pane->extras = array();
@@ -4238,6 +4925,30 @@ function fieldmuseum_default_page_manager_pages() {
     $pane->uuid = 'ff9ab0c7-b547-4b24-a50e-e8f190528c08';
     $display->content['new-ff9ab0c7-b547-4b24-a50e-e8f190528c08'] = $pane;
     $display->panels['main'][1] = 'new-ff9ab0c7-b547-4b24-a50e-e8f190528c08';
+    $pane = new stdClass();
+    $pane->pid = 'new-f76843b6-0432-472e-bcec-5009ff8ddb2a';
+    $pane->panel = 'main';
+    $pane->type = 'pager';
+    $pane->subtype = 'pager';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'type' => 'full',
+      'context' => 'context_entitylist:learning_resources_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 2;
+    $pane->locks = array();
+    $pane->uuid = 'f76843b6-0432-472e-bcec-5009ff8ddb2a';
+    $display->content['new-f76843b6-0432-472e-bcec-5009ff8ddb2a'] = $pane;
+    $display->panels['main'][2] = 'new-f76843b6-0432-472e-bcec-5009ff8ddb2a';
     $pane = new stdClass();
     $pane->pid = 'new-171d9aa8-a3b0-4063-8d2e-187cc4a54118';
     $pane->panel = 'nav';
@@ -4318,30 +5029,6 @@ function fieldmuseum_default_page_manager_pages() {
     $pane->uuid = '171d9aa8-a3b0-4063-8d2e-187cc4a54118';
     $display->content['new-171d9aa8-a3b0-4063-8d2e-187cc4a54118'] = $pane;
     $display->panels['nav'][0] = 'new-171d9aa8-a3b0-4063-8d2e-187cc4a54118';
-    $pane = new stdClass();
-    $pane->pid = 'new-f76843b6-0432-472e-bcec-5009ff8ddb2a';
-    $pane->panel = 'nav';
-    $pane->type = 'pager';
-    $pane->subtype = 'pager';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'type' => 'full',
-      'context' => 'context_entitylist:learning_resources_1',
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 1;
-    $pane->locks = array();
-    $pane->uuid = 'f76843b6-0432-472e-bcec-5009ff8ddb2a';
-    $display->content['new-f76843b6-0432-472e-bcec-5009ff8ddb2a'] = $pane;
-    $display->panels['nav'][1] = 'new-f76843b6-0432-472e-bcec-5009ff8ddb2a';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
@@ -4776,6 +5463,7 @@ function fieldmuseum_default_page_manager_pages() {
     $pane->cache = array();
     $pane->style = array(
       'style' => 'default',
+      'settings' => NULL,
     );
     $pane->css = array();
     $pane->extras = array();
@@ -4993,14 +5681,37 @@ function fieldmuseum_default_page_manager_pages() {
         ),
         'id' => 1,
       ),
+      1 => array(
+        'identifier' => 'Taxonomy term',
+        'keyword' => 'taxonomy_term',
+        'name' => 'entity:taxonomy_term',
+        'entity_id' => '1311',
+        'id' => 1,
+      ),
     ),
-    'relationships' => array(),
+    'relationships' => array(
+      0 => array(
+        'identifier' => 'List: Blogs',
+        'keyword' => 'list_2',
+        'name' => 'entitylist_relationship:blogs',
+        'use_pager' => FALSE,
+        'pager_id' => NULL,
+        'range' => array(
+          'offset' => 0,
+          'limit' => 10,
+        ),
+        'context' => array(
+          0 => 'context_entity:taxonomy_term_1',
+        ),
+        'id' => 1,
+      ),
+    ),
   );
   $display = new panels_display();
   $display->layout = 'l10c';
   $display->layout_settings = array(
-    'main_classes' => '',
-    'nav_classes' => '',
+    'main_classes' => 'l--body__content',
+    'nav_classes' => 'l--body__nav js--sticky',
   );
   $display->panel_settings = array(
     'style_settings' => array(
@@ -5027,6 +5738,7 @@ function fieldmuseum_default_page_manager_pages() {
     $pane->cache = array();
     $pane->style = array(
       'style' => 'default',
+      'settings' => NULL,
     );
     $pane->css = array();
     $pane->extras = array();
@@ -5036,112 +5748,146 @@ function fieldmuseum_default_page_manager_pages() {
     $display->content['new-20b9cdda-7ffd-4ad9-89b0-6d5cece2fd18'] = $pane;
     $display->panels['main'][0] = 'new-20b9cdda-7ffd-4ad9-89b0-6d5cece2fd18';
     $pane = new stdClass();
-    $pane->pid = 'new-ac84d492-44c6-4263-b7f5-990f45fd984c';
+    $pane->pid = 'new-db17e7e2-36cf-47b7-b2ba-9801ef172b31';
     $pane->panel = 'main';
-    $pane->type = 'fieldable_panels_pane';
-    $pane->subtype = 'fpid:381';
+    $pane->type = 'entity_range';
+    $pane->subtype = 'entity_range';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'view_mode' => 'full',
+      'range' => array(
+        'offset' => '0',
+        'limit' => '10',
+      ),
+      'view_mode' => 'node:summary',
+      'use_pager' => FALSE,
+      'pager_id' => 0,
+      'context' => 'context_entitylist:menu_children_1',
+      'override_title' => 0,
+      'override_title_text' => '',
     );
     $pane->cache = array();
     $pane->style = array(
-      'style' => 'default',
+      'settings' => array(
+        'element_title' => array(
+          'type' => '0',
+          'class_enable' => 1,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => 'section',
+          'class_enable' => 1,
+          'class' => 'summaries--2up',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
+      'style' => 'semantic_panels',
     );
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 1;
     $pane->locks = array();
-    $pane->uuid = 'ac84d492-44c6-4263-b7f5-990f45fd984c';
-    $display->content['new-ac84d492-44c6-4263-b7f5-990f45fd984c'] = $pane;
-    $display->panels['main'][1] = 'new-ac84d492-44c6-4263-b7f5-990f45fd984c';
+    $pane->uuid = 'db17e7e2-36cf-47b7-b2ba-9801ef172b31';
+    $display->content['new-db17e7e2-36cf-47b7-b2ba-9801ef172b31'] = $pane;
+    $display->panels['main'][1] = 'new-db17e7e2-36cf-47b7-b2ba-9801ef172b31';
     $pane = new stdClass();
-    $pane->pid = 'new-e686a46d-8ca1-492d-bdcb-81684421e563';
+    $pane->pid = 'new-09172b22-4a0f-4397-ba0b-480a2220dd98';
     $pane->panel = 'main';
-    $pane->type = 'fieldable_panels_pane';
-    $pane->subtype = 'fpid:386';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'view_mode' => 'full',
+      'admin_title' => '',
+      'title' => 'Membership Blog',
+      'body' => '	<p>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	</p>
+	<a href="#" class="link--more">Read the Blog</a> 
+',
+      'format' => 'unfiltered',
+      'substitute' => 1,
     );
     $pane->cache = array();
     $pane->style = array(
-      'style' => 'default',
+      'style' => 'semantic_panels',
+      'settings' => array(
+        'element_title' => array(
+          'type' => 'h2',
+          'class_enable' => 1,
+          'class' => 'heading--stroked',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
     );
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 2;
     $pane->locks = array();
-    $pane->uuid = 'e686a46d-8ca1-492d-bdcb-81684421e563';
-    $display->content['new-e686a46d-8ca1-492d-bdcb-81684421e563'] = $pane;
-    $display->panels['main'][2] = 'new-e686a46d-8ca1-492d-bdcb-81684421e563';
+    $pane->uuid = '09172b22-4a0f-4397-ba0b-480a2220dd98';
+    $display->content['new-09172b22-4a0f-4397-ba0b-480a2220dd98'] = $pane;
+    $display->panels['main'][2] = 'new-09172b22-4a0f-4397-ba0b-480a2220dd98';
     $pane = new stdClass();
-    $pane->pid = 'new-3142854d-7534-4d75-b6f2-be5121d110e5';
-    $pane->panel = 'main';
-    $pane->type = 'fieldable_panels_pane';
-    $pane->subtype = 'fpid:391';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'view_mode' => 'full',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'style' => 'default',
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 3;
-    $pane->locks = array();
-    $pane->uuid = '3142854d-7534-4d75-b6f2-be5121d110e5';
-    $display->content['new-3142854d-7534-4d75-b6f2-be5121d110e5'] = $pane;
-    $display->panels['main'][3] = 'new-3142854d-7534-4d75-b6f2-be5121d110e5';
-    $pane = new stdClass();
-    $pane->pid = 'new-fad89da7-50db-40b8-851b-e288d7ad846b';
-    $pane->panel = 'main';
-    $pane->type = 'fieldable_panels_pane';
-    $pane->subtype = 'fpid:396';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'view_mode' => 'full',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'style' => 'default',
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 4;
-    $pane->locks = array();
-    $pane->uuid = 'fad89da7-50db-40b8-851b-e288d7ad846b';
-    $display->content['new-fad89da7-50db-40b8-851b-e288d7ad846b'] = $pane;
-    $display->panels['main'][4] = 'new-fad89da7-50db-40b8-851b-e288d7ad846b';
-    $pane = new stdClass();
-    $pane->pid = 'new-11c2a399-a695-4261-a0d1-e2d7d02be257';
-    $pane->panel = 'main';
-    $pane->type = 'fieldable_panels_pane';
-    $pane->subtype = 'fpid:401';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'view_mode' => 'full',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'style' => 'default',
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 5;
-    $pane->locks = array();
-    $pane->uuid = '11c2a399-a695-4261-a0d1-e2d7d02be257';
-    $display->content['new-11c2a399-a695-4261-a0d1-e2d7d02be257'] = $pane;
-    $display->panels['main'][5] = 'new-11c2a399-a695-4261-a0d1-e2d7d02be257';
-    $pane = new stdClass();
-    $pane->pid = 'new-db17e7e2-36cf-47b7-b2ba-9801ef172b31';
+    $pane->pid = 'new-6c976357-09fd-4aa4-9353-f0df444ec41e';
     $pane->panel = 'main';
     $pane->type = 'entity_range';
     $pane->subtype = 'entity_range';
@@ -5155,21 +5901,22 @@ function fieldmuseum_default_page_manager_pages() {
       'view_mode' => 'node:teaser',
       'use_pager' => FALSE,
       'pager_id' => 0,
-      'context' => 'context_entitylist:menu_children_1',
+      'context' => 'relationship_entitylist_relationship:blogs_1',
       'override_title' => 0,
-      'override_title_text' => '',
+      'override_title_text' => 'Educators Blog',
     );
     $pane->cache = array();
     $pane->style = array(
+      'style' => 'naked',
       'settings' => NULL,
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 6;
+    $pane->position = 3;
     $pane->locks = array();
-    $pane->uuid = 'db17e7e2-36cf-47b7-b2ba-9801ef172b31';
-    $display->content['new-db17e7e2-36cf-47b7-b2ba-9801ef172b31'] = $pane;
-    $display->panels['main'][6] = 'new-db17e7e2-36cf-47b7-b2ba-9801ef172b31';
+    $pane->uuid = '6c976357-09fd-4aa4-9353-f0df444ec41e';
+    $display->content['new-6c976357-09fd-4aa4-9353-f0df444ec41e'] = $pane;
+    $display->panels['main'][3] = 'new-6c976357-09fd-4aa4-9353-f0df444ec41e';
     $pane = new stdClass();
     $pane->pid = 'new-04529f33-a545-44ef-890b-55ff0c31e062';
     $pane->panel = 'nav';
@@ -5412,8 +6159,8 @@ function fieldmuseum_default_page_manager_pages() {
   $display = new panels_display();
   $display->layout = 'l6c';
   $display->layout_settings = array(
-    'main_classes' => '',
-    'nav_classes' => '',
+    'main_classes' => 'l--body__content',
+    'nav_classes' => 'l--body__nav js--sticky',
   );
   $display->panel_settings = array(
     'style_settings' => array(
@@ -5428,31 +6175,66 @@ function fieldmuseum_default_page_manager_pages() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-714f9c88-5ea5-4a1d-bb1a-cfb1e844200f';
+    $pane->pid = 'new-0a1bb898-f430-43b3-b256-6d06659cb2db';
     $pane->panel = 'main';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
+    $pane->type = 'fieldable_panels_pane';
+    $pane->subtype = 'fpid:481';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'admin_title' => 'Intro',
-      'title' => '',
-      'body' => '<p>The Field Museum is proud of the successful partnerships that are advancing science achievement across Chicago.</p>',
-      'format' => 'filtered_wysiwyg',
-      'substitute' => 1,
+      'view_mode' => 'full',
     );
     $pane->cache = array();
     $pane->style = array(
-      'settings' => NULL,
-      'style' => 'default',
+      'style' => 'semantic_panels',
+      'settings' => array(
+        'element_title' => array(
+          'type' => 'h1',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => '',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => '',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
     );
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = '714f9c88-5ea5-4a1d-bb1a-cfb1e844200f';
-    $display->content['new-714f9c88-5ea5-4a1d-bb1a-cfb1e844200f'] = $pane;
-    $display->panels['main'][0] = 'new-714f9c88-5ea5-4a1d-bb1a-cfb1e844200f';
+    $pane->uuid = '0a1bb898-f430-43b3-b256-6d06659cb2db';
+    $display->content['new-0a1bb898-f430-43b3-b256-6d06659cb2db'] = $pane;
+    $display->panels['main'][0] = 'new-0a1bb898-f430-43b3-b256-6d06659cb2db';
     $pane = new stdClass();
     $pane->pid = 'new-a0e0c220-3e35-4a64-ad23-bb1262f2a9b9';
     $pane->panel = 'main';
@@ -5464,7 +6246,10 @@ function fieldmuseum_default_page_manager_pages() {
       'view_mode' => 'full',
     );
     $pane->cache = array();
-    $pane->style = array();
+    $pane->style = array(
+      'settings' => NULL,
+      'style' => 'naked',
+    );
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 1;
@@ -5484,7 +6269,7 @@ function fieldmuseum_default_page_manager_pages() {
         'offset' => '0',
         'limit' => '10',
       ),
-      'view_mode' => 'node:teaser',
+      'view_mode' => 'node:promo',
       'use_pager' => FALSE,
       'pager_id' => 0,
       'context' => 'context_entitylist:menu_children_1',
@@ -5623,7 +6408,7 @@ function fieldmuseum_default_page_manager_pages() {
     $display->content['new-f6c9d760-bc6c-4468-a2c8-22b32eae7931'] = $pane;
     $display->panels['nav'][0] = 'new-f6c9d760-bc6c-4468-a2c8-22b32eae7931';
   $display->hide_title = PANELS_TITLE_FIXED;
-  $display->title_pane = 'new-714f9c88-5ea5-4a1d-bb1a-cfb1e844200f';
+  $display->title_pane = '0';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
   $pages['partnerships'] = $page;
@@ -6217,7 +7002,7 @@ function fieldmuseum_default_page_manager_pages() {
     $pane->uuid = '09d12684-6f9a-45c4-b381-3723c89883ac';
     $display->content['new-09d12684-6f9a-45c4-b381-3723c89883ac'] = $pane;
     $display->panels['nav'][0] = 'new-09d12684-6f9a-45c4-b381-3723c89883ac';
-  $display->hide_title = PANELS_TITLE_NONE;
+  $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
@@ -6298,8 +7083,8 @@ function fieldmuseum_default_page_manager_pages() {
   $display = new panels_display();
   $display->layout = 'l6c';
   $display->layout_settings = array(
-    'main_classes' => '',
-    'nav_classes' => 'navSection',
+    'main_classes' => 'l--body__content',
+    'nav_classes' => 'l--body__nav js--sticky',
   );
   $display->panel_settings = array(
     'style_settings' => array(
@@ -6309,10 +7094,71 @@ function fieldmuseum_default_page_manager_pages() {
     ),
   );
   $display->cache = array();
-  $display->title = '';
+  $display->title = 'Publications';
   $display->uuid = '5cf2f779-14ca-4bad-8d58-c0e373cb4690';
   $display->content = array();
   $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-068e6429-58ab-44c9-a1e2-b4fd18093dfd';
+    $pane->panel = 'main';
+    $pane->type = 'fieldable_panels_pane';
+    $pane->subtype = 'fpid:506';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'view_mode' => 'full',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'semantic_panels',
+      'settings' => array(
+        'element_title' => array(
+          'type' => 'h1',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => '',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => '',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '068e6429-58ab-44c9-a1e2-b4fd18093dfd';
+    $display->content['new-068e6429-58ab-44c9-a1e2-b4fd18093dfd'] = $pane;
+    $display->panels['main'][0] = 'new-068e6429-58ab-44c9-a1e2-b4fd18093dfd';
     $pane = new stdClass();
     $pane->pid = 'new-50840a1c-a85d-4284-a73d-9e9c0d257ecc';
     $pane->panel = 'main';
@@ -6325,7 +7171,7 @@ function fieldmuseum_default_page_manager_pages() {
         'offset' => '0',
         'limit' => '10',
       ),
-      'view_mode' => 'node:teaser',
+      'view_mode' => 'node:promo',
       'use_pager' => FALSE,
       'pager_id' => 0,
       'context' => 'context_entitylist:menu_children_1',
@@ -6378,11 +7224,11 @@ function fieldmuseum_default_page_manager_pages() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 0;
+    $pane->position = 1;
     $pane->locks = array();
     $pane->uuid = '50840a1c-a85d-4284-a73d-9e9c0d257ecc';
     $display->content['new-50840a1c-a85d-4284-a73d-9e9c0d257ecc'] = $pane;
-    $display->panels['main'][0] = 'new-50840a1c-a85d-4284-a73d-9e9c0d257ecc';
+    $display->panels['main'][1] = 'new-50840a1c-a85d-4284-a73d-9e9c0d257ecc';
     $pane = new stdClass();
     $pane->pid = 'new-53011743-b715-40e7-b7ec-609fba52937e';
     $pane->panel = 'nav';
@@ -6463,7 +7309,7 @@ function fieldmuseum_default_page_manager_pages() {
     $pane->uuid = '53011743-b715-40e7-b7ec-609fba52937e';
     $display->content['new-53011743-b715-40e7-b7ec-609fba52937e'] = $pane;
     $display->panels['nav'][0] = 'new-53011743-b715-40e7-b7ec-609fba52937e';
-  $display->hide_title = PANELS_TITLE_PANE;
+  $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
@@ -6654,7 +7500,47 @@ function fieldmuseum_default_page_manager_pages() {
     );
     $pane->cache = array();
     $pane->style = array(
-      'settings' => NULL,
+      'settings' => array(
+        'element_title' => array(
+          'type' => 'h1',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
+      'style' => 'semantic_panels',
     );
     $pane->css = array();
     $pane->extras = array();
@@ -6675,7 +7561,7 @@ function fieldmuseum_default_page_manager_pages() {
         'offset' => '0',
         'limit' => '10',
       ),
-      'view_mode' => 'node:teaser',
+      'view_mode' => 'node:promo',
       'use_pager' => FALSE,
       'pager_id' => 0,
       'context' => 'context_entitylist:menu_children_1',
@@ -6684,7 +7570,47 @@ function fieldmuseum_default_page_manager_pages() {
     );
     $pane->cache = array();
     $pane->style = array(
-      'settings' => NULL,
+      'settings' => array(
+        'element_title' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => 'section',
+          'class_enable' => 1,
+          'class' => 'promos--2up',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
+      'style' => 'semantic_panels',
     );
     $pane->css = array();
     $pane->extras = array();
@@ -6774,8 +7700,8 @@ function fieldmuseum_default_page_manager_pages() {
   $display = new panels_display();
   $display->layout = 'l6c';
   $display->layout_settings = array(
-    'main_classes' => '',
-    'nav_classes' => '',
+    'main_classes' => 'l--body__content',
+    'nav_classes' => 'l--body__nav js--sticky',
   );
   $display->panel_settings = array(
     'style_settings' => array(
@@ -6790,30 +7716,66 @@ function fieldmuseum_default_page_manager_pages() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-bbab65cc-3714-497b-95d4-b4887e07ea3e';
+    $pane->pid = 'new-4194d256-4856-4125-8fba-cb2133e8b65c';
     $pane->panel = 'main';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
+    $pane->type = 'fieldable_panels_pane';
+    $pane->subtype = 'fpid:501';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'admin_title' => '',
-      'title' => '',
-      'body' => '<p>Words go here.</p>',
-      'format' => 'filtered_wysiwyg',
-      'substitute' => TRUE,
+      'view_mode' => 'full',
     );
     $pane->cache = array();
     $pane->style = array(
-      'settings' => NULL,
+      'style' => 'semantic_panels',
+      'settings' => array(
+        'element_title' => array(
+          'type' => 'h1',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
     );
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = 'bbab65cc-3714-497b-95d4-b4887e07ea3e';
-    $display->content['new-bbab65cc-3714-497b-95d4-b4887e07ea3e'] = $pane;
-    $display->panels['main'][0] = 'new-bbab65cc-3714-497b-95d4-b4887e07ea3e';
+    $pane->uuid = '4194d256-4856-4125-8fba-cb2133e8b65c';
+    $display->content['new-4194d256-4856-4125-8fba-cb2133e8b65c'] = $pane;
+    $display->panels['main'][0] = 'new-4194d256-4856-4125-8fba-cb2133e8b65c';
     $pane = new stdClass();
     $pane->pid = 'new-b8137fd2-a9ab-41d5-b3f6-fe048d273ae8';
     $pane->panel = 'main';
@@ -6826,7 +7788,7 @@ function fieldmuseum_default_page_manager_pages() {
         'offset' => '0',
         'limit' => '10',
       ),
-      'view_mode' => 'node:teaser',
+      'view_mode' => 'node:promo',
       'use_pager' => FALSE,
       'pager_id' => 0,
       'context' => 'context_entitylist:menu_children_1',
@@ -7060,7 +8022,7 @@ function fieldmuseum_default_page_manager_pages() {
     ),
   );
   $display->cache = array();
-  $display->title = '';
+  $display->title = 'Science';
   $display->uuid = '86abd588-1ecf-4a03-926f-d7098a870c45';
   $display->content = array();
   $display->panels = array();
@@ -7374,7 +8336,7 @@ function fieldmuseum_default_page_manager_pages() {
     $pane->uuid = '3df6a502-9ab4-463e-8ce7-902284fb7c79';
     $display->content['new-3df6a502-9ab4-463e-8ce7-902284fb7c79'] = $pane;
     $display->panels['nav'][0] = 'new-3df6a502-9ab4-463e-8ce7-902284fb7c79';
-  $display->hide_title = PANELS_TITLE_NONE;
+  $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
@@ -8272,10 +9234,10 @@ function fieldmuseum_default_page_manager_pages() {
     $display->content['new-c5b3d226-9a86-4181-9bf0-bc8f822fa761'] = $pane;
     $display->panels['main'][0] = 'new-c5b3d226-9a86-4181-9bf0-bc8f822fa761';
     $pane = new stdClass();
-    $pane->pid = 'new-99925bed-f5a1-4765-825c-f82dde8c61d3';
+    $pane->pid = 'new-a370597d-6fcb-4a69-94fb-dd1a207a278f';
     $pane->panel = 'main';
     $pane->type = 'fieldable_panels_pane';
-    $pane->subtype = 'fpid:266';
+    $pane->subtype = 'fpid:261';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -8290,9 +9252,9 @@ function fieldmuseum_default_page_manager_pages() {
     $pane->extras = array();
     $pane->position = 1;
     $pane->locks = array();
-    $pane->uuid = '99925bed-f5a1-4765-825c-f82dde8c61d3';
-    $display->content['new-99925bed-f5a1-4765-825c-f82dde8c61d3'] = $pane;
-    $display->panels['main'][1] = 'new-99925bed-f5a1-4765-825c-f82dde8c61d3';
+    $pane->uuid = 'a370597d-6fcb-4a69-94fb-dd1a207a278f';
+    $display->content['new-a370597d-6fcb-4a69-94fb-dd1a207a278f'] = $pane;
+    $display->panels['main'][1] = 'new-a370597d-6fcb-4a69-94fb-dd1a207a278f';
     $pane = new stdClass();
     $pane->pid = 'new-bd039c9e-92ab-4185-9b77-bec95dadf8ab';
     $pane->panel = 'main';
@@ -8322,28 +9284,6 @@ function fieldmuseum_default_page_manager_pages() {
     $display->content['new-bd039c9e-92ab-4185-9b77-bec95dadf8ab'] = $pane;
     $display->panels['main'][2] = 'new-bd039c9e-92ab-4185-9b77-bec95dadf8ab';
     $pane = new stdClass();
-    $pane->pid = 'new-a370597d-6fcb-4a69-94fb-dd1a207a278f';
-    $pane->panel = 'main';
-    $pane->type = 'fieldable_panels_pane';
-    $pane->subtype = 'fpid:261';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'view_mode' => 'full',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'style' => 'naked',
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 3;
-    $pane->locks = array();
-    $pane->uuid = 'a370597d-6fcb-4a69-94fb-dd1a207a278f';
-    $display->content['new-a370597d-6fcb-4a69-94fb-dd1a207a278f'] = $pane;
-    $display->panels['main'][3] = 'new-a370597d-6fcb-4a69-94fb-dd1a207a278f';
-    $pane = new stdClass();
     $pane->pid = 'new-8b74bad4-3232-4f74-94b2-d30b5e04775c';
     $pane->panel = 'main';
     $pane->type = 'fieldable_panels_pane';
@@ -8360,33 +9300,11 @@ function fieldmuseum_default_page_manager_pages() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 4;
+    $pane->position = 3;
     $pane->locks = array();
     $pane->uuid = '8b74bad4-3232-4f74-94b2-d30b5e04775c';
     $display->content['new-8b74bad4-3232-4f74-94b2-d30b5e04775c'] = $pane;
-    $display->panels['main'][4] = 'new-8b74bad4-3232-4f74-94b2-d30b5e04775c';
-    $pane = new stdClass();
-    $pane->pid = 'new-ee38042d-18c9-4fb5-a00e-c2800a12b2a2';
-    $pane->panel = 'main';
-    $pane->type = 'fieldable_panels_pane';
-    $pane->subtype = 'fpid:271';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'view_mode' => 'full',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'style' => 'naked',
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 5;
-    $pane->locks = array();
-    $pane->uuid = 'ee38042d-18c9-4fb5-a00e-c2800a12b2a2';
-    $display->content['new-ee38042d-18c9-4fb5-a00e-c2800a12b2a2'] = $pane;
-    $display->panels['main'][5] = 'new-ee38042d-18c9-4fb5-a00e-c2800a12b2a2';
+    $display->panels['main'][3] = 'new-8b74bad4-3232-4f74-94b2-d30b5e04775c';
     $pane = new stdClass();
     $pane->pid = 'new-aaf330a6-e23e-4647-97d6-19a889c45625';
     $pane->panel = 'main';
@@ -8409,11 +9327,11 @@ function fieldmuseum_default_page_manager_pages() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 6;
+    $pane->position = 4;
     $pane->locks = array();
     $pane->uuid = 'aaf330a6-e23e-4647-97d6-19a889c45625';
     $display->content['new-aaf330a6-e23e-4647-97d6-19a889c45625'] = $pane;
-    $display->panels['main'][6] = 'new-aaf330a6-e23e-4647-97d6-19a889c45625';
+    $display->panels['main'][4] = 'new-aaf330a6-e23e-4647-97d6-19a889c45625';
     $pane = new stdClass();
     $pane->pid = 'new-6240b3e6-3d67-4fd0-959d-66c23c863f19';
     $pane->panel = 'main';
@@ -8437,11 +9355,11 @@ function fieldmuseum_default_page_manager_pages() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 7;
+    $pane->position = 5;
     $pane->locks = array();
     $pane->uuid = '6240b3e6-3d67-4fd0-959d-66c23c863f19';
     $display->content['new-6240b3e6-3d67-4fd0-959d-66c23c863f19'] = $pane;
-    $display->panels['main'][7] = 'new-6240b3e6-3d67-4fd0-959d-66c23c863f19';
+    $display->panels['main'][5] = 'new-6240b3e6-3d67-4fd0-959d-66c23c863f19';
     $pane = new stdClass();
     $pane->pid = 'new-b9d626ea-83ad-4571-9182-3d59d9de6f84';
     $pane->panel = 'main';
@@ -8465,11 +9383,11 @@ function fieldmuseum_default_page_manager_pages() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 8;
+    $pane->position = 6;
     $pane->locks = array();
     $pane->uuid = 'b9d626ea-83ad-4571-9182-3d59d9de6f84';
     $display->content['new-b9d626ea-83ad-4571-9182-3d59d9de6f84'] = $pane;
-    $display->panels['main'][8] = 'new-b9d626ea-83ad-4571-9182-3d59d9de6f84';
+    $display->panels['main'][6] = 'new-b9d626ea-83ad-4571-9182-3d59d9de6f84';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
@@ -8537,17 +9455,39 @@ function fieldmuseum_default_page_manager_pages() {
         'identifier' => 'Taxonomy term',
         'keyword' => 'taxonomy_term',
         'name' => 'entity:taxonomy_term',
-        'entity_id' => '21',
+        'entity_id' => '16',
+        'id' => 1,
+      ),
+      1 => array(
+        'identifier' => 'List: Menu children (hide children from other menus)',
+        'keyword' => 'list',
+        'name' => 'entitylist:menu_children',
+        'use_pager' => FALSE,
+        'pager_id' => NULL,
+        'range' => array(
+          'offset' => 0,
+          'limit' => 10,
+        ),
         'id' => 1,
       ),
     ),
-    'relationships' => array(),
+    'relationships' => array(
+      1 => array(
+        'identifier' => 'View: Programs: Filtered list of promos',
+        'keyword' => 'view',
+        'name' => 'view_from_argument:programs-ctools_context_1',
+        'context' => array(
+          0 => 'context_entity:taxonomy_term_1',
+        ),
+        'id' => 1,
+      ),
+    ),
   );
   $display = new panels_display();
   $display->layout = 'l6c';
   $display->layout_settings = array(
-    'main_classes' => '',
-    'nav_classes' => '',
+    'main_classes' => 'l--body__content',
+    'nav_classes' => 'l--body__nav js--sticky',
   );
   $display->panel_settings = array(
     'style_settings' => array(
@@ -8562,48 +9502,226 @@ function fieldmuseum_default_page_manager_pages() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-8384c91c-c8c6-4656-9cc9-fc3401d45b69';
+    $pane->pid = 'new-e4540b20-9a1c-46d1-913a-15dd911c3c4f';
     $pane->panel = 'main';
     $pane->type = 'fieldable_panels_pane';
-    $pane->subtype = 'fpid:101';
+    $pane->subtype = 'fpid:446';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
       'view_mode' => 'full',
     );
     $pane->cache = array();
-    $pane->style = array();
+    $pane->style = array(
+      'style' => 'semantic_panels',
+      'settings' => array(
+        'element_title' => array(
+          'type' => 'h1',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
+    );
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = '8384c91c-c8c6-4656-9cc9-fc3401d45b69';
-    $display->content['new-8384c91c-c8c6-4656-9cc9-fc3401d45b69'] = $pane;
-    $display->panels['main'][0] = 'new-8384c91c-c8c6-4656-9cc9-fc3401d45b69';
+    $pane->uuid = 'e4540b20-9a1c-46d1-913a-15dd911c3c4f';
+    $display->content['new-e4540b20-9a1c-46d1-913a-15dd911c3c4f'] = $pane;
+    $display->panels['main'][0] = 'new-e4540b20-9a1c-46d1-913a-15dd911c3c4f';
     $pane = new stdClass();
-    $pane->pid = 'new-76b12dd7-fe1e-42d1-993e-724efd2eb7f1';
+    $pane->pid = 'new-66be89a6-7dbf-421a-aaf7-13cc3f9fd881';
     $pane->panel = 'main';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'programs-panel_pane_1';
-    $pane->shown = TRUE;
+    $pane->type = 'views_row';
+    $pane->subtype = 'views_row';
+    $pane->shown = FALSE;
     $pane->access = array();
     $pane->configuration = array(
-      'context' => array(
-        0 => 'context_entity:taxonomy_term_1',
-      ),
+      'rows' => array(),
+      'use_fields' => 0,
+      'fields' => array(),
+      'context' => 'relationship_view_from_argument:programs-ctools_context_1_1',
+      'override_title' => 0,
+      'override_title_text' => '',
     );
     $pane->cache = array();
     $pane->style = array(
-      'settings' => NULL,
-      'style' => 'naked',
+      'style' => 'semantic_panels',
+      'settings' => array(
+        'element_title' => array(
+          'type' => '',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => 'section',
+          'class_enable' => 1,
+          'class' => 'promos--2up',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => '',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
     );
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 1;
     $pane->locks = array();
-    $pane->uuid = '76b12dd7-fe1e-42d1-993e-724efd2eb7f1';
-    $display->content['new-76b12dd7-fe1e-42d1-993e-724efd2eb7f1'] = $pane;
-    $display->panels['main'][1] = 'new-76b12dd7-fe1e-42d1-993e-724efd2eb7f1';
+    $pane->uuid = '66be89a6-7dbf-421a-aaf7-13cc3f9fd881';
+    $display->content['new-66be89a6-7dbf-421a-aaf7-13cc3f9fd881'] = $pane;
+    $display->panels['main'][1] = 'new-66be89a6-7dbf-421a-aaf7-13cc3f9fd881';
+    $pane = new stdClass();
+    $pane->pid = 'new-8de52818-362a-4441-bb71-327b65fef848';
+    $pane->panel = 'main';
+    $pane->type = 'views_pager';
+    $pane->subtype = 'views_pager';
+    $pane->shown = FALSE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'context' => 'relationship_view_from_argument:programs-ctools_context_1_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'default',
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 2;
+    $pane->locks = array();
+    $pane->uuid = '8de52818-362a-4441-bb71-327b65fef848';
+    $display->content['new-8de52818-362a-4441-bb71-327b65fef848'] = $pane;
+    $display->panels['main'][2] = 'new-8de52818-362a-4441-bb71-327b65fef848';
+    $pane = new stdClass();
+    $pane->pid = 'new-e263d975-8428-4e42-8aa5-43d5ae3b28cc';
+    $pane->panel = 'main';
+    $pane->type = 'entity_range';
+    $pane->subtype = 'entity_range';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'range' => array(
+        'offset' => '0',
+        'limit' => '10',
+      ),
+      'view_mode' => 'node:promo',
+      'use_pager' => FALSE,
+      'pager_id' => 0,
+      'context' => 'context_entitylist:menu_children_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'semantic_panels',
+      'settings' => array(
+        'element_title' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => 'section',
+          'class_enable' => 1,
+          'class' => 'promos--2up',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => '',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 3;
+    $pane->locks = array();
+    $pane->uuid = 'e263d975-8428-4e42-8aa5-43d5ae3b28cc';
+    $display->content['new-e263d975-8428-4e42-8aa5-43d5ae3b28cc'] = $pane;
+    $display->panels['main'][3] = 'new-e263d975-8428-4e42-8aa5-43d5ae3b28cc';
     $pane = new stdClass();
     $pane->pid = 'new-b5823e7b-8977-408e-8b6f-41dbf8122c92';
     $pane->panel = 'nav';
@@ -8685,7 +9803,7 @@ function fieldmuseum_default_page_manager_pages() {
     $display->content['new-b5823e7b-8977-408e-8b6f-41dbf8122c92'] = $pane;
     $display->panels['nav'][0] = 'new-b5823e7b-8977-408e-8b6f-41dbf8122c92';
   $display->hide_title = PANELS_TITLE_FIXED;
-  $display->title_pane = 'new-76b12dd7-fe1e-42d1-993e-724efd2eb7f1';
+  $display->title_pane = '0';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
   $pages['teacher_professional_development'] = $page;
@@ -8757,6 +9875,8 @@ function fieldmuseum_default_page_manager_pages() {
       ),
     ),
     'logic' => 'and',
+    'type' => 'none',
+    'settings' => NULL,
   );
   $page->menu = array(
     'type' => 'normal',
@@ -9383,6 +10503,8 @@ function fieldmuseum_default_page_manager_pages() {
       ),
     ),
     'logic' => 'and',
+    'type' => 'none',
+    'settings' => NULL,
   );
   $page->menu = array(
     'type' => 'normal',
@@ -9658,44 +10780,82 @@ function fieldmuseum_default_page_manager_pages() {
   $display = new panels_display();
   $display->layout = 'l6a';
   $display->layout_settings = array(
-    'main_classes' => '',
+    'main_classes' => 'l--body__content',
+    'nav_classes' => 'l--body__nav js--sticky',
   );
   $display->panel_settings = array(
     'style_settings' => array(
       'default' => NULL,
       'main' => NULL,
+      'nav' => NULL,
     ),
   );
   $display->cache = array();
-  $display->title = '';
+  $display->title = 'Virtual Visits';
   $display->uuid = '54f7cabb-c571-4d8d-8883-940257f44929';
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-76a45531-1880-4858-8329-d8e7d860dd51';
+    $pane->pid = 'new-6808698d-27d0-4d11-a15d-6c615f8fbd37';
     $pane->panel = 'main';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
+    $pane->type = 'fieldable_panels_pane';
+    $pane->subtype = 'fpid:471';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'admin_title' => 'Description',
-      'title' => '',
-      'body' => '<p style="text-align: left;"><!--MEDIA-WRAPPER-START-1--></p><div class="media-image media-element file-media-original" data-file_info="%7B%22type%22:%22media%22,%22view_mode%22:%22media_original%22,%22fid%22:%2280831%22%7D" id="styles-3"><img alt="" attributes="Array" fields="" src="http://fieldmuseum.org/sites/default/files/Virtual%20Visits%20Logo_smalll_0.jpg" title="" typeof="foaf:Image" wysiwyg="1"></div><p style="text-align: left;">Can&rsquo;t come to The Field Museum? Let us bring The Field experience to your classroom. Virtual Visits from The Field extends science directly into your classroom through LIVE video broadcasts from The Field Museum.</p><p style="text-align: left;"> &bull;&nbsp; Meet and chat with a scientist in real time. <br><span style="line-height: 1.538em;">&bull;&nbsp; Visit a behind-the-scenes lab. </span><br><br><span style="line-height: 1.538em;">Virtual Visits from The Field gives students an unparalleled chance to connect the research occurring at the Museum with learning in their own classroom.&nbsp;Using a 60-minute live broadcast, students can see, hear, and interact with researchers during a behind-the-scenes &ldquo;visit&rdquo; to the Museum&rsquo;s state-of-the-art laboratory.&nbsp;All programs are NGSS aligned.</span></p><p>Questions? Please contact us at <a href="mailto:virtualvisits@fieldmuseum.org?subject=Inquiry%20from%20website">Virtual Visits from The Field</a>.</p><p><strong>Pricing </strong><br><span style="line-height: 1.538em;">35 students or less - $125 <br>36 students or more - $250</span></p><p><strong>Technology Requirements </strong><br>Virtual Visits is streamed live via video conferencing. Participating classrooms need a high speed Internet connection. Classrooms are encouraged to run off of a wired connection.<br>Questions? Contact the Virtual Visits Team.&nbsp;<br><br><strong>A note regarding squirrel specimens </strong><br>The squirrel specimens used in Virtual Visits from The Field were found dead on the side of the road and brought into the Museum by Museum staff or community members from around the state of Illinois.&nbsp;<br>Major Sponsor:&nbsp;</p><p style="background-color: transparent;"><!--MEDIA-WRAPPER-START-2--></p><div class="media-image media-element file-media-original" data-file_info="%7B%22type%22:%22media%22,%22view_mode%22:%22media_original%22,%22fid%22:%2278656%22%7D" id="styles-4"><img alt="" attributes="Array" fields="" src="http://fieldmuseum.org/sites/default/files/Target_Red_RGB_300x75%20copy_2.jpg" title="" typeof="foaf:Image" wysiwyg="1"></div>',
-      'format' => 'full_html',
-      'substitute' => 1,
+      'view_mode' => 'full',
     );
     $pane->cache = array();
     $pane->style = array(
-      'settings' => NULL,
+      'style' => 'semantic_panels',
+      'settings' => array(
+        'element_title' => array(
+          'type' => 'h1',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
     );
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = '76a45531-1880-4858-8329-d8e7d860dd51';
-    $display->content['new-76a45531-1880-4858-8329-d8e7d860dd51'] = $pane;
-    $display->panels['main'][0] = 'new-76a45531-1880-4858-8329-d8e7d860dd51';
+    $pane->uuid = '6808698d-27d0-4d11-a15d-6c615f8fbd37';
+    $display->content['new-6808698d-27d0-4d11-a15d-6c615f8fbd37'] = $pane;
+    $display->panels['main'][0] = 'new-6808698d-27d0-4d11-a15d-6c615f8fbd37';
     $pane = new stdClass();
     $pane->pid = 'new-61828bf9-f2f5-4684-a8a4-f25f5af43451';
     $pane->panel = 'main';
@@ -9706,9 +10866,9 @@ function fieldmuseum_default_page_manager_pages() {
     $pane->configuration = array(
       'range' => array(
         'offset' => '0',
-        'limit' => '10',
+        'limit' => '12',
       ),
-      'view_mode' => 'node:teaser',
+      'view_mode' => 'node:promo',
       'use_pager' => FALSE,
       'pager_id' => 0,
       'context' => 'context_entitylist:menu_children_1',
@@ -9717,7 +10877,47 @@ function fieldmuseum_default_page_manager_pages() {
     );
     $pane->cache = array();
     $pane->style = array(
-      'settings' => NULL,
+      'settings' => array(
+        'element_title' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => 'section',
+          'class_enable' => 1,
+          'class' => 'promos--3up',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
+      'style' => 'semantic_panels',
     );
     $pane->css = array();
     $pane->extras = array();
@@ -9726,8 +10926,88 @@ function fieldmuseum_default_page_manager_pages() {
     $pane->uuid = '61828bf9-f2f5-4684-a8a4-f25f5af43451';
     $display->content['new-61828bf9-f2f5-4684-a8a4-f25f5af43451'] = $pane;
     $display->panels['main'][1] = 'new-61828bf9-f2f5-4684-a8a4-f25f5af43451';
+    $pane = new stdClass();
+    $pane->pid = 'new-d0d93e2f-2712-4461-a28d-98cdd57df5ca';
+    $pane->panel = 'nav';
+    $pane->type = 'menu_tree';
+    $pane->subtype = 'main-menu';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'menu_name' => 'main-menu',
+      'parent_mlid' => 0,
+      'parent' => 'main-menu:0',
+      'title_link' => 0,
+      'admin_title' => '',
+      'level' => '2',
+      'follow' => 0,
+      'depth' => '0',
+      'expanded' => 0,
+      'sort' => 0,
+      'override_title' => 1,
+      'override_title_text' => '',
+      'identifier' => 'section',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'semantic_panels',
+      'settings' => array(
+        'element_title' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => 'nav',
+          'class_enable' => 1,
+          'class' => 'navSection',
+          'attributes' => array(
+            'role' => array(
+              'enabled' => 1,
+              'value' => 'navigation',
+            ),
+          ),
+          'attributes_array' => array(
+            'role' => 'navigation',
+          ),
+        ),
+        'add_default_classes' => 1,
+      ),
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'd0d93e2f-2712-4461-a28d-98cdd57df5ca';
+    $display->content['new-d0d93e2f-2712-4461-a28d-98cdd57df5ca'] = $pane;
+    $display->panels['nav'][0] = 'new-d0d93e2f-2712-4461-a28d-98cdd57df5ca';
   $display->hide_title = PANELS_TITLE_FIXED;
-  $display->title_pane = 'new-76a45531-1880-4858-8329-d8e7d860dd51';
+  $display->title_pane = '0';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
   $pages['virtual_visits'] = $page;
@@ -10015,27 +11295,14 @@ function fieldmuseum_default_page_manager_pages() {
     'body_classes_to_add' => '',
     'css_id' => '',
     'css' => '',
-    'contexts' => array(
-      0 => array(
-        'identifier' => 'List: Menu children',
-        'keyword' => 'list',
-        'name' => 'entitylist:menu_children',
-        'use_pager' => FALSE,
-        'pager_id' => NULL,
-        'range' => array(
-          'offset' => 0,
-          'limit' => 10,
-        ),
-        'id' => 1,
-      ),
-    ),
+    'contexts' => array(),
     'relationships' => array(),
   );
   $display = new panels_display();
   $display->layout = 'l10';
   $display->layout_settings = array(
-    'main_classes' => '',
-    'nav_classes' => 'navSection',
+    'main_classes' => 'l--body__content',
+    'nav_classes' => 'l--body__nav js--sticky',
   );
   $display->panel_settings = array(
     'style_settings' => array(
@@ -10072,155 +11339,67 @@ function fieldmuseum_default_page_manager_pages() {
     $display->content['new-76d5adc3-161a-4db4-b930-f0afa027e788'] = $pane;
     $display->panels['main'][0] = 'new-76d5adc3-161a-4db4-b930-f0afa027e788';
     $pane = new stdClass();
-    $pane->pid = 'new-a8b26ef6-4d9d-4fda-857c-d765e7271036';
+    $pane->pid = 'new-23d796d6-201d-4aa6-8da7-0017e2e7b21e';
     $pane->panel = 'main';
-    $pane->type = 'fieldable_panels_pane';
-    $pane->subtype = 'fpid:356';
+    $pane->type = 'panels_mini';
+    $pane->subtype = 'ways_to_give_landing';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'view_mode' => 'full',
+      'override_title' => 0,
+      'override_title_text' => '',
     );
     $pane->cache = array();
     $pane->style = array(
-      'style' => 'default',
-      'settings' => NULL,
+      'style' => 'semantic_panels',
+      'settings' => array(
+        'element_title' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => 'section',
+          'class_enable' => 1,
+          'class' => 'summaries--2up',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
     );
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 1;
     $pane->locks = array();
-    $pane->uuid = 'a8b26ef6-4d9d-4fda-857c-d765e7271036';
-    $display->content['new-a8b26ef6-4d9d-4fda-857c-d765e7271036'] = $pane;
-    $display->panels['main'][1] = 'new-a8b26ef6-4d9d-4fda-857c-d765e7271036';
-    $pane = new stdClass();
-    $pane->pid = 'new-4434488e-b490-4a4e-a533-222897677239';
-    $pane->panel = 'main';
-    $pane->type = 'entity';
-    $pane->subtype = 'entity';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'index' => '2',
-      'view_mode' => 'node:summary',
-      'use_pager' => FALSE,
-      'pager_id' => 0,
-      'context' => 'context_entitylist:menu_children_1',
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'style' => 'default',
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 2;
-    $pane->locks = array();
-    $pane->uuid = '4434488e-b490-4a4e-a533-222897677239';
-    $display->content['new-4434488e-b490-4a4e-a533-222897677239'] = $pane;
-    $display->panels['main'][2] = 'new-4434488e-b490-4a4e-a533-222897677239';
-    $pane = new stdClass();
-    $pane->pid = 'new-83e97c76-07d5-40a6-9c93-bf537a54948e';
-    $pane->panel = 'main';
-    $pane->type = 'fieldable_panels_pane';
-    $pane->subtype = 'fpid:366';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'view_mode' => 'full',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'style' => 'default',
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 3;
-    $pane->locks = array();
-    $pane->uuid = '83e97c76-07d5-40a6-9c93-bf537a54948e';
-    $display->content['new-83e97c76-07d5-40a6-9c93-bf537a54948e'] = $pane;
-    $display->panels['main'][3] = 'new-83e97c76-07d5-40a6-9c93-bf537a54948e';
-    $pane = new stdClass();
-    $pane->pid = 'new-f6712918-b369-489b-a75f-b2768bbd8d2e';
-    $pane->panel = 'main';
-    $pane->type = 'entity';
-    $pane->subtype = 'entity';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'index' => '1',
-      'view_mode' => 'node:summary',
-      'use_pager' => FALSE,
-      'pager_id' => 0,
-      'context' => 'context_entitylist:menu_children_1',
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'style' => 'default',
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 4;
-    $pane->locks = array();
-    $pane->uuid = 'f6712918-b369-489b-a75f-b2768bbd8d2e';
-    $display->content['new-f6712918-b369-489b-a75f-b2768bbd8d2e'] = $pane;
-    $display->panels['main'][4] = 'new-f6712918-b369-489b-a75f-b2768bbd8d2e';
-    $pane = new stdClass();
-    $pane->pid = 'new-2fd9d26d-5624-40f1-8345-eadbaa144631';
-    $pane->panel = 'main';
-    $pane->type = 'fieldable_panels_pane';
-    $pane->subtype = 'fpid:361';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'view_mode' => 'full',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'style' => 'default',
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 5;
-    $pane->locks = array();
-    $pane->uuid = '2fd9d26d-5624-40f1-8345-eadbaa144631';
-    $display->content['new-2fd9d26d-5624-40f1-8345-eadbaa144631'] = $pane;
-    $display->panels['main'][5] = 'new-2fd9d26d-5624-40f1-8345-eadbaa144631';
-    $pane = new stdClass();
-    $pane->pid = 'new-b98b8c83-781c-4a2c-bdd0-defe437972a3';
-    $pane->panel = 'main';
-    $pane->type = 'entity';
-    $pane->subtype = 'entity';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'index' => '3',
-      'view_mode' => 'node:summary',
-      'use_pager' => FALSE,
-      'pager_id' => 0,
-      'context' => 'context_entitylist:menu_children_1',
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'style' => 'default',
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 6;
-    $pane->locks = array();
-    $pane->uuid = 'b98b8c83-781c-4a2c-bdd0-defe437972a3';
-    $display->content['new-b98b8c83-781c-4a2c-bdd0-defe437972a3'] = $pane;
-    $display->panels['main'][6] = 'new-b98b8c83-781c-4a2c-bdd0-defe437972a3';
+    $pane->uuid = '23d796d6-201d-4aa6-8da7-0017e2e7b21e';
+    $display->content['new-23d796d6-201d-4aa6-8da7-0017e2e7b21e'] = $pane;
+    $display->panels['main'][1] = 'new-23d796d6-201d-4aa6-8da7-0017e2e7b21e';
     $pane = new stdClass();
     $pane->pid = 'new-bcf09a9b-0a46-4142-aa67-1e54ece897e9';
     $pane->panel = 'nav';
