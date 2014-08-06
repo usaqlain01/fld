@@ -472,9 +472,13 @@ function fieldmuseum_field_default_field_instances() {
         'weight' => 0,
       ),
       'summary' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
+        'label' => 'hidden',
+        'module' => 'file_entity',
+        'settings' => array(
+          'field_formatter_class' => '',
+          'file_view_mode' => 'banner_5x3',
+        ),
+        'type' => 'file_rendered',
         'weight' => 0,
       ),
     ),
