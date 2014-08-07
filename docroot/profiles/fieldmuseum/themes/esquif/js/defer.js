@@ -4402,7 +4402,8 @@ $(function() {
       return $(el).each(function() {
         return $(this).stick_in_parent({
           parent: $(this).closest("." + selector.parent),
-          sticky_class: 'is--stuck'
+          sticky_class: 'is--stuck',
+          inner_scrolling: true
         });
       });
     }
