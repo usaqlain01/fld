@@ -13,7 +13,7 @@ return array(
     $vendorDir . '/phpunit/php-file-iterator',
     $vendorDir . '/phpunit/phpunit',
     $vendorDir . '/symfony/yaml',
-    $vendorDir . '/phing/phing/classes',
     $vendorDir . '/phpunit/php-code-coverage',
     $vendorDir . '/phpunit/phpunit-mock-objects',
+    $vendorDir . '/phing/phing/classes',
 );

@@ -411,9 +411,6 @@
     &lt;include name="*.conf" /&gt;
   &lt;/fileset&gt;
 &lt;/apply&gt;
-
-
-
             </programlisting>
         </sect2>
         <sect2 role="nestedtags">
@@ -460,7 +457,7 @@
                                         <entry><literal role="type">String</literal></entry>
                                         <entry>A string that will be treated as a path-like string
                                             as a single command-line argument; you can use ; or : as
-                                            path separators and Ant will convert it to the
+                                            path separators and Phing will convert it to the
                                             platform's local conventions.</entry>
                                         <entry>n/a</entry>
                                     </row>
@@ -498,7 +495,7 @@
             will set <literal>foo.bar</literal> to <literal>"Well, yes"</literal>.
             And last it checks if extension <literal>foo</literal> is loaded,
                 so the property <literal>foo.ext.loaded</literal> is set to <literal>"true"</literal> (default).
-            <emphasis role="bold">k</emphasis></para>
+        </para>
         <para><emphasis role="bold">NB:</emphasis> the Available task can also be used as a
             condition, see <link linkend="conditions">conditions</link>.</para>
 
@@ -1559,7 +1556,7 @@
                                         <entry><literal role="type">String</literal></entry>
                                         <entry>A string that will be treated as a path-like string
                                             as a single command-line argument; you can use ; or : as
-                                            path separators and Ant will convert it to the
+                                            path separators and Phing will convert it to the
                                             platform's local conventions.</entry>
                                         <entry>n/a</entry>
                                     </row>
