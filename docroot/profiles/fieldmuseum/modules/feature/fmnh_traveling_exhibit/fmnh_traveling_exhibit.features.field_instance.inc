@@ -109,11 +109,12 @@ function fmnh_traveling_exhibit_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'file',
+        'module' => 'file_entity',
         'settings' => array(
           'field_formatter_class' => '',
+          'file_view_mode' => 'default',
         ),
-        'type' => 'file_default',
+        'type' => 'file_rendered',
         'weight' => 3,
       ),
       'teaser' => array(

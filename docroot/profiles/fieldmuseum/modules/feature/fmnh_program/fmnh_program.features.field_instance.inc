@@ -30,7 +30,7 @@ function fmnh_program_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 5,
+        'weight' => 6,
       ),
       'summary' => array(
         'label' => 'hidden',
@@ -131,13 +131,13 @@ function fmnh_program_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 5,
+        'weight' => 6,
       ),
       'promo' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 4,
+        'weight' => 5,
       ),
       'summary' => array(
         'label' => 'above',
@@ -182,7 +182,7 @@ function fmnh_program_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 2,
+        'weight' => 3,
       ),
       'promo' => array(
         'label' => 'hidden',
@@ -192,7 +192,7 @@ function fmnh_program_field_default_field_instances() {
           'link' => 1,
         ),
         'type' => 'entityreference_label',
-        'weight' => 2,
+        'weight' => 3,
       ),
       'summary' => array(
         'label' => 'hidden',
@@ -227,6 +227,97 @@ function fmnh_program_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-program-field_banner_description'
+  $field_instances['node-program-field_banner_description'] = array(
+    'bundle' => 'program',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 2,
+      ),
+      'promo' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(
+          'field_formatter_class' => '',
+        ),
+        'type' => 'text_default',
+        'weight' => 1,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'fences_wrapper' => 'no_wrapper',
+    'field_name' => 'field_banner_description',
+    'label' => 'Banner description',
+    'required' => 0,
+    'settings' => array(
+      'better_formats' => array(
+        'allowed_formats' => array(
+          'filtered_html' => 'filtered_html',
+          'filtered_wysiwyg' => 'filtered_wysiwyg',
+          'full_html' => 'full_html',
+          'full_wysiwyg' => 'full_wysiwyg',
+          'markdown' => 'markdown',
+          'plain_text' => 'plain_text',
+          'unfiltered' => 'unfiltered',
+          'unfiltered_phrase_html' => 'unfiltered_phrase_html',
+        ),
+        'allowed_formats_toggle' => 0,
+        'default_order_toggle' => 0,
+        'default_order_wrapper' => array(
+          'formats' => array(
+            'filtered_html' => array(
+              'weight' => -9,
+            ),
+            'filtered_wysiwyg' => array(
+              'weight' => -10,
+            ),
+            'full_html' => array(
+              'weight' => -7,
+            ),
+            'full_wysiwyg' => array(
+              'weight' => -8,
+            ),
+            'markdown' => array(
+              'weight' => -6,
+            ),
+            'plain_text' => array(
+              'weight' => -3,
+            ),
+            'unfiltered' => array(
+              'weight' => -4,
+            ),
+            'unfiltered_phrase_html' => array(
+              'weight' => -5,
+            ),
+          ),
+        ),
+      ),
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 12,
+    ),
+  );
+
   // Exported field_instance: 'node-program-field_grade_level'
   $field_instances['node-program-field_grade_level'] = array(
     'bundle' => 'program',
@@ -238,7 +329,7 @@ function fmnh_program_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 4,
+        'weight' => 5,
       ),
       'promo' => array(
         'label' => 'hidden',
@@ -248,7 +339,7 @@ function fmnh_program_field_default_field_instances() {
           'link' => FALSE,
         ),
         'type' => 'entityreference_label',
-        'weight' => 1,
+        'weight' => 2,
       ),
       'summary' => array(
         'label' => 'hidden',
@@ -395,13 +486,13 @@ function fmnh_program_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 3,
+        'weight' => 4,
       ),
       'promo' => array(
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 3,
+        'weight' => 4,
       ),
       'summary' => array(
         'label' => 'hidden',
@@ -445,6 +536,7 @@ function fmnh_program_field_default_field_instances() {
   // Included for use with string extractors like potx.
   t('Always visible');
   t('Audience');
+  t('Banner description');
   t('Body');
   t('Grade level');
   t('If a program has no events linked to it, the program will not appear in the places it normally would. If the program should always be visible even if there are no planned events, check this box.');

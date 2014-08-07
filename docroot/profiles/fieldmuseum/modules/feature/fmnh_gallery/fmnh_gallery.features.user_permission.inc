@@ -24,6 +24,7 @@ function fmnh_gallery_user_default_permissions() {
     'name' => 'create media_gallery content',
     'roles' => array(
       'administrator' => 'administrator',
+      'author' => 'author',
     ),
     'module' => 'node',
   );
@@ -69,6 +70,7 @@ function fmnh_gallery_user_default_permissions() {
     'name' => 'edit own media_gallery content',
     'roles' => array(
       'administrator' => 'administrator',
+      'author' => 'author',
     ),
     'module' => 'node',
   );

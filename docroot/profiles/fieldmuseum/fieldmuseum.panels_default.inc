@@ -618,15 +618,7 @@ function fieldmuseum_default_panels_mini() {
   $mini->admin_title = 'Header';
   $mini->admin_description = '';
   $mini->requiredcontexts = array();
-  $mini->contexts = array(
-    0 => array(
-      'identifier' => 'File',
-      'keyword' => 'file',
-      'name' => 'entity:file',
-      'entity_id' => '80846',
-      'id' => 1,
-    ),
-  );
+  $mini->contexts = array();
   $mini->relationships = array();
   $display = new panels_display();
   $display->layout = 'canoe';
@@ -712,15 +704,7 @@ function fieldmuseum_default_panels_mini() {
   $mini->admin_title = 'Header (about)';
   $mini->admin_description = '';
   $mini->requiredcontexts = array();
-  $mini->contexts = array(
-    0 => array(
-      'identifier' => 'File',
-      'keyword' => 'file',
-      'name' => 'entity:file',
-      'entity_id' => '80846',
-      'id' => 1,
-    ),
-  );
+  $mini->contexts = array();
   $mini->relationships = array();
   $display = new panels_display();
   $display->layout = 'canoe';
@@ -892,15 +876,7 @@ function fieldmuseum_default_panels_mini() {
   $mini->admin_title = 'Header (at the field)';
   $mini->admin_description = '';
   $mini->requiredcontexts = array();
-  $mini->contexts = array(
-    0 => array(
-      'identifier' => 'File',
-      'keyword' => 'file',
-      'name' => 'entity:file',
-      'entity_id' => '81701',
-      'id' => 1,
-    ),
-  );
+  $mini->contexts = array();
   $mini->relationships = array();
   $display = new panels_display();
   $display->layout = 'canoe';
@@ -1072,15 +1048,7 @@ function fieldmuseum_default_panels_mini() {
   $mini->admin_title = 'Header (educators)';
   $mini->admin_description = '';
   $mini->requiredcontexts = array();
-  $mini->contexts = array(
-    0 => array(
-      'identifier' => 'File',
-      'keyword' => 'file',
-      'name' => 'entity:file',
-      'entity_id' => '81706',
-      'id' => 1,
-    ),
-  );
+  $mini->contexts = array();
   $mini->relationships = array();
   $display = new panels_display();
   $display->layout = 'canoe';
@@ -1211,15 +1179,7 @@ function fieldmuseum_default_panels_mini() {
   $mini->admin_title = 'Header (home)';
   $mini->admin_description = '';
   $mini->requiredcontexts = array();
-  $mini->contexts = array(
-    0 => array(
-      'identifier' => 'File',
-      'keyword' => 'file',
-      'name' => 'entity:file',
-      'entity_id' => '80846',
-      'id' => 1,
-    ),
-  );
+  $mini->contexts = array();
   $mini->relationships = array();
   $display = new panels_display();
   $display->layout = 'canoe';
@@ -1308,15 +1268,7 @@ function fieldmuseum_default_panels_mini() {
   $mini->admin_title = 'Header (science)';
   $mini->admin_description = '';
   $mini->requiredcontexts = array();
-  $mini->contexts = array(
-    0 => array(
-      'identifier' => 'File',
-      'keyword' => 'file',
-      'name' => 'entity:file',
-      'entity_id' => '81691',
-      'id' => 1,
-    ),
-  );
+  $mini->contexts = array();
   $mini->relationships = array();
   $display = new panels_display();
   $display->layout = 'canoe';
@@ -1447,15 +1399,7 @@ function fieldmuseum_default_panels_mini() {
   $mini->admin_title = 'Header (support)';
   $mini->admin_description = '';
   $mini->requiredcontexts = array();
-  $mini->contexts = array(
-    0 => array(
-      'identifier' => 'File',
-      'keyword' => 'file',
-      'name' => 'entity:file',
-      'entity_id' => '81686',
-      'id' => 1,
-    ),
-  );
+  $mini->contexts = array();
   $mini->relationships = array();
   $display = new panels_display();
   $display->layout = 'canoe';
@@ -1575,15 +1519,7 @@ function fieldmuseum_default_panels_mini() {
   $mini->admin_title = 'Header (visit)';
   $mini->admin_description = '';
   $mini->requiredcontexts = array();
-  $mini->contexts = array(
-    0 => array(
-      'identifier' => 'File',
-      'keyword' => 'file',
-      'name' => 'entity:file',
-      'entity_id' => '81696',
-      'id' => 1,
-    ),
-  );
+  $mini->contexts = array();
   $mini->relationships = array();
   $display = new panels_display();
   $display->layout = 'canoe';

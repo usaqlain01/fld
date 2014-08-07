@@ -15,6 +15,7 @@ function fmnh_media_user_default_permissions() {
     'name' => 'access media browser',
     'roles' => array(
       'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
     ),
     'module' => 'media',
   );
@@ -24,6 +25,8 @@ function fmnh_media_user_default_permissions() {
     'name' => 'add media from remote sources',
     'roles' => array(
       'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
+      'author' => 'author',
     ),
     'module' => 'media_internet',
   );
@@ -96,6 +99,7 @@ function fmnh_media_user_default_permissions() {
     'name' => 'create files',
     'roles' => array(
       'administrator' => 'administrator',
+      'author' => 'author',
     ),
     'module' => 'file_entity',
   );
@@ -114,6 +118,8 @@ function fmnh_media_user_default_permissions() {
     'name' => 'crop own images',
     'roles' => array(
       'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
+      'author' => 'author',
     ),
     'module' => 'imagecrop',
   );
@@ -195,7 +201,6 @@ function fmnh_media_user_default_permissions() {
     'name' => 'delete own model files',
     'roles' => array(
       'administrator' => 'administrator',
-      'authenticated user' => 'authenticated user',
     ),
     'module' => 'file_entity',
   );
@@ -260,6 +265,7 @@ function fmnh_media_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
+      'author' => 'author',
     ),
     'module' => 'file_entity',
   );
@@ -270,6 +276,7 @@ function fmnh_media_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
+      'author' => 'author',
     ),
     'module' => 'file_entity',
   );
@@ -279,6 +286,8 @@ function fmnh_media_user_default_permissions() {
     'name' => 'download own image files',
     'roles' => array(
       'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
+      'author' => 'author',
     ),
     'module' => 'file_entity',
   );
@@ -288,6 +297,7 @@ function fmnh_media_user_default_permissions() {
     'name' => 'download own model files',
     'roles' => array(
       'administrator' => 'administrator',
+      'author' => 'author',
     ),
     'module' => 'file_entity',
   );
@@ -298,6 +308,7 @@ function fmnh_media_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
+      'author' => 'author',
     ),
     'module' => 'file_entity',
   );
@@ -353,6 +364,7 @@ function fmnh_media_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
+      'author' => 'author',
     ),
     'module' => 'file_entity',
   );
@@ -363,6 +375,7 @@ function fmnh_media_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
+      'author' => 'author',
     ),
     'module' => 'file_entity',
   );
@@ -372,6 +385,8 @@ function fmnh_media_user_default_permissions() {
     'name' => 'edit own image files',
     'roles' => array(
       'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
+      'author' => 'author',
     ),
     'module' => 'file_entity',
   );
@@ -382,6 +397,7 @@ function fmnh_media_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
+      'author' => 'author',
     ),
     'module' => 'file_entity',
   );
@@ -392,6 +408,7 @@ function fmnh_media_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
+      'author' => 'author',
     ),
     'module' => 'file_entity',
   );
@@ -423,6 +440,7 @@ function fmnh_media_user_default_permissions() {
     'name' => 'view own files',
     'roles' => array(
       'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
     ),
     'module' => 'file_entity',
   );
@@ -432,6 +450,7 @@ function fmnh_media_user_default_permissions() {
     'name' => 'view own private files',
     'roles' => array(
       'administrator' => 'administrator',
+      'author' => 'author',
     ),
     'module' => 'file_entity',
   );

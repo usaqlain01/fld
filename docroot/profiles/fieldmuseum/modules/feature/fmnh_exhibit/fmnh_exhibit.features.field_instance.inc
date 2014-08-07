@@ -210,7 +210,7 @@ function fmnh_exhibit_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 11,
+        'weight' => 12,
       ),
       'event' => array(
         'label' => 'above',
@@ -266,7 +266,7 @@ function fmnh_exhibit_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 6,
+        'weight' => 7,
       ),
       'event' => array(
         'label' => 'above',
@@ -349,6 +349,86 @@ function fmnh_exhibit_field_default_field_instances() {
       ),
       'type' => 'text_textarea',
       'weight' => 5,
+    ),
+  );
+
+  // Exported field_instance: 'node-exhibit-field_banner_image'
+  $field_instances['node-exhibit-field_banner_image'] = array(
+    'bundle' => 'exhibit',
+    'deleted' => 0,
+    'description' => 'This field is for an image sized specifically for the 5x2 ratio banners on the home page.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 4,
+      ),
+      'event' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'promo' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'fences_wrapper' => 'no_wrapper',
+    'field_name' => 'field_banner_image',
+    'label' => 'Banner image',
+    'required' => 0,
+    'settings' => array(
+      'description_field' => 0,
+      'file_directory' => '',
+      'file_extensions' => 'jpg gif jpeg png',
+      'imagecrop' => array(
+        '2x1_2400w' => 0,
+        '5x2_2400w' => 0,
+        '5x3_2400w' => 0,
+        'large' => 0,
+        'media_gallery_large' => 0,
+        'media_gallery_thumbnail' => 0,
+        'medium' => 0,
+        'thumbnail' => 0,
+      ),
+      'max_filesize' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'media',
+      'settings' => array(
+        'allowed_schemes' => array(
+          'oembed' => 0,
+          'public' => 'public',
+        ),
+        'allowed_types' => array(
+          'audio' => 0,
+          'document' => 0,
+          'image' => 'image',
+          'model' => 0,
+          'video' => 0,
+        ),
+        'browser_plugins' => array(
+          'media_default--media_browser_1' => 0,
+          'media_default--media_browser_my_files' => 0,
+          'media_internet' => 0,
+          'upload' => 0,
+        ),
+      ),
+      'type' => 'media_generic',
+      'weight' => 60,
     ),
   );
 
@@ -458,7 +538,7 @@ function fmnh_exhibit_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 4,
+        'weight' => 5,
       ),
       'event' => array(
         'label' => 'above',
@@ -522,7 +602,7 @@ function fmnh_exhibit_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 5,
+        'weight' => 6,
       ),
       'event' => array(
         'label' => 'above',
@@ -672,7 +752,7 @@ function fmnh_exhibit_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 9,
+        'weight' => 10,
       ),
       'event' => array(
         'label' => 'above',
@@ -731,7 +811,7 @@ function fmnh_exhibit_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 13,
+        'weight' => 14,
       ),
       'event' => array(
         'label' => 'above',
@@ -790,7 +870,7 @@ function fmnh_exhibit_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 8,
+        'weight' => 9,
       ),
       'event' => array(
         'label' => 'above',
@@ -849,7 +929,7 @@ function fmnh_exhibit_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 7,
+        'weight' => 8,
       ),
       'event' => array(
         'label' => 'above',
@@ -908,7 +988,7 @@ function fmnh_exhibit_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 10,
+        'weight' => 11,
       ),
       'event' => array(
         'label' => 'above',
@@ -965,7 +1045,7 @@ function fmnh_exhibit_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 14,
+        'weight' => 15,
       ),
       'event' => array(
         'label' => 'above',
@@ -1020,7 +1100,7 @@ function fmnh_exhibit_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 12,
+        'weight' => 13,
       ),
       'event' => array(
         'label' => 'above',
@@ -1061,6 +1141,7 @@ function fmnh_exhibit_field_default_field_instances() {
   t('Action link');
   t('Audience');
   t('Banner description');
+  t('Banner image');
   t('Body');
   t('Date');
   t('Exhibit type');
@@ -1072,6 +1153,7 @@ function fmnh_exhibit_field_default_field_instances() {
   t('Science Focus');
   t('Stratigraphy');
   t('These are the opening and closing dates of the exhibition.');
+  t('This field is for an image sized specifically for the 5x2 ratio banners on the home page.');
   t('Ticketed');
   t('Topic');
 

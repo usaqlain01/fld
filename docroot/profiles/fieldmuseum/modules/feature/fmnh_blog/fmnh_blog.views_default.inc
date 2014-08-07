@@ -123,10 +123,94 @@ function fmnh_blog_views_default_views() {
     0 => 'main',
   );
 
-  /* Display: Context */
-  $handler = $view->new_display('ctools_context', 'Context', 'ctools_context_1');
+  /* Display: Topic blog (context) */
+  $handler = $view->new_display('ctools_context', 'Topic blog (context)', 'ctools_context_1');
   $handler->display->display_options['style_plugin'] = 'ctools_context';
   $handler->display->display_options['row_plugin'] = 'node';
+  $handler->display->display_options['argument_input'] = array(
+    'field_topic_target_id' => array(
+      'type' => 'context',
+      'context' => 'entity:taxonomy_term.tid',
+      'context_optional' => 1,
+    ),
+  );
+
+  /* Display: Video blog (context) */
+  $handler = $view->new_display('ctools_context', 'Video blog (context)', 'ctools_context_2');
+  $handler->display->display_options['style_plugin'] = 'ctools_context';
+  $handler->display->display_options['row_plugin'] = 'node';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'video' => 'video',
+  );
+  $handler->display->display_options['argument_input'] = array(
+    'field_topic_target_id' => array(
+      'type' => 'context',
+      'context' => 'entity:taxonomy_term.tid',
+      'context_optional' => 1,
+    ),
+  );
+
+  /* Display: Podcast blog (context) */
+  $handler = $view->new_display('ctools_context', 'Podcast blog (context)', 'ctools_context_3');
+  $handler->display->display_options['style_plugin'] = 'ctools_context';
+  $handler->display->display_options['row_plugin'] = 'node';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'podcast' => 'podcast',
+  );
+  $handler->display->display_options['argument_input'] = array(
+    'field_topic_target_id' => array(
+      'type' => 'context',
+      'context' => 'entity:taxonomy_term.tid',
+      'context_optional' => 1,
+    ),
+  );
+
+  /* Display: Gallery blog (context) */
+  $handler = $view->new_display('ctools_context', 'Gallery blog (context)', 'ctools_context_4');
+  $handler->display->display_options['style_plugin'] = 'ctools_context';
+  $handler->display->display_options['row_plugin'] = 'node';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'media_gallery' => 'media_gallery',
+  );
   $handler->display->display_options['argument_input'] = array(
     'field_topic_target_id' => array(
       'type' => 'context',

@@ -8818,7 +8818,7 @@ function fieldmuseum_default_page_manager_pages() {
     ),
   );
   $display->cache = array();
-  $display->title = '%term:name';
+  $display->title = '%term:name Blog';
   $display->uuid = '231137e8-83c9-4391-ac05-3a37318043c2';
   $display->content = array();
   $display->panels = array();
@@ -8839,11 +8839,51 @@ function fieldmuseum_default_page_manager_pages() {
       'pager_id' => 0,
       'context' => 'relationship_entitylist_relationship:blogs_1',
       'override_title' => 1,
-      'override_title_text' => 'Recent Blog Posts',
+      'override_title_text' => '%term:name Blogs',
     );
     $pane->cache = array();
     $pane->style = array(
-      'settings' => NULL,
+      'settings' => array(
+        'element_title' => array(
+          'type' => 'h1',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
+      'style' => 'semantic_panels',
     );
     $pane->css = array();
     $pane->extras = array();
