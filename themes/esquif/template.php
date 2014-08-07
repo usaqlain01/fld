@@ -1273,3 +1273,16 @@ function esquif_preprocess_username(&$variables, $hook) {
   $uri = entity_uri('profile2', $profile);
   $variables['link_path'] = $uri['path'];
 }
+
+function esquif_menu_link__menu_block__main_menu__section__science_blog($variables) {
+  $element = &$variables['element'];
+  $output = '';
+  if (in_array('is-active-trail', $element['#attributes']['class'])) {
+    ctools_include('content');
+    $block = ctools_content_render('panels_mini', 'filter_menu', array());
+    $element['#below'] = array(
+      '#markup' => $block->content,
+    );
+  }
+  return esquif_menu_link__menu_block__main_menu__section($variables);
+}
