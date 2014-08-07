@@ -14,3 +14,10 @@ function fmnh_staff_admin_paths() {
     'profile-main/*/edit' => TRUE,
   );
 }
+
+function fmnh_staff_navbar_alter(&$items) {
+  $items['user']['tray']['user_links']['#links']['main-profile'] = array(
+    'title' => t('My public staff profile'),
+    'href' => 'profile-main',
+  );
+}
