@@ -6,9 +6,9 @@ core = 7.x
 test_dependencies[] = entity
 hidden = TRUE
 
-; Information added by Drupal.org packaging script on 2014-07-14
-version = "7.x-2.0-alpha8+43-dev"
+; Information added by Drupal.org packaging script on 2014-08-06
+version = "7.x-2.0-alpha8+44-dev"
 core = "7.x"
 project = "feeds"
-datestamp = "1405298632"
+datestamp = "1407357366"
 

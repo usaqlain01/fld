@@ -2230,54 +2230,6 @@
         ]
     },
     {
-        "name": "stojg/crop",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/stojg/crop.git",
-            "reference": "07d338504c3e9e58d68f1d267b0137811c9b34d2"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/stojg/crop/zipball/07d338504c3e9e58d68f1d267b0137811c9b34d2",
-            "reference": "07d338504c3e9e58d68f1d267b0137811c9b34d2",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.0"
-        },
-        "time": "2014-07-16 20:38:47",
-        "type": "library",
-        "installation-source": "source",
-        "autoload": {
-            "psr-0": {
-                "stojg\\crop": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "BSD-2"
-        ],
-        "authors": [
-            {
-                "name": "Stig Lindqvist",
-                "email": "stojg.lindqvist@gmail.com",
-                "homepage": "http://www.stojg.se/"
-            },
-            {
-                "name": "Julien DENIAU",
-                "email": "julien.deniau@gmail.com",
-                "homepage": "http://www.mapado.com"
-            }
-        ],
-        "description": "Image cropping classes",
-        "homepage": "http://github.com/stojg/crop",
-        "keywords": [
-            "image"
-        ]
-    },
-    {
         "name": "phpunit/php-code-coverage",
         "version": "2.0.10",
         "version_normalized": "2.0.10.0",
@@ -3231,5 +3183,97 @@
         ],
         "description": "Symfony BrowserKit Component",
         "homepage": "http://symfony.com"
+    },
+    {
+        "name": "stojg/crop",
+        "version": "dev-develop",
+        "version_normalized": "dev-develop",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/bangpound/crop.git",
+            "reference": "36df35504d096085debc8796b350e6c33bad30df"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/bangpound/crop/zipball/36df35504d096085debc8796b350e6c33bad30df",
+            "reference": "36df35504d096085debc8796b350e6c33bad30df",
+            "shasum": ""
+        },
+        "require": {
+            "ext-imagick": "*",
+            "php": ">=5.3.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "4.1.*"
+        },
+        "time": "2014-08-06 21:12:37",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "stojg\\crop": "src/"
+            }
+        },
+        "license": [
+            "BSD-2"
+        ],
+        "authors": [
+            {
+                "name": "Stig Lindqvist",
+                "email": "stojg.lindqvist@gmail.com",
+                "homepage": "https://stojg.se/"
+            },
+            {
+                "name": "Julien Deniau jdeniau",
+                "email": "julien.deniau@gmail.com",
+                "homepage": "http://www.mapado.com"
+            }
+        ],
+        "description": "Image cropping classes",
+        "homepage": "http://github.com/stojg/crop",
+        "keywords": [
+            "image"
+        ],
+        "support": {
+            "source": "https://github.com/bangpound/crop/tree/develop"
+        }
+    },
+    {
+        "name": "bangpound/crop-extension",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/bangpound/crop-extension.git",
+            "reference": "e49f34be8198b16914c44d0835452722a7b3e51a"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/bangpound/crop-extension/zipball/e49f34be8198b16914c44d0835452722a7b3e51a",
+            "reference": "e49f34be8198b16914c44d0835452722a7b3e51a",
+            "shasum": ""
+        },
+        "require": {
+            "stojg/crop": "*"
+        },
+        "time": "2014-08-06 23:42:11",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Bangpound\\stojg\\crop\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Benjamin Doherty",
+                "email": "bjd@bangpound.org"
+            }
+        ],
+        "description": "Extension of stojg/crop"
     }
 ]

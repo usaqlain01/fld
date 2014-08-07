@@ -157,9 +157,17 @@ function fieldmuseum_smartcrop(&$image, $data, $callback) {
 
     // Load settings
     if (!$settings) {
+      $dimensions = array(
+        'width' => $data['width'],
+        'height' => $data['height'],
+      );
+      image_dimensions_scale($dimensions, $image->info['width'], $image->info['height']);
+
       $crop = new \Bangpound\stojg\crop\CropBalanced($image->source);
-      $scale = max($data['width'] / $image->info['width'], $data['height'] / $image->info['height']);
-      $offset = $crop->getOffset($data['width'] / $scale, $data['height'] / $scale);
+      // Scale is the larger value of the two dimensions' scale ratios. This guarantees that there is
+      // always something to crop.
+      $scale = max($dimensions['width'] / $image->info['width'], $dimensions['height'] / $image->info['height']);
+      $offset = $crop->getOffset($dimensions['width'] / $scale, $dimensions['height'] / $scale);
       $scale_width = ceil($image->info['width'] * $scale);
 
       $row = array(
@@ -167,8 +175,8 @@ function fieldmuseum_smartcrop(&$image, $data, $callback) {
         'style_name' => $style_name,
         'xoffset' => $offset['x'] * $scale,
         'yoffset' => $offset['y'] * $scale,
-        'width' => $data['width'],
-        'height' => $data['height'],
+        'width' => $dimensions['width'],
+        'height' => $dimensions['height'],
         'scale' => $scale_width,
         'rotation' => 0,
       );
@@ -419,7 +427,7 @@ function fieldmuseum_panels_pane_content_alter($content, $pane, $panel_args, $co
 function fieldmuseum_preprocess(&$variables, $hook) {
   // Pull out the pane object that was stashed earlier.
   if ($hook == 'panels_pane') {
-    if (isset($variables['content']['#panels_pane'])) {
+    if (isset($variables['content']['#panels_pane']) && is_array($variables['content']['#panels_pane'])) {
       $pane = $variables['content']['#panels_pane']['pane'];
     }
   }

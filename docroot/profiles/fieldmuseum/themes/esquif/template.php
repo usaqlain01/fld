@@ -268,11 +268,13 @@ function esquif_preprocess_taxonomy_term(&$variables, $hook) {
       $variables['theme_hook_suggestions'][] = 'taxonomy_term__promo';
       $variables['classes_array'][] = 'promo';
       $variables['title_attributes_array']['class'][] = 'promo__title';
+      $variables['term_url'] = url('science/blog/'. drupal_strtolower(str_replace(' ', '-', $variables['name'])));
       break;
     case 'summary':
       $variables['theme_hook_suggestions'][] = 'taxonomy_term__summary';
       $variables['classes_array'][] = 'summary';
       $variables['title_attributes_array']['class'][] = 'summary__title';
+      $variables['term_url'] = url('science/blog/'. drupal_strtolower(str_replace(' ', '-', $variables['name'])));
       break;
   }
 }
@@ -1248,4 +1250,26 @@ function esquif_entity_view_mode_alter(&$view_mode, $context) {
   if (drupal_is_front_page() && $context['entity_type'] == 'file') {
     $view_mode = 'banner_5x2';
   }
+}
+
+function esquif_field__field_topic($variables) {
+  $output = '';
+
+  // Render the items.
+  $items = array();
+  foreach ($variables['items'] as $delta => $item) {
+    $items[] = drupal_render($item);
+  }
+  $output .= implode(', ', $items);
+
+  return $output;
+}
+
+function esquif_preprocess_username(&$variables, $hook) {
+  $profile = profile2_by_uid_load($variables['uid'], 'main');
+  $variables['name'] = check_plain($profile->label);
+  $variables['name_raw'] = $profile->label;
+
+  $uri = entity_uri('profile2', $profile);
+  $variables['link_path'] = $uri['path'];
 }
