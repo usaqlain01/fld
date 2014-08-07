@@ -61,7 +61,7 @@ function fmnh_blog_default_panels_mini() {
 <ul class="filters">
 	<li class="filters__item"> <a href="/science/blog/birds" class="filters__link">Birds</a> </li>
 	<li class="filters__item"> <a href="/science/blog/dinosaurs" class="filters__link">Dinosaurs</a> </li>
-	<li class="filters__item"> <a href="/science/blog/fish" class="filters__link">Fish</a> </li>
+	<li class="filters__item"> <a href="/science/blog/fishes" class="filters__link">Fish</a> </li>
 	<li class="filters__item"> <a href="/science/blog/mummies" class="filters__link">Mummies</a> </li>
 	<li class="filters__item"> <a href="/science/blog/rocks" class="filters__link">Rocks</a> </li>
 </ul>
@@ -69,11 +69,11 @@ function fmnh_blog_default_panels_mini() {
 	Departments 
 </h6>
 <ul class="filters">
-	<li class="filters__item"> <a href="/science/blog/culture" class="filters__link">Culture</a> </li>
+	<li class="filters__item"> <a href="/science/blog/living-cultures" class="filters__link">Culture</a> </li>
 	<li class="filters__item"> <a href="/science/blog/plants" class="filters__link">Plants</a> </li>
 	<li class="filters__item"> <a href="/science/blog/animals" class="filters__link">Animals</a> </li>
 	<li class="filters__item"> <a href="/science/blog/fossils" class="filters__link">Fossils</a> </li>
-	<li class="filters__item"> <a href="/science/blog/meteorites" class="filters__link">Fossils</a> </li>
+	<li class="filters__item"> <a href="/science/blog/meteorites" class="filters__link">Meteorites</a> </li>
 </ul>
 <h6 class="navFilters__heading">
 	Media 
@@ -83,6 +83,7 @@ function fmnh_blog_default_panels_mini() {
 	<li class="filters__item"> <a href="/science/blog/video" class="filters__link">Videos</a> </li>
 	<li class="filters__item"> <a href="/science/blog/podcast" class="filters__link">Podcasts</a> </li>
 </ul>
+<!---
 <h6 class="navFilters__heading">
 	Topics 
 </h6>
@@ -93,6 +94,7 @@ function fmnh_blog_default_panels_mini() {
 	<li class="filters__item"> <a href="/science/blog/" class="filters__link">Category 4</a> </li>
 	<li class="filters__item"> <a href="/science/blog/" class="filters__link">Category 5</a> </li>
 </ul>
+--->
 <a class="link--more" href="/science/blog/list">View All Categories</a>
 </nav>',
       'format' => 'unfiltered',
