@@ -1756,63 +1756,6 @@
         ]
     },
     {
-        "name": "cilex/console-service-provider",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/Cilex/console-service-provider.git",
-            "reference": "b685897c0bd0981f6453c3f28ce6b0ec8e5494f9"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/Cilex/console-service-provider/zipball/b685897c0bd0981f6453c3f28ce6b0ec8e5494f9",
-            "reference": "b685897c0bd0981f6453c3f28ce6b0ec8e5494f9",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.3",
-            "pimple/pimple": ">=2.1,<4",
-            "symfony/console": "~2.4"
-        },
-        "time": "2014-05-11 08:45:49",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.0-dev"
-            }
-        },
-        "installation-source": "source",
-        "autoload": {
-            "psr-0": {
-                "Cilex\\Provider\\Console": "src"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Beau Simensen",
-                "email": "beau@dflydev.com",
-                "homepage": "http://beausimensen.com"
-            },
-            {
-                "name": "Mike van Riel",
-                "email": "me@mikevanriel.com"
-            }
-        ],
-        "description": "Console Service Provider",
-        "keywords": [
-            "cilex",
-            "console",
-            "pimple",
-            "service-provider",
-            "silex"
-        ]
-    },
-    {
         "name": "bangpound/assetic-codekit",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
@@ -2079,78 +2022,6 @@
         "keywords": [
             "container",
             "dependency injection"
-        ]
-    },
-    {
-        "name": "phing/phing",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/phingofficial/phing.git",
-            "reference": "acfa381c5c92dbfd86694199000e57face0e80cf"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/phingofficial/phing/zipball/acfa381c5c92dbfd86694199000e57face0e80cf",
-            "reference": "acfa381c5c92dbfd86694199000e57face0e80cf",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.2.0"
-        },
-        "require-dev": {
-            "phpdocumentor/phpdocumentor": "2.x",
-            "phpunit/phpunit": ">=3.7"
-        },
-        "suggest": {
-            "pdepend/pdepend": "PHP version of JDepend",
-            "pear/archive_tar": "Tar file management class",
-            "pear/versioncontrol_git": "A library that provides OO interface to handle Git repository",
-            "pear/versioncontrol_svn": "A simple OO-style interface for Subversion, the free/open-source version control system",
-            "phpdocumentor/phpdocumentor": "Documentation Generator for PHP",
-            "phploc/phploc": "A tool for quickly measuring the size of a PHP project",
-            "phpmd/phpmd": "PHP version of PMD tool",
-            "phpunit/php-code-coverage": "Library that provides collection, processing, and rendering functionality for PHP code coverage information",
-            "phpunit/phpunit": "The PHP Unit Testing Framework",
-            "sebastian/phpcpd": "Copy/Paste Detector (CPD) for PHP code",
-            "tedivm/jshrink": "Javascript Minifier built in PHP"
-        },
-        "time": "2014-07-26 13:11:01",
-        "bin": [
-            "bin/phing"
-        ],
-        "type": "library",
-        "installation-source": "source",
-        "autoload": {
-            "classmap": [
-                "classes/phing/"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "include-path": [
-            "classes"
-        ],
-        "license": [
-            "LGPL-3.0"
-        ],
-        "authors": [
-            {
-                "name": "Phing Community",
-                "homepage": "http://www.phing.info/trac/wiki/Development/Contributors"
-            },
-            {
-                "name": "Michiel Rook",
-                "email": "mrook@php.net"
-            }
-        ],
-        "description": "PHing Is Not GNU make; it's a PHP project build system or build tool based on Apache Ant.",
-        "homepage": "http://www.phing.info/",
-        "keywords": [
-            "build",
-            "phing",
-            "task",
-            "tool"
         ]
     },
     {
@@ -3275,5 +3146,147 @@
             }
         ],
         "description": "Extension of stojg/crop"
+    },
+    {
+        "name": "cilex/console-service-provider",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Cilex/console-service-provider.git",
+            "reference": "3abf600fd9f6ac54f56cf1ce7fb3a7c0c533cd03"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Cilex/console-service-provider/zipball/3abf600fd9f6ac54f56cf1ce7fb3a7c0c533cd03",
+            "reference": "3abf600fd9f6ac54f56cf1ce7fb3a7c0c533cd03",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.3",
+            "pimple/pimple": ">=2.1,<4",
+            "symfony/console": "~2.4"
+        },
+        "time": "2014-07-28 20:37:06",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.0-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Cilex\\Provider\\Console": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Mike van Riel",
+                "email": "me@mikevanriel.com"
+            },
+            {
+                "name": "Beau Simensen",
+                "email": "beau@dflydev.com"
+            }
+        ],
+        "description": "Console Service Provider",
+        "keywords": [
+            "cilex",
+            "console",
+            "pimple",
+            "service-provider",
+            "silex"
+        ]
+    },
+    {
+        "name": "phing/phing",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/phingofficial/phing.git",
+            "reference": "1e4740c030d7ed1f917afbab50196a661946519a"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/phingofficial/phing/zipball/1e4740c030d7ed1f917afbab50196a661946519a",
+            "reference": "1e4740c030d7ed1f917afbab50196a661946519a",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.2.0"
+        },
+        "require-dev": {
+            "ext-pdo_sqlite": "*",
+            "lastcraft/simpletest": "@dev",
+            "pdepend/pdepend": "1.x",
+            "pear-pear.php.net/http_request2": "2.2.x",
+            "pear-pear.php.net/net_growl": "2.7.x",
+            "pear-pear.php.net/pear_packagefilemanager": "1.7.x",
+            "pear-pear.php.net/pear_packagefilemanager2": "1.0.x",
+            "pear-pear.php.net/xml_serializer": "0.20.x",
+            "pear/pear_exception": "@dev",
+            "pear/versioncontrol_git": "@dev",
+            "pear/versioncontrol_svn": "@dev",
+            "phpdocumentor/phpdocumentor": "2.x",
+            "phploc/phploc": "2.x",
+            "phpunit/phpunit": ">=3.7",
+            "sebastian/phpcpd": "2.x",
+            "squizlabs/php_codesniffer": "1.5.x"
+        },
+        "suggest": {
+            "pdepend/pdepend": "PHP version of JDepend",
+            "pear/archive_tar": "Tar file management class",
+            "pear/versioncontrol_git": "A library that provides OO interface to handle Git repository",
+            "pear/versioncontrol_svn": "A simple OO-style interface for Subversion, the free/open-source version control system",
+            "phpdocumentor/phpdocumentor": "Documentation Generator for PHP",
+            "phploc/phploc": "A tool for quickly measuring the size of a PHP project",
+            "phpmd/phpmd": "PHP version of PMD tool",
+            "phpunit/php-code-coverage": "Library that provides collection, processing, and rendering functionality for PHP code coverage information",
+            "phpunit/phpunit": "The PHP Unit Testing Framework",
+            "sebastian/phpcpd": "Copy/Paste Detector (CPD) for PHP code",
+            "tedivm/jshrink": "Javascript Minifier built in PHP"
+        },
+        "time": "2014-08-06 13:19:20",
+        "bin": [
+            "bin/phing"
+        ],
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "classmap": [
+                "classes/phing/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "include-path": [
+            "classes"
+        ],
+        "license": [
+            "LGPL-3.0"
+        ],
+        "authors": [
+            {
+                "name": "Phing Community",
+                "homepage": "http://www.phing.info/trac/wiki/Development/Contributors"
+            },
+            {
+                "name": "Michiel Rook",
+                "email": "mrook@php.net"
+            }
+        ],
+        "description": "PHing Is Not GNU make; it's a PHP project build system or build tool based on Apache Ant.",
+        "homepage": "http://www.phing.info/",
+        "keywords": [
+            "build",
+            "phing",
+            "task",
+            "tool"
+        ]
     }
 ]
