@@ -35,6 +35,8 @@ function fmnh_blog_default_page_manager_handlers() {
           'settings' => array(
             'type' => array(
               'blog' => 'blog',
+              'podcast' => 'podcast',
+              'video' => 'video',
             ),
           ),
           'context' => 'argument_entity_id:node_1',
