@@ -618,15 +618,7 @@ function fieldmuseum_default_panels_mini() {
   $mini->admin_title = 'Header';
   $mini->admin_description = '';
   $mini->requiredcontexts = array();
-  $mini->contexts = array(
-    0 => array(
-      'identifier' => 'File',
-      'keyword' => 'file',
-      'name' => 'entity:file',
-      'entity_id' => '80846',
-      'id' => 1,
-    ),
-  );
+  $mini->contexts = array();
   $mini->relationships = array();
   $display = new panels_display();
   $display->layout = 'canoe';

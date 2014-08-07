@@ -125,6 +125,9 @@ function fmnh_program_rdf_default_mappings() {
       ),
       'type' => 'rel',
     ),
+    'field_banner_description' => array(
+      'predicates' => array(),
+    ),
   );
 
   return $schemaorg;

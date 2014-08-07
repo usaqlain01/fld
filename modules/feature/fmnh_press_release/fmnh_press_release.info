@@ -19,6 +19,7 @@ features[features_api][] = api:2
 features[field_base][] = field_press_release_type
 features[field_instance][] = node-press_release-body
 features[field_instance][] = node-press_release-field_gallery
+features[field_instance][] = node-press_release-field_image
 features[field_instance][] = node-press_release-field_press_release_type
 features[node][] = press_release
 features[page_manager_handlers][] = node_view_panel_context_4
