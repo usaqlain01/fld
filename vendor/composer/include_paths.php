@@ -11,9 +11,9 @@ return array(
     $vendorDir . '/phpunit/php-text-template',
     $vendorDir . '/phpunit/php-timer',
     $vendorDir . '/phpunit/php-file-iterator',
-    $vendorDir . '/phpunit/phpunit-mock-objects',
     $vendorDir . '/phpunit/phpunit',
     $vendorDir . '/symfony/yaml',
     $vendorDir . '/phing/phing/classes',
     $vendorDir . '/phpunit/php-code-coverage',
+    $vendorDir . '/phpunit/phpunit-mock-objects',
 );
