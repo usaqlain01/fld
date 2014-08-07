@@ -268,11 +268,13 @@ function esquif_preprocess_taxonomy_term(&$variables, $hook) {
       $variables['theme_hook_suggestions'][] = 'taxonomy_term__promo';
       $variables['classes_array'][] = 'promo';
       $variables['title_attributes_array']['class'][] = 'promo__title';
+      $variables['term_url'] = url('science/blog/'. drupal_strtolower(str_replace(' ', '-', $variables['name'])));
       break;
     case 'summary':
       $variables['theme_hook_suggestions'][] = 'taxonomy_term__summary';
       $variables['classes_array'][] = 'summary';
       $variables['title_attributes_array']['class'][] = 'summary__title';
+      $variables['term_url'] = url('science/blog/'. drupal_strtolower(str_replace(' ', '-', $variables['name'])));
       break;
   }
 }
