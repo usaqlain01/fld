@@ -15,6 +15,7 @@ function fmnh_project_user_default_permissions() {
     'name' => 'create project content',
     'roles' => array(
       'administrator' => 'administrator',
+      'author' => 'author',
     ),
     'module' => 'node',
   );
@@ -51,6 +52,7 @@ function fmnh_project_user_default_permissions() {
     'name' => 'edit own project content',
     'roles' => array(
       'administrator' => 'administrator',
+      'author' => 'author',
     ),
     'module' => 'node',
   );

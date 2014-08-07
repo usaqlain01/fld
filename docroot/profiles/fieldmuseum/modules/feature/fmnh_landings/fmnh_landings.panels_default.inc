@@ -750,7 +750,7 @@ function fmnh_landings_default_panels_mini() {
     ),
   );
   $display->cache = array();
-  $display->title = 'Exhibitions On The Museum Floor';
+  $display->title = 'Experience the Field';
   $display->uuid = 'c1f4a1bd-4674-4663-aa14-65ac697f61bd';
   $display->content = array();
   $display->panels = array();

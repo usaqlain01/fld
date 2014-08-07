@@ -232,7 +232,7 @@ function fieldmuseum_field_default_field_instances() {
         'module' => 'file_entity',
         'settings' => array(
           'field_formatter_class' => '',
-          'file_view_mode' => 'default',
+          'file_view_mode' => 'primary_2x1',
         ),
         'type' => 'file_rendered',
         'weight' => 1,

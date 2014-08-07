@@ -15,6 +15,7 @@ function fmnh_press_release_user_default_permissions() {
     'name' => 'create press_release content',
     'roles' => array(
       'administrator' => 'administrator',
+      'author' => 'author',
     ),
     'module' => 'node',
   );
@@ -51,6 +52,7 @@ function fmnh_press_release_user_default_permissions() {
     'name' => 'edit own press_release content',
     'roles' => array(
       'administrator' => 'administrator',
+      'author' => 'author',
     ),
     'module' => 'node',
   );

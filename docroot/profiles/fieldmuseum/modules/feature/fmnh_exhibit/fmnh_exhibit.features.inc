@@ -127,8 +127,9 @@ function fmnh_exhibit_rdf_default_mappings() {
         0 => 'schema:offers',
       ),
     ),
-    'field_banner_description' => array(
+    'field_banner_image' => array(
       'predicates' => array(),
+      'type' => 'rel',
     ),
   );
 

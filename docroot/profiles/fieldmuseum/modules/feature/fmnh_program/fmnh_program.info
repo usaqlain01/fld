@@ -42,6 +42,7 @@ features[field_group][] = group_public_tags|node|program|form
 features[field_instance][] = node-program-body
 features[field_instance][] = node-program-field_always_visible
 features[field_instance][] = node-program-field_audience
+features[field_instance][] = node-program-field_banner_description
 features[field_instance][] = node-program-field_grade_level
 features[field_instance][] = node-program-field_image
 features[field_instance][] = node-program-field_references

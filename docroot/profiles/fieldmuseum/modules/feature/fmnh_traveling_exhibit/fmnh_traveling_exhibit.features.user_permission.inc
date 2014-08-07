@@ -15,6 +15,7 @@ function fmnh_traveling_exhibit_user_default_permissions() {
     'name' => 'create traveling_exhibit content',
     'roles' => array(
       'administrator' => 'administrator',
+      'author' => 'author',
     ),
     'module' => 'node',
   );
@@ -51,6 +52,7 @@ function fmnh_traveling_exhibit_user_default_permissions() {
     'name' => 'edit own traveling_exhibit content',
     'roles' => array(
       'administrator' => 'administrator',
+      'author' => 'author',
     ),
     'module' => 'node',
   );
