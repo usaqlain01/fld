@@ -427,7 +427,7 @@ function fieldmuseum_panels_pane_content_alter($content, $pane, $panel_args, $co
 function fieldmuseum_preprocess(&$variables, $hook) {
   // Pull out the pane object that was stashed earlier.
   if ($hook == 'panels_pane') {
-    if (isset($variables['content']['#panels_pane'])) {
+    if (isset($variables['content']['#panels_pane']) && is_array($variables['content']['#panels_pane'])) {
       $pane = $variables['content']['#panels_pane']['pane'];
     }
   }
