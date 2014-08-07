@@ -34,7 +34,6 @@ function fmnh_blog_user_default_permissions() {
     'name' => 'delete own blog content',
     'roles' => array(
       'administrator' => 'administrator',
-      'author' => 'author',
     ),
     'module' => 'node',
   );

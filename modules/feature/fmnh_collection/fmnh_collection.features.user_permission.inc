@@ -15,6 +15,7 @@ function fmnh_collection_user_default_permissions() {
     'name' => 'create collection content',
     'roles' => array(
       'administrator' => 'administrator',
+      'author' => 'author',
     ),
     'module' => 'node',
   );
@@ -51,6 +52,7 @@ function fmnh_collection_user_default_permissions() {
     'name' => 'edit own collection content',
     'roles' => array(
       'administrator' => 'administrator',
+      'author' => 'author',
     ),
     'module' => 'node',
   );

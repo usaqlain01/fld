@@ -144,7 +144,6 @@ function fieldmuseum_user_default_permissions() {
     'name' => 'create article content',
     'roles' => array(
       'administrator' => 'administrator',
-      'author' => 'author',
     ),
     'module' => 'node',
   );
@@ -154,6 +153,7 @@ function fieldmuseum_user_default_permissions() {
     'name' => 'create page content',
     'roles' => array(
       'administrator' => 'administrator',
+      'author' => 'author',
     ),
     'module' => 'node',
   );
@@ -182,7 +182,6 @@ function fieldmuseum_user_default_permissions() {
     'name' => 'delete own article content',
     'roles' => array(
       'administrator' => 'administrator',
-      'author' => 'author',
       'reviewer' => 'reviewer',
     ),
     'module' => 'node',
@@ -240,6 +239,7 @@ function fieldmuseum_user_default_permissions() {
     'name' => 'edit own page content',
     'roles' => array(
       'administrator' => 'administrator',
+      'author' => 'author',
     ),
     'module' => 'node',
   );

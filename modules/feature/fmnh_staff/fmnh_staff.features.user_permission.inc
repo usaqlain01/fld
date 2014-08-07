@@ -25,6 +25,7 @@ function fmnh_staff_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
+      'author' => 'author',
     ),
     'module' => 'profile2',
   );
@@ -44,6 +45,7 @@ function fmnh_staff_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
+      'author' => 'author',
     ),
     'module' => 'profile2',
   );

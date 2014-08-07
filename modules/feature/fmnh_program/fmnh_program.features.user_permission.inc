@@ -15,6 +15,7 @@ function fmnh_program_user_default_permissions() {
     'name' => 'create program content',
     'roles' => array(
       'administrator' => 'administrator',
+      'author' => 'author',
     ),
     'module' => 'node',
   );
@@ -51,6 +52,7 @@ function fmnh_program_user_default_permissions() {
     'name' => 'edit own program content',
     'roles' => array(
       'administrator' => 'administrator',
+      'author' => 'author',
     ),
     'module' => 'node',
   );

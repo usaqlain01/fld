@@ -15,6 +15,7 @@ function fmnh_learning_resource_user_default_permissions() {
     'name' => 'create learning_resource content',
     'roles' => array(
       'administrator' => 'administrator',
+      'author' => 'author',
     ),
     'module' => 'node',
   );
@@ -51,6 +52,7 @@ function fmnh_learning_resource_user_default_permissions() {
     'name' => 'edit own learning_resource content',
     'roles' => array(
       'administrator' => 'administrator',
+      'author' => 'author',
     ),
     'module' => 'node',
   );
