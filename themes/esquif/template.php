@@ -1267,11 +1267,13 @@ function esquif_field__field_topic($variables) {
 
 function esquif_preprocess_username(&$variables, $hook) {
   $profile = profile2_by_uid_load($variables['uid'], 'main');
-  $variables['name'] = check_plain($profile->label);
-  $variables['name_raw'] = $profile->label;
+  if ($profile) {
+    $variables['name'] = check_plain($profile->label);
+    $variables['name_raw'] = $profile->label;
 
-  $uri = entity_uri('profile2', $profile);
-  $variables['link_path'] = $uri['path'];
+    $uri = entity_uri('profile2', $profile);
+    $variables['link_path'] = $uri['path'];
+  }
 }
 
 function esquif_menu_link__menu_block__main_menu__section__science_blog($variables) {
