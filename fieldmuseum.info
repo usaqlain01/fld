@@ -24,6 +24,7 @@ dependencies[] = file
 dependencies[] = file_entity
 dependencies[] = file_model
 dependencies[] = filter
+dependencies[] = fmnh_exhibit
 dependencies[] = fmnh_references
 dependencies[] = image
 dependencies[] = image_resize_filter
