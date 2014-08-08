@@ -7,13 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     $vendorDir . '/pear-pear.php.net/VersionControl_Git',
-    $vendorDir . '/phpunit/php-token-stream',
-    $vendorDir . '/phpunit/php-text-template',
-    $vendorDir . '/phpunit/php-timer',
-    $vendorDir . '/phpunit/php-file-iterator',
-    $vendorDir . '/phpunit/phpunit',
-    $vendorDir . '/symfony/yaml',
-    $vendorDir . '/phpunit/php-code-coverage',
-    $vendorDir . '/phpunit/phpunit-mock-objects',
     $vendorDir . '/phing/phing/classes',
 );

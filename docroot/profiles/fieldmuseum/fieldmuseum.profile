@@ -370,11 +370,13 @@ function fieldmuseum_menu_block_menu_tree_content_type_render($subtype, $conf, $
  */
 function _fieldmuseum_menu_block_menu_tree_theme_helper(&$links, $identifier) {
   foreach (element_children($links) as $key) {
+    $depth = $links[$key]['#original_link']['depth'];
     array_unshift($links[$key]['#theme'], 'menu_link__menu_block__main_menu__'. $identifier);
     if (!empty($links[$key]['#below'])) {
       _fieldmuseum_menu_block_menu_tree_theme_helper($links[$key]['#below'], $identifier);
     }
   }
+  array_unshift($links['#theme_wrappers'][0], 'menu_tree__menu_block__main_menu__'. $identifier .'__'. $depth);
 }
 
 /**

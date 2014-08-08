@@ -50,7 +50,7 @@ function fmnh_media_image_default_styles() {
     'name' => '2x1_1000w',
     'label' => '2x1 1000w',
     'effects' => array(
-      1 => array(
+      241 => array(
         'label' => 'Reuse a javascript crop selection',
         'help' => 'Reuse crop selection from another javascript crop preset.',
         'effect callback' => 'fieldmuseum_imagecrop_reuse_effect',
@@ -64,7 +64,7 @@ function fmnh_media_image_default_styles() {
         'dimensions callback' => 'fieldmuseum_imagecrop_reuse_dimensions',
         'weight' => 1,
       ),
-      6 => array(
+      246 => array(
         'label' => 'Scale',
         'help' => 'Scaling will maintain the aspect-ratio of the original image. If only a single dimension is specified, the other dimension will be calculated.',
         'effect callback' => 'image_scale_effect',
@@ -76,7 +76,7 @@ function fmnh_media_image_default_styles() {
         'data' => array(
           'width' => 1000,
           'height' => 500,
-          'upscale' => 0,
+          'upscale' => 1,
         ),
         'weight' => 2,
       ),
@@ -88,7 +88,7 @@ function fmnh_media_image_default_styles() {
     'name' => '2x1_1200w',
     'label' => '2x1 1200w',
     'effects' => array(
-      11 => array(
+      251 => array(
         'label' => 'Reuse a javascript crop selection',
         'help' => 'Reuse crop selection from another javascript crop preset.',
         'effect callback' => 'fieldmuseum_imagecrop_reuse_effect',
@@ -102,7 +102,7 @@ function fmnh_media_image_default_styles() {
         'dimensions callback' => 'fieldmuseum_imagecrop_reuse_dimensions',
         'weight' => 1,
       ),
-      16 => array(
+      256 => array(
         'label' => 'Scale',
         'help' => 'Scaling will maintain the aspect-ratio of the original image. If only a single dimension is specified, the other dimension will be calculated.',
         'effect callback' => 'image_scale_effect',
@@ -114,7 +114,7 @@ function fmnh_media_image_default_styles() {
         'data' => array(
           'width' => 1200,
           'height' => 600,
-          'upscale' => 0,
+          'upscale' => 1,
         ),
         'weight' => 2,
       ),
@@ -126,7 +126,7 @@ function fmnh_media_image_default_styles() {
     'name' => '2x1_1600w',
     'label' => '2x1 1600w',
     'effects' => array(
-      21 => array(
+      261 => array(
         'label' => 'Reuse a javascript crop selection',
         'help' => 'Reuse crop selection from another javascript crop preset.',
         'effect callback' => 'fieldmuseum_imagecrop_reuse_effect',
@@ -140,7 +140,7 @@ function fmnh_media_image_default_styles() {
         'dimensions callback' => 'fieldmuseum_imagecrop_reuse_dimensions',
         'weight' => 1,
       ),
-      26 => array(
+      266 => array(
         'label' => 'Scale',
         'help' => 'Scaling will maintain the aspect-ratio of the original image. If only a single dimension is specified, the other dimension will be calculated.',
         'effect callback' => 'image_scale_effect',
@@ -152,7 +152,7 @@ function fmnh_media_image_default_styles() {
         'data' => array(
           'width' => 1600,
           'height' => 800,
-          'upscale' => 0,
+          'upscale' => 1,
         ),
         'weight' => 2,
       ),
@@ -164,7 +164,7 @@ function fmnh_media_image_default_styles() {
     'name' => '2x1_2400w',
     'label' => '2x1 2400w',
     'effects' => array(
-      31 => array(
+      271 => array(
         'label' => 'Javascript crop',
         'help' => 'Create a crop with a javascript toolbox.',
         'effect callback' => 'fieldmuseum_imagecrop_effect',
@@ -185,7 +185,7 @@ function fmnh_media_image_default_styles() {
         ),
         'weight' => 1,
       ),
-      36 => array(
+      276 => array(
         'label' => 'Scale',
         'help' => 'Scaling will maintain the aspect-ratio of the original image. If only a single dimension is specified, the other dimension will be calculated.',
         'effect callback' => 'image_scale_effect',
@@ -197,7 +197,7 @@ function fmnh_media_image_default_styles() {
         'data' => array(
           'width' => 2400,
           'height' => 1200,
-          'upscale' => 0,
+          'upscale' => 1,
         ),
         'weight' => 2,
       ),
@@ -209,7 +209,7 @@ function fmnh_media_image_default_styles() {
     'name' => '2x1_500w',
     'label' => '2x1 500w',
     'effects' => array(
-      41 => array(
+      281 => array(
         'label' => 'Reuse a javascript crop selection',
         'help' => 'Reuse crop selection from another javascript crop preset.',
         'effect callback' => 'fieldmuseum_imagecrop_reuse_effect',
@@ -223,7 +223,7 @@ function fmnh_media_image_default_styles() {
         'dimensions callback' => 'fieldmuseum_imagecrop_reuse_dimensions',
         'weight' => 1,
       ),
-      46 => array(
+      286 => array(
         'label' => 'Scale',
         'help' => 'Scaling will maintain the aspect-ratio of the original image. If only a single dimension is specified, the other dimension will be calculated.',
         'effect callback' => 'image_scale_effect',
@@ -235,7 +235,7 @@ function fmnh_media_image_default_styles() {
         'data' => array(
           'width' => 500,
           'height' => 250,
-          'upscale' => 0,
+          'upscale' => 1,
         ),
         'weight' => 2,
       ),
@@ -247,7 +247,7 @@ function fmnh_media_image_default_styles() {
     'name' => '2x1_800w',
     'label' => '2x1 800w',
     'effects' => array(
-      51 => array(
+      291 => array(
         'label' => 'Reuse a javascript crop selection',
         'help' => 'Reuse crop selection from another javascript crop preset.',
         'effect callback' => 'fieldmuseum_imagecrop_reuse_effect',
@@ -261,7 +261,7 @@ function fmnh_media_image_default_styles() {
         'dimensions callback' => 'fieldmuseum_imagecrop_reuse_dimensions',
         'weight' => 1,
       ),
-      56 => array(
+      296 => array(
         'label' => 'Scale',
         'help' => 'Scaling will maintain the aspect-ratio of the original image. If only a single dimension is specified, the other dimension will be calculated.',
         'effect callback' => 'image_scale_effect',
@@ -273,7 +273,7 @@ function fmnh_media_image_default_styles() {
         'data' => array(
           'width' => 800,
           'height' => 400,
-          'upscale' => 0,
+          'upscale' => 1,
         ),
         'weight' => 2,
       ),
@@ -285,7 +285,7 @@ function fmnh_media_image_default_styles() {
     'name' => '5x2_1000w',
     'label' => '5x2 1000w',
     'effects' => array(
-      61 => array(
+      301 => array(
         'label' => 'Reuse a javascript crop selection',
         'help' => 'Reuse crop selection from another javascript crop preset.',
         'effect callback' => 'fieldmuseum_imagecrop_reuse_effect',
@@ -299,7 +299,7 @@ function fmnh_media_image_default_styles() {
         'dimensions callback' => 'fieldmuseum_imagecrop_reuse_dimensions',
         'weight' => 1,
       ),
-      66 => array(
+      306 => array(
         'label' => 'Scale',
         'help' => 'Scaling will maintain the aspect-ratio of the original image. If only a single dimension is specified, the other dimension will be calculated.',
         'effect callback' => 'image_scale_effect',
@@ -311,7 +311,7 @@ function fmnh_media_image_default_styles() {
         'data' => array(
           'width' => 1000,
           'height' => 400,
-          'upscale' => 0,
+          'upscale' => 1,
         ),
         'weight' => 2,
       ),
@@ -323,7 +323,7 @@ function fmnh_media_image_default_styles() {
     'name' => '5x2_1200w',
     'label' => '5x2 1200w',
     'effects' => array(
-      71 => array(
+      311 => array(
         'label' => 'Reuse a javascript crop selection',
         'help' => 'Reuse crop selection from another javascript crop preset.',
         'effect callback' => 'fieldmuseum_imagecrop_reuse_effect',
@@ -337,7 +337,7 @@ function fmnh_media_image_default_styles() {
         'dimensions callback' => 'fieldmuseum_imagecrop_reuse_dimensions',
         'weight' => 1,
       ),
-      76 => array(
+      316 => array(
         'label' => 'Scale',
         'help' => 'Scaling will maintain the aspect-ratio of the original image. If only a single dimension is specified, the other dimension will be calculated.',
         'effect callback' => 'image_scale_effect',
@@ -349,7 +349,7 @@ function fmnh_media_image_default_styles() {
         'data' => array(
           'width' => 1200,
           'height' => 480,
-          'upscale' => 0,
+          'upscale' => 1,
         ),
         'weight' => 2,
       ),
@@ -361,7 +361,7 @@ function fmnh_media_image_default_styles() {
     'name' => '5x2_1600w',
     'label' => '5x2 1600w',
     'effects' => array(
-      81 => array(
+      321 => array(
         'label' => 'Reuse a javascript crop selection',
         'help' => 'Reuse crop selection from another javascript crop preset.',
         'effect callback' => 'fieldmuseum_imagecrop_reuse_effect',
@@ -375,7 +375,7 @@ function fmnh_media_image_default_styles() {
         'dimensions callback' => 'fieldmuseum_imagecrop_reuse_dimensions',
         'weight' => 1,
       ),
-      86 => array(
+      326 => array(
         'label' => 'Scale',
         'help' => 'Scaling will maintain the aspect-ratio of the original image. If only a single dimension is specified, the other dimension will be calculated.',
         'effect callback' => 'image_scale_effect',
@@ -387,7 +387,7 @@ function fmnh_media_image_default_styles() {
         'data' => array(
           'width' => 1600,
           'height' => 640,
-          'upscale' => 0,
+          'upscale' => 1,
         ),
         'weight' => 2,
       ),
@@ -399,7 +399,7 @@ function fmnh_media_image_default_styles() {
     'name' => '5x2_2400w',
     'label' => '5x2 2400w',
     'effects' => array(
-      91 => array(
+      331 => array(
         'label' => 'Javascript crop',
         'help' => 'Create a crop with a javascript toolbox.',
         'effect callback' => 'fieldmuseum_imagecrop_effect',
@@ -420,7 +420,7 @@ function fmnh_media_image_default_styles() {
         ),
         'weight' => 1,
       ),
-      96 => array(
+      336 => array(
         'label' => 'Scale',
         'help' => 'Scaling will maintain the aspect-ratio of the original image. If only a single dimension is specified, the other dimension will be calculated.',
         'effect callback' => 'image_scale_effect',
@@ -432,7 +432,7 @@ function fmnh_media_image_default_styles() {
         'data' => array(
           'width' => 2400,
           'height' => 960,
-          'upscale' => 0,
+          'upscale' => 1,
         ),
         'weight' => 2,
       ),
@@ -444,7 +444,7 @@ function fmnh_media_image_default_styles() {
     'name' => '5x2_500w',
     'label' => '5x2 500w',
     'effects' => array(
-      101 => array(
+      341 => array(
         'label' => 'Reuse a javascript crop selection',
         'help' => 'Reuse crop selection from another javascript crop preset.',
         'effect callback' => 'fieldmuseum_imagecrop_reuse_effect',
@@ -458,7 +458,7 @@ function fmnh_media_image_default_styles() {
         'dimensions callback' => 'fieldmuseum_imagecrop_reuse_dimensions',
         'weight' => 1,
       ),
-      106 => array(
+      346 => array(
         'label' => 'Scale',
         'help' => 'Scaling will maintain the aspect-ratio of the original image. If only a single dimension is specified, the other dimension will be calculated.',
         'effect callback' => 'image_scale_effect',
@@ -470,7 +470,7 @@ function fmnh_media_image_default_styles() {
         'data' => array(
           'width' => 500,
           'height' => 200,
-          'upscale' => 0,
+          'upscale' => 1,
         ),
         'weight' => 2,
       ),
@@ -482,7 +482,7 @@ function fmnh_media_image_default_styles() {
     'name' => '5x2_800w',
     'label' => '5x2 800w',
     'effects' => array(
-      111 => array(
+      351 => array(
         'label' => 'Reuse a javascript crop selection',
         'help' => 'Reuse crop selection from another javascript crop preset.',
         'effect callback' => 'fieldmuseum_imagecrop_reuse_effect',
@@ -496,7 +496,7 @@ function fmnh_media_image_default_styles() {
         'dimensions callback' => 'fieldmuseum_imagecrop_reuse_dimensions',
         'weight' => 1,
       ),
-      116 => array(
+      356 => array(
         'label' => 'Scale',
         'help' => 'Scaling will maintain the aspect-ratio of the original image. If only a single dimension is specified, the other dimension will be calculated.',
         'effect callback' => 'image_scale_effect',
@@ -508,7 +508,7 @@ function fmnh_media_image_default_styles() {
         'data' => array(
           'width' => 800,
           'height' => 320,
-          'upscale' => 0,
+          'upscale' => 1,
         ),
         'weight' => 2,
       ),
@@ -520,7 +520,7 @@ function fmnh_media_image_default_styles() {
     'name' => '5x3_1000w',
     'label' => '5x3 1000w',
     'effects' => array(
-      121 => array(
+      361 => array(
         'label' => 'Reuse a javascript crop selection',
         'help' => 'Reuse crop selection from another javascript crop preset.',
         'effect callback' => 'fieldmuseum_imagecrop_reuse_effect',
@@ -534,7 +534,7 @@ function fmnh_media_image_default_styles() {
         'dimensions callback' => 'fieldmuseum_imagecrop_reuse_dimensions',
         'weight' => 1,
       ),
-      126 => array(
+      366 => array(
         'label' => 'Scale',
         'help' => 'Scaling will maintain the aspect-ratio of the original image. If only a single dimension is specified, the other dimension will be calculated.',
         'effect callback' => 'image_scale_effect',
@@ -546,7 +546,7 @@ function fmnh_media_image_default_styles() {
         'data' => array(
           'width' => 1000,
           'height' => 600,
-          'upscale' => 0,
+          'upscale' => 1,
         ),
         'weight' => 2,
       ),
@@ -558,7 +558,7 @@ function fmnh_media_image_default_styles() {
     'name' => '5x3_1200w',
     'label' => '5x3 1200w',
     'effects' => array(
-      131 => array(
+      371 => array(
         'label' => 'Reuse a javascript crop selection',
         'help' => 'Reuse crop selection from another javascript crop preset.',
         'effect callback' => 'fieldmuseum_imagecrop_reuse_effect',
@@ -572,7 +572,7 @@ function fmnh_media_image_default_styles() {
         'dimensions callback' => 'fieldmuseum_imagecrop_reuse_dimensions',
         'weight' => 1,
       ),
-      136 => array(
+      376 => array(
         'label' => 'Scale',
         'help' => 'Scaling will maintain the aspect-ratio of the original image. If only a single dimension is specified, the other dimension will be calculated.',
         'effect callback' => 'image_scale_effect',
@@ -584,7 +584,7 @@ function fmnh_media_image_default_styles() {
         'data' => array(
           'width' => 1200,
           'height' => 720,
-          'upscale' => 0,
+          'upscale' => 1,
         ),
         'weight' => 2,
       ),
@@ -596,7 +596,7 @@ function fmnh_media_image_default_styles() {
     'name' => '5x3_1600w',
     'label' => '5x3 1600w',
     'effects' => array(
-      141 => array(
+      381 => array(
         'label' => 'Reuse a javascript crop selection',
         'help' => 'Reuse crop selection from another javascript crop preset.',
         'effect callback' => 'fieldmuseum_imagecrop_reuse_effect',
@@ -610,7 +610,7 @@ function fmnh_media_image_default_styles() {
         'dimensions callback' => 'fieldmuseum_imagecrop_reuse_dimensions',
         'weight' => 1,
       ),
-      146 => array(
+      386 => array(
         'label' => 'Scale',
         'help' => 'Scaling will maintain the aspect-ratio of the original image. If only a single dimension is specified, the other dimension will be calculated.',
         'effect callback' => 'image_scale_effect',
@@ -622,7 +622,7 @@ function fmnh_media_image_default_styles() {
         'data' => array(
           'width' => 1600,
           'height' => 960,
-          'upscale' => 0,
+          'upscale' => 1,
         ),
         'weight' => 2,
       ),
@@ -634,7 +634,7 @@ function fmnh_media_image_default_styles() {
     'name' => '5x3_2400w',
     'label' => '5x3 2400w',
     'effects' => array(
-      151 => array(
+      391 => array(
         'label' => 'Javascript crop',
         'help' => 'Create a crop with a javascript toolbox.',
         'effect callback' => 'fieldmuseum_imagecrop_effect',
@@ -655,7 +655,7 @@ function fmnh_media_image_default_styles() {
         ),
         'weight' => 1,
       ),
-      156 => array(
+      396 => array(
         'label' => 'Scale',
         'help' => 'Scaling will maintain the aspect-ratio of the original image. If only a single dimension is specified, the other dimension will be calculated.',
         'effect callback' => 'image_scale_effect',
@@ -667,7 +667,7 @@ function fmnh_media_image_default_styles() {
         'data' => array(
           'width' => 2400,
           'height' => 1440,
-          'upscale' => 0,
+          'upscale' => 1,
         ),
         'weight' => 2,
       ),
@@ -679,7 +679,7 @@ function fmnh_media_image_default_styles() {
     'name' => '5x3_500w',
     'label' => '5x3 500w',
     'effects' => array(
-      161 => array(
+      401 => array(
         'label' => 'Reuse a javascript crop selection',
         'help' => 'Reuse crop selection from another javascript crop preset.',
         'effect callback' => 'fieldmuseum_imagecrop_reuse_effect',
@@ -693,7 +693,7 @@ function fmnh_media_image_default_styles() {
         'dimensions callback' => 'fieldmuseum_imagecrop_reuse_dimensions',
         'weight' => 1,
       ),
-      166 => array(
+      406 => array(
         'label' => 'Scale',
         'help' => 'Scaling will maintain the aspect-ratio of the original image. If only a single dimension is specified, the other dimension will be calculated.',
         'effect callback' => 'image_scale_effect',
@@ -705,7 +705,7 @@ function fmnh_media_image_default_styles() {
         'data' => array(
           'width' => 500,
           'height' => 300,
-          'upscale' => 0,
+          'upscale' => 1,
         ),
         'weight' => 2,
       ),
@@ -717,7 +717,7 @@ function fmnh_media_image_default_styles() {
     'name' => '5x3_800w',
     'label' => '5x3 800w',
     'effects' => array(
-      171 => array(
+      411 => array(
         'label' => 'Reuse a javascript crop selection',
         'help' => 'Reuse crop selection from another javascript crop preset.',
         'effect callback' => 'fieldmuseum_imagecrop_reuse_effect',
@@ -731,7 +731,7 @@ function fmnh_media_image_default_styles() {
         'dimensions callback' => 'fieldmuseum_imagecrop_reuse_dimensions',
         'weight' => 1,
       ),
-      176 => array(
+      416 => array(
         'label' => 'Scale',
         'help' => 'Scaling will maintain the aspect-ratio of the original image. If only a single dimension is specified, the other dimension will be calculated.',
         'effect callback' => 'image_scale_effect',
@@ -743,7 +743,7 @@ function fmnh_media_image_default_styles() {
         'data' => array(
           'width' => 800,
           'height' => 480,
-          'upscale' => 0,
+          'upscale' => 1,
         ),
         'weight' => 2,
       ),

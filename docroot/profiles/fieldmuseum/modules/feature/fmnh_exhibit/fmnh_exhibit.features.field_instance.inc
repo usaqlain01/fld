@@ -210,7 +210,7 @@ function fmnh_exhibit_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 12,
+        'weight' => 11,
       ),
       'event' => array(
         'label' => 'above',
@@ -266,7 +266,7 @@ function fmnh_exhibit_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 7,
+        'weight' => 6,
       ),
       'event' => array(
         'label' => 'above',
@@ -538,7 +538,7 @@ function fmnh_exhibit_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 5,
+        'weight' => 4,
       ),
       'event' => array(
         'label' => 'above',
@@ -602,7 +602,7 @@ function fmnh_exhibit_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 6,
+        'weight' => 5,
       ),
       'event' => array(
         'label' => 'above',
@@ -752,7 +752,7 @@ function fmnh_exhibit_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 10,
+        'weight' => 9,
       ),
       'event' => array(
         'label' => 'above',
@@ -811,7 +811,7 @@ function fmnh_exhibit_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 14,
+        'weight' => 13,
       ),
       'event' => array(
         'label' => 'above',
@@ -870,7 +870,7 @@ function fmnh_exhibit_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 9,
+        'weight' => 8,
       ),
       'event' => array(
         'label' => 'above',
@@ -929,7 +929,7 @@ function fmnh_exhibit_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 8,
+        'weight' => 7,
       ),
       'event' => array(
         'label' => 'above',
@@ -988,7 +988,7 @@ function fmnh_exhibit_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 11,
+        'weight' => 10,
       ),
       'event' => array(
         'label' => 'above',
@@ -1045,7 +1045,7 @@ function fmnh_exhibit_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 15,
+        'weight' => 14,
       ),
       'event' => array(
         'label' => 'above',
@@ -1100,7 +1100,7 @@ function fmnh_exhibit_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 13,
+        'weight' => 12,
       ),
       'event' => array(
         'label' => 'above',

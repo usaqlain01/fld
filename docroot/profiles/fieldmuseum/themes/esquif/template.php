@@ -152,6 +152,7 @@ function esquif_preprocess_node(&$variables, $hook) {
     case 'summary':
       $variables['theme_hook_suggestions'][] = 'node__summary';
       $variables['title_attributes_array']['class'][] = 'summary__title';
+      $variables['content']['field_image'][0]['file']['#item']['attributes']['class'][] = 'summary__image';
       break;
     default:
       array_splice($variables['theme_hook_suggestions'], 1, 0, array('node__'. $variables['type'] .'__'. $variables['view_mode']));
@@ -269,12 +270,14 @@ function esquif_preprocess_taxonomy_term(&$variables, $hook) {
       $variables['classes_array'][] = 'promo';
       $variables['title_attributes_array']['class'][] = 'promo__title';
       $variables['term_url'] = url('science/blog/'. drupal_strtolower(str_replace(' ', '-', $variables['name'])));
+      $variables['content']['field_image'][0]['file']['#item']['attributes']['class'][] = 'promo__image';
       break;
     case 'summary':
       $variables['theme_hook_suggestions'][] = 'taxonomy_term__summary';
       $variables['classes_array'][] = 'summary';
       $variables['title_attributes_array']['class'][] = 'summary__title';
       $variables['term_url'] = url('science/blog/'. drupal_strtolower(str_replace(' ', '-', $variables['name'])));
+      $variables['content']['field_image'][0]['file']['#item']['attributes']['class'][] = 'summary__image';
       break;
   }
 }
@@ -578,8 +581,81 @@ function esquif_menu_tree__menu_block__main_menu__footer($variables) {
  * @param $variables
  * @return string
  */
-function esquif_menu_tree__menu_block__main_menu__section($variables) {
+function esquif_menu_tree__menu_block__main_menu__section__2($variables) {
   return '<ul class="navLevel1 menu">' . $variables['tree'] . '</ul>';
+}
+
+/**
+ * Theme override for section menu.
+ *
+ * @param $variables
+ * @return string
+ */
+function esquif_menu_tree__menu_block__main_menu__section__3($variables) {
+  return '<ul class="navLevel2 menu">' . $variables['tree'] . '</ul>';
+}
+
+/**
+ * Theme override for section menu.
+ *
+ * @param $variables
+ * @return string
+ */
+function esquif_menu_tree__menu_block__main_menu__section__4($variables) {
+  return '<ul class="navLevel3 menu">' . $variables['tree'] . '</ul>';
+}
+
+/**
+ * Theme override for section menu.
+ *
+ * @param $variables
+ * @return string
+ */
+function esquif_menu_tree__menu_block__main_menu__section__5($variables) {
+  return '<ul class="navLevel4 menu">' . $variables['tree'] . '</ul>';
+}
+
+/**
+ * Theme override for section menu.
+ *
+ * @param $variables
+ * @return string
+ */
+function esquif_menu_tree__menu_block__main_menu__section__6($variables) {
+  return '<ul class="navLevel5 menu">' . $variables['tree'] . '</ul>';
+}
+
+
+/**
+ * Theme override for section menu.
+ *
+ * @param $variables
+ * @return string
+ */
+function esquif_menu_tree__menu_block__main_menu__section__7($variables) {
+  return '<ul class="navLevel6 menu">' . $variables['tree'] . '</ul>';
+}
+
+
+/**
+ * Theme override for section menu.
+ *
+ * @param $variables
+ * @return string
+ */
+function esquif_menu_tree__menu_block__main_menu__section__8($variables) {
+  return '<ul class="navLevel7 menu">' . $variables['tree'] . '</ul>';
+}
+
+
+/**
+ * Theme override for section menu.
+ *
+ * @param $variables
+ * @return string
+ */
+function esquif_menu_tree__menu_block__main_menu__section__9($variables) {
+  return '<ul class="navLevel8 menu">' . $variables['tree'] . '</ul>';
 }
 
 /**
@@ -655,7 +731,10 @@ function esquif_breadcrumb($variables) {
       // Build the breadcrumb trail.
       $output = '<nav class="breadcrumb" role="navigation" itemprop="breadcrumb">';
       $output .= '<h2' . drupal_attributes($variables['title_attributes_array']) . '>' . $variables['title'] . '</h2>';
-      $output .= '<ol class="breadcrumb__list"><li class="breadcrumb__item">' . implode($breadcrumb_separator . '</li><li class="breadcrumb__item">', $breadcrumb) . $trailing_separator . '</li></ol>';
+      $output .= '<ol class="breadcrumb__list">';
+      $output .= '<li class="breadcrumb__item">' . implode($breadcrumb_separator . '</li><li class="breadcrumb__item">', array_slice($breadcrumb, 0, -1)) . $trailing_separator . '</li>';
+      $output .= '<li class="breadcrumb__current breadcrumb__item">' . implode('', array_slice($breadcrumb, -1, 1)) . $trailing_separator . '</li>';
+      $output .= '</ol>';
       $output .= '</nav>';
     }
   }
@@ -1190,6 +1269,9 @@ function esquif_menu_link__menu_block__main_menu__section($variables) {
     if (0 === strpos($class, 'navLevel')) {
       $prefix = substr($class, 0, strpos($class, '__'));
       $element['#localized_options']['attributes']['class'][] = $prefix .'__link';
+
+      // Remove active class attributes from menu list item.
+      $element['#attributes']['class'] = array_diff($element['#attributes']['class'], array('active', 'is-active', 'is-active-trail'));
     }
   }
 
@@ -1221,6 +1303,13 @@ function esquif_preprocess_views_view_list(&$variables, $hook) {
 
 function esquif_preprocess_fieldable_panels_pane(&$variables) {
   $variables['theme_hook_suggestions'][] = 'fieldable_panels_pane__' . $variables['elements']['#element']->bundle .'__'. $variables['elements']['#view_mode'];
+
+  switch ($variables['elements']['#element']->bundle) {
+    case 'banner_description_and_list':
+      $variables['title_attributes_array']['class'][] = 'summary__title';
+      $variables['content']['field_image'][0]['file']['#item']['attributes']['class'][] = 'summary__image';
+      break;
+  }
 }
 
 function esquif_node_view_alter(&$build, $type) {

@@ -384,6 +384,7 @@ function fieldmuseum_field_default_field_bases() {
         'url_cutoff' => 80,
       ),
       'enable_tokens' => 1,
+      'profile2_private' => FALSE,
       'title' => 'optional',
       'title_maxlength' => 128,
       'title_value' => '',
@@ -396,7 +397,7 @@ function fieldmuseum_field_default_field_bases() {
   // Exported field_base: 'field_person'
   $field_bases['field_person'] = array(
     'active' => 1,
-    'cardinality' => 1,
+    'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_person',
@@ -419,6 +420,9 @@ function fieldmuseum_field_default_field_bases() {
       'handler' => 'base',
       'handler_settings' => array(
         'behaviors' => array(
+          'entityqueue' => array(
+            'status' => 0,
+          ),
           'views-select-list' => array(
             'status' => 0,
           ),
@@ -428,6 +432,7 @@ function fieldmuseum_field_default_field_bases() {
         ),
         'target_bundles' => array(),
       ),
+      'profile2_private' => FALSE,
       'target_type' => 'user',
     ),
     'translatable' => 0,

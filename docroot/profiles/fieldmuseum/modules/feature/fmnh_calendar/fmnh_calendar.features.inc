@@ -137,6 +137,13 @@ function fmnh_calendar_rdf_default_mappings() {
     'field_summary' => array(
       'predicates' => array(),
     ),
+    'field_banner_image' => array(
+      'predicates' => array(),
+      'type' => 'rel',
+    ),
+    'field_banner_description' => array(
+      'predicates' => array(),
+    ),
   );
 
   return $schemaorg;
