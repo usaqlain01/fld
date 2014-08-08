@@ -882,7 +882,7 @@ function esquif_pager($variables) {
   $li_last = theme('pager_last', array('text' => ($pager_max), 'element' => $element, 'parameters' => $parameters));
 
   if ($pager_total[$element] > 1) {
-    if ($li_first && $pager_current > 3) {
+    if ($li_first && $pager_current > 3 && $pager_max > 5) {
       $items[] = array(
         'class' => array('pagination__first'),
         'data' => $li_first,
@@ -926,7 +926,7 @@ function esquif_pager($variables) {
       }
     }
     // End generation.
-    if ($li_last && $pager_current < $pager_max) {
+    if ($li_last && $pager_current < $pager_max && $pager_max > 5) {
       $items[] = array(
         'class' => array('pagination__last'),
         'data' => $li_last,
