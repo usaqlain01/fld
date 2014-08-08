@@ -269,6 +269,7 @@ function esquif_preprocess_taxonomy_term(&$variables, $hook) {
       $variables['classes_array'][] = 'promo';
       $variables['title_attributes_array']['class'][] = 'promo__title';
       $variables['term_url'] = url('science/blog/'. drupal_strtolower(str_replace(' ', '-', $variables['name'])));
+      $variables['content']['field_image'][0]['file']['#item']['attributes']['class'][] = 'promo__image';
       break;
     case 'summary':
       $variables['theme_hook_suggestions'][] = 'taxonomy_term__summary';
