@@ -152,7 +152,12 @@ function esquif_preprocess_node(&$variables, $hook) {
     case 'summary':
       $variables['theme_hook_suggestions'][] = 'node__summary';
       $variables['title_attributes_array']['class'][] = 'summary__title';
-      $variables['content']['field_image'][0]['file']['#item']['attributes']['class'][] = 'summary__image';
+      if ('image_formatter' == $variables['content']['field_image'][0]['file']['#theme']) {
+        $variables['content']['field_image'][0]['file']['#item']['attributes']['class'][] = 'summary__image';
+      }
+      else if ('image_style' == $variables['content']['field_image'][0]['file']['#theme']) {
+        $variables['content']['field_image'][0]['file']['#attributes']['class'][] = 'summary__image';
+      }
       break;
     default:
       array_splice($variables['theme_hook_suggestions'], 1, 0, array('node__'. $variables['type'] .'__'. $variables['view_mode']));
