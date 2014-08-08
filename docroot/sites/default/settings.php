@@ -47,7 +47,7 @@ if (file_exists('/var/www/site-php')) {
     $_ENV['MAGICKCODERMODULE_PATH'] = '/usr/lib/ImageMagick-6.6.9/modules-Q16/coders';
 
     // Set the temp filesystem.
-    $conf['file_temporary_path'] = '/mnt/tmp/fieldmusefacelift.'. $_ENV['AH_SITE_ENVIRONMENT'];
+    $_ENV['MAGICK_TEMPORARY_PATH'] = $conf['file_temporary_path'] = '/mnt/tmp/fieldmusefacelift.'. $_ENV['AH_SITE_ENVIRONMENT'];
     switch ($_ENV['AH_SITE_ENVIRONMENT']) {
       case 'dev':
         $conf['fmnh_migrate_file_source_dir'] = '/vol/ebs1/gfs/home/fieldmusefacelift/dev/migrate/files';
