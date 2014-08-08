@@ -13,7 +13,7 @@ include_once 'fmnh_blog.features.inc';
  * @param $hook
  */
 function fmnh_blog_preprocess_menu_link(&$variables, $hook) {
-  if ('menu_link__menu_block__main_menu__section' == $variables['theme_hook_suggestion']) {
+  if (isset($variables['theme_hook_suggestion']) && 'menu_link__menu_block__main_menu__section' == $variables['theme_hook_suggestion']) {
     $href = $variables['element']['#href'];
     if ('science/blog' == $href) {
       $variables['theme_hook_suggestion'] = 'menu_link__menu_block__main_menu__section__science_blog';
