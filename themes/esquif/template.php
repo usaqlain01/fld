@@ -830,9 +830,14 @@ function esquif_js_alter(&$js) {
   }
 }
 
+function esquif_preprocess_pager(&$variables) {
+  $variables['quantity'] = 5;
+}
+
 /**
  * @param $variables
  * @return string
+ * @see theme_pager
  */
 function esquif_pager($variables) {
   $tags = $variables['tags'];
@@ -868,28 +873,20 @@ function esquif_pager($variables) {
   }
   // End of generation loop preparation.
 
-  $li_first = theme('pager_first', array('text' => (isset($tags[0]) ? $tags[0] : t('« first')), 'element' => $element, 'parameters' => $parameters));
-  $li_previous = theme('pager_previous', array('text' => (isset($tags[1]) ? $tags[1] : t('‹ previous')), 'element' => $element, 'interval' => 1, 'parameters' => $parameters));
-  $li_next = theme('pager_next', array('text' => (isset($tags[3]) ? $tags[3] : t('next ›')), 'element' => $element, 'interval' => 1, 'parameters' => $parameters));
-  $li_last = theme('pager_last', array('text' => (isset($tags[4]) ? $tags[4] : t('last »')), 'element' => $element, 'parameters' => $parameters));
+  $li_first = theme('pager_first', array('text' => (1), 'element' => $element, 'parameters' => $parameters));
+  $li_last = theme('pager_last', array('text' => ($pager_max), 'element' => $element, 'parameters' => $parameters));
 
   if ($pager_total[$element] > 1) {
-    if ($li_first) {
+    if ($li_first && $pager_current > 3) {
       $items[] = array(
-        'class' => array('pagination__item', 'pagination__first'),
+        'class' => array('pagination__first'),
         'data' => $li_first,
-      );
-    }
-    if ($li_previous) {
-      $items[] = array(
-        'class' => array('pagination__item', 'pagination__prev'),
-        'data' => $li_previous,
       );
     }
 
     // When there is more than one page, create the pager list.
     if ($i != $pager_max) {
-      if ($i > 1) {
+      if ($i > 1 && $pager_current > 4) {
         $items[] = array(
           'class' => array('pagination__gap'),
           'data' => '<span class="pagination__unlinked">…</span>',
@@ -924,15 +921,9 @@ function esquif_pager($variables) {
       }
     }
     // End generation.
-    if ($li_next) {
+    if ($li_last && $pager_current < $pager_max) {
       $items[] = array(
-        'class' => array('pagination__item', 'pagination__next'),
-        'data' => $li_next,
-      );
-    }
-    if ($li_last) {
-      $items[] = array(
-        'class' => array('pagination__item', 'pagination__last'),
+        'class' => array('pagination__last'),
         'data' => $li_last,
       );
     }
