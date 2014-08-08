@@ -578,8 +578,81 @@ function esquif_menu_tree__menu_block__main_menu__footer($variables) {
  * @param $variables
  * @return string
  */
-function esquif_menu_tree__menu_block__main_menu__section($variables) {
+function esquif_menu_tree__menu_block__main_menu__section__2($variables) {
   return '<ul class="navLevel1 menu">' . $variables['tree'] . '</ul>';
+}
+
+/**
+ * Theme override for section menu.
+ *
+ * @param $variables
+ * @return string
+ */
+function esquif_menu_tree__menu_block__main_menu__section__3($variables) {
+  return '<ul class="navLevel2 menu">' . $variables['tree'] . '</ul>';
+}
+
+/**
+ * Theme override for section menu.
+ *
+ * @param $variables
+ * @return string
+ */
+function esquif_menu_tree__menu_block__main_menu__section__4($variables) {
+  return '<ul class="navLevel3 menu">' . $variables['tree'] . '</ul>';
+}
+
+/**
+ * Theme override for section menu.
+ *
+ * @param $variables
+ * @return string
+ */
+function esquif_menu_tree__menu_block__main_menu__section__5($variables) {
+  return '<ul class="navLevel4 menu">' . $variables['tree'] . '</ul>';
+}
+
+/**
+ * Theme override for section menu.
+ *
+ * @param $variables
+ * @return string
+ */
+function esquif_menu_tree__menu_block__main_menu__section__6($variables) {
+  return '<ul class="navLevel5 menu">' . $variables['tree'] . '</ul>';
+}
+
+
+/**
+ * Theme override for section menu.
+ *
+ * @param $variables
+ * @return string
+ */
+function esquif_menu_tree__menu_block__main_menu__section__7($variables) {
+  return '<ul class="navLevel6 menu">' . $variables['tree'] . '</ul>';
+}
+
+
+/**
+ * Theme override for section menu.
+ *
+ * @param $variables
+ * @return string
+ */
+function esquif_menu_tree__menu_block__main_menu__section__8($variables) {
+  return '<ul class="navLevel7 menu">' . $variables['tree'] . '</ul>';
+}
+
+
+/**
+ * Theme override for section menu.
+ *
+ * @param $variables
+ * @return string
+ */
+function esquif_menu_tree__menu_block__main_menu__section__9($variables) {
+  return '<ul class="navLevel8 menu">' . $variables['tree'] . '</ul>';
 }
 
 /**
