@@ -655,7 +655,10 @@ function esquif_breadcrumb($variables) {
       // Build the breadcrumb trail.
       $output = '<nav class="breadcrumb" role="navigation" itemprop="breadcrumb">';
       $output .= '<h2' . drupal_attributes($variables['title_attributes_array']) . '>' . $variables['title'] . '</h2>';
-      $output .= '<ol class="breadcrumb__list"><li class="breadcrumb__item">' . implode($breadcrumb_separator . '</li><li class="breadcrumb__item">', $breadcrumb) . $trailing_separator . '</li></ol>';
+      $output .= '<ol class="breadcrumb__list">';
+      $output .= '<li class="breadcrumb__item">' . implode($breadcrumb_separator . '</li><li class="breadcrumb__item">', array_slice($breadcrumb, 0, -1)) . $trailing_separator . '</li>';
+      $output .= '<li class="breadcrumb__current breadcrumb__item">' . implode('', array_slice($breadcrumb, -1, 1)) . $trailing_separator . '</li>';
+      $output .= '</ol>';
       $output .= '</nav>';
     }
   }
