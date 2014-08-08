@@ -1839,15 +1839,17 @@ $(function() {
   var body, scrollTimer;
   body = document.body;
   scrollTimer = null;
-  return window.addEventListener('scroll', (function() {
-    clearTimeout(scrollTimer);
-    if (!body.classList.contains('disableHover')) {
-      body.classList.add('disableHover');
-    }
-    return scrollTimer = delay(100, function() {
-      return body.classList.remove('disableHover');
-    });
-  }), false);
+  if (!$('body.ltie9')) {
+    return window.addEventListener('scroll', (function() {
+      clearTimeout(scrollTimer);
+      if (!body.classList.contains('disableHover')) {
+        body.classList.add('disableHover');
+      }
+      return scrollTimer = delay(100, function() {
+        return body.classList.remove('disableHover');
+      });
+    }), false);
+  }
 });
 
   /*
@@ -2254,7 +2256,11 @@ Gallery = (function() {
 $(function() {
   var gallery;
   gallery = new Gallery;
-  return gallery.load();
+  if ($("body.ltie9")) {
+    return $(".gallery").addClass("is--disabled").html("Sorry. Our media galleries are not supported by your browser. You can find information about upgrading your browser at <a href='http://browsehappy.com/'>Browse Happy</a>.");
+  } else {
+    return gallery.load();
+  }
 });
 
 
