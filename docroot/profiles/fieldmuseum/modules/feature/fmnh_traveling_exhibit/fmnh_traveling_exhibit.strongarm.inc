@@ -77,13 +77,13 @@ function fmnh_traveling_exhibit_strongarm() {
     'extra_fields' => array(
       'form' => array(
         'metatags' => array(
-          'weight' => '2',
+          'weight' => '9',
         ),
         'title' => array(
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '5',
+          'weight' => '10',
         ),
       ),
       'display' => array(),

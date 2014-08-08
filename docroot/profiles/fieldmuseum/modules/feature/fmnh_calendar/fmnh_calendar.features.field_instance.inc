@@ -128,7 +128,7 @@ function fmnh_calendar_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 8,
+        'weight' => 10,
       ),
       'event' => array(
         'label' => 'hidden',
@@ -197,7 +197,7 @@ function fmnh_calendar_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 9,
+        'weight' => 11,
       ),
       'event' => array(
         'label' => 'above',
@@ -237,6 +237,180 @@ function fmnh_calendar_field_default_field_instances() {
       'settings' => array(),
       'type' => 'options_buttons',
       'weight' => 49,
+    ),
+  );
+
+  // Exported field_instance: 'node-event-field_banner_description'
+  $field_instances['node-event-field_banner_description'] = array(
+    'bundle' => 'event',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 8,
+      ),
+      'event' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'summary' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'fences_wrapper' => 'no_wrapper',
+    'field_name' => 'field_banner_description',
+    'label' => 'Banner description',
+    'required' => 0,
+    'settings' => array(
+      'better_formats' => array(
+        'allowed_formats' => array(
+          'filtered_html' => 'filtered_html',
+          'filtered_wysiwyg' => 'filtered_wysiwyg',
+          'full_html' => 'full_html',
+          'full_wysiwyg' => 'full_wysiwyg',
+          'markdown' => 'markdown',
+          'plain_text' => 'plain_text',
+          'unfiltered' => 'unfiltered',
+          'unfiltered_phrase_html' => 'unfiltered_phrase_html',
+        ),
+        'allowed_formats_toggle' => 0,
+        'default_order_toggle' => 0,
+        'default_order_wrapper' => array(
+          'formats' => array(
+            'filtered_html' => array(
+              'weight' => -9,
+            ),
+            'filtered_wysiwyg' => array(
+              'weight' => -10,
+            ),
+            'full_html' => array(
+              'weight' => -7,
+            ),
+            'full_wysiwyg' => array(
+              'weight' => -8,
+            ),
+            'markdown' => array(
+              'weight' => -6,
+            ),
+            'plain_text' => array(
+              'weight' => -3,
+            ),
+            'unfiltered' => array(
+              'weight' => -4,
+            ),
+            'unfiltered_phrase_html' => array(
+              'weight' => -5,
+            ),
+          ),
+        ),
+      ),
+      'text_processing' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 55,
+    ),
+  );
+
+  // Exported field_instance: 'node-event-field_banner_image'
+  $field_instances['node-event-field_banner_image'] = array(
+    'bundle' => 'event',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 7,
+      ),
+      'event' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'summary' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'fences_wrapper' => 'div',
+    'field_name' => 'field_banner_image',
+    'label' => 'Banner image',
+    'required' => 0,
+    'settings' => array(
+      'description_field' => 0,
+      'file_directory' => '',
+      'file_extensions' => 'jpg gif jpeg png',
+      'imagecrop' => array(
+        '2x1_2400w' => 0,
+        '5x2_2400w' => 0,
+        '5x3_2400w' => 0,
+        'large' => 0,
+        'media_gallery_large' => 0,
+        'media_gallery_thumbnail' => 0,
+        'medium' => 0,
+        'thumbnail' => 0,
+      ),
+      'max_filesize' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'media',
+      'settings' => array(
+        'allowed_schemes' => array(
+          'oembed' => 0,
+          'public' => 'public',
+        ),
+        'allowed_types' => array(
+          'audio' => 0,
+          'document' => 0,
+          'image' => 'image',
+          'model' => 0,
+          'video' => 0,
+        ),
+        'browser_plugins' => array(
+          'media_default--media_browser_1' => 0,
+          'media_default--media_browser_my_files' => 0,
+          'media_internet' => 0,
+          'upload' => 0,
+        ),
+      ),
+      'type' => 'media_generic',
+      'weight' => 53,
     ),
   );
 
@@ -494,7 +668,7 @@ function fmnh_calendar_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 7,
+        'weight' => 9,
       ),
       'event' => array(
         'label' => 'above',
@@ -766,6 +940,8 @@ function fmnh_calendar_field_default_field_instances() {
   // Included for use with string extractors like potx.
   t('Action link');
   t('Audience');
+  t('Banner description');
+  t('Banner image');
   t('Body');
   t('Date');
   t('Exhibit or program');

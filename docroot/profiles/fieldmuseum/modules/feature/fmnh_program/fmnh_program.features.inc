@@ -128,6 +128,10 @@ function fmnh_program_rdf_default_mappings() {
     'field_banner_description' => array(
       'predicates' => array(),
     ),
+    'field_banner_image' => array(
+      'predicates' => array(),
+      'type' => 'rel',
+    ),
   );
 
   return $schemaorg;

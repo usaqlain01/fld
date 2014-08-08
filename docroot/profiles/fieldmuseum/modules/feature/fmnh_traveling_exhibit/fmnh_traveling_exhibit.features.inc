@@ -112,6 +112,15 @@ function fmnh_traveling_exhibit_rdf_default_mappings() {
       'predicates' => array(),
       'type' => 'rel',
     ),
+    'field_link' => array(
+      'predicates' => array(),
+    ),
+    'field_contacts' => array(
+      'predicates' => array(),
+    ),
+    'field_person' => array(
+      'predicates' => array(),
+    ),
   );
 
   return $schemaorg;
