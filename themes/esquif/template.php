@@ -1266,6 +1266,9 @@ function esquif_menu_link__menu_block__main_menu__section($variables) {
     if (0 === strpos($class, 'navLevel')) {
       $prefix = substr($class, 0, strpos($class, '__'));
       $element['#localized_options']['attributes']['class'][] = $prefix .'__link';
+
+      // Remove active class attributes from menu list item.
+      $element['#attributes']['class'] = array_diff($element['#attributes']['class'], array('active', 'is-active', 'is-active-trail'));
     }
   }
 
