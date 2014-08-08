@@ -10,6 +10,7 @@ dependencies[] = entitylist
 dependencies[] = entityreference
 dependencies[] = features
 dependencies[] = file
+dependencies[] = fmnh_exhibit
 dependencies[] = fmnh_program
 dependencies[] = fmnh_references
 dependencies[] = link
