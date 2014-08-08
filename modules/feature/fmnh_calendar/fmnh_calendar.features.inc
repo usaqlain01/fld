@@ -144,6 +144,11 @@ function fmnh_calendar_rdf_default_mappings() {
     'field_banner_description' => array(
       'predicates' => array(),
     ),
+    'field_ticket_link' => array(
+      'predicates' => array(
+        0 => 'schema:offers',
+      ),
+    ),
   );
 
   return $schemaorg;

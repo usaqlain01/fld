@@ -73,6 +73,9 @@ function fmnh_calendar_strongarm() {
       'token' => array(
         'custom_settings' => FALSE,
       ),
+      'list_item' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(

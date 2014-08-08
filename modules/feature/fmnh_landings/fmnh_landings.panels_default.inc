@@ -552,20 +552,7 @@ function fmnh_landings_default_panels_mini() {
   $mini->admin_title = 'Home landing events';
   $mini->admin_description = '';
   $mini->requiredcontexts = array();
-  $mini->contexts = array(
-    1 => array(
-      'identifier' => 'List: Upcoming events',
-      'keyword' => 'list_2',
-      'name' => 'entitylist:upcoming_events',
-      'use_pager' => FALSE,
-      'pager_id' => NULL,
-      'range' => array(
-        'offset' => 0,
-        'limit' => 5,
-      ),
-      'id' => 1,
-    ),
-  );
+  $mini->contexts = array();
   $mini->relationships = array();
   $display = new panels_display();
   $display->layout = 'zen_no_wrapper';
@@ -640,32 +627,21 @@ function fmnh_landings_default_panels_mini() {
     $display->content['new-a67d5b81-b462-4dbe-a74a-33992f8e6fc9'] = $pane;
     $display->panels['main'][1] = 'new-a67d5b81-b462-4dbe-a74a-33992f8e6fc9';
     $pane = new stdClass();
-    $pane->pid = 'new-66560f6a-fd8b-4229-8ef3-55e405440b6d';
+    $pane->pid = 'new-b774400c-7dad-485e-aced-5f02767c246f';
     $pane->panel = 'main';
-    $pane->type = 'entity_range';
-    $pane->subtype = 'entity_range';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'events-panel_pane_1';
     $pane->shown = TRUE;
     $pane->access = array();
-    $pane->configuration = array(
-      'range' => array(
-        'offset' => '0',
-        'limit' => '5',
-      ),
-      'view_mode' => 'node:event',
-      'use_pager' => FALSE,
-      'pager_id' => 0,
-      'context' => 'context_entitylist:upcoming_events_1',
-      'override_title' => 1,
-      'override_title_text' => 'This Week at The Field',
-    );
+    $pane->configuration = array();
     $pane->cache = array();
     $pane->style = array(
       'style' => 'semantic_panels',
       'settings' => array(
         'element_title' => array(
-          'type' => 'h4',
-          'class_enable' => 1,
-          'class' => 'scale--5',
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
           'attributes' => array(),
           'link_enabled' => 0,
           'link' => array(
@@ -695,7 +671,7 @@ function fmnh_landings_default_panels_mini() {
         'element_wrapper' => array(
           'type' => '0',
           'class_enable' => 0,
-          'class' => '',
+          'class' => 'eventsList',
           'attributes' => array(),
           'attributes_array' => array(),
         ),
@@ -706,9 +682,9 @@ function fmnh_landings_default_panels_mini() {
     $pane->extras = array();
     $pane->position = 2;
     $pane->locks = array();
-    $pane->uuid = '66560f6a-fd8b-4229-8ef3-55e405440b6d';
-    $display->content['new-66560f6a-fd8b-4229-8ef3-55e405440b6d'] = $pane;
-    $display->panels['main'][2] = 'new-66560f6a-fd8b-4229-8ef3-55e405440b6d';
+    $pane->uuid = 'b774400c-7dad-485e-aced-5f02767c246f';
+    $display->content['new-b774400c-7dad-485e-aced-5f02767c246f'] = $pane;
+    $display->panels['main'][2] = 'new-b774400c-7dad-485e-aced-5f02767c246f';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $mini->display = $display;

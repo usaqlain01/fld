@@ -182,6 +182,14 @@ function esquif_preprocess_node(&$variables, $hook) {
   }
 }
 
+function esquif_preprocess_node_event(&$variables, $hook) {
+  if ($variables['view_mode'] == 'list_item') {
+    $variables['classes_array'][] = 'eventsList__item';
+    $variables['title_attributes_array']['class'][] = 'eventsList__heading';
+
+  }
+}
+
 function esquif_preprocess_node_blog(&$variables, $hook) {
   $variables['classes_array'][] = 'article';
   $variables['title_attributes_array']['class'][] = 'article__title';
