@@ -904,7 +904,6 @@ function fmnh_landings_default_panels_mini() {
       'body' => '<a class="banner banner--secondary" href="/science/blog/the-brain-scoop"> 
 <figure>
 <img srcset="http://fieldmusefacelift.devcloud.acquia-sites.com/sites/default/files/styles/5x2_1000w/public/banner-brainscoop.png?itok=wbDJR6lP 1000w,http://fieldmusefacelift.devcloud.acquia-sites.com/sites/default/files/styles/5x2_1200w/public/banner-brainscoop.png?itok=uq2hVfSG 1200w,http://fieldmusefacelift.devcloud.acquia-sites.com/sites/default/files/styles/5x2_1600w/public/banner-brainscoop.png?itok=MfepR3WD 1600w,http://fieldmusefacelift.devcloud.acquia-sites.com/sites/default/files/styles/5x2_2400w/public/banner-brainscoop.png?itok=x9R7T9iK 2400w,http://fieldmusefacelift.devcloud.acquia-sites.com/sites/default/files/styles/5x2_500w/public/banner-brainscoop.png?itok=2U6wJylu 500w,http://fieldmusefacelift.devcloud.acquia-sites.com/sites/default/files/styles/5x2_800w/public/banner-brainscoop.png?itok=c_QgSFEF 800w" class="js--pictureFill" typeof="foaf:Image" src="http://fieldmusefacelift.devcloud.acquia-sites.com/sites/default/files/styles/5x2_1000w/public/banner-brainscoop.png?itok=wbDJR6lP" alt=""> 
-<figcaption class="promo__description">
 <figcaption class="banner__description" itemprop="description">
 	<p>
 		Check out what our Chief Curiosity Correspondent, Emily Graslie, has been exploring this week on The Brain Scoop!
@@ -928,14 +927,80 @@ function fmnh_landings_default_panels_mini() {
     $display->content['new-88bdd1f5-8ead-4aa6-aa8e-983dccd5971e'] = $pane;
     $display->panels['main'][1] = 'new-88bdd1f5-8ead-4aa6-aa8e-983dccd5971e';
     $pane = new stdClass();
-    $pane->pid = 'new-fec69ff5-25a8-443c-93af-cd001bcf34c7';
+    $pane->pid = 'new-3f1dfae0-7b0d-47b5-9641-7d9b5606e2d9';
     $pane->panel = 'main';
-    $pane->type = 'fieldable_panels_pane';
-    $pane->subtype = 'fpid:2';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'view_mode' => 'naked',
+      'admin_title' => '',
+      'title' => '<a href="/science/blog/the-brain-scoop">The Brain Scoop</a>',
+      'body' => '<p>Check out what our Chief Curiosity Correspondent, Emily Graslie, has been exploring this week on The Brain Scoop!</p>
+',
+      'format' => 'filtered_wysiwyg',
+      'substitute' => 1,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'semantic_panels',
+      'settings' => array(
+        'element_title' => array(
+          'type' => 'h3',
+          'class_enable' => 1,
+          'class' => 'summary__title',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => 'div',
+          'class_enable' => 1,
+          'class' => 'summary__description',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 2;
+    $pane->locks = array();
+    $pane->uuid = '3f1dfae0-7b0d-47b5-9641-7d9b5606e2d9';
+    $display->content['new-3f1dfae0-7b0d-47b5-9641-7d9b5606e2d9'] = $pane;
+    $display->panels['main'][2] = 'new-3f1dfae0-7b0d-47b5-9641-7d9b5606e2d9';
+    $pane = new stdClass();
+    $pane->pid = 'new-f263d49a-80f3-4c3d-a11b-c8d962788045';
+    $pane->panel = 'main';
+    $pane->type = 'fieldable_panels_pane';
+    $pane->subtype = 'fpid:516';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'view_mode' => 'full',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -944,11 +1009,80 @@ function fmnh_landings_default_panels_mini() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 2;
+    $pane->position = 3;
     $pane->locks = array();
-    $pane->uuid = 'fec69ff5-25a8-443c-93af-cd001bcf34c7';
-    $display->content['new-fec69ff5-25a8-443c-93af-cd001bcf34c7'] = $pane;
-    $display->panels['main'][2] = 'new-fec69ff5-25a8-443c-93af-cd001bcf34c7';
+    $pane->uuid = 'f263d49a-80f3-4c3d-a11b-c8d962788045';
+    $display->content['new-f263d49a-80f3-4c3d-a11b-c8d962788045'] = $pane;
+    $display->panels['main'][3] = 'new-f263d49a-80f3-4c3d-a11b-c8d962788045';
+    $pane = new stdClass();
+    $pane->pid = 'new-17eac734-813e-4269-90f1-29d04dbe884c';
+    $pane->panel = 'main';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => '',
+      'title' => 'Explore Science With Us',
+      'body' => '<ul class="contentLinks ">
+	<li class="contentLinks__item"><a href="/science/blog">Science Blogs &amp; Videos</a></li>
+	<li class="contentLinks__item"><a href="/science/research">Research &amp; Collections</a></li>
+	<li class="contentLinks__item"><a href="/node/9901">Meet A Scientist</a></li>
+</ul>',
+      'format' => 'unfiltered',
+      'substitute' => 1,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'semantic_panels',
+      'settings' => array(
+        'element_title' => array(
+          'type' => 'h4',
+          'class_enable' => 1,
+          'class' => 'scale--5',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 4;
+    $pane->locks = array();
+    $pane->uuid = '17eac734-813e-4269-90f1-29d04dbe884c';
+    $display->content['new-17eac734-813e-4269-90f1-29d04dbe884c'] = $pane;
+    $display->panels['main'][4] = 'new-17eac734-813e-4269-90f1-29d04dbe884c';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $mini->display = $display;
