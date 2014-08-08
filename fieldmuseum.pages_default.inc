@@ -3898,7 +3898,7 @@ function fieldmuseum_default_page_manager_pages() {
   $page->task = 'page';
   $page->admin_title = 'Field trip programs';
   $page->admin_description = '';
-  $page->path = 'educators/field-trip-programs';
+  $page->path = 'educators/field-trip-programs/!term';
   $page->access = array(
     'plugins' => array(
       0 => array(
@@ -3926,7 +3926,31 @@ function fieldmuseum_default_page_manager_pages() {
       'weight' => '0',
     ),
   );
-  $page->arguments = array();
+  $page->arguments = array(
+    'term' => array(
+      'id' => 1,
+      'identifier' => 'Grade level (tid)',
+      'name' => 'term',
+      'settings' => array(
+        'input_form' => 'tid',
+        'vids' => array(
+          16 => '16',
+          1 => 0,
+          6 => 0,
+          11 => 0,
+          26 => 0,
+          36 => 0,
+          41 => 0,
+          46 => 0,
+          51 => 0,
+          31 => 0,
+          21 => 0,
+        ),
+        'breadcrumb' => 0,
+        'transform' => 0,
+      ),
+    ),
+  );
   $page->conf = array(
     'admin_paths' => FALSE,
   );
@@ -3934,34 +3958,44 @@ function fieldmuseum_default_page_manager_pages() {
   $handler = new stdClass();
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
-  $handler->name = 'page_field_trip_programs_panel_context';
+  $handler->name = 'page_field_trip_programs_panel_context_3';
   $handler->task = 'page';
   $handler->subtask = 'field_trip_programs';
   $handler->handler = 'panel_context';
-  $handler->weight = 0;
+  $handler->weight = -28;
   $handler->conf = array(
-    'title' => 'Panel',
+    'title' => 'filtered by grade level',
     'no_blocks' => 0,
     'pipeline' => 'ipe',
     'body_classes_to_remove' => '',
     'body_classes_to_add' => '',
     'css_id' => '',
     'css' => '',
-    'contexts' => array(
+    'contexts' => array(),
+    'relationships' => array(
       0 => array(
-        'identifier' => 'List: Field trip programs',
-        'keyword' => 'list',
-        'name' => 'entitylist:field_trip_programs',
-        'use_pager' => TRUE,
-        'pager_id' => NULL,
-        'range' => array(
-          'offset' => 0,
-          'limit' => 12,
+        'identifier' => 'View: Field trip programs',
+        'keyword' => 'view',
+        'name' => 'view_from_argument:field_trip_programs-ctools_context_1',
+        'context' => array(
+          0 => 'argument_term_1',
         ),
         'id' => 1,
       ),
     ),
-    'relationships' => array(),
+    'access' => array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'context_exists',
+          'settings' => array(
+            'exists' => '1',
+          ),
+          'context' => 'argument_term_1',
+          'not' => FALSE,
+        ),
+      ),
+      'logic' => 'and',
+    ),
   );
   $display = new panels_display();
   $display->layout = 'l6a';
@@ -3977,15 +4011,15 @@ function fieldmuseum_default_page_manager_pages() {
     ),
   );
   $display->cache = array();
-  $display->title = 'Field Trip Programs';
+  $display->title = 'Field Trip Programs for %term:name';
   $display->uuid = '29dae451-7137-44fd-a6bc-fd5eb79071ea';
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-c139e748-5a08-4209-a01c-29c4ca5dee5b';
+    $pane->pid = 'new-34ca3908-bb8c-4826-a5b6-1e47c13b4183';
     $pane->panel = 'main';
     $pane->type = 'fieldable_panels_pane';
-    $pane->subtype = 'fpid:96';
+    $pane->subtype = 'fpid:511';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -3993,6 +4027,7 @@ function fieldmuseum_default_page_manager_pages() {
     );
     $pane->cache = array();
     $pane->style = array(
+      'style' => 'semantic_panels',
       'settings' => array(
         'element_title' => array(
           'type' => 'h1',
@@ -4033,36 +4068,32 @@ function fieldmuseum_default_page_manager_pages() {
         ),
         'add_default_classes' => 1,
       ),
-      'style' => 'semantic_panels',
     );
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = 'c139e748-5a08-4209-a01c-29c4ca5dee5b';
-    $display->content['new-c139e748-5a08-4209-a01c-29c4ca5dee5b'] = $pane;
-    $display->panels['main'][0] = 'new-c139e748-5a08-4209-a01c-29c4ca5dee5b';
+    $pane->uuid = '34ca3908-bb8c-4826-a5b6-1e47c13b4183';
+    $display->content['new-34ca3908-bb8c-4826-a5b6-1e47c13b4183'] = $pane;
+    $display->panels['main'][0] = 'new-34ca3908-bb8c-4826-a5b6-1e47c13b4183';
     $pane = new stdClass();
-    $pane->pid = 'new-e757ca39-3d90-48a7-9b8c-c63cacdd1492';
+    $pane->pid = 'new-0c09adad-5d8a-49b0-bb06-5ccea9fc28d0';
     $pane->panel = 'main';
-    $pane->type = 'entity_range';
-    $pane->subtype = 'entity_range';
+    $pane->type = 'views_row';
+    $pane->subtype = 'views_row';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'range' => array(
-        'offset' => '0',
-        'limit' => '12',
-      ),
-      'view_mode' => 'node:promo',
-      'use_pager' => FALSE,
-      'pager_id' => 0,
-      'context' => 'context_entitylist:field_trip_programs_1',
+      'rows' => array(),
+      'use_fields' => 0,
+      'fields' => array(),
+      'context' => 'relationship_view_from_argument:field_trip_programs-ctools_context_1_1',
       'override_title' => 0,
       'override_title_text' => '',
     );
     $pane->cache = array();
     $pane->style = array(
+      'style' => 'semantic_panels',
       'settings' => array(
         'element_title' => array(
           'type' => '0',
@@ -4103,39 +4134,317 @@ function fieldmuseum_default_page_manager_pages() {
         ),
         'add_default_classes' => 1,
       ),
-      'style' => 'semantic_panels',
     );
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 1;
     $pane->locks = array();
-    $pane->uuid = 'e757ca39-3d90-48a7-9b8c-c63cacdd1492';
-    $display->content['new-e757ca39-3d90-48a7-9b8c-c63cacdd1492'] = $pane;
-    $display->panels['main'][1] = 'new-e757ca39-3d90-48a7-9b8c-c63cacdd1492';
+    $pane->uuid = '0c09adad-5d8a-49b0-bb06-5ccea9fc28d0';
+    $display->content['new-0c09adad-5d8a-49b0-bb06-5ccea9fc28d0'] = $pane;
+    $display->panels['main'][1] = 'new-0c09adad-5d8a-49b0-bb06-5ccea9fc28d0';
     $pane = new stdClass();
-    $pane->pid = 'new-88362ccc-79a4-472c-a091-6101815b41b1';
+    $pane->pid = 'new-7d3ffa4a-b385-4eb7-a98f-dec65b18ea6b';
     $pane->panel = 'main';
-    $pane->type = 'pager';
-    $pane->subtype = 'pager';
+    $pane->type = 'views_pager';
+    $pane->subtype = 'views_pager';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'type' => 'full',
-      'context' => 'context_entitylist:field_trip_programs_1',
+      'context' => 'relationship_view_from_argument:field_trip_programs-ctools_context_1_1',
       'override_title' => 0,
       'override_title_text' => '',
     );
     $pane->cache = array();
     $pane->style = array(
+      'style' => 'default',
       'settings' => NULL,
     );
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 2;
     $pane->locks = array();
-    $pane->uuid = '88362ccc-79a4-472c-a091-6101815b41b1';
-    $display->content['new-88362ccc-79a4-472c-a091-6101815b41b1'] = $pane;
-    $display->panels['main'][2] = 'new-88362ccc-79a4-472c-a091-6101815b41b1';
+    $pane->uuid = '7d3ffa4a-b385-4eb7-a98f-dec65b18ea6b';
+    $display->content['new-7d3ffa4a-b385-4eb7-a98f-dec65b18ea6b'] = $pane;
+    $display->panels['main'][2] = 'new-7d3ffa4a-b385-4eb7-a98f-dec65b18ea6b';
+    $pane = new stdClass();
+    $pane->pid = 'new-7480f094-23af-4ffa-8c1d-10da8efcc047';
+    $pane->panel = 'nav';
+    $pane->type = 'menu_tree';
+    $pane->subtype = 'main-menu';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'menu_name' => 'main-menu',
+      'parent_mlid' => 0,
+      'parent' => 'main-menu:0',
+      'title_link' => 0,
+      'admin_title' => '',
+      'level' => '2',
+      'follow' => 0,
+      'depth' => '0',
+      'expanded' => 0,
+      'sort' => 0,
+      'override_title' => 1,
+      'override_title_text' => '',
+      'identifier' => 'section',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => array(
+        'element_title' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => 'nav',
+          'class_enable' => 1,
+          'class' => 'navSection',
+          'attributes' => array(
+            'role' => array(
+              'enabled' => 1,
+              'value' => 'navigation',
+            ),
+          ),
+          'attributes_array' => array(
+            'role' => 'navigation',
+          ),
+        ),
+        'add_default_classes' => 1,
+      ),
+      'style' => 'semantic_panels',
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '7480f094-23af-4ffa-8c1d-10da8efcc047';
+    $display->content['new-7480f094-23af-4ffa-8c1d-10da8efcc047'] = $pane;
+    $display->panels['nav'][0] = 'new-7480f094-23af-4ffa-8c1d-10da8efcc047';
+  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->title_pane = '0';
+  $handler->conf['display'] = $display;
+  $page->default_handlers[$handler->name] = $handler;
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'page_field_trip_programs_panel_context_4';
+  $handler->task = 'page';
+  $handler->subtask = 'field_trip_programs';
+  $handler->handler = 'panel_context';
+  $handler->weight = -27;
+  $handler->conf = array(
+    'title' => 'unfiltered',
+    'no_blocks' => 0,
+    'pipeline' => 'ipe',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => '',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(
+      1 => array(
+        'identifier' => 'View: Field trip programs',
+        'keyword' => 'view',
+        'name' => 'view:field_trip_programs-ctools_context_1',
+        'id' => 1,
+      ),
+    ),
+    'relationships' => array(),
+  );
+  $display = new panels_display();
+  $display->layout = 'l6';
+  $display->layout_settings = array(
+    'main_classes' => 'l--body__content',
+    'nav_classes' => 'l--body__nav js--sticky',
+  );
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'main' => NULL,
+      'nav' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = 'Field Trip Programs';
+  $display->uuid = '29dae451-7137-44fd-a6bc-fd5eb79071ea';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-34ca3908-bb8c-4826-a5b6-1e47c13b4183';
+    $pane->panel = 'main';
+    $pane->type = 'fieldable_panels_pane';
+    $pane->subtype = 'fpid:511';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'view_mode' => 'full',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'semantic_panels',
+      'settings' => array(
+        'element_title' => array(
+          'type' => 'h1',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '34ca3908-bb8c-4826-a5b6-1e47c13b4183';
+    $display->content['new-34ca3908-bb8c-4826-a5b6-1e47c13b4183'] = $pane;
+    $display->panels['main'][0] = 'new-34ca3908-bb8c-4826-a5b6-1e47c13b4183';
+    $pane = new stdClass();
+    $pane->pid = 'new-0c09adad-5d8a-49b0-bb06-5ccea9fc28d0';
+    $pane->panel = 'main';
+    $pane->type = 'views_row';
+    $pane->subtype = 'views_row';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'rows' => array(),
+      'use_fields' => 0,
+      'fields' => array(),
+      'context' => 'context_view:field_trip_programs-ctools_context_1_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'semantic_panels',
+      'settings' => array(
+        'element_title' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => 'section',
+          'class_enable' => 1,
+          'class' => 'promos--3up',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = '0c09adad-5d8a-49b0-bb06-5ccea9fc28d0';
+    $display->content['new-0c09adad-5d8a-49b0-bb06-5ccea9fc28d0'] = $pane;
+    $display->panels['main'][1] = 'new-0c09adad-5d8a-49b0-bb06-5ccea9fc28d0';
+    $pane = new stdClass();
+    $pane->pid = 'new-7d3ffa4a-b385-4eb7-a98f-dec65b18ea6b';
+    $pane->panel = 'main';
+    $pane->type = 'views_pager';
+    $pane->subtype = 'views_pager';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'context' => 'context_view:field_trip_programs-ctools_context_1_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'default',
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 2;
+    $pane->locks = array();
+    $pane->uuid = '7d3ffa4a-b385-4eb7-a98f-dec65b18ea6b';
+    $display->content['new-7d3ffa4a-b385-4eb7-a98f-dec65b18ea6b'] = $pane;
+    $display->panels['main'][2] = 'new-7d3ffa4a-b385-4eb7-a98f-dec65b18ea6b';
     $pane = new stdClass();
     $pane->pid = 'new-7480f094-23af-4ffa-8c1d-10da8efcc047';
     $pane->panel = 'nav';
