@@ -131,7 +131,7 @@ function fmnh_program_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 6,
+        'weight' => 7,
       ),
       'promo' => array(
         'label' => 'above',
@@ -182,7 +182,7 @@ function fmnh_program_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 3,
+        'weight' => 4,
       ),
       'promo' => array(
         'label' => 'hidden',
@@ -304,7 +304,7 @@ function fmnh_program_field_default_field_instances() {
           ),
         ),
       ),
-      'text_processing' => 0,
+      'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -314,7 +314,81 @@ function fmnh_program_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 12,
+      'weight' => 9,
+    ),
+  );
+
+  // Exported field_instance: 'node-program-field_banner_image'
+  $field_instances['node-program-field_banner_image'] = array(
+    'bundle' => 'program',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 3,
+      ),
+      'promo' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'fences_wrapper' => 'no_wrapper',
+    'field_name' => 'field_banner_image',
+    'label' => 'Banner image',
+    'required' => 0,
+    'settings' => array(
+      'description_field' => 0,
+      'file_directory' => '',
+      'file_extensions' => 'jpg gif jpeg png',
+      'imagecrop' => array(
+        '2x1_2400w' => 0,
+        '5x2_2400w' => 0,
+        '5x3_2400w' => 0,
+        'large' => 0,
+        'media_gallery_large' => 0,
+        'media_gallery_thumbnail' => 0,
+        'medium' => 0,
+        'thumbnail' => 0,
+      ),
+      'max_filesize' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'media',
+      'settings' => array(
+        'allowed_schemes' => array(
+          'oembed' => 0,
+          'public' => 'public',
+        ),
+        'allowed_types' => array(
+          'audio' => 0,
+          'document' => 0,
+          'image' => 'image',
+          'model' => 0,
+          'video' => 0,
+        ),
+        'browser_plugins' => array(
+          'media_default--media_browser_1' => 0,
+          'media_default--media_browser_my_files' => 0,
+          'media_internet' => 0,
+          'upload' => 0,
+        ),
+      ),
+      'type' => 'media_generic',
+      'weight' => 8,
     ),
   );
 
@@ -329,7 +403,7 @@ function fmnh_program_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 5,
+        'weight' => 6,
       ),
       'promo' => array(
         'label' => 'hidden',
@@ -486,7 +560,7 @@ function fmnh_program_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 4,
+        'weight' => 5,
       ),
       'promo' => array(
         'label' => 'hidden',
@@ -528,7 +602,7 @@ function fmnh_program_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'entityreference_autocomplete',
-      'weight' => 8,
+      'weight' => 7,
     ),
   );
 
@@ -537,6 +611,7 @@ function fmnh_program_field_default_field_instances() {
   t('Always visible');
   t('Audience');
   t('Banner description');
+  t('Banner image');
   t('Body');
   t('Grade level');
   t('If a program has no events linked to it, the program will not appear in the places it normally would. If the program should always be visible even if there are no planned events, check this box.');
