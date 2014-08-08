@@ -152,6 +152,7 @@ function esquif_preprocess_node(&$variables, $hook) {
     case 'summary':
       $variables['theme_hook_suggestions'][] = 'node__summary';
       $variables['title_attributes_array']['class'][] = 'summary__title';
+      $variables['content']['field_image'][0]['file']['#item']['attributes']['class'][] = 'summary__image';
       break;
     default:
       array_splice($variables['theme_hook_suggestions'], 1, 0, array('node__'. $variables['type'] .'__'. $variables['view_mode']));
@@ -276,6 +277,7 @@ function esquif_preprocess_taxonomy_term(&$variables, $hook) {
       $variables['classes_array'][] = 'summary';
       $variables['title_attributes_array']['class'][] = 'summary__title';
       $variables['term_url'] = url('science/blog/'. drupal_strtolower(str_replace(' ', '-', $variables['name'])));
+      $variables['content']['field_image'][0]['file']['#item']['attributes']['class'][] = 'summary__image';
       break;
   }
 }
@@ -1301,6 +1303,13 @@ function esquif_preprocess_views_view_list(&$variables, $hook) {
 
 function esquif_preprocess_fieldable_panels_pane(&$variables) {
   $variables['theme_hook_suggestions'][] = 'fieldable_panels_pane__' . $variables['elements']['#element']->bundle .'__'. $variables['elements']['#view_mode'];
+
+  switch ($variables['elements']['#element']->bundle) {
+    case 'banner_description_and_list':
+      $variables['title_attributes_array']['class'][] = 'summary__title';
+      $variables['content']['field_image'][0]['file']['#item']['attributes']['class'][] = 'summary__image';
+      break;
+  }
 }
 
 function esquif_node_view_alter(&$build, $type) {
