@@ -1105,6 +1105,7 @@ return array(
     'UntarTask' => $vendorDir . '/phing/phing/classes/phing/tasks/ext/UntarTask.php',
     'UnzipTask' => $vendorDir . '/phing/phing/classes/phing/tasks/ext/UnzipTask.php',
     'UpToDateTask' => $vendorDir . '/phing/phing/classes/phing/tasks/system/UpToDateTask.php',
+    'VersionCompareCondition' => $vendorDir . '/phing/phing/classes/phing/tasks/system/condition/VersionCompareCondition.php',
     'VersionControl_Git' => $vendorDir . '/pear-pear.php.net/VersionControl_Git/VersionControl/Git.php',
     'VersionControl_Git_Component' => $vendorDir . '/pear-pear.php.net/VersionControl_Git/VersionControl/Git/Component.php',
     'VersionControl_Git_Exception' => $vendorDir . '/pear-pear.php.net/VersionControl_Git/VersionControl/Git/Exception.php',
