@@ -191,6 +191,14 @@ function esquif_preprocess_node_event(&$variables, $hook) {
   }
 }
 
+function esquif_preprocess_node_faq(&$variables, $hook) {
+  if ($variables['view_mode'] == 'teaser') {
+    $variables['classes_array'][] = 'answer';
+    $variables['title_attributes_array']['class'][] = 'answer__question';
+
+  }
+}
+
 function esquif_preprocess_node_blog(&$variables, $hook) {
   $variables['classes_array'][] = 'article';
   $variables['title_attributes_array']['class'][] = 'article__title';
@@ -1301,6 +1309,13 @@ function esquif_preprocess_views_view_list(&$variables, $hook) {
   if ('contentLinks--full' == $variables['class']) {
     foreach (array_keys($rows) as $id) {
       $variables['classes'][$id][] = 'contentLinks__item';
+      $variables['classes_array'][$id] = isset($variables['classes'][$id]) ? implode(' ', $variables['classes'][$id]) : '';
+    }
+  }
+
+  if ('navFaqs__list' == $variables['class']) {
+    foreach (array_keys($rows) as $id) {
+      $variables['classes'][$id][] = 'navFaqs__item';
       $variables['classes_array'][$id] = isset($variables['classes'][$id]) ? implode(' ', $variables['classes'][$id]) : '';
     }
   }
