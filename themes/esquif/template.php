@@ -160,6 +160,7 @@ function esquif_preprocess_node(&$variables, $hook) {
       }
       break;
     default:
+      $variables['content']['field_image'][0]['file']['#item']['attributes']['class'][] = 'image--primary';
       array_splice($variables['theme_hook_suggestions'], 1, 0, array('node__'. $variables['type'] .'__'. $variables['view_mode']));
       break;
   }
