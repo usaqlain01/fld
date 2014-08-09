@@ -318,7 +318,7 @@ function fmnh_exhibit_default_page_manager_pages() {
       'identifier' => 'Exhibit type (tid)',
       'name' => 'term',
       'settings' => array(
-        'input_form' => 'term',
+        'input_form' => 'tid',
         'vids' => array(
           6 => '6',
           1 => 0,
@@ -332,8 +332,8 @@ function fmnh_exhibit_default_page_manager_pages() {
           31 => 0,
           21 => 0,
         ),
-        'breadcrumb' => 1,
-        'transform' => 1,
+        'breadcrumb' => 0,
+        'transform' => 0,
       ),
     ),
   );
