@@ -1374,6 +1374,23 @@ function esquif_field__field_topic($variables) {
   return $output;
 }
 
+function esquif_field__field_link__banner_description_and_list($variables) {
+  $output = '';
+
+  // Render the label, if it's not hidden.
+  if (!$variables['label_hidden']) {
+    $output .= '<div class="field-label"' . $variables['title_attributes'] . '>' . $variables['label'] . ':&nbsp;</div>';
+  }
+
+  // Render the items.
+  foreach ($variables['items'] as $delta => $item) {
+    $classes = 'contentLinks__item field-item ' . ($delta % 2 ? 'odd' : 'even');
+    $output .= '<li class="' . $classes . '"' . $variables['item_attributes'][$delta] . '>' . drupal_render($item) . '</li>';
+  }
+
+  return $output;
+}
+
 function esquif_preprocess_username(&$variables, $hook) {
   $profile = profile2_by_uid_load($variables['uid'], 'main');
   if ($profile) {
