@@ -41,6 +41,10 @@ function fmnh_calendar_views_default_views() {
   $handler->display->display_options['style_options']['uses_fields'] = TRUE;
   $handler->display->display_options['row_plugin'] = 'node';
   $handler->display->display_options['row_options']['links'] = FALSE;
+  /* Header: Global: Groupings menu */
+  $handler->display->display_options['header']['groupings_menu']['id'] = 'groupings_menu';
+  $handler->display->display_options['header']['groupings_menu']['table'] = 'views';
+  $handler->display->display_options['header']['groupings_menu']['field'] = 'groupings_menu';
   /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';

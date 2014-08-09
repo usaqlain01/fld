@@ -47,7 +47,7 @@
     hide($content['comments']);
     hide($content['links']);
     print render($content);
-    ?>
+    ?><a href="#" class="link--more">Event Details</a>
   </section>
 
   <?php print render($content['links']); ?>

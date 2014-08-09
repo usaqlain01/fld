@@ -29,16 +29,17 @@ class bangpound_views_handler_area_groupings_menu extends views_handler_area {
     );
 
     $items = array();
-    foreach ($sets as $year => $set) {
-      foreach (array_keys($set['rows']) as $month) {
-        $options = array(
-          'external' => true,
-          'fragment' => drupal_html_id(trim($year) .'-'. trim($month)),
-        );
-        $items[] = l($month, null, $options);
-      }
+    foreach ($sets as $month => $set) {
+      $options = array(
+        'external' => true,
+        'fragment' => drupal_html_id(trim($month)),
+        'attributes' => array(
+          'class' => array('navTarget__link')
+        ),
+      );
+      $items[] = l($month, null, $options);
     }
 
-    return theme('item_list', array('items' => $items));
+    return theme('item_list__'. $this->view->name, array('items' => $items));
   }
 }
