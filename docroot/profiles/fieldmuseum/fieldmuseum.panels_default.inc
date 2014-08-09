@@ -1436,7 +1436,19 @@ function fieldmuseum_default_panels_mini() {
     $pane->type = 'fieldable_panels_pane';
     $pane->subtype = 'fpid:76';
     $pane->shown = TRUE;
-    $pane->access = array();
+    $pane->access = array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'path_visibility',
+          'settings' => array(
+            'visibility_setting' => '1',
+            'paths' => 'support',
+          ),
+          'context' => 'empty',
+          'not' => FALSE,
+        ),
+      ),
+    );
     $pane->configuration = array(
       'view_mode' => 'full',
     );
@@ -1556,7 +1568,19 @@ function fieldmuseum_default_panels_mini() {
     $pane->type = 'fieldable_panels_pane';
     $pane->subtype = 'fpid:66';
     $pane->shown = TRUE;
-    $pane->access = array();
+    $pane->access = array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'path_visibility',
+          'settings' => array(
+            'visibility_setting' => '1',
+            'paths' => 'visit',
+          ),
+          'context' => 'empty',
+          'not' => FALSE,
+        ),
+      ),
+    );
     $pane->configuration = array(
       'view_mode' => 'full',
     );

@@ -152,9 +152,15 @@ function esquif_preprocess_node(&$variables, $hook) {
     case 'summary':
       $variables['theme_hook_suggestions'][] = 'node__summary';
       $variables['title_attributes_array']['class'][] = 'summary__title';
-      $variables['content']['field_image'][0]['file']['#item']['attributes']['class'][] = 'summary__image';
+      if ('image_formatter' == $variables['content']['field_image'][0]['file']['#theme']) {
+        $variables['content']['field_image'][0]['file']['#item']['attributes']['class'][] = 'summary__image';
+      }
+      else if ('image_style' == $variables['content']['field_image'][0]['file']['#theme']) {
+        $variables['content']['field_image'][0]['file']['#attributes']['class'][] = 'summary__image';
+      }
       break;
     default:
+      $variables['content']['field_image'][0]['file']['#item']['attributes']['class'][] = 'image--primary';
       array_splice($variables['theme_hook_suggestions'], 1, 0, array('node__'. $variables['type'] .'__'. $variables['view_mode']));
       break;
   }
@@ -174,6 +180,22 @@ function esquif_preprocess_node(&$variables, $hook) {
   $function = __FUNCTION__ . '_' . $variables['node']->type;
   if (function_exists($function)) {
     $function($variables, $hook);
+  }
+}
+
+function esquif_preprocess_node_event(&$variables, $hook) {
+  if ($variables['view_mode'] == 'list_item') {
+    $variables['classes_array'][] = 'eventsList__item';
+    $variables['title_attributes_array']['class'][] = 'eventsList__heading';
+
+  }
+}
+
+function esquif_preprocess_node_faq(&$variables, $hook) {
+  if ($variables['view_mode'] == 'teaser') {
+    $variables['classes_array'][] = 'answer';
+    $variables['title_attributes_array']['class'][] = 'answer__question';
+
   }
 }
 
@@ -781,7 +803,6 @@ function esquif_more_link($variables) {
  */
 function esquif_button__search_box($variables) {
   $element = $variables['element'];
-  $element['#attributes']['type'] = 'submit';
   element_set_attributes($element, array('id', 'name', 'value'));
 
   $element['#attributes']['class'][] = 'form-' . $element['#button_type'];
@@ -800,6 +821,7 @@ function esquif_button__search_box($variables) {
  */
 function esquif_form_search_block_form_alter(&$form, &$form_state) {
   $form['#attributes']['class'][] = 'search';
+  $form['#attributes']['class'] = array_diff($form['#attributes']['class'], array('google-cse'));
   $form['#attributes']['role'] = 'search';
   $form['search_block_form']['#attributes']['class'][] = 'search__input';
   $form['search_block_form']['#attributes']['placeholder'] = 'Search fieldmuseum.org';
@@ -877,7 +899,7 @@ function esquif_pager($variables) {
   $li_last = theme('pager_last', array('text' => ($pager_max), 'element' => $element, 'parameters' => $parameters));
 
   if ($pager_total[$element] > 1) {
-    if ($li_first && $pager_current > 3) {
+    if ($li_first && $pager_current > 3 && $pager_max > 5) {
       $items[] = array(
         'class' => array('pagination__first'),
         'data' => $li_first,
@@ -921,7 +943,7 @@ function esquif_pager($variables) {
       }
     }
     // End generation.
-    if ($li_last && $pager_current < $pager_max) {
+    if ($li_last && $pager_current < $pager_max && $pager_max > 5) {
       $items[] = array(
         'class' => array('pagination__last'),
         'data' => $li_last,
@@ -1290,6 +1312,13 @@ function esquif_preprocess_views_view_list(&$variables, $hook) {
       $variables['classes_array'][$id] = isset($variables['classes'][$id]) ? implode(' ', $variables['classes'][$id]) : '';
     }
   }
+
+  if ('navFaqs__list' == $variables['class']) {
+    foreach (array_keys($rows) as $id) {
+      $variables['classes'][$id][] = 'navFaqs__item';
+      $variables['classes_array'][$id] = isset($variables['classes'][$id]) ? implode(' ', $variables['classes'][$id]) : '';
+    }
+  }
 }
 
 function esquif_preprocess_fieldable_panels_pane(&$variables) {
@@ -1345,6 +1374,23 @@ function esquif_field__field_topic($variables) {
   return $output;
 }
 
+function esquif_field__field_link__banner_description_and_list($variables) {
+  $output = '';
+
+  // Render the label, if it's not hidden.
+  if (!$variables['label_hidden']) {
+    $output .= '<div class="field-label"' . $variables['title_attributes'] . '>' . $variables['label'] . ':&nbsp;</div>';
+  }
+
+  // Render the items.
+  foreach ($variables['items'] as $delta => $item) {
+    $classes = 'contentLinks__item field-item ' . ($delta % 2 ? 'odd' : 'even');
+    $output .= '<li class="' . $classes . '"' . $variables['item_attributes'][$delta] . '>' . drupal_render($item) . '</li>';
+  }
+
+  return $output;
+}
+
 function esquif_preprocess_username(&$variables, $hook) {
   $profile = profile2_by_uid_load($variables['uid'], 'main');
   if ($profile) {
@@ -1367,4 +1413,129 @@ function esquif_menu_link__menu_block__main_menu__section__science_blog($variabl
     );
   }
   return esquif_menu_link__menu_block__main_menu__section($variables);
+}
+
+//function esquif_element_info_alter(&$type) {
+//  $type['actions']['#theme_wrappers'] = array_diff($type['actions']['#theme_wrappers'], array('container'));
+//  $type['']
+//}
+
+function esquif_form_element($variables) {
+  $element = &$variables['element'];
+
+  // This function is invoked as theme wrapper, but the rendered form element
+  // may not necessarily have been processed by form_builder().
+  $element += array(
+    '#title_display' => 'before',
+  );
+
+  // Add element #id for #type 'item'.
+  if (isset($element['#markup']) && !empty($element['#id'])) {
+    $attributes['id'] = $element['#id'];
+  }
+  // Add element's #type and #name as class to aid with JS/CSS selectors.
+  $attributes['class'] = array('form-item');
+  if (!empty($element['#type'])) {
+    $attributes['class'][] = 'form-type-' . strtr($element['#type'], '_', '-');
+  }
+  if (!empty($element['#name'])) {
+    $attributes['class'][] = 'form-item-' . strtr($element['#name'], array(' ' => '-', '_' => '-', '[' => '-', ']' => ''));
+  }
+  // Add a class for disabled elements to facilitate cross-browser styling.
+  if (!empty($element['#attributes']['disabled'])) {
+    $attributes['class'][] = 'form-disabled';
+  }
+  $output = '';
+
+  // If #title is not set, we don't display any label or required marker.
+  if (!isset($element['#title'])) {
+    $element['#title_display'] = 'none';
+  }
+  $prefix = isset($element['#field_prefix']) ? '<span class="field-prefix">' . $element['#field_prefix'] . '</span> ' : '';
+  $suffix = isset($element['#field_suffix']) ? ' <span class="field-suffix">' . $element['#field_suffix'] . '</span>' : '';
+
+  switch ($element['#title_display']) {
+    case 'before':
+    case 'invisible':
+      $output .= ' ' . theme('form_element_label', $variables);
+      $output .= ' ' . $prefix . $element['#children'] . $suffix . "\n";
+      break;
+
+    case 'after':
+      $output .= ' ' . $prefix . $element['#children'] . $suffix;
+      $output .= ' ' . theme('form_element_label', $variables) . "\n";
+      break;
+
+    case 'none':
+    case 'attribute':
+      // Output no label and no required marker, only the children.
+      $output .= ' ' . $prefix . $element['#children'] . $suffix . "\n";
+      break;
+  }
+
+  if (!empty($element['#description'])) {
+    $output .= '<div class="description">' . $element['#description'] . "</div>\n";
+  }
+
+  return $output;
+}
+
+function esquif_item_list__calendar($variables) {
+  $items = $variables['items'];
+  $title = $variables['title'];
+  $type = $variables['type'];
+  $attributes = $variables['attributes'];
+  $attributes['class'][] = 'navTarget__list';
+
+  // Only output the list container and title, if there are any list items.
+  // Check to see whether the block title exists before adding a header.
+  // Empty headers are not semantic and present accessibility challenges.
+  $output = '<nav class="navTarget" id="top">';
+  if (isset($title) && $title !== '') {
+    $output .= '<h3>' . $title . '</h3>';
+  }
+
+  if (!empty($items)) {
+    $output .= "<$type" . drupal_attributes($attributes) . '>';
+    $num_items = count($items);
+    $i = 0;
+    foreach ($items as $item) {
+      $attributes = array();
+      $attributes['class'][] = 'navTarget__item';
+      $attributes['title'] = 'Go to this section';
+      $children = array();
+      $data = '';
+      $i++;
+      if (is_array($item)) {
+        foreach ($item as $key => $value) {
+          if ($key == 'data') {
+            $data = $value;
+          }
+          elseif ($key == 'children') {
+            $children = $value;
+          }
+          else {
+            $attributes[$key] = $value;
+          }
+        }
+      }
+      else {
+        $data = $item;
+      }
+      if (count($children) > 0) {
+        // Render nested list.
+        $data .= theme_item_list(array('items' => $children, 'title' => NULL, 'type' => $type, 'attributes' => $attributes));
+      }
+      if ($i == 1) {
+        $attributes['class'][] = 'first';
+      }
+      if ($i == $num_items) {
+        $attributes['class'][] = 'last';
+      }
+      $output .= '<li' . drupal_attributes($attributes) . '>' . $data . "</li>\n";
+    }
+    $output .= "</$type>";
+  }
+  $output .= '</nav>';
+  return $output;
 }

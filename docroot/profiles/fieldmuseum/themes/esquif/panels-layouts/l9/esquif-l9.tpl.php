@@ -13,8 +13,7 @@
  * - $nav_classes: Additional classes for the nav region.
  */
 ?>
-<div class="l--body">
-  <div class="l--body__content">
+<div class="l--body js--stickyParent">
     <?php
     if ($main_classes) {
       print '<div class="' . $main_classes . '">';
@@ -23,10 +22,6 @@
     } else {
       print $content['main'];
     }
-    ?>
-  </div>
-  <div class="l--body__nav">
-    <?php
     if ($nav_classes) {
       print '<div class="' . $nav_classes . '">';
       print $content['nav'];
@@ -35,5 +30,4 @@
       print $content['nav'];
     }
     ?>
-  </div>
 </div>
