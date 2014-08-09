@@ -327,6 +327,32 @@ function fmnh_department_default_page_manager_pages() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
+    $pane->pid = 'new-f84c354c-94b2-4a2e-989c-3db04ed193ae';
+    $pane->panel = 'main';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => '',
+      'title' => '',
+      'body' => '<h1>%node:title &mdash; Staff</h1>',
+      'format' => 'unfiltered',
+      'substitute' => 1,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'naked',
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'f84c354c-94b2-4a2e-989c-3db04ed193ae';
+    $display->content['new-f84c354c-94b2-4a2e-989c-3db04ed193ae'] = $pane;
+    $display->panels['main'][0] = 'new-f84c354c-94b2-4a2e-989c-3db04ed193ae';
+    $pane = new stdClass();
     $pane->pid = 'new-95ec96aa-b64d-4bd2-832c-56fd3e1fc2ff';
     $pane->panel = 'main';
     $pane->type = 'views_row';
@@ -346,7 +372,22 @@ function fmnh_department_default_page_manager_pages() {
       'style' => 'semantic_panels',
       'settings' => array(
         'element_title' => array(
-          'type' => 'div',
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => 'section',
           'class_enable' => 1,
           'class' => 'persons--2up',
           'attributes' => array(),
@@ -360,23 +401,8 @@ function fmnh_department_default_page_manager_pages() {
           ),
           'attributes_array' => array(),
         ),
-        'element_content' => array(
-          'type' => '',
-          'class_enable' => 0,
-          'class' => '',
-          'attributes' => array(),
-          'link_enabled' => 0,
-          'link' => array(
-            'path' => '',
-            'class_enable' => 0,
-            'class' => '',
-            'attributes' => array(),
-            'attributes_array' => array(),
-          ),
-          'attributes_array' => array(),
-        ),
         'element_wrapper' => array(
-          'type' => '',
+          'type' => '0',
           'class_enable' => 0,
           'class' => '',
           'attributes' => array(),
@@ -387,11 +413,11 @@ function fmnh_department_default_page_manager_pages() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 0;
+    $pane->position = 1;
     $pane->locks = array();
     $pane->uuid = '95ec96aa-b64d-4bd2-832c-56fd3e1fc2ff';
     $display->content['new-95ec96aa-b64d-4bd2-832c-56fd3e1fc2ff'] = $pane;
-    $display->panels['main'][0] = 'new-95ec96aa-b64d-4bd2-832c-56fd3e1fc2ff';
+    $display->panels['main'][1] = 'new-95ec96aa-b64d-4bd2-832c-56fd3e1fc2ff';
     $pane = new stdClass();
     $pane->pid = 'new-07320c6f-b9f8-420f-8b45-d7262cf86ef7';
     $pane->panel = 'nav';
@@ -473,7 +499,7 @@ function fmnh_department_default_page_manager_pages() {
     $display->content['new-07320c6f-b9f8-420f-8b45-d7262cf86ef7'] = $pane;
     $display->panels['nav'][0] = 'new-07320c6f-b9f8-420f-8b45-d7262cf86ef7';
   $display->hide_title = PANELS_TITLE_PANE;
-  $display->title_pane = '0';
+  $display->title_pane = 'new-95ec96aa-b64d-4bd2-832c-56fd3e1fc2ff';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
   $pages['department_people'] = $page;

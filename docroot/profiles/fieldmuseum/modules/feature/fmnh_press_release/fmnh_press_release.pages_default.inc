@@ -303,15 +303,9 @@ function fmnh_press_release_default_page_manager_pages() {
     'css' => '',
     'contexts' => array(
       0 => array(
-        'identifier' => 'List: Press releases',
-        'keyword' => 'list',
-        'name' => 'entitylist:press_releases',
-        'use_pager' => TRUE,
-        'pager_id' => NULL,
-        'range' => array(
-          'offset' => 0,
-          'limit' => 10,
-        ),
+        'identifier' => 'View: Press releases',
+        'keyword' => 'view',
+        'name' => 'view:press_releases-ctools_context_1',
         'id' => 1,
       ),
     ),
@@ -397,35 +391,25 @@ function fmnh_press_release_default_page_manager_pages() {
     $display->content['new-220b826c-a200-4289-b1e1-5fb2ecb40c25'] = $pane;
     $display->panels['main'][0] = 'new-220b826c-a200-4289-b1e1-5fb2ecb40c25';
     $pane = new stdClass();
-    $pane->pid = 'new-6b38fa7a-89e3-41cf-810a-eccda3d48c9a';
+    $pane->pid = 'new-477e0fad-4222-4e39-b90b-ae54c0855bbe';
     $pane->panel = 'main';
-    $pane->type = 'entity_range';
-    $pane->subtype = 'entity_range';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'press_releases-panel_pane_1';
     $pane->shown = TRUE;
     $pane->access = array();
-    $pane->configuration = array(
-      'range' => array(
-        'offset' => '0',
-        'limit' => '10',
-      ),
-      'view_mode' => 'node:teaser',
-      'use_pager' => FALSE,
-      'pager_id' => 0,
-      'context' => 'context_entitylist:press_releases_1',
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
+    $pane->configuration = array();
     $pane->cache = array();
     $pane->style = array(
+      'style' => 'naked',
       'settings' => NULL,
     );
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 1;
     $pane->locks = array();
-    $pane->uuid = '6b38fa7a-89e3-41cf-810a-eccda3d48c9a';
-    $display->content['new-6b38fa7a-89e3-41cf-810a-eccda3d48c9a'] = $pane;
-    $display->panels['main'][1] = 'new-6b38fa7a-89e3-41cf-810a-eccda3d48c9a';
+    $pane->uuid = '477e0fad-4222-4e39-b90b-ae54c0855bbe';
+    $display->content['new-477e0fad-4222-4e39-b90b-ae54c0855bbe'] = $pane;
+    $display->panels['main'][1] = 'new-477e0fad-4222-4e39-b90b-ae54c0855bbe';
     $pane = new stdClass();
     $pane->pid = 'new-f99b5a33-82f5-44ef-a89d-901a1d37cdc7';
     $pane->panel = 'nav';
@@ -506,8 +490,8 @@ function fmnh_press_release_default_page_manager_pages() {
     $pane->uuid = 'f99b5a33-82f5-44ef-a89d-901a1d37cdc7';
     $display->content['new-f99b5a33-82f5-44ef-a89d-901a1d37cdc7'] = $pane;
     $display->panels['nav'][0] = 'new-f99b5a33-82f5-44ef-a89d-901a1d37cdc7';
-  $display->hide_title = PANELS_TITLE_FIXED;
-  $display->title_pane = '0';
+  $display->hide_title = PANELS_TITLE_PANE;
+  $display->title_pane = 'new-477e0fad-4222-4e39-b90b-ae54c0855bbe';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
   $pages['press_materials'] = $page;

@@ -119,6 +119,9 @@ projects[google_cse][download][url] = https://github.com/bangpound/google_cse.gi
 projects[google_cse][download][type] = git
 projects[google_cse][download][branch] = CSEv2
 
+projects[imagecache_token][subdir] = contrib
+projects[imagecache_token][version] = 1.x-dev
+
 projects[imagecrop][subdir] = contrib
 projects[imagecrop][type] = module
 projects[imagecrop][download][url] = https://github.com/bangpound/imagecrop.git
