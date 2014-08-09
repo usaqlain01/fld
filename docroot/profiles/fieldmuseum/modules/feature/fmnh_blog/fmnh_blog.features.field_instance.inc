@@ -625,7 +625,7 @@ function fmnh_blog_field_default_field_instances() {
         'module' => 'entityreference',
         'settings' => array(
           'field_formatter_class' => '',
-          'link' => FALSE,
+          'link' => 1,
         ),
         'type' => 'entityreference_label',
         'weight' => 1,

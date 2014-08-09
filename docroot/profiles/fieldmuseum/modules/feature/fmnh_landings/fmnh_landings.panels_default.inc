@@ -457,20 +457,7 @@ function fmnh_landings_default_panels_mini() {
   $mini->admin_title = 'Home landing exhibitions';
   $mini->admin_description = '';
   $mini->requiredcontexts = array();
-  $mini->contexts = array(
-    0 => array(
-      'identifier' => 'List: Promoted exhibitions',
-      'keyword' => 'list',
-      'name' => 'entitylist:promoted_exhibitions',
-      'use_pager' => FALSE,
-      'pager_id' => NULL,
-      'range' => array(
-        'offset' => 0,
-        'limit' => 3,
-      ),
-      'id' => 1,
-    ),
-  );
+  $mini->contexts = array();
   $mini->relationships = array();
   $display = new panels_display();
   $display->layout = 'zen_no_wrapper';
