@@ -335,7 +335,7 @@ function fmnh_blog_default_page_manager_pages() {
     $pane->configuration = array(
       'admin_title' => '',
       'title' => '',
-      'body' => '<h1>Gallery Blogs</h1>',
+      'body' => '<h1>Slideshows</h1>',
       'format' => 'unfiltered',
       'substitute' => 1,
     );
@@ -612,7 +612,7 @@ function fmnh_blog_default_page_manager_pages() {
     ),
   );
   $display->cache = array();
-  $display->title = 'Podcast Blogs';
+  $display->title = 'Podcasts';
   $display->uuid = '231137e8-83c9-4391-ac05-3a37318043c2';
   $display->content = array();
   $display->panels = array();
@@ -626,7 +626,7 @@ function fmnh_blog_default_page_manager_pages() {
     $pane->configuration = array(
       'admin_title' => '',
       'title' => '',
-      'body' => '<h1>Podcast Blogs</h1>',
+      'body' => '<h1>Podcasts</h1>',
       'format' => 'unfiltered',
       'substitute' => 1,
     );
@@ -903,7 +903,7 @@ function fmnh_blog_default_page_manager_pages() {
     ),
   );
   $display->cache = array();
-  $display->title = 'Video Blog';
+  $display->title = 'Videos';
   $display->uuid = '231137e8-83c9-4391-ac05-3a37318043c2';
   $display->content = array();
   $display->panels = array();
@@ -917,7 +917,7 @@ function fmnh_blog_default_page_manager_pages() {
     $pane->configuration = array(
       'admin_title' => '',
       'title' => '',
-      'body' => '<h1>Video Blogs</h1>',
+      'body' => '<h1>Videos</h1>',
       'format' => 'unfiltered',
       'substitute' => 1,
     );

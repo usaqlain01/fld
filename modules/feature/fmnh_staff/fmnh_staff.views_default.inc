@@ -72,7 +72,7 @@ function fmnh_staff_views_default_views() {
   $view->name = 'people';
   $view->description = '';
   $view->tag = 'default';
-  $view->base_table = 'users';
+  $view->base_table = 'profile';
   $view->human_name = 'People';
   $view->core = 7;
   $view->api_version = '3.0';
@@ -89,36 +89,41 @@ function fmnh_staff_views_default_views() {
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['style_plugin'] = 'default';
-  $handler->display->display_options['row_plugin'] = 'user';
+  $handler->display->display_options['row_plugin'] = 'entity';
+  $handler->display->display_options['row_options']['view_mode'] = 'summary';
   /* Relationship: Entity Reference: Referenced Entity */
   $handler->display->display_options['relationships']['field_department_target_id']['id'] = 'field_department_target_id';
   $handler->display->display_options['relationships']['field_department_target_id']['table'] = 'field_data_field_department';
   $handler->display->display_options['relationships']['field_department_target_id']['field'] = 'field_department_target_id';
-  /* Field: User: Name */
-  $handler->display->display_options['fields']['name']['id'] = 'name';
-  $handler->display->display_options['fields']['name']['table'] = 'users';
-  $handler->display->display_options['fields']['name']['field'] = 'name';
-  $handler->display->display_options['fields']['name']['label'] = '';
-  $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
+  /* Relationship: Profile: User uid */
+  $handler->display->display_options['relationships']['user']['id'] = 'user';
+  $handler->display->display_options['relationships']['user']['table'] = 'profile';
+  $handler->display->display_options['relationships']['user']['field'] = 'user';
+  $handler->display->display_options['relationships']['user']['required'] = TRUE;
   /* Contextual filter: Content: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
   $handler->display->display_options['arguments']['nid']['table'] = 'node';
   $handler->display->display_options['arguments']['nid']['field'] = 'nid';
   $handler->display->display_options['arguments']['nid']['relationship'] = 'field_department_target_id';
   $handler->display->display_options['arguments']['nid']['title_enable'] = TRUE;
-  $handler->display->display_options['arguments']['nid']['title'] = 'People in %1';
+  $handler->display->display_options['arguments']['nid']['title'] = '%1 — Staff';
   $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'fixed';
   $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
+  /* Filter criterion: Profile: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'profile';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'main' => 'main',
+  );
   /* Filter criterion: User: Active */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'users';
   $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['relationship'] = 'user';
   $handler->display->display_options['filters']['status']['value'] = '1';
-  $handler->display->display_options['filters']['status']['group'] = 1;
-  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
 
   /* Display: Content pane */
   $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
@@ -176,7 +181,7 @@ function fmnh_staff_views_default_views() {
   $handler->display->display_options['arguments']['field_department_target_id']['table'] = 'field_data_field_department';
   $handler->display->display_options['arguments']['field_department_target_id']['field'] = 'field_department_target_id';
   $handler->display->display_options['arguments']['field_department_target_id']['title_enable'] = TRUE;
-  $handler->display->display_options['arguments']['field_department_target_id']['title'] = '%1 staff';
+  $handler->display->display_options['arguments']['field_department_target_id']['title'] = '%1 — Staff';
   $handler->display->display_options['arguments']['field_department_target_id']['breadcrumb_enable'] = TRUE;
   $handler->display->display_options['arguments']['field_department_target_id']['breadcrumb'] = '%1';
   $handler->display->display_options['arguments']['field_department_target_id']['default_argument_type'] = 'fixed';
