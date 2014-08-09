@@ -32,6 +32,12 @@ function fmnh_calendar_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 6,
       ),
+      'list_item' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 5,
+      ),
       'summary' => array(
         'label' => 'hidden',
         'module' => 'text',
@@ -139,6 +145,12 @@ function fmnh_calendar_field_default_field_instances() {
         'type' => 'link_default',
         'weight' => 1,
       ),
+      'list_item' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 10,
+      ),
       'summary' => array(
         'label' => 'above',
         'settings' => array(),
@@ -205,6 +217,12 @@ function fmnh_calendar_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 5,
       ),
+      'list_item' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 11,
+      ),
       'summary' => array(
         'label' => 'above',
         'settings' => array(),
@@ -253,11 +271,11 @@ function fmnh_calendar_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 8,
       ),
-      'event' => array(
+      'list_item' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 8,
       ),
       'summary' => array(
         'label' => 'above',
@@ -346,11 +364,11 @@ function fmnh_calendar_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 7,
       ),
-      'event' => array(
+      'list_item' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 7,
       ),
       'summary' => array(
         'label' => 'above',
@@ -448,6 +466,20 @@ function fmnh_calendar_field_default_field_instances() {
         'type' => 'date_default',
         'weight' => 0,
       ),
+      'list_item' => array(
+        'label' => 'hidden',
+        'module' => 'date',
+        'settings' => array(
+          'field_formatter_class' => '',
+          'format_type' => 'shortest',
+          'fromto' => 'value',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+        ),
+        'type' => 'date_default',
+        'weight' => 0,
+      ),
       'summary' => array(
         'label' => 'above',
         'settings' => array(),
@@ -519,6 +551,12 @@ function fmnh_calendar_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 0,
+      ),
+      'list_item' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 3,
       ),
       'summary' => array(
         'label' => 'hidden',
@@ -616,6 +654,12 @@ function fmnh_calendar_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 7,
       ),
+      'list_item' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 1,
+      ),
       'summary' => array(
         'label' => 'above',
         'settings' => array(),
@@ -676,6 +720,12 @@ function fmnh_calendar_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 3,
       ),
+      'list_item' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 9,
+      ),
       'summary' => array(
         'label' => 'above',
         'settings' => array(),
@@ -733,6 +783,12 @@ function fmnh_calendar_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 2,
       ),
+      'list_item' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 6,
+      ),
       'summary' => array(
         'label' => 'above',
         'settings' => array(),
@@ -785,6 +841,12 @@ function fmnh_calendar_field_default_field_instances() {
       ),
       'event' => array(
         'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 4,
+      ),
+      'list_item' => array(
+        'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 4,
@@ -885,6 +947,15 @@ function fmnh_calendar_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 0,
+      ),
+      'list_item' => array(
+        'label' => 'hidden',
+        'module' => 'link',
+        'settings' => array(
+          'field_formatter_class' => '',
+        ),
+        'type' => 'link_default',
+        'weight' => 2,
       ),
       'summary' => array(
         'label' => 'above',

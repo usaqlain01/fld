@@ -71,7 +71,7 @@ function fmnh_faq_default_page_manager_pages() {
   $display->layout = 'l9';
   $display->layout_settings = array(
     'main_classes' => 'l--body__content',
-    'nav_classes' => '',
+    'nav_classes' => 'l--body__nav js--sticky',
   );
   $display->panel_settings = array(
     'style_settings' => array(

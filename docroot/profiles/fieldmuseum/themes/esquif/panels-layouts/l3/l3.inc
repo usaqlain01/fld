@@ -13,6 +13,9 @@ $plugin = array(
 
   'regions'     => array(
     'main'      => t('Main'),
+    'summary_a'      => t('Summary A'),
+    'summary_b'      => t('Summary B'),
+    'summary_c'      => t('Summary C'),
     'nav'       => t('Nav'),
   ),
 

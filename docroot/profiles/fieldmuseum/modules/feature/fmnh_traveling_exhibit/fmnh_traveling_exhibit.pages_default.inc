@@ -583,10 +583,10 @@ function fmnh_traveling_exhibit_default_page_manager_pages() {
     $pane->access = array();
     $pane->configuration = array(
       'nid' => '7381',
-      'links' => 1,
+      'links' => 0,
       'leave_node_title' => 0,
       'identifier' => '',
-      'build_mode' => 'teaser',
+      'build_mode' => 'full',
       'link_node_title' => 0,
       'override_title' => 0,
       'override_title_text' => '',

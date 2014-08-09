@@ -144,7 +144,7 @@ function fmnh_media_file_default_displays() {
   $file_display->weight = 0;
   $file_display->status = TRUE;
   $file_display->settings = array(
-    'image_style' => '5x3_500w',
+    'image_style' => '5x3_1000w',
     'alt' => '[file:field_file_image_alt_text]',
     'title' => '[file:field_file_image_title_text]',
   );

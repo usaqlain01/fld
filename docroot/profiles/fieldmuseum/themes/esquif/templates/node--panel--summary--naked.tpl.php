@@ -7,9 +7,11 @@
  * @see https://drupal.org/node/1728164
  */
 ?>
+<?php if (isset($field_image)): ?>
 <figure>
   <?php print render($content['field_image']); ?>
 </figure>
+<?php endif; ?>
 <?php if ($title_prefix || $title_suffix || $display_submitted || $unpublished || !$page && $title): ?>
   <?php print render($title_prefix); ?>
   <h3<?php print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a></h3>

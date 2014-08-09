@@ -85,7 +85,7 @@ projects[facetapi][subdir] = contrib
 projects[facetapi][version] = 1.5
 
 projects[features][subdir] = contrib
-projects[features][version] = 2.1
+projects[features][version] = 2.2
 
 projects[feeds][subdir] = contrib
 projects[feeds][version] = 2.x-dev
@@ -168,7 +168,7 @@ projects[menu_position][subdir] = contrib
 projects[menu_position][version] = 1.x-dev
 
 projects[metatag][subdir] = contrib
-projects[metatag][version] = 1.x-dev
+projects[metatag][version] = 1.0-rc2
 
 projects[migrate_d2d][subdir] = contrib
 projects[migrate_d2d][version] = 2.x-dev
