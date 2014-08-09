@@ -145,8 +145,11 @@ function esquif_preprocess_node(&$variables, $hook) {
       if (in_array('node__panel__banner', $variables['theme_hook_suggestions'])) {
         $variables['content']['field_image'][0]['file']['#item']['attributes']['class'][] = 'banner__image';
       }
-      else {
+      else if ('image_formatter' == $variables['content']['field_image'][0]['file']['#theme']) {
         $variables['content']['field_image'][0]['file']['#item']['attributes']['class'][] = 'promo__image';
+      }
+      else if ('image_style' == $variables['content']['field_image'][0]['file']['#theme']) {
+        $variables['content']['field_image'][0]['file']['#attributes']['class'][] = 'promo__image';
       }
       break;
     case 'summary':
