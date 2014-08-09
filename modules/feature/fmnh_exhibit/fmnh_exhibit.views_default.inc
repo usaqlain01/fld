@@ -176,7 +176,6 @@ function fmnh_exhibit_views_default_views() {
   $handler->display->display_options['style_plugin'] = 'ctools_context';
   $handler->display->display_options['row_plugin'] = 'node';
   $handler->display->display_options['row_options']['view_mode'] = 'promo';
-  $handler->display->display_options['row_options']['links'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   /* Sort criterion: Draggableviews: Weight */
   $handler->display->display_options['sorts']['weight']['id'] = 'weight';
