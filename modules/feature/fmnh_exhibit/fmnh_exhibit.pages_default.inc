@@ -410,8 +410,9 @@ function fmnh_exhibit_default_page_manager_pages() {
     $pane->access = array();
     $pane->configuration = array(
       'admin_title' => '',
-      'title' => '%term:name',
-      'body' => '%term:description',
+      'title' => '',
+      'body' => '<h1>%term:name</h1>
+%term:description',
       'format' => 'unfiltered',
       'substitute' => 1,
     );
