@@ -225,6 +225,7 @@ projects[schemaorg][version] = 1.x-dev
 
 projects[semantic_panels][subdir] = contrib
 projects[semantic_panels][version] = 1.2
+projects[semantic_panels][patch][] = https://www.drupal.org/files/semantic_panels.code_.2106643-1.patch
 
 projects[strongarm][subdir] = contrib
 projects[strongarm][version] = 2.x-dev

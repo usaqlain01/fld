@@ -3948,7 +3948,7 @@ function fieldmuseum_default_page_manager_pages() {
           'class_enable' => 1,
           'class' => 'summary__title',
           'attributes' => array(),
-          'link_enabled' => 0,
+          'link_enabled' => 1,
           'link' => array(
             'path' => 'at-the-field/exhibitions',
             'class_enable' => 0,
@@ -4044,7 +4044,7 @@ function fieldmuseum_default_page_manager_pages() {
           'class_enable' => 1,
           'class' => 'summary__title',
           'attributes' => array(),
-          'link_enabled' => 0,
+          'link_enabled' => 1,
           'link' => array(
             'path' => 'at-the-field/programs',
             'class_enable' => 0,
@@ -4137,9 +4137,9 @@ function fieldmuseum_default_page_manager_pages() {
           'class_enable' => 1,
           'class' => 'summary__title',
           'attributes' => array(),
-          'link_enabled' => 0,
+          'link_enabled' => 1,
           'link' => array(
-            'path' => '',
+            'path' => 'at-the-field/calendar',
             'class_enable' => 0,
             'class' => '',
             'attributes' => array(),
