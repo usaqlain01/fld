@@ -72,6 +72,97 @@ function esquif_preprocess_html(&$variables, $hook) {
     ),
   );
 
+  // Add all favicons and app icons.
+  $links = array(
+
+    // Browser favicons - favicon.ico has a cacheable redirect configured for now.
+    array(
+      'rel' => 'icon',
+      'href' => base_path() . path_to_theme() .'/images/fav/favicon.ico',
+      'type' => 'image/png',
+    ),
+    array(
+      'rel' => 'icon',
+      'href' => base_path() . path_to_theme() .'/images/fav/favicon-16.png',
+      'type' => 'image/png',
+    ),
+    array(
+      'rel' => 'icon',
+      'href' => base_path() . path_to_theme() .'/images/fav/favicon-32.png',
+      'type' => 'image/png',
+    ),
+    array(
+      'rel' => 'icon',
+      'href' => base_path() . path_to_theme() .'/images/fav/favicon-96.png',
+      'type' => 'image/png',
+    ),
+
+    // iOS Favicons - This is only a handful of the sizes supported through the iOS ecosystem.
+    // Other sizes will backfill with the closest size in this list.
+    array(
+      'rel' => 'apple-touch-icon-precomposed',
+      'href' => base_path() . path_to_theme() .'/images/fav/apple-touch-icon-precomposed.png',
+      'type' => 'image/png',
+    ),
+    array(
+      'rel' => 'apple-touch-icon-precomposed',
+      'href' => base_path() . path_to_theme() .'/images/fav/apple-touch-icon-72x72-precomposed.png',
+      'sizes' => '72x72',
+      'type' => 'image/png',
+    ),
+    array(
+      'rel' => 'apple-touch-icon-precomposed',
+      'href' => base_path() . path_to_theme() .'/images/fav/apple-touch-icon-120x120-precomposed.png',
+      'sizes' => '120x120',
+      'type' => 'image/png',
+    ),
+    array(
+      'rel' => 'apple-touch-icon-precomposed',
+      'href' => base_path() . path_to_theme() .'/images/fav/apple-touch-icon-152x152-precomposed.png',
+      'sizes' => '152x152',
+      'type' => 'image/png',
+    ),
+
+    // Opera Coast Favicon - 228x228
+    array(
+      'rel' => 'icon',
+      'href' => base_path() . path_to_theme() .'/images/fav/favicon-coast.png',
+      'sizes' => '228x228',
+      'type' => 'image/png',
+    ),
+  );
+  foreach ($links as $attributes) {
+    drupal_add_html_head_link($attributes);
+  }
+
+  // Windows 8 Pinboard Tiles - 144x144
+  $elements = array(
+    'msapplication_tileimage' => array(
+      '#tag' => 'meta',
+      '#attributes' => array(
+        'name' => 'msapplication-TileImage',
+        'content' => base_path() . path_to_theme() .'/images/fav/ms-pinned.png',
+      ),
+    ),
+    'msapplication_tilecolor' => array(
+      '#tag' => 'meta',
+      '#attributes' => array(
+        'name' => 'msapplication-TileColor',
+        'content' => '#84a726',
+      ),
+    ),
+    'application_name' => array(
+      '#tag' => 'meta',
+      '#attributes' => array(
+        'name' => 'application-name',
+        'content' => 'The Field Museum',
+      ),
+    ),
+  );
+  foreach ($elements as $key => $data) {
+    drupal_add_html_head($data, $key);
+  }
+
   // The body tag's classes are controlled by the $classes_array variable. To
   // remove a class from $classes_array, use array_diff().
   //$variables['classes_array'] = array_diff($variables['classes_array'], array('class-to-remove'));
