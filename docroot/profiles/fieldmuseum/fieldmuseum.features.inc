@@ -152,6 +152,10 @@ function fieldmuseum_rdf_default_mappings() {
     'field_summary' => array(
       'predicates' => array(),
     ),
+    'field_attachment' => array(
+      'predicates' => array(),
+      'type' => 'rel',
+    ),
   );
 
   return $schemaorg;

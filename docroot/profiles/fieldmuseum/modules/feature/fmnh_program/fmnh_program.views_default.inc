@@ -28,11 +28,8 @@ function fmnh_program_views_default_views() {
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['query']['options']['distinct'] = TRUE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['pager']['type'] = 'full';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '12';
+  $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
-  $handler->display->display_options['pager']['options']['id'] = '0';
-  $handler->display->display_options['pager']['options']['quantity'] = '9';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'node';
   $handler->display->display_options['row_options']['view_mode'] = 'promo';
@@ -194,11 +191,8 @@ function fmnh_program_views_default_views() {
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['query']['options']['distinct'] = TRUE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['pager']['type'] = 'full';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '12';
+  $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
-  $handler->display->display_options['pager']['options']['id'] = '0';
-  $handler->display->display_options['pager']['options']['quantity'] = '9';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'node';
   $handler->display->display_options['row_options']['view_mode'] = 'promo';
@@ -310,7 +304,7 @@ function fmnh_program_views_default_views() {
   $handler->display->display_options['arguments']['field_audience_target_id']['table'] = 'field_data_field_audience';
   $handler->display->display_options['arguments']['field_audience_target_id']['field'] = 'field_audience_target_id';
   $handler->display->display_options['arguments']['field_audience_target_id']['title_enable'] = TRUE;
-  $handler->display->display_options['arguments']['field_audience_target_id']['title'] = 'Programs %1';
+  $handler->display->display_options['arguments']['field_audience_target_id']['title'] = '%1 Programs';
   $handler->display->display_options['arguments']['field_audience_target_id']['breadcrumb_enable'] = TRUE;
   $handler->display->display_options['arguments']['field_audience_target_id']['breadcrumb'] = '%1';
   $handler->display->display_options['arguments']['field_audience_target_id']['default_argument_type'] = 'fixed';

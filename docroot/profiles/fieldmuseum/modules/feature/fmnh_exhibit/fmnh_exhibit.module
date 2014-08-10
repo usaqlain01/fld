@@ -19,34 +19,6 @@ function fmnh_exhibit_admin_paths() {
  */
 function fmnh_exhibit_preprocess_node(&$variables, $hook) {
 
-  // Populate the old-fashioned content[links] value with the concatenated
-  // rendering of field_exhibit_type.
-  if ($variables['view_mode'] == 'promo') {
-    $node = $variables['node'];
-    $links = array();
-
-    foreach (array('field_exhibit_type') as $field_name) {
-      if ($items = field_get_items('node', $node, $field_name)) {
-        foreach ($items as $item) {
-          $entity = $item['entity'];
-          $links[] = array(
-            'title' => $entity->name,
-            'href' => 'at-the-field/exhibitions/'. drupal_strtolower(str_replace(' ', '-', $entity->name)),
-            'attributes' => array(
-              'class' => array('promo__category', 'list--inline__item'),
-            ),
-          );
-        }
-      }
-    }
-
-    $variables['content']['links'] = array(
-      '#theme' => 'links__promo__category',
-      '#links' => $links,
-      '#attributes' => array('class' => array('promo__categories', 'list--inline')),
-    );
-  }
-
   // Stash ticketed status in template variable.
   $items = field_get_items('node', $variables['node'], 'field_ticketed');
   if ($items) {

@@ -66,7 +66,7 @@ function fmnh_blog_default_panels_mini() {
 	<li class="filters__item"> <a href="/science/blog/rocks" class="filters__link">Rocks</a> </li>
 </ul>
 <h6 class="navFilters__heading">
-	Departments 
+	Areas of Focus 
 </h6>
 <ul class="filters">
 	<li class="filters__item"> <a href="/science/blog/living-cultures" class="filters__link">Culture</a> </li>

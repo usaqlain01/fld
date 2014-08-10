@@ -48,6 +48,8 @@ function fmnh_traveling_exhibit_default_page_manager_handlers() {
   $display->layout = 'c5';
   $display->layout_settings = array(
     'main_classes' => 'l--body__content',
+    'explore_classes' => '',
+    'bottom_classes' => 'l--2up',
     'nav_classes' => 'l--body__nav js--sticky',
   );
   $display->panel_settings = array(
@@ -56,6 +58,8 @@ function fmnh_traveling_exhibit_default_page_manager_handlers() {
       'default' => NULL,
       'main' => NULL,
       'nav' => NULL,
+      'explore' => NULL,
+      'bottom' => NULL,
     ),
   );
   $display->cache = array();
@@ -63,6 +67,178 @@ function fmnh_traveling_exhibit_default_page_manager_handlers() {
   $display->uuid = 'cf633825-d129-4f3d-b8d9-e438f0e72344';
   $display->content = array();
   $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-d508a1d3-8e42-4386-88fd-e78e52facf3d';
+    $pane->panel = 'bottom';
+    $pane->type = 'entity_field';
+    $pane->subtype = 'node:field_link';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'label' => 'title',
+      'formatter' => 'link_default',
+      'delta_limit' => '0',
+      'delta_offset' => '0',
+      'delta_reversed' => 0,
+      'formatter_settings' => array(),
+      'context' => 'argument_entity_id:node_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'semantic_panels',
+      'settings' => array(
+        'element_title' => array(
+          'type' => 'h3',
+          'class_enable' => 1,
+          'class' => 'explore__subheading',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => 'div',
+          'class_enable' => 1,
+          'class' => 'l--module',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'd508a1d3-8e42-4386-88fd-e78e52facf3d';
+    $display->content['new-d508a1d3-8e42-4386-88fd-e78e52facf3d'] = $pane;
+    $display->panels['bottom'][0] = 'new-d508a1d3-8e42-4386-88fd-e78e52facf3d';
+    $pane = new stdClass();
+    $pane->pid = 'new-0d4ee283-ea5d-4c1c-8d15-5a5f3e79cfba';
+    $pane->panel = 'bottom';
+    $pane->type = 'entity_field';
+    $pane->subtype = 'node:field_person';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'label' => 'title',
+      'formatter' => 'entityreference_label',
+      'delta_limit' => '0',
+      'delta_offset' => '0',
+      'delta_reversed' => 0,
+      'formatter_settings' => array(
+        'link' => 0,
+      ),
+      'context' => 'argument_entity_id:node_1',
+      'override_title' => 1,
+      'override_title_text' => 'Contact Us',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'semantic_panels',
+      'settings' => array(
+        'element_title' => array(
+          'type' => 'h3',
+          'class_enable' => 1,
+          'class' => 'explore__subheading',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => 'div',
+          'class_enable' => 1,
+          'class' => 'l--module',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = '0d4ee283-ea5d-4c1c-8d15-5a5f3e79cfba';
+    $display->content['new-0d4ee283-ea5d-4c1c-8d15-5a5f3e79cfba'] = $pane;
+    $display->panels['bottom'][1] = 'new-0d4ee283-ea5d-4c1c-8d15-5a5f3e79cfba';
+    $pane = new stdClass();
+    $pane->pid = 'new-9cf506d6-f218-40a3-95d4-227971bc9a32';
+    $pane->panel = 'explore';
+    $pane->type = 'entity_field';
+    $pane->subtype = 'node:field_references';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'label' => 'title',
+      'formatter' => 'entityreference_label',
+      'delta_limit' => '0',
+      'delta_offset' => '0',
+      'delta_reversed' => 0,
+      'formatter_settings' => array(
+        'link' => 0,
+      ),
+      'context' => 'argument_entity_id:node_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'default',
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '9cf506d6-f218-40a3-95d4-227971bc9a32';
+    $display->content['new-9cf506d6-f218-40a3-95d4-227971bc9a32'] = $pane;
+    $display->panels['explore'][0] = 'new-9cf506d6-f218-40a3-95d4-227971bc9a32';
     $pane = new stdClass();
     $pane->pid = 'new-50355cad-7454-410d-8107-fbc1ec014877';
     $pane->panel = 'main';
@@ -93,124 +269,6 @@ function fmnh_traveling_exhibit_default_page_manager_handlers() {
     $pane->uuid = '50355cad-7454-410d-8107-fbc1ec014877';
     $display->content['new-50355cad-7454-410d-8107-fbc1ec014877'] = $pane;
     $display->panels['main'][0] = 'new-50355cad-7454-410d-8107-fbc1ec014877';
-    $pane = new stdClass();
-    $pane->pid = 'new-9cf506d6-f218-40a3-95d4-227971bc9a32';
-    $pane->panel = 'main';
-    $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_references';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'label' => 'title',
-      'formatter' => 'entityreference_label',
-      'delta_limit' => '0',
-      'delta_offset' => '0',
-      'delta_reversed' => 0,
-      'formatter_settings' => array(
-        'link' => 0,
-      ),
-      'context' => 'argument_entity_id:node_1',
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'style' => 'default',
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 1;
-    $pane->locks = array();
-    $pane->uuid = '9cf506d6-f218-40a3-95d4-227971bc9a32';
-    $display->content['new-9cf506d6-f218-40a3-95d4-227971bc9a32'] = $pane;
-    $display->panels['main'][1] = 'new-9cf506d6-f218-40a3-95d4-227971bc9a32';
-    $pane = new stdClass();
-    $pane->pid = 'new-0d87d1ad-9509-4665-aada-17fe22e1aba0';
-    $pane->panel = 'main';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'admin_title' => '',
-      'title' => '',
-      'body' => '	<div class="l--module">
-		<h3 class="explore__subheading">
-			Additional Links
-		</h3>
-		<ul class="list--unstyled">
-			<li><a href="#">Link to something</a></li>
-			<li><a href="#">Link to something</a></li>
-			<li><a href="#">Link to something</a></li>
-		</ul>
-	</div>
-	<div class="l--module">
-		<h3 class="explore__subheading">
-			Contact Us
-		</h3>
-		<ul class="list--unstyled">
-			<li itemscope itemtype="http://schema.org/Person"> <strong itemprop="name">Person Name</strong>, <span itemprop="jobTitle">Title</span><br />
-			<span itemprop="telephone">(555) 555-5555</span> </li>
-			<li itemscope itemtype="http://schema.org/Person"> <strong itemprop="name">Person Name</strong>, <span itemprop="jobTitle">Title</span><br />
-			<span itemprop="telephone">(555) 555-5555</span> </li>
-		</ul>
-	</div>
-',
-      'format' => 'unfiltered',
-      'substitute' => 1,
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'style' => 'semantic_panels',
-      'settings' => array(
-        'element_title' => array(
-          'type' => '0',
-          'class_enable' => 0,
-          'class' => '',
-          'attributes' => array(),
-          'link_enabled' => 0,
-          'link' => array(
-            'path' => '',
-            'class_enable' => 0,
-            'class' => '',
-            'attributes' => array(),
-            'attributes_array' => array(),
-          ),
-          'attributes_array' => array(),
-        ),
-        'element_content' => array(
-          'type' => '0',
-          'class_enable' => 0,
-          'class' => '',
-          'attributes' => array(),
-          'link_enabled' => 0,
-          'link' => array(
-            'path' => '',
-            'class_enable' => 0,
-            'class' => '',
-            'attributes' => array(),
-            'attributes_array' => array(),
-          ),
-          'attributes_array' => array(),
-        ),
-        'element_wrapper' => array(
-          'type' => 'div',
-          'class_enable' => 1,
-          'class' => 'l--2up',
-          'attributes' => array(),
-          'attributes_array' => array(),
-        ),
-        'add_default_classes' => 1,
-      ),
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 2;
-    $pane->locks = array();
-    $pane->uuid = '0d87d1ad-9509-4665-aada-17fe22e1aba0';
-    $display->content['new-0d87d1ad-9509-4665-aada-17fe22e1aba0'] = $pane;
-    $display->panels['main'][2] = 'new-0d87d1ad-9509-4665-aada-17fe22e1aba0';
     $pane = new stdClass();
     $pane->pid = 'new-00b4a2cb-f02d-49c7-8f6b-c72946c80448';
     $pane->panel = 'nav';
@@ -412,7 +470,7 @@ function fmnh_traveling_exhibit_default_page_manager_pages() {
     ),
   );
   $display->cache = array();
-  $display->title = 'Traveling exhibitions';
+  $display->title = 'Traveling Exhibitions';
   $display->uuid = '02b430e5-de7c-46c9-90d3-5390f2c370f3';
   $display->content = array();
   $display->panels = array();

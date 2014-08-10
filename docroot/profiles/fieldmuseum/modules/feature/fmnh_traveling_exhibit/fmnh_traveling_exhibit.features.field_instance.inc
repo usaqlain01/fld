@@ -26,6 +26,16 @@ function fmnh_traveling_exhibit_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 1,
       ),
+      'promo' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(
+          'field_formatter_class' => '',
+          'trim_length' => 600,
+        ),
+        'type' => 'text_summary_or_trimmed',
+        'weight' => 1,
+      ),
       'teaser' => array(
         'label' => 'hidden',
         'module' => 'text',
@@ -117,6 +127,12 @@ function fmnh_traveling_exhibit_field_default_field_instances() {
         'type' => 'file_rendered',
         'weight' => 3,
       ),
+      'promo' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 3,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -190,6 +206,12 @@ function fmnh_traveling_exhibit_field_default_field_instances() {
         'type' => 'entityreference_label',
         'weight' => 2,
       ),
+      'promo' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 2,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -230,6 +252,16 @@ function fmnh_traveling_exhibit_field_default_field_instances() {
         'settings' => array(
           'field_formatter_class' => '',
           'file_view_mode' => 'primary_2x1',
+        ),
+        'type' => 'file_rendered',
+        'weight' => 0,
+      ),
+      'promo' => array(
+        'label' => 'hidden',
+        'module' => 'file_entity',
+        'settings' => array(
+          'field_formatter_class' => '',
+          'file_view_mode' => 'banner_5x3',
         ),
         'type' => 'file_rendered',
         'weight' => 0,
@@ -299,11 +331,14 @@ function fmnh_traveling_exhibit_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'link',
-        'settings' => array(
-          'field_formatter_class' => '',
-        ),
-        'type' => 'link_default',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 5,
+      ),
+      'promo' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 5,
       ),
       'teaser' => array(
@@ -356,12 +391,14 @@ function fmnh_traveling_exhibit_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'entityreference',
-        'settings' => array(
-          'field_formatter_class' => '',
-          'link' => FALSE,
-        ),
-        'type' => 'entityreference_label',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 6,
+      ),
+      'promo' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 6,
       ),
       'teaser' => array(
@@ -400,6 +437,12 @@ function fmnh_traveling_exhibit_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 4,
+      ),
+      'promo' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -447,6 +490,12 @@ function fmnh_traveling_exhibit_field_default_field_instances() {
           'field_formatter_class' => '',
         ),
         'type' => 'text_default',
+        'weight' => 7,
+      ),
+      'promo' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 7,
       ),
       'teaser' => array(

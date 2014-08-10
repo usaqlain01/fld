@@ -14,7 +14,7 @@ function fmnh_staff_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'auto_entitylabel_pattern_profile2_main';
-  $strongarm->value = '[profile2:field_surname] [profile2:field_givenname]';
+  $strongarm->value = '[profile2:field_givenname] [profile2:field_surname]';
   $export['auto_entitylabel_pattern_profile2_main'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -58,6 +58,9 @@ function fmnh_staff_strongarm() {
       'teaser' => array(
         'custom_settings' => FALSE,
       ),
+      'list_item' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(),
@@ -69,6 +72,10 @@ function fmnh_staff_strongarm() {
           ),
           'summary' => array(
             'weight' => '10',
+            'visible' => FALSE,
+          ),
+          'list_item' => array(
+            'weight' => '7',
             'visible' => FALSE,
           ),
         ),
