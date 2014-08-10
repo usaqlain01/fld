@@ -11,7 +11,6 @@ dependencies[] = features
 dependencies[] = field_group
 dependencies[] = file_entity
 dependencies[] = fmnh_references
-dependencies[] = fmnh_traveling_exhibit
 dependencies[] = list
 dependencies[] = media
 dependencies[] = node
