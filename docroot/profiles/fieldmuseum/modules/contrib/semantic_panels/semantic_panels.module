@@ -119,8 +119,8 @@ function _semantic_panels_get_html($element_key, $element_data, $pane_semantic_s
     $options = array(
       'html' => TRUE,
       'attributes' => array(
-        'class' => explode(' ', $element_settings['class']),
-      ) + $element_settings['attributes_array']
+        'class' => explode(' ', $element_settings['link']['class']),
+      ) + $element_settings['link']['attributes_array']
     );
 
     if ($path != '') {

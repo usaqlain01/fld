@@ -7,9 +7,9 @@ dependencies[] = libraries
 
 files[] = includes/pdf.field.inc
 
-; Information added by Drupal.org packaging script on 2014-06-24
-version = "7.x-1.5+11-dev"
+; Information added by Drupal.org packaging script on 2014-06-27
+version = "7.x-1.6"
 core = "7.x"
 project = "pdf"
-datestamp = "1403607228"
+datestamp = "1403884428"
 
