@@ -35,10 +35,6 @@
     hide($content['links']);
     print render($content['image']);
   ?>
-  <aside class="eventsListing">
-    <h5 class="eventsList__title">Upcoming Events</h5>
-    <?php print views_embed_view('program_events', 'panel_pane_1', $node->nid); ?>
-  </aside>
   <?php
     print render($content);
   ?>

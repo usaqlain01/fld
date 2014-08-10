@@ -1761,7 +1761,12 @@ function esquif_field__field_person__traveling_exhibit($variables) {
   return $output;
 }
 
-function esquif_field__field_specification__traveling_exhibit($variables) {
+/**
+ * @param $variables
+ * @return string
+ * @todo change this into a field formatter.
+ */
+function esquif_field__field_specification($variables) {
   $node = $variables['element']['#object'];
   $output = '';
   $items = field_get_items('node', $node, 'field_specification');
