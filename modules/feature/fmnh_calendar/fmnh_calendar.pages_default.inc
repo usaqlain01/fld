@@ -221,7 +221,7 @@ function fmnh_calendar_default_page_manager_pages() {
   $page->task = 'page';
   $page->admin_title = 'Calendar';
   $page->admin_description = '';
-  $page->path = 'at-the-field/calendar/!term';
+  $page->path = 'at-the-field/calendar';
   $page->access = array(
     'plugins' => array(
       0 => array(
@@ -249,223 +249,11 @@ function fmnh_calendar_default_page_manager_pages() {
       'weight' => '0',
     ),
   );
-  $page->arguments = array(
-    'term' => array(
-      'id' => 1,
-      'identifier' => 'Taxonomy term: ID',
-      'name' => 'term',
-      'settings' => array(
-        'input_form' => 'tid',
-        'vids' => array(
-          1 => '1',
-          6 => 0,
-          11 => 0,
-          26 => 0,
-          16 => 0,
-          36 => 0,
-          41 => 0,
-          46 => 0,
-          51 => 0,
-          31 => 0,
-          21 => 0,
-        ),
-        'breadcrumb' => 0,
-        'transform' => 0,
-      ),
-    ),
-  );
+  $page->arguments = array();
   $page->conf = array(
     'admin_paths' => FALSE,
   );
   $page->default_handlers = array();
-  $handler = new stdClass();
-  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
-  $handler->api_version = 1;
-  $handler->name = 'page_calendar_panel_context';
-  $handler->task = 'page';
-  $handler->subtask = 'calendar';
-  $handler->handler = 'panel_context';
-  $handler->weight = -28;
-  $handler->conf = array(
-    'title' => 'filter by audience',
-    'no_blocks' => 0,
-    'pipeline' => 'standard',
-    'body_classes_to_remove' => '',
-    'body_classes_to_add' => '',
-    'css_id' => '',
-    'css' => '',
-    'contexts' => array(),
-    'relationships' => array(
-      0 => array(
-        'identifier' => 'View: Calendar: Upcoming events (filtered)',
-        'keyword' => 'view',
-        'name' => 'view_from_argument:calendar-ctools_context_1',
-        'context' => array(
-          0 => 'argument_term_1',
-        ),
-        'id' => 1,
-      ),
-    ),
-    'access' => array(
-      'plugins' => array(
-        0 => array(
-          'name' => 'context_exists',
-          'settings' => array(
-            'exists' => '1',
-          ),
-          'context' => 'argument_term_1',
-          'not' => FALSE,
-        ),
-      ),
-      'logic' => 'and',
-    ),
-  );
-  $display = new panels_display();
-  $display->layout = 'l7';
-  $display->layout_settings = array(
-    'main_classes' => 'l--body__content',
-    'nav_classes' => 'l--body__nav js--sticky',
-  );
-  $display->panel_settings = array(
-    'style_settings' => array(
-      'default' => NULL,
-      'main' => NULL,
-      'nav' => NULL,
-    ),
-  );
-  $display->cache = array();
-  $display->title = 'Events for %term:name';
-  $display->uuid = '88c633b0-4dab-40c2-b254-3e54f705ef91';
-  $display->content = array();
-  $display->panels = array();
-    $pane = new stdClass();
-    $pane->pid = 'new-a5b6fac8-98bd-452d-8c96-c316f2d5fc2b';
-    $pane->panel = 'main';
-    $pane->type = 'views_header';
-    $pane->subtype = 'views_header';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'context' => 'relationship_view_from_argument:calendar-ctools_context_1_1',
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'style' => 'default',
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = 'a5b6fac8-98bd-452d-8c96-c316f2d5fc2b';
-    $display->content['new-a5b6fac8-98bd-452d-8c96-c316f2d5fc2b'] = $pane;
-    $display->panels['main'][0] = 'new-a5b6fac8-98bd-452d-8c96-c316f2d5fc2b';
-    $pane = new stdClass();
-    $pane->pid = 'new-3721e711-6343-4e59-a28c-530b7cd81967';
-    $pane->panel = 'main';
-    $pane->type = 'views_row';
-    $pane->subtype = 'views_row';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'rows' => NULL,
-      'use_fields' => NULL,
-      'fields' => NULL,
-      'context' => 'relationship_view_from_argument:calendar-ctools_context_1_1',
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'style' => 'default',
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 1;
-    $pane->locks = array();
-    $pane->uuid = '3721e711-6343-4e59-a28c-530b7cd81967';
-    $display->content['new-3721e711-6343-4e59-a28c-530b7cd81967'] = $pane;
-    $display->panels['main'][1] = 'new-3721e711-6343-4e59-a28c-530b7cd81967';
-    $pane = new stdClass();
-    $pane->pid = 'new-25f33a1a-5b68-4515-ab5c-718002845669';
-    $pane->panel = 'nav';
-    $pane->type = 'menu_tree';
-    $pane->subtype = 'main-menu';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'menu_name' => 'main-menu',
-      'parent_mlid' => 0,
-      'parent' => 'main-menu:0',
-      'title_link' => 0,
-      'admin_title' => '',
-      'level' => '2',
-      'follow' => 0,
-      'depth' => '0',
-      'expanded' => 0,
-      'sort' => 0,
-      'override_title' => 1,
-      'override_title_text' => '',
-      'identifier' => 'section',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => array(
-        'element_title' => array(
-          'type' => '0',
-          'class_enable' => 0,
-          'class' => '',
-          'attributes' => array(),
-          'link_enabled' => 0,
-          'link' => array(
-            'path' => '',
-            'class_enable' => 0,
-            'class' => '',
-            'attributes' => array(),
-            'attributes_array' => array(),
-          ),
-          'attributes_array' => array(),
-        ),
-        'element_content' => array(
-          'type' => '0',
-          'class_enable' => 0,
-          'class' => '',
-          'attributes' => array(),
-          'link_enabled' => 0,
-          'link' => array(
-            'path' => '',
-            'class_enable' => 0,
-            'class' => '',
-            'attributes' => array(),
-            'attributes_array' => array(),
-          ),
-          'attributes_array' => array(),
-        ),
-        'element_wrapper' => array(
-          'type' => 'nav',
-          'class_enable' => 1,
-          'class' => 'navSection',
-          'attributes' => array(),
-          'attributes_array' => array(),
-        ),
-        'add_default_classes' => 1,
-      ),
-      'style' => 'semantic_panels',
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = '25f33a1a-5b68-4515-ab5c-718002845669';
-    $display->content['new-25f33a1a-5b68-4515-ab5c-718002845669'] = $pane;
-    $display->panels['nav'][0] = 'new-25f33a1a-5b68-4515-ab5c-718002845669';
-  $display->hide_title = PANELS_TITLE_FIXED;
-  $display->title_pane = '0';
-  $handler->conf['display'] = $display;
-  $page->default_handlers[$handler->name] = $handler;
   $handler = new stdClass();
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
@@ -873,6 +661,260 @@ function fmnh_calendar_default_page_manager_pages() {
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
   $pages['calendar_ending'] = $page;
+
+  $page = new stdClass();
+  $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
+  $page->api_version = 1;
+  $page->name = 'calendar_filtered';
+  $page->task = 'page';
+  $page->admin_title = 'Calendar';
+  $page->admin_description = '';
+  $page->path = 'at-the-field/calendar/%term';
+  $page->access = array(
+    'plugins' => array(
+      0 => array(
+        'name' => 'perm',
+        'settings' => array(
+          'perm' => 'access content',
+        ),
+        'context' => 'logged-in-user',
+        'not' => FALSE,
+      ),
+    ),
+    'logic' => 'and',
+    'type' => 'none',
+    'settings' => NULL,
+  );
+  $page->menu = array(
+    'type' => 'normal',
+    'title' => 'Calendar',
+    'name' => 'main-menu',
+    'weight' => '3',
+    'parent' => array(
+      'type' => 'none',
+      'title' => '',
+      'name' => 'navigation',
+      'weight' => '0',
+    ),
+  );
+  $page->arguments = array(
+    'term' => array(
+      'id' => 1,
+      'identifier' => 'Taxonomy term: ID',
+      'name' => 'term',
+      'settings' => array(
+        'input_form' => 'tid',
+        'vids' => array(
+          1 => '1',
+          6 => 0,
+          11 => 0,
+          26 => 0,
+          16 => 0,
+          36 => 0,
+          41 => 0,
+          46 => 0,
+          51 => 0,
+          31 => 0,
+          21 => 0,
+        ),
+        'breadcrumb' => 0,
+        'transform' => 0,
+      ),
+    ),
+  );
+  $page->conf = array(
+    'admin_paths' => FALSE,
+  );
+  $page->default_handlers = array();
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'page_calendar_filtered_panel_context';
+  $handler->task = 'page';
+  $handler->subtask = 'calendar_filtered';
+  $handler->handler = 'panel_context';
+  $handler->weight = 0;
+  $handler->conf = array(
+    'title' => 'filter by audience',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => '',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(
+      0 => array(
+        'identifier' => 'View: Calendar: Upcoming events (filtered)',
+        'keyword' => 'view',
+        'name' => 'view_from_argument:calendar-ctools_context_1',
+        'context' => array(
+          0 => 'argument_term_1',
+        ),
+        'id' => 1,
+      ),
+    ),
+    'access' => array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'context_exists',
+          'settings' => array(
+            'exists' => '1',
+          ),
+          'context' => 'argument_term_1',
+          'not' => FALSE,
+        ),
+      ),
+      'logic' => 'and',
+    ),
+  );
+  $display = new panels_display();
+  $display->layout = 'l7';
+  $display->layout_settings = array(
+    'main_classes' => 'l--body__content',
+    'nav_classes' => 'l--body__nav js--sticky',
+  );
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'main' => NULL,
+      'nav' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = 'Events for %term:name';
+  $display->uuid = '88c633b0-4dab-40c2-b254-3e54f705ef91';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-a5b6fac8-98bd-452d-8c96-c316f2d5fc2b';
+    $pane->panel = 'main';
+    $pane->type = 'views_header';
+    $pane->subtype = 'views_header';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'context' => 'relationship_view_from_argument:calendar-ctools_context_1_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'default',
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'a5b6fac8-98bd-452d-8c96-c316f2d5fc2b';
+    $display->content['new-a5b6fac8-98bd-452d-8c96-c316f2d5fc2b'] = $pane;
+    $display->panels['main'][0] = 'new-a5b6fac8-98bd-452d-8c96-c316f2d5fc2b';
+    $pane = new stdClass();
+    $pane->pid = 'new-3721e711-6343-4e59-a28c-530b7cd81967';
+    $pane->panel = 'main';
+    $pane->type = 'views_row';
+    $pane->subtype = 'views_row';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'rows' => NULL,
+      'use_fields' => NULL,
+      'fields' => NULL,
+      'context' => 'relationship_view_from_argument:calendar-ctools_context_1_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'default',
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = '3721e711-6343-4e59-a28c-530b7cd81967';
+    $display->content['new-3721e711-6343-4e59-a28c-530b7cd81967'] = $pane;
+    $display->panels['main'][1] = 'new-3721e711-6343-4e59-a28c-530b7cd81967';
+    $pane = new stdClass();
+    $pane->pid = 'new-25f33a1a-5b68-4515-ab5c-718002845669';
+    $pane->panel = 'nav';
+    $pane->type = 'menu_tree';
+    $pane->subtype = 'main-menu';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'menu_name' => 'main-menu',
+      'parent_mlid' => 0,
+      'parent' => 'main-menu:0',
+      'title_link' => 0,
+      'admin_title' => '',
+      'level' => '2',
+      'follow' => 0,
+      'depth' => '0',
+      'expanded' => 0,
+      'sort' => 0,
+      'override_title' => 1,
+      'override_title_text' => '',
+      'identifier' => 'section',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => array(
+        'element_title' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => 'nav',
+          'class_enable' => 1,
+          'class' => 'navSection',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
+      'style' => 'semantic_panels',
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '25f33a1a-5b68-4515-ab5c-718002845669';
+    $display->content['new-25f33a1a-5b68-4515-ab5c-718002845669'] = $pane;
+    $display->panels['nav'][0] = 'new-25f33a1a-5b68-4515-ab5c-718002845669';
+  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->title_pane = '0';
+  $handler->conf['display'] = $display;
+  $page->default_handlers[$handler->name] = $handler;
+  $pages['calendar_filtered'] = $page;
 
   $page = new stdClass();
   $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */

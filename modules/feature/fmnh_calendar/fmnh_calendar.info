@@ -58,6 +58,7 @@ features[node][] = event
 features[page_manager_handlers][] = node_view_panel_context
 features[page_manager_pages][] = calendar
 features[page_manager_pages][] = calendar_ending
+features[page_manager_pages][] = calendar_filtered
 features[page_manager_pages][] = calendar_starting
 features[page_manager_pages][] = events
 features[schemaorg][] = node-event
