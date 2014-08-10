@@ -103,6 +103,7 @@ features[field_base][] = field_topic
 features[field_instance][] = node-article-body
 features[field_instance][] = node-page-body
 features[field_instance][] = node-page-field_action_link
+features[field_instance][] = node-page-field_attachment
 features[field_instance][] = node-page-field_image
 features[field_instance][] = node-page-field_references
 features[field_instance][] = node-page-field_summary

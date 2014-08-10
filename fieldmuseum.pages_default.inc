@@ -166,7 +166,7 @@ function fieldmuseum_default_page_manager_pages() {
     ),
   );
   $display->cache = array();
-  $display->title = 'About the museum';
+  $display->title = 'About the Museum';
   $display->uuid = '05b92cf7-3f90-4d23-bf7f-de74218319f7';
   $display->content = array();
   $display->panels = array();
@@ -3269,8 +3269,8 @@ function fieldmuseum_default_page_manager_pages() {
   $display = new panels_display();
   $display->layout = 'l6a';
   $display->layout_settings = array(
-    'main_classes' => '',
-    'nav_classes' => 'navSection',
+    'main_classes' => 'l--body__content',
+    'nav_classes' => 'l--body__nav js--sticky',
   );
   $display->panel_settings = array(
     'style_settings' => array(
@@ -3280,7 +3280,7 @@ function fieldmuseum_default_page_manager_pages() {
     ),
   );
   $display->cache = array();
-  $display->title = 'Event spaces';
+  $display->title = 'Event Spaces';
   $display->uuid = '3f815a04-1f8d-4b95-a900-d1b6f6e2a88e';
   $display->content = array();
   $display->panels = array();
@@ -3296,7 +3296,47 @@ function fieldmuseum_default_page_manager_pages() {
     );
     $pane->cache = array();
     $pane->style = array(
-      'settings' => NULL,
+      'settings' => array(
+        'element_title' => array(
+          'type' => 'h1',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
+      'style' => 'semantic_panels',
     );
     $pane->css = array();
     $pane->extras = array();
@@ -3317,7 +3357,7 @@ function fieldmuseum_default_page_manager_pages() {
         'offset' => '0',
         'limit' => '10',
       ),
-      'view_mode' => 'node:teaser',
+      'view_mode' => 'node:promo',
       'use_pager' => FALSE,
       'pager_id' => 0,
       'context' => 'context_entitylist:menu_children_1',
@@ -3820,7 +3860,7 @@ function fieldmuseum_default_page_manager_pages() {
     ),
   );
   $display->cache = array();
-  $display->title = 'Exhibitions and Events';
+  $display->title = 'Exhibitions & Events';
   $display->uuid = '6670015c-8d44-40ac-8664-5d85e449f8fc';
   $display->content = array();
   $display->panels = array();
@@ -3837,7 +3877,7 @@ function fieldmuseum_default_page_manager_pages() {
       'fields' => array(),
       'context' => 'context_view:exhibitions-ctools_context_2_1',
       'override_title' => 1,
-      'override_title_text' => 'Exhibitions On The Museum Floor',
+      'override_title_text' => 'Exhibitions at the Museum',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -4710,30 +4750,6 @@ function fieldmuseum_default_page_manager_pages() {
     $display->content['new-0c09adad-5d8a-49b0-bb06-5ccea9fc28d0'] = $pane;
     $display->panels['main'][1] = 'new-0c09adad-5d8a-49b0-bb06-5ccea9fc28d0';
     $pane = new stdClass();
-    $pane->pid = 'new-7d3ffa4a-b385-4eb7-a98f-dec65b18ea6b';
-    $pane->panel = 'main';
-    $pane->type = 'views_pager';
-    $pane->subtype = 'views_pager';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'context' => 'context_view:field_trip_programs-ctools_context_1_1',
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'style' => 'default',
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 2;
-    $pane->locks = array();
-    $pane->uuid = '7d3ffa4a-b385-4eb7-a98f-dec65b18ea6b';
-    $display->content['new-7d3ffa4a-b385-4eb7-a98f-dec65b18ea6b'] = $pane;
-    $display->panels['main'][2] = 'new-7d3ffa4a-b385-4eb7-a98f-dec65b18ea6b';
-    $pane = new stdClass();
     $pane->pid = 'new-7480f094-23af-4ffa-8c1d-10da8efcc047';
     $pane->panel = 'nav';
     $pane->type = 'menu_tree';
@@ -5159,7 +5175,7 @@ function fieldmuseum_default_page_manager_pages() {
     ),
   );
   $display->cache = array();
-  $display->title = 'Individual giving';
+  $display->title = 'Individual Giving';
   $display->uuid = '500e50f1-c5be-4784-9fc8-510e1c3a07ea';
   $display->content = array();
   $display->panels = array();
@@ -5175,8 +5191,47 @@ function fieldmuseum_default_page_manager_pages() {
     );
     $pane->cache = array();
     $pane->style = array(
-      'style' => 'naked',
-      'settings' => NULL,
+      'style' => 'semantic_panels',
+      'settings' => array(
+        'element_title' => array(
+          'type' => 'h1',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
     );
     $pane->css = array();
     $pane->extras = array();
@@ -5907,7 +5962,7 @@ function fieldmuseum_default_page_manager_pages() {
   );
   $page->menu = array(
     'type' => 'normal',
-    'title' => 'Meeting spaces',
+    'title' => 'Meeting Spaces',
     'name' => 'main-menu',
     'weight' => '0',
     'parent' => array(
@@ -5957,8 +6012,8 @@ function fieldmuseum_default_page_manager_pages() {
   $display = new panels_display();
   $display->layout = 'l6a';
   $display->layout_settings = array(
-    'main_classes' => '',
-    'nav_classes' => 'navSection',
+    'main_classes' => 'l--body__content',
+    'nav_classes' => 'l--body__nav js--sticky',
   );
   $display->panel_settings = array(
     'style_settings' => array(
@@ -5968,7 +6023,7 @@ function fieldmuseum_default_page_manager_pages() {
     ),
   );
   $display->cache = array();
-  $display->title = 'Meeting spaces';
+  $display->title = 'Meeting Spaces';
   $display->uuid = '3f815a04-1f8d-4b95-a900-d1b6f6e2a88e';
   $display->content = array();
   $display->panels = array();
@@ -5984,7 +6039,47 @@ function fieldmuseum_default_page_manager_pages() {
     );
     $pane->cache = array();
     $pane->style = array(
-      'settings' => NULL,
+      'settings' => array(
+        'element_title' => array(
+          'type' => 'h1',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
+      'style' => 'semantic_panels',
     );
     $pane->css = array();
     $pane->extras = array();
@@ -6005,7 +6100,7 @@ function fieldmuseum_default_page_manager_pages() {
         'offset' => '0',
         'limit' => '10',
       ),
-      'view_mode' => 'node:teaser',
+      'view_mode' => 'node:promo',
       'use_pager' => FALSE,
       'pager_id' => 0,
       'context' => 'context_entitylist:menu_children_1',
@@ -6476,7 +6571,7 @@ function fieldmuseum_default_page_manager_pages() {
   );
   $page->menu = array(
     'type' => 'normal',
-    'title' => 'Membership info',
+    'title' => 'Membership Info',
     'name' => 'main-menu',
     'weight' => '0',
     'parent' => array(
@@ -6508,43 +6603,20 @@ function fieldmuseum_default_page_manager_pages() {
     'css_id' => '',
     'css' => '',
     'contexts' => array(
-      0 => array(
-        'identifier' => 'List: Menu children',
+      2 => array(
+        'identifier' => 'List: Menu children (show children in other menus)',
         'keyword' => 'list',
-        'name' => 'entitylist:menu_children',
+        'name' => 'entitylist:menu_children_visible',
         'use_pager' => FALSE,
         'pager_id' => NULL,
         'range' => array(
           'offset' => 0,
-          'limit' => 10,
-        ),
-        'id' => 1,
-      ),
-      1 => array(
-        'identifier' => 'Taxonomy term',
-        'keyword' => 'taxonomy_term',
-        'name' => 'entity:taxonomy_term',
-        'entity_id' => '1311',
-        'id' => 1,
-      ),
-    ),
-    'relationships' => array(
-      0 => array(
-        'identifier' => 'List: Blogs',
-        'keyword' => 'list_2',
-        'name' => 'entitylist_relationship:blogs',
-        'use_pager' => FALSE,
-        'pager_id' => NULL,
-        'range' => array(
-          'offset' => 0,
-          'limit' => 10,
-        ),
-        'context' => array(
-          0 => 'context_entity:taxonomy_term_1',
+          'limit' => 0,
         ),
         'id' => 1,
       ),
     ),
+    'relationships' => array(),
   );
   $display = new panels_display();
   $display->layout = 'l10c';
@@ -6560,7 +6632,7 @@ function fieldmuseum_default_page_manager_pages() {
     ),
   );
   $display->cache = array();
-  $display->title = 'Membership info';
+  $display->title = 'Membership Info';
   $display->uuid = '500e50f1-c5be-4784-9fc8-510e1c3a07ea';
   $display->content = array();
   $display->panels = array();
@@ -6635,12 +6707,12 @@ function fieldmuseum_default_page_manager_pages() {
     $pane->configuration = array(
       'range' => array(
         'offset' => '0',
-        'limit' => '10',
+        'limit' => '0',
       ),
       'view_mode' => 'node:summary',
       'use_pager' => FALSE,
       'pager_id' => 0,
-      'context' => 'context_entitylist:menu_children_1',
+      'context' => 'context_entitylist:menu_children_visible_1',
       'override_title' => 0,
       'override_title_text' => '',
     );
@@ -6762,37 +6834,6 @@ function fieldmuseum_default_page_manager_pages() {
     $pane->uuid = '09172b22-4a0f-4397-ba0b-480a2220dd98';
     $display->content['new-09172b22-4a0f-4397-ba0b-480a2220dd98'] = $pane;
     $display->panels['main'][2] = 'new-09172b22-4a0f-4397-ba0b-480a2220dd98';
-    $pane = new stdClass();
-    $pane->pid = 'new-6c976357-09fd-4aa4-9353-f0df444ec41e';
-    $pane->panel = 'main';
-    $pane->type = 'entity_range';
-    $pane->subtype = 'entity_range';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'range' => array(
-        'offset' => '0',
-        'limit' => '10',
-      ),
-      'view_mode' => 'node:teaser',
-      'use_pager' => FALSE,
-      'pager_id' => 0,
-      'context' => 'relationship_entitylist_relationship:blogs_1',
-      'override_title' => 0,
-      'override_title_text' => 'Educators Blog',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'style' => 'naked',
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 3;
-    $pane->locks = array();
-    $pane->uuid = '6c976357-09fd-4aa4-9353-f0df444ec41e';
-    $display->content['new-6c976357-09fd-4aa4-9353-f0df444ec41e'] = $pane;
-    $display->panels['main'][3] = 'new-6c976357-09fd-4aa4-9353-f0df444ec41e';
     $pane = new stdClass();
     $pane->pid = 'new-04529f33-a545-44ef-890b-55ff0c31e062';
     $pane->panel = 'nav';
@@ -7314,7 +7355,7 @@ function fieldmuseum_default_page_manager_pages() {
   );
   $page->menu = array(
     'type' => 'normal',
-    'title' => 'Plan your special event',
+    'title' => 'Plan your Special Event',
     'name' => 'main-menu',
     'weight' => '0',
     'parent' => array(
@@ -7375,7 +7416,7 @@ function fieldmuseum_default_page_manager_pages() {
     ),
   );
   $display->cache = array();
-  $display->title = 'Plan your special event';
+  $display->title = 'Plan your Special Event';
   $display->uuid = 'ebab7262-033c-4242-a61d-94bfbaf7cd5b';
   $display->content = array();
   $display->panels = array();
@@ -7610,7 +7651,7 @@ function fieldmuseum_default_page_manager_pages() {
     ),
   );
   $display->cache = array();
-  $display->title = 'Plan your visit';
+  $display->title = 'Plan your Visit';
   $display->uuid = '0e1fa6d2-0164-4626-b7f4-3dbb72c3c3fb';
   $display->content = array();
   $display->panels = array();
@@ -10203,7 +10244,7 @@ function fieldmuseum_default_page_manager_pages() {
   );
   $page->menu = array(
     'type' => 'normal',
-    'title' => 'Support the museum',
+    'title' => 'Support the Museum',
     'name' => 'main-menu',
     'weight' => '5',
     'parent' => array(
@@ -10276,7 +10317,7 @@ function fieldmuseum_default_page_manager_pages() {
     ),
   );
   $display->cache = array();
-  $display->title = 'Support the museum';
+  $display->title = 'Support the Museum';
   $display->uuid = '0277acda-f6f0-4ac8-b9f0-bf97f2e6d425';
   $display->content = array();
   $display->panels = array();
@@ -10285,7 +10326,7 @@ function fieldmuseum_default_page_manager_pages() {
     $pane->panel = 'callout';
     $pane->type = 'fieldable_panels_pane';
     $pane->subtype = 'fpid:251';
-    $pane->shown = TRUE;
+    $pane->shown = FALSE;
     $pane->access = array();
     $pane->configuration = array(
       'view_mode' => 'full',
@@ -10535,7 +10576,7 @@ function fieldmuseum_default_page_manager_pages() {
   );
   $page->menu = array(
     'type' => 'normal',
-    'title' => 'Teacher professional development',
+    'title' => 'Teacher Professional Development',
     'name' => 'main-menu',
     'weight' => '0',
     'parent' => array(
@@ -10613,7 +10654,7 @@ function fieldmuseum_default_page_manager_pages() {
     ),
   );
   $display->cache = array();
-  $display->title = 'Teacher professional development';
+  $display->title = 'Teacher Professional Development';
   $display->uuid = '370002fa-5668-44b1-9cb8-f33407985b7a';
   $display->content = array();
   $display->panels = array();
@@ -11686,7 +11727,7 @@ function fieldmuseum_default_page_manager_pages() {
     ),
   );
   $display->cache = array();
-  $display->title = 'Virtual tours';
+  $display->title = 'Virtual Tours';
   $display->uuid = 'e0b8fa88-d458-47bc-8f61-345a65888900';
   $display->content = array();
   $display->panels = array();
@@ -11702,7 +11743,47 @@ function fieldmuseum_default_page_manager_pages() {
     );
     $pane->cache = array();
     $pane->style = array(
-      'style' => 'default',
+      'style' => 'semantic_panels',
+      'settings' => array(
+        'element_title' => array(
+          'type' => 'h1',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
     );
     $pane->css = array();
     $pane->extras = array();
@@ -11723,7 +11804,7 @@ function fieldmuseum_default_page_manager_pages() {
         'offset' => '0',
         'limit' => '0',
       ),
-      'view_mode' => 'node:teaser',
+      'view_mode' => 'node:promo',
       'use_pager' => FALSE,
       'pager_id' => 0,
       'context' => 'context_entitylist:menu_children_1',
@@ -11732,8 +11813,47 @@ function fieldmuseum_default_page_manager_pages() {
     );
     $pane->cache = array();
     $pane->style = array(
-      'style' => 'default',
-      'settings' => NULL,
+      'style' => 'semantic_panels',
+      'settings' => array(
+        'element_title' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => 'section',
+          'class_enable' => 1,
+          'class' => 'promos--3up',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
     );
     $pane->css = array();
     $pane->extras = array();
@@ -12153,7 +12273,7 @@ function fieldmuseum_default_page_manager_pages() {
   );
   $page->menu = array(
     'type' => 'normal',
-    'title' => 'Volunteer',
+    'title' => 'Volunteer at The Field',
     'name' => 'main-menu',
     'weight' => '0',
     'parent' => array(
@@ -12186,9 +12306,9 @@ function fieldmuseum_default_page_manager_pages() {
     'css' => '',
     'contexts' => array(
       0 => array(
-        'identifier' => 'List: Menu children',
+        'identifier' => 'List: Menu children (show children in other menus)',
         'keyword' => 'list',
-        'name' => 'entitylist:menu_children',
+        'name' => 'entitylist:menu_children_visible',
         'use_pager' => FALSE,
         'pager_id' => NULL,
         'range' => array(
@@ -12214,7 +12334,7 @@ function fieldmuseum_default_page_manager_pages() {
     ),
   );
   $display->cache = array();
-  $display->title = 'Volunteer';
+  $display->title = 'Volunteer at The Field';
   $display->uuid = '500e50f1-c5be-4784-9fc8-510e1c3a07ea';
   $display->content = array();
   $display->panels = array();
@@ -12349,6 +12469,111 @@ function fieldmuseum_default_page_manager_pages() {
     $pane->uuid = 'db17e7e2-36cf-47b7-b2ba-9801ef172b31';
     $display->content['new-db17e7e2-36cf-47b7-b2ba-9801ef172b31'] = $pane;
     $display->panels['main'][1] = 'new-db17e7e2-36cf-47b7-b2ba-9801ef172b31';
+    $pane = new stdClass();
+    $pane->pid = 'new-48c3e2c0-e9ea-406a-91b9-93321101a402';
+    $pane->panel = 'main';
+    $pane->type = 'fieldable_panels_pane';
+    $pane->subtype = 'fpid:531';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'view_mode' => 'full',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'naked',
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 2;
+    $pane->locks = array();
+    $pane->uuid = '48c3e2c0-e9ea-406a-91b9-93321101a402';
+    $display->content['new-48c3e2c0-e9ea-406a-91b9-93321101a402'] = $pane;
+    $display->panels['main'][2] = 'new-48c3e2c0-e9ea-406a-91b9-93321101a402';
+    $pane = new stdClass();
+    $pane->pid = 'new-2a6ace9d-12d3-4311-b05e-818e94f66450';
+    $pane->panel = 'main';
+    $pane->type = 'fieldable_panels_pane';
+    $pane->subtype = 'fpid:441';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'view_mode' => 'full',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'naked',
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 3;
+    $pane->locks = array();
+    $pane->uuid = '2a6ace9d-12d3-4311-b05e-818e94f66450';
+    $display->content['new-2a6ace9d-12d3-4311-b05e-818e94f66450'] = $pane;
+    $display->panels['main'][3] = 'new-2a6ace9d-12d3-4311-b05e-818e94f66450';
+    $pane = new stdClass();
+    $pane->pid = 'new-557c3803-9ba9-4268-8b60-475a0764f6e3';
+    $pane->panel = 'main';
+    $pane->type = 'fieldable_panels_pane';
+    $pane->subtype = 'fpid:526';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'view_mode' => 'full',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'semantic_panels',
+      'settings' => array(
+        'element_title' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => 'article',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => 'div',
+          'class_enable' => 1,
+          'class' => 'l--1up',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 4;
+    $pane->locks = array();
+    $pane->uuid = '557c3803-9ba9-4268-8b60-475a0764f6e3';
+    $display->content['new-557c3803-9ba9-4268-8b60-475a0764f6e3'] = $pane;
+    $display->panels['main'][4] = 'new-557c3803-9ba9-4268-8b60-475a0764f6e3';
     $pane = new stdClass();
     $pane->pid = 'new-04529f33-a545-44ef-890b-55ff0c31e062';
     $pane->panel = 'nav';
@@ -12508,7 +12733,7 @@ function fieldmuseum_default_page_manager_pages() {
     ),
   );
   $display->cache = array();
-  $display->title = 'Ways to give';
+  $display->title = 'Ways to Give';
   $display->uuid = 'fe1d18c2-5f59-4c25-9aaa-928505089749';
   $display->content = array();
   $display->panels = array();
@@ -12524,8 +12749,47 @@ function fieldmuseum_default_page_manager_pages() {
     );
     $pane->cache = array();
     $pane->style = array(
-      'style' => 'default',
-      'settings' => NULL,
+      'style' => 'semantic_panels',
+      'settings' => array(
+        'element_title' => array(
+          'type' => 'h1',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
     );
     $pane->css = array();
     $pane->extras = array();

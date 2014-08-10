@@ -48,7 +48,7 @@ function fmnh_exhibit_default_page_manager_handlers() {
   $display->layout = 'c2e';
   $display->layout_settings = array(
     'main_classes' => 'l--body__content js--stickyParent',
-    'nav_classes' => 'l--body__nav',
+    'nav_classes' => 'l--body__nav js--sticky',
   );
   $display->panel_settings = array(
     'style' => 'default',
@@ -182,7 +182,7 @@ function fmnh_exhibit_default_page_manager_handlers() {
     );
     $pane->cache = array();
     $pane->style = array(
-      'style' => 'default',
+      'style' => 'naked',
       'settings' => NULL,
     );
     $pane->css = array();
@@ -210,7 +210,7 @@ function fmnh_exhibit_default_page_manager_handlers() {
       'depth' => '0',
       'expanded' => 0,
       'sort' => 0,
-      'override_title' => 0,
+      'override_title' => 1,
       'override_title_text' => '',
       'identifier' => 'section',
     );
@@ -265,8 +265,8 @@ function fmnh_exhibit_default_page_manager_handlers() {
     $pane->uuid = '526e0081-a46d-401e-b954-2d49e55d8a81';
     $display->content['new-526e0081-a46d-401e-b954-2d49e55d8a81'] = $pane;
     $display->panels['nav'][1] = 'new-526e0081-a46d-401e-b954-2d49e55d8a81';
-  $display->hide_title = PANELS_TITLE_NONE;
-  $display->title_pane = '0';
+  $display->hide_title = PANELS_TITLE_PANE;
+  $display->title_pane = 'new-f377df4b-9f7b-4194-bd6e-ffd478c31605';
   $handler->conf['display'] = $display;
   $export['node_view_panel_context_6'] = $handler;
 

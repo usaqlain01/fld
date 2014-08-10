@@ -48,7 +48,7 @@ function fmnh_program_default_page_manager_handlers() {
   $display->layout = 'c2c';
   $display->layout_settings = array(
     'main_classes' => 'l--body__content js--stickyParent',
-    'nav_classes' => 'l--body__nav',
+    'nav_classes' => 'l--body__nav js--sticky',
   );
   $display->panel_settings = array(
     'style' => 'default',
@@ -265,7 +265,7 @@ function fmnh_program_default_page_manager_handlers() {
     $pane->uuid = '526e0081-a46d-401e-b954-2d49e55d8a81';
     $display->content['new-526e0081-a46d-401e-b954-2d49e55d8a81'] = $pane;
     $display->panels['nav'][1] = 'new-526e0081-a46d-401e-b954-2d49e55d8a81';
-  $display->hide_title = PANELS_TITLE_NONE;
+  $display->hide_title = PANELS_TITLE_PANE;
   $display->title_pane = 'new-ade04418-6395-4302-84c8-0989233e2c14';
   $handler->conf['display'] = $display;
   $export['node_view_panel_context_7'] = $handler;
@@ -686,30 +686,6 @@ function fmnh_program_default_page_manager_pages() {
     $pane->uuid = '443e398f-f3e2-4cd5-9bb3-aca70bbf0265';
     $display->content['new-443e398f-f3e2-4cd5-9bb3-aca70bbf0265'] = $pane;
     $display->panels['main'][0] = 'new-443e398f-f3e2-4cd5-9bb3-aca70bbf0265';
-    $pane = new stdClass();
-    $pane->pid = 'new-1432d798-ba2b-4978-98d8-da8ec0460e7b';
-    $pane->panel = 'main';
-    $pane->type = 'views_pager';
-    $pane->subtype = 'views_pager';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'context' => 'context_view:programs-ctools_context_2_1',
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'style' => 'default',
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 1;
-    $pane->locks = array();
-    $pane->uuid = '1432d798-ba2b-4978-98d8-da8ec0460e7b';
-    $display->content['new-1432d798-ba2b-4978-98d8-da8ec0460e7b'] = $pane;
-    $display->panels['main'][1] = 'new-1432d798-ba2b-4978-98d8-da8ec0460e7b';
     $pane = new stdClass();
     $pane->pid = 'new-bee62809-ebdd-4b3f-aeca-0a399b0f94f5';
     $pane->panel = 'nav';

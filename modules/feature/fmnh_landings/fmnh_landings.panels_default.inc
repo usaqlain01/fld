@@ -1150,6 +1150,10 @@ function fmnh_landings_default_panels_mini() {
     'style_settings' => array(
       'default' => NULL,
       'main' => NULL,
+      'summary_a' => NULL,
+      'summary_b' => NULL,
+      'summary_c' => NULL,
+      'summary_d' => NULL,
     ),
   );
   $display->cache = array();
@@ -1307,7 +1311,7 @@ function fmnh_landings_default_panels_mini() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 1;
+    $pane->position = 0;
     $pane->locks = array();
     $pane->uuid = 'a8b26ef6-4d9d-4fda-857c-d765e7271036';
     $display->content['new-a8b26ef6-4d9d-4fda-857c-d765e7271036'] = $pane;
@@ -1335,7 +1339,7 @@ function fmnh_landings_default_panels_mini() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 2;
+    $pane->position = 1;
     $pane->locks = array();
     $pane->uuid = '4434488e-b490-4a4e-a533-222897677239';
     $display->content['new-4434488e-b490-4a4e-a533-222897677239'] = $pane;
@@ -1357,7 +1361,7 @@ function fmnh_landings_default_panels_mini() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 3;
+    $pane->position = 2;
     $pane->locks = array();
     $pane->uuid = '83e97c76-07d5-40a6-9c93-bf537a54948e';
     $display->content['new-83e97c76-07d5-40a6-9c93-bf537a54948e'] = $pane;
@@ -1385,7 +1389,7 @@ function fmnh_landings_default_panels_mini() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 4;
+    $pane->position = 3;
     $pane->locks = array();
     $pane->uuid = 'f6712918-b369-489b-a75f-b2768bbd8d2e';
     $display->content['new-f6712918-b369-489b-a75f-b2768bbd8d2e'] = $pane;
@@ -1407,7 +1411,7 @@ function fmnh_landings_default_panels_mini() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 5;
+    $pane->position = 4;
     $pane->locks = array();
     $pane->uuid = '2fd9d26d-5624-40f1-8345-eadbaa144631';
     $display->content['new-2fd9d26d-5624-40f1-8345-eadbaa144631'] = $pane;
@@ -1435,7 +1439,7 @@ function fmnh_landings_default_panels_mini() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 6;
+    $pane->position = 5;
     $pane->locks = array();
     $pane->uuid = 'b98b8c83-781c-4a2c-bdd0-defe437972a3';
     $display->content['new-b98b8c83-781c-4a2c-bdd0-defe437972a3'] = $pane;

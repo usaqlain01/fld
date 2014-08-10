@@ -412,7 +412,7 @@ function fmnh_traveling_exhibit_default_page_manager_pages() {
     ),
   );
   $display->cache = array();
-  $display->title = 'Traveling exhibitions';
+  $display->title = 'Traveling Exhibitions';
   $display->uuid = '02b430e5-de7c-46c9-90d3-5390f2c370f3';
   $display->content = array();
   $display->panels = array();

@@ -92,7 +92,7 @@ function fmnh_media_file_default_displays() {
   $file_display->status = TRUE;
   $file_display->settings = array(
     'image_style' => '1x1_300w',
-    'image_link' => 'content',
+    'image_link' => '',
   );
   $export['image__square__file_field_image'] = $file_display;
 
