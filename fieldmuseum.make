@@ -204,7 +204,7 @@ projects[pathauto][subdir] = contrib
 projects[pathauto][version] = 1.2
 
 projects[pdf][subdir] = contrib
-projects[pdf][version] = 1.x-dev
+projects[pdf][version] = 1.6
 
 projects[pdf_to_imagefield][subdir] = contrib
 projects[pdf_to_imagefield][version] = 3.3
