@@ -16,7 +16,7 @@ function fieldmuseum_wysiwyg_default_profiles() {
     'editor' => 'ckeditor',
     'settings' => array(
       'default' => 1,
-      'user_choose' => 1,
+      'user_choose' => 0,
       'show_toggle' => 1,
       'add_to_summaries' => 1,
       'theme' => 'advanced',
@@ -62,7 +62,7 @@ function fieldmuseum_wysiwyg_default_profiles() {
     'editor' => 'ckeditor',
     'settings' => array(
       'default' => 0,
-      'user_choose' => 1,
+      'user_choose' => 0,
       'show_toggle' => 1,
       'add_to_summaries' => 1,
       'theme' => 'advanced',
