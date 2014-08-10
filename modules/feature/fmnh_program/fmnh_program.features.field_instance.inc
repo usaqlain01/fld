@@ -24,7 +24,7 @@ function fmnh_program_field_default_field_instances() {
           'field_formatter_class' => 'article__body',
         ),
         'type' => 'text_default',
-        'weight' => 1,
+        'weight' => 2,
       ),
       'promo' => array(
         'label' => 'hidden',
@@ -131,7 +131,7 @@ function fmnh_program_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 7,
+        'weight' => 8,
       ),
       'promo' => array(
         'label' => 'above',
@@ -182,7 +182,7 @@ function fmnh_program_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 4,
+        'weight' => 5,
       ),
       'promo' => array(
         'label' => 'hidden',
@@ -238,7 +238,7 @@ function fmnh_program_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 2,
+        'weight' => 3,
       ),
       'promo' => array(
         'label' => 'hidden',
@@ -328,7 +328,7 @@ function fmnh_program_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 3,
+        'weight' => 4,
       ),
       'promo' => array(
         'label' => 'above',
@@ -403,7 +403,7 @@ function fmnh_program_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 6,
+        'weight' => 7,
       ),
       'promo' => array(
         'label' => 'hidden',
@@ -560,7 +560,7 @@ function fmnh_program_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 5,
+        'weight' => 6,
       ),
       'promo' => array(
         'label' => 'hidden',

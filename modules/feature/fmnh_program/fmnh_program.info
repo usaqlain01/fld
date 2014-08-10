@@ -6,6 +6,7 @@ dependencies[] = ctools_access_ruleset
 dependencies[] = draggableviews
 dependencies[] = entitylist
 dependencies[] = entityreference
+dependencies[] = eva
 dependencies[] = features
 dependencies[] = field_group
 dependencies[] = file_entity
