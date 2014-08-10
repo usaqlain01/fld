@@ -173,7 +173,7 @@ function fieldmuseum_field_default_field_instances() {
     'bundle' => 'page',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'This link is displayed as a button next to the title of this page.',
+    'description' => '"CTA links." They may be displayed as button next to the title of this page or below the image.',
     'display' => array(
       'default' => array(
         'label' => 'hidden',
@@ -204,7 +204,7 @@ function fieldmuseum_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'fences_wrapper' => 'div',
+    'fences_wrapper' => 'no_wrapper',
     'field_name' => 'field_action_link',
     'label' => 'Action link',
     'required' => 0,
@@ -645,6 +645,7 @@ function fieldmuseum_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('"CTA links." They may be displayed as button next to the title of this page or below the image.');
   t('Action link');
   t('Banner image');
   t('Body');
@@ -652,7 +653,6 @@ function fieldmuseum_field_default_field_instances() {
   t('Message');
   t('References');
   t('The message appears above the body and below the image on a full view of this page.');
-  t('This link is displayed as a button next to the title of this page.');
 
   return $field_instances;
 }
