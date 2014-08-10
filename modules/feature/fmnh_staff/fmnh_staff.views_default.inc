@@ -32,6 +32,11 @@ function fmnh_staff_views_default_views() {
   $handler->display->display_options['style_plugin'] = 'jump_menu';
   $handler->display->display_options['style_options']['path'] = 'nothing';
   $handler->display->display_options['row_plugin'] = 'fields';
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -44,7 +49,7 @@ function fmnh_staff_views_default_views() {
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['nothing']['alter']['text'] = 'about/staff/[title]';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = 'about/staff/[nid]';
   /* Sort criterion: Content: Title */
   $handler->display->display_options['sorts']['title']['id'] = 'title';
   $handler->display->display_options['sorts']['title']['table'] = 'node';
@@ -202,6 +207,11 @@ function fmnh_staff_views_default_views() {
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['relationship'] = 'user';
   $handler->display->display_options['filters']['status']['value'] = '1';
+  /* Filter criterion: Profile: Last Name (field_surname) */
+  $handler->display->display_options['filters']['field_surname_value']['id'] = 'field_surname_value';
+  $handler->display->display_options['filters']['field_surname_value']['table'] = 'field_data_field_surname';
+  $handler->display->display_options['filters']['field_surname_value']['field'] = 'field_surname_value';
+  $handler->display->display_options['filters']['field_surname_value']['operator'] = 'not empty';
 
   /* Display: Context */
   $handler = $view->new_display('ctools_context', 'Context', 'ctools_context_1');
