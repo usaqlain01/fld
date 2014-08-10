@@ -39,6 +39,7 @@ function fmnh_media_preprocess_image_style(&$variables, $hook) {
       $srcsets = fmnh_media_srcset($style_prefix, $variables['path']);
       $variables['attributes']['srcset'] = implode(',', $srcsets);
       $variables['attributes']['class'][] = 'js--pictureFill';
+      $variables['attributes']['sizes'] = '(min-width: 118.8125em) calc(100% - 555px),(min-width: 100.0625em) calc(100% - 380px),(min-width: 81.3125em) calc(100% - 325px),(min-width: 62.5625em) calc(100% - 300px),100vw';
     }
   }
 }
