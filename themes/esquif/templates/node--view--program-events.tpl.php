@@ -7,7 +7,7 @@
  * @see https://drupal.org/node/1728164
  */
 ?>
-<li class="eventsList__item node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
+<li class="eventsList__item node-<?php print $node->nid; ?> <?php print $classes; ?>"<?php print $attributes; ?>>
   <?php print render($content['field_date']); ?>
   <section class="eventsList__event">
     <h5 class="eventsList__heading" itemprop="name"><?php print $title; ?></h5>

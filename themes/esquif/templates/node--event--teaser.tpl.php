@@ -7,7 +7,7 @@
  * @see https://drupal.org/node/1728164
  */
 ?>
-<article class="eventSummary node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
+<article class="eventSummary node-<?php print $node->nid; ?> <?php print $classes; ?>"<?php print $attributes; ?>>
 
   <figure class="eventSummary__image">
     <?php print render($content['field_image']); ?>

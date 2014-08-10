@@ -28,7 +28,7 @@
  * @see template_process()
  */
 ?>
-<article class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
+<article class="<?php print $classes; ?>"<?php print $attributes; ?>>
   <figure class="bio__figure">
     <?php print render($content['field_image']); ?>
     <figcaption>
