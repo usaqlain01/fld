@@ -10,6 +10,10 @@ function fmnh_staff_entity_view_mode_info() {
     'label' => t('Summary'),
     'custom_settings' => TRUE,
   );
+  $view_modes['profile2']['list_item'] = array(
+    'label' => t('List item'),
+    'custom_settings' => TRUE,
+  );
   $view_modes['file']['headshot'] = array(
     'label' => t('Headshot'),
     'custom_settings' => TRUE,
