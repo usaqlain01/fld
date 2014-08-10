@@ -45,13 +45,9 @@
   <a class="promo_link" href="<?php print $term_url; ?>">
     <figure>
       <?php print render($content['field_image']); ?>
-      <?php if ($description): ?>
       <figcaption class="promo__description">
-
         <?php print render($content['description']); ?>
-
       </figcaption>
-      <?php endif; ?>
       <?php print render($content); ?>
 
     </figure>
