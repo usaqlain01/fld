@@ -670,7 +670,7 @@ function fmnh_program_default_page_manager_pages() {
     'settings' => NULL,
   );
   $page->menu = array(
-    'type' => 'normal',
+    'type' => 'none',
     'title' => 'Field trip programs',
     'name' => 'main-menu',
     'weight' => '0',
@@ -1183,7 +1183,7 @@ function fmnh_program_default_page_manager_pages() {
     'settings' => NULL,
   );
   $page->menu = array(
-    'type' => 'normal',
+    'type' => 'none',
     'title' => 'Programs',
     'name' => 'main-menu',
     'weight' => '2',
