@@ -13,6 +13,8 @@ $plugin = array(
 
   'regions'     => array(
     'main'      => t('Main'),
+    'explore'   => t('Explore'),
+    'bottom'    => t('Bottom'),
     'nav'       => t('Nav'),
   ),
 

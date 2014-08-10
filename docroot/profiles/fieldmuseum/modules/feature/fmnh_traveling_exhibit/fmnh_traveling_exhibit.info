@@ -6,6 +6,7 @@ dependencies[] = entitylist
 dependencies[] = entityreference
 dependencies[] = features
 dependencies[] = file
+dependencies[] = file_entity
 dependencies[] = fmnh_references
 dependencies[] = link
 dependencies[] = media

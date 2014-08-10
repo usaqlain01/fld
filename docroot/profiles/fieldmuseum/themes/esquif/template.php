@@ -72,6 +72,97 @@ function esquif_preprocess_html(&$variables, $hook) {
     ),
   );
 
+  // Add all favicons and app icons.
+  $links = array(
+
+    // Browser favicons - favicon.ico has a cacheable redirect configured for now.
+    array(
+      'rel' => 'icon',
+      'href' => base_path() . path_to_theme() .'/images/fav/favicon.ico',
+      'type' => 'image/png',
+    ),
+    array(
+      'rel' => 'icon',
+      'href' => base_path() . path_to_theme() .'/images/fav/favicon-16.png',
+      'type' => 'image/png',
+    ),
+    array(
+      'rel' => 'icon',
+      'href' => base_path() . path_to_theme() .'/images/fav/favicon-32.png',
+      'type' => 'image/png',
+    ),
+    array(
+      'rel' => 'icon',
+      'href' => base_path() . path_to_theme() .'/images/fav/favicon-96.png',
+      'type' => 'image/png',
+    ),
+
+    // iOS Favicons - This is only a handful of the sizes supported through the iOS ecosystem.
+    // Other sizes will backfill with the closest size in this list.
+    array(
+      'rel' => 'apple-touch-icon-precomposed',
+      'href' => base_path() . path_to_theme() .'/images/fav/apple-touch-icon-precomposed.png',
+      'type' => 'image/png',
+    ),
+    array(
+      'rel' => 'apple-touch-icon-precomposed',
+      'href' => base_path() . path_to_theme() .'/images/fav/apple-touch-icon-72x72-precomposed.png',
+      'sizes' => '72x72',
+      'type' => 'image/png',
+    ),
+    array(
+      'rel' => 'apple-touch-icon-precomposed',
+      'href' => base_path() . path_to_theme() .'/images/fav/apple-touch-icon-120x120-precomposed.png',
+      'sizes' => '120x120',
+      'type' => 'image/png',
+    ),
+    array(
+      'rel' => 'apple-touch-icon-precomposed',
+      'href' => base_path() . path_to_theme() .'/images/fav/apple-touch-icon-152x152-precomposed.png',
+      'sizes' => '152x152',
+      'type' => 'image/png',
+    ),
+
+    // Opera Coast Favicon - 228x228
+    array(
+      'rel' => 'icon',
+      'href' => base_path() . path_to_theme() .'/images/fav/favicon-coast.png',
+      'sizes' => '228x228',
+      'type' => 'image/png',
+    ),
+  );
+  foreach ($links as $attributes) {
+    drupal_add_html_head_link($attributes);
+  }
+
+  // Windows 8 Pinboard Tiles - 144x144
+  $elements = array(
+    'msapplication_tileimage' => array(
+      '#tag' => 'meta',
+      '#attributes' => array(
+        'name' => 'msapplication-TileImage',
+        'content' => base_path() . path_to_theme() .'/images/fav/ms-pinned.png',
+      ),
+    ),
+    'msapplication_tilecolor' => array(
+      '#tag' => 'meta',
+      '#attributes' => array(
+        'name' => 'msapplication-TileColor',
+        'content' => '#84a726',
+      ),
+    ),
+    'application_name' => array(
+      '#tag' => 'meta',
+      '#attributes' => array(
+        'name' => 'application-name',
+        'content' => 'The Field Museum',
+      ),
+    ),
+  );
+  foreach ($elements as $key => $data) {
+    drupal_add_html_head($data, $key);
+  }
+
   // The body tag's classes are controlled by the $classes_array variable. To
   // remove a class from $classes_array, use array_diff().
   //$variables['classes_array'] = array_diff($variables['classes_array'], array('class-to-remove'));
@@ -145,9 +236,48 @@ function esquif_preprocess_node(&$variables, $hook) {
       if (in_array('node__panel__banner', $variables['theme_hook_suggestions'])) {
         $variables['content']['field_image'][0]['file']['#item']['attributes']['class'][] = 'banner__image';
       }
-      else {
+      else if ('image_formatter' == $variables['content']['field_image'][0]['file']['#theme']) {
         $variables['content']['field_image'][0]['file']['#item']['attributes']['class'][] = 'promo__image';
       }
+      else if ('image_style' == $variables['content']['field_image'][0]['file']['#theme']) {
+        $variables['content']['field_image'][0]['file']['#attributes']['class'][] = 'promo__image';
+      }
+
+      $node = $variables['node'];
+      $links = array();
+
+      if (!isset($node->view) || empty($node->view->args)) {
+        foreach (array('field_audience', 'field_grade_level', 'field_exhibit_type') as $field_name) {
+          if ($items = field_get_items('node', $node, $field_name)) {
+            switch ($field_name) {
+              case 'field_audience':
+                $href = 'at-the-field/programs';
+                break;
+              case 'field_grade_level':
+                $href = 'educators/field-trip-programs';
+                break;
+              case 'field_exhibit_type':
+                $href = 'at-the-field/exhibitions';
+                break;
+            }
+            foreach ($items as $item) {
+              $entity = $item['entity'];
+              list($id,,) = entity_extract_ids('taxonomy_term', $entity);
+              $links['promo__category list--inline__item taxonomy_term-'. $id] = array(
+                'title' => $entity->name,
+                'href' => $href .'/'. $entity->tid,
+              );
+            }
+          }
+        }
+
+        $variables['content']['links'] = array(
+          '#theme' => 'links__promo__category',
+          '#links' => $links,
+          '#attributes' => array('class' => array('promo__categories', 'list--inline')),
+        );
+      }
+
       break;
     case 'summary':
       $variables['theme_hook_suggestions'][] = 'node__summary';
@@ -1597,5 +1727,61 @@ function esquif_item_list__press_releases($variables) {
     $output .= "</$type>";
   }
   $output .= '</nav>';
+  return $output;
+}
+
+function esquif_field__field_person__traveling_exhibit($variables) {
+  $node = $variables['element']['#object'];
+  $output = '';
+  $items = field_get_items('node', $node, 'field_person');
+  if ($items) {
+    $output .= '<ul class="list--unstyled">';
+    foreach ($items as $item) {
+      $profile = profile2_by_uid_load($item['target_id'], 'main');
+      $element = profile2_view($profile, 'list_item');
+      $output .= drupal_render($element);
+    }
+    $output .= '</ul>';
+  }
+  return $output;
+}
+
+function esquif_field__field_specification__traveling_exhibit($variables) {
+  $node = $variables['element']['#object'];
+  $output = '';
+  $items = field_get_items('node', $node, 'field_specification');
+  if ($items) {
+    $output .= '<dl class="info--list">';
+    foreach ($items as $item) {
+      $list = explode("\n", $item['value']);
+      $list = array_map('trim', $list);
+      $list = array_filter($list, 'strlen');
+      foreach ($list as $row) {
+        $pair = explode(':', $row, 2);
+        $output .= '<dt>'. check_plain($pair[0]) .'</dt>';
+        $output .= '<dd>'. check_plain($pair[1]) .'</dd>';
+      }
+    }
+    $output .= '</dl>';
+  }
+  return $output;
+}
+
+function esquif_field__field_link__traveling_exhibit($variables) {
+  $output = '';
+
+  // Render the label, if it's not hidden.
+  if (!$variables['label_hidden']) {
+    $output .= '<div class="field-label"' . $variables['title_attributes'] . '>' . $variables['label'] . ':&nbsp;</div>';
+  }
+
+  // Render the items.
+  $output .= '<ul class="list--unstyled field-items"' . $variables['content_attributes'] . '>';
+  foreach ($variables['items'] as $delta => $item) {
+    $classes = 'field-item ' . ($delta % 2 ? 'odd' : 'even');
+    $output .= '<li class="' . $classes . '"' . $variables['item_attributes'][$delta] . '>' . drupal_render($item) . '</li>';
+  }
+  $output .= '</ul>';
+
   return $output;
 }

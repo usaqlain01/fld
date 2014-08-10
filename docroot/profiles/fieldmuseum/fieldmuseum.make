@@ -81,9 +81,6 @@ projects[environment_indicator][contrib] = 2.5
 projects[eva][subdir] = contrib
 projects[eva][version] = 1.x-dev
 
-projects[facetapi][subdir] = contrib
-projects[facetapi][version] = 1.5
-
 projects[features][subdir] = contrib
 projects[features][version] = 2.2
 
@@ -207,7 +204,7 @@ projects[pathauto][subdir] = contrib
 projects[pathauto][version] = 1.2
 
 projects[pdf][subdir] = contrib
-projects[pdf][version] = 1.x-dev
+projects[pdf][version] = 1.6
 
 projects[pdf_to_imagefield][subdir] = contrib
 projects[pdf_to_imagefield][version] = 3.3
@@ -226,17 +223,9 @@ projects[redirect][version] = 1.x-dev
 projects[schemaorg][subdir] = contrib
 projects[schemaorg][version] = 1.x-dev
 
-projects[search_api][subdir] = contrib
-projects[search_api][version] = 1.13
-
-projects[search_api_db][subdir] = contrib
-projects[search_api_db][version] = 1.3
-
-projects[search_api_page][subdir] = contrib
-projects[search_api_page][version] = 1.1
-
 projects[semantic_panels][subdir] = contrib
 projects[semantic_panels][version] = 1.2
+projects[semantic_panels][patch][] = https://www.drupal.org/files/semantic_panels.code_.2106643-1.patch
 
 projects[strongarm][subdir] = contrib
 projects[strongarm][version] = 2.x-dev

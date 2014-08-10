@@ -13,6 +13,10 @@
   <h1<?php print $title_attributes; ?>><?php print $title; ?></h1>
   <?php print render($title_suffix); ?>
 
+  <?php if ($unpublished): ?>
+    <mark class="unpublished"><?php print t('Unpublished'); ?></mark>
+  <?php endif; ?>
+
   <?php print render($content['field_image']); ?>
   <?php print render($content['field_summary']); ?>
 

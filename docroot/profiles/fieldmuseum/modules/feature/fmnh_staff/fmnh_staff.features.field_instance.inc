@@ -26,6 +26,12 @@ function fmnh_staff_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 13,
       ),
+      'list_item' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 13,
+      ),
       'summary' => array(
         'label' => 'above',
         'settings' => array(),
@@ -75,6 +81,12 @@ function fmnh_staff_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'list_item' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 6,
+      ),
       'summary' => array(
         'label' => 'hidden',
         'settings' => array(),
@@ -119,6 +131,12 @@ function fmnh_staff_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 0,
+      ),
+      'list_item' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 22,
       ),
       'summary' => array(
         'label' => 'hidden',
@@ -166,6 +184,12 @@ function fmnh_staff_field_default_field_instances() {
         'type' => 'entityreference_label',
         'weight' => 3,
       ),
+      'list_item' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 3,
+      ),
       'summary' => array(
         'label' => 'hidden',
         'module' => 'entityreference',
@@ -207,6 +231,12 @@ function fmnh_staff_field_default_field_instances() {
           'field_formatter_class' => '',
         ),
         'type' => 'text_default',
+        'weight' => 8,
+      ),
+      'list_item' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 8,
       ),
       'summary' => array(
@@ -258,6 +288,15 @@ function fmnh_staff_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'list_item' => array(
+        'label' => 'hidden',
+        'module' => 'email',
+        'settings' => array(
+          'field_formatter_class' => '',
+        ),
+        'type' => 'email_plain',
+        'weight' => 1,
+      ),
       'summary' => array(
         'label' => 'hidden',
         'settings' => array(),
@@ -302,6 +341,12 @@ function fmnh_staff_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 25,
       ),
+      'list_item' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 25,
+      ),
       'summary' => array(
         'label' => 'above',
         'settings' => array(),
@@ -338,6 +383,12 @@ function fmnh_staff_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 23,
       ),
+      'list_item' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 23,
+      ),
       'summary' => array(
         'label' => 'above',
         'settings' => array(),
@@ -368,6 +419,12 @@ function fmnh_staff_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 27,
+      ),
+      'list_item' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -418,6 +475,12 @@ function fmnh_staff_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'list_item' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 15,
+      ),
       'summary' => array(
         'label' => 'hidden',
         'module' => 'text',
@@ -463,6 +526,12 @@ function fmnh_staff_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 10,
       ),
+      'list_item' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 10,
+      ),
       'summary' => array(
         'label' => 'above',
         'settings' => array(),
@@ -505,6 +574,12 @@ function fmnh_staff_field_default_field_instances() {
         ),
         'type' => 'file_rendered',
         'weight' => 0,
+      ),
+      'list_item' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 2,
       ),
       'summary' => array(
         'label' => 'hidden',
@@ -581,6 +656,12 @@ function fmnh_staff_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 9,
       ),
+      'list_item' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 9,
+      ),
       'summary' => array(
         'label' => 'above',
         'settings' => array(),
@@ -624,6 +705,12 @@ function fmnh_staff_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 5,
       ),
+      'list_item' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 5,
+      ),
       'summary' => array(
         'label' => 'above',
         'settings' => array(),
@@ -659,6 +746,12 @@ function fmnh_staff_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 20,
+      ),
+      'list_item' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -711,6 +804,12 @@ function fmnh_staff_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 26,
       ),
+      'list_item' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 26,
+      ),
       'summary' => array(
         'label' => 'above',
         'settings' => array(),
@@ -757,6 +856,15 @@ function fmnh_staff_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'list_item' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(
+          'field_formatter_class' => '',
+        ),
+        'type' => 'text_default',
         'weight' => 0,
       ),
       'summary' => array(
@@ -847,6 +955,12 @@ function fmnh_staff_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 14,
       ),
+      'list_item' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 14,
+      ),
       'summary' => array(
         'label' => 'above',
         'settings' => array(),
@@ -890,6 +1004,12 @@ function fmnh_staff_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 11,
       ),
+      'list_item' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 11,
+      ),
       'summary' => array(
         'label' => 'above',
         'settings' => array(),
@@ -925,6 +1045,12 @@ function fmnh_staff_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 24,
+      ),
+      'list_item' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -974,6 +1100,12 @@ function fmnh_staff_field_default_field_instances() {
         'type' => 'entityreference_label',
         'weight' => 4,
       ),
+      'list_item' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 4,
+      ),
       'summary' => array(
         'label' => 'above',
         'settings' => array(),
@@ -1021,6 +1153,12 @@ function fmnh_staff_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 18,
       ),
+      'list_item' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 18,
+      ),
       'summary' => array(
         'label' => 'above',
         'settings' => array(),
@@ -1063,6 +1201,12 @@ function fmnh_staff_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 21,
+      ),
+      'list_item' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -1121,6 +1265,12 @@ function fmnh_staff_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'list_item' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 16,
+      ),
       'summary' => array(
         'label' => 'hidden',
         'module' => 'text',
@@ -1163,6 +1313,12 @@ function fmnh_staff_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 17,
       ),
+      'list_item' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 17,
+      ),
       'summary' => array(
         'label' => 'above',
         'settings' => array(),
@@ -1199,6 +1355,12 @@ function fmnh_staff_field_default_field_instances() {
           'field_formatter_class' => '',
         ),
         'type' => 'text_default',
+        'weight' => 12,
+      ),
+      'list_item' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 12,
       ),
       'summary' => array(
@@ -1246,6 +1408,12 @@ function fmnh_staff_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 0,
+      ),
+      'list_item' => array(
+        'label' => 'inline',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 19,
       ),
       'summary' => array(
         'label' => 'inline',

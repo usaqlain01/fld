@@ -26,16 +26,7 @@
     <mark class="unpublished"><?php print t('Unpublished'); ?></mark>
   <?php endif; ?>
 
-  <dl class="info--list">
-    <dt>Item Name</dt>
-    <dd>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</dd>
-    <dt>Item Name</dt>
-    <dd>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</dd>
-    <dt>Item Name</dt>
-    <dd>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</dd>
-    <dt>Item Name</dt>
-    <dd>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</dd>
-  </dl>
+  <?php print render($content['field_specification']); ?>
 
   <section class="article__body"<?php print drupal_attributes(rdf_rdfa_attributes($node->rdf_mapping['body'])); ?>>
     <?php print render($content['body']); ?>

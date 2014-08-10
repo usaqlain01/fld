@@ -42,6 +42,7 @@ features[field_instance][] = node-blog-field_topic
 features[node][] = blog
 features[page_manager_handlers][] = node_view_panel_context_8
 features[page_manager_pages][] = science_blogs_gallery
+features[page_manager_pages][] = science_blogs_list
 features[page_manager_pages][] = science_blogs_podcast
 features[page_manager_pages][] = science_blogs_video
 features[panels_mini][] = filter_menu

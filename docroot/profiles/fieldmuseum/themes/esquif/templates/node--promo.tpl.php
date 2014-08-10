@@ -11,11 +11,9 @@
   <a class="promo__link" itemprop="url" href="<?php print $node_url; ?>">
     <figure>
       <?php print render($content['field_image']); ?>
-      <?php if ($field_banner_description): ?>
       <figcaption class="promo__description">
         <?php print render($content['field_banner_description']); ?>
       </figcaption>
-      <?php endif; ?>
     </figure>
     <h3<?php print $title_attributes; ?>><?php print $title; ?></h3>
   </a>
