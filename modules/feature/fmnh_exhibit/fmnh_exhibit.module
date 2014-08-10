@@ -29,12 +29,10 @@ function fmnh_exhibit_preprocess_node(&$variables, $hook) {
       if ($items = field_get_items('node', $node, $field_name)) {
         foreach ($items as $item) {
           $entity = $item['entity'];
-          $links[] = array(
+          list($id,,) = entity_extract_ids('taxonomy_term', $entity);
+          $links['promo__category list--inline__item taxonomy_term-'. $id] = array(
             'title' => $entity->name,
-            'href' => 'at-the-field/exhibitions/'. drupal_strtolower(str_replace(' ', '-', $entity->name)),
-            'attributes' => array(
-              'class' => array('promo__category', 'list--inline__item'),
-            ),
+            'href' => 'at-the-field/exhibitions/'. $entity->tid,
           );
         }
       }
