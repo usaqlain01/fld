@@ -26,9 +26,7 @@
     <mark class="unpublished"><?php print t('Unpublished'); ?></mark>
   <?php endif; ?>
 
-  <dl class="info--list">
-    <?php print render($content['field_specification']); ?>
-  </dl>
+  <?php print render($content['field_specification']); ?>
 
   <section class="article__body"<?php print drupal_attributes(rdf_rdfa_attributes($node->rdf_mapping['body'])); ?>>
     <?php print render($content['body']); ?>

@@ -1729,3 +1729,59 @@ function esquif_item_list__press_releases($variables) {
   $output .= '</nav>';
   return $output;
 }
+
+function esquif_field__field_person__traveling_exhibit($variables) {
+  $node = $variables['element']['#object'];
+  $output = '';
+  $items = field_get_items('node', $node, 'field_person');
+  if ($items) {
+    $output .= '<ul class="list--unstyled">';
+    foreach ($items as $item) {
+      $profile = profile2_by_uid_load($item['target_id'], 'main');
+      $element = profile2_view($profile, 'list_item');
+      $output .= drupal_render($element);
+    }
+    $output .= '</ul>';
+  }
+  return $output;
+}
+
+function esquif_field__field_specification__traveling_exhibit($variables) {
+  $node = $variables['element']['#object'];
+  $output = '';
+  $items = field_get_items('node', $node, 'field_specification');
+  if ($items) {
+    $output .= '<dl class="info--list">';
+    foreach ($items as $item) {
+      $list = explode("\n", $item['value']);
+      $list = array_map('trim', $list);
+      $list = array_filter($list, 'strlen');
+      foreach ($list as $row) {
+        $pair = explode(':', $row, 2);
+        $output .= '<dt>'. check_plain($pair[0]) .'</dt>';
+        $output .= '<dd>'. check_plain($pair[1]) .'</dd>';
+      }
+    }
+    $output .= '</dl>';
+  }
+  return $output;
+}
+
+function esquif_field__field_link__traveling_exhibit($variables) {
+  $output = '';
+
+  // Render the label, if it's not hidden.
+  if (!$variables['label_hidden']) {
+    $output .= '<div class="field-label"' . $variables['title_attributes'] . '>' . $variables['label'] . ':&nbsp;</div>';
+  }
+
+  // Render the items.
+  $output .= '<ul class="list--unstyled field-items"' . $variables['content_attributes'] . '>';
+  foreach ($variables['items'] as $delta => $item) {
+    $classes = 'field-item ' . ($delta % 2 ? 'odd' : 'even');
+    $output .= '<li class="' . $classes . '"' . $variables['item_attributes'][$delta] . '>' . drupal_render($item) . '</li>';
+  }
+  $output .= '</ul>';
+
+  return $output;
+}
