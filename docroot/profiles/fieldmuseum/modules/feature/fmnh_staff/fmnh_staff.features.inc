@@ -8,9 +8,6 @@
  * Implements hook_ctools_plugin_api().
  */
 function fmnh_staff_ctools_plugin_api($module = NULL, $api = NULL) {
-  if ($module == "entitylist" && $api == "entitylist_lists") {
-    return array("version" => "1");
-  }
   if ($module == "feeds" && $api == "feeds_importer_default") {
     return array("version" => "1");
   }

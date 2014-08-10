@@ -260,8 +260,23 @@ function esquif_preprocess_node(&$variables, $hook) {
                 $href = 'at-the-field/exhibitions';
                 break;
             }
+
+            // Collect every possible entity attached to any of the entities.
+            $target_ids = array();
             foreach ($items as $item) {
-              $entity = $item['entity'];
+              if (isset($item['target_id'])) {
+                $target_ids[] = $item['target_id'];
+              }
+            }
+
+            if ($target_ids) {
+              $entities = entity_load('taxonomy_term', $target_ids);
+            }
+            else {
+              $entities = array();
+            }
+
+            foreach ($entities as $entity) {
               list($id,,) = entity_extract_ids('taxonomy_term', $entity);
               $links['promo__category list--inline__item taxonomy_term-'. $id] = array(
                 'title' => $entity->name,
