@@ -170,6 +170,7 @@ features[page_manager_pages][] = volunteer
 features[page_manager_pages][] = ways_to_give
 features[panelizer_defaults][] = node:page:c1_a
 features[panelizer_defaults][] = node:page:c1_b
+features[panelizer_defaults][] = node:page:c1_f
 features[panelizer_defaults][] = node:page:c1_h
 features[panelizer_defaults][] = node:page:c3
 features[panelizer_defaults][] = node:page:c3_a

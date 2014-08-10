@@ -357,6 +357,186 @@ function fieldmuseum_panelizer_defaults() {
   $panelizer = new stdClass();
   $panelizer->disabled = FALSE; /* Edit this to true to make a default panelizer disabled initially */
   $panelizer->api_version = 1;
+  $panelizer->name = 'node:page:c1_f';
+  $panelizer->title = 'C1-f';
+  $panelizer->panelizer_type = 'node';
+  $panelizer->panelizer_key = 'page';
+  $panelizer->no_blocks = FALSE;
+  $panelizer->css_id = '';
+  $panelizer->css = '';
+  $panelizer->pipeline = 'standard';
+  $panelizer->contexts = array();
+  $panelizer->relationships = array();
+  $panelizer->access = array();
+  $panelizer->view_mode = 'page_manager';
+  $panelizer->css_class = '';
+  $panelizer->title_element = 'H2';
+  $panelizer->link_to_entity = TRUE;
+  $panelizer->extra = array();
+  $display = new panels_display();
+  $display->layout = 'c1';
+  $display->layout_settings = array(
+    'main_classes' => 'l--body__content js--stickyParent',
+    'nav_classes' => 'l--body__nav js--sticky',
+  );
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'main' => NULL,
+      'nav' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = '%node:title';
+  $display->uuid = 'e9b2550f-fd22-407c-ac32-e5aa06632837';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-b520a84f-34f6-4ac3-9520-e5c35b0b7fe7';
+    $pane->panel = 'main';
+    $pane->type = 'node_content';
+    $pane->subtype = 'node_content';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'links' => 0,
+      'no_extras' => 0,
+      'override_title' => 0,
+      'override_title_text' => '',
+      'identifier' => '',
+      'link' => 0,
+      'leave_node_title' => 1,
+      'build_mode' => 'full',
+      'context' => 'panelizer',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'naked',
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'b520a84f-34f6-4ac3-9520-e5c35b0b7fe7';
+    $display->content['new-b520a84f-34f6-4ac3-9520-e5c35b0b7fe7'] = $pane;
+    $display->panels['main'][0] = 'new-b520a84f-34f6-4ac3-9520-e5c35b0b7fe7';
+    $pane = new stdClass();
+    $pane->pid = 'new-17863985-ae56-4df5-b5ed-ec14d8423be5';
+    $pane->panel = 'nav';
+    $pane->type = 'node_content_arbitrary';
+    $pane->subtype = 'node_content_arbitrary';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+      'build_mode' => 'full',
+      'identifier' => '',
+      'property_path' => 'content[links][sharing]',
+      'link' => 1,
+      'context' => 'panelizer',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'naked',
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '17863985-ae56-4df5-b5ed-ec14d8423be5';
+    $display->content['new-17863985-ae56-4df5-b5ed-ec14d8423be5'] = $pane;
+    $display->panels['nav'][0] = 'new-17863985-ae56-4df5-b5ed-ec14d8423be5';
+    $pane = new stdClass();
+    $pane->pid = 'new-886f7ad2-9adb-406c-b685-fb18c2ab4614';
+    $pane->panel = 'nav';
+    $pane->type = 'menu_tree';
+    $pane->subtype = 'main-menu';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'menu_name' => 'main-menu',
+      'parent_mlid' => 0,
+      'parent' => 'main-menu:0',
+      'title_link' => 0,
+      'admin_title' => '',
+      'level' => '2',
+      'follow' => 0,
+      'depth' => '0',
+      'expanded' => 0,
+      'sort' => 0,
+      'override_title' => 1,
+      'override_title_text' => '',
+      'identifier' => 'section',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => array(
+        'element_title' => array(
+          'type' => '',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => '',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => 'nav',
+          'class_enable' => 1,
+          'class' => 'navSection',
+          'attributes' => array(
+            'role' => array(
+              'enabled' => 1,
+              'value' => 'navigation',
+            ),
+          ),
+          'attributes_array' => array(
+            'role' => 'navigation',
+          ),
+        ),
+        'add_default_classes' => 1,
+      ),
+      'style' => 'semantic_panels',
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = '886f7ad2-9adb-406c-b685-fb18c2ab4614';
+    $display->content['new-886f7ad2-9adb-406c-b685-fb18c2ab4614'] = $pane;
+    $display->panels['nav'][1] = 'new-886f7ad2-9adb-406c-b685-fb18c2ab4614';
+  $display->hide_title = PANELS_TITLE_PANE;
+  $display->title_pane = 'new-b520a84f-34f6-4ac3-9520-e5c35b0b7fe7';
+  $panelizer->display = $display;
+  $export['node:page:c1_f'] = $panelizer;
+
+  $panelizer = new stdClass();
+  $panelizer->disabled = FALSE; /* Edit this to true to make a default panelizer disabled initially */
+  $panelizer->api_version = 1;
   $panelizer->name = 'node:page:c1_h';
   $panelizer->title = 'C1-h';
   $panelizer->panelizer_type = 'node';
