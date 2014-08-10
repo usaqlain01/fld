@@ -2195,6 +2195,10 @@ ul > li:before, ol > li:before {
   font-weight: 800;
   font-family: "proxima-nova", "Helvetica Neue", Helmet, Freesans, sans-serif; }
 
+li > strong {
+  font-size: 0.95em;
+  font-family: "proxima-nova", "Helvetica Neue", Helmet, Freesans, sans-serif; }
+
 ul > li {
   padding: 0 0 0 20px; }
   ul > li:before {
@@ -2523,9 +2527,12 @@ td {
   overflow: hidden; }
 
 .person__department {
-  color: silver;
   font-weight: 400;
   font-size: 0.8125em; }
+  .person__department a {
+    color: silver; }
+    .person__department a:hover {
+      color: #497d8d; }
 
 .promo {
   background: #707070;
@@ -3442,6 +3449,12 @@ form {
       [data-useragent*="Firefox"] .audioPlayer audio, [data-useragent*="Trident"] .audioPlayer audio {
         width: 280px;
         /* fix for Firefox forcing player wider than container */ } }
+
+.fluid-width-video-wrapper {
+  margin: 0 0 20px; }
+  @media (min-width: 100.0625em) {
+    .fluid-width-video-wrapper {
+      margin: 0 0 25px; } }
 
 .audioPlayer__download {
   display: block;
