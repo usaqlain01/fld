@@ -530,6 +530,90 @@ function fmnh_blog_default_page_manager_pages() {
   $page = new stdClass();
   $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
   $page->api_version = 1;
+  $page->name = 'science_blogs_list';
+  $page->task = 'page';
+  $page->admin_title = '';
+  $page->admin_description = '';
+  $page->path = 'science/blog/list';
+  $page->access = array();
+  $page->menu = array();
+  $page->arguments = array();
+  $page->conf = array(
+    'admin_paths' => FALSE,
+  );
+  $page->default_handlers = array();
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'page_science_blogs_list_panel_context';
+  $handler->task = 'page';
+  $handler->subtask = 'science_blogs_list';
+  $handler->handler = 'panel_context';
+  $handler->weight = 0;
+  $handler->conf = array(
+    'title' => 'Panel',
+    'no_blocks' => 0,
+    'pipeline' => 'ipe',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => '',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(),
+  );
+  $display = new panels_display();
+  $display->layout = 'a';
+  $display->layout_settings = array(
+    'main_classes' => '',
+  );
+  $display->panel_settings = array(
+    'style' => 'default',
+    'style_settings' => array(
+      'default' => NULL,
+      'main' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = '';
+  $display->uuid = 'f3e4e40a-97e4-417b-a36a-7dfb24b998b3';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-c92a96ad-8c2f-4908-b1da-92498b08cac3';
+    $pane->panel = 'main';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => '',
+      'title' => '',
+      'body' => '<p>This page is still being prepared!</p>
+',
+      'format' => 'filtered_wysiwyg',
+      'substitute' => TRUE,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'default',
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'c92a96ad-8c2f-4908-b1da-92498b08cac3';
+    $display->content['new-c92a96ad-8c2f-4908-b1da-92498b08cac3'] = $pane;
+    $display->panels['main'][0] = 'new-c92a96ad-8c2f-4908-b1da-92498b08cac3';
+  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->title_pane = 'new-c92a96ad-8c2f-4908-b1da-92498b08cac3';
+  $handler->conf['display'] = $display;
+  $page->default_handlers[$handler->name] = $handler;
+  $pages['science_blogs_list'] = $page;
+
+  $page = new stdClass();
+  $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
+  $page->api_version = 1;
   $page->name = 'science_blogs_podcast';
   $page->task = 'page';
   $page->admin_title = 'Science blogs podcast';
