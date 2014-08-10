@@ -70,11 +70,14 @@ function fmnh_program_strongarm() {
         'path' => array(
           'weight' => '2',
         ),
+        'redirect' => array(
+          'weight' => '30',
+        ),
       ),
       'display' => array(
         'program_events_entity_view_1' => array(
           'default' => array(
-            'weight' => '1',
+            'weight' => '2',
             'visible' => TRUE,
           ),
           'teaser' => array(
