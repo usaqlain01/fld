@@ -2038,7 +2038,7 @@ function fieldmuseum_default_page_manager_pages() {
     ),
   );
   $display->cache = array();
-  $display->title = 'Contact Us / RFP';
+  $display->title = 'Contact/Request a Proposal';
   $display->uuid = '8cfd6e26-54e1-4b71-99f6-2a5791512e6b';
   $display->content = array();
   $display->panels = array();
@@ -10574,14 +10574,14 @@ function fieldmuseum_default_page_manager_pages() {
   The Crown Family PlayLab is free with Basic admission and is open Thursdays through Mondays from 10am to 4pm. The last admission for the PlayLab is 3pm. <a href="#" class="link--more">Find Out More</a>
 </p>
 <h2 class="heading--stroked">
-  CityPass
+  CityPASS
 </h2>
 <div class="l--2up">
   <div class="l--module">
     <p>
       <strong>Save 49%</strong> or more on admission to 5 famous Chicago attractions! 
     </p>
-    <a href="#" class="button--cta ">Explore the CityPass</a> 
+    <a href="#" class="button--cta ">Explore the CityPASS</a> 
   </div>
   <div class="l--module">
     <ul class="priceList">
@@ -10599,7 +10599,7 @@ function fieldmuseum_default_page_manager_pages() {
       </p>
       </li>
     </ul>
-    <a href="#" class="button--buy "> <span class="button__leader"> <svg class="icon icon--ticket-2" viewbox="0 0 500 500"> <use xlink:href="#ticket-2"></use> </svg> </span> Buy CityPass Online </a> 
+    <a href="#" class="button--buy "> <span class="button__leader"> <svg class="icon icon--ticket-2" viewbox="0 0 500 500"> <use xlink:href="#ticket-2"></use> </svg> </span> Buy CityPASS Online </a> 
   </div>
 </div>
 <h2 class="heading--stroked">
