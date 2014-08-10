@@ -132,6 +132,9 @@ function fmnh_program_rdf_default_mappings() {
       'predicates' => array(),
       'type' => 'rel',
     ),
+    'field_specification' => array(
+      'predicates' => array(),
+    ),
   );
 
   return $schemaorg;
