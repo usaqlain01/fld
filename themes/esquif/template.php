@@ -242,6 +242,42 @@ function esquif_preprocess_node(&$variables, $hook) {
       else if ('image_style' == $variables['content']['field_image'][0]['file']['#theme']) {
         $variables['content']['field_image'][0]['file']['#attributes']['class'][] = 'promo__image';
       }
+
+      $node = $variables['node'];
+      $links = array();
+
+      if (!isset($node->view) || empty($node->view->args)) {
+        foreach (array('field_audience', 'field_grade_level', 'field_exhibit_type') as $field_name) {
+          if ($items = field_get_items('node', $node, $field_name)) {
+            switch ($field_name) {
+              case 'field_audience':
+                $href = 'at-the-field/programs';
+                break;
+              case 'field_grade_level':
+                $href = 'educators/field-trip-programs';
+                break;
+              case 'field_exhibit_type':
+                $href = 'at-the-field/exhibitions';
+                break;
+            }
+            foreach ($items as $item) {
+              $entity = $item['entity'];
+              list($id,,) = entity_extract_ids('taxonomy_term', $entity);
+              $links['promo__category list--inline__item taxonomy_term-'. $id] = array(
+                'title' => $entity->name,
+                'href' => $href .'/'. $entity->tid,
+              );
+            }
+          }
+        }
+
+        $variables['content']['links'] = array(
+          '#theme' => 'links__promo__category',
+          '#links' => $links,
+          '#attributes' => array('class' => array('promo__categories', 'list--inline')),
+        );
+      }
+
       break;
     case 'summary':
       $variables['theme_hook_suggestions'][] = 'node__summary';

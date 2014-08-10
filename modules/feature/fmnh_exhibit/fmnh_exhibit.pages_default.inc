@@ -411,8 +411,7 @@ function fmnh_exhibit_default_page_manager_pages() {
     $pane->configuration = array(
       'admin_title' => '',
       'title' => '',
-      'body' => '<h1>%term:name</h1>
-%term:description',
+      'body' => '<h1>%term:name Exhibitions</h1>',
       'format' => 'unfiltered',
       'substitute' => 1,
     );
