@@ -21,3 +21,25 @@ function fmnh_staff_navbar_alter(&$items) {
     'href' => 'profile-main',
   );
 }
+
+/**
+ * Replace missing profile images with the user's default.
+ *
+ * @param $variables
+ * @param $hook
+ */
+function fmnh_staff_preprocess_entity(&$variables, $hook) {
+  if ($variables['entity_type'] == 'profile2') {
+    list($id, $vid, $bundle) = entity_extract_ids('profile2', $variables['profile2']);
+    if ($bundle == 'main') {
+      $items = field_get_items('profile2', $variables['profile2'], 'field_image');
+      if (!$items) {
+        $account = user_load($variables['elements']['#entity']->uid);
+        $variables['content']['field_image'] = array(
+          '#theme' => 'user_picture',
+          '#account' => $account,
+        );
+      }
+    }
+  }
+}
