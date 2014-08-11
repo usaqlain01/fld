@@ -1356,7 +1356,7 @@ function esquif_pager_last($variables) {
  */
 function esquif_preprocess_esquif_canoe(&$variables, $hook) {
   // This is a clumsy way to do this.
-  if (arg(1)) {
+  if (arg(1) || drupal_is_front_page()) {
     $variables['hero_classes'] .= ' hero--large';
   }
 }
