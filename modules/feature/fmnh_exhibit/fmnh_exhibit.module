@@ -18,11 +18,24 @@ function fmnh_exhibit_admin_paths() {
  * @param $hook
  */
 function fmnh_exhibit_preprocess_node(&$variables, $hook) {
+  $node = $variables['node'];
 
   // Stash ticketed status in template variable.
   $items = field_get_items('node', $variables['node'], 'field_ticketed');
   if ($items) {
     $item = reset($items);
     $variables['ticketed'] = ($item['value'] == 1);
+  }
+
+  $items = field_get_items('node', $node, 'field_exhibit_type');
+
+  // Hide dates on permanent exhibits.
+  $variables['permanent_exhibit'] = FALSE;
+  if ($items) {
+    foreach ($items as $item) {
+      if ($item['target_id'] == 41) {
+        $variables['permanent_exhibit'] = TRUE;
+      }
+    }
   }
 }
