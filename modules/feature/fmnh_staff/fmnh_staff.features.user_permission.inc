@@ -35,6 +35,8 @@ function fmnh_staff_user_default_permissions() {
     'name' => 'view any main profile',
     'roles' => array(
       'administrator' => 'administrator',
+      'anonymous user' => 'anonymous user',
+      'authenticated user' => 'authenticated user',
     ),
     'module' => 'profile2',
   );
