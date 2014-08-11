@@ -1328,15 +1328,9 @@ function esquif_pager_last($variables) {
  * @param $hook
  */
 function esquif_preprocess_esquif_canoe(&$variables, $hook) {
-  /** @var panels_display $display */
-  $display = $variables['display'];
-
-  ctools_include('context');
-  $requiredcontexts = array(new ctools_context_required(t('Background image'), 'entity:file'));
-  if ($contexts = ctools_context_filter($display->context, $requiredcontexts)) {
-    $context = reset($contexts);
-    $file = $context->data;
-    $variables['hero_image'] = $file;
+  // This is a clumsy way to do this.
+  if (arg(1)) {
+    $variables['hero_classes'] .= ' hero--large';
   }
 }
 
