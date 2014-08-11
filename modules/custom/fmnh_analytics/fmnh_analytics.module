@@ -23,3 +23,19 @@ function fmnh_analytics_library() {
   );
   return $libraries;
 }
+
+/**
+ * @param $entity
+ * @param $type
+ * @param $view_mode
+ * @param $langcode
+ */
+function fmnh_analytics_entity_view($entity, $type, $view_mode, $langcode) {
+
+  // Decorate social sharing links on nodes.
+  if (isset($entity->content['links']['sharing'])) {
+    foreach ($entity->content['links']['sharing']['#links'] as $id => &$link) {
+      $link['attributes']['data-analytics'] = substr($id, 5) .'-share';
+    }
+  }
+}
