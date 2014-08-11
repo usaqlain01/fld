@@ -283,9 +283,9 @@ function fmnh_traveling_exhibit_field_default_field_instances() {
       'file_directory' => '',
       'file_extensions' => 'jpg gif jpeg png',
       'imagecrop' => array(
-        '2x1_2400w' => 0,
-        '5x2_2400w' => 0,
-        '5x3_2400w' => 0,
+        '2x1_2400w' => '2x1_2400w',
+        '5x2_2400w' => '5x2_2400w',
+        '5x3_2400w' => '5x3_2400w',
         'large' => 0,
         'media_gallery_large' => 0,
         'media_gallery_thumbnail' => 0,
