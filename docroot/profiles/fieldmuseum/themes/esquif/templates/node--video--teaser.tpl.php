@@ -7,7 +7,7 @@
  * @see https://drupal.org/node/1728164
  */
 ?>
-<article class="excerpt node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
+<article class="excerpt node-<?php print $node->nid; ?> <?php print $classes; ?>"<?php print $attributes; ?>>
   <?php print render($content['field_video']); ?>
   <?php if ($title_prefix || $title_suffix || $display_submitted || $unpublished || !$page && $title): ?>
     <header class="excerpt__header">
@@ -42,7 +42,7 @@
     print render($content);
     ?>
 
-    <?php print render($content['links']); ?>
+    <?php print render($content['links']['node']); ?>
 
     <?php print render($content['comments']); ?>
 

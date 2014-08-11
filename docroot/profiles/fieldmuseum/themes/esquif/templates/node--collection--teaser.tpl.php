@@ -8,7 +8,7 @@
  */
 ?>
 
-<article class="node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
+<article class="node-<?php print $node->nid; ?> <?php print $classes; ?>"<?php print $attributes; ?>>
   <?php print render($content['field_image']); ?>
   <section class="collection__details">
 
@@ -38,7 +38,7 @@
     print render($content);
     ?>
 
-    <?php print render($content['links']); ?>
+    <?php print render($content['links']['node']); ?>
 
     <?php print render($content['comments']); ?>
   </section>

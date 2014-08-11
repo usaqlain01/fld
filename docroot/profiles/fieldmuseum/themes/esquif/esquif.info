@@ -54,6 +54,7 @@ stylesheets[screen][] = css/style.css
 stylesheets[screen][] = css/messages.css
 stylesheets[screen][] = css/tabs.css
 stylesheets[screen][] = css/overrides.css
+stylesheets[screen][] = css/hacks.css
 stylesheets[print][] = css/print.css
 
 ; Built-in conditional stylesheet support has been removed from Zen 7.x-5.x.

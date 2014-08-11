@@ -848,7 +848,7 @@ function fmnh_exhibit_default_page_manager_pages() {
     'settings' => NULL,
   );
   $page->menu = array(
-    'type' => 'normal',
+    'type' => 'none',
     'title' => 'Exhibitions',
     'name' => 'main-menu',
     'weight' => '1',
