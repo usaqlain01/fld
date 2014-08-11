@@ -246,7 +246,7 @@ function esquif_preprocess_node(&$variables, $hook) {
       $node = $variables['node'];
       $links = array();
 
-      if (!isset($node->view) || empty($node->view->args)) {
+      if ((!isset($node->view) || empty($node->view->args)) && !arg(2)) {
         foreach (array('field_audience', 'field_grade_level', 'field_exhibit_type') as $field_name) {
           if ($items = field_get_items('node', $node, $field_name)) {
             switch ($field_name) {
