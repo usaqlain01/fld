@@ -284,6 +284,18 @@ function esquif_preprocess_node(&$variables, $hook) {
               );
             }
           }
+
+          // Show ticketed indicator where applicable.
+          if ($items = field_get_items('node', $node, 'field_ticketed')) {
+            foreach ($items as $item) {
+              if ($item['value'] == 1) {
+                $links['promo__category list--inline__item ticketed'] = array(
+                  'title' => 'Ticketed',
+                  'href' => 'at-the-field/exhibitions/ticketed',
+                );
+              }
+            }
+          }
         }
 
         $variables['content']['links'] = array(
