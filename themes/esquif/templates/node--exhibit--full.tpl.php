@@ -31,7 +31,7 @@
 
   <?php print render($content['field_image']); ?>
 
-  <?php if ($ticketed || $permanent): ?>
+  <?php if ($ticketed || !$permanent): ?>
   <section class="exhibition__meta l--2up">
     <?php if ($ticketed): ?>
     <div class="l--module">
@@ -44,7 +44,7 @@
       </a>
     </div>
     <?php endif; ?>
-    <?php if (!$permanent_exhibit): ?>
+    <?php if (!$permanent): ?>
     <div class="l--module">
       <p class="exhibition__dateRange">
         <?php print render($content['field_date']); ?>
