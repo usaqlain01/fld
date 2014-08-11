@@ -1216,28 +1216,6 @@ function fieldmuseum_default_panels_mini() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-08223496-4c50-4c27-8e40-b5230b9097c3';
-    $pane->panel = 'hero';
-    $pane->type = 'fieldable_panels_pane';
-    $pane->subtype = 'fpid:1';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'view_mode' => 'full',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-      'style' => 'naked',
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = '08223496-4c50-4c27-8e40-b5230b9097c3';
-    $display->content['new-08223496-4c50-4c27-8e40-b5230b9097c3'] = $pane;
-    $display->panels['hero'][0] = 'new-08223496-4c50-4c27-8e40-b5230b9097c3';
-    $pane = new stdClass();
     $pane->pid = 'new-8d44160c-cf91-460b-9e8a-f7beba88e0f7';
     $pane->panel = 'search';
     $pane->type = 'block';

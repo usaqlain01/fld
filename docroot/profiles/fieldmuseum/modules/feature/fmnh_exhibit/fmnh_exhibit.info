@@ -68,6 +68,7 @@ features[page_manager_pages][] = exhibitions
 features[page_manager_pages][] = exhibitions_coming_soon
 features[page_manager_pages][] = exhibitions_filtered
 features[page_manager_pages][] = exhibitions_past
+features[page_manager_pages][] = exhibitions_ticketed
 features[schemaorg][] = node-exhibit
 features[user_permission][] = create exhibit content
 features[user_permission][] = delete any exhibit content

@@ -20,7 +20,7 @@
   <?php print render($content['field_banner_description']); ?>
 </div>
 
-<?php if ($field_link): ?>
+<?php if (isset($field_link)): ?>
   <ul class="contentLinks">
     <?php print render($content['field_link']); ?>
   </ul>

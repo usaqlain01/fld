@@ -161,6 +161,9 @@ projects[media][version] = 2.x-dev
 projects[memcache][subdir] = contrib
 projects[memcache][version] = 1.2
 
+projects[menu_attributes][subdir] = contrib
+projects[menu_attributes][contrib] = 1.x-dev
+
 projects[menu_block][subdir] = contrib
 projects[menu_block][version] = 2.x-dev
 
@@ -250,6 +253,9 @@ projects[webform][version] = 3.20
 
 projects[wysiwyg][subdir] = contrib
 projects[wysiwyg][version] = 2.x-dev
+
+projects[xmlsitemap][subdir] = contrib
+projects[xmlsitemap][version] = 2.0
 
 ; Development
 

@@ -36,7 +36,8 @@ function fieldmuseum_menu_alter(&$items) {
  * @return bool|mixed
  */
 function fieldmuseum_menu_access($view_name, $display) {
-  $args = array_splice(func_get_args(), 2);
+  $args = func_get_args();
+  $args = array_splice($args, 2);
   $term = $args[1]->data;
   $result = views_get_view_result($view_name, $display, $term->tid);
 

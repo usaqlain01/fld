@@ -26,6 +26,15 @@ function fmnh_project_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 2,
       ),
+      'promo' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(
+          'field_formatter_class' => '',
+        ),
+        'type' => 'text_default',
+        'weight' => 1,
+      ),
       'teaser' => array(
         'label' => 'hidden',
         'module' => 'text',
@@ -117,6 +126,12 @@ function fmnh_project_field_default_field_instances() {
         'type' => 'link_default',
         'weight' => 0,
       ),
+      'promo' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 2,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -171,6 +186,12 @@ function fmnh_project_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 4,
       ),
+      'promo' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 4,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -208,6 +229,16 @@ function fmnh_project_field_default_field_instances() {
         ),
         'type' => 'file_rendered',
         'weight' => 1,
+      ),
+      'promo' => array(
+        'label' => 'hidden',
+        'module' => 'file_entity',
+        'settings' => array(
+          'field_formatter_class' => '',
+          'file_view_mode' => 'banner_5x3',
+        ),
+        'type' => 'file_rendered',
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -273,6 +304,12 @@ function fmnh_project_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 3,
+      ),
+      'promo' => array(
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',

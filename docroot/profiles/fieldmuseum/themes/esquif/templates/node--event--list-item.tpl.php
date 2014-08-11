@@ -12,18 +12,21 @@
   <section class="eventsList__event">
     <?php
     $items = field_get_items('node', $node, 'field_date');
-    foreach ($items as $item) {
-      $date = new DateObject($item['value'], $item['timezone'], date_type_format($item['date_type']));
-      $base_attributes = array(
-        'property' => array('dc:date'),
-        'datatype' => 'xsd:dateTime',
-        'content' => date_format_date($date, 'custom', 'c'),
-      );
-      ?>
-      <time class="eventsList__time"<?php print drupal_attributes(rdf_rdfa_attributes($node->rdf_mapping['field_date']) + $base_attributes); ?>>
-        <?php print $date->format('m/j'); ?>
-      </time>
-    <?php } ?>
+    if ($items) {
+      foreach ($items as $item) {
+        $date = new DateObject($item['value'], $item['timezone'], date_type_format($item['date_type']));
+        $base_attributes = array(
+          'property' => array('dc:date'),
+          'datatype' => 'xsd:dateTime',
+          'content' => date_format_date($date, 'custom', 'c'),
+        );
+        ?>
+        <time class="eventsList__time"<?php print drupal_attributes(rdf_rdfa_attributes($node->rdf_mapping['field_date']) + $base_attributes); ?>>
+          <?php print $date->format('m/j'); ?>
+        </time>
+      <?php }
+    }
+    ?>
     <?php hide($content['field_date']); ?>
     <section class="eventsList__details">
 
