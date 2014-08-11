@@ -24,6 +24,10 @@
     <mark class="unpublished"><?php print t('Unpublished'); ?></mark>
   <?php endif; ?>
 
+  <?php print render($content['field_image']); ?>
+
+  <p><?php print render($content['field_link']); ?></p>
+
   <section class="article__body" itemprop="articleBody">
     <?php
     // We hide the comments and links now so that we can render them later.
