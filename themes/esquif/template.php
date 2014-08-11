@@ -304,6 +304,8 @@ function esquif_preprocess_node(&$variables, $hook) {
         $variables['content']['field_image'][0]['file']['#attributes']['class'][] = 'summary__image';
       }
       break;
+    case 'teaser':
+      break;
     default:
       $variables['content']['field_image'][0]['file']['#item']['attributes']['class'][] = 'image--primary';
       array_splice($variables['theme_hook_suggestions'], 1, 0, array('node__'. $variables['type'] .'__'. $variables['view_mode']));
@@ -371,6 +373,9 @@ function esquif_preprocess_node_video(&$variables, $hook) {
 function esquif_preprocess_node_collection(&$variables, $hook) {
   $variables['classes_array'][] = 'collection';
   $variables['title_attributes_array']['class'][] = 'collection__title';
+  if ($variables['view_mode'] == 'teaser') {
+    $variables['content']['field_image'][0]['file']['#item']['attributes']['class'][] = 'collection__image';
+  }
 }
 
 function esquif_preprocess_node_learning_resource(&$variables, $hook) {
