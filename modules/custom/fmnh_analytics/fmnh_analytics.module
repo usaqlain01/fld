@@ -39,3 +39,12 @@ function fmnh_analytics_entity_view($entity, $type, $view_mode, $langcode) {
     }
   }
 }
+
+function fmnh_analytics_menu_attribute_info() {
+  // Add a Tabindex attribute.
+  $info['data-analytics'] = array(
+    'label' => t('Analytics'),
+    'description' => t('Property for Google Analytics.'),
+  );
+  return $info;
+}
