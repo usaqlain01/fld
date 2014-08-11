@@ -352,14 +352,25 @@ function esquif_preprocess_node_blog(&$variables, $hook) {
   if ($variables['view_mode'] == 'teaser') {
     $variables['content']['field_image'][0]['file']['#item']['attributes']['class'][] = 'excerpt__image';
   }
+
+  $items = field_get_items('node', $variables['node'], 'field_topic');
+  if ($items) {
+
+    // Remove author on Science Newsflash topic blogs.
+    foreach ($items as $item) {
+      if ($item['target_id'] == 1421) {
+        unset($variables['name']);
+        break;
+      }
+    }
+
+    // On index pages, remove current topic name.
+    // todo
+  }
 }
 
 function esquif_preprocess_node_podcast(&$variables, $hook) {
-  $variables['classes_array'][] = 'article';
-  $variables['title_attributes_array']['class'][] = 'article__title';
-  if ($variables['view_mode'] == 'teaser') {
-    $variables['content']['field_image'][0]['file']['#item']['attributes']['class'][] = 'excerpt__image';
-  }
+  esquif_preprocess_node_blog($variables, $hook);
 }
 
 function esquif_preprocess_node_video(&$variables, $hook) {
@@ -368,6 +379,20 @@ function esquif_preprocess_node_video(&$variables, $hook) {
   if ($variables['view_mode'] == 'teaser') {
     $variables['content']['field_video'][0]['file']['#attributes']['class'][] = 'excerpt__image';
   }
+
+  // Remove author on Science Newsflash topic blogs.
+  $items = field_get_items('node', $variables['node'], 'field_topic');
+  if ($items) {
+    foreach ($items as $item) {
+      if ($item['target_id'] == 1421) {
+        unset($variables['name']);
+        break;
+      }
+    }
+  }
+
+  // On index pages, remove current topic name.
+  // todo
 }
 
 function esquif_preprocess_node_collection(&$variables, $hook) {
