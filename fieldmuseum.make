@@ -251,6 +251,9 @@ projects[webform][version] = 3.20
 projects[wysiwyg][subdir] = contrib
 projects[wysiwyg][version] = 2.x-dev
 
+projects[xmlsitemap][subdir] = contrib
+projects[xmlsitemap][version] = 2.0
+
 ; Development
 
 projects[bangpoundentity][subdir] = bangpound
