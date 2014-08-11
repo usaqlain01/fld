@@ -131,18 +131,11 @@ function fmnh_calendar_entity_prepare_view($entities, $type, $langcode) {
 }
 
 function _fmnh_calendar_field_is_empty($entity_type, $entity, $field_name, $langcode = NULL) {
-  $field = field_info_field($field_name);
-  $function = $field['module'] . '_field_is_empty';
-
-  if (function_exists($function)) {
-    $items = field_get_items($entity_type, $entity, $field_name, $langcode);
-    if ($items) {
-      foreach ($items as $item) {
-        return $function($field, $item);
-      }
-    }
-    else {
-      return TRUE;
-    }
+  $items = field_get_items($entity_type, $entity, $field_name, $langcode);
+  if ($items) {
+    return FALSE;
+  }
+  else {
+    return TRUE;
   }
 }

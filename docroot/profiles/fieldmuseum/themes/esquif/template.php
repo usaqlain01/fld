@@ -304,6 +304,8 @@ function esquif_preprocess_node(&$variables, $hook) {
         $variables['content']['field_image'][0]['file']['#attributes']['class'][] = 'summary__image';
       }
       break;
+    case 'teaser':
+      break;
     default:
       $variables['content']['field_image'][0]['file']['#item']['attributes']['class'][] = 'image--primary';
       array_splice($variables['theme_hook_suggestions'], 1, 0, array('node__'. $variables['type'] .'__'. $variables['view_mode']));
@@ -332,7 +334,9 @@ function esquif_preprocess_node_event(&$variables, $hook) {
   if ($variables['view_mode'] == 'list_item') {
     $variables['classes_array'][] = 'eventsList__item';
     $variables['title_attributes_array']['class'][] = 'eventsList__heading';
-
+  }
+  if (isset($variables['view']) && $variables['view']->name == 'program_events') {
+    $variables['theme_hook_suggestions'][] = 'node__event__list_item__single';
   }
 }
 
@@ -350,14 +354,25 @@ function esquif_preprocess_node_blog(&$variables, $hook) {
   if ($variables['view_mode'] == 'teaser') {
     $variables['content']['field_image'][0]['file']['#item']['attributes']['class'][] = 'excerpt__image';
   }
+
+  $items = field_get_items('node', $variables['node'], 'field_topic');
+  if ($items) {
+
+    // Remove author on Science Newsflash topic blogs.
+    foreach ($items as $item) {
+      if ($item['target_id'] == 1421) {
+        unset($variables['name']);
+        break;
+      }
+    }
+
+    // On index pages, remove current topic name.
+    // todo
+  }
 }
 
 function esquif_preprocess_node_podcast(&$variables, $hook) {
-  $variables['classes_array'][] = 'article';
-  $variables['title_attributes_array']['class'][] = 'article__title';
-  if ($variables['view_mode'] == 'teaser') {
-    $variables['content']['field_image'][0]['file']['#item']['attributes']['class'][] = 'excerpt__image';
-  }
+  esquif_preprocess_node_blog($variables, $hook);
 }
 
 function esquif_preprocess_node_video(&$variables, $hook) {
@@ -366,11 +381,28 @@ function esquif_preprocess_node_video(&$variables, $hook) {
   if ($variables['view_mode'] == 'teaser') {
     $variables['content']['field_video'][0]['file']['#attributes']['class'][] = 'excerpt__image';
   }
+
+  // Remove author on Science Newsflash topic blogs.
+  $items = field_get_items('node', $variables['node'], 'field_topic');
+  if ($items) {
+    foreach ($items as $item) {
+      if ($item['target_id'] == 1421) {
+        unset($variables['name']);
+        break;
+      }
+    }
+  }
+
+  // On index pages, remove current topic name.
+  // todo
 }
 
 function esquif_preprocess_node_collection(&$variables, $hook) {
   $variables['classes_array'][] = 'collection';
   $variables['title_attributes_array']['class'][] = 'collection__title';
+  if ($variables['view_mode'] == 'teaser') {
+    $variables['content']['field_image'][0]['file']['#item']['attributes']['class'][] = 'collection__image';
+  }
 }
 
 function esquif_preprocess_node_learning_resource(&$variables, $hook) {
@@ -1323,15 +1355,9 @@ function esquif_pager_last($variables) {
  * @param $hook
  */
 function esquif_preprocess_esquif_canoe(&$variables, $hook) {
-  /** @var panels_display $display */
-  $display = $variables['display'];
-
-  ctools_include('context');
-  $requiredcontexts = array(new ctools_context_required(t('Background image'), 'entity:file'));
-  if ($contexts = ctools_context_filter($display->context, $requiredcontexts)) {
-    $context = reset($contexts);
-    $file = $context->data;
-    $variables['hero_image'] = $file;
+  // This is a clumsy way to do this.
+  if (arg(1)) {
+    $variables['hero_classes'] .= ' hero--large';
   }
 }
 

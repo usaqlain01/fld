@@ -76,7 +76,7 @@ function fmnh_exhibit_default_page_manager_handlers() {
       'override_title' => 0,
       'override_title_text' => '',
       'identifier' => '',
-      'link' => 1,
+      'link' => 0,
       'leave_node_title' => 1,
       'build_mode' => 'full',
       'context' => 'argument_entity_id:node_1',

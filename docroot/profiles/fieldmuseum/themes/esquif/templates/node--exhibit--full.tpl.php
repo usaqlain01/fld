@@ -31,7 +31,9 @@
 
   <?php print render($content['field_image']); ?>
 
+  <?php if ($ticketed || $permanent): ?>
   <section class="exhibition__meta l--2up">
+    <?php if ($ticketed): ?>
     <div class="l--module">
       <a class="button--buy" href="#" itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
         <span class="button__leader">
@@ -41,12 +43,16 @@
         </span> Buy Tickets
       </a>
     </div>
+    <?php endif; ?>
+    <?php if (!$permanent_exhibit): ?>
     <div class="l--module">
       <p class="exhibition__dateRange">
         <?php print render($content['field_date']); ?>
       </p>
     </div>
+    <?php endif; ?>
   </section>
+  <?php endif; ?>
 
   <?php if ($ticketed): ?>
   <div class="message message--detail">
@@ -58,6 +64,7 @@
     // We hide the comments and links now so that we can render them later.
     hide($content['comments']);
     hide($content['links']);
+    hide($content['field_date']);
     print render($content);
   ?>
 

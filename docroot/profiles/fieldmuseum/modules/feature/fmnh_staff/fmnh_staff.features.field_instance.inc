@@ -593,7 +593,7 @@ function fmnh_staff_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'profile2',
-    'fences_wrapper' => 'div',
+    'fences_wrapper' => 'no_wrapper',
     'field_name' => 'field_image',
     'label' => 'Image',
     'required' => 0,
@@ -602,6 +602,7 @@ function fmnh_staff_field_default_field_instances() {
       'file_directory' => '[current-user:name]/[current-date:custom:Y]/[current-date:custom:m]/[current-date:custom:d]',
       'file_extensions' => 'png gif jpg jpeg',
       'imagecrop' => array(
+        '2x1_2400w' => 0,
         '5x2_2400w' => '5x2_2400w',
         '5x3_2400w' => '5x3_2400w',
         'large' => 'large',
@@ -611,7 +612,7 @@ function fmnh_staff_field_default_field_instances() {
         'thumbnail' => 'thumbnail',
       ),
       'max_filesize' => '',
-      'user_register_form' => 0,
+      'user_register_form' => FALSE,
     ),
     'widget' => array(
       'active' => 1,

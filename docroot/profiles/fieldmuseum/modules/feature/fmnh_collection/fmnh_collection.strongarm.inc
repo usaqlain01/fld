@@ -52,6 +52,9 @@ function fmnh_collection_strongarm() {
       'token' => array(
         'custom_settings' => FALSE,
       ),
+      'list_item' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(

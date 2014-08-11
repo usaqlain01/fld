@@ -623,7 +623,8 @@ function fieldmuseum_default_panels_mini() {
   $display = new panels_display();
   $display->layout = 'canoe';
   $display->layout_settings = array(
-    'main_classes' => '',
+    'search_classes' => '',
+    'hero_classes' => 'hero',
   );
   $display->panel_settings = array(
     'style_settings' => array(
@@ -709,7 +710,8 @@ function fieldmuseum_default_panels_mini() {
   $display = new panels_display();
   $display->layout = 'canoe';
   $display->layout_settings = array(
-    'main_classes' => '',
+    'search_classes' => '',
+    'hero_classes' => 'hero',
   );
   $display->panel_settings = array(
     'style_settings' => array(
@@ -881,7 +883,8 @@ function fieldmuseum_default_panels_mini() {
   $display = new panels_display();
   $display->layout = 'canoe';
   $display->layout_settings = array(
-    'main_classes' => '',
+    'search_classes' => '',
+    'hero_classes' => 'hero',
   );
   $display->panel_settings = array(
     'style_settings' => array(
@@ -1053,7 +1056,8 @@ function fieldmuseum_default_panels_mini() {
   $display = new panels_display();
   $display->layout = 'canoe';
   $display->layout_settings = array(
-    'main_classes' => '',
+    'search_classes' => '',
+    'hero_classes' => 'hero',
   );
   $display->panel_settings = array(
     'style_settings' => array(
@@ -1184,7 +1188,8 @@ function fieldmuseum_default_panels_mini() {
   $display = new panels_display();
   $display->layout = 'canoe';
   $display->layout_settings = array(
-    'main_classes' => '',
+    'search_classes' => '',
+    'hero_classes' => 'hero',
   );
   $display->panel_settings = array(
     'style_settings' => array(
@@ -1273,7 +1278,8 @@ function fieldmuseum_default_panels_mini() {
   $display = new panels_display();
   $display->layout = 'canoe';
   $display->layout_settings = array(
-    'main_classes' => '',
+    'search_classes' => '',
+    'hero_classes' => 'hero',
   );
   $display->panel_settings = array(
     'style_settings' => array(
@@ -1404,7 +1410,8 @@ function fieldmuseum_default_panels_mini() {
   $display = new panels_display();
   $display->layout = 'canoe';
   $display->layout_settings = array(
-    'main_classes' => '',
+    'search_classes' => '',
+    'hero_classes' => 'hero',
   );
   $display->panel_settings = array(
     'style_settings' => array(
@@ -1536,7 +1543,8 @@ function fieldmuseum_default_panels_mini() {
   $display = new panels_display();
   $display->layout = 'canoe';
   $display->layout_settings = array(
-    'main_classes' => '',
+    'search_classes' => '',
+    'hero_classes' => 'hero',
   );
   $display->panel_settings = array(
     'style_settings' => array(
