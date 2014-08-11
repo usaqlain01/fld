@@ -1,0 +1,6 @@
+// This hides tabs for logged out users.
+.tabs-primary {
+  .not-logged-in.section-science & {
+    display: none;
+  }
+}
