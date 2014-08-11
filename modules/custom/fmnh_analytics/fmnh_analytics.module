@@ -8,6 +8,16 @@ function fmnh_analytics_init() {
 }
 
 /**
+ * Implement hook_theme_registry_alter().
+ *
+ * @param $theme_registry
+ */
+function fmnh_analytics_theme_registry_alter(&$theme_registry) {
+  $theme_registry['field']['preprocess functions'] = array_diff($theme_registry['field']['preprocess functions'], array('fmnh_analytics_preprocess_field'));
+  $theme_registry['field']['preprocess functions'][] = 'fmnh_analytics_preprocess_field';
+}
+
+/**
  * Implement hook_library().
  */
 function fmnh_analytics_library() {
@@ -16,15 +26,16 @@ function fmnh_analytics_library() {
     'version' => '1.0',
     'js' => array(
       drupal_get_path('module', 'fmnh_analytics') . '/js/ga-custom.js' => array(),
-//      drupal_get_path('module', 'fmnh_analytics') . '/js/ga-custom-events.js' => array(),
-//      drupal_get_path('module', 'fmnh_analytics') . '/js/ga-custom-scroll.js' => array(),
-//      drupal_get_path('module', 'fmnh_analytics') . '/js/ga-disqus-callbacks.js' => array(),
+      drupal_get_path('module', 'fmnh_analytics') . '/js/ga-custom-events.js' => array(),
+      drupal_get_path('module', 'fmnh_analytics') . '/js/ga-custom-scroll.js' => array(),
     ),
   );
   return $libraries;
 }
 
 /**
+ * Implement hook_entity_view().
+ *
  * @param $entity
  * @param $type
  * @param $view_mode
@@ -40,6 +51,67 @@ function fmnh_analytics_entity_view($entity, $type, $view_mode, $langcode) {
   }
 }
 
+/**
+ * Implement hook_element_info_alter().
+ *
+ * @param $type
+ */
+function fmnh_analytics_element_info_alter(&$type) {
+  $type['disqus']['#pre_render'][] = 'fmnh_analytics_disqus_element_pre_render';
+}
+
+/**
+ * Pre render function to add the disqus analytics script.
+ *
+ * @param $element
+ * @return mixed
+ */
+function fmnh_analytics_disqus_element_pre_render($element) {
+  $element['#attached']['js'][] = drupal_get_path('module', 'fmnh_analytics') . '/js/ga-disqus-callbacks.js';
+  $element['#disqus']['callbacks'] = array(
+    'onNewComment' => array(
+      'Drupal.FMNH.onNewComment',
+    ),
+  );
+
+  return $element;
+}
+
+/**
+ * Implement hook_form_alter().
+ *
+ * @param $form
+ * @param $form_state
+ * @param $form_id
+ */
+function fmnh_analytics_form_alter(&$form, &$form_state, $form_id) {
+  switch ($form_id) {
+    case 'webform_client_form_14951':
+      $form['#attributes']['data-analytics'] = 'contact-submission';
+      break;
+  }
+}
+
+/**
+ * Implements MODULE_preprocess_HOOK().
+ */
+function fmnh_analytics_preprocess_field(&$variables) {
+  $element = $variables['element'];
+  $field_name = $element['#field_name'];
+  $bundle = $element['#bundle'];
+
+  if ($field_name == 'field_ticket_link') {
+    foreach ($variables['items'] as $delta => &$value) {
+      $value['#element']['attributes']['data-analytics'] = 'ticketing-'. $bundle;
+    }
+  }
+}
+
+/**
+ * Implement menu_attribute_info().
+ *
+ * @return mixed
+ */
 function fmnh_analytics_menu_attribute_info() {
   // Add a Tabindex attribute.
   $info['data-analytics'] = array(
