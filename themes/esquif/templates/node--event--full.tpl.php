@@ -16,20 +16,22 @@
       <h5 class="article__date">
         <?php
         $items = field_get_items('node', $node, 'field_date');
-        foreach ($items as $item) {
-          $date = new DateObject($item['value'], $item['timezone'], date_type_format($item['date_type']));
-          ?>
-        <time<?php print drupal_attributes(rdf_rdfa_attributes($node->rdf_mapping['field_date'])); ?>>
-          <?php print $date->format('l, F j, Y'); ?> @ <?php
-          if (intval($date->format('i')) > 0) {
-            print $date->format('g:ia');
+        if ($items) {
+          foreach ($items as $item) {
+            $date = new DateObject($item['value'], $item['timezone'], date_type_format($item['date_type']));
+            ?>
+            <time<?php print drupal_attributes(rdf_rdfa_attributes($node->rdf_mapping['field_date'])); ?>>
+              <?php print $date->format('l, F j, Y'); ?> @ <?php
+              if (intval($date->format('i')) > 0) {
+                print $date->format('g:ia');
+              }
+              else {
+                print $date->format('ga');
+              }
+              ?>
+            </time>
+          <?php
           }
-          else {
-            print $date->format('ga');
-          }
-          ?>
-        </time>
-        <?php
         }
         hide($content['field_date']);
         ?>
