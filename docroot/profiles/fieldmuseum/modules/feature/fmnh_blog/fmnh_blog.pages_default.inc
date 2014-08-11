@@ -535,7 +535,10 @@ function fmnh_blog_default_page_manager_pages() {
   $page->admin_title = '';
   $page->admin_description = '';
   $page->path = 'science/blog/list';
-  $page->access = array();
+  $page->access = array(
+    'type' => 'none',
+    'settings' => NULL,
+  );
   $page->menu = array();
   $page->arguments = array();
   $page->conf = array(

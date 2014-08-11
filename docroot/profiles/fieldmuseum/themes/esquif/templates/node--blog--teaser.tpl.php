@@ -21,9 +21,11 @@
         <li class="byline__date">
           <?php print $date; ?>
         </li>
+        <?php if ($name): ?>
         <li class="byline__author">
           <?php print $name; ?>
         </li>
+        <?php endif; ?>
         <li class="byline__categories">
           <?php print render($content['field_topic']); ?>
         </li>

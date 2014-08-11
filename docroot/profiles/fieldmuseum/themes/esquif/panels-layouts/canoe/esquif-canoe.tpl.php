@@ -15,6 +15,6 @@
  */
 ?>
 <?php print $content['search']; ?>
-<figure class="hero"<?php if (isset($hero_image)): ?> style="background-image: url('<?php print file_create_url($hero_image->uri); ?>')"<?php endif; ?>>
+<figure class="<?php print $hero_classes; ?>"<?php if (isset($hero_image)): ?> style="background-image: url('<?php print file_create_url($hero_image->uri); ?>')"<?php endif; ?>>
   <?php print $content['hero']; ?>
 </figure>

@@ -12,6 +12,9 @@ function fmnh_calendar_new_event($node) {
   $event_node->field_program[LANGUAGE_NONE][] = array(
     'target_id' => $node->nid,
   );
+  if ($node->type == 'program') {
+    $event_node->field_audience = $node->field_audience;
+  }
   node_save($event_node);
   drupal_goto(drupal_get_destination());
 }
