@@ -30,11 +30,11 @@ function fmnh_exhibit_preprocess_node(&$variables, $hook) {
   $items = field_get_items('node', $node, 'field_exhibit_type');
 
   // Hide dates on permanent exhibits.
-  $variables['permanent_exhibit'] = FALSE;
+  $variables['permanent'] = FALSE;
   if ($items) {
     foreach ($items as $item) {
       if ($item['target_id'] == 41) {
-        $variables['permanent_exhibit'] = TRUE;
+        $variables['permanent'] = TRUE;
       }
     }
   }
