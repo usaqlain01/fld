@@ -254,7 +254,7 @@ function fmnh_program_panelizer_defaults() {
     $display->content['new-526e0081-a46d-401e-b954-2d49e55d8a81'] = $pane;
     $display->panels['nav'][1] = 'new-526e0081-a46d-401e-b954-2d49e55d8a81';
   $display->hide_title = PANELS_TITLE_PANE;
-  $display->title_pane = '0';
+  $display->title_pane = 'new-ade04418-6395-4302-84c8-0989233e2c14';
   $panelizer->display = $display;
   $export['node:program:c4'] = $panelizer;
 
@@ -315,7 +315,7 @@ function fmnh_program_panelizer_defaults() {
       'link' => 0,
       'leave_node_title' => 1,
       'build_mode' => 'full',
-      'context' => 'argument_entity_id:node_1',
+      'context' => 'panelizer',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -502,7 +502,7 @@ function fmnh_program_panelizer_defaults() {
     $display->content['new-526e0081-a46d-401e-b954-2d49e55d8a81'] = $pane;
     $display->panels['nav'][1] = 'new-526e0081-a46d-401e-b954-2d49e55d8a81';
   $display->hide_title = PANELS_TITLE_PANE;
-  $display->title_pane = '0';
+  $display->title_pane = 'new-ade04418-6395-4302-84c8-0989233e2c14';
   $panelizer->display = $display;
   $export['node:program:c4_a'] = $panelizer;
 
@@ -834,7 +834,7 @@ function fmnh_program_panelizer_defaults() {
     $display->content['new-526e0081-a46d-401e-b954-2d49e55d8a81'] = $pane;
     $display->panels['nav'][1] = 'new-526e0081-a46d-401e-b954-2d49e55d8a81';
   $display->hide_title = PANELS_TITLE_PANE;
-  $display->title_pane = '0';
+  $display->title_pane = 'new-ade04418-6395-4302-84c8-0989233e2c14';
   $panelizer->display = $display;
   $export['node:program:c4_b'] = $panelizer;
 
@@ -895,7 +895,7 @@ function fmnh_program_panelizer_defaults() {
       'link' => 0,
       'leave_node_title' => 1,
       'build_mode' => 'full',
-      'context' => 'argument_entity_id:node_1',
+      'context' => 'panelizer',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -1082,7 +1082,7 @@ function fmnh_program_panelizer_defaults() {
     $display->content['new-526e0081-a46d-401e-b954-2d49e55d8a81'] = $pane;
     $display->panels['nav'][1] = 'new-526e0081-a46d-401e-b954-2d49e55d8a81';
   $display->hide_title = PANELS_TITLE_PANE;
-  $display->title_pane = '0';
+  $display->title_pane = 'new-ade04418-6395-4302-84c8-0989233e2c14';
   $panelizer->display = $display;
   $export['node:program:default'] = $panelizer;
 
