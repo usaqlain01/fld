@@ -1,8 +1,8 @@
 <div class="summary">
   <?php if (isset($field_image)): ?>
-  <figure>
-    <?php print render($content['field_image']); ?>
-  </figure>
+    <figure>
+      <?php print render($content['field_image']); ?>
+    </figure>
   <?php endif; ?>
 
   <?php print render($title_prefix); ?>
@@ -21,9 +21,9 @@
     <?php print render($content['field_banner_description']); ?>
   </div>
 
-  <?php if ($field_link): ?>
-  <ul class="contentLinks">
-  <?php print render($content['field_link']); ?>
+  <?php if (isset($field_link)): ?>
+    <ul class="contentLinks">
+      <?php print render($content['field_link']); ?>
     </ul>
   <?php endif; ?>
 </div>

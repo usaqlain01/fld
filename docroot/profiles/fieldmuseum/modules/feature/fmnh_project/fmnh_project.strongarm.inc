@@ -62,7 +62,7 @@ function fmnh_project_strongarm() {
         'custom_settings' => FALSE,
       ),
       'promo' => array(
-        'custom_settings' => FALSE,
+        'custom_settings' => TRUE,
       ),
       'summary' => array(
         'custom_settings' => FALSE,
@@ -71,6 +71,9 @@ function fmnh_project_strongarm() {
         'custom_settings' => FALSE,
       ),
       'token' => array(
+        'custom_settings' => FALSE,
+      ),
+      'list_item' => array(
         'custom_settings' => FALSE,
       ),
     ),

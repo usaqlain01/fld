@@ -77,7 +77,7 @@ function fmnh_gallery_strongarm() {
             'weight' => 1,
           ),
           'promo' => array(
-            'weight' => '1',
+            'weight' => '12',
             'visible' => FALSE,
           ),
         ),

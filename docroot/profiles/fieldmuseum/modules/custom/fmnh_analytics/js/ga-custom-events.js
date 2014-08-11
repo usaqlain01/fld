@@ -3,7 +3,7 @@
 // and is depdendent on ga-custom.js
 //-----------------------------------------------------------------
 
-(function() {
+(function($) {
   $(function() {
     var action, addListener, event, events, listeners, options, _results;
     if (typeof ga !== "undefined" && ga !== null) {
@@ -236,4 +236,4 @@
     }
   });
 
-}).call(this);
+}).call(this, jQuery);

@@ -124,7 +124,6 @@ function fmnh_exhibit_views_default_views() {
   $handler->display->display_options['arguments']['field_exhibit_type_target_id']['field'] = 'field_exhibit_type_target_id';
   $handler->display->display_options['arguments']['field_exhibit_type_target_id']['title_enable'] = TRUE;
   $handler->display->display_options['arguments']['field_exhibit_type_target_id']['title'] = '%1 Exhibitions';
-  $handler->display->display_options['arguments']['field_exhibit_type_target_id']['breadcrumb_enable'] = TRUE;
   $handler->display->display_options['arguments']['field_exhibit_type_target_id']['breadcrumb'] = '%1';
   $handler->display->display_options['arguments']['field_exhibit_type_target_id']['default_argument_type'] = 'fixed';
   $handler->display->display_options['arguments']['field_exhibit_type_target_id']['summary']['number_of_records'] = '0';
@@ -282,6 +281,56 @@ function fmnh_exhibit_views_default_views() {
   $handler->display->display_options['filters']['field_date_value2']['field'] = 'field_date_value2';
   $handler->display->display_options['filters']['field_date_value2']['operator'] = '<=';
   $handler->display->display_options['filters']['field_date_value2']['default_date'] = 'now';
+
+  /* Display: Ticketed exhibitions */
+  $handler = $view->new_display('ctools_context', 'Ticketed exhibitions', 'ctools_context_5');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Ticketed exhibitions';
+  $handler->display->display_options['style_plugin'] = 'ctools_context';
+  $handler->display->display_options['row_plugin'] = 'node';
+  $handler->display->display_options['row_options']['view_mode'] = 'promo';
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Draggableviews: Weight */
+  $handler->display->display_options['sorts']['weight']['id'] = 'weight';
+  $handler->display->display_options['sorts']['weight']['table'] = 'draggableviews_structure';
+  $handler->display->display_options['sorts']['weight']['field'] = 'weight';
+  $handler->display->display_options['sorts']['weight']['draggableviews_setting_view'] = 'exhibitions:page_1';
+  $handler->display->display_options['sorts']['weight']['draggableviews_setting_new_items_bottom_list'] = 1;
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'exhibit' => 'exhibit',
+  );
+  /* Filter criterion: Content: Date -  start date (field_date) */
+  $handler->display->display_options['filters']['field_date_value']['id'] = 'field_date_value';
+  $handler->display->display_options['filters']['field_date_value']['table'] = 'field_data_field_date';
+  $handler->display->display_options['filters']['field_date_value']['field'] = 'field_date_value';
+  $handler->display->display_options['filters']['field_date_value']['operator'] = '<=';
+  $handler->display->display_options['filters']['field_date_value']['default_date'] = 'now';
+  /* Filter criterion: Content: Date - end date (field_date:value2) */
+  $handler->display->display_options['filters']['field_date_value2']['id'] = 'field_date_value2';
+  $handler->display->display_options['filters']['field_date_value2']['table'] = 'field_data_field_date';
+  $handler->display->display_options['filters']['field_date_value2']['field'] = 'field_date_value2';
+  $handler->display->display_options['filters']['field_date_value2']['operator'] = '>=';
+  $handler->display->display_options['filters']['field_date_value2']['default_date'] = 'now';
+  /* Filter criterion: Content: Ticketed (field_ticketed) */
+  $handler->display->display_options['filters']['field_ticketed_value']['id'] = 'field_ticketed_value';
+  $handler->display->display_options['filters']['field_ticketed_value']['table'] = 'field_data_field_ticketed';
+  $handler->display->display_options['filters']['field_ticketed_value']['field'] = 'field_ticketed_value';
+  $handler->display->display_options['filters']['field_ticketed_value']['value'] = array(
+    1 => '1',
+  );
   $export['exhibitions'] = $view;
 
   return $export;

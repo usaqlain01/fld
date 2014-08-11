@@ -600,10 +600,8 @@ function esquif_links__system_main_menu($variables) {
   );
   foreach (menu_navigation_links('menu-header-menu') as $key => $value) {
     $value['title'] = '<span class="navGlobal__label" itemprop="name">'. check_plain($value['title']) .'</span>';
-    $value['attributes'] = array(
-      'itemprop' => 'url',
-      'class' => array('button'),
-    );
+    $value['attributes']['itemprop'] = 'url';
+    $value['attributes']['class'][] = 'button';
     $value['html'] = TRUE;
     $embedded_variables['links'][$key] = _esquif_header_menu_link($value);
   }
@@ -614,10 +612,7 @@ function esquif_links__system_main_menu($variables) {
   foreach ($variables['links'] as $key => $value) {
     $key .= ' navMain__item navMain__primary';
     $value['title'] = '<span class="navMain__label" itemprop="name">'. check_plain($value['title']) .'</span>';
-    $value['attributes'] = array(
-      'itemprop' => 'url',
-      'class' => array(),
-    );
+    $value['attributes']['itemprop'] = 'url';
     $value['html'] = TRUE;
     $links[$key] = $value;
   }
@@ -1356,7 +1351,7 @@ function esquif_pager_last($variables) {
  */
 function esquif_preprocess_esquif_canoe(&$variables, $hook) {
   // This is a clumsy way to do this.
-  if (arg(1)) {
+  if (arg(1) || drupal_is_front_page()) {
     $variables['hero_classes'] .= ' hero--large';
   }
 }

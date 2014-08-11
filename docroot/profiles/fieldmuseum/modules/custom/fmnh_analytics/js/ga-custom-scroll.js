@@ -2,6 +2,8 @@
 // Tracks user engagement on blog pages and sends Google Analtyics events,
 // metrics and dimensions
 // -----------------------------------------------------------------------------
+(function ($, window, document, undefined) {
+
 $(function($) {
 
   // DOM elements driving the scroll tracking
@@ -116,3 +118,5 @@ $(function($) {
     });
   }
 });
+
+})(jQuery, this, this.document);
