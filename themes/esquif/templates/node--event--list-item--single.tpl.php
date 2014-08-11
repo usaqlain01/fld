@@ -19,7 +19,7 @@
       );
       ?>
       <time class="eventsList__time"<?php print drupal_attributes(rdf_rdfa_attributes($node->rdf_mapping['field_date']) + $base_attributes); ?>>
-        <?php print $date->format('n/j'); ?>
+        <?php print $date->format('l, F j'); ?>
       </time>
     <?php } ?>
     <?php hide($content['field_date']); ?>
