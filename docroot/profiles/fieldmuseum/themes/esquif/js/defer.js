@@ -4390,7 +4390,7 @@ function escapeSelector (str) {
 $(function() {
   var mq, selector, stickIt, stickyDetach, stickyRecalc;
   mq = {
-    narrow: 1000
+    narrow: 1025
   };
   selector = {
     body: "js--stickyBody",
