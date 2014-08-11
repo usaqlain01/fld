@@ -32,7 +32,7 @@ function fmnh_learning_resource_default_page_manager_pages() {
     'settings' => NULL,
   );
   $page->menu = array(
-    'type' => 'normal',
+    'type' => 'none',
     'title' => 'Learning Resources',
     'name' => 'main-menu',
     'weight' => '5',

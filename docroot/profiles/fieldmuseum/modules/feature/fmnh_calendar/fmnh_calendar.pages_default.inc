@@ -686,7 +686,7 @@ function fmnh_calendar_default_page_manager_pages() {
     'settings' => NULL,
   );
   $page->menu = array(
-    'type' => 'normal',
+    'type' => 'none',
     'title' => 'Calendar',
     'name' => 'main-menu',
     'weight' => '3',

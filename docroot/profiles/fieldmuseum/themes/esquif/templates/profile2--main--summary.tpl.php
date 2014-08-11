@@ -28,7 +28,7 @@
  * @see template_process()
  */
 ?>
-<section class="personSummary <?php print $classes; ?> clearfix" <?php print $attributes; ?>>
+<section class="personSummary <?php print $classes; ?>" <?php print $attributes; ?>>
   <figure class="personSummary__image">
     <a href="<?php print $url; ?>">
       <?php print render($content['field_image']); ?>

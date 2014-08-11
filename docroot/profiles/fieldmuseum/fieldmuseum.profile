@@ -7,6 +7,46 @@
 include_once 'fieldmuseum.features.inc';
 
 /**
+ * Implement hook_menu_alter().
+ *
+ * @param $items
+ */
+function fieldmuseum_menu_alter(&$items) {
+  $changes = array(
+    'at-the-field/programs/%pm_arg' => array('programs', 'ctools_context_1'),
+    'at-the-field/calendar/%pm_arg' => array('calendar', 'ctools_context_1'),
+    'at-the-field/exhibitions/%pm_arg' => array('exhibitions', 'ctools_context_1'),
+    'educators/field-trip-programs/%pm_arg' => array('field_trip_programs', 'ctools_context_1'),
+    'educators/resources/%pm_arg' => array('learning_resources', 'ctools_context_1'),
+  );
+  foreach ($changes as $path => $access_arguments) {
+    $items[$path]['access callback'] = 'fieldmuseum_menu_access';
+    $items[$path]['access arguments'] = array_merge($access_arguments, $items[$path]['access arguments']);
+  }
+}
+
+/**
+ * Access callback for filter views.
+ *
+ * This loads the view, executes it, and returns false if it is empty. This will
+ * not work well unless Views caching is enabled for the views it uses.
+ *
+ * @param $view_name
+ * @param $display
+ * @return bool|mixed
+ */
+function fieldmuseum_menu_access($view_name, $display) {
+  $args = array_splice(func_get_args(), 2);
+  $term = $args[1]->data;
+  $result = views_get_view_result($view_name, $display, $term->tid);
+
+  if (!empty($result)) {
+    return call_user_func_array('ctools_access_menu', $args);
+  }
+  return FALSE;
+}
+
+/**
  * Implements hook_system_info_alter().
  *
  * Force this profile to be visible.
