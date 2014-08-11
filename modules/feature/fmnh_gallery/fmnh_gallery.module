@@ -5,3 +5,19 @@
  */
 
 include_once 'fmnh_gallery.features.inc';
+
+/**
+ * @param $variables
+ * @param $hook
+ */
+function fmnh_gallery_preprocess_node(&$variables, $hook) {
+  $node = $variables['node'];
+  if ($node->type == 'media_gallery') {
+    if ($variables['view_mode'] == 'promo') {
+      $first_image = $variables['content']['media_gallery_file'][0];
+      $deltas = element_children($variables['content']['media_gallery_file']);
+      $variables['content']['media_gallery_file'] = array_diff_key($variables['content']['media_gallery_file'], array_combine($deltas, $deltas));
+      $variables['content']['media_gallery_file'][0] = $first_image;
+    }
+  }
+}

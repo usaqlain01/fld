@@ -25,6 +25,36 @@ function fmnh_gallery_strongarm() {
       'event' => array(
         'custom_settings' => FALSE,
       ),
+      'teaser' => array(
+        'custom_settings' => TRUE,
+      ),
+      'promo' => array(
+        'custom_settings' => TRUE,
+      ),
+      'rss' => array(
+        'custom_settings' => FALSE,
+      ),
+      'search_index' => array(
+        'custom_settings' => FALSE,
+      ),
+      'search_result' => array(
+        'custom_settings' => FALSE,
+      ),
+      'entity_label' => array(
+        'custom_settings' => FALSE,
+      ),
+      'diff_standard' => array(
+        'custom_settings' => FALSE,
+      ),
+      'summary' => array(
+        'custom_settings' => FALSE,
+      ),
+      'list_item' => array(
+        'custom_settings' => FALSE,
+      ),
+      'token' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(),
@@ -35,8 +65,8 @@ function fmnh_gallery_strongarm() {
             'visible' => TRUE,
           ),
           'default' => array(
+            'weight' => '1',
             'visible' => FALSE,
-            'weight' => 1,
           ),
           'teaser' => array(
             'visible' => FALSE,
@@ -45,6 +75,10 @@ function fmnh_gallery_strongarm() {
           'media_gallery_block' => array(
             'visible' => FALSE,
             'weight' => 1,
+          ),
+          'promo' => array(
+            'weight' => '1',
+            'visible' => FALSE,
           ),
         ),
       ),
