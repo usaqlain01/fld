@@ -1279,7 +1279,7 @@ function fmnh_exhibit_default_page_manager_pages() {
   );
   $page->menu = array(
     'type' => 'normal',
-    'title' => 'Past Exhibitions',
+    'title' => 'Past',
     'name' => 'main-menu',
     'weight' => '1',
     'parent' => array(
