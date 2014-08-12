@@ -60,6 +60,7 @@ features[field_instance][] = node-exhibit-field_references
 features[field_instance][] = node-exhibit-field_research_area
 features[field_instance][] = node-exhibit-field_science_focus
 features[field_instance][] = node-exhibit-field_stratigraphy
+features[field_instance][] = node-exhibit-field_ticket_link
 features[field_instance][] = node-exhibit-field_ticketed
 features[field_instance][] = node-exhibit-field_topic
 features[node][] = exhibit
