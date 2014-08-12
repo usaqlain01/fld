@@ -705,7 +705,15 @@ function fieldmuseum_default_panels_mini() {
   $mini->admin_title = 'Header (about)';
   $mini->admin_description = '';
   $mini->requiredcontexts = array();
-  $mini->contexts = array();
+  $mini->contexts = array(
+    0 => array(
+      'identifier' => 'File',
+      'keyword' => 'file',
+      'name' => 'entity:file',
+      'entity_id' => '84281',
+      'id' => 1,
+    ),
+  );
   $mini->relationships = array();
   $display = new panels_display();
   $display->layout = 'canoe';
@@ -878,7 +886,15 @@ function fieldmuseum_default_panels_mini() {
   $mini->admin_title = 'Header (at the field)';
   $mini->admin_description = '';
   $mini->requiredcontexts = array();
-  $mini->contexts = array();
+  $mini->contexts = array(
+    0 => array(
+      'identifier' => 'File',
+      'keyword' => 'file',
+      'name' => 'entity:file',
+      'entity_id' => '84311',
+      'id' => 1,
+    ),
+  );
   $mini->relationships = array();
   $display = new panels_display();
   $display->layout = 'canoe';
@@ -1051,7 +1067,15 @@ function fieldmuseum_default_panels_mini() {
   $mini->admin_title = 'Header (educators)';
   $mini->admin_description = '';
   $mini->requiredcontexts = array();
-  $mini->contexts = array();
+  $mini->contexts = array(
+    0 => array(
+      'identifier' => 'File',
+      'keyword' => 'file',
+      'name' => 'entity:file',
+      'entity_id' => '84331',
+      'id' => 1,
+    ),
+  );
   $mini->relationships = array();
   $display = new panels_display();
   $display->layout = 'canoe';
@@ -1183,7 +1207,15 @@ function fieldmuseum_default_panels_mini() {
   $mini->admin_title = 'Header (home)';
   $mini->admin_description = '';
   $mini->requiredcontexts = array();
-  $mini->contexts = array();
+  $mini->contexts = array(
+    0 => array(
+      'identifier' => 'File',
+      'keyword' => 'file',
+      'name' => 'entity:file',
+      'entity_id' => '84316',
+      'id' => 1,
+    ),
+  );
   $mini->relationships = array();
   $display = new panels_display();
   $display->layout = 'canoe';
@@ -1251,7 +1283,15 @@ function fieldmuseum_default_panels_mini() {
   $mini->admin_title = 'Header (science)';
   $mini->admin_description = '';
   $mini->requiredcontexts = array();
-  $mini->contexts = array();
+  $mini->contexts = array(
+    0 => array(
+      'identifier' => 'File',
+      'keyword' => 'file',
+      'name' => 'entity:file',
+      'entity_id' => '84321',
+      'id' => 1,
+    ),
+  );
   $mini->relationships = array();
   $display = new panels_display();
   $display->layout = 'canoe';
@@ -1383,7 +1423,15 @@ function fieldmuseum_default_panels_mini() {
   $mini->admin_title = 'Header (support)';
   $mini->admin_description = '';
   $mini->requiredcontexts = array();
-  $mini->contexts = array();
+  $mini->contexts = array(
+    0 => array(
+      'identifier' => 'File',
+      'keyword' => 'file',
+      'name' => 'entity:file',
+      'entity_id' => '84356',
+      'id' => 1,
+    ),
+  );
   $mini->relationships = array();
   $display = new panels_display();
   $display->layout = 'canoe';
@@ -1516,7 +1564,15 @@ function fieldmuseum_default_panels_mini() {
   $mini->admin_title = 'Header (visit)';
   $mini->admin_description = '';
   $mini->requiredcontexts = array();
-  $mini->contexts = array();
+  $mini->contexts = array(
+    0 => array(
+      'identifier' => 'File',
+      'keyword' => 'file',
+      'name' => 'entity:file',
+      'entity_id' => '84361',
+      'id' => 1,
+    ),
+  );
   $mini->relationships = array();
   $display = new panels_display();
   $display->layout = 'canoe';

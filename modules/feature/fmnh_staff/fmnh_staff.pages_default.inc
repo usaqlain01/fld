@@ -93,25 +93,37 @@ function fmnh_staff_default_page_manager_pages() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-ccb0fd05-9876-459e-b8a1-74aa05b154d2';
+    $pane->pid = 'new-e6ac5224-4075-4f0c-b163-ca5cb32c8e1b';
     $pane->panel = 'main';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'departments-panel_pane_1';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
     $pane->shown = TRUE;
     $pane->access = array();
-    $pane->configuration = array();
+    $pane->configuration = array(
+      'admin_title' => '',
+      'title' => '',
+      'body' => '        <form class="form__filter">
+          <!-- CAXY: The value for each of the options in this filter should be the full URL for the page that will display the people for just that department. We\'ll be updating the window location using the chosen option\'s value. -->
+          <div class="form__field">
+            <select id="select" class="js--selectMenu" data-placeholder="Filter Staff by Department"><option></option><option value="/about/staff/Institutional%20Advancement">Institutional Advancement</option><option value="/about/staff/External%20Affairs">External Affairs</option><option value="/about/staff/Membership">Membership</option><option value="/about/staff/Protection%20Services">Protection Services</option><option value="/about/staff/Housekeeping">Housekeeping</option><option value="/about/staff/Finance">Finance</option><option value="/about/staff/Office%20of%20Executive%20Vice%20President">Office of Executive Vice President</option><option value="/about/staff/Print%20Shop">Print Shop</option><option value="/about/staff/Facilities">Facilities</option><option value="/about/staff/Human%20Resources">Human Resources</option><option value="/about/staff/Information%20Technology">Information Technology</option><option value="/about/staff/Office%20of%20VP%20and%20General%20Counsel">Office of VP and General Counsel</option><option value="/about/staff/Office%20of%20President/CEO">Office of President/CEO</option><option value="/about/staff/Exhibitions">Exhibitions</option><option value="/about/staff/Education">Education</option><option value="/about/staff/Theater">Theater</option><option value="/about/staff/Guest%20Relations">Guest Relations</option><option value="/about/staff/Public%20Relations">Public Relations</option><option value="/about/staff/Special%20Events%20and%20Group%20Sales">Special Events and Group Sales</option><option value="/about/staff/Marketing">Marketing</option><option value="/about/staff/Communications">Communications</option><option value="/about/staff/Public%20Programs%20and%20Education">Public Programs and Education</option><option value="/about/staff/Science%20and%20Education">Science and Education</option><option value="/about/staff/Action%20Center">Action Center</option><option value="/about/staff/Collections%20Center">Collections Center</option><option value="/about/staff/Integrative%20Research%20Center">Integrative Research Center</option><option value="/about/staff/Repatriation">Repatriation</option>            </select>
+          </div>
+        </form>
+',
+      'format' => 'unfiltered',
+      'substitute' => 1,
+    );
     $pane->cache = array();
     $pane->style = array(
-      'style' => 'default',
+      'style' => 'naked',
       'settings' => NULL,
     );
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = 'ccb0fd05-9876-459e-b8a1-74aa05b154d2';
-    $display->content['new-ccb0fd05-9876-459e-b8a1-74aa05b154d2'] = $pane;
-    $display->panels['main'][0] = 'new-ccb0fd05-9876-459e-b8a1-74aa05b154d2';
+    $pane->uuid = 'e6ac5224-4075-4f0c-b163-ca5cb32c8e1b';
+    $display->content['new-e6ac5224-4075-4f0c-b163-ca5cb32c8e1b'] = $pane;
+    $display->panels['main'][0] = 'new-e6ac5224-4075-4f0c-b163-ca5cb32c8e1b';
     $pane = new stdClass();
     $pane->pid = 'new-3ad9bba9-21c9-4c83-b88c-90f0b7b1bc8f';
     $pane->panel = 'main';

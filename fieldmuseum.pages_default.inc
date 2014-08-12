@@ -8263,7 +8263,7 @@ function fieldmuseum_default_page_manager_pages() {
     $pane->panel = 'main';
     $pane->type = 'views_panes';
     $pane->subtype = 'featured_blogs-panel_pane_1';
-    $pane->shown = TRUE;
+    $pane->shown = FALSE;
     $pane->access = array();
     $pane->configuration = array();
     $pane->cache = array();

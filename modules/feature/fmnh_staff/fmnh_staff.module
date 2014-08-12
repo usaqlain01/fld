@@ -90,7 +90,69 @@ function fmnh_staff_feeds_processor_targets_alter(&$targets, $entity_type, $bund
  * @param $mapping
  */
 function fmnh_staff_user_name_callback($source, $entity, $target, array $values, $mapping) {
-  if ($target == 'name' && isset($entity->is_new) && empty($entity->name)) {
+  if ($target == 'name') {
     $entity->name = drupal_strtolower(substr($values[0], 0, strpos($values[0], '@')));
   }
+}
+
+function fmnh_staff_filter() {
+  $options = array(
+    'Insitutional Advancement' => array(
+      'Institutional Advancement' => 'Institutional Advancement',
+      'External Affairs' => 'External Affairs',
+      'Membership' => 'Membership',
+    ),
+    'Operations' => array(
+      'Protection Services' => 'Protection Services',
+      'Housekeeping' => 'Housekeeping',
+      'Finance' => 'Finance',
+      'Office of Executive Vice President' => 'Office of Executive Vice President',
+      'Print Shop' => 'Print Shop',
+      'Facilities' => 'Facilities',
+    ),
+    'President\'s Office' => array(
+      'Human Resources' => 'Human Resources',
+      'Information Technology' => 'Information Technology',
+      'Office of VP and General Counsel' => 'Office of VP and General Counsel',
+      'Office of President/CEO' => 'Office of President/CEO',
+    ),
+    'Public Programs and Education' => array(
+      'Exhibitions' => 'Exhibitions',
+      'Education' => 'Education',
+      'Theater' => 'Theater',
+      'Guest Relations' => 'Guest Relations',
+      'Public Relations' => 'Public Relations',
+      'Special Events and Group Sales' => 'Special Events and Group Sales',
+      'Marketing' => 'Marketing',
+      'Communications' => 'Communications',
+      'Public Programs and Education' => 'Public Programs and Education',
+    ),
+    'Science and Education' => array(
+      'Science and Education' => 'Science and Education',
+      'Action Center' => 'Action Center',
+      'Collections Center' => 'Collections Center',
+      'Integrative Research Center' => 'Integrative Research Center',
+      'Repatriation' => 'Repatriation',
+    ),
+  );
+
+  $markup = <<<EOT
+        <form class="form__filter">
+          <!-- CAXY: The value for each of the options in this filter should be the full URL for the page that will display the people for just that department. We'll be updating the window location using the chosen option's value. -->
+          <div class="form__field">
+
+            <select id="select" class="js--selectMenu" data-placeholder="Filter Staff by Department">
+              <option></option>
+EOT;
+  foreach ($options as $optgroup) {
+    foreach ($optgroup as $key => $value) {
+      $markup .= '<option value="' . url('about/staff/'. $key) . '">' . check_plain($value) . '</option>';
+    }
+  }
+  $markup .= <<<EOT
+            </select>
+          </div>
+        </form>
+EOT;
+  return $markup;
 }
