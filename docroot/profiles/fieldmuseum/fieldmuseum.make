@@ -210,6 +210,9 @@ projects[panelizer][version] = 3.x-dev
 projects[pathauto][subdir] = contrib
 projects[pathauto][version] = 1.2
 
+projects[pathologic][subdir] = contrib
+projects[pathologic][version] = 2.12
+
 projects[pdf][subdir] = contrib
 projects[pdf][version] = 1.6
 
