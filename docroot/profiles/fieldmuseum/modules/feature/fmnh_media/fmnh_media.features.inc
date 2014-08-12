@@ -414,7 +414,7 @@ function fmnh_media_image_default_styles() {
           'xoffset' => '',
           'yoffset' => '',
           'resizable' => 1,
-          'downscaling' => 1,
+          'downscaling' => 0,
           'aspect_ratio' => 'CROP',
           'disable_if_no_data' => 0,
         ),
@@ -634,7 +634,7 @@ function fmnh_media_image_default_styles() {
     'name' => '5x3_2400w',
     'label' => '5x3 2400w',
     'effects' => array(
-      391 => array(
+      421 => array(
         'label' => 'Javascript crop',
         'help' => 'Create a crop with a javascript toolbox.',
         'effect callback' => 'fieldmuseum_imagecrop_effect',
@@ -649,13 +649,13 @@ function fmnh_media_image_default_styles() {
           'xoffset' => '',
           'yoffset' => '',
           'resizable' => 1,
-          'downscaling' => 1,
+          'downscaling' => 0,
           'aspect_ratio' => 'CROP',
           'disable_if_no_data' => 0,
         ),
         'weight' => 1,
       ),
-      396 => array(
+      426 => array(
         'label' => 'Scale',
         'help' => 'Scaling will maintain the aspect-ratio of the original image. If only a single dimension is specified, the other dimension will be calculated.',
         'effect callback' => 'image_scale_effect',

@@ -527,7 +527,8 @@ function esquif_preprocess_file_entity(&$variables, $hook) {
   switch ($variables['view_mode']) {
     case 'banner_5x2':
     case 'banner_5x3':
-      $variables['theme_hook_suggestion'] = 'file_entity__banner';
+    case 'primary':
+      $variables['theme_hook_suggestion'] = 'file_entity__naked';
       break;
   }
 }
