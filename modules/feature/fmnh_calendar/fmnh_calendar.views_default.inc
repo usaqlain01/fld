@@ -44,7 +44,6 @@ function fmnh_calendar_views_default_views() {
   );
   $handler->display->display_options['style_options']['uses_fields'] = TRUE;
   $handler->display->display_options['row_plugin'] = 'node';
-  $handler->display->display_options['row_options']['links'] = FALSE;
   /* Header: Global: Groupings menu */
   $handler->display->display_options['header']['groupings_menu']['id'] = 'groupings_menu';
   $handler->display->display_options['header']['groupings_menu']['table'] = 'views';
@@ -120,7 +119,6 @@ function fmnh_calendar_views_default_views() {
     ),
   );
   $handler->display->display_options['row_plugin'] = 'node';
-  $handler->display->display_options['row_options']['links'] = FALSE;
 
   /* Display: Upcoming events (filtered) */
   $handler = $view->new_display('ctools_context', 'Upcoming events (filtered)', 'ctools_context_1');
@@ -133,7 +131,6 @@ function fmnh_calendar_views_default_views() {
     ),
   );
   $handler->display->display_options['row_plugin'] = 'node';
-  $handler->display->display_options['row_options']['links'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
@@ -200,6 +197,12 @@ function fmnh_calendar_views_default_views() {
   $handler->display->display_options['filters']['field_date_value_1']['operator'] = '>=';
   $handler->display->display_options['filters']['field_date_value_1']['group'] = 1;
   $handler->display->display_options['filters']['field_date_value_1']['default_date'] = 'now';
+  /* Filter criterion: Content: Date -  start date (field_date) */
+  $handler->display->display_options['filters']['field_date_value']['id'] = 'field_date_value';
+  $handler->display->display_options['filters']['field_date_value']['table'] = 'field_data_field_date';
+  $handler->display->display_options['filters']['field_date_value']['field'] = 'field_date_value';
+  $handler->display->display_options['filters']['field_date_value']['operator'] = '<=';
+  $handler->display->display_options['filters']['field_date_value']['default_date'] = '+30 day';
   $handler->display->display_options['inherit_panels_path'] = '0';
   $export['calendar'] = $view;
 
