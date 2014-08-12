@@ -12,7 +12,10 @@
   <header class="l--flex--titleButton">
     <?php print render($title_prefix); ?>
     <h1<?php print $title_attributes; ?>><?php print $title; ?></h1>
+    <?php if (!$past): ?>
     <?php print render($content['field_ticket_link']); ?>
+    <?php endif; ?>
+    <?php hide($content['field_ticket_link']); ?>
     <?php print render($title_suffix); ?>
 
     <?php if ($display_submitted): ?>

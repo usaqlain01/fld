@@ -38,4 +38,22 @@ function fmnh_exhibit_preprocess_node(&$variables, $hook) {
       }
     }
   }
+
+  $items = field_get_items('node', $node, 'field_date');
+
+  $variables['past'] = FALSE;
+  if ($items) {
+    foreach ($items as $item) {
+      $now = new DateObject('now');
+      $start_date = new DateObject($item['value'], $item['timezone']);
+      if ($start_date < $now) {
+        if ($item['value2']) {
+          $end_date = new DateObject($item['value2'], $item['timezone']);
+          if ($end_date < $now) {
+            $variables['past'] = TRUE;
+          }
+        }
+      }
+    }
+  }
 }
