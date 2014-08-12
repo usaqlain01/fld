@@ -70,14 +70,6 @@ function theme_field__field_references($variables) {
       'bundles' => array('learning_resource'),
     ),
     array(
-      'title' => t('On The Blog'),
-      'title_attributes' => array('class' => 'explore__subheading'),
-      'content_attributes' => array('class' => array('contentLinks', 'contentLinks--full')),
-      'item_attributes' => array('class' => 'contentLinks__item'),
-      'view_mode' => 'entity_label',
-      'bundles' => array('video'),
-    ),
-    array(
       'title' => t('Events'),
       'title_attributes' => array('class' => 'explore__subheading'),
       'content_attributes' => array('class' => array('contentLinks', 'contentLinks--full')),

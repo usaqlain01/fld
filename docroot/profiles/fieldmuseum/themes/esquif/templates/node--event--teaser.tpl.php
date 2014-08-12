@@ -42,15 +42,18 @@
       <h3<?php print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a></h3>
     <?php endif; ?>
     <?php print render($title_suffix); ?>
+    <p class="eventSummary__description"<?php print drupal_attributes(rdf_rdfa_attributes($node->rdf_mapping['body'])); ?>>
+      <?php print check_markup(render($content['body']), 'unfiltered_phrase_html', '', TRUE); ?>
+      <?php print render($content['links']['node']); ?>
+    </p>
     <?php
     // We hide the comments and links now so that we can render them later.
     hide($content['comments']);
     hide($content['links']);
     print render($content);
-    ?><a href="#" class="link--more">Event Details</a>
+    ?>
   </section>
 
-  <?php print render($content['links']); ?>
   <?php print render($content['comments']); ?>
 
 </article>

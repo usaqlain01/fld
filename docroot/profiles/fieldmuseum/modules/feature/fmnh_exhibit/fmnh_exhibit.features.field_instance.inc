@@ -449,7 +449,7 @@ function fmnh_exhibit_field_default_field_instances() {
         'module' => 'date',
         'settings' => array(
           'field_formatter_class' => '',
-          'format_type' => 'long',
+          'format_type' => 'exhibition',
           'fromto' => 'both',
           'multiple_from' => '',
           'multiple_number' => '',
@@ -658,7 +658,7 @@ function fmnh_exhibit_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'file_entity',
         'settings' => array(
-          'field_formatter_class' => 'image--primary',
+          'field_formatter_class' => '',
           'file_view_mode' => 'primary_2x1',
         ),
         'type' => 'file_rendered',
@@ -697,12 +697,13 @@ function fmnh_exhibit_field_default_field_instances() {
       'file_directory' => '[current-user:name]/[current-date:custom:Y]/[current-date:custom:m]/[current-date:custom:d]',
       'file_extensions' => 'png gif jpg jpeg',
       'imagecrop' => array(
+        '2x1_2400w' => '2x1_2400w',
         '5x2_2400w' => '5x2_2400w',
         '5x3_2400w' => '5x3_2400w',
-        'large' => 'large',
-        'media_gallery_large' => 'media_gallery_large',
-        'media_gallery_thumbnail' => 'media_gallery_thumbnail',
-        'medium' => 'medium',
+        'large' => 0,
+        'media_gallery_large' => 0,
+        'media_gallery_thumbnail' => 0,
+        'medium' => 0,
         'thumbnail' => 'thumbnail',
       ),
       'max_filesize' => '',
@@ -1030,6 +1031,64 @@ function fmnh_exhibit_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-exhibit-field_ticket_link'
+  $field_instances['node-exhibit-field_ticket_link'] = array(
+    'bundle' => 'exhibit',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'link',
+        'settings' => array(
+          'field_formatter_class' => '',
+        ),
+        'type' => 'link_default',
+        'weight' => 15,
+      ),
+      'promo' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_ticket_link',
+    'label' => 'Ticket link',
+    'required' => FALSE,
+    'settings' => array(
+      'attributes' => array(
+        'class' => '',
+        'rel' => '',
+        'target' => 'default',
+      ),
+      'display' => array(
+        'url_cutoff' => 80,
+      ),
+      'enable_tokens' => 1,
+      'title' => 'optional',
+      'title_maxlength' => 128,
+      'title_value' => '',
+      'url' => 0,
+      'user_register_form' => FALSE,
+      'validate_url' => 1,
+    ),
+    'widget' => array(
+      'module' => 'link',
+      'settings' => array(),
+      'type' => 'link_field',
+      'weight' => 62,
+    ),
+  );
+
   // Exported field_instance: 'node-exhibit-field_ticketed'
   $field_instances['node-exhibit-field_ticketed'] = array(
     'bundle' => 'exhibit',
@@ -1154,6 +1213,7 @@ function fmnh_exhibit_field_default_field_instances() {
   t('Stratigraphy');
   t('These are the opening and closing dates of the exhibition.');
   t('This field is for an image sized specifically for the 5x2 ratio banners on the home page.');
+  t('Ticket link');
   t('Ticketed');
   t('Topic');
 

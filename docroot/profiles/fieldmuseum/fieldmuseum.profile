@@ -44,7 +44,7 @@ function fieldmuseum_menu_access($view_name, $display) {
   if (!empty($result)) {
     return call_user_func_array('ctools_access_menu', $args);
   }
-  return FALSE;
+  return user_access('administer menu');
 }
 
 /**

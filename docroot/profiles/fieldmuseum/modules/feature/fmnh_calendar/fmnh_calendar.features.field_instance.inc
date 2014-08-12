@@ -993,7 +993,7 @@ function fmnh_calendar_field_default_field_instances() {
       'rel_remove' => 'default',
       'title' => 'value',
       'title_maxlength' => 128,
-      'title_value' => '<span class="button__leader">[node:field_price]</span> Buy Ticket',
+      'title_value' => '<span class="button__leader">[node:field_price]</span> Buy Tickets',
       'url' => 0,
       'user_register_form' => FALSE,
       'validate_url' => 1,

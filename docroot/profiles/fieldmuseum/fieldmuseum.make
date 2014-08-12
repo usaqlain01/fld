@@ -106,6 +106,9 @@ projects[file_entity][subdir] = contrib
 projects[file_entity][version] = 2.x-dev
 projects[file_entity][patch][] = https://gist.githubusercontent.com/bangpound/812347ee8f18bc1871d6/raw/42abc59f417534b1b90221626adb5b81d81f11f8/file_entity-entity_view_mode_alter.patch
 
+projects[globalredirect][subdir] = contrib
+projects[globalredirect][version] = 1.x-dev
+
 projects[google_analytics][subdir] = contrib
 projects[google_analytics][version] = 2.x-dev
 

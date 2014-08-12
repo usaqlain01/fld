@@ -7,8 +7,8 @@
 $(function($) {
 
   // DOM elements driving the scroll tracking
-  var selector      = "[data-analytics='blog-post']";
-  var innerSelector = ".l--body";
+  var selector      = "[data-analytics='blog-post']"; // Added to div.l--body
+  var innerSelector = "l--body__content";
   var imageSelector = "img[typeof='foaf:Image']";
 
   if ($(selector).length && typeof ga !== "undefined" && ga !== null) {
