@@ -23,6 +23,22 @@ function fmnh_staff_navbar_alter(&$items) {
 }
 
 /**
+ * Implement hook_form_alter().
+ *
+ * @param $form
+ * @param $form_state
+ */
+function fmnh_staff_form_user_profile_form_alter(&$form, &$form_state) {
+  if (!user_access('administer users')) {
+    $form['field_givenname']['#access'] = user_access('administer users');
+    $form['field_surname']['#access'] = user_access('administer users');
+    $form['field_position']['#access'] = user_access('administer users');
+    $form['field_business_unit']['#access'] = user_access('administer users');
+    $form['field_home_department']['#access'] = user_access('administer users');
+  }
+}
+
+/**
  * Replace missing profile images with the user's default.
  *
  * @param $variables
@@ -48,5 +64,33 @@ function fmnh_staff_preprocess_entity(&$variables, $hook) {
       $variables['content']['field_department'] = array_diff_key($variables['content']['field_department'], array_combine($deltas, $deltas));
       $variables['content']['field_department'][0] = $primary_department;
     }
+  }
+}
+
+/**
+ * Implement hook_feeds_processor_targets_alter().
+ *
+ * @param $targets
+ * @param $entity_type
+ * @param $bundle_name
+ */
+function fmnh_staff_feeds_processor_targets_alter(&$targets, $entity_type, $bundle_name) {
+  if ($entity_type == 'user' && $bundle_name == 'user') {
+    $targets['name']['callback'] = 'fmnh_staff_user_name_callback';
+  }
+}
+
+/**
+ * Generates user names for missing values.
+ *
+ * @param $source
+ * @param $entity
+ * @param $target
+ * @param array $values
+ * @param $mapping
+ */
+function fmnh_staff_user_name_callback($source, $entity, $target, array $values, $mapping) {
+  if ($target == 'name' && isset($entity->is_new) && empty($entity->name)) {
+    $entity->name = drupal_strtolower(substr($values[0], 0, strpos($values[0], '@')));
   }
 }
