@@ -579,8 +579,8 @@ function fmnh_calendar_default_page_manager_pages() {
   $display = new panels_display();
   $display->layout = 'l7';
   $display->layout_settings = array(
-    'main_classes' => '',
-    'nav_classes' => '',
+    'main_classes' => 'l--body__content',
+    'nav_classes' => 'l--body__nav js--sticky',
   );
   $display->panel_settings = array(
     'style_settings' => array(
@@ -595,6 +595,32 @@ function fmnh_calendar_default_page_manager_pages() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
+    $pane->pid = 'new-6a9198f8-cad3-47ff-961e-1b39430f077d';
+    $pane->panel = 'main';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => '',
+      'title' => '',
+      'body' => '<h1>Ending Soon</h1>',
+      'format' => 'unfiltered',
+      'substitute' => 1,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'naked',
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '6a9198f8-cad3-47ff-961e-1b39430f077d';
+    $display->content['new-6a9198f8-cad3-47ff-961e-1b39430f077d'] = $pane;
+    $display->panels['main'][0] = 'new-6a9198f8-cad3-47ff-961e-1b39430f077d';
+    $pane = new stdClass();
     $pane->pid = 'new-ea92ac78-3127-4185-b9e2-9d6c12919505';
     $pane->panel = 'main';
     $pane->type = 'entity_range';
@@ -606,7 +632,7 @@ function fmnh_calendar_default_page_manager_pages() {
         'offset' => '0',
         'limit' => '10',
       ),
-      'view_mode' => 'node:teaser',
+      'view_mode' => 'node:promo',
       'use_pager' => FALSE,
       'pager_id' => 0,
       'context' => 'context_entitylist:events_ending_soon_1',
@@ -615,15 +641,55 @@ function fmnh_calendar_default_page_manager_pages() {
     );
     $pane->cache = array();
     $pane->style = array(
-      'settings' => NULL,
+      'settings' => array(
+        'element_title' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => 'section',
+          'class_enable' => 1,
+          'class' => 'promos--3up',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => '',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
+      'style' => 'semantic_panels',
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 0;
+    $pane->position = 1;
     $pane->locks = array();
     $pane->uuid = 'ea92ac78-3127-4185-b9e2-9d6c12919505';
     $display->content['new-ea92ac78-3127-4185-b9e2-9d6c12919505'] = $pane;
-    $display->panels['main'][0] = 'new-ea92ac78-3127-4185-b9e2-9d6c12919505';
+    $display->panels['main'][1] = 'new-ea92ac78-3127-4185-b9e2-9d6c12919505';
     $pane = new stdClass();
     $pane->pid = 'new-724a817f-d7bd-4054-878a-92e0dc6ebd8a';
     $pane->panel = 'nav';
@@ -640,14 +706,62 @@ function fmnh_calendar_default_page_manager_pages() {
       'level' => '2',
       'follow' => 0,
       'depth' => '0',
-      'expanded' => 1,
+      'expanded' => 0,
       'sort' => 0,
-      'override_title' => 0,
+      'override_title' => 1,
       'override_title_text' => '',
+      'identifier' => 'section',
     );
     $pane->cache = array();
     $pane->style = array(
-      'settings' => NULL,
+      'settings' => array(
+        'element_title' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => 'nav',
+          'class_enable' => 1,
+          'class' => 'navSection',
+          'attributes' => array(
+            'role' => array(
+              'enabled' => 1,
+              'value' => 'navigation',
+            ),
+          ),
+          'attributes_array' => array(
+            'role' => 'navigation',
+          ),
+        ),
+        'add_default_classes' => 1,
+      ),
+      'style' => 'semantic_panels',
     );
     $pane->css = array();
     $pane->extras = array();
@@ -1030,6 +1144,72 @@ function fmnh_calendar_default_page_manager_pages() {
     $pane->uuid = 'b422ba73-c97d-4597-baf4-f3625211c8cd';
     $display->content['new-b422ba73-c97d-4597-baf4-f3625211c8cd'] = $pane;
     $display->panels['main'][0] = 'new-b422ba73-c97d-4597-baf4-f3625211c8cd';
+    $pane = new stdClass();
+    $pane->pid = 'new-5c3bda93-ff35-4b11-862a-195be387d71c';
+    $pane->panel = 'main';
+    $pane->type = 'views_row';
+    $pane->subtype = 'views_row';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'rows' => NULL,
+      'use_fields' => NULL,
+      'fields' => NULL,
+      'context' => 'context_view:calendar-ctools_context_3_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'semantic_panels',
+      'settings' => array(
+        'element_title' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => 'section',
+          'class_enable' => 1,
+          'class' => 'promos--3up',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = '5c3bda93-ff35-4b11-862a-195be387d71c';
+    $display->content['new-5c3bda93-ff35-4b11-862a-195be387d71c'] = $pane;
+    $display->panels['main'][1] = 'new-5c3bda93-ff35-4b11-862a-195be387d71c';
     $pane = new stdClass();
     $pane->pid = 'new-19e0e902-f772-4538-9b00-859a9bc14e06';
     $pane->panel = 'nav';

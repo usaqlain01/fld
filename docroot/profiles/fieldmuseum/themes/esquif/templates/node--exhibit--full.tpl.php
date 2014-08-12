@@ -47,7 +47,7 @@
 
   <?php if ($ticketed): ?>
     <div class="message message--detail">
-      <p>This exhibition requires a special ticket</p>
+      <p>This exhibition requires a special ticket.</p>
     </div>
   <?php endif; ?>
 

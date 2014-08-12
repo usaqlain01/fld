@@ -290,7 +290,7 @@ function fmnh_traveling_exhibit_field_default_field_instances() {
         'media_gallery_large' => 0,
         'media_gallery_thumbnail' => 0,
         'medium' => 0,
-        'thumbnail' => 0,
+        'thumbnail' => 'thumbnail',
       ),
       'max_filesize' => '',
       'user_register_form' => FALSE,

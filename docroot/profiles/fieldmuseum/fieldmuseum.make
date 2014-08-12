@@ -151,6 +151,7 @@ projects[libraries][version] = 2.2
 
 projects[link][subdir] = contrib
 projects[link][version] = 1.2
+projects[link][patch][] = https://gist.githubusercontent.com/bangpound/df89f3401c9dbde94e2b/raw/24b19e5241a662f6e81e66023e9ccc78f987a93f/link-insecure-svg.patch
 
 projects[markdown][subdir] = contrib
 projects[markdown][version] = 1.2
@@ -208,6 +209,9 @@ projects[panelizer][version] = 3.x-dev
 
 projects[pathauto][subdir] = contrib
 projects[pathauto][version] = 1.2
+
+projects[pathologic][subdir] = contrib
+projects[pathologic][version] = 2.12
 
 projects[pdf][subdir] = contrib
 projects[pdf][version] = 1.6

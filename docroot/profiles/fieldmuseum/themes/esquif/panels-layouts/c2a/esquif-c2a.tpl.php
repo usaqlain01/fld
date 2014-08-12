@@ -1,4 +1,4 @@
-<div class="l--body">
+<div class="l--body" data-analytics="blog-post">
   <?php
   if ($main_classes) {
     print '<div class="' . $main_classes . '">';
