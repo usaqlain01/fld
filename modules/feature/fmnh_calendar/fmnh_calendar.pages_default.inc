@@ -974,15 +974,9 @@ function fmnh_calendar_default_page_manager_pages() {
     'css' => '',
     'contexts' => array(
       0 => array(
-        'identifier' => 'List: Events starting soon',
-        'keyword' => 'list',
-        'name' => 'entitylist:events_starting_soon',
-        'use_pager' => FALSE,
-        'pager_id' => NULL,
-        'range' => array(
-          'offset' => 0,
-          'limit' => 10,
-        ),
+        'identifier' => 'View: Calendar: Coming soon',
+        'keyword' => 'view',
+        'name' => 'view:calendar-ctools_context_3',
         'id' => 1,
       ),
     ),
@@ -995,8 +989,8 @@ function fmnh_calendar_default_page_manager_pages() {
   $display = new panels_display();
   $display->layout = 'l7';
   $display->layout_settings = array(
-    'main_classes' => '',
-    'nav_classes' => '',
+    'main_classes' => 'l--body__content',
+    'nav_classes' => 'l--body__nav js--sticky',
   );
   $display->panel_settings = array(
     'style_settings' => array(
@@ -1011,35 +1005,31 @@ function fmnh_calendar_default_page_manager_pages() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-6d0ae990-a0ac-46d5-aa66-70c161bdf160';
+    $pane->pid = 'new-b422ba73-c97d-4597-baf4-f3625211c8cd';
     $pane->panel = 'main';
-    $pane->type = 'entity_range';
-    $pane->subtype = 'entity_range';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'range' => array(
-        'offset' => '0',
-        'limit' => '10',
-      ),
-      'view_mode' => 'node:teaser',
-      'use_pager' => FALSE,
-      'pager_id' => 0,
-      'context' => 'context_entitylist:events_ending_soon_1',
-      'override_title' => 0,
-      'override_title_text' => '',
+      'admin_title' => '',
+      'title' => '',
+      'body' => '<h1>Starting Soon</h1>',
+      'format' => 'unfiltered',
+      'substitute' => 1,
     );
     $pane->cache = array();
     $pane->style = array(
+      'style' => 'naked',
       'settings' => NULL,
     );
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = '6d0ae990-a0ac-46d5-aa66-70c161bdf160';
-    $display->content['new-6d0ae990-a0ac-46d5-aa66-70c161bdf160'] = $pane;
-    $display->panels['main'][0] = 'new-6d0ae990-a0ac-46d5-aa66-70c161bdf160';
+    $pane->uuid = 'b422ba73-c97d-4597-baf4-f3625211c8cd';
+    $display->content['new-b422ba73-c97d-4597-baf4-f3625211c8cd'] = $pane;
+    $display->panels['main'][0] = 'new-b422ba73-c97d-4597-baf4-f3625211c8cd';
     $pane = new stdClass();
     $pane->pid = 'new-19e0e902-f772-4538-9b00-859a9bc14e06';
     $pane->panel = 'nav';
@@ -1056,14 +1046,62 @@ function fmnh_calendar_default_page_manager_pages() {
       'level' => '2',
       'follow' => 0,
       'depth' => '0',
-      'expanded' => 1,
+      'expanded' => 0,
       'sort' => 0,
-      'override_title' => 0,
+      'override_title' => 1,
       'override_title_text' => '',
+      'identifier' => 'section',
     );
     $pane->cache = array();
     $pane->style = array(
-      'settings' => NULL,
+      'settings' => array(
+        'element_title' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => 'nav',
+          'class_enable' => 1,
+          'class' => 'navSection',
+          'attributes' => array(
+            'role' => array(
+              'enabled' => 1,
+              'value' => 'navigation',
+            ),
+          ),
+          'attributes_array' => array(
+            'role' => 'navigation',
+          ),
+        ),
+        'add_default_classes' => 1,
+      ),
+      'style' => 'semantic_panels',
     );
     $pane->css = array();
     $pane->extras = array();
