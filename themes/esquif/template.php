@@ -1914,3 +1914,17 @@ function esquif_links__node__node($variables) {
 
   return $output;
 }
+
+function esquif_field__field_ticket_link__exhibit($variables) {
+  $output = '';
+
+  // Render the items.
+  foreach ($variables['items'] as $delta => $item) {
+    $item['#element']['attributes']['class'] = 'button--buy';
+    $item['#element']['title'] = '<span class="button__leader"> <svg class="icon icon--ticket-1 " viewbox="0 0 500 500"> <use xlink:href="#ticket-1"></use> </svg> </span> Buy Tickets';
+    $item['#element']['html'] = TRUE;
+    $output .= drupal_render($item);
+  }
+
+  return $output;
+}
