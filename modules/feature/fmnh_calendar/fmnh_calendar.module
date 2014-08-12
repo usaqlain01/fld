@@ -139,3 +139,20 @@ function _fmnh_calendar_field_is_empty($entity_type, $entity, $field_name, $lang
     return TRUE;
   }
 }
+
+/**
+ * Implement hook_tokens_alter().
+ *
+ * @param array $replacements
+ * @param array $context
+ */
+function fmnh_calendar_tokens_alter(array &$replacements, array $context) {
+  if ($context['type'] == 'node') {
+    if (!isset($replacements['[node:field_price]'])) {
+      $replacements['[node:field_price]'] = '<svg class="icon icon--ticket-2" viewBox="0 0 500 500"><use xlink:href="#ticket-2"></use></svg>';
+    }
+    else {
+      $replacements['[node:field_price]'] = '$'. round($replacements['[node:field_price]']);
+    }
+  }
+}

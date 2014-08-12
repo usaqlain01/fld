@@ -641,9 +641,9 @@ function fmnh_calendar_field_default_field_instances() {
         'settings' => array(
           'decimal_separator' => '.',
           'field_formatter_class' => '',
-          'prefix_suffix' => TRUE,
-          'scale' => 2,
-          'thousand_separator' => ' ',
+          'prefix_suffix' => 1,
+          'scale' => 0,
+          'thousand_separator' => ',',
         ),
         'type' => 'number_decimal',
         'weight' => 1,
