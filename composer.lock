@@ -495,12 +495,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phingofficial/phing.git",
-                "reference": "81a74efad0d5681906d388583ce86b9c3f9ec929"
+                "reference": "8573c3649a0e2176e00df20250b132188b7a1720"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phingofficial/phing/zipball/81a74efad0d5681906d388583ce86b9c3f9ec929",
-                "reference": "81a74efad0d5681906d388583ce86b9c3f9ec929",
+                "url": "https://api.github.com/repos/phingofficial/phing/zipball/8573c3649a0e2176e00df20250b132188b7a1720",
+                "reference": "8573c3649a0e2176e00df20250b132188b7a1720",
                 "shasum": ""
             },
             "require": {
@@ -571,7 +571,7 @@
                 "task",
                 "tool"
             ],
-            "time": "2014-08-08 13:27:43"
+            "time": "2014-08-12 20:07:58"
         },
         {
             "name": "pimple/pimple",
