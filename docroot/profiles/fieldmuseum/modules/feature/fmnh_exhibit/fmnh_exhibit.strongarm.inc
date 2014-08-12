@@ -55,6 +55,9 @@ function fmnh_exhibit_strongarm() {
       'summary' => array(
         'custom_settings' => FALSE,
       ),
+      'list_item' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -66,6 +69,9 @@ function fmnh_exhibit_strongarm() {
         ),
         'path' => array(
           'weight' => '9',
+        ),
+        'redirect' => array(
+          'weight' => '30',
         ),
       ),
       'display' => array(),

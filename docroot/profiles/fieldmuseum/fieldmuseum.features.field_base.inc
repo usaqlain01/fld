@@ -357,7 +357,7 @@ function fieldmuseum_field_default_field_bases() {
       'default_image' => 0,
       'display_default' => 0,
       'display_field' => 0,
-      'profile2_private' => 0,
+      'profile2_private' => FALSE,
       'uri_scheme' => 'public',
     ),
     'translatable' => 0,

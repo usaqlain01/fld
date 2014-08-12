@@ -4,7 +4,9 @@
  * Implement hook_init().
  */
 function fmnh_analytics_init() {
-  drupal_add_library('fmnh_analytics', 'analytics', TRUE);
+  if (!path_is_admin(current_path())) {
+    drupal_add_library('fmnh_analytics', 'analytics', TRUE);
+  }
 }
 
 /**

@@ -305,7 +305,7 @@ function fmnh_program_views_default_views() {
   $handler->display->display_options['arguments']['field_audience_target_id']['table'] = 'field_data_field_audience';
   $handler->display->display_options['arguments']['field_audience_target_id']['field'] = 'field_audience_target_id';
   $handler->display->display_options['arguments']['field_audience_target_id']['title_enable'] = TRUE;
-  $handler->display->display_options['arguments']['field_audience_target_id']['title'] = '%1 Programs';
+  $handler->display->display_options['arguments']['field_audience_target_id']['title'] = 'Programs for %1';
   $handler->display->display_options['arguments']['field_audience_target_id']['breadcrumb_enable'] = TRUE;
   $handler->display->display_options['arguments']['field_audience_target_id']['breadcrumb'] = '%1';
   $handler->display->display_options['arguments']['field_audience_target_id']['default_argument_type'] = 'fixed';

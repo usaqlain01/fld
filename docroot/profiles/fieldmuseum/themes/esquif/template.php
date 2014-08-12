@@ -246,7 +246,7 @@ function esquif_preprocess_node(&$variables, $hook) {
       $node = $variables['node'];
       $links = array();
 
-      if (!isset($node->view) || empty($node->view->args)) {
+      if ((!isset($node->view) || empty($node->view->args)) && !arg(2)) {
         foreach (array('field_audience', 'field_grade_level', 'field_exhibit_type') as $field_name) {
           if ($items = field_get_items('node', $node, $field_name)) {
             switch ($field_name) {
@@ -282,6 +282,18 @@ function esquif_preprocess_node(&$variables, $hook) {
                 'title' => $entity->name,
                 'href' => $href .'/'. $entity->tid,
               );
+            }
+          }
+
+          // Show ticketed indicator where applicable.
+          if ($items = field_get_items('node', $node, 'field_ticketed')) {
+            foreach ($items as $item) {
+              if ($item['value'] == 1) {
+                $links['promo__category list--inline__item ticketed'] = array(
+                  'title' => 'Ticketed',
+                  'href' => 'at-the-field/exhibitions/ticketed',
+                );
+              }
             }
           }
         }
@@ -1898,6 +1910,20 @@ function esquif_links__node__node($variables) {
 
       $i++;
     }
+  }
+
+  return $output;
+}
+
+function esquif_field__field_ticket_link__exhibit($variables) {
+  $output = '';
+
+  // Render the items.
+  foreach ($variables['items'] as $delta => $item) {
+    $item['#element']['attributes']['class'] = 'button--buy';
+    $item['#element']['title'] = '<span class="button__leader"> <svg class="icon icon--ticket-1 " viewbox="0 0 500 500"> <use xlink:href="#ticket-1"></use> </svg> </span> Buy Tickets';
+    $item['#element']['html'] = TRUE;
+    $output .= drupal_render($item);
   }
 
   return $output;
