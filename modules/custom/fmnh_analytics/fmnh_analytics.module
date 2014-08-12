@@ -89,7 +89,7 @@ function fmnh_analytics_disqus_element_pre_render($element) {
 function fmnh_analytics_form_alter(&$form, &$form_state, $form_id) {
   switch ($form_id) {
     case 'webform_client_form_14951':
-      $form['#attributes']['data-analytics'] = 'contact-submission';
+      $form['#attributes']['data-analytics'] = 'contact-submit';
       break;
   }
 }
