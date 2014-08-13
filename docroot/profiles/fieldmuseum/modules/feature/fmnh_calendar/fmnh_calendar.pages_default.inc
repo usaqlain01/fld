@@ -525,7 +525,7 @@ function fmnh_calendar_default_page_manager_pages() {
   );
   $page->menu = array(
     'type' => 'normal',
-    'title' => 'Ending',
+    'title' => 'Exhibition Closings',
     'name' => 'main-menu',
     'weight' => '3',
     'parent' => array(
@@ -604,7 +604,7 @@ function fmnh_calendar_default_page_manager_pages() {
     $pane->configuration = array(
       'admin_title' => '',
       'title' => '',
-      'body' => '<h1>Ending Soon</h1>',
+      'body' => '<h1>Exhibition Closings</h1>',
       'format' => 'unfiltered',
       'substitute' => 1,
     );
@@ -1055,7 +1055,7 @@ function fmnh_calendar_default_page_manager_pages() {
   );
   $page->menu = array(
     'type' => 'normal',
-    'title' => 'Starting soon',
+    'title' => 'Exhibition Openings',
     'name' => 'main-menu',
     'weight' => '3',
     'parent' => array(
@@ -1128,7 +1128,7 @@ function fmnh_calendar_default_page_manager_pages() {
     $pane->configuration = array(
       'admin_title' => '',
       'title' => '',
-      'body' => '<h1>Starting Soon</h1>',
+      'body' => '<h1>Exhibition Openings</h1>',
       'format' => 'unfiltered',
       'substitute' => 1,
     );

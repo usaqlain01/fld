@@ -85,7 +85,7 @@ function fieldmuseum_default_bangpoundshare_links() {
   $link = new bangpoundShareLink();
   $link->disabled = FALSE; /* Edit this to true to make a default link disabled initially */
   $link->api_version = 1;
-  $link->name = 'fmnh_google_plus';
+  $link->name = 'fmnh_google';
   $link->admin_title = 'Google+';
   $link->admin_description = '';
   $link->category = '';
@@ -152,7 +152,7 @@ function fieldmuseum_default_bangpoundshare_links() {
       2 => 'popup',
     ),
   );
-  $export['fmnh_google_plus'] = $link;
+  $export['fmnh_google'] = $link;
 
   $link = new bangpoundShareLink();
   $link->disabled = FALSE; /* Edit this to true to make a default link disabled initially */

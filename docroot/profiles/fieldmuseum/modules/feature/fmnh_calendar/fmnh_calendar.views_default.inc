@@ -107,6 +107,12 @@ function fmnh_calendar_views_default_views() {
   $handler->display->display_options['filters']['field_date_value2']['operator'] = '>=';
   $handler->display->display_options['filters']['field_date_value2']['group'] = 2;
   $handler->display->display_options['filters']['field_date_value2']['default_date'] = 'now';
+  /* Filter criterion: Content: Date -  start date (field_date) */
+  $handler->display->display_options['filters']['field_date_value_1']['id'] = 'field_date_value_1';
+  $handler->display->display_options['filters']['field_date_value_1']['table'] = 'field_data_field_date';
+  $handler->display->display_options['filters']['field_date_value_1']['field'] = 'field_date_value';
+  $handler->display->display_options['filters']['field_date_value_1']['operator'] = '<=';
+  $handler->display->display_options['filters']['field_date_value_1']['default_date'] = 'now +6 month';
 
   /* Display: Upcoming Events */
   $handler = $view->new_display('ctools_context', 'Upcoming Events', 'ctools_context_2');

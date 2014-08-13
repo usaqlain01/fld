@@ -32,18 +32,20 @@
 
   <?php print render($content['field_image']); ?>
 
+  <?php if ($field_action_link || !$permanent): ?>
   <section class="exhibition__meta l--2up">
     <div class="l--module">
       <?php print render($content['field_action_link']); ?>
     </div>
-    <?php if (!$permanent): ?>
-      <div class="l--module">
+    <div class="l--module">
+      <?php if (!$permanent): ?>
         <p class="exhibition__dateRange">
           <?php print render($content['field_date']); ?>
         </p>
-      </div>
-    <?php endif; ?>
+      <?php endif; ?>
+    </div>
   </section>
+  <?php endif; ?>
 
   <?php if ($ticketed): ?>
     <div class="message message--detail">

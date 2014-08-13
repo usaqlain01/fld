@@ -195,6 +195,7 @@ function fmnh_blog_views_default_views() {
   $handler = $view->new_display('ctools_context', 'Gallery blog (context)', 'ctools_context_4');
   $handler->display->display_options['style_plugin'] = 'ctools_context';
   $handler->display->display_options['row_plugin'] = 'node';
+  $handler->display->display_options['row_options']['view_mode'] = 'promo';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
