@@ -177,6 +177,8 @@ function fmnh_staff_views_default_views() {
   $handler->display->display_options['arguments']['field_home_department_value']['table'] = 'field_data_field_home_department';
   $handler->display->display_options['arguments']['field_home_department_value']['field'] = 'field_home_department_value';
   $handler->display->display_options['arguments']['field_home_department_value']['relationship'] = 'user';
+  $handler->display->display_options['arguments']['field_home_department_value']['title_enable'] = TRUE;
+  $handler->display->display_options['arguments']['field_home_department_value']['title'] = '%1';
   $handler->display->display_options['arguments']['field_home_department_value']['default_argument_type'] = 'fixed';
   $handler->display->display_options['arguments']['field_home_department_value']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['field_home_department_value']['summary']['format'] = 'default_summary';

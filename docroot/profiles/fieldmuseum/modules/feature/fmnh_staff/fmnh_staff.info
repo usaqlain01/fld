@@ -90,6 +90,7 @@ features[field_instance][] = profile2-main-field_year_started
 features[file_display][] = image__headshot__file_field_image
 features[image][] = headshot
 features[page_manager_pages][] = staff
+features[page_manager_pages][] = staff_filtered
 features[profile2_type][] = main
 features[user_permission][] = edit any main profile
 features[user_permission][] = edit own main profile

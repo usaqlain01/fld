@@ -115,7 +115,7 @@ function fmnh_staff_user_name_callback($source, $entity, $target, array $values,
 function fmnh_staff_filter($selected = '') {
   $options = array(
     '' => array(
-      '' => '',
+      '' => '- all -',
     ),
     'Board of Trustees' => array(
       'board-of-trustees' => 'Board of Trustees',
