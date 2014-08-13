@@ -48,13 +48,18 @@
 
       <?php if ($field_ticket_link): ?>
         &bull;
-        <a class="eventsList__link" href="<?php print '#'; ?>"<?php print drupal_attributes(rdf_rdfa_attributes($node->rdf_mapping['field_ticket_link'])); ?>>
-          <svg class="icon icon--ticket-2" viewBox="0 0 500 500">
-            <use xlink:href="#ticket-2"></use>
-          </svg>
-          Buy Tickets
-        </a>
-        <?php hide($content['field_ticket_link']);
+        <?php $items = field_get_items('node', $node, 'field_ticket_link');
+        if ($items) {
+          foreach ($items as $item) { ?>
+            <a class="eventsList__link" href="<?php print check_plain(url($item['url'])); ?>"<?php print drupal_attributes(rdf_rdfa_attributes($node->rdf_mapping['field_ticket_link'])); ?>>
+              <svg class="icon icon--ticket-2" viewBox="0 0 500 500">
+                <use xlink:href="#ticket-2"></use>
+              </svg>
+              Buy Tickets
+            </a>
+          <?php }
+          hide($content['field_ticket_link']);
+        }
       endif; ?>
 
       <?php
