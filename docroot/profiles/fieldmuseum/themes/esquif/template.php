@@ -1933,3 +1933,14 @@ function esquif_field__field_ticket_link__exhibit($variables) {
 
   return $output;
 }
+
+function esquif_preprocess_user_profile(&$variables, $hook) {
+  $element = $variables['elements'];
+  $account = $element['#account'];
+  $variables['theme_hook_suggestions'][] = 'user_profile__' . $element['#view_mode'];
+  $profile = profile2_load_by_user($account, 'main');
+  if ($profile) {
+    $uri = entity_uri('profile2', $profile);
+    $variables['url'] = $uri['path'];
+  }
+}
