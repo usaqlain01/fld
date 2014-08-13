@@ -57,45 +57,6 @@ function fmnh_faq_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-faq-field_audience'
-  $field_instances['node-faq-field_audience'] = array(
-    'bundle' => 'faq',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'entityreference',
-        'settings' => array(
-          'field_formatter_class' => '',
-          'link' => 1,
-        ),
-        'type' => 'entityreference_label',
-        'weight' => 2,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_audience',
-    'label' => 'Audience',
-    'required' => FALSE,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_buttons',
-      'weight' => 41,
-    ),
-  );
-
   // Exported field_instance: 'node-faq-field_department'
   $field_instances['node-faq-field_department'] = array(
     'bundle' => 'faq',
@@ -443,7 +404,6 @@ function fmnh_faq_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Audience');
   t('Body');
   t('Department');
   t('FAQ Topic');

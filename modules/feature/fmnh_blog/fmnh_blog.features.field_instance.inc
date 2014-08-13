@@ -161,57 +161,6 @@ function fmnh_blog_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-blog-field_audience'
-  $field_instances['node-blog-field_audience'] = array(
-    'bundle' => 'blog',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 5,
-      ),
-      'promo' => array(
-        'label' => 'above',
-        'module' => 'entityreference',
-        'settings' => array(
-          'field_formatter_class' => '',
-          'link' => 1,
-        ),
-        'type' => 'entityreference_label',
-        'weight' => 4,
-      ),
-      'summary' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 4,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 7,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_audience',
-    'label' => 'Audience',
-    'required' => FALSE,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_buttons',
-      'weight' => 48,
-    ),
-  );
-
   // Exported field_instance: 'node-blog-field_image'
   $field_instances['node-blog-field_image'] = array(
     'bundle' => 'blog',
@@ -650,7 +599,6 @@ function fmnh_blog_field_default_field_instances() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Attachment');
-  t('Audience');
   t('Body');
   t('Image');
   t('Location/Region');

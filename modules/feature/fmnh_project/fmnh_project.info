@@ -22,7 +22,6 @@ features[ctools][] = strongarm:strongarm:1
 features[features_api][] = api:2
 features[field_instance][] = node-project-body
 features[field_instance][] = node-project-field_action_link
-features[field_instance][] = node-project-field_audience
 features[field_instance][] = node-project-field_image
 features[field_instance][] = node-project-field_references
 features[node][] = project
