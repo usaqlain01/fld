@@ -251,6 +251,11 @@ function fmnh_staff_views_default_views() {
   $handler->display->display_options['filters']['status']['value'] = '1';
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Field: Last Name (field_surname) */
+  $handler->display->display_options['filters']['field_surname_value']['id'] = 'field_surname_value';
+  $handler->display->display_options['filters']['field_surname_value']['table'] = 'field_data_field_surname';
+  $handler->display->display_options['filters']['field_surname_value']['field'] = 'field_surname_value';
+  $handler->display->display_options['filters']['field_surname_value']['operator'] = 'not empty';
 
   /* Display: Context */
   $handler = $view->new_display('ctools_context', 'Context', 'ctools_context_1');
