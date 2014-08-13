@@ -198,14 +198,60 @@ function fmnh_gallery_default_page_manager_handlers() {
       'depth' => '0',
       'expanded' => 0,
       'sort' => 0,
-      'override_title' => 0,
+      'override_title' => 1,
       'override_title_text' => '',
       'identifier' => 'section',
     );
     $pane->cache = array();
     $pane->style = array(
-      'style' => 'default',
-      'settings' => NULL,
+      'style' => 'semantic_panels',
+      'settings' => array(
+        'element_title' => array(
+          'type' => '',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => '',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => 'nav',
+          'class_enable' => 1,
+          'class' => 'navSection',
+          'attributes' => array(
+            'role' => array(
+              'enabled' => 1,
+              'value' => 'navigation',
+            ),
+          ),
+          'attributes_array' => array(
+            'role' => 'navigation',
+          ),
+        ),
+        'add_default_classes' => 1,
+      ),
     );
     $pane->css = array();
     $pane->extras = array();

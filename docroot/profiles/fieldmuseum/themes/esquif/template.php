@@ -243,6 +243,10 @@ function esquif_preprocess_node(&$variables, $hook) {
         $variables['content']['field_image'][0]['file']['#attributes']['class'][] = 'promo__image';
       }
 
+      if ($variables['node']->type == 'media_gallery') {
+        $variables['content']['media_gallery_file'][0]['file']['#item']['attributes']['class'][] = 'promo__image';
+      }
+
       $node = $variables['node'];
       $links = array();
 
@@ -527,7 +531,7 @@ function esquif_preprocess_file_entity(&$variables, $hook) {
   switch ($variables['view_mode']) {
     case 'banner_5x2':
     case 'banner_5x3':
-    case 'primary':
+    case 'primary_2x1':
       $variables['theme_hook_suggestion'] = 'file_entity__naked';
       break;
   }

@@ -23,6 +23,22 @@ function fmnh_staff_navbar_alter(&$items) {
 }
 
 /**
+ * Implement hook_form_alter().
+ *
+ * @param $form
+ * @param $form_state
+ */
+function fmnh_staff_form_user_profile_form_alter(&$form, &$form_state) {
+  if (!user_access('administer users')) {
+    $form['field_givenname']['#access'] = user_access('administer users');
+    $form['field_surname']['#access'] = user_access('administer users');
+    $form['field_position']['#access'] = user_access('administer users');
+    $form['field_business_unit']['#access'] = user_access('administer users');
+    $form['field_home_department']['#access'] = user_access('administer users');
+  }
+}
+
+/**
  * Replace missing profile images with the user's default.
  *
  * @param $variables
@@ -49,4 +65,94 @@ function fmnh_staff_preprocess_entity(&$variables, $hook) {
       $variables['content']['field_department'][0] = $primary_department;
     }
   }
+}
+
+/**
+ * Implement hook_feeds_processor_targets_alter().
+ *
+ * @param $targets
+ * @param $entity_type
+ * @param $bundle_name
+ */
+function fmnh_staff_feeds_processor_targets_alter(&$targets, $entity_type, $bundle_name) {
+  if ($entity_type == 'user' && $bundle_name == 'user') {
+    $targets['name']['callback'] = 'fmnh_staff_user_name_callback';
+  }
+}
+
+/**
+ * Generates user names for missing values.
+ *
+ * @param $source
+ * @param $entity
+ * @param $target
+ * @param array $values
+ * @param $mapping
+ */
+function fmnh_staff_user_name_callback($source, $entity, $target, array $values, $mapping) {
+  if ($target == 'name') {
+    $entity->name = drupal_strtolower(substr($values[0], 0, strpos($values[0], '@')));
+  }
+}
+
+function fmnh_staff_filter() {
+  $options = array(
+    'Insitutional Advancement' => array(
+      'Institutional Advancement' => 'Institutional Advancement',
+      'External Affairs' => 'External Affairs',
+      'Membership' => 'Membership',
+    ),
+    'Operations' => array(
+      'Protection Services' => 'Protection Services',
+      'Housekeeping' => 'Housekeeping',
+      'Finance' => 'Finance',
+      'Office of Executive Vice President' => 'Office of Executive Vice President',
+      'Print Shop' => 'Print Shop',
+      'Facilities' => 'Facilities',
+    ),
+    'President\'s Office' => array(
+      'Human Resources' => 'Human Resources',
+      'Information Technology' => 'Information Technology',
+      'Office of VP and General Counsel' => 'Office of VP and General Counsel',
+      'Office of President/CEO' => 'Office of President/CEO',
+    ),
+    'Public Programs and Education' => array(
+      'Exhibitions' => 'Exhibitions',
+      'Education' => 'Education',
+      'Theater' => 'Theater',
+      'Guest Relations' => 'Guest Relations',
+      'Public Relations' => 'Public Relations',
+      'Special Events and Group Sales' => 'Special Events and Group Sales',
+      'Marketing' => 'Marketing',
+      'Communications' => 'Communications',
+      'Public Programs and Education' => 'Public Programs and Education',
+    ),
+    'Science and Education' => array(
+      'Science and Education' => 'Science and Education',
+      'Action Center' => 'Action Center',
+      'Collections Center' => 'Collections Center',
+      'Integrative Research Center' => 'Integrative Research Center',
+      'Repatriation' => 'Repatriation',
+    ),
+  );
+
+  $markup = <<<EOT
+        <form class="form__filter">
+          <!-- CAXY: The value for each of the options in this filter should be the full URL for the page that will display the people for just that department. We'll be updating the window location using the chosen option's value. -->
+          <div class="form__field">
+
+            <select id="select" class="js--selectMenu" data-placeholder="Filter Staff by Department">
+              <option></option>
+EOT;
+  foreach ($options as $optgroup) {
+    foreach ($optgroup as $key => $value) {
+      $markup .= '<option value="' . url('about/staff/'. $key) . '">' . check_plain($value) . '</option>';
+    }
+  }
+  $markup .= <<<EOT
+            </select>
+          </div>
+        </form>
+EOT;
+  return $markup;
 }

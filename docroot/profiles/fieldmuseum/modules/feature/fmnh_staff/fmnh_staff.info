@@ -102,6 +102,5 @@ features[variable][] = auto_entitylabel_profile2_main
 features[variable][] = field_bundle_settings_profile2__main
 features[variable][] = user_picture_default
 features[variable][] = user_picture_style
-features[views_view][] = departments
 features[views_view][] = people
 features[views_view][] = staff

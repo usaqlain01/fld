@@ -21,9 +21,11 @@
         <li class="byline__date">
           <?php print $date; ?>
         </li>
+        <?php if ($name): ?>
         <li class="byline__author">
           <?php print $name; ?>
         </li>
+        <?php endif; ?>
         <li class="byline__categories">
           <?php print render($content['field_topic']); ?>
         </li>
@@ -35,16 +37,15 @@
     </header>
   <?php endif; ?>
   <section class="excerpt__description">
+    <p>
+      <?php print check_markup(render($content['body']), 'unfiltered_phrase_html', '', TRUE); ?>
+      <?php print render($content['links']['node']); ?>
+    </p>
     <?php
     // We hide the comments and links now so that we can render them later.
     hide($content['comments']);
     hide($content['links']);
     print render($content);
     ?>
-
-    <?php print render($content['links']['node']); ?>
-
-    <?php print render($content['comments']); ?>
-
   </section>
 </article>
