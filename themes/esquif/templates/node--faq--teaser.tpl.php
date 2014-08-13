@@ -33,8 +33,6 @@
     ?>
   </section>
 
-  <?php print render($content['links']); ?>
-
   <?php print render($content['comments']); ?>
   <a class="link--top" href="#top">Back to Top</a>
 
