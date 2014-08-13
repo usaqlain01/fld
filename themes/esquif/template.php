@@ -243,6 +243,10 @@ function esquif_preprocess_node(&$variables, $hook) {
         $variables['content']['field_image'][0]['file']['#attributes']['class'][] = 'promo__image';
       }
 
+      if ($variables['node']->type == 'media_gallery') {
+        $variables['content']['media_gallery_file'][0]['file']['#item']['attributes']['class'][] = 'promo__image';
+      }
+
       $node = $variables['node'];
       $links = array();
 
