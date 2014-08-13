@@ -1941,3 +1941,14 @@ function esquif_preprocess_user_profile(&$variables, $hook) {
 function esquif_field__field_link__department($variables) {
   return esquif_field__field_link__banner_description_and_list($variables);
 }
+
+function esquif_field___custom_display__field_image__department($variables) {
+  $variables['items'][0]['file']['#item']['attributes']['class'][] = 'image--primary';
+  $output = '';
+
+  foreach ($variables['items'] as $delta => $item) {
+    $output .=  drupal_render($item);
+  }
+
+  return $output;
+}
