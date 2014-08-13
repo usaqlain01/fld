@@ -101,7 +101,7 @@ function theme_tablexi_gallery($variables) {
 <!-- CAXY: Don't focus on these image sizes just yet. Let us work through the responsive layer and then we'll supply image size targets. -->
 <!-- CAXY: We'll also update the sizes attribute after we've passed in the responsive layer. -->
 				<img class="viewer__image" src="$src" srcset="$srcset" sizes="100vw" alt="$alt" /> </a>
-				<figcaption class="viewer__caption">$caption</ficaption>
+				<figcaption class="viewer__caption">$caption</figcaption>
 			</figure>
 
 <!-- Viewer loader -->
