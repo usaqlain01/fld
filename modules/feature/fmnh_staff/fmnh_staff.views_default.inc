@@ -194,5 +194,77 @@ function fmnh_staff_views_default_views() {
   );
   $export['staff'] = $view;
 
+  $view = new view();
+  $view->name = 'users';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'users';
+  $view->human_name = 'users';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'Staff';
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['access']['perm'] = 'access user profiles';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['default_row_class'] = FALSE;
+  $handler->display->display_options['style_options']['row_class_special'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'user';
+  $handler->display->display_options['row_options']['view_mode'] = 'summary';
+  /* Field: User: Name */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'users';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['label'] = '';
+  $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
+  /* Sort criterion: Field: Last Name (field_surname) */
+  $handler->display->display_options['sorts']['field_surname_value']['id'] = 'field_surname_value';
+  $handler->display->display_options['sorts']['field_surname_value']['table'] = 'field_data_field_surname';
+  $handler->display->display_options['sorts']['field_surname_value']['field'] = 'field_surname_value';
+  /* Sort criterion: Field: First Name (field_givenname) */
+  $handler->display->display_options['sorts']['field_givenname_value']['id'] = 'field_givenname_value';
+  $handler->display->display_options['sorts']['field_givenname_value']['table'] = 'field_data_field_givenname';
+  $handler->display->display_options['sorts']['field_givenname_value']['field'] = 'field_givenname_value';
+  /* Contextual filter: User: Home Department (field_home_department) */
+  $handler->display->display_options['arguments']['field_home_department_value']['id'] = 'field_home_department_value';
+  $handler->display->display_options['arguments']['field_home_department_value']['table'] = 'field_data_field_home_department';
+  $handler->display->display_options['arguments']['field_home_department_value']['field'] = 'field_home_department_value';
+  $handler->display->display_options['arguments']['field_home_department_value']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['field_home_department_value']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_home_department_value']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_home_department_value']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['field_home_department_value']['limit'] = '0';
+  $handler->display->display_options['arguments']['field_home_department_value']['transform_dash'] = TRUE;
+  /* Filter criterion: User: Active */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'users';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = '1';
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+
+  /* Display: Context */
+  $handler = $view->new_display('ctools_context', 'Context', 'ctools_context_1');
+  $handler->display->display_options['style_plugin'] = 'ctools_context';
+  $handler->display->display_options['row_plugin'] = 'user';
+  $handler->display->display_options['row_options']['view_mode'] = 'summary';
+  $handler->display->display_options['argument_input'] = array(
+    'field_home_department_value' => array(
+      'type' => 'context',
+      'context' => 'string.html_safe',
+      'context_optional' => 1,
+    ),
+  );
+  $export['users'] = $view;
+
   return $export;
 }
