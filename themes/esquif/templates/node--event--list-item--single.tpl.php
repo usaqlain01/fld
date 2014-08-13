@@ -38,7 +38,8 @@
         <mark class="unpublished"><?php print t('Unpublished'); ?></mark>
       <?php endif; ?>
 
-      <?php if ($field_ticket_link): ?>
+      <a class="eventsList__link" href="<?php print $node_url; ?>">Event Details</a>
+      <?php if ($field_ticket_link && FALSE): ?>
         &bull;
         <?php $items = field_get_items('node', $node, 'field_ticket_link');
         foreach ($items as $item) {
