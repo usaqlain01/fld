@@ -407,10 +407,15 @@ function esquif_preprocess_node_video(&$variables, $hook) {
 }
 
 function esquif_preprocess_node_collection(&$variables, $hook) {
+  $node = $variables['node'];
+
   $variables['classes_array'][] = 'collection';
   $variables['title_attributes_array']['class'][] = 'collection__title';
   if ($variables['view_mode'] == 'teaser') {
     $variables['content']['field_image'][0]['file']['#item']['attributes']['class'][] = 'collection__image';
+
+    $node_title_stripped = strip_tags($node->title);
+    $variables['content']['links']['node']['#links']['node-readmore']['title'] = t('Learn more<span class="element-invisible"> about @title</span>', array('@title' => $node_title_stripped));
   }
 }
 
