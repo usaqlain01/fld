@@ -66,9 +66,9 @@ function fmnh_staff_default_page_manager_pages() {
     'css' => '',
     'contexts' => array(
       0 => array(
-        'identifier' => 'View: Staff: Filter by home dept.',
+        'identifier' => 'View: users',
         'keyword' => 'view',
-        'name' => 'view:staff-ctools_context_2',
+        'name' => 'view:users-ctools_context_1',
         'id' => 1,
       ),
     ),
@@ -386,9 +386,9 @@ function fmnh_staff_default_page_manager_pages() {
     'contexts' => array(),
     'relationships' => array(
       0 => array(
-        'identifier' => 'View: Staff: Filter by home dept.',
+        'identifier' => 'View: users',
         'keyword' => 'view',
-        'name' => 'view_from_argument:staff-ctools_context_2',
+        'name' => 'view_from_argument:users-ctools_context_1',
         'context' => array(
           0 => 'argument_string_1',
         ),
