@@ -38,9 +38,14 @@ function fmnh_staff_feeds_importer_default() {
     'processor' => array(
       'plugin_key' => 'FeedsUserProcessor',
       'config' => array(
-        'roles' => array(),
-        'status' => 1,
-        'defuse_mail' => FALSE,
+        'roles' => array(
+          4 => 0,
+          5 => 0,
+          6 => 0,
+          3 => 0,
+        ),
+        'status' => '1',
+        'defuse_mail' => 0,
         'mappings' => array(
           0 => array(
             'source' => 'First Name',
@@ -83,9 +88,9 @@ function fmnh_staff_feeds_importer_default() {
             'unique' => FALSE,
           ),
         ),
-        'update_existing' => 0,
-        'input_format' => NULL,
-        'skip_hash_check' => FALSE,
+        'update_existing' => '2',
+        'input_format' => 'plain_text',
+        'skip_hash_check' => 0,
         'bundle' => 'user',
       ),
     ),
