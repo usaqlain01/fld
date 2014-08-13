@@ -3576,8 +3576,8 @@ function fieldmuseum_default_page_manager_pages() {
   $display = new panels_display();
   $display->layout = 'l6a';
   $display->layout_settings = array(
-    'main_classes' => '',
-    'nav_classes' => 'navSection',
+    'main_classes' => 'l--body__content',
+    'nav_classes' => 'l--body__nav js--sticky',
   );
   $display->panel_settings = array(
     'style_settings' => array(
@@ -3629,7 +3629,7 @@ function fieldmuseum_default_page_manager_pages() {
         'offset' => '0',
         'limit' => '10',
       ),
-      'view_mode' => 'node:teaser',
+      'view_mode' => 'node:promo',
       'use_pager' => FALSE,
       'pager_id' => 0,
       'context' => 'context_entitylist:menu_children_1',
@@ -5969,7 +5969,7 @@ function fieldmuseum_default_page_manager_pages() {
       'admin_title' => '',
       'title' => 'Membership Blog',
       'body' => '<p>Stay up to date with all the news and happenings for Field Museum members!</p>
-<p><a class="link--more" href="#">Read the Blog</a></p>
+<p><a class="link--more" href="http://fieldmusefacelift.devcloud.acquia-sites.com/support/members/blog">Read the Blog</a></p>
 ',
       'format' => 'filtered_wysiwyg',
       'substitute' => 1,
