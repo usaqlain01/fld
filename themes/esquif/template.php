@@ -1934,7 +1934,7 @@ function esquif_preprocess_user_profile(&$variables, $hook) {
   $profile = profile2_load_by_user($account, 'main');
   if ($profile) {
     $uri = entity_uri('profile2', $profile);
-    $variables['url'] = $uri['path'];
+    $variables['url'] = url($uri['path']);
   }
 }
 
