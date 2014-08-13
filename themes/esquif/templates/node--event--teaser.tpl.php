@@ -17,7 +17,8 @@
   <?php endif; ?>
   <section class="eventSummary__details">
     <?php
-      $items = field_get_items('node', $node, 'field_date');
+    $items = field_get_items('node', $node, 'field_date');
+    if ($items) {
       foreach ($items as $item) {
         $date = new DateObject($item['value'], $item['timezone'], date_type_format($item['date_type']));
         print '<time class="eventSummary__datetime" property="schema:startDate" datatype="xsd:dateTime" content="'. $date->format('c') .'">';
@@ -34,7 +35,8 @@
         print '</span>';
         print '</time>';
       }
-      hide($content['field_date']);
+    }
+    hide($content['field_date']);
     ?>
     <?php print render($content['field_ticket_link']); hide($content['field_price']); ?>
     <?php print render($title_prefix); ?>

@@ -37,16 +37,15 @@
     </header>
   <?php endif; ?>
   <section class="excerpt__description">
+    <p>
+      <?php print check_markup(render($content['body']), 'unfiltered_phrase_html', '', TRUE); ?>
+      <?php print render($content['links']['node']); ?>
+    </p>
     <?php
     // We hide the comments and links now so that we can render them later.
     hide($content['comments']);
     hide($content['links']);
     print render($content);
     ?>
-
-    <?php print render($content['links']['node']); ?>
-
-    <?php print render($content['comments']); ?>
-
   </section>
 </article>
