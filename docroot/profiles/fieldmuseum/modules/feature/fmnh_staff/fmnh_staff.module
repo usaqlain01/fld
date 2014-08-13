@@ -112,44 +112,50 @@ function fmnh_staff_user_name_callback($source, $entity, $target, array $values,
   }
 }
 
-function fmnh_staff_filter() {
+function fmnh_staff_filter($selected = '') {
   $options = array(
+    '' => array(
+      '' => '',
+    ),
+    'Board of Trustees' => array(
+      'board-of-trustees' => 'Board of Trustees',
+    ),
     'Insitutional Advancement' => array(
-      'Institutional Advancement' => 'Institutional Advancement',
-      'External Affairs' => 'External Affairs',
-      'Membership' => 'Membership',
+      'institutional-advancement' => 'Institutional Advancement',
+      'external-affairs' => 'External Affairs',
+      'membership' => 'Membership',
     ),
     'Operations' => array(
-      'Protection Services' => 'Protection Services',
-      'Housekeeping' => 'Housekeeping',
-      'Finance' => 'Finance',
-      'Office of Executive Vice President' => 'Office of Executive Vice President',
-      'Print Shop' => 'Print Shop',
-      'Facilities' => 'Facilities',
+      'protection-services' => 'Protection Services',
+      'housekeeping' => 'Housekeeping',
+      'finance' => 'Finance',
+      'office-of-the-executive-vice-president' => 'Office of Executive Vice President',
+      'print-shop' => 'Print Shop',
+      'facilities' => 'Facilities',
     ),
     'President\'s Office' => array(
-      'Human Resources' => 'Human Resources',
-      'Information Technology' => 'Information Technology',
-      'Office of VP and General Counsel' => 'Office of VP and General Counsel',
-      'Office of President/CEO' => 'Office of President/CEO',
+      'human-resources' => 'Human Resources',
+      'information-technology' => 'Information Technology',
+      'office-of-vp-and-general-counsel' => 'Office of VP and General Counsel',
+      'office-of-president/ceo' => 'Office of President/CEO',
     ),
     'Public Programs and Education' => array(
-      'Exhibitions' => 'Exhibitions',
-      'Education' => 'Education',
-      'Theater' => 'Theater',
-      'Guest Relations' => 'Guest Relations',
-      'Public Relations' => 'Public Relations',
-      'Special Events and Group Sales' => 'Special Events and Group Sales',
-      'Marketing' => 'Marketing',
-      'Communications' => 'Communications',
-      'Public Programs and Education' => 'Public Programs and Education',
+      'exhibitions' => 'Exhibitions',
+      'education' => 'Education',
+      'theater' => 'Theater',
+      'guest-relations' => 'Guest Relations',
+      'public-relations' => 'Public Relations',
+      'special-events-and-group-sales' => 'Special Events and Group Sales',
+      'marketing' => 'Marketing',
+      'communications' => 'Communications',
+      'public-programs-and-education' => 'Public Programs and Education',
     ),
     'Science and Education' => array(
-      'Science and Education' => 'Science and Education',
-      'Action Center' => 'Action Center',
-      'Collections Center' => 'Collections Center',
-      'Integrative Research Center' => 'Integrative Research Center',
-      'Repatriation' => 'Repatriation',
+      'science-and-education' => 'Science and Education',
+      'action-center' => 'Action Center',
+      'collections-center' => 'Collections Center',
+      'integrative-research-center' => 'Integrative Research Center',
+      'repatriation' => 'Repatriation',
     ),
   );
 
@@ -159,11 +165,14 @@ function fmnh_staff_filter() {
           <div class="form__field">
 
             <select id="select" class="js--selectMenu" data-placeholder="Filter Staff by Department">
-              <option></option>
 EOT;
   foreach ($options as $optgroup) {
     foreach ($optgroup as $key => $value) {
-      $markup .= '<option value="' . url('about/staff/'. $key) . '">' . check_plain($value) . '</option>';
+      $attribute = '';
+      if ($selected == $key) {
+        $attribute = ' selected="selected"';
+      }
+      $markup .= '<option value="' . url('about/staff/'. $key, array('absolute' => TRUE)) . '"'.$attribute.'>' . check_plain($value) . '</option>';
     }
   }
   $markup .= <<<EOT
@@ -173,3 +182,16 @@ EOT;
 EOT;
   return $markup;
 }
+
+/**
+ * Implementation of hook_ctools_plugin_directory() to let the system know
+ * we implement task and task_handler plugins.
+ */
+function fmnh_staff_ctools_plugin_directory($module, $plugin) {
+  // Most of this module is implemented as an export ui plugin, and the
+  // rest is in ctools/includes/ctools_access_ruleset.inc
+  if ($module == 'ctools' && $plugin == 'content_types') {
+    return 'plugins/' . $plugin;
+  }
+}
+

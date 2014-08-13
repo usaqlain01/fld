@@ -169,7 +169,7 @@ function fmnh_exhibit_field_default_field_instances() {
         'class' => 'button--cta',
         'configurable_title' => 0,
         'rel' => '',
-        'target' => 'default',
+        'target' => '_blank',
         'title' => '',
       ),
       'display' => array(

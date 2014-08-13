@@ -42,7 +42,8 @@
       <?php print render($content['field_position']); ?>
     </h6>
     <h6 class="person__department">
-      <?php print render($content['field_department']); ?>
+      <?php print render($content['field_business_unit']); ?>,
+      <?php print render($content['field_home_department']); ?>
     </h6>
   </figcaption>
 </section>

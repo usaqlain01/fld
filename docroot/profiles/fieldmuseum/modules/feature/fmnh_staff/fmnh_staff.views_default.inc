@@ -111,14 +111,16 @@ function fmnh_staff_views_default_views() {
   $handler->display->display_options['fields']['pid']['id'] = 'pid';
   $handler->display->display_options['fields']['pid']['table'] = 'profile';
   $handler->display->display_options['fields']['pid']['field'] = 'pid';
-  /* Sort criterion: Profile: Last Name (field_surname) */
+  /* Sort criterion: Field: Last Name (field_surname) */
   $handler->display->display_options['sorts']['field_surname_value']['id'] = 'field_surname_value';
   $handler->display->display_options['sorts']['field_surname_value']['table'] = 'field_data_field_surname';
   $handler->display->display_options['sorts']['field_surname_value']['field'] = 'field_surname_value';
-  /* Sort criterion: Profile: First Name (field_givenname) */
+  $handler->display->display_options['sorts']['field_surname_value']['relationship'] = 'user';
+  /* Sort criterion: Field: First Name (field_givenname) */
   $handler->display->display_options['sorts']['field_givenname_value']['id'] = 'field_givenname_value';
   $handler->display->display_options['sorts']['field_givenname_value']['table'] = 'field_data_field_givenname';
   $handler->display->display_options['sorts']['field_givenname_value']['field'] = 'field_givenname_value';
+  $handler->display->display_options['sorts']['field_givenname_value']['relationship'] = 'user';
   /* Contextual filter: Field: Department (field_department) */
   $handler->display->display_options['arguments']['field_department_target_id']['id'] = 'field_department_target_id';
   $handler->display->display_options['arguments']['field_department_target_id']['table'] = 'field_data_field_department';
@@ -144,10 +146,11 @@ function fmnh_staff_views_default_views() {
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['relationship'] = 'user';
   $handler->display->display_options['filters']['status']['value'] = '1';
-  /* Filter criterion: Profile: Last Name (field_surname) */
+  /* Filter criterion: Field: Last Name (field_surname) */
   $handler->display->display_options['filters']['field_surname_value']['id'] = 'field_surname_value';
   $handler->display->display_options['filters']['field_surname_value']['table'] = 'field_data_field_surname';
   $handler->display->display_options['filters']['field_surname_value']['field'] = 'field_surname_value';
+  $handler->display->display_options['filters']['field_surname_value']['relationship'] = 'user';
   $handler->display->display_options['filters']['field_surname_value']['operator'] = 'not empty';
 
   /* Display: Context */
@@ -159,6 +162,31 @@ function fmnh_staff_views_default_views() {
     'field_department_target_id' => array(
       'type' => 'context',
       'context' => 'entity:node.nid',
+      'context_optional' => 1,
+    ),
+  );
+
+  /* Display: Filter by home dept. */
+  $handler = $view->new_display('ctools_context', 'Filter by home dept.', 'ctools_context_2');
+  $handler->display->display_options['style_plugin'] = 'ctools_context';
+  $handler->display->display_options['row_plugin'] = 'entity';
+  $handler->display->display_options['row_options']['view_mode'] = 'summary';
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: User: Home Department (field_home_department) */
+  $handler->display->display_options['arguments']['field_home_department_value']['id'] = 'field_home_department_value';
+  $handler->display->display_options['arguments']['field_home_department_value']['table'] = 'field_data_field_home_department';
+  $handler->display->display_options['arguments']['field_home_department_value']['field'] = 'field_home_department_value';
+  $handler->display->display_options['arguments']['field_home_department_value']['relationship'] = 'user';
+  $handler->display->display_options['arguments']['field_home_department_value']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['field_home_department_value']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_home_department_value']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_home_department_value']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['field_home_department_value']['limit'] = '0';
+  $handler->display->display_options['arguments']['field_home_department_value']['transform_dash'] = TRUE;
+  $handler->display->display_options['argument_input'] = array(
+    'field_home_department_value' => array(
+      'type' => 'context',
+      'context' => 'string.html_safe',
       'context_optional' => 1,
     ),
   );
