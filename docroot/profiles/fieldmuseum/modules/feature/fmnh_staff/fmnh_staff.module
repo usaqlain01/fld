@@ -23,6 +23,20 @@ function fmnh_staff_navbar_alter(&$items) {
 }
 
 /**
+ * Implement hook_menu_alter()
+ *
+ * @param $items
+ */
+function fmnh_staff_menu_alter(&$items) {
+
+  // This disables the delete function on produciton, which should probably never
+  // be used even when it doesn't result in a total catastrophe.
+  if (isset($_ENV['AH_SITE_ENVIRONMENT']) && $_ENV['AH_SITE_ENVIRONMENT'] == 'prod') {
+    $items['import/%/delete-items']['access callback'] = FALSE;
+  }
+}
+
+/**
  * Implement hook_form_alter().
  *
  * @param $form
@@ -48,21 +62,24 @@ function fmnh_staff_preprocess_entity(&$variables, $hook) {
   if ($variables['entity_type'] == 'profile2') {
     list($id, $vid, $bundle) = entity_extract_ids('profile2', $variables['profile2']);
     if ($bundle == 'main') {
+      $account = user_load($variables['profile2']->uid);
+
       $items = field_get_items('profile2', $variables['profile2'], 'field_image');
       if (!$items) {
-        $account = user_load($variables['elements']['#entity']->uid);
         $variables['content']['field_image'] = array(
           '#theme' => 'user_picture',
           '#account' => $account,
         );
       }
-    }
 
-    if ($variables['view_mode'] == 'summary') {
-      $primary_department = $variables['content']['field_department'][0];
-      $deltas = element_children($variables['content']['field_department']);
-      $variables['content']['field_department'] = array_diff_key($variables['content']['field_department'], array_combine($deltas, $deltas));
-      $variables['content']['field_department'][0] = $primary_department;
+      foreach (array('field_business_unit', 'field_home_department', 'field_position') as $field_name) {
+        $items = field_get_items('user', $account, $field_name);
+        if ($items) {
+          foreach ($items as $item) {
+            $variables['content'][$field_name][] = field_view_value('user', $account, 'field_home_department', $item);
+          }
+        }
+      }
     }
   }
 }

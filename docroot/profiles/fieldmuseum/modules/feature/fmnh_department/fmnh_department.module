@@ -124,7 +124,7 @@ function _fmnh_department_find_and_inject(&$branch) {
   $tasks = menu_local_tasks();
   $links = array();
   foreach ($tasks['tabs']['output'] as $local_task) {
-    if ($local_task['#link']['path'] == 'node/%/collections' || $local_task['#link']['path'] == 'node/%/people') {
+    if ($local_task['#link']['path'] == 'node/%/people') {
       $links[] = $local_task['#link'];
     }
   }

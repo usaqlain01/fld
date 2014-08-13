@@ -51,7 +51,6 @@ features[field_instance][] = node-department-field_science_focus
 features[field_instance][] = node-department-field_stratigraphy
 features[field_instance][] = node-department-field_topic
 features[node][] = department
-features[page_manager_pages][] = department_collections
 features[page_manager_pages][] = department_people
 features[panelizer_defaults][] = node:department:default
 features[panelizer_defaults][] = node:department:l14a
