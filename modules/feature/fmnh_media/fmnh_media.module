@@ -105,8 +105,7 @@ function theme_tablexi_gallery($variables) {
 			</figure>
 
 <!-- Viewer loader -->
-				<i class="viewer__loader js--viewer__loader icon icon--loading">Loading...</i>
-			</div>
+            <i class="viewer__loader js--viewer__loader icon icon--loading">Loading...</i>
 		</div>
 
 <!-- Carousel -->
