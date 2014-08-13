@@ -120,9 +120,7 @@ function fmnh_exhibit_rdf_default_mappings() {
       'type' => 'rel',
     ),
     'field_action_link' => array(
-      'predicates' => array(
-        0 => 'schema:offers',
-      ),
+      'predicates' => array(),
     ),
     'field_banner_image' => array(
       'predicates' => array(),
@@ -131,6 +129,11 @@ function fmnh_exhibit_rdf_default_mappings() {
     'field_image' => array(
       'predicates' => array(),
       'type' => 'rel',
+    ),
+    'field_ticket_link' => array(
+      'predicates' => array(
+        0 => 'schema:offers',
+      ),
     ),
   );
 
