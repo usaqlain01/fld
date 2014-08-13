@@ -1937,3 +1937,7 @@ function esquif_preprocess_user_profile(&$variables, $hook) {
     $variables['url'] = $uri['path'];
   }
 }
+
+function esquif_field__field_link__department($variables) {
+  return esquif_field__field_link__banner_description_and_list($variables);
+}
