@@ -15,7 +15,7 @@ function fmnh_staff_default_page_manager_pages() {
   $page->task = 'page';
   $page->admin_title = 'Staff';
   $page->admin_description = '';
-  $page->path = 'about/staff';
+  $page->path = 'about/staff/!input';
   $page->access = array(
     'plugins' => array(
       0 => array(
@@ -43,7 +43,16 @@ function fmnh_staff_default_page_manager_pages() {
       'weight' => '0',
     ),
   );
-  $page->arguments = array();
+  $page->arguments = array(
+    'input' => array(
+      'id' => 1,
+      'identifier' => 'String',
+      'name' => 'string',
+      'settings' => array(
+        'use_tail' => 1,
+      ),
+    ),
+  );
   $page->conf = array(
     'admin_paths' => FALSE,
   );
@@ -64,15 +73,18 @@ function fmnh_staff_default_page_manager_pages() {
     'body_classes_to_add' => '',
     'css_id' => '',
     'css' => '',
-    'contexts' => array(
+    'contexts' => array(),
+    'relationships' => array(
       0 => array(
-        'identifier' => 'View: Staff',
+        'identifier' => 'View: Staff: Filter by home dept.',
         'keyword' => 'view',
-        'name' => 'view:staff-ctools_context_1',
+        'name' => 'view_from_argument:staff-ctools_context_2',
+        'context' => array(
+          0 => 'argument_string_1',
+        ),
         'id' => 1,
       ),
     ),
-    'relationships' => array(),
   );
   $display = new panels_display();
   $display->layout = 'l17';
@@ -93,37 +105,29 @@ function fmnh_staff_default_page_manager_pages() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-e6ac5224-4075-4f0c-b163-ca5cb32c8e1b';
+    $pane->pid = 'new-d21be3b1-d548-4034-9d4f-08a1f0b4a9ea';
     $pane->panel = 'main';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
+    $pane->type = 'directory_filter';
+    $pane->subtype = 'directory_filter';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'admin_title' => '',
-      'title' => '',
-      'body' => '        <form class="form__filter">
-          <!-- CAXY: The value for each of the options in this filter should be the full URL for the page that will display the people for just that department. We\'ll be updating the window location using the chosen option\'s value. -->
-          <div class="form__field">
-            <select id="select" class="js--selectMenu" data-placeholder="Filter Staff by Department"><option></option><option value="/about/staff/Institutional%20Advancement">Institutional Advancement</option><option value="/about/staff/External%20Affairs">External Affairs</option><option value="/about/staff/Membership">Membership</option><option value="/about/staff/Protection%20Services">Protection Services</option><option value="/about/staff/Housekeeping">Housekeeping</option><option value="/about/staff/Finance">Finance</option><option value="/about/staff/Office%20of%20Executive%20Vice%20President">Office of Executive Vice President</option><option value="/about/staff/Print%20Shop">Print Shop</option><option value="/about/staff/Facilities">Facilities</option><option value="/about/staff/Human%20Resources">Human Resources</option><option value="/about/staff/Information%20Technology">Information Technology</option><option value="/about/staff/Office%20of%20VP%20and%20General%20Counsel">Office of VP and General Counsel</option><option value="/about/staff/Office%20of%20President/CEO">Office of President/CEO</option><option value="/about/staff/Exhibitions">Exhibitions</option><option value="/about/staff/Education">Education</option><option value="/about/staff/Theater">Theater</option><option value="/about/staff/Guest%20Relations">Guest Relations</option><option value="/about/staff/Public%20Relations">Public Relations</option><option value="/about/staff/Special%20Events%20and%20Group%20Sales">Special Events and Group Sales</option><option value="/about/staff/Marketing">Marketing</option><option value="/about/staff/Communications">Communications</option><option value="/about/staff/Public%20Programs%20and%20Education">Public Programs and Education</option><option value="/about/staff/Science%20and%20Education">Science and Education</option><option value="/about/staff/Action%20Center">Action Center</option><option value="/about/staff/Collections%20Center">Collections Center</option><option value="/about/staff/Integrative%20Research%20Center">Integrative Research Center</option><option value="/about/staff/Repatriation">Repatriation</option>            </select>
-          </div>
-        </form>
-',
-      'format' => 'unfiltered',
-      'substitute' => 1,
+      'context' => 'argument_string_1',
+      'override_title' => 0,
+      'override_title_text' => '',
     );
     $pane->cache = array();
     $pane->style = array(
-      'style' => 'naked',
+      'style' => 'default',
       'settings' => NULL,
     );
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = 'e6ac5224-4075-4f0c-b163-ca5cb32c8e1b';
-    $display->content['new-e6ac5224-4075-4f0c-b163-ca5cb32c8e1b'] = $pane;
-    $display->panels['main'][0] = 'new-e6ac5224-4075-4f0c-b163-ca5cb32c8e1b';
+    $pane->uuid = 'd21be3b1-d548-4034-9d4f-08a1f0b4a9ea';
+    $display->content['new-d21be3b1-d548-4034-9d4f-08a1f0b4a9ea'] = $pane;
+    $display->panels['main'][0] = 'new-d21be3b1-d548-4034-9d4f-08a1f0b4a9ea';
     $pane = new stdClass();
     $pane->pid = 'new-3ad9bba9-21c9-4c83-b88c-90f0b7b1bc8f';
     $pane->panel = 'main';
@@ -299,311 +303,6 @@ function fmnh_staff_default_page_manager_pages() {
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
   $pages['staff'] = $page;
-
-  $page = new stdClass();
-  $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
-  $page->api_version = 1;
-  $page->name = 'staff_filtered';
-  $page->task = 'page';
-  $page->admin_title = 'Staff';
-  $page->admin_description = '';
-  $page->path = 'about/staff/%node';
-  $page->access = array(
-    'plugins' => array(
-      0 => array(
-        'name' => 'perm',
-        'settings' => array(
-          'perm' => 'access content',
-        ),
-        'context' => 'logged-in-user',
-        'not' => FALSE,
-      ),
-    ),
-    'logic' => 'and',
-    'type' => 'none',
-    'settings' => NULL,
-  );
-  $page->menu = array(
-    'type' => 'normal',
-    'title' => 'Staff',
-    'name' => 'main-menu',
-    'weight' => '0',
-    'parent' => array(
-      'type' => 'none',
-      'title' => '',
-      'name' => 'navigation',
-      'weight' => '0',
-    ),
-  );
-  $page->arguments = array(
-    'node' => array(
-      'id' => 1,
-      'identifier' => 'Node: ID',
-      'name' => 'entity_id:node',
-      'settings' => array(),
-    ),
-  );
-  $page->conf = array(
-    'admin_paths' => FALSE,
-  );
-  $page->default_handlers = array();
-  $handler = new stdClass();
-  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
-  $handler->api_version = 1;
-  $handler->name = 'page_staff_filtered_panel_context';
-  $handler->task = 'page';
-  $handler->subtask = 'staff_filtered';
-  $handler->handler = 'panel_context';
-  $handler->weight = 0;
-  $handler->conf = array(
-    'title' => 'Panel',
-    'no_blocks' => 0,
-    'pipeline' => 'ipe',
-    'body_classes_to_remove' => '',
-    'body_classes_to_add' => '',
-    'css_id' => '',
-    'css' => '',
-    'contexts' => array(),
-    'relationships' => array(
-      0 => array(
-        'identifier' => 'View: Staff',
-        'keyword' => 'view',
-        'name' => 'view_from_argument:staff-ctools_context_1',
-        'context' => array(
-          0 => 'argument_entity_id:node_1',
-        ),
-        'id' => 1,
-      ),
-    ),
-    'access' => array(
-      'plugins' => array(
-        0 => array(
-          'name' => 'entity_bundle:node',
-          'settings' => array(
-            'type' => array(
-              'department' => 'department',
-            ),
-          ),
-          'context' => 'argument_entity_id:node_1',
-          'not' => FALSE,
-        ),
-      ),
-      'logic' => 'and',
-    ),
-  );
-  $display = new panels_display();
-  $display->layout = 'l17';
-  $display->layout_settings = array(
-    'main_classes' => 'l--body__content',
-    'nav_classes' => 'l--body__nav js--sticky',
-  );
-  $display->panel_settings = array(
-    'style_settings' => array(
-      'default' => NULL,
-      'main' => NULL,
-      'nav' => NULL,
-    ),
-  );
-  $display->cache = array();
-  $display->title = 'Staff';
-  $display->uuid = '830a5467-f87b-4108-93ed-24041d42dd0a';
-  $display->content = array();
-  $display->panels = array();
-    $pane = new stdClass();
-    $pane->pid = 'new-ccb0fd05-9876-459e-b8a1-74aa05b154d2';
-    $pane->panel = 'main';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'departments-panel_pane_1';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array();
-    $pane->cache = array();
-    $pane->style = array(
-      'style' => 'default',
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = 'ccb0fd05-9876-459e-b8a1-74aa05b154d2';
-    $display->content['new-ccb0fd05-9876-459e-b8a1-74aa05b154d2'] = $pane;
-    $display->panels['main'][0] = 'new-ccb0fd05-9876-459e-b8a1-74aa05b154d2';
-    $pane = new stdClass();
-    $pane->pid = 'new-3ad9bba9-21c9-4c83-b88c-90f0b7b1bc8f';
-    $pane->panel = 'main';
-    $pane->type = 'views_row';
-    $pane->subtype = 'views_row';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'rows' => array(),
-      'use_fields' => 0,
-      'fields' => array(),
-      'context' => 'context_view:staff-ctools_context_1_1',
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'style' => 'semantic_panels',
-      'settings' => array(
-        'element_title' => array(
-          'type' => '0',
-          'class_enable' => 0,
-          'class' => '',
-          'attributes' => array(),
-          'link_enabled' => 0,
-          'link' => array(
-            'path' => '',
-            'class_enable' => 0,
-            'class' => '',
-            'attributes' => array(),
-            'attributes_array' => array(),
-          ),
-          'attributes_array' => array(),
-        ),
-        'element_content' => array(
-          'type' => 'div',
-          'class_enable' => 1,
-          'class' => 'persons--2up',
-          'attributes' => array(),
-          'link_enabled' => 0,
-          'link' => array(
-            'path' => '',
-            'class_enable' => 0,
-            'class' => '',
-            'attributes' => array(),
-            'attributes_array' => array(),
-          ),
-          'attributes_array' => array(),
-        ),
-        'element_wrapper' => array(
-          'type' => '0',
-          'class_enable' => 0,
-          'class' => '',
-          'attributes' => array(),
-          'attributes_array' => array(),
-        ),
-        'add_default_classes' => 1,
-      ),
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 1;
-    $pane->locks = array();
-    $pane->uuid = '3ad9bba9-21c9-4c83-b88c-90f0b7b1bc8f';
-    $display->content['new-3ad9bba9-21c9-4c83-b88c-90f0b7b1bc8f'] = $pane;
-    $display->panels['main'][1] = 'new-3ad9bba9-21c9-4c83-b88c-90f0b7b1bc8f';
-    $pane = new stdClass();
-    $pane->pid = 'new-548b08e3-1d22-43c7-8a1f-111cf2de41cd';
-    $pane->panel = 'main';
-    $pane->type = 'views_pager';
-    $pane->subtype = 'views_pager';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'context' => 'context_view:staff-ctools_context_1_1',
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'style' => 'default',
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 2;
-    $pane->locks = array();
-    $pane->uuid = '548b08e3-1d22-43c7-8a1f-111cf2de41cd';
-    $display->content['new-548b08e3-1d22-43c7-8a1f-111cf2de41cd'] = $pane;
-    $display->panels['main'][2] = 'new-548b08e3-1d22-43c7-8a1f-111cf2de41cd';
-    $pane = new stdClass();
-    $pane->pid = 'new-68ce6f91-e6b7-4da9-8fa7-5e506d1f296e';
-    $pane->panel = 'nav';
-    $pane->type = 'menu_tree';
-    $pane->subtype = 'main-menu';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'menu_name' => 'main-menu',
-      'parent_mlid' => 0,
-      'parent' => 'main-menu:0',
-      'title_link' => 0,
-      'admin_title' => '',
-      'level' => '2',
-      'follow' => 0,
-      'depth' => '0',
-      'expanded' => 0,
-      'sort' => 0,
-      'override_title' => 1,
-      'override_title_text' => '',
-      'identifier' => 'section',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => array(
-        'element_title' => array(
-          'type' => '0',
-          'class_enable' => 0,
-          'class' => '',
-          'attributes' => array(),
-          'link_enabled' => 0,
-          'link' => array(
-            'path' => '',
-            'class_enable' => 0,
-            'class' => '',
-            'attributes' => array(),
-            'attributes_array' => array(),
-          ),
-          'attributes_array' => array(),
-        ),
-        'element_content' => array(
-          'type' => '0',
-          'class_enable' => 0,
-          'class' => '',
-          'attributes' => array(),
-          'link_enabled' => 0,
-          'link' => array(
-            'path' => '',
-            'class_enable' => 0,
-            'class' => '',
-            'attributes' => array(),
-            'attributes_array' => array(),
-          ),
-          'attributes_array' => array(),
-        ),
-        'element_wrapper' => array(
-          'type' => 'nav',
-          'class_enable' => 1,
-          'class' => 'navSection',
-          'attributes' => array(
-            'role' => array(
-              'enabled' => 1,
-              'value' => 'navigation',
-            ),
-          ),
-          'attributes_array' => array(
-            'role' => 'navigation',
-          ),
-        ),
-        'add_default_classes' => 1,
-      ),
-      'style' => 'semantic_panels',
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = '68ce6f91-e6b7-4da9-8fa7-5e506d1f296e';
-    $display->content['new-68ce6f91-e6b7-4da9-8fa7-5e506d1f296e'] = $pane;
-    $display->panels['nav'][0] = 'new-68ce6f91-e6b7-4da9-8fa7-5e506d1f296e';
-  $display->hide_title = PANELS_TITLE_FIXED;
-  $display->title_pane = '0';
-  $handler->conf['display'] = $display;
-  $page->default_handlers[$handler->name] = $handler;
-  $pages['staff_filtered'] = $page;
 
   return $pages;
 
