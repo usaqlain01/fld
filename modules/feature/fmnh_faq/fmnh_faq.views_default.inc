@@ -128,6 +128,7 @@ function fmnh_faq_views_default_views() {
   );
   $handler->display->display_options['style_options']['row_class'] = 'navFaqs__item';
   $handler->display->display_options['style_options']['class'] = 'navFaqs__list';
+  $handler->display->display_options['style_options']['wrapper_class'] = '';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
@@ -147,7 +148,6 @@ function fmnh_faq_views_default_views() {
     'link' => 0,
     'field_formatter_class' => '',
   );
-  $handler->display->display_options['fields']['field_faq_topic']['field_api_classes'] = TRUE;
   /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
