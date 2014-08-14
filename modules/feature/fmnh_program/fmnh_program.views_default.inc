@@ -80,6 +80,11 @@ function fmnh_program_views_default_views() {
   $handler->display->display_options['filters']['field_grade_level_target_id']['table'] = 'field_data_field_grade_level';
   $handler->display->display_options['filters']['field_grade_level_target_id']['field'] = 'field_grade_level_target_id';
   $handler->display->display_options['filters']['field_grade_level_target_id']['operator'] = 'not empty';
+  /* Filter criterion: Content: Audience (field_audience) */
+  $handler->display->display_options['filters']['field_audience_target_id']['id'] = 'field_audience_target_id';
+  $handler->display->display_options['filters']['field_audience_target_id']['table'] = 'field_data_field_audience';
+  $handler->display->display_options['filters']['field_audience_target_id']['field'] = 'field_audience_target_id';
+  $handler->display->display_options['filters']['field_audience_target_id']['operator'] = 'empty';
 
   /* Display: Context */
   $handler = $view->new_display('ctools_context', 'Context', 'ctools_context_1');
@@ -241,6 +246,16 @@ function fmnh_program_views_default_views() {
   $handler->display->display_options['filters']['field_date_value']['operator'] = '>=';
   $handler->display->display_options['filters']['field_date_value']['group'] = 2;
   $handler->display->display_options['filters']['field_date_value']['default_date'] = 'now';
+  /* Filter criterion: Content: Audience (field_audience) */
+  $handler->display->display_options['filters']['field_audience_target_id']['id'] = 'field_audience_target_id';
+  $handler->display->display_options['filters']['field_audience_target_id']['table'] = 'field_data_field_audience';
+  $handler->display->display_options['filters']['field_audience_target_id']['field'] = 'field_audience_target_id';
+  $handler->display->display_options['filters']['field_audience_target_id']['operator'] = 'not empty';
+  /* Filter criterion: Content: Grade level (field_grade_level) */
+  $handler->display->display_options['filters']['field_grade_level_target_id']['id'] = 'field_grade_level_target_id';
+  $handler->display->display_options['filters']['field_grade_level_target_id']['table'] = 'field_data_field_grade_level';
+  $handler->display->display_options['filters']['field_grade_level_target_id']['field'] = 'field_grade_level_target_id';
+  $handler->display->display_options['filters']['field_grade_level_target_id']['operator'] = 'empty';
 
   /* Display: Admin page */
   $handler = $view->new_display('page', 'Admin page', 'page_1');
