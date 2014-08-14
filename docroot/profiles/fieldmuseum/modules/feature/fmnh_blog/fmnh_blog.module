@@ -1,0 +1,42 @@
+<?php
+/**
+ * @file
+ * Code for the Field Museum blog feature.
+ */
+
+include_once 'fmnh_blog.features.inc';
+
+/**
+ * Embed the filter menu under the science blog link.
+ *
+ * @param $variables
+ * @param $hook
+ */
+function fmnh_blog_preprocess_menu_link(&$variables, $hook) {
+  if (isset($variables['theme_hook_suggestion']) && 'menu_link__menu_block__main_menu__section' == $variables['theme_hook_suggestion']) {
+    $href = $variables['element']['#href'];
+    if ('science/blog' == $href) {
+      $variables['theme_hook_suggestion'] = 'menu_link__menu_block__main_menu__section__science_blog';
+    }
+  }
+}
+
+/**
+ * Implementation of hook_ctools_plugin_directory() to let the system know
+ * we implement task and task_handler plugins.
+ */
+function fmnh_blog_ctools_plugin_directory($module, $plugin) {
+  // Most of this module is implemented as an export ui plugin, and the
+  // rest is in ctools/includes/ctools_access_ruleset.inc
+  if ($module == 'ctools' && $plugin == 'content_types') {
+    return 'plugins/' . $plugin;
+  }
+}
+
+function fmnh_blog_menu_position_rule_plugins() {
+  return array(
+    'topic' => array(
+      'file' => 'fmnh_blog.menu_position.inc',
+    ),
+  );
+}

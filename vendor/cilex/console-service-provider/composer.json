@@ -1,0 +1,23 @@
+{
+    "name":        "cilex/console-service-provider",
+    "description": "Console Service Provider",
+    "keywords":    ["pimple", "cilex", "silex", "console", "service-provider"],
+    "license":     "MIT",
+    "authors": [
+        { "name": "Mike van Riel", "email": "me@mikevanriel.com" },
+        { "name": "Beau Simensen", "email": "beau@dflydev.com" }
+    ],
+    "require": {
+        "php":             ">=5.3.3",
+        "pimple/pimple":   ">=2.1,<4",
+        "symfony/console": "~2.4"
+    },
+    "autoload": {
+        "psr-0": { "Cilex\\Provider\\Console": "src" }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.0-dev"
+        }
+    }
+}

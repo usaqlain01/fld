@@ -56,27 +56,6 @@ DirectoryIndex index.php index.html index.htm
 <IfModule mod_rewrite.c>
   RewriteEngine on
 
-  # Enable X-AH-*-Redirect headers:
-  #   ...for certain host(s)...
-   RewriteCond %{HTTP_HOST} "^(www\.)?fieldmuseum\.org$"
-  #   ...and ommitting this path:
-  RewriteCond %{THE_REQUEST} !explore/department/ecco/getinvolvedinstewardship
-  #   ...see ticket#15066-110965
-  RewriteCond %{THE_REQUEST} !happening/exhibits/dinosaurs-tracking-reptiles-pangaea
-  RewriteCond %{THE_REQUEST} !happening/programs/meet-scientist
-  RewriteCond %{THE_REQUEST} !support
-  RewriteCond %{THE_REQUEST} !happening/exhibits/bunky-echo-hawk-modern-warrior
-  RewriteCond %{THE_REQUEST} !happening/exhibits/titans-ice-age-3d
-  RewriteCond %{THE_REQUEST} !happening/artists-and-authors
-  RewriteRule . - [E=DO_REDIRECT:true]
-
-  # Depending on variable, output the headers for Varnish to handle.
-  ## DEPRECATED REDIRECT, now that FPM is being used this is now managed in the settings.php file
-  ## Header set X-AH-Tablet-Redirect "http://m.fieldmuseum.org" env=DO_REDIRECT
-  ## Header set X-AH-Mobile-Redirect "http://m.fieldmuseum.org" env=DO_REDIRECT
-
-
-
   # Set "protossl" to "s" if we were accessed via https://.  This is used later
   # if you enable "www." stripping or enforcement, in order to ensure that
   # you don't bounce between http and https.
@@ -110,10 +89,9 @@ DirectoryIndex index.php index.html index.htm
   # To redirect all users to access the site WITH the 'www.' prefix,
   # (http://example.com/... will be redirected to http://www.example.com/...)
   # uncomment the following:
-  RewriteCond %{HTTP_HOST} .
-  RewriteCond %{HTTP_HOST} ^fieldmuseum\.org$ [NC,OR]
-  RewriteCond %{HTTP_HOST} ^fldmuse\.prod\.acquia-sites\.com$ [NC]
-  RewriteRule ^ http%{ENV:protossl}://www.fieldmuseum.org%{REQUEST_URI} [L,R=301]
+  # RewriteCond %{HTTP_HOST} .
+  # RewriteCond %{HTTP_HOST} !^www\. [NC]
+  # RewriteRule ^ http%{ENV:protossl}://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
   #
   # To redirect all users to access the site WITHOUT the 'www.' prefix,
   # (http://www.example.com/... will be redirected to http://example.com/...)

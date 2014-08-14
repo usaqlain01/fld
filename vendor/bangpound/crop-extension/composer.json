@@ -1,0 +1,19 @@
+{
+    "name": "bangpound/crop-extension",
+    "description": "Extension of stojg/crop",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Benjamin Doherty",
+            "email": "bjd@bangpound.org"
+        }
+    ],
+    "require": {
+        "stojg/crop": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Bangpound\\stojg\\crop\\": "src/"
+        }
+    }
+}

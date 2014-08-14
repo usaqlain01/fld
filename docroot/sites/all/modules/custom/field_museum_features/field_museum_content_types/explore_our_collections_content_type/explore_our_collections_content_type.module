@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the Explore our Collections Content Type feature.
- */
-
-include_once 'explore_our_collections_content_type.features.inc';

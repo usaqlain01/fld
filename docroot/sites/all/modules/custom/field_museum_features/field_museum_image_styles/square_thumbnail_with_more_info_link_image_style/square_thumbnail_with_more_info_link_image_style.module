@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the Square Thumbnail with More Info Link Image Style feature.
- */
-
-include_once 'square_thumbnail_with_more_info_link_image_style.features.inc';

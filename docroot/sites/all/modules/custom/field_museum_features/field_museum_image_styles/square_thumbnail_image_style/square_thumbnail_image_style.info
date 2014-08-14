@@ -1,7 +1,0 @@
-name = Square Thumbnail Image Style
-core = 7.x
-package = Field Museum Image Styles
-dependencies[] = image
-features[features_api][] = api:2
-features[image][] = square_thumbnail
-project path = sites/all/modules/custom/field_museum_features/field_museum_image_styles

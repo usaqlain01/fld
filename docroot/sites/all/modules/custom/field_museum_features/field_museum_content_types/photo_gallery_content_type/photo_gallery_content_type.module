@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the Photo Gallery Content Type feature.
- */
-
-include_once 'photo_gallery_content_type.features.inc';

@@ -1,4 +1,0 @@
-name = Block visibility OR conditions
-description = Allows users to allow blocks to display if they match any visibility conditions rather than all or nothing.
-core = 7.x
-files[] = block_visibility_or.module

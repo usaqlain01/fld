@@ -1,7 +1,0 @@
-name = Content Full File View Mode
-core = 7.x
-package = Entity View Modes
-dependencies[] = entity_view_mode
-features[entity_view_mode][] = file:content_full
-features[features_api][] = api:2
-project path = sites/all/modules/custom/field_museum_features/field_museum_entity_view_modes

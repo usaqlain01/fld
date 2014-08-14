@@ -1,0 +1,12 @@
+'49950 Copyright information 4413':
+    link:
+        link_path: node/217
+        router_path: node/%
+        link_title: 'Copyright information'
+        type: '6'
+'49951 Visit our mobile site 19456':
+    link:
+        link_path: 'http://m.fieldmuseum.org/'
+        router_path: ''
+        link_title: 'Visit our mobile site'
+        type: null

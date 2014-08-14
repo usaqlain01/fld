@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the wr_04_related_content_widget_view feature.
- */
-
-include_once 'wr_04_related_content_widget_view.features.inc';

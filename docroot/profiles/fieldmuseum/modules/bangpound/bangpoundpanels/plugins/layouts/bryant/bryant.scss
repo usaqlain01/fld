@@ -1,0 +1,27 @@
+/**
+ * @file
+ * Bryant panel layout
+**/
+
+@import "../base";
+
+.bryant-container {
+  margin-bottom: 1em;
+}
+
+@include breakpoint($breakpoint-iphone-width) {
+  .bryant-sidebar {
+    min-height: 1px;
+    width: 23.404%;
+    float: left;
+  }
+
+  .bryant-sidebar-inner {
+    margin-right: $gutter-width;
+  }
+
+  .bryant-content {
+    float: left;
+    width: 76.596%;
+  }
+}

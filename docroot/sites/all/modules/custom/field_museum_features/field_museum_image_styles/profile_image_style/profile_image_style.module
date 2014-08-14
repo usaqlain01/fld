@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the Profile Image Style feature.
- */
-
-include_once 'profile_image_style.features.inc';

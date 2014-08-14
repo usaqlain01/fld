@@ -1,6 +1,0 @@
-name = Views Feed Fields
-description = "Use 'fields' as the content of RSS feeds generated with Views."
-package = Views
-core = 7.x
-dependencies[] = views
-files[] = feed_fields_plugin_row_fields_rss.inc

@@ -1,0 +1,43 @@
+'50000 Home 11121':
+    link:
+        link_path: node/70
+        router_path: node/%
+        link_title: Home
+        type: '6'
+'50001 Education 10901':
+    link:
+        link_path: node/8156
+        router_path: node/%
+        link_title: Education
+        type: '6'
+'50002 Exploration 10906':
+    link:
+        link_path: node/8176
+        router_path: node/%
+        link_title: Exploration
+        type: '6'
+'50003 People 11466':
+    link:
+        link_path: explore/department/pritzkerlab/people
+        router_path: explore/department/%/people
+        link_title: People
+        type: '0'
+'50004 Innovation 10896':
+    link:
+        link_path: node/8151
+        router_path: node/%
+        link_title: Innovation
+        type: '6'
+'50005 Highlights 10911':
+    link:
+        link_path: node/8186
+        router_path: node/%
+        link_title: Highlights
+        type: '6'
+    below:
+        '50000 Vertebrate Tree of Life 10921':
+            link:
+                link_path: node/8216
+                router_path: node/%
+                link_title: 'Vertebrate Tree of Life'
+                type: '6'

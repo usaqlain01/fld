@@ -1,0 +1,45 @@
+/**
+ * @file
+ * Selby panel layout
+**/
+
+@import "../base";
+
+.selby-container,
+.selby-content-header,
+.selby-content-container-column-container {
+  margin-bottom: 1em;
+}
+
+@include breakpoint($breakpoint-iphone-width) {
+  .selby-column {
+    min-height: 1px;
+    width: 34.043%;
+    float: left;
+  }
+
+  .selby-column-inner {
+    margin-right: $gutter-width;
+  }
+
+  .selby-content-column2-inner {
+    margin-right: 0;
+  }
+
+  .selby-content-container { /* This is floated to the left of the sidebar,
+  which is styled by the generic "selby-column" class */
+    min-height: 1px;
+    float: left;
+    width: 65.957%;
+    .selby-column {
+      width: 51.613%;
+    }
+    .selby-content-column2 {
+      width: 48.387%;
+    }
+  }
+
+  .selby-content-column2-inner {
+    margin-right: 0;
+  }
+}

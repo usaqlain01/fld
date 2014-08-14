@@ -1,0 +1,34 @@
+/**
+ * @file
+ * Harris panel layout
+**/
+
+@import "../base";
+
+.harris-container {
+  margin-bottom: 1em;
+}
+
+@include breakpoint($breakpoint-iphone-width) {
+  .harris-column-content-region {
+    min-height: 1px;
+    width: 25.532%;
+    float: left;
+  }
+
+  .harris-column-content-region-inner {
+    margin-right: $gutter-width;
+  }
+
+  .harris-column2 {
+    width: 23.404%;
+  }
+
+  .harris-column2-inner {
+    margin-right: 0;
+  }
+
+  .harris-content {
+    width: 51.064%;
+  }
+}

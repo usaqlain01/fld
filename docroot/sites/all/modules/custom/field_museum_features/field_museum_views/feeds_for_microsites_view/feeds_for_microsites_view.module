@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the feeds_for_microsites_view feature.
- */
-
-include_once 'feeds_for_microsites_view.features.inc';

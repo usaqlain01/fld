@@ -1,0 +1,12 @@
+'50000 Academic Programs 19666':
+    link:
+        link_path: 'http://fieldmuseum.org/schools/academic-programs'
+        router_path: ''
+        link_title: 'Academic Programs'
+        type: null
+'50000 Virtual Visits 19656':
+    link:
+        link_path: node/15516
+        router_path: node/%
+        link_title: 'Virtual Visits'
+        type: '6'

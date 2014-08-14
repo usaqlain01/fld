@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the section_front_widget_view feature.
- */
-
-include_once 'section_front_widget_view.features.inc';

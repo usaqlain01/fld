@@ -1,0 +1,33 @@
+default:
+    paths:
+        bootstrap: "%behat.paths.features%/bootstrap"
+        features: features
+    formatter:
+        classes:
+            csv_statistics: 'Behat\CommonFormatters\CsvStatisticsFormatter'
+    extensions:
+        Behat\MinkExtension\Extension:
+            base_url: "http://fieldmuseum.local:8083"
+            goutte: ~
+        Drupal\DrupalExtension\Extension:
+            api_driver: drupal
+            blackbox: ~
+            drush:
+                alias: self
+            drupal:
+                drupal_root: ../../../
+            subcontexts:
+                autoload: 0
+                paths:
+                    - "%behat.paths.base%/../modules/custom/fmnh_migrate"
+            region_map:
+                header: "#header"
+                navigation bar: "#navigation"
+                highlighted: ".region .region-highlighted"
+                help: ".help .region-help"
+                content: "#content"
+                first sidebar: ".region .region-sidebar-first"
+                second sidebar: ".region .region-sidebar-second"
+                footer: "#footer"
+                page bottom: ".region .region-bottom"
+                breadcrumb: "nav.breadcrumb"

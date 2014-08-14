@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the Collection (Individual) Content Type feature.
- */
-
-include_once 'collection_individual_content_type.features.inc';

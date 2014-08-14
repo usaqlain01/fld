@@ -1,9 +1,0 @@
-name = browse_collections_view
-core = 7.x
-package = Features
-dependencies[] = ctools
-dependencies[] = custom
-dependencies[] = views
-features[views_view][] = browse_collections
-features[ctools][] = views:views_default:3.0
-features[features_api][] = api:2

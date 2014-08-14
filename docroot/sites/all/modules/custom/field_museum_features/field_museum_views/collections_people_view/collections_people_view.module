@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the collections_people_view feature.
- */
-
-include_once 'collections_people_view.features.inc';

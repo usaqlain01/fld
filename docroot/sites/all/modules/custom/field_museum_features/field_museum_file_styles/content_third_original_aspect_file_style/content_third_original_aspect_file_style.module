@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the Content Third Original Aspect File Style feature.
- */
-
-include_once 'content_third_original_aspect_file_style.features.inc';

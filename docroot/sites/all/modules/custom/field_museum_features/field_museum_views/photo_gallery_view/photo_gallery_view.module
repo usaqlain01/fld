@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the photo_gallery_view feature.
- */
-
-include_once 'photo_gallery_view.features.inc';

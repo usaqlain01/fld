@@ -1,0 +1,27 @@
+/**
+ * @file
+ * Brenham Flipped panel layout
+**/
+
+@import "../base";
+
+.brenham-flipped-container {
+  margin-bottom: 1em;
+}
+
+@include breakpoint($breakpoint-iphone-width) {
+  .brenham-flipped-sidebar {
+    min-height: 1px;
+    width: 31.915%;
+    float: left;
+  }
+
+  .brenham-flipped-content {
+    width: 68.085%;
+    float: left;
+  }
+
+  .brenham-flipped-content-inner {
+    margin-right: $gutter-width;
+  }
+}

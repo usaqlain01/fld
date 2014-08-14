@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the explore_our_collections_header_view feature.
- */
-
-include_once 'explore_our_collections_header_view.features.inc';

@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the Section Front Content Type feature.
- */
-
-include_once 'section_front_content_type.features.inc';

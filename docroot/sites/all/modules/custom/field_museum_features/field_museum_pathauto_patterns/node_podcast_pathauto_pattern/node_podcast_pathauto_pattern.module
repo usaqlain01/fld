@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the node_podcast_pathauto_pattern feature.
- */
-
-include_once 'node_podcast_pathauto_pattern.features.inc';

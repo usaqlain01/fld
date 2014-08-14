@@ -1,0 +1,41 @@
+/**
+ * @file
+ * Sanderson panel layout
+**/
+.sanderson-container {
+  margin-bottom: 1em;
+}
+
+@media (min-width: 480px) {
+  .sanderson-column-content-region {
+    min-height: 1px;
+    width: 51.064%;
+    float: left;
+  }
+
+  .sanderson-column2 {
+    width: 48.936%;
+  }
+
+  .sanderson-column-content-region-inner {
+    margin-right: 20px;
+  }
+
+  .sanderson-secondary-column-content-region {
+    min-height: 1px;
+    width: 34.043%;
+    float: left;
+  }
+
+  .sanderson-secondary-column-content-region-inner {
+    margin-right: 20px;
+  }
+
+  .sanderson-secondary-column3 {
+    width: 31.915%;
+  }
+
+  .sanderson-column2-inner, .sanderson-secondary-column3-inner {
+    margin-right: 0;
+  }
+}

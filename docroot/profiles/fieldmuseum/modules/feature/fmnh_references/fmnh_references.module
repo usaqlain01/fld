@@ -1,0 +1,121 @@
+<?php
+/**
+ * @file
+ * Drupal needs this blank file.
+ */
+
+function fmnh_references_theme($existing, $type, $theme, $path) {
+  return array(
+    'field__field_references' => array(
+      'render element' => 'element',
+    ),
+  );
+}
+
+/**
+ * @param $variables
+ * @return string
+ *
+ * @param $variables
+ *   An associative array containing:
+ *   - items: An array of items to be displayed in the list. If an item is a
+ *     string, then it is used as is. If an item is an array, then the "data"
+ *     element of the array is used as the contents of the list item. If an item
+ *     is an array with a "children" element, those children are displayed in a
+ *     nested list. All other elements are treated as attributes of the list
+ *     item element.
+ *   - title: The title of the list.
+ *   - type: The type of list to return (e.g. "ul", "ol").
+ *   - attributes: The attributes applied to the list element.
+ */
+function theme_field__field_references($variables) {
+  $output = '';
+  $groups = array();
+  $settings = array(
+    array(
+      'title' => t('In Our Research Collection'),
+      'title_attributes' => array('class' => 'explore__subheading'),
+      'content_attributes' => array('class' => 'promos--3up'),
+      'view_mode' => 'promo',
+      'bundles' => array('exhibit', 'collection'),
+    ),
+    array(
+      'title' => t('From Our Galleries'),
+      'title_attributes' => array('class' => 'explore__subheading'),
+      'content_attributes' => array('class' => 'promos--3up'),
+      'view_mode' => 'promo',
+      'bundles' => array('media_gallery'),
+    ),
+    array(
+      'title' => t('Programs'),
+      'title_attributes' => array('class' => 'explore__subheading'),
+      'content_attributes' => array('class' => 'promos--3up'),
+      'view_mode' => 'promo',
+      'bundles' => array('program'),
+    ),
+    array(
+      'title' => t('On The Blog'),
+      'title_attributes' => array('class' => 'explore__subheading'),
+      'content_attributes' => array('class' => array('contentLinks', 'contentLinks--full')),
+      'item_attributes' => array('class' => 'contentLinks__item'),
+      'view_mode' => 'entity_label',
+      'bundles' => array('blog', 'video'),
+    ),
+    array(
+      'title' => t('Learning Resources'),
+      'title_attributes' => array('class' => 'explore__subheading'),
+      'content_attributes' => array('class' => array('contentLinks', 'contentLinks--full')),
+      'item_attributes' => array('class' => 'contentLinks__item'),
+      'view_mode' => 'entity_label',
+      'bundles' => array('learning_resource'),
+    ),
+    array(
+      'title' => t('Events'),
+      'title_attributes' => array('class' => 'explore__subheading'),
+      'content_attributes' => array('class' => array('contentLinks', 'contentLinks--full')),
+      'item_attributes' => array('class' => 'contentLinks__item'),
+      'view_mode' => 'entity_label',
+      'bundles' => array('event'),
+    ),
+  );
+
+  $map = array();
+  foreach ($settings as $key => $setting) {
+    foreach ($setting['bundles'] as $bundle) {
+      $map[$bundle] = $key;
+    }
+  }
+
+  $items = $variables['element']['#items'];
+  foreach ($items as $item) {
+    $entity = $item['entity'];
+    list($id, $vid, $bundle) = entity_extract_ids('node', $entity);
+    $groups[$map[$bundle]][] = node_view($entity, $settings[$map[$bundle]]['view_mode']);
+  }
+
+  foreach ($settings as $weight => $setting) {
+    if (!empty($groups[$weight])) {
+      $output .= '<h3'. drupal_attributes($setting['title_attributes']) .'>';
+      $output .= $setting['title'];
+      $output .= '</h3>';
+      switch ($setting['view_mode']) {
+        case 'promo':
+          $output .= '<section'. drupal_attributes($setting['content_attributes']) .'>';
+          $output .= drupal_render($groups[$weight]);
+          $output .= '</section>';
+          break;
+        case 'entity_label':
+          $output .= '<ul'. drupal_attributes($setting['content_attributes']) .'>';
+          foreach ($groups[$weight] as $entity) {
+            $output .= '<li'. drupal_attributes($setting['item_attributes']) .'>';
+            $output .= drupal_render($entity);
+            $output .= '</li>';
+          }
+          $output .= '</ul>';
+          break;
+      }
+    }
+  }
+
+  return $output;
+}

@@ -1,0 +1,203 @@
+<?php
+/**
+ * @file
+ * Code for the Field Museum staff feature.
+ */
+
+include_once 'fmnh_staff.features.inc';
+
+/**
+ *
+ */
+function fmnh_staff_admin_paths() {
+  return array(
+    'profile-main/*/edit' => TRUE,
+  );
+}
+
+function fmnh_staff_navbar_alter(&$items) {
+  $items['user']['tray']['user_links']['#links']['main-profile'] = array(
+    'title' => t('My public staff profile'),
+    'href' => 'profile-main',
+  );
+}
+
+/**
+ * Implement hook_menu_alter()
+ *
+ * @param $items
+ */
+function fmnh_staff_menu_alter(&$items) {
+
+  // This disables the delete function on produciton, which should probably never
+  // be used even when it doesn't result in a total catastrophe.
+  if (isset($_ENV['AH_SITE_ENVIRONMENT']) && $_ENV['AH_SITE_ENVIRONMENT'] == 'prod') {
+    $items['import/%/delete-items']['access callback'] = FALSE;
+  }
+}
+
+/**
+ * Implement hook_form_alter().
+ *
+ * @param $form
+ * @param $form_state
+ */
+function fmnh_staff_form_user_profile_form_alter(&$form, &$form_state) {
+  if (!user_access('administer users')) {
+    $form['field_givenname']['#access'] = user_access('administer users');
+    $form['field_surname']['#access'] = user_access('administer users');
+    $form['field_position']['#access'] = user_access('administer users');
+    $form['field_business_unit']['#access'] = user_access('administer users');
+    $form['field_home_department']['#access'] = user_access('administer users');
+  }
+}
+
+/**
+ * Replace missing profile images with the user's default.
+ *
+ * @param $variables
+ * @param $hook
+ */
+function fmnh_staff_preprocess_entity(&$variables, $hook) {
+  if ($variables['entity_type'] == 'profile2') {
+    list($id, $vid, $bundle) = entity_extract_ids('profile2', $variables['profile2']);
+    if ($bundle == 'main') {
+      $account = user_load($variables['profile2']->uid);
+
+      $items = field_get_items('profile2', $variables['profile2'], 'field_image');
+      if (!$items) {
+        $variables['content']['field_image'] = array(
+          '#theme' => 'user_picture',
+          '#account' => $account,
+        );
+      }
+
+      foreach (array('field_business_unit', 'field_home_department', 'field_position') as $field_name) {
+        $items = field_get_items('user', $account, $field_name);
+        if ($items) {
+          foreach ($items as $item) {
+            $variables['content'][$field_name][] = field_view_value('user', $account, 'field_home_department', $item);
+          }
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Implement hook_feeds_processor_targets_alter().
+ *
+ * @param $targets
+ * @param $entity_type
+ * @param $bundle_name
+ */
+function fmnh_staff_feeds_processor_targets_alter(&$targets, $entity_type, $bundle_name) {
+  if ($entity_type == 'user' && $bundle_name == 'user') {
+    $targets['name']['callback'] = 'fmnh_staff_user_name_callback';
+  }
+}
+
+/**
+ * Generates user names for missing values.
+ *
+ * @param $source
+ * @param $entity
+ * @param $target
+ * @param array $values
+ * @param $mapping
+ */
+function fmnh_staff_user_name_callback($source, $entity, $target, array $values, $mapping) {
+  if ($target == 'name') {
+    $entity->name = drupal_strtolower(substr($values[0], 0, strpos($values[0], '@')));
+  }
+}
+
+function fmnh_staff_filter($selected = '') {
+  $options = array(
+    '' => array(
+      '' => '- all -',
+    ),
+    'Board of Trustees' => array(
+      'board-of-trustees' => 'Board of Trustees',
+    ),
+    'Insitutional Advancement' => array(
+      'institutional-advancement' => 'Institutional Advancement',
+      'external-affairs' => 'External Affairs',
+      'membership' => 'Membership',
+    ),
+    'Operations' => array(
+      'protection-services' => 'Protection Services',
+      'housekeeping' => 'Housekeeping',
+      'finance' => 'Finance',
+      'office-of-executive-vice-president' => 'Office of Executive Vice President',
+      'print-shop' => 'Print Shop',
+      'facilities' => 'Facilities',
+    ),
+    'President\'s Office' => array(
+      'human-resources' => 'Human Resources',
+      'information-technology' => 'Information Technology',
+      'office-of-vp-and-general-counsel' => 'Office of VP and General Counsel',
+      'office-of-president/ceo' => 'Office of President/CEO',
+    ),
+    'Public Programs and Education' => array(
+      'exhibitions' => 'Exhibitions',
+      'education' => 'Education',
+      'theater' => 'Theater',
+      'guest-relations' => 'Guest Relations',
+      'public-relations' => 'Public Relations',
+      'special-events-and-group-sales' => 'Special Events and Group Sales',
+      'marketing' => 'Marketing',
+      'communications' => 'Communications',
+      'public-programs-and-education' => 'Public Programs and Education',
+    ),
+    'Science and Education' => array(
+      'science-and-education' => 'Science and Education',
+      'action-center' => 'Action Center',
+      'collections-center' => 'Collections Center',
+      'integrative-research-center' => 'Integrative Research Center',
+      'repatriation' => 'Repatriation',
+    ),
+  );
+
+  $markup = <<<EOT
+        <form class="form__filter">
+          <!-- CAXY: The value for each of the options in this filter should be the full URL for the page that will display the people for just that department. We'll be updating the window location using the chosen option's value. -->
+          <div class="form__field">
+
+            <select id="select" class="js--selectMenu" data-placeholder="Filter Staff by Department">
+EOT;
+  foreach ($options as $optgroup) {
+    foreach ($optgroup as $key => $value) {
+      $attribute = '';
+      if ($selected == $key) {
+        $attribute = ' selected="selected"';
+      }
+      $markup .= '<option value="' . url('about/staff/'. $key, array('absolute' => TRUE)) . '"'.$attribute.'>' . check_plain($value) . '</option>';
+    }
+  }
+  $markup .= <<<EOT
+            </select>
+          </div>
+        </form>
+EOT;
+  return $markup;
+}
+
+/**
+ * Implementation of hook_ctools_plugin_directory() to let the system know
+ * we implement task and task_handler plugins.
+ */
+function fmnh_staff_ctools_plugin_directory($module, $plugin) {
+  // Most of this module is implemented as an export ui plugin, and the
+  // rest is in ctools/includes/ctools_access_ruleset.inc
+  if ($module == 'ctools' && $plugin == 'content_types') {
+    return 'plugins/' . $plugin;
+  }
+}
+
+function fmnh_staff_profile2_access($op, $profile = NULL, $account = NULL) {
+  if (($op == 'view') && (isset($profile))) {
+    $account2 = user_load($profile->uid);
+    return $account2->status == 0 ? FALSE : TRUE;
+  }
+}

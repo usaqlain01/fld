@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the node_video_pathauto_pattern feature.
- */
-
-include_once 'node_video_pathauto_pattern.features.inc';

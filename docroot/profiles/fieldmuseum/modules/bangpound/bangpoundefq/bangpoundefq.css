@@ -1,0 +1,7 @@
+#edit-range,
+#edit-pager,
+#edit-range .form-item,
+#edit-pager .form-item {
+  display: inline-block;
+  margin-right: 1em;
+}

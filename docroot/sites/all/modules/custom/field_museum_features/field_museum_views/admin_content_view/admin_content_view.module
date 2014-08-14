@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the Admin Content View feature.
- */
-
-include_once 'admin_content_view.features.inc';

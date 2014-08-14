@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the wp_09_featured_content_view feature.
- */
-
-include_once 'wp_09_featured_content_view.features.inc';

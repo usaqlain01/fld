@@ -1,9 +1,0 @@
-name = Admin Content View
-description = Feature for Admin Content View
-core = 7.x
-package = Field Museum Views
-dependencies[] = views
-dependencies[] = views_bulk_operations
-features[ctools][] = views:views_default:3.0
-features[features_api][] = api:2
-features_exclude[dependencies][ctools] = ctools

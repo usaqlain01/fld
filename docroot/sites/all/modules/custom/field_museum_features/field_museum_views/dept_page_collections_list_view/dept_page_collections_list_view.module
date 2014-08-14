@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the dept_page_collections_list_view feature.
- */
-
-include_once 'dept_page_collections_list_view.features.inc';

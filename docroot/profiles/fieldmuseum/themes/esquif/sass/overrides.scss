@@ -1,0 +1,40 @@
+%tablexi-reset-ul {
+  li::before {
+    display: none;
+  }
+}
+
+%drupal-region {
+  ul, ol {
+    @extend %tablexi-reset-ul;
+  }
+  ul.inline {
+    margin: 0;
+    li {
+      display: inline;
+    }
+  }
+}
+
+.panels-ipe-region {
+  @extend %drupal-region;
+}
+
+.region-page-top {
+  @extend %drupal-region;
+}
+
+.contextual-links-wrapper {
+  @extend %drupal-region;
+}
+
+.krumo-root {
+  @extend %drupal-region;
+}
+
+ul.tabs {
+  @extend %tablexi-reset-ul;
+  li {
+    padding: 0;
+  }
+}

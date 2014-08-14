@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Field Museum FAQ feature.
+ */
+
+include_once 'fmnh_faq.features.inc';

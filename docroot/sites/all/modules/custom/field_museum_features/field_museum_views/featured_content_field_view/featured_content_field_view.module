@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the Featured Content Field View feature.
- */
-
-include_once 'featured_content_field_view.features.inc';

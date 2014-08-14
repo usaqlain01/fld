@@ -1,9 +1,0 @@
-name = Square Thumbnail More Info Link File Style
-core = 7.x
-package = Field Museum File Styles
-dependencies[] = ctools
-dependencies[] = file_entity
-features[ctools][] = file_entity:file_default_displays:1
-features[features_api][] = api:2
-features[file_display][] = image__custom_square-thumbnail-with-more-info-link__file_field_styles_file_square-thumbnail-with-more-info-link
-project path = sites/all/modules/custom/field_museum_features/field_museum_file_styles

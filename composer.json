@@ -1,0 +1,62 @@
+{
+    "require": {
+        "symfony/property-access": "~2.0",
+        "php": ">=5.3.0",
+        "stojg/crop": "dev-develop",
+        "bangpound/crop-extension": "dev-master",
+        "symfony/yaml": "2.4.2"
+    },
+    "config": {
+        "autoloader-suffix": "ComposerManager",
+        "vendor-dir": "docroot/../vendor"
+    },
+    "require-dev": {
+        "raulfraile/ladybug": "dev-master",
+        "symfony/debug": "~2.4",
+        "phing/phing": "dev-master",
+        "cac/autophing": "~1.3.3",
+        "mongolito404/phingdrushtask": "7.1.*@dev",
+        "pear-pear.php.net/VersionControl_Git": "*",
+        "bangpound/assetic-app": "1.0.*@dev"
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/bangpound/crop.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://caxy.codebasehq.com/field-museum-main-site/assetic-app.git"
+        },
+        {
+            "type": "pear",
+            "url": "http://pear.php.net"
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "mongolito404/phingdrushtask",
+                "version": "7.1.x-dev",
+                "source": {
+                    "url": "git://git.drupal.org/project/phingdrushtask.git",
+                    "type": "git",
+                    "reference": "7.x-1.x"
+                },
+                "autoload": {
+                    "classmap": [
+                        "DrushTask.php"
+                    ]
+                }
+            }
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "": [
+                "docroot/profiles/fieldmuseum/lib/"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the multimedia_gallery_view feature.
- */
-
-include_once 'multimedia_gallery_view.features.inc';

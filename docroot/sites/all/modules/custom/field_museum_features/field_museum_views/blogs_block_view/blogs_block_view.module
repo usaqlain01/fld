@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the blogs_block_view feature.
- */
-
-include_once 'blogs_block_view.features.inc';

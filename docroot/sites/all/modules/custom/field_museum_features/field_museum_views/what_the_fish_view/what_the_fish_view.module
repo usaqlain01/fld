@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the What the Fish View feature.
- */
-
-include_once 'what_the_fish_view.features.inc';

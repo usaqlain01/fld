@@ -1,8 +1,0 @@
-<?php
-
-/**
- * Implements hook_uninstall().
- */
-function block_visibility_or_uninstall() {
-  variable_del('block_visibility_or');
-}

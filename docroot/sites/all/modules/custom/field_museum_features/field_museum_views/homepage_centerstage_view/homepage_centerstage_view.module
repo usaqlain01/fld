@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the homepage_centerstage_view feature.
- */
-
-include_once 'homepage_centerstage_view.features.inc';

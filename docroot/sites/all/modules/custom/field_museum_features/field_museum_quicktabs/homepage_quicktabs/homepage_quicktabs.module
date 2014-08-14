@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the Homepage quicktabs feature.
- */
-
-include_once 'homepage_quicktabs.features.inc';

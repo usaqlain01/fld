@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the Content Full Image Style feature.
- */
-
-include_once 'content_full_image_style.features.inc';

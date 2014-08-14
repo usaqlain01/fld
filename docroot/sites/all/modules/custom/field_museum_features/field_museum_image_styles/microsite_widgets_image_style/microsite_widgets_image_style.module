@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the Microsite Widgets Image Style feature.
- */
-
-include_once 'microsite_widgets_image_style.features.inc';

@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the featured_links_view feature.
- */
-
-include_once 'featured_links_view.features.inc';

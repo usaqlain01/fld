@@ -1,9 +1,0 @@
-name = Library Files View
-description = Feature for Library Files View
-core = 7.x
-package = Field Museum Views
-dependencies[] = media_views
-dependencies[] = views
-features[ctools][] = views:views_default:3.0
-features[features_api][] = api:2
-features_exclude[dependencies][ctools] = ctools

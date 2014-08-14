@@ -1,0 +1,18 @@
+<?php
+/**
+ * @file
+ * Code for the Field Museum program feature.
+ */
+
+include_once 'fmnh_program.features.inc';
+
+function fmnh_program_menu_position_rule_plugins() {
+  return array(
+    'audience' => array(
+      'file' => 'fmnh_program.menu_position.inc',
+    ),
+    'grade_level' => array(
+      'file' => 'fmnh_program.grade_level.menu_position.inc',
+    ),
+  );
+}

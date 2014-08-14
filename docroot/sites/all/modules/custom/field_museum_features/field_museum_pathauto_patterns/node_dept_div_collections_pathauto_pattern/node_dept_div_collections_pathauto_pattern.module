@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the node_dept_div_collections_pathauto_pattern feature.
- */
-
-include_once 'node_dept_div_collections_pathauto_pattern.features.inc';

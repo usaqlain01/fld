@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the Featured Widget Content Type feature.
- */
-
-include_once 'featured_widget_content_type.features.inc';

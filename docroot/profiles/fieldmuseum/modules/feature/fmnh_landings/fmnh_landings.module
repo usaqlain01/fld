@@ -1,0 +1,31 @@
+<?php
+/**
+ * @file
+ * Code for the Field Museum landing page widgets feature.
+ */
+
+include_once 'fmnh_landings.features.inc';
+
+/**
+ * @param $variables
+ * @param $hook
+ * @see template_preprocess_node
+ */
+function fmnh_landings_preprocess_fieldable_panels_pane(&$variables, $hook) {
+  $entity = $variables['elements']['#fieldable_panels_pane'];
+  $variables['title'] = check_plain($entity->title);
+  $variables['url'] = $entity->path;
+}
+
+function fmnh_landings_entity_prepare_view($entities, $type, $langcode) {
+  if ($type == 'node' && drupal_is_front_page()) {
+    foreach ($entities as &$entity) {
+      list($id, $vid, $bundle) = entity_extract_ids($type, $entity);
+      $items = field_get_items('node', $entity, 'field_banner_image');
+      if ($items) {
+        $entity->field_image = $entity->field_banner_image;
+      }
+    }
+  }
+}
+

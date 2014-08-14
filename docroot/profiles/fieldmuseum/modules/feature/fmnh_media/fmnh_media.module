@@ -1,0 +1,164 @@
+<?php
+/**
+ * @file
+ * Code for the Field Museum media feature.
+ */
+
+include_once 'fmnh_media.features.inc';
+
+/**
+ * Implements hook_theme().
+ *
+ * @param $existing
+ * @param $type
+ * @param $theme
+ * @param $path
+ * @return array
+ */
+function fmnh_media_theme($existing, $type, $theme, $path) {
+  return array(
+    'tablexi_gallery' => array(
+      'variables' => array(
+        'node' => NULL,
+      ),
+    ),
+  );
+}
+
+/**
+ * @see theme_image_style
+ * @see theme_image
+ * @see https://gist.github.com/benlinton/6084bba1b0606eccc811
+ * @param $variables
+ * @param $hook
+ */
+function fmnh_media_preprocess_image_style(&$variables, $hook) {
+  $conflate_styles_prefixed = array('5x2', '5x3', '2x1', '3x4');
+  foreach ($conflate_styles_prefixed as $style_prefix) {
+    if (strpos($variables['style_name'], $style_prefix) === 0) {
+      $srcsets = fmnh_media_srcset($style_prefix, $variables['path']);
+      $variables['attributes']['srcset'] = implode(',', $srcsets);
+      $variables['attributes']['class'][] = 'js--pictureFill';
+      $variables['attributes']['sizes'] = '(min-width: 118.8125em) calc(100% - 555px),(min-width: 100.0625em) calc(100% - 380px),(min-width: 81.3125em) calc(100% - 325px),(min-width: 62.5625em) calc(100% - 300px),100vw';
+    }
+  }
+}
+
+function fmnh_media_srcset($style_prefix, $path) {
+  $srcsets = array();
+  foreach (array_keys(image_styles()) as $style_name) {
+    if (strpos($style_name, $style_prefix) === 0) {
+      list(, $candidate_string) = explode('_', $style_name);
+      $srcset = image_style_url($style_name, $path);
+      $srcset .= ' ';
+      $srcset .= $candidate_string;
+      $srcsets[] = $srcset;
+    }
+  }
+  return $srcsets;
+}
+
+
+/**
+ * Implementation of hook_ctools_plugin_directory() to let the system know
+ * we implement task and task_handler plugins.
+ */
+function fmnh_media_ctools_plugin_directory($module, $plugin) {
+  // Most of this module is implemented as an export ui plugin, and the
+  // rest is in ctools/includes/ctools_access_ruleset.inc
+  if ($module == 'ctools' && $plugin == 'content_types') {
+    return 'plugins/' . $plugin;
+  }
+}
+
+/**
+ *
+ */
+function theme_tablexi_gallery($variables) {
+  $node = $variables['node'];
+  $items = field_get_items('node', $node, 'media_gallery_file');
+  if ($items) {
+
+  }
+  $item = reset($items);
+  $href = image_style_url('2x1_1200w', $item['uri']);
+  $src = image_style_url('2x1_800w', $item['uri']);
+  $srcset = implode(',', fmnh_media_srcset('2x1', $item['uri']));
+  $alt = $item['alt'];
+
+  if (isset($item['field_caption'])) {
+    $caption = $item['field_caption'][LANGUAGE_NONE][0]['safe_value'];
+  }
+  else {
+    $caption = '';
+  }
+
+  $output = '';
+  $output .= <<<EOT
+<div class="gallery js--gallery">
+	<div class="viewer">
+<!-- Viewer nav -->
+		<nav class="viewer__nav">
+			<span class="viewer__prev js--viewer__prev">Previous</span>
+			<span class="viewer__next js--viewer__next">Next</span>
+		</nav>
+<!-- Viewer viewport -->
+		<div class="viewer__viewport js--viewer__items">
+<!-- Viewer item -->
+			<figure class="viewer__item js--viewer__item is--active">
+				<a class="viewer__link" href="$href">
+<!-- CAXY: Don't focus on these image sizes just yet. Let us work through the responsive layer and then we'll supply image size targets. -->
+<!-- CAXY: We'll also update the sizes attribute after we've passed in the responsive layer. -->
+				<img class="viewer__image" src="$src" srcset="$srcset" sizes="100vw" alt="$alt" /> </a>
+				<figcaption class="viewer__caption">$caption</figcaption>
+			</figure>
+
+<!-- Viewer loader -->
+            <i class="viewer__loader js--viewer__loader icon icon--loading">Loading...</i>
+		</div>
+
+<!-- Carousel -->
+		<div class="carousel">
+<!-- Carousel Viewport -->
+			<div class="carousel__viewport">
+				<ul class="carousel__list js--carousel__items">
+EOT;
+
+  foreach ($items as $item) {
+    $output .= '<li class="carousel__item js--carousel__item" ';
+
+    $attributes = array(
+      'data-type' => $item['type'],
+      'data-sizes' => '100vw',
+      'data-href' => image_style_url('2x1_1200w', $item['uri']),
+      'data-src' => image_style_url('2x1_1200w', $item['uri']),
+      'data-srcset' => implode(',', fmnh_media_srcset('2x1', $item['uri'])),
+      'data-alt' => $item['alt'],
+      'data-caption' => $item['field_caption'][LANGUAGE_NONE][0]['safe_value'],
+    );
+
+    $output .= drupal_attributes($attributes);
+    $output .= '>';
+
+    $variables = array(
+      'path' => $item['uri'],
+      'style_name' => 'thumbnail',
+      'attributes' => array(
+        'class' => 'carousel__image',
+      )
+    );
+
+    $output .= theme('image_style', $variables);
+    $output .= '</li>';
+  }
+
+  $output .= <<<EOT
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+EOT;
+
+  return $output;
+}

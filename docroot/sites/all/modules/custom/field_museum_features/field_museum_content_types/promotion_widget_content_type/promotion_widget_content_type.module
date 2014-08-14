@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the Promotion Widget Content Type feature.
- */
-
-include_once 'promotion_widget_content_type.features.inc';

@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the Content Half Original Aspect Image Style feature.
- */
-
-include_once 'content_half_original_aspect_image_style.features.inc';

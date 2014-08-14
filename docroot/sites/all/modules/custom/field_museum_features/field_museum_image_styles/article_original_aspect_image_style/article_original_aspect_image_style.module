@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the Article Original Aspect Image Style feature.
- */
-
-include_once 'article_original_aspect_image_style.features.inc';

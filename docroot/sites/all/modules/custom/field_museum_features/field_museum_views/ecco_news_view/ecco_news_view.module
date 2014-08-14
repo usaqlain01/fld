@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the ecco_news_view feature.
- */
-
-include_once 'ecco_news_view.features.inc';

@@ -1,0 +1,158 @@
+<?php
+/**
+ * @file
+ * Code for the Field Museum calendar feature.
+ */
+
+include_once 'fmnh_calendar.features.inc';
+
+/**
+ * Implements hook_menu().
+ */
+function fmnh_calendar_menu() {
+  $items['node/%node/events/add'] = array(
+    'title' => 'New event',
+    'page callback' => 'fmnh_calendar_new_event',
+    'page arguments' => array(1),
+    'access callback' => 'fmnh_calendar_new_event_access',
+    'access arguments' => array(1),
+    'file' => 'fmnh_calendar.pages.inc',
+    'type' => MENU_LOCAL_ACTION,
+  );
+  return $items;
+}
+
+/**
+ * Access callback to allow creation of events from a program or exhibit.
+ *
+ * @param $node
+ * @return bool
+ */
+function fmnh_calendar_new_event_access($node) {
+  if (in_array($node->type, array('program', 'exhibit', 'project')) && user_access('create event content')) {
+    return TRUE;
+  }
+  return FALSE;
+}
+
+/**
+ * Implements hook_menu_local_tasks_alter().
+ */
+function fmnh_calendar_menu_local_tasks_alter(&$data, $router_item, $root_path) {
+  if ($root_path == 'node/%/events') {
+    foreach ($data['actions']['output'] as &$element) {
+      $element['#link']['localized_options']['query'] = drupal_get_destination();
+    }
+  }
+}
+
+/**
+ * Implement hook_cron().
+ */
+function fmnh_calendar_cron() {
+  // Format a new date that is today minus 1 day. (Result is going to be two days ago to
+  // compensate for day time and guarantee that it's always at least one full day in the past.)
+  $value2 = date('Y-m-d', strtotime('-1 day', strtotime(date('Y-m-d'))));
+
+  $query = new EntityFieldQuery();
+  $query->entityCondition('entity_type', 'node')
+    ->entityCondition('bundle', 'event')
+    ->fieldCondition('field_date', 'value2', $value2, '<');
+
+  $result = $query->execute();
+  if (!empty($result['node'])) {
+    $entities = entity_load('node', array_keys($result['node']));
+
+    foreach ($entities as $entity) {
+      list($id, , $type) = entity_extract_ids('node', $entity);
+      $items = field_get_items('node', $entity, 'field_program');
+      if ($items) {
+        /** @var array $items */
+        foreach ($items as $item) {
+          $target_entities = entity_load('node', array($item['target_id']));
+          foreach ($target_entities as $target_entity) {
+            list(,,$bundle) = entity_extract_ids('node', $target_entity);
+
+            // Only delete events that are linked to program nodes.
+            if ('program' === $bundle) {
+              $title = entity_label('node', $entity);
+              watchdog('content', 'Automatically deleted past event %title.', array(
+                '@type' => $type,
+                '%title' => $title,
+              ), WATCHDOG_INFO);
+              entity_delete('node', $id);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_admin_paths()
+ */
+function fmnh_calendar_admin_paths() {
+  $paths = array(
+    'node/*/events' => TRUE,
+    'node/*/event/add' => TRUE,
+  );
+  return $paths;
+}
+
+function fmnh_calendar_preprocess_node(&$variables, $hook) {
+  $node = $variables['node'];
+  if ($node->type == 'event' && $variables['view_mode'] == 'teaser') {
+    $variables['title_attributes_array']['class'][] = 'eventSummary__title';
+  }
+  else if ($node->type == 'event' && $variables['view_mode'] == 'full') {
+    $variables['title_attributes_array']['class'][] = 'article__title';
+  }
+}
+
+
+function fmnh_calendar_entity_prepare_view($entities, $type, $langcode) {
+  if ($type == 'node') {
+    foreach ($entities as &$entity) {
+      list($id, $vid, $bundle) = entity_extract_ids($type, $entity);
+      if ($bundle == 'event') {
+        $items = field_get_items('node', $entity, 'field_program');
+        if ($items) {
+          $program_node = node_load($items[0]['target_id']);
+          foreach (array('body', 'field_image') as $field_name) {
+            if (_fmnh_calendar_field_is_empty($type, $entity, $field_name)) {
+              $entity->{$field_name} = $program_node->{$field_name};
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+function _fmnh_calendar_field_is_empty($entity_type, $entity, $field_name, $langcode = NULL) {
+  $items = field_get_items($entity_type, $entity, $field_name, $langcode);
+  if ($items) {
+    return FALSE;
+  }
+  else {
+    return TRUE;
+  }
+}
+
+/**
+ * Implement hook_tokens_alter().
+ *
+ * @param array $replacements
+ * @param array $context
+ */
+function fmnh_calendar_tokens_alter(array &$replacements, array $context) {
+  if ($context['type'] == 'node') {
+    if (!isset($replacements['[node:field_price]'])) {
+      $replacements['[node:field_price]'] = '<svg class="icon icon--ticket-2" viewBox="0 0 500 500"><use xlink:href="#ticket-2"></use></svg>';
+    }
+    else {
+      $replacements['[node:field_price]'] = '$'. round($replacements['[node:field_price]']);
+    }
+  }
+}
