@@ -650,6 +650,8 @@ function fmnh_staff_default_page_manager_pages() {
   $page->path = 'about/staff/profile/%profile';
   $page->access = array(
     'logic' => 'and',
+    'type' => 'none',
+    'settings' => NULL,
   );
   $page->menu = array();
   $page->arguments = array(
