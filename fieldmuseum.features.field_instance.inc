@@ -606,7 +606,7 @@ function fieldmuseum_field_default_field_instances() {
       'file_extensions' => 'jpg gif jpeg png',
       'imagecrop' => array(
         '2x1_2400w' => 0,
-        '5x2_2400w' => 0,
+        '5x2_2400w' => '5x2_2400w',
         '5x3_2400w' => 0,
         'large' => 0,
         'media_gallery_large' => 0,

@@ -26,6 +26,15 @@ function fmnh_landings_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 2,
       ),
+      'excerpt' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(
+          'field_formatter_class' => '',
+        ),
+        'type' => 'text_default',
+        'weight' => 2,
+      ),
     ),
     'entity_type' => 'fieldable_panels_pane',
     'fences_wrapper' => 'no_wrapper',
@@ -105,6 +114,16 @@ function fmnh_landings_field_default_field_instances() {
         'type' => 'file_rendered',
         'weight' => 0,
       ),
+      'excerpt' => array(
+        'label' => 'hidden',
+        'module' => 'file_entity',
+        'settings' => array(
+          'field_formatter_class' => '',
+          'file_view_mode' => 'banner_5x3',
+        ),
+        'type' => 'file_rendered',
+        'weight' => 0,
+      ),
     ),
     'entity_type' => 'fieldable_panels_pane',
     'fences_wrapper' => 'no_wrapper',
@@ -163,6 +182,15 @@ function fmnh_landings_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'hidden',
+        'module' => 'link',
+        'settings' => array(
+          'field_formatter_class' => 'contentLinks',
+        ),
+        'type' => 'link_default',
+        'weight' => 3,
+      ),
+      'excerpt' => array(
         'label' => 'hidden',
         'module' => 'link',
         'settings' => array(

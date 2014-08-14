@@ -901,6 +901,32 @@ function fmnh_calendar_default_page_manager_pages() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
+    $pane->pid = 'new-0c454703-135a-42d4-981a-7f220a409c72';
+    $pane->panel = 'main';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => '',
+      'title' => '',
+      'body' => '<h1>Events for %term:name</h1>',
+      'format' => 'unfiltered',
+      'substitute' => 1,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'default',
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '0c454703-135a-42d4-981a-7f220a409c72';
+    $display->content['new-0c454703-135a-42d4-981a-7f220a409c72'] = $pane;
+    $display->panels['main'][0] = 'new-0c454703-135a-42d4-981a-7f220a409c72';
+    $pane = new stdClass();
     $pane->pid = 'new-a5b6fac8-98bd-452d-8c96-c316f2d5fc2b';
     $pane->panel = 'main';
     $pane->type = 'views_header';
@@ -919,11 +945,11 @@ function fmnh_calendar_default_page_manager_pages() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 0;
+    $pane->position = 1;
     $pane->locks = array();
     $pane->uuid = 'a5b6fac8-98bd-452d-8c96-c316f2d5fc2b';
     $display->content['new-a5b6fac8-98bd-452d-8c96-c316f2d5fc2b'] = $pane;
-    $display->panels['main'][0] = 'new-a5b6fac8-98bd-452d-8c96-c316f2d5fc2b';
+    $display->panels['main'][1] = 'new-a5b6fac8-98bd-452d-8c96-c316f2d5fc2b';
     $pane = new stdClass();
     $pane->pid = 'new-3721e711-6343-4e59-a28c-530b7cd81967';
     $pane->panel = 'main';
@@ -946,11 +972,11 @@ function fmnh_calendar_default_page_manager_pages() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 1;
+    $pane->position = 2;
     $pane->locks = array();
     $pane->uuid = '3721e711-6343-4e59-a28c-530b7cd81967';
     $display->content['new-3721e711-6343-4e59-a28c-530b7cd81967'] = $pane;
-    $display->panels['main'][1] = 'new-3721e711-6343-4e59-a28c-530b7cd81967';
+    $display->panels['main'][2] = 'new-3721e711-6343-4e59-a28c-530b7cd81967';
     $pane = new stdClass();
     $pane->pid = 'new-25f33a1a-5b68-4515-ab5c-718002845669';
     $pane->panel = 'nav';
