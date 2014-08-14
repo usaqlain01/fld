@@ -129,7 +129,7 @@ function fmnh_staff_filter($selected = '') {
       'protection-services' => 'Protection Services',
       'housekeeping' => 'Housekeeping',
       'finance' => 'Finance',
-      'office-of-the-executive-vice-president' => 'Office of Executive Vice President',
+      'office-of-executive-vice-president' => 'Office of Executive Vice President',
       'print-shop' => 'Print Shop',
       'facilities' => 'Facilities',
     ),
