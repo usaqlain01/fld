@@ -258,6 +258,15 @@ projects[views_bulk_operations][version] = 3.2
 projects[webform][subdir] = contrib
 projects[webform][version] = 3.20
 
+projects[workbench][subdir] = contrib
+projects[workbench][version] = 1.2
+
+projects[workbench_access][subdir] = contrib
+projects[workbench_access][version] = 1.x-dev
+
+projects[workbench_moderation][subdir] = contrib
+projects[workbench_moderation][version] = 1.x-dev
+
 projects[wysiwyg][subdir] = contrib
 projects[wysiwyg][version] = 2.x-dev
 
