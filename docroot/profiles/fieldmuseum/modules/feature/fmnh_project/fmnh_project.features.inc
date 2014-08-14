@@ -108,6 +108,9 @@ function fmnh_project_rdf_default_mappings() {
       ),
       'type' => 'rel',
     ),
+    'field_action_link' => array(
+      'predicates' => array(),
+    ),
   );
 
   return $schemaorg;
