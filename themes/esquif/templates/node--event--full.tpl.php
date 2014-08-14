@@ -18,7 +18,8 @@
         $items = field_get_items('node', $node, 'field_date');
         if ($items) {
           foreach ($items as $item) {
-            $date = new DateObject($item['value'], $item['timezone'], date_type_format($item['date_type']));
+            $date = new DateObject($item['value'], $item['timezone_db'], date_type_format($item['date_type']));
+            $date->setTimezone(new DateTimeZone($item['timezone']));
             ?>
             <time<?php print drupal_attributes(rdf_rdfa_attributes($node->rdf_mapping['field_date'])); ?>>
               <?php print $date->format('l, F j, Y'); ?> @ <?php
