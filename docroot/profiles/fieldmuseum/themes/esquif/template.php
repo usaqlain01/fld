@@ -1583,13 +1583,15 @@ function esquif_field__field_link__banner_description_and_list($variables) {
 }
 
 function esquif_preprocess_username(&$variables, $hook) {
-  $profile = profile2_by_uid_load($variables['uid'], 'main');
-  if ($profile) {
-    $variables['name'] = check_plain($profile->label);
-    $variables['name_raw'] = $profile->label;
+  $uid = $variables['uid'];
+  if ($uid && is_numeric($uid) && ($account = user_load($uid))) {
+    $profile = profile2_load_by_user($account, 'main');
+    if ($profile) {
+      $variables['name'] = check_plain($profile->label);
+      $variables['name_raw'] = $profile->label;
 
-    $uri = entity_uri('profile2', $profile);
-    $variables['link_path'] = $uri['path'];
+      $variables['link_path'] = url('about/staff/profile/'. $profile->pid, array('absolute' => TRUE));
+    }
   }
 }
 
