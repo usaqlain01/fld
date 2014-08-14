@@ -233,14 +233,17 @@ function esquif_preprocess_node(&$variables, $hook) {
     case 'promo':
       array_splice($variables['theme_hook_suggestions'], 1, 0, array('node__'. $variables['view_mode']));
       $variables['title_attributes_array']['class'][] = 'promo__title';
-      if (in_array('node__panel__banner', $variables['theme_hook_suggestions'])) {
-        $variables['content']['field_image'][0]['file']['#item']['attributes']['class'][] = 'banner__image';
-      }
-      else if ('image_formatter' == $variables['content']['field_image'][0]['file']['#theme']) {
-        $variables['content']['field_image'][0]['file']['#item']['attributes']['class'][] = 'promo__image';
-      }
-      else if ('image_style' == $variables['content']['field_image'][0]['file']['#theme']) {
-        $variables['content']['field_image'][0]['file']['#attributes']['class'][] = 'promo__image';
+
+      if (isset($variables['content']['field_image'])) {
+        if (in_array('node__panel__banner', $variables['theme_hook_suggestions'])) {
+          $variables['content']['field_image'][0]['file']['#item']['attributes']['class'][] = 'banner__image';
+        }
+        else if ('image_formatter' == $variables['content']['field_image'][0]['file']['#theme']) {
+          $variables['content']['field_image'][0]['file']['#item']['attributes']['class'][] = 'promo__image';
+        }
+        else if ('image_style' == $variables['content']['field_image'][0]['file']['#theme']) {
+          $variables['content']['field_image'][0]['file']['#attributes']['class'][] = 'promo__image';
+        }
       }
 
       if ($variables['node']->type == 'media_gallery') {
