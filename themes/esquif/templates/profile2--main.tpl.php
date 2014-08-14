@@ -38,11 +38,13 @@
 
   <h1 class="bio__name" itemprop="name"><?php print $title; ?></h1>
   <h3 class="bio__title" itemprop="jobTitle"><?php print render($content['field_position']); ?></h3>
-  <h5 class="bio__department"><?php print render($content['field_department']); ?></h5>
+  <h5 class="bio__department"><?php print render($content['field_home_department']); ?></h5>
 
+  <?php if ($field_research_area): ?>
   <dl class="bio__meta">
     <?php print render($content['field_research_area']); ?>
   </dl>
+  <?php endif; ?>
 
   <section class="bio__description" itemprop="description">
     <?php print render($content['field_introduction']); ?>
@@ -50,8 +52,10 @@
     <?php print render($content['field_bio_sketch']); ?>
   </section>
 
+  <?php if ($content['blogs_entity_view_2']): ?>
   <h2 class="heading--stroked">Recent Blog Posts</h2>
   <?php print render($content['blogs_entity_view_2']); ?>
+  <?php endif; ?>
 
   <?php if ($field_education || $field_interests || $field_grants_awards || $field_publications || $field_work_experience || $field_accomplishments || $field_professional_affiliations): ?>
   <h2 class="heading--stroked">Additional Information</h2>

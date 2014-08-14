@@ -146,7 +146,7 @@ function fmnh_project_field_default_field_instances() {
     'required' => 0,
     'settings' => array(
       'attributes' => array(
-        'class' => '',
+        'class' => 'button--cta',
         'configurable_title' => 0,
         'rel' => '',
         'target' => 'default',

@@ -354,10 +354,7 @@ function fmnh_landings_default_panels_mini() {
         <div class="summary__description">
     
   <section class="field field-name-body field-type-text-with-summary field-label-hidden">
-    <p></p>
-<p><em><strong>Free with Basic admission.</strong></em></p>
-<p>Every Friday from 10am to noon, scientists will be out in the Museum sharing the wonders of our collections and highlights of their research. Hear about their work, see real artifacts and specimens from the over 24 million objects <em>not</em> on display at The Field, and experience the Museum like never before. Topics will range from birds to insects, from mammals to plants, from pottery to spear points, and more!</p>
-<p><strong>There will be no Meet a Scientist events in September.&nbsp; Programming will resume in October. &nbsp;</strong></p>  </section>
+<p>Every Friday from 10am to noon, scientists will be out in the Museum sharing the wonders of our collections and highlights of their research. Topics will range from birds to insects, from mammals to plants, from pottery to spear points, and more! <strong>Free with Basic admission.</strong></p>  </section>
 <span property="schema:name" content="Meet a Scientist" class="rdf-meta"></span><span rel="schema:url" resource="/at-the-field/programs/meet-scientist" class="rdf-meta"></span>
       </div>
 ',

@@ -624,12 +624,12 @@ function fmnh_blog_default_page_manager_pages() {
     ),
   );
   $display->cache = array();
-  $display->title = '';
+  $display->title = 'Category List';
   $display->uuid = 'f3e4e40a-97e4-417b-a36a-7dfb24b998b3';
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-c92a96ad-8c2f-4908-b1da-92498b08cac3';
+    $pane->pid = 'new-13d87424-8c47-4ff4-a2af-8fc4a661159d';
     $pane->panel = 'main';
     $pane->type = 'custom';
     $pane->subtype = 'custom';
@@ -638,10 +638,9 @@ function fmnh_blog_default_page_manager_pages() {
     $pane->configuration = array(
       'admin_title' => '',
       'title' => '',
-      'body' => '<p>This page is still being prepared!</p>
-',
-      'format' => 'filtered_wysiwyg',
-      'substitute' => TRUE,
+      'body' => '<h1>Blog Categories</h1>',
+      'format' => 'unfiltered',
+      'substitute' => 1,
     );
     $pane->cache = array();
     $pane->style = array(
@@ -652,9 +651,9 @@ function fmnh_blog_default_page_manager_pages() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = 'c92a96ad-8c2f-4908-b1da-92498b08cac3';
-    $display->content['new-c92a96ad-8c2f-4908-b1da-92498b08cac3'] = $pane;
-    $display->panels['main'][0] = 'new-c92a96ad-8c2f-4908-b1da-92498b08cac3';
+    $pane->uuid = '13d87424-8c47-4ff4-a2af-8fc4a661159d';
+    $display->content['new-13d87424-8c47-4ff4-a2af-8fc4a661159d'] = $pane;
+    $display->panels['main'][0] = 'new-13d87424-8c47-4ff4-a2af-8fc4a661159d';
     $pane = new stdClass();
     $pane->pid = 'new-06dd074f-c654-4dc8-a422-7f085961c394';
     $pane->panel = 'main';
@@ -676,7 +675,7 @@ function fmnh_blog_default_page_manager_pages() {
     $display->content['new-06dd074f-c654-4dc8-a422-7f085961c394'] = $pane;
     $display->panels['main'][1] = 'new-06dd074f-c654-4dc8-a422-7f085961c394';
   $display->hide_title = PANELS_TITLE_FIXED;
-  $display->title_pane = 'new-c92a96ad-8c2f-4908-b1da-92498b08cac3';
+  $display->title_pane = '0';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
   $pages['science_blogs_list'] = $page;

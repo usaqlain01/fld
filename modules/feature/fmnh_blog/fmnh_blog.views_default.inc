@@ -107,15 +107,29 @@ function fmnh_blog_views_default_views() {
   $handler->display->display_options['row_options']['view_mode'] = 'entity_label';
   $handler->display->display_options['row_options']['links'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Content: Author */
+  $handler->display->display_options['relationships']['uid']['id'] = 'uid';
+  $handler->display->display_options['relationships']['uid']['table'] = 'node';
+  $handler->display->display_options['relationships']['uid']['field'] = 'uid';
+  /* Relationship: User: Profile */
+  $handler->display->display_options['relationships']['profile']['id'] = 'profile';
+  $handler->display->display_options['relationships']['profile']['table'] = 'users';
+  $handler->display->display_options['relationships']['profile']['field'] = 'profile';
+  $handler->display->display_options['relationships']['profile']['relationship'] = 'uid';
+  $handler->display->display_options['relationships']['profile']['bundle_types'] = array(
+    'main' => 'main',
+  );
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Content: Author uid */
-  $handler->display->display_options['arguments']['uid']['id'] = 'uid';
-  $handler->display->display_options['arguments']['uid']['table'] = 'node';
-  $handler->display->display_options['arguments']['uid']['field'] = 'uid';
-  $handler->display->display_options['arguments']['uid']['default_argument_type'] = 'fixed';
-  $handler->display->display_options['arguments']['uid']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['uid']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['uid']['summary_options']['items_per_page'] = '25';
+  /* Contextual filter: Profile: Profile ID */
+  $handler->display->display_options['arguments']['pid']['id'] = 'pid';
+  $handler->display->display_options['arguments']['pid']['table'] = 'profile';
+  $handler->display->display_options['arguments']['pid']['field'] = 'pid';
+  $handler->display->display_options['arguments']['pid']['relationship'] = 'profile';
+  $handler->display->display_options['arguments']['pid']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['pid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['pid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['pid']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['entity_type'] = 'profile2';
   $handler->display->display_options['bundles'] = array(
     0 => 'main',
