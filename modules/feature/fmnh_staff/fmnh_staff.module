@@ -195,3 +195,9 @@ function fmnh_staff_ctools_plugin_directory($module, $plugin) {
   }
 }
 
+function fmnh_staff_profile2_access($op, $profile = NULL, $account = NULL) {
+  if (($op == 'view') && (isset($profile))) {
+    $account2 = user_load($profile->uid);
+    return $account2->status == 0 ? FALSE : TRUE;
+  }
+}
