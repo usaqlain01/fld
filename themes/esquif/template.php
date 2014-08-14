@@ -347,12 +347,19 @@ function esquif_preprocess_node(&$variables, $hook) {
 }
 
 function esquif_preprocess_node_event(&$variables, $hook) {
+  $node = $variables['node'];
   if ($variables['view_mode'] == 'list_item') {
     $variables['classes_array'][] = 'eventsList__item';
     $variables['title_attributes_array']['class'][] = 'eventsList__heading';
   }
   if (isset($variables['view']) && $variables['view']->name == 'program_events') {
     $variables['theme_hook_suggestions'][] = 'node__event__list_item__single';
+  }
+
+  if ($variables['view_mode'] == 'teaser') {
+
+    $node_title_stripped = strip_tags($node->title);
+    $variables['content']['links']['node']['#links']['node-readmore']['title'] = t('Event Details<span class="element-invisible"> about @title</span>', array('@title' => $node_title_stripped));
   }
 }
 
