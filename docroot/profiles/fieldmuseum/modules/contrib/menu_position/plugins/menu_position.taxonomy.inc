@@ -32,7 +32,7 @@ function menu_position_menu_position_condition_taxonomy($variables) {
       $taxonomy_fields = array();
       $field_info = field_info_fields();
       foreach (array_keys(field_info_instances($entity_type, $bundle_name)) as $key) {
-        if ($field_info[$key]['type'] == 'taxonomy_term_reference') {
+        if ($field_info[$key]['type'] == 'entityreference') {
           $taxonomy_fields[$key] = $field_info[$key]['translatable'];
         }
       }
@@ -44,7 +44,7 @@ function menu_position_menu_position_condition_taxonomy($variables) {
         // Check for matching terms.
         if (!empty($tid)) {
           foreach ($entity->{$field}[$language] as $term) {
-            if (in_array($term['tid'], $tid)) {
+            if (in_array($term['target_id'], $tid)) {
               return TRUE;
             }
           }
