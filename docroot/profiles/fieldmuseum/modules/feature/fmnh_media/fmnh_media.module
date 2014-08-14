@@ -77,12 +77,21 @@ function fmnh_media_ctools_plugin_directory($module, $plugin) {
 function theme_tablexi_gallery($variables) {
   $node = $variables['node'];
   $items = field_get_items('node', $node, 'media_gallery_file');
+  if ($items) {
+
+  }
   $item = reset($items);
   $href = image_style_url('2x1_1200w', $item['uri']);
   $src = image_style_url('2x1_800w', $item['uri']);
   $srcset = implode(',', fmnh_media_srcset('2x1', $item['uri']));
   $alt = $item['alt'];
-  $caption = $item['field_caption'][LANGUAGE_NONE][0]['safe_value'];
+
+  if (isset($item['field_caption'])) {
+    $caption = $item['field_caption'][LANGUAGE_NONE][0]['safe_value'];
+  }
+  else {
+    $caption = '';
+  }
 
   $output = '';
   $output .= <<<EOT

@@ -1870,7 +1870,7 @@ function fmnh_exhibit_default_page_manager_pages() {
     $pane->uuid = 'f92c11a6-d513-4ff5-a5d5-a6b5543df162';
     $display->content['new-f92c11a6-d513-4ff5-a5d5-a6b5543df162'] = $pane;
     $display->panels['nav'][0] = 'new-f92c11a6-d513-4ff5-a5d5-a6b5543df162';
-  $display->hide_title = PANELS_TITLE_PANE;
+  $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = 'new-4624f513-e9f5-4fe3-b773-7818d4a635f7';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;

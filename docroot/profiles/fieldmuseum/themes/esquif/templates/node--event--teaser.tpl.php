@@ -20,7 +20,8 @@
     $items = field_get_items('node', $node, 'field_date');
     if ($items) {
       foreach ($items as $item) {
-        $date = new DateObject($item['value'], $item['timezone'], date_type_format($item['date_type']));
+        $date = new DateObject($item['value'], $item['timezone_db'], date_type_format($item['date_type']));
+        $date->setTimezone(new DateTimeZone($item['timezone']));
         print '<time class="eventSummary__datetime" property="schema:startDate" datatype="xsd:dateTime" content="'. $date->format('c') .'">';
         print '<span class="eventSummary__date">';
         print $date->format('l, F j');

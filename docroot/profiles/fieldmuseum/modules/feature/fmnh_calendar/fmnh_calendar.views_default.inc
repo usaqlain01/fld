@@ -137,12 +137,6 @@ function fmnh_calendar_views_default_views() {
     ),
   );
   $handler->display->display_options['row_plugin'] = 'node';
-  $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sort criterion: Content: Post date */
-  $handler->display->display_options['sorts']['created']['id'] = 'created';
-  $handler->display->display_options['sorts']['created']['table'] = 'node';
-  $handler->display->display_options['sorts']['created']['field'] = 'created';
-  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Contextual filter: Content: Audience (field_audience) */
   $handler->display->display_options['arguments']['field_audience_target_id']['id'] = 'field_audience_target_id';
