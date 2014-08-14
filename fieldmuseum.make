@@ -173,6 +173,7 @@ projects[menu_block][version] = 2.x-dev
 
 projects[menu_position][subdir] = contrib
 projects[menu_position][version] = 1.x-dev
+projects[menu_position][patch][] = https://gist.githubusercontent.com/bangpound/ebcb271fa7a82e1c6e52/raw/2f4403cb36bf130e6771ca2fe2f9321d1b0ab8ea/hack_menu_position.patch
 
 projects[metatag][subdir] = contrib
 projects[metatag][version] = 1.0-rc2
