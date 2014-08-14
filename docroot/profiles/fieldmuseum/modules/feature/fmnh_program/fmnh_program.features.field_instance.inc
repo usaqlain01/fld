@@ -143,7 +143,7 @@ function fmnh_program_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 5,
+        'weight' => 9,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -196,13 +196,9 @@ function fmnh_program_field_default_field_instances() {
       ),
       'summary' => array(
         'label' => 'hidden',
-        'module' => 'entityreference',
-        'settings' => array(
-          'field_formatter_class' => '',
-          'link' => 1,
-        ),
-        'type' => 'entityreference_label',
-        'weight' => 2,
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 4,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -248,6 +244,12 @@ function fmnh_program_field_default_field_instances() {
         ),
         'type' => 'text_default',
         'weight' => 1,
+      ),
+      'summary' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 6,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -336,6 +338,12 @@ function fmnh_program_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'summary' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 8,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -417,13 +425,9 @@ function fmnh_program_field_default_field_instances() {
       ),
       'summary' => array(
         'label' => 'hidden',
-        'module' => 'entityreference',
-        'settings' => array(
-          'field_formatter_class' => '',
-          'link' => FALSE,
-        ),
-        'type' => 'entityreference_label',
-        'weight' => 4,
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 5,
       ),
       'teaser' => array(
         'label' => 'hidden',
@@ -489,7 +493,7 @@ function fmnh_program_field_default_field_instances() {
         'module' => 'file_entity',
         'settings' => array(
           'field_formatter_class' => '',
-          'file_view_mode' => 'default',
+          'file_view_mode' => 'banner_5x3',
         ),
         'type' => 'file_rendered',
         'weight' => 0,
@@ -571,12 +575,8 @@ function fmnh_program_field_default_field_instances() {
       ),
       'summary' => array(
         'label' => 'hidden',
-        'module' => 'entityreference',
-        'settings' => array(
-          'field_formatter_class' => '',
-          'link' => FALSE,
-        ),
-        'type' => 'entityreference_label',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 3,
       ),
       'teaser' => array(
@@ -630,6 +630,12 @@ function fmnh_program_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 0,
+      ),
+      'summary' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 2,
       ),
       'teaser' => array(
         'label' => 'above',

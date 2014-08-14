@@ -52,8 +52,9 @@ function fmnh_blog_default_panels_mini() {
 	Shows 
 </h6>
 <ul class="filters">
-	<li class="filters__item"> <a href="/science/blog/the-brain-scoop" class="filters__link">Brain Scoop</a> </li>
+	<li class="filters__item"> <a href="/science/blog/the-brain-scoop" class="filters__link">The Brain Scoop</a> </li>
 	<li class="filters__item"> <a href="/science/blog/science-at-fmnh" class="filters__link">Science at FMNH</a> </li>
+	<li class="filters__item"> <a href="/science/blog/the-field-revealed" class="filters__link">The Field Revealed</a> </li>
 </ul>
 <h6 class="navFilters__heading">
 	Best Of&hellip; 

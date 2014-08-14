@@ -1009,7 +1009,7 @@ function fmnh_exhibit_default_page_manager_pages() {
     ),
   );
   $display->cache = array();
-  $display->title = 'Exhibitions and Events';
+  $display->title = '%term:name Exhibitions';
   $display->uuid = '7e81430e-43cb-4607-8b8a-48199af90c46';
   $display->content = array();
   $display->panels = array();
@@ -1298,7 +1298,7 @@ function fmnh_exhibit_default_page_manager_pages() {
     $pane->uuid = '90ae8192-1ee7-4a89-8f78-aafe8d6f9e7c';
     $display->content['new-90ae8192-1ee7-4a89-8f78-aafe8d6f9e7c'] = $pane;
     $display->panels['nav'][0] = 'new-90ae8192-1ee7-4a89-8f78-aafe8d6f9e7c';
-  $display->hide_title = PANELS_TITLE_PANE;
+  $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = 'new-c187d296-beff-4261-8e4d-c65c1b0fc175';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
@@ -1389,6 +1389,32 @@ function fmnh_exhibit_default_page_manager_pages() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
+    $pane->pid = 'new-714e03ae-256d-42dc-9852-7895343ecf4c';
+    $pane->panel = 'main';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => '',
+      'title' => '',
+      'body' => '<h1>Past</h1>',
+      'format' => 'unfiltered',
+      'substitute' => 1,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'default',
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '714e03ae-256d-42dc-9852-7895343ecf4c';
+    $display->content['new-714e03ae-256d-42dc-9852-7895343ecf4c'] = $pane;
+    $display->panels['main'][0] = 'new-714e03ae-256d-42dc-9852-7895343ecf4c';
+    $pane = new stdClass();
     $pane->pid = 'new-0141c323-0b92-4c3a-8ff5-43ef94ae19bb';
     $pane->panel = 'main';
     $pane->type = 'views_row';
@@ -1449,11 +1475,11 @@ function fmnh_exhibit_default_page_manager_pages() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 0;
+    $pane->position = 1;
     $pane->locks = array();
     $pane->uuid = '0141c323-0b92-4c3a-8ff5-43ef94ae19bb';
     $display->content['new-0141c323-0b92-4c3a-8ff5-43ef94ae19bb'] = $pane;
-    $display->panels['main'][0] = 'new-0141c323-0b92-4c3a-8ff5-43ef94ae19bb';
+    $display->panels['main'][1] = 'new-0141c323-0b92-4c3a-8ff5-43ef94ae19bb';
     $pane = new stdClass();
     $pane->pid = 'new-1da7876f-3ea9-445f-86c6-5f6de65c0e01';
     $pane->panel = 'main';
@@ -1473,11 +1499,11 @@ function fmnh_exhibit_default_page_manager_pages() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 1;
+    $pane->position = 2;
     $pane->locks = array();
     $pane->uuid = '1da7876f-3ea9-445f-86c6-5f6de65c0e01';
     $display->content['new-1da7876f-3ea9-445f-86c6-5f6de65c0e01'] = $pane;
-    $display->panels['main'][1] = 'new-1da7876f-3ea9-445f-86c6-5f6de65c0e01';
+    $display->panels['main'][2] = 'new-1da7876f-3ea9-445f-86c6-5f6de65c0e01';
     $pane = new stdClass();
     $pane->pid = 'new-f17202f1-92ec-475c-9d8d-8e1d2faddbd9';
     $pane->panel = 'nav';

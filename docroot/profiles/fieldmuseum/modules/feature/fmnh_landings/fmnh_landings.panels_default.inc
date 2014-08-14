@@ -335,11 +335,53 @@ function fmnh_landings_default_panels_mini() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
+    $pane->pid = 'new-fe67852d-3dce-4bba-af48-810f150b98cf';
+    $pane->panel = 'main';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => '',
+      'title' => '',
+      'body' => '<a href="/at-the-field/programs/meet-scientist" class="banner banner--secondary">
+  <figure>
+    <img class="summary__image js--pictureFill" sizes="(min-width: 118.8125em) calc(100% - 555px),(min-width: 100.0625em) calc(100% - 380px),(min-width: 81.3125em) calc(100% - 325px),(min-width: 62.5625em) calc(100% - 300px),100vw" typeof="foaf:Image" src="http://fieldmusefacelift.devcloud.acquia-sites.com/sites/default/files/styles/5x2_1000w/public/nkalmus/2014/07/14/meet-a-scientist-main.jpg?itok=8rEvuUP7" alt="">  <figcaption class="banner__description"><p>Meet real Field Museum scientists and learn about their work up close.</p></figcaption></figure>
+</a>
+            <h3 property="schema:name" datatype="" class="node__title node-title summary__title"><a href="/at-the-field/programs/meet-scientist">Meet a Scientist</a></h3>
+    
+    
+        <div class="summary__description">
+    
+  <section class="field field-name-body field-type-text-with-summary field-label-hidden">
+    <p></p>
+<p><em><strong>Free with Basic admission.</strong></em></p>
+<p>Every Friday from 10am to noon, scientists will be out in the Museum sharing the wonders of our collections and highlights of their research. Hear about their work, see real artifacts and specimens from the over 24 million objects <em>not</em> on display at The Field, and experience the Museum like never before. Topics will range from birds to insects, from mammals to plants, from pottery to spear points, and more!</p>
+<p><strong>There will be no Meet a Scientist events in September.&nbsp; Programming will resume in October. &nbsp;</strong></p>  </section>
+<span property="schema:name" content="Meet a Scientist" class="rdf-meta"></span><span rel="schema:url" resource="/at-the-field/programs/meet-scientist" class="rdf-meta"></span>
+      </div>
+',
+      'format' => 'unfiltered',
+      'substitute' => TRUE,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'naked',
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'fe67852d-3dce-4bba-af48-810f150b98cf';
+    $display->content['new-fe67852d-3dce-4bba-af48-810f150b98cf'] = $pane;
+    $display->panels['main'][0] = 'new-fe67852d-3dce-4bba-af48-810f150b98cf';
+    $pane = new stdClass();
     $pane->pid = 'new-03854895-ddbe-4b14-b533-af64dd2d2ea9';
     $pane->panel = 'main';
     $pane->type = 'node';
     $pane->subtype = 'node';
-    $pane->shown = TRUE;
+    $pane->shown = FALSE;
     $pane->access = array();
     $pane->configuration = array(
       'nid' => '14261',
@@ -358,11 +400,11 @@ function fmnh_landings_default_panels_mini() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 0;
+    $pane->position = 1;
     $pane->locks = array();
     $pane->uuid = '03854895-ddbe-4b14-b533-af64dd2d2ea9';
     $display->content['new-03854895-ddbe-4b14-b533-af64dd2d2ea9'] = $pane;
-    $display->panels['main'][0] = 'new-03854895-ddbe-4b14-b533-af64dd2d2ea9';
+    $display->panels['main'][1] = 'new-03854895-ddbe-4b14-b533-af64dd2d2ea9';
     $pane = new stdClass();
     $pane->pid = 'new-731b6f49-5520-4937-add4-014fa4ea8c33';
     $pane->panel = 'main';
@@ -380,11 +422,11 @@ function fmnh_landings_default_panels_mini() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 1;
+    $pane->position = 2;
     $pane->locks = array();
     $pane->uuid = '731b6f49-5520-4937-add4-014fa4ea8c33';
     $display->content['new-731b6f49-5520-4937-add4-014fa4ea8c33'] = $pane;
-    $display->panels['main'][1] = 'new-731b6f49-5520-4937-add4-014fa4ea8c33';
+    $display->panels['main'][2] = 'new-731b6f49-5520-4937-add4-014fa4ea8c33';
     $pane = new stdClass();
     $pane->pid = 'new-b774400c-7dad-485e-aced-5f02767c246f';
     $pane->panel = 'main';
@@ -439,11 +481,11 @@ function fmnh_landings_default_panels_mini() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 2;
+    $pane->position = 3;
     $pane->locks = array();
     $pane->uuid = 'b774400c-7dad-485e-aced-5f02767c246f';
     $display->content['new-b774400c-7dad-485e-aced-5f02767c246f'] = $pane;
-    $display->panels['main'][2] = 'new-b774400c-7dad-485e-aced-5f02767c246f';
+    $display->panels['main'][3] = 'new-b774400c-7dad-485e-aced-5f02767c246f';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $mini->display = $display;
@@ -649,7 +691,7 @@ function fmnh_landings_default_panels_mini() {
       'title' => '',
       'body' => '<a class="banner banner--secondary" href="/science/blog/the-brain-scoop"> 
 <figure>
-<img srcset="http://fieldmusefacelift.devcloud.acquia-sites.com/sites/default/files/styles/5x2_1000w/public/banner-brainscoop.png?itok=wbDJR6lP 1000w,http://fieldmusefacelift.devcloud.acquia-sites.com/sites/default/files/styles/5x2_1200w/public/banner-brainscoop.png?itok=uq2hVfSG 1200w,http://fieldmusefacelift.devcloud.acquia-sites.com/sites/default/files/styles/5x2_1600w/public/banner-brainscoop.png?itok=MfepR3WD 1600w,http://fieldmusefacelift.devcloud.acquia-sites.com/sites/default/files/styles/5x2_2400w/public/banner-brainscoop.png?itok=x9R7T9iK 2400w,http://fieldmusefacelift.devcloud.acquia-sites.com/sites/default/files/styles/5x2_500w/public/banner-brainscoop.png?itok=2U6wJylu 500w,http://fieldmusefacelift.devcloud.acquia-sites.com/sites/default/files/styles/5x2_800w/public/banner-brainscoop.png?itok=c_QgSFEF 800w" class="js--pictureFill" typeof="foaf:Image" src="http://fieldmusefacelift.devcloud.acquia-sites.com/sites/default/files/styles/5x2_1000w/public/banner-brainscoop.png?itok=wbDJR6lP" alt=""> 
+<img srcset="http://fieldmusefacelift.devcloud.acquia-sites.com/sites/default/files/styles/5x2_1000w/public/banner-brainscoop.png?itok=wbDJR6lP 1000w,http://fieldmusefacelift.devcloud.acquia-sites.com/sites/default/files/styles/5x2_1200w/public/banner-brainscoop.png?itok=uq2hVfSG 1200w,http://fieldmusefacelift.devcloud.acquia-sites.com/sites/default/files/styles/5x2_1600w/public/banner-brainscoop.png?itok=MfepR3WD 1600w,http://fieldmusefacelift.devcloud.acquia-sites.com/sites/default/files/styles/5x2_2400w/public/banner-brainscoop.png?itok=x9R7T9iK 2400w,http://fieldmusefacelift.devcloud.acquia-sites.com/sites/default/files/styles/5x2_500w/public/banner-brainscoop.png?itok=2U6wJylu 500w,http://fieldmusefacelift.devcloud.acquia-sites.com/sites/default/files/styles/5x2_800w/public/banner-brainscoop.png?itok=c_QgSFEF 800w" class="banner__image js--pictureFill" typeof="foaf:Image" src="http://fieldmusefacelift.devcloud.acquia-sites.com/sites/default/files/styles/5x2_1000w/public/banner-brainscoop.png?itok=wbDJR6lP" alt=""> 
 <figcaption class="banner__description" itemprop="description">
 	<p>
 		Check out what our Chief Curiosity Correspondent, Emily Graslie, has been exploring this week on The Brain Scoop!

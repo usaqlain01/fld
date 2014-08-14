@@ -162,19 +162,18 @@ function fmnh_exhibit_views_default_views() {
   $handler->display->display_options['row_options']['view_mode'] = 'promo';
   $handler->display->display_options['row_options']['links'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sort criterion: Content: Post date */
-  $handler->display->display_options['sorts']['created']['id'] = 'created';
-  $handler->display->display_options['sorts']['created']['table'] = 'node';
-  $handler->display->display_options['sorts']['created']['field'] = 'created';
-  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Sort criterion: Draggableviews: Weight */
+  $handler->display->display_options['sorts']['weight']['id'] = 'weight';
+  $handler->display->display_options['sorts']['weight']['table'] = 'draggableviews_structure';
+  $handler->display->display_options['sorts']['weight']['field'] = 'weight';
+  $handler->display->display_options['sorts']['weight']['draggableviews_setting_view'] = 'exhibitions:page_1';
+  $handler->display->display_options['sorts']['weight']['draggableviews_setting_arguments'] = 'none';
+  $handler->display->display_options['sorts']['weight']['draggableviews_setting_new_items_bottom_list'] = 1;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Contextual filter: Content: Exhibit type (field_exhibit_type) */
   $handler->display->display_options['arguments']['field_exhibit_type_target_id']['id'] = 'field_exhibit_type_target_id';
   $handler->display->display_options['arguments']['field_exhibit_type_target_id']['table'] = 'field_data_field_exhibit_type';
   $handler->display->display_options['arguments']['field_exhibit_type_target_id']['field'] = 'field_exhibit_type_target_id';
-  $handler->display->display_options['arguments']['field_exhibit_type_target_id']['title_enable'] = TRUE;
-  $handler->display->display_options['arguments']['field_exhibit_type_target_id']['title'] = '%1 Exhibitions';
-  $handler->display->display_options['arguments']['field_exhibit_type_target_id']['breadcrumb_enable'] = TRUE;
   $handler->display->display_options['arguments']['field_exhibit_type_target_id']['breadcrumb'] = '%1';
   $handler->display->display_options['arguments']['field_exhibit_type_target_id']['default_argument_type'] = 'fixed';
   $handler->display->display_options['arguments']['field_exhibit_type_target_id']['summary']['number_of_records'] = '0';

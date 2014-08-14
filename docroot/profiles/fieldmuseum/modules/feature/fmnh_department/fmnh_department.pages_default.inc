@@ -113,7 +113,7 @@ function fmnh_department_default_page_manager_pages() {
     ),
   );
   $display->cache = array();
-  $display->title = '';
+  $display->title = '%node:title — Staff';
   $display->uuid = '7fb0ee0d-2370-4e32-bd2b-5d75727b002d';
   $display->content = array();
   $display->panels = array();
@@ -210,6 +210,30 @@ function fmnh_department_default_page_manager_pages() {
     $display->content['new-95ec96aa-b64d-4bd2-832c-56fd3e1fc2ff'] = $pane;
     $display->panels['main'][1] = 'new-95ec96aa-b64d-4bd2-832c-56fd3e1fc2ff';
     $pane = new stdClass();
+    $pane->pid = 'new-1ad66abe-6586-4a18-abd1-a48c2697fb6f';
+    $pane->panel = 'main';
+    $pane->type = 'views_pager';
+    $pane->subtype = 'views_pager';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'context' => 'relationship_view_from_argument:staff-ctools_context_1_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'default',
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 2;
+    $pane->locks = array();
+    $pane->uuid = '1ad66abe-6586-4a18-abd1-a48c2697fb6f';
+    $display->content['new-1ad66abe-6586-4a18-abd1-a48c2697fb6f'] = $pane;
+    $display->panels['main'][2] = 'new-1ad66abe-6586-4a18-abd1-a48c2697fb6f';
+    $pane = new stdClass();
     $pane->pid = 'new-07320c6f-b9f8-420f-8b45-d7262cf86ef7';
     $pane->panel = 'nav';
     $pane->type = 'menu_tree';
@@ -289,7 +313,7 @@ function fmnh_department_default_page_manager_pages() {
     $pane->uuid = '07320c6f-b9f8-420f-8b45-d7262cf86ef7';
     $display->content['new-07320c6f-b9f8-420f-8b45-d7262cf86ef7'] = $pane;
     $display->panels['nav'][0] = 'new-07320c6f-b9f8-420f-8b45-d7262cf86ef7';
-  $display->hide_title = PANELS_TITLE_PANE;
+  $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = 'new-95ec96aa-b64d-4bd2-832c-56fd3e1fc2ff';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;

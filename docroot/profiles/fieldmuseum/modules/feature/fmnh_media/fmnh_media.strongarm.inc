@@ -186,8 +186,8 @@ function fmnh_media_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'imagecrop_modules';
   $strongarm->value = array(
+    'profile_picture' => 'profile_picture',
     'media' => 'media',
-    'profile_picture' => 0,
   );
   $export['imagecrop_modules'] = $strongarm;
 

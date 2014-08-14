@@ -53,7 +53,7 @@ function fmnh_program_strongarm() {
         'custom_settings' => TRUE,
       ),
       'summary' => array(
-        'custom_settings' => FALSE,
+        'custom_settings' => TRUE,
       ),
       'list_item' => array(
         'custom_settings' => FALSE,
@@ -86,6 +86,10 @@ function fmnh_program_strongarm() {
           ),
           'promo' => array(
             'weight' => '10',
+            'visible' => FALSE,
+          ),
+          'summary' => array(
+            'weight' => '7',
             'visible' => FALSE,
           ),
         ),

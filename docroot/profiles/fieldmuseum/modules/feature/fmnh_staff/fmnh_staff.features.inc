@@ -76,7 +76,7 @@ function fmnh_staff_default_profile2_type() {
     "label" : "Main profile",
     "weight" : "0",
     "data" : {
-      "registration" : 1,
+      "registration" : 0,
       "roles" : { "2" : "2", "4" : "4", "5" : "5", "6" : "6", "3" : "3" },
       "use_page" : 1
     },
