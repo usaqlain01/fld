@@ -1008,19 +1008,23 @@ function fmnh_exhibit_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
+    'fences_wrapper' => 'div',
     'field_name' => 'field_ticket_link',
     'label' => 'Ticket link',
-    'required' => FALSE,
+    'required' => 0,
     'settings' => array(
       'attributes' => array(
         'class' => '',
+        'configurable_title' => 0,
         'rel' => '',
         'target' => 'default',
+        'title' => '',
       ),
       'display' => array(
         'url_cutoff' => 80,
       ),
       'enable_tokens' => 1,
+      'rel_remove' => 'default',
       'title' => 'optional',
       'title_maxlength' => 128,
       'title_value' => '',
@@ -1029,6 +1033,7 @@ function fmnh_exhibit_field_default_field_instances() {
       'validate_url' => 1,
     ),
     'widget' => array(
+      'active' => 0,
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
