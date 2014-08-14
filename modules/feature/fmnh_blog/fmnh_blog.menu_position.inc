@@ -52,7 +52,8 @@ function fmnh_blog_menu_position_condition_topic($variables) {
         // Check for any value in the field.
         else {
           foreach ($entity->{$field}[$language] as $item) {
-            if (isset($item['taxonomy_term']->vid) && $item['taxonomy_term']->vid === $vid) {
+            $term = taxonomy_term_load($item['target_id']);
+            if (isset($term->vid) && $term->vid == $vid) {
               return TRUE;
             }
           }
