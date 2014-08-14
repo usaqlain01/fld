@@ -1096,7 +1096,7 @@ function fmnh_staff_field_default_field_instances() {
         'module' => 'entityreference',
         'settings' => array(
           'field_formatter_class' => '',
-          'link' => 1,
+          'link' => 0,
         ),
         'type' => 'entityreference_label',
         'weight' => 4,
