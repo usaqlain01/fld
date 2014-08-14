@@ -193,59 +193,6 @@ function fmnh_exhibit_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-exhibit-field_audience'
-  $field_instances['node-exhibit-field_audience'] = array(
-    'bundle' => 'exhibit',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'banner' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 6,
-      ),
-      'default' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 11,
-      ),
-      'event' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 10,
-      ),
-      'promo' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 14,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_audience',
-    'label' => 'Audience',
-    'required' => FALSE,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_buttons',
-      'weight' => 51,
-    ),
-  );
-
   // Exported field_instance: 'node-exhibit-field_banner_description'
   $field_instances['node-exhibit-field_banner_description'] = array(
     'bundle' => 'exhibit',
@@ -1198,7 +1145,6 @@ function fmnh_exhibit_field_default_field_instances() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Action link');
-  t('Audience');
   t('Banner description');
   t('Banner image');
   t('Body');

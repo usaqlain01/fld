@@ -52,9 +52,9 @@
         Buy Tickets
       </a>
     <?php
-    } ?><?php hide($content['field_ticket_link']);
-  endif; ?>
-
+    } ?>
+  <?php endif; ?>
+  <?php hide($content['field_ticket_link']); ?>
   <?php
   // We hide the comments and links now so that we can render them later.
   hide($content['comments']);

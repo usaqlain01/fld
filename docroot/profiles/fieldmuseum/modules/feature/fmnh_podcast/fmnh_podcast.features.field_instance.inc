@@ -116,45 +116,6 @@ function fmnh_podcast_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-podcast-field_audience'
-  $field_instances['node-podcast-field_audience'] = array(
-    'bundle' => 'podcast',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'entityreference',
-        'settings' => array(
-          'field_formatter_class' => '',
-          'link' => FALSE,
-        ),
-        'type' => 'entityreference_label',
-        'weight' => 4,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_audience',
-    'label' => 'Audience',
-    'required' => FALSE,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_buttons',
-      'weight' => 56,
-    ),
-  );
-
   // Exported field_instance: 'node-podcast-field_department'
   $field_instances['node-podcast-field_department'] = array(
     'bundle' => 'podcast',
@@ -528,7 +489,6 @@ function fmnh_podcast_field_default_field_instances() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Attachment');
-  t('Audience');
   t('Body');
   t('Department');
   t('Exhibit');

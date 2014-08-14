@@ -57,42 +57,6 @@ function fmnh_video_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-video-field_audience'
-  $field_instances['node-video-field_audience'] = array(
-    'bundle' => 'video',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 9,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 9,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_audience',
-    'label' => 'Audience',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_buttons',
-      'weight' => 50,
-    ),
-  );
-
   // Exported field_instance: 'node-video-field_department'
   $field_instances['node-video-field_department'] = array(
     'bundle' => 'video',
@@ -432,7 +396,6 @@ function fmnh_video_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Audience');
   t('Body');
   t('Department');
   t('Exhibit');

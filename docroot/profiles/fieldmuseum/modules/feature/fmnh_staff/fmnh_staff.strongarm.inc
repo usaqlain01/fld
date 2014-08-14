@@ -14,7 +14,7 @@ function fmnh_staff_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'auto_entitylabel_pattern_profile2_main';
-  $strongarm->value = '[profile2:field_givenname] [profile2:field_surname]';
+  $strongarm->value = '[profile2:user:field_givenname] [profile2:user:field_surname]';
   $export['auto_entitylabel_pattern_profile2_main'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -88,7 +88,7 @@ function fmnh_staff_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'user_picture_default';
-  $strongarm->value = 'profile://fieldmuseum/images/default-profile-image.jpg';
+  $strongarm->value = 'public://default-profile-image.jpg';
   $export['user_picture_default'] = $strongarm;
 
   $strongarm = new stdClass();

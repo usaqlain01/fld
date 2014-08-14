@@ -154,47 +154,6 @@ function fmnh_collection_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-collection-field_audience'
-  $field_instances['node-collection-field_audience'] = array(
-    'bundle' => 'collection',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 17,
-      ),
-      'promo' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 17,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_audience',
-    'label' => 'Audience',
-    'required' => FALSE,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_buttons',
-      'weight' => 47,
-    ),
-  );
-
   // Exported field_instance: 'node-collection-field_collections_loan'
   $field_instances['node-collection-field_collections_loan'] = array(
     'bundle' => 'collection',
@@ -977,7 +936,6 @@ function fmnh_collection_field_default_field_instances() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Acknowledgements');
-  t('Audience');
   t('Body');
   t('Collections loan');
   t('Collections related info');

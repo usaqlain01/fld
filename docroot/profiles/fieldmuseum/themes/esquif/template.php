@@ -347,12 +347,19 @@ function esquif_preprocess_node(&$variables, $hook) {
 }
 
 function esquif_preprocess_node_event(&$variables, $hook) {
+  $node = $variables['node'];
   if ($variables['view_mode'] == 'list_item') {
     $variables['classes_array'][] = 'eventsList__item';
     $variables['title_attributes_array']['class'][] = 'eventsList__heading';
   }
   if (isset($variables['view']) && $variables['view']->name == 'program_events') {
     $variables['theme_hook_suggestions'][] = 'node__event__list_item__single';
+  }
+
+  if ($variables['view_mode'] == 'teaser') {
+
+    $node_title_stripped = strip_tags($node->title);
+    $variables['content']['links']['node']['#links']['node-readmore']['title'] = t('Event Details<span class="element-invisible"> about @title</span>', array('@title' => $node_title_stripped));
   }
 }
 
@@ -371,12 +378,17 @@ function esquif_preprocess_node_blog(&$variables, $hook) {
     $variables['content']['field_image'][0]['file']['#item']['attributes']['class'][] = 'excerpt__image';
   }
 
+  _esquif_preprocess_node_blog($variables, $hook);
+}
+
+function _esquif_preprocess_node_blog(&$variables, $hook) {
   $items = field_get_items('node', $variables['node'], 'field_topic');
   if ($items) {
 
     // Remove author on Science Newsflash topic blogs.
     foreach ($items as $item) {
-      if ($item['target_id'] == 1421) {
+      $parents = taxonomy_get_parents($item['target_id']);
+      if (isset($parents[1216])) {
         unset($variables['name']);
         break;
       }
@@ -398,26 +410,19 @@ function esquif_preprocess_node_video(&$variables, $hook) {
     $variables['content']['field_video'][0]['file']['#attributes']['class'][] = 'excerpt__image';
   }
 
-  // Remove author on Science Newsflash topic blogs.
-  $items = field_get_items('node', $variables['node'], 'field_topic');
-  if ($items) {
-    foreach ($items as $item) {
-      if ($item['target_id'] == 1421) {
-        unset($variables['name']);
-        break;
-      }
-    }
-  }
-
-  // On index pages, remove current topic name.
-  // todo
+  _esquif_preprocess_node_blog($variables, $hook);
 }
 
 function esquif_preprocess_node_collection(&$variables, $hook) {
+  $node = $variables['node'];
+
   $variables['classes_array'][] = 'collection';
   $variables['title_attributes_array']['class'][] = 'collection__title';
   if ($variables['view_mode'] == 'teaser') {
     $variables['content']['field_image'][0]['file']['#item']['attributes']['class'][] = 'collection__image';
+
+    $node_title_stripped = strip_tags($node->title);
+    $variables['content']['links']['node']['#links']['node-readmore']['title'] = t('Learn more<span class="element-invisible"> about @title</span>', array('@title' => $node_title_stripped));
   }
 }
 
@@ -1941,6 +1946,21 @@ function esquif_preprocess_user_profile(&$variables, $hook) {
   $profile = profile2_load_by_user($account, 'main');
   if ($profile) {
     $uri = entity_uri('profile2', $profile);
-    $variables['url'] = $uri['path'];
+    $variables['url'] = url($uri['path']);
   }
+}
+
+function esquif_field__field_link__department($variables) {
+  return esquif_field__field_link__banner_description_and_list($variables);
+}
+
+function esquif_field___custom_display__field_image__department($variables) {
+  $variables['items'][0]['file']['#item']['attributes']['class'][] = 'image--primary';
+  $output = '';
+
+  foreach ($variables['items'] as $delta => $item) {
+    $output .=  drupal_render($item);
+  }
+
+  return $output;
 }
