@@ -44,7 +44,7 @@ if (file_exists('/var/www/site-php')) {
     $conf['cache_class_cache_form'] = 'DrupalDatabaseCache';
 
     // Avoid delegate errors in Imagemagick processing.
-    $_ENV['MAGICKCODERMODULE_PATH'] = '/usr/lib/ImageMagick-6.6.9/modules-Q16/coders';
+    $_ENV['MAGICKCODERMODULE_PATH'] = '/usr/lib/ImageMagick-6.5.7/modules-Q16/coders';
 
     // Set the temp filesystem.
     $_ENV['MAGICK_TEMPORARY_PATH'] = $conf['file_temporary_path'] = '/mnt/tmp/fldmuse.'. $_ENV['AH_SITE_ENVIRONMENT'];
