@@ -40,25 +40,3 @@ function fmnh_blog_menu_position_rule_plugins() {
     ),
   );
 }
-
-function fmnh_blog_page_delivery_callback_alter() {
-  if (menu_get_item() === FALSE) {
-    return;
-  }
-
-  $item = menu_get_item();
-
-  if ($item['path'] == 'science/blog/%') {
-    // Set the active path for the rule's menu.
-    menu_tree_set_path('main-menu', 'menu-position/31');
-
-    // Manually set the preferred link for this path so that
-    // menu_get_active_trail() returns the proper trail.
-    $preferred_links = &drupal_static('menu_link_get_preferred');
-    $preferred_links[$_GET['q']][MENU_PREFERRED_LINK] = menu_link_get_preferred('menu-position/31');
-
-    // Remove the menu position router from the end of the trail.
-    $active_trail = menu_set_active_trail();
-    menu_set_active_trail($active_trail);
-  }
-}
