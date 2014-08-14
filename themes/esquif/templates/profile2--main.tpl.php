@@ -53,6 +53,7 @@
   <h2 class="heading--stroked">Recent Blog Posts</h2>
   <?php print render($content['blogs_entity_view_2']); ?>
 
+  <?php if ($field_education || $field_interests || $field_grants_awards || $field_publications || $field_work_experience || $field_accomplishments || $field_professional_affiliations): ?>
   <h2 class="heading--stroked">Additional Information</h2>
   <div class="l--2up l--vertical">
     <?php print render($content['field_education']); ?>
@@ -63,7 +64,5 @@
     <?php print render($content['field_accomplishments']); ?>
     <?php print render($content['field_professional_affiliations']); ?>
   </div>
-  <?php
-  print render($content);
-  ?>
+  <?php endif; ?>
 </article>
