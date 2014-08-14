@@ -129,7 +129,7 @@ function fmnh_staff_filter($selected = '') {
       'protection-services' => 'Protection Services',
       'housekeeping' => 'Housekeeping',
       'finance' => 'Finance',
-      'office-of-the-executive-vice-president' => 'Office of Executive Vice President',
+      'office-of-executive-vice-president' => 'Office of Executive Vice President',
       'print-shop' => 'Print Shop',
       'facilities' => 'Facilities',
     ),
@@ -195,3 +195,9 @@ function fmnh_staff_ctools_plugin_directory($module, $plugin) {
   }
 }
 
+function fmnh_staff_profile2_access($op, $profile = NULL, $account = NULL) {
+  if (($op == 'view') && (isset($profile))) {
+    $account2 = user_load($profile->uid);
+    return $account2->status == 0 ? FALSE : TRUE;
+  }
+}
