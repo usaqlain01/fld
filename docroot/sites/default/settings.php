@@ -47,8 +47,8 @@ if (file_exists('/var/www/site-php')) {
     $_ENV['MAGICKCODERMODULE_PATH'] = '/usr/lib/ImageMagick-6.5.7/modules-Q16/coders';
 
     // Set the temp filesystem.
-    //$_ENV['MAGICK_TEMPORARY_PATH'] = $conf['file_temporary_path'] = '/mnt/tmp/fldmuse.'. $_ENV['AH_SITE_ENVIRONMENT'];
-    $_ENV['MAGICK_TEMPORARY_PATH'] = $conf['file_temporary_path'] = '/mnt/tmp/fldmuse.test';
+    $_ENV['MAGICK_TEMPORARY_PATH'] = $conf['file_temporary_path'] = '/mnt/tmp/fldmuse.'. $_ENV['AH_SITE_ENVIRONMENT'];
+    //$_ENV['MAGICK_TEMPORARY_PATH'] = $conf['file_temporary_path'] = '/mnt/tmp/fldmuse.test';
     switch ($_ENV['AH_SITE_ENVIRONMENT']) {
       case 'dev':
 
