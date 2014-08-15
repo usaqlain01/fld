@@ -81,6 +81,7 @@ function fmnh_staff_preprocess_entity(&$variables, $hook) {
         }
       }
     }
+    $variables['url'] = url('about/staff/profile/'. $variables['profile2']->pid);
   }
 }
 
