@@ -50,8 +50,12 @@ function fmnh_blog_pathauto_alias_alter(&$alias, array &$context) {
     $items = field_get_items('node', $node, 'field_topic');
     if ($items) {
       foreach ($items as $item) {
-        $parents = taxonomy_get_parents($item['target_id']);
-        $tids = array_merge(array($item['target_id']), array_keys($parents));
+        $tids = array();
+        $tids[] = $item['target_id'];
+        $parents = taxonomy_get_parents_all($item['target_id']);
+        foreach ($parents as $parent) {
+          $tids[] = $parent->tid;
+        }
         if (in_array(901, $tids)) {
           $alias = 'science/'. $alias;
           break;
