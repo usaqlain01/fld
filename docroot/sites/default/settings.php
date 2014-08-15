@@ -2,8 +2,8 @@
 /**
  * This settings.php file was created by the Acquia Cloud ah-site-archive-import
  * Drush command. The imported archive did not contain a settings.php file, so
- * the import process created this file by default. You can replace this file 
- * with the standard default settings.php file for your version of Drupal. 
+ * the import process created this file by default. You can replace this file
+ * with the standard default settings.php file for your version of Drupal.
  * However, be sure to keep the last line that loads the "Acquia Cloud settings
  * include file", which provides the correct database credentials for your site.
  */
@@ -28,7 +28,7 @@ $conf['composer_manager_vendor_dir'] = '../vendor';
 $conf['composer_manager_file_dir'] = '../';
 
 // On Acquia Cloud, this include file configures Drupal to use the correct
-// database in each site environment (Dev, Stage, or Prod). To use this 
+// database in each site environment (Dev, Stage, or Prod). To use this
 // settings.php for development on your local workstation, set $db_url
 // (Drupal 5 or 6) or $databases (Drupal 7) as described in comments above.
 if (file_exists('/var/www/site-php')) {
@@ -44,11 +44,14 @@ if (file_exists('/var/www/site-php')) {
     $conf['cache_class_cache_form'] = 'DrupalDatabaseCache';
 
     // Avoid delegate errors in Imagemagick processing.
-    $_ENV['MAGICKCODERMODULE_PATH'] = '/usr/lib/ImageMagick-6.5.7/modules-Q16/coders';
+    //$_ENV['MAGICKCODERMODULE_PATH'] = '/usr/lib/ImageMagick-6.5.7/modules-Q16/coders';
+
 
     // Set the temp filesystem.
-    $_ENV['MAGICK_TEMPORARY_PATH'] = $conf['file_temporary_path'] = '/mnt/tmp/fldmuse.'. $_ENV['AH_SITE_ENVIRONMENT'];
+    //$_ENV['MAGICK_TEMPORARY_PATH'] =
+    $conf['file_temporary_path'] = '/mnt/tmp/fldmuse.'. $_ENV['AH_SITE_ENVIRONMENT'];
     //$_ENV['MAGICK_TEMPORARY_PATH'] = $conf['file_temporary_path'] = '/mnt/tmp/fldmuse.test';
+    
     switch ($_ENV['AH_SITE_ENVIRONMENT']) {
       case 'dev':
 
@@ -80,5 +83,3 @@ if (!$cli) {
 }
 
 */
-
-
