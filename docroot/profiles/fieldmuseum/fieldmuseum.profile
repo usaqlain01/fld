@@ -176,6 +176,9 @@ function fieldmuseum_imagecrop_reuse_effect(&$image, $data) {
  * @return mixed
  */
 function fieldmuseum_smartcrop(&$image, $data, $callback) {
+  // Short circuit the image cropping.
+  return $callback($image, $data);
+
   $fid = db_select('file_managed')
     ->fields('file_managed', array('fid'))
     ->condition('uri', $image->source)
