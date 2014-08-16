@@ -7,6 +7,7 @@ function fmnh_analytics_init() {
   if (!path_is_admin(current_path())) {
     drupal_add_library('fmnh_analytics', 'analytics', TRUE);
   }
+  drupal_add_library('fmnh_analytics', 'chartbeat', TRUE);
 }
 
 /**
@@ -30,6 +31,27 @@ function fmnh_analytics_library() {
       drupal_get_path('module', 'fmnh_analytics') . '/js/ga-custom.js' => array(),
       drupal_get_path('module', 'fmnh_analytics') . '/js/ga-custom-events.js' => array(),
       drupal_get_path('module', 'fmnh_analytics') . '/js/ga-custom-scroll.js' => array(),
+    ),
+  );
+  $libraries['chartbeat'] = array(
+    'title' => 'Chartbeat',
+    'version' => '1.0',
+    'js' => array(
+      'var _sf_startpt=(new Date()).getTime()' => array('type' => 'inline', 'scope' => 'header_force'),
+      'var _sf_async_config={uid:23411,domain:"fieldmuseum.org",useCanonical:true};
+(function(){
+  function loadChartbeat() {
+    window._sf_endpt=(new Date()).getTime();
+    var e = document.createElement(\'script\');
+    e.setAttribute(\'language\', \'javascript\');
+    e.setAttribute(\'type\', \'text/javascript\');
+    e.setAttribute(\'src\', \'//static.chartbeat.com/js/chartbeat.js\');
+    document.body.appendChild(e);
+  }
+var oldonload = window.onload;
+window.onload = (typeof window.onload != \'function\') ?
+     loadChartbeat : function() { oldonload(); loadChartbeat(); };
+})();' => array('type' => 'inline', 'scope' => 'footer'),
     ),
   );
   return $libraries;
