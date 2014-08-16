@@ -13,6 +13,8 @@ $plugin = array(
 
   'regions'     => array(
     'main'      => t('Main'),
+    'summary_a' => t('Summary A'),
+    'summary_b' => t('Summary B'),
   ),
 
   'settings form'     => 'esquif_panels_settings_form',
