@@ -144,3 +144,109 @@ function fmnh_analytics_menu_attribute_info() {
   );
   return $info;
 }
+
+/**
+ * Implement hook_page_build().
+ *
+ * @param $page
+ */
+function fmnh_analytics_page_build(&$page) {
+  $page['page_top']['floodlight'] = array(
+    '#pre_render' => array('fmnh_analytics_pre_render'),
+    '#weight' => -1,
+    '#access' => fmnh_analytics_floodlight_access(),
+  );
+}
+
+function _fmnh_analytics_pages_visibility() {
+  // get floodlight pages
+  if ($cache = cache_get('fmnh_analytics_floodlight')) {
+    $pages = $cache->data;
+  }
+  else {
+    $result = ctools_export_crud_load_all('fmnh_floodlight');
+    $pages = array();
+    foreach ($result as $record) {
+      if (!isset($record->disabled) || $record->disabled == FALSE) {
+        foreach (array_map('trim', preg_split('/(\r\n?|\n)/', $record->pages)) as $path) {
+          $pages[$path][] = $record->name;
+        }
+      }
+    }
+    cache_set('fmnh_analytics_floodlight', $pages);
+  }
+
+  return $pages;
+}
+
+function fmnh_analytics_floodlight_access() {
+
+  $pages = _fmnh_analytics_pages_visibility();
+
+  // Convert the Drupal path to lowercase
+  $path = drupal_strtolower(drupal_get_path_alias($_GET['q']));
+  // Compare the lowercase internal and lowercase path alias (if any).
+  $page_match = drupal_match_path($path, implode("\n", array_keys($pages)));
+  if ($path != $_GET['q']) {
+    $page_match = $page_match || drupal_match_path($_GET['q'], $pages);
+  }
+  return $page_match;
+}
+
+/**
+ * Prerender function for floodlight tags.
+ */
+function fmnh_analytics_pre_render($floodlight) {
+  $floodlight = array_merge($floodlight, fmnh_analytics_floodlight_view());
+  return $floodlight;
+}
+
+function fmnh_analytics_floodlight_view() {
+  $path = drupal_strtolower(drupal_get_path_alias($_GET['q']));
+  $names = array();
+  $element = array();
+  foreach (_fmnh_analytics_pages_visibility() as $pages => $name) {
+    // Convert the Drupal path to lowercase
+    // Compare the lowercase internal and lowercase path alias (if any).
+    $page_match = drupal_match_path($path, $pages);
+    if ($path != $_GET['q']) {
+      $page_match = $page_match || drupal_match_path($_GET['q'], $pages);
+    }
+
+    if ($page_match) {
+      $names = array_merge($names, $name);
+    }
+  }
+
+  $records = ctools_export_crud_load_multiple('fmnh_floodlight', $names);
+  foreach ($records as $record) {
+    $element[] = array(
+      '#markup' => $record->tag,
+    );
+  }
+
+  return $element;
+}
+
+/**
+ * Implements hook_ctools_plugin_directory().
+ *
+ * @param $module
+ * @param $plugin
+ * @return string
+ */
+function fmnh_analytics_ctools_plugin_directory($module, $plugin) {
+  if ($module == 'ctools' && $plugin == 'export_ui') {
+    return 'plugins/' . $plugin;
+  }
+}
+
+
+/**
+ * Implements hook_ctools_plugin_api().
+ */
+function fmnh_analytics_ctools_plugin_api($module, $api) {
+  if ($module == 'fmnh_analytics' && $api == 'default_fmnh_analytics_floodlight') {
+    return array('version' => 1);
+  }
+}
