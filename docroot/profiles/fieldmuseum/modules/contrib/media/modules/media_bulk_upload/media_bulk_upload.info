@@ -9,9 +9,9 @@ dependencies[] = plupload
 
 files[] = includes/MediaBrowserBulkUpload.inc
 
-; Information added by Drupal.org packaging script on 2014-08-14
-version = "7.x-2.0-alpha3+103-dev"
+; Information added by Drupal.org packaging script on 2014-08-15
+version = "7.x-2.0-alpha3+106-dev"
 core = "7.x"
 project = "media"
-datestamp = "1407976679"
+datestamp = "1408131532"
 
