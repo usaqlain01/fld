@@ -489,3 +489,14 @@ function fieldmuseum_preprocess(&$variables, $hook) {
     }
   }
 }
+
+function fieldmuseum_preprocess_html(&$variables, $hook) {
+  $element = array(
+    '#tag' => 'meta',
+    '#attributes' => array(
+      'name' => 'google-translate-customization',
+      'content' => 'd4d405441fda0fcf-d7f6ef5c1c4efee4-g856c3f44175849f6-13',
+    ),
+  );
+  drupal_add_html_head($element, 'google_translate_customization');
+}
