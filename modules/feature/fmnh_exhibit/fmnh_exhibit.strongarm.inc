@@ -32,7 +32,7 @@ function fmnh_exhibit_strongarm() {
         'custom_settings' => FALSE,
       ),
       'banner' => array(
-        'custom_settings' => FALSE,
+        'custom_settings' => TRUE,
       ),
       'search_index' => array(
         'custom_settings' => FALSE,
