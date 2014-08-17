@@ -32,7 +32,7 @@ function fmnh_exhibit_strongarm() {
         'custom_settings' => FALSE,
       ),
       'banner' => array(
-        'custom_settings' => FALSE,
+        'custom_settings' => TRUE,
       ),
       'search_index' => array(
         'custom_settings' => FALSE,
@@ -98,7 +98,7 @@ function fmnh_exhibit_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'node_options_exhibit';
   $strongarm->value = array(
-    0 => 'status',
+    0 => 'moderation',
     1 => 'revision',
   );
   $export['node_options_exhibit'] = $strongarm;

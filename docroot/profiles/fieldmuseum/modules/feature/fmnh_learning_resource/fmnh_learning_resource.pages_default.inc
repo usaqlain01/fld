@@ -133,6 +133,72 @@ function fmnh_learning_resource_default_page_manager_pages() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
+    $pane->pid = 'new-fb47c1d4-9cb9-425d-9253-2d7f2618b77b';
+    $pane->panel = 'main';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => '',
+      'title' => '',
+      'body' => '<h1>Learning Resources for %term:name</h1>
+',
+      'format' => 'filtered_wysiwyg',
+      'substitute' => 1,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'semantic_panels',
+      'settings' => array(
+        'element_title' => array(
+          'type' => '',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => 'h1',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => '',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 0,
+      ),
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'fb47c1d4-9cb9-425d-9253-2d7f2618b77b';
+    $display->content['new-fb47c1d4-9cb9-425d-9253-2d7f2618b77b'] = $pane;
+    $display->panels['main'][0] = 'new-fb47c1d4-9cb9-425d-9253-2d7f2618b77b';
+    $pane = new stdClass();
     $pane->pid = 'new-59012f6c-7ffe-4976-bd1a-83f2ce6aff8f';
     $pane->panel = 'main';
     $pane->type = 'views_row';
@@ -154,11 +220,11 @@ function fmnh_learning_resource_default_page_manager_pages() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 0;
+    $pane->position = 1;
     $pane->locks = array();
     $pane->uuid = '59012f6c-7ffe-4976-bd1a-83f2ce6aff8f';
     $display->content['new-59012f6c-7ffe-4976-bd1a-83f2ce6aff8f'] = $pane;
-    $display->panels['main'][0] = 'new-59012f6c-7ffe-4976-bd1a-83f2ce6aff8f';
+    $display->panels['main'][1] = 'new-59012f6c-7ffe-4976-bd1a-83f2ce6aff8f';
     $pane = new stdClass();
     $pane->pid = 'new-06ccb6d7-cebb-4e7f-b829-eb7f66de3b73';
     $pane->panel = 'main';
@@ -178,11 +244,11 @@ function fmnh_learning_resource_default_page_manager_pages() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 1;
+    $pane->position = 2;
     $pane->locks = array();
     $pane->uuid = '06ccb6d7-cebb-4e7f-b829-eb7f66de3b73';
     $display->content['new-06ccb6d7-cebb-4e7f-b829-eb7f66de3b73'] = $pane;
-    $display->panels['main'][1] = 'new-06ccb6d7-cebb-4e7f-b829-eb7f66de3b73';
+    $display->panels['main'][2] = 'new-06ccb6d7-cebb-4e7f-b829-eb7f66de3b73';
     $pane = new stdClass();
     $pane->pid = 'new-171d9aa8-a3b0-4063-8d2e-187cc4a54118';
     $pane->panel = 'nav';

@@ -35,7 +35,7 @@ function fmnh_media_file_default_displays() {
   $file_display->weight = 0;
   $file_display->status = TRUE;
   $file_display->settings = array(
-    'image_style' => '5x3_1000w',
+    'image_style' => '5x3_800w',
     'image_link' => '',
   );
   $export['image__banner_5x3__file_field_image'] = $file_display;

@@ -116,12 +116,13 @@ function theme_tablexi_gallery($variables) {
 <!-- Viewer loader -->
             <i class="viewer__loader js--viewer__loader icon icon--loading">Loading...</i>
 		</div>
+    </div>
 
 <!-- Carousel -->
-		<div class="carousel">
+    <div class="carousel">
 <!-- Carousel Viewport -->
-			<div class="carousel__viewport">
-				<ul class="carousel__list js--carousel__items">
+        <div class="carousel__viewport">
+            <ul class="carousel__list js--carousel__items">
 EOT;
 
   foreach ($items as $item) {
@@ -153,10 +154,9 @@ EOT;
   }
 
   $output .= <<<EOT
-				</ul>
-			</div>
-		</div>
-	</div>
+            </ul>
+        </div>
+    </div>
 </div>
 EOT;
 

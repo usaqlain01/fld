@@ -61,7 +61,7 @@ function fmnh_staff_form_user_profile_form_alter(&$form, &$form_state) {
 function fmnh_staff_preprocess_entity(&$variables, $hook) {
   if ($variables['entity_type'] == 'profile2') {
     list($id, $vid, $bundle) = entity_extract_ids('profile2', $variables['profile2']);
-    if ($bundle == 'main') {
+    if ($bundle == 'main' && $variables['elements']['#view_mode'] == 'page') {
       $account = user_load($variables['profile2']->uid);
 
       $items = field_get_items('profile2', $variables['profile2'], 'field_image');
@@ -76,11 +76,12 @@ function fmnh_staff_preprocess_entity(&$variables, $hook) {
         $items = field_get_items('user', $account, $field_name);
         if ($items) {
           foreach ($items as $item) {
-            $variables['content'][$field_name][] = field_view_value('user', $account, 'field_home_department', $item);
+            $variables['content'][$field_name][] = field_view_value('user', $account, $field_name, $item);
           }
         }
       }
     }
+    $variables['url'] = url('about/staff/profile/'. $variables['profile2']->pid);
   }
 }
 
@@ -146,7 +147,6 @@ function fmnh_staff_filter($selected = '') {
       'guest-relations' => 'Guest Relations',
       'public-relations' => 'Public Relations',
       'special-events-and-group-sales' => 'Special Events and Group Sales',
-      'marketing' => 'Marketing',
       'communications' => 'Communications',
       'public-programs-and-education' => 'Public Programs and Education',
     ),
