@@ -164,6 +164,7 @@ function _fmnh_analytics_pages_visibility() {
     $pages = $cache->data;
   }
   else {
+    ctools_include('export');
     $result = ctools_export_crud_load_all('fmnh_floodlight');
     $pages = array();
     foreach ($result as $record) {
