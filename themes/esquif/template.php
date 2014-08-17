@@ -374,11 +374,16 @@ function esquif_preprocess_node_faq(&$variables, $hook) {
 }
 
 function esquif_preprocess_node_blog(&$variables, $hook) {
-  $variables['classes_array'][] = 'article';
-  $variables['title_attributes_array']['class'][] = 'article__title';
   if ($variables['view_mode'] == 'teaser') {
+    $variables['classes_array'][] = 'excerpt';
+    $variables['title_attributes_array']['class'][] = 'excerpt__title';
     $variables['content']['field_image'][0]['file']['#item']['attributes']['class'][] = 'excerpt__image';
   }
+  else if ($variables['view_mode'] == 'full') {
+    $variables['classes_array'][] = 'article';
+    $variables['title_attributes_array']['class'][] = 'article__title';
+  }
+
 
   _esquif_preprocess_node_blog($variables, $hook);
 }
@@ -406,10 +411,14 @@ function esquif_preprocess_node_podcast(&$variables, $hook) {
 }
 
 function esquif_preprocess_node_video(&$variables, $hook) {
-  $variables['classes_array'][] = 'article';
-  $variables['title_attributes_array']['class'][] = 'article__title';
   if ($variables['view_mode'] == 'teaser') {
+    $variables['classes_array'][] = 'excerpt';
+    $variables['title_attributes_array']['class'][] = 'excerpt__title';
     $variables['content']['field_video'][0]['file']['#attributes']['class'][] = 'excerpt__image';
+  }
+  else if ($variables['view_mode'] == 'full') {
+    $variables['classes_array'][] = 'article';
+    $variables['title_attributes_array']['class'][] = 'article__title';
   }
 
   _esquif_preprocess_node_blog($variables, $hook);
