@@ -471,7 +471,7 @@ function esquif_preprocess_region(&$variables, $hook) {
   }
 
   // Don't use Zen's region--sidebar.tpl.php template for sidebars.
-  if ($variables['region'] == 'page_top' || $variables['region'] == 'page_bottom') {
+  if ($variables['region'] == 'page_top' || $variables['region'] == 'page_bottom' || $variables['region'] == 'highlighted') {
     array_unshift($variables['theme_hook_suggestions'], 'region__no_wrapper');
   }
 }
@@ -491,6 +491,10 @@ function esquif_preprocess_block(&$variables, $hook) {
   // By default, Zen will use the block--no-wrapper.tpl.php for the main
   // content. This optional bit of code undoes that:
   if (strpos($variables['block_html_id'], 'block-panels-mini-header') === 0) {
+    $variables['theme_hook_suggestions'][] = 'block__no_wrapper';
+  }
+
+  if (strpos($variables['block_html_id'], 'block-panels-mini-highlighted') === 0) {
     $variables['theme_hook_suggestions'][] = 'block__no_wrapper';
   }
 }

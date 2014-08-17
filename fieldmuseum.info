@@ -184,6 +184,7 @@ features[panels_mini][] = header_home
 features[panels_mini][] = header_science
 features[panels_mini][] = header_support
 features[panels_mini][] = header_visit
+features[panels_mini][] = highlighted
 features[schemaorg][] = node-page
 features[taxonomy][] = audience
 features[taxonomy][] = exhibit_type
