@@ -1545,7 +1545,7 @@ function esquif_node_view_alter(&$build, $type) {
 }
 
 function esquif_taxonomy_term_view_alter(&$build, $type) {
-  if ('promo' == $build['#view_mode']) {
+  if ('promo' == $build['#view_mode'] || 'banner' == $build['#view_mode']) {
     unset($build['description']['#prefix']);
     unset($build['description']['#suffix']);
   }

@@ -440,6 +440,13 @@ function fieldmuseum_preprocess_node_add_list(&$variables, $hook) {
  * Implements hook_panels_pane_content_alter().
  */
 function fieldmuseum_panels_pane_content_alter($content, $pane, $panel_args, $context, $render, $display) {
+
+  // Entity view plugin only displays one entity, so restructure array to align with
+  // existing entity rendering content type plugins.
+  if ($pane->type == 'entity_view') {
+    $content->content = array_pop(array_pop($content->content));
+  }
+
   if (isset($pane->style['style'])) {
     $plugin = panels_get_style($pane->style['style']);
     if ($plugin['name'] == 'naked') {
