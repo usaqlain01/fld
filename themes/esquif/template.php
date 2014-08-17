@@ -497,6 +497,12 @@ function esquif_preprocess_block(&$variables, $hook) {
 
 function esquif_preprocess_taxonomy_term(&$variables, $hook) {
   switch ($variables['view_mode']) {
+    case 'banner':
+      $variables['classes_array'][] = 'banner';
+      $variables['content']['field_banner_image'][0]['file']['#item']['attributes']['class'][] = 'banner__image';
+      $variables['content_attributes_array']['class'][] = 'banner__description';
+      $variables['theme_hook_suggestions'][] = 'taxonomy_term__banner';
+      break;
     case 'promo':
       $variables['theme_hook_suggestions'][] = 'taxonomy_term__promo';
       $variables['classes_array'][] = 'promo';
