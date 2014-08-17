@@ -361,7 +361,7 @@ function fieldmuseum_field_default_field_instances() {
         'module' => 'file_entity',
         'settings' => array(
           'field_formatter_class' => '',
-          'file_view_mode' => 'banner_5x2',
+          'file_view_mode' => 'banner_5x3',
         ),
         'type' => 'file_rendered',
         'weight' => 0,
@@ -570,6 +570,59 @@ function fieldmuseum_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'taxonomy_term-topic-field_banner_description'
+  $field_instances['taxonomy_term-topic-field_banner_description'] = array(
+    'bundle' => 'topic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'banner' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(
+          'field_formatter_class' => '',
+        ),
+        'type' => 'text_default',
+        'weight' => 2,
+      ),
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 2,
+      ),
+      'promo' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'summary' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'taxonomy_term',
+    'field_name' => 'field_banner_description',
+    'label' => 'Banner description',
+    'required' => FALSE,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 32,
+    ),
+  );
+
   // Exported field_instance: 'taxonomy_term-topic-field_banner_image'
   $field_instances['taxonomy_term-topic-field_banner_image'] = array(
     'bundle' => 'topic',
@@ -584,7 +637,7 @@ function fieldmuseum_field_default_field_instances() {
           'file_view_mode' => 'banner_5x2',
         ),
         'type' => 'file_rendered',
-        'weight' => 0,
+        'weight' => 1,
       ),
       'default' => array(
         'label' => 'above',
@@ -664,13 +717,13 @@ function fieldmuseum_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 2,
+        'weight' => 3,
       ),
       'default' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 2,
+        'weight' => 3,
       ),
       'promo' => array(
         'label' => 'hidden',
@@ -747,6 +800,7 @@ function fieldmuseum_field_default_field_instances() {
   t('"CTA links." They may be displayed as button next to the title of this page or below the image.');
   t('Action link');
   t('Attachment');
+  t('Banner description');
   t('Banner image');
   t('Body');
   t('Image');

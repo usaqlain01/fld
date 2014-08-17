@@ -4062,7 +4062,9 @@ function fieldmuseum_default_page_manager_pages() {
     $pane->subtype = 'events-panel_pane_1';
     $pane->shown = TRUE;
     $pane->access = array();
-    $pane->configuration = array();
+    $pane->configuration = array(
+      'items_per_page' => '3',
+    );
     $pane->cache = array();
     $pane->style = array(
       'style' => 'semantic_panels',
@@ -6098,7 +6100,7 @@ function fieldmuseum_default_page_manager_pages() {
           'attributes' => array(),
           'attributes_array' => array(),
         ),
-        'add_default_classes' => 1,
+        'add_default_classes' => 0,
       ),
     );
     $pane->css = array();
@@ -6695,6 +6697,32 @@ function fieldmuseum_default_page_manager_pages() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
+    $pane->pid = 'new-e2fa2669-b997-4b85-ac29-f16be2b34d04';
+    $pane->panel = 'main';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => '',
+      'title' => '',
+      'body' => '<h1>Plan Your Special Event</h1>',
+      'format' => 'unfiltered',
+      'substitute' => 1,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'naked',
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'e2fa2669-b997-4b85-ac29-f16be2b34d04';
+    $display->content['new-e2fa2669-b997-4b85-ac29-f16be2b34d04'] = $pane;
+    $display->panels['main'][0] = 'new-e2fa2669-b997-4b85-ac29-f16be2b34d04';
+    $pane = new stdClass();
     $pane->pid = 'new-581ed6b7-fe2f-4771-8049-1daa9ffc1096';
     $pane->panel = 'main';
     $pane->type = 'panels_mini';
@@ -6751,11 +6779,11 @@ function fieldmuseum_default_page_manager_pages() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 0;
+    $pane->position = 1;
     $pane->locks = array();
     $pane->uuid = '581ed6b7-fe2f-4771-8049-1daa9ffc1096';
     $display->content['new-581ed6b7-fe2f-4771-8049-1daa9ffc1096'] = $pane;
-    $display->panels['main'][0] = 'new-581ed6b7-fe2f-4771-8049-1daa9ffc1096';
+    $display->panels['main'][1] = 'new-581ed6b7-fe2f-4771-8049-1daa9ffc1096';
     $pane = new stdClass();
     $pane->pid = 'new-9721a1b3-a020-44c0-830e-1f549e9e5809';
     $pane->panel = 'nav';
@@ -10392,27 +10420,27 @@ function fieldmuseum_default_page_manager_pages() {
 <div class="l--2up">
   <div class="l--module">
     <p>
-      <strong>Save 49%</strong> or more on admission to 5 famous Chicago attractions! 
+      <strong>Save 49%</strong> or more on admission to 5 famous Chicago attractions!
     </p>
-    <a href="http://www.citypass.com/chicago?mv_source=field&campaign=citypass-ticket-book" class="button--cta ">Explore the CityPASS</a> 
+    <a href="http://www.citypass.com/chicago?mv_source=field&campaign=citypass-ticket-book" class="button--cta">Explore the CityPASS</a>
   </div>
   <div class="l--module">
     <ul class="priceList">
-      <li class="priceList__item"> 
+      <li class="priceList__item">
       <div class="priceList__details">
-        <span class="priceList__label"> Adults </span> <span class="priceList__price">$94</span> 
+        <span class="priceList__label"> Adults </span> <span class="priceList__price">$94</span>
       </div>
       </li>
-      <li class="priceList__item"> 
+      <li class="priceList__item">
       <div class="priceList__details">
-        <span class="priceList__label"> Children </span> <span class="priceList__price">$79</span> 
+        <span class="priceList__label"> Children </span> <span class="priceList__price">$79</span>
       </div>
       <p class="priceList__condition">
         (ages 3 – 11)
       </p>
       </li>
     </ul>
-    <a href="http://www.citypass.com/chicago?mv_source=field&campaign=citypass-ticket-book" class="button--buy "> <span class="button__leader"> <svg class="icon icon--ticket-2" viewbox="0 0 500 500"> <use xlink:href="#ticket-2"></use> </svg> </span> Buy CityPASS Online </a> 
+    <a href="http://www.citypass.com/chicago?mv_source=field&campaign=citypass-ticket-book" class="button--buy" data-analytics="ticketing-city-pass"> <span class="button__leader"> <svg class="icon icon--ticket-2" viewbox="0 0 500 500"> <use xlink:href="#ticket-2"></use> </svg> </span> Buy CityPASS Online </a>
   </div>
 </div>
 <h2 class="heading--stroked">
@@ -10423,13 +10451,13 @@ function fieldmuseum_default_page_manager_pages() {
 <section class="tickets is--visible--wide">
   <header class="tickets__header">
     <h4 class="tickets__heading">
-      <svg class="icon icon--ticket-3 tickets__icon" viewbox="0 0 500 500"> <use xlink:href="#ticket-3"></use> </svg> All-Access 
+      <svg class="icon icon--ticket-3 tickets__icon" viewbox="0 0 500 500"> <use xlink:href="#ticket-3"></use> </svg> All-Access
     </h4>
     <h4 class="tickets__heading">
-      <svg class="icon icon--ticket-2 tickets__icon" viewbox="0 0 500 500"> <use xlink:href="#ticket-2"></use> </svg> Discovery 
+      <svg class="icon icon--ticket-2 tickets__icon" viewbox="0 0 500 500"> <use xlink:href="#ticket-2"></use> </svg> Discovery
     </h4>
     <h4 class="tickets__heading">
-      <svg class="icon icon--ticket-1 tickets__icon" viewbox="0 0 500 500"> <use xlink:href="#ticket-1"></use> </svg> Basic 
+      <svg class="icon icon--ticket-1 tickets__icon" viewbox="0 0 500 500"> <use xlink:href="#ticket-1"></use> </svg> Basic
     </h4>
     <p class="tickets__details">
       See it all! Our All-Access Pass entitles you entry into all <a href="http://fieldmusefacelift.devcloud.acquia-sites.com/at-the-field/exhibitions/ticketed">ticketed exhibitions</a>, one <a href="http://fieldmusefacelift.devcloud.acquia-sites.com/at-the-field/exhibitions/3d-movie">3D movie</a> and all of the <a href="http://fieldmusefacelift.devcloud.acquia-sites.com/at-the-field/exhibitions/permanent">permanent exhibitions</a> at The Field Museum.
@@ -10440,26 +10468,26 @@ function fieldmuseum_default_page_manager_pages() {
     <p class="tickets__details">
       Enjoy all of the <a href="http://fieldmusefacelift.devcloud.acquia-sites.com/at-the-field/exhibitions/permanent">permanent exhibitions</a> of the Museum. This package does not include <a href="http://fieldmusefacelift.devcloud.acquia-sites.com/at-the-field/exhibitions/ticketed">ticketed exhibitions</a> or <a href="http://fieldmusefacelift.devcloud.acquia-sites.com/at-the-field/exhibitions/3d-movie">3D movies</a>.
     </p>
-    <button class="tickets__toggle js--toggleTickets">Learn More About Our Ticket Packages</button> 
+    <button class="tickets__toggle js--toggleTickets">Learn More About Our Ticket Packages</button>
   </header>
   <section class="ticketMatrix">
     <div class="ticketMatrix__column">
       <h3 class="ticketMatrix__heading">
-        <a href="http://fieldmusefacelift.devcloud.acquia-sites.com/at-the-field/exhibitions/permanent" class="ticketMatrix__link">Permanent Exhibitions</a> 
+        <a href="http://fieldmusefacelift.devcloud.acquia-sites.com/at-the-field/exhibitions/permanent" class="ticketMatrix__link">Permanent Exhibitions</a>
       </h3>
       <h3 class="ticketMatrix__heading">
-        <a href="http://fieldmusefacelift.devcloud.acquia-sites.com/at-the-field/exhibitions/ticketed" class="ticketMatrix__link">Ticketed Exhibitions</a> 
+        <a href="http://fieldmusefacelift.devcloud.acquia-sites.com/at-the-field/exhibitions/ticketed" class="ticketMatrix__link">Ticketed Exhibitions</a>
       </h3>
       <h3 class="ticketMatrix__heading">
-        <a href="http://fieldmusefacelift.devcloud.acquia-sites.com/at-the-field/exhibitions/3d-movie" class="ticketMatrix__link">3D Movies</a> 
+        <a href="http://fieldmusefacelift.devcloud.acquia-sites.com/at-the-field/exhibitions/3d-movie" class="ticketMatrix__link">3D Movies</a>
       </h3>
     </div>
     <div class="ticketMatrix__column">
       <div class="ticketMatrix__cell">
-        <i class="icon--circle ticketMatrix__icon"></i> 
+        <i class="icon--circle ticketMatrix__icon"></i>
       </div>
       <div class="ticketMatrix__cell">
-        <i class="icon--circle ticketMatrix__icon"></i> 
+        <i class="icon--circle ticketMatrix__icon"></i>
       </div>
       <div class="ticketMatrix__cell ticketMatrix__cell--text">
         <p>
@@ -10469,7 +10497,7 @@ function fieldmuseum_default_page_manager_pages() {
     </div>
     <div class="ticketMatrix__column">
       <div class="ticketMatrix__cell">
-        <i class="icon--circle ticketMatrix__icon"></i> 
+        <i class="icon--circle ticketMatrix__icon"></i>
       </div>
       <div class="ticketMatrix__cell ticketMatrix__cell--text ticketMatrix__cell--double">
         <p>
@@ -10479,7 +10507,7 @@ function fieldmuseum_default_page_manager_pages() {
     </div>
     <div class="ticketMatrix__column">
       <div class="ticketMatrix__cell">
-        <i class="icon--circle ticketMatrix__icon"></i> 
+        <i class="icon--circle ticketMatrix__icon"></i>
       </div>
       <div class="ticketMatrix__cell ticketMatrix__cell--text ticketMatrix__cell--double ticketMatrix__cell--disabled">
         <p>
@@ -10490,33 +10518,33 @@ function fieldmuseum_default_page_manager_pages() {
   </section>
   <section class="tickets__pricing">
     <ul class="priceList">
-      <li class="priceList__item"> 
+      <li class="priceList__item">
       <div class="priceList__details">
-        <span class="priceList__label"> Adults </span> <span class="priceList__price">$31</span> 
+        <span class="priceList__label"> Adults </span> <span class="priceList__price">$31</span>
       </div>
       <p class="priceList__condition">
         &nbsp;
       </p>
       </li>
-      <li class="priceList__item"> 
+      <li class="priceList__item">
       <div class="priceList__details">
-        <span class="priceList__label"> Children </span> <span class="priceList__price">$21</span> 
+        <span class="priceList__label"> Children </span> <span class="priceList__price">$21</span>
       </div>
       <p class="priceList__condition">
         (ages 3 – 11)
       </p>
       </li>
-      <li class="priceList__item"> 
+      <li class="priceList__item">
       <div class="priceList__details">
-        <span class="priceList__label"> Seniors </span> <span class="priceList__price">$25</span> 
+        <span class="priceList__label"> Seniors </span> <span class="priceList__price">$25</span>
       </div>
       <p class="priceList__condition">
         (ages 65+)
       </p>
       </li>
-      <li class="priceList__item"> 
+      <li class="priceList__item">
       <div class="priceList__details">
-        <span class="priceList__label"> Students </span> <span class="priceList__price">$25</span> 
+        <span class="priceList__label"> Students </span> <span class="priceList__price">$25</span>
       </div>
       <p class="priceList__condition">
         (w/ valid ID)
@@ -10524,33 +10552,33 @@ function fieldmuseum_default_page_manager_pages() {
       </li>
     </ul>
     <ul class="priceList">
-      <li class="priceList__item"> 
+      <li class="priceList__item">
       <div class="priceList__details">
-        <span class="priceList__label"> Adults </span> <span class="priceList__price">$25</span> 
+        <span class="priceList__label"> Adults </span> <span class="priceList__price">$25</span>
       </div>
       <p class="priceList__condition">
         &nbsp;
       </p>
       </li>
-      <li class="priceList__item"> 
+      <li class="priceList__item">
       <div class="priceList__details">
-        <span class="priceList__label"> Children </span> <span class="priceList__price">$18</span> 
+        <span class="priceList__label"> Children </span> <span class="priceList__price">$18</span>
       </div>
       <p class="priceList__condition">
         (ages 3 – 11)
       </p>
       </li>
-      <li class="priceList__item"> 
+      <li class="priceList__item">
       <div class="priceList__details">
-        <span class="priceList__label"> Seniors </span> <span class="priceList__price">$20</span> 
+        <span class="priceList__label"> Seniors </span> <span class="priceList__price">$20</span>
       </div>
       <p class="priceList__condition">
         (ages 65+)
       </p>
       </li>
-      <li class="priceList__item"> 
+      <li class="priceList__item">
       <div class="priceList__details">
-        <span class="priceList__label"> Students </span> <span class="priceList__price">$20</span> 
+        <span class="priceList__label"> Students </span> <span class="priceList__price">$20</span>
       </div>
       <p class="priceList__condition">
         (w/ valid ID)
@@ -10558,33 +10586,33 @@ function fieldmuseum_default_page_manager_pages() {
       </li>
     </ul>
     <ul class="priceList">
-      <li class="priceList__item"> 
+      <li class="priceList__item">
       <div class="priceList__details">
-        <span class="priceList__label"> Adults </span> <span class="priceList__price">$18</span> 
+        <span class="priceList__label"> Adults </span> <span class="priceList__price">$18</span>
       </div>
       <p class="priceList__condition">
         &nbsp;
       </p>
       </li>
-      <li class="priceList__item"> 
+      <li class="priceList__item">
       <div class="priceList__details">
-        <span class="priceList__label"> Children </span> <span class="priceList__price">$13</span> 
+        <span class="priceList__label"> Children </span> <span class="priceList__price">$13</span>
       </div>
       <p class="priceList__condition">
         (ages 3 – 11)
       </p>
       </li>
-      <li class="priceList__item"> 
+      <li class="priceList__item">
       <div class="priceList__details">
-        <span class="priceList__label"> Seniors </span> <span class="priceList__price">$15</span> 
+        <span class="priceList__label"> Seniors </span> <span class="priceList__price">$15</span>
       </div>
       <p class="priceList__condition">
         (ages 65+)
       </p>
       </li>
-      <li class="priceList__item"> 
+      <li class="priceList__item">
       <div class="priceList__details">
-        <span class="priceList__label"> Students </span> <span class="priceList__price">$15</span> 
+        <span class="priceList__label"> Students </span> <span class="priceList__price">$15</span>
       </div>
       <p class="priceList__condition">
         (w/ valid ID)
@@ -10594,13 +10622,13 @@ function fieldmuseum_default_page_manager_pages() {
   </section>
   <section class="tickets__buttons">
     <div class="tickets__button">
-      <a href="http://tickets.fieldmuseum.org" class="button--buy button--full"> <span class="button__leader"> <svg class="icon icon--ticket-3" viewbox="0 0 500 500"> <use xlink:href="#ticket-3"></use> </svg> </span> All-Access Pass </a> 
+      <a href="http://tickets.fieldmuseum.org" class="button--buy button--full" data-analytics="ticketing-all-access"> <span class="button__leader"> <svg class="icon icon--ticket-3" viewbox="0 0 500 500"> <use xlink:href="#ticket-3"></use> </svg> </span> All-Access Pass </a>
     </div>
     <div class="tickets__button">
-      <a href="http://tickets.fieldmuseum.org" class="button--buy button--full"> <span class="button__leader"> <svg class="icon icon--ticket-2" viewbox="0 0 500 500"> <use xlink:href="#ticket-2"></use> </svg> </span> Discovery Pass </a> 
+      <a href="http://tickets.fieldmuseum.org" class="button--buy button--full" data-analytics="ticketing-discovery"> <span class="button__leader"> <svg class="icon icon--ticket-2" viewbox="0 0 500 500"> <use xlink:href="#ticket-2"></use> </svg> </span> Discovery Pass </a>
     </div>
     <div class="tickets__button">
-      <a href="http://tickets.fieldmuseum.org" class="button--buy button--full"> <span class="button__leader"> <svg class="icon icon--ticket-1" viewbox="0 0 500 500"> <use xlink:href="#ticket-1"></use> </svg> </span> Basic Pass </a> 
+      <a href="http://tickets.fieldmuseum.org" class="button--buy button--full" data-analytics="ticketing-basic"> <span class="button__leader"> <svg class="icon icon--ticket-1" viewbox="0 0 500 500"> <use xlink:href="#ticket-1"></use> </svg> </span> Basic Pass </a>
     </div>
   </section>
 </section>
@@ -10610,39 +10638,39 @@ function fieldmuseum_default_page_manager_pages() {
   <section class="tickets__type">
     <article class="tickets__article">
       <h4 class="tickets__heading">
-        <svg class="icon icon--ticket-3 tickets__icon" viewbox="0 0 500 500"> <use xlink:href="#ticket-3"></use> </svg> All-Access 
+        <svg class="icon icon--ticket-3 tickets__icon" viewbox="0 0 500 500"> <use xlink:href="#ticket-3"></use> </svg> All-Access
       </h4>
       <p class="tickets__details">
         See it all! Our All-Access Pass entitles you entry into all <a href="http://fieldmusefacelift.devcloud.acquia-sites.com/at-the-field/exhibitions/ticketed">ticketed exhibitions</a>, one <a href="http://fieldmusefacelift.devcloud.acquia-sites.com/at-the-field/exhibitions/3d-movie">3D movie</a> and all of the <a href="http://fieldmusefacelift.devcloud.acquia-sites.com/at-the-field/exhibitions/permanent">permanent exhibitions</a> at The Field Museum.
       </p>
       <ul class="priceList">
-        <li class="priceList__item"> 
+        <li class="priceList__item">
         <div class="priceList__details">
-          <span class="priceList__label"> Adults </span> <span class="priceList__price">$31</span> 
+          <span class="priceList__label"> Adults </span> <span class="priceList__price">$31</span>
         </div>
         <p class="priceList__condition">
           &nbsp;
         </p>
         </li>
-        <li class="priceList__item"> 
+        <li class="priceList__item">
         <div class="priceList__details">
-          <span class="priceList__label"> Children </span> <span class="priceList__price">$21</span> 
+          <span class="priceList__label"> Children </span> <span class="priceList__price">$21</span>
         </div>
         <p class="priceList__condition">
           (ages 3 – 11)
         </p>
         </li>
-        <li class="priceList__item"> 
+        <li class="priceList__item">
         <div class="priceList__details">
-          <span class="priceList__label"> Seniors </span> <span class="priceList__price">$25</span> 
+          <span class="priceList__label"> Seniors </span> <span class="priceList__price">$25</span>
         </div>
         <p class="priceList__condition">
           (ages 65+)
         </p>
         </li>
-        <li class="priceList__item"> 
+        <li class="priceList__item">
         <div class="priceList__details">
-          <span class="priceList__label"> Students </span> <span class="priceList__price">$25</span> 
+          <span class="priceList__label"> Students </span> <span class="priceList__price">$25</span>
         </div>
         <p class="priceList__condition">
           (w/ valid ID)
@@ -10653,9 +10681,9 @@ function fieldmuseum_default_page_manager_pages() {
         Includes:
       </h5>
       <ul class="tickets__included">
-        <li><a href="#">Permanent Exhibitions</a></li>
-        <li><a href="#">Ticketed Exhibitions</a></li>
-        <li><a href="#">3D Movies</a></li>
+        <li><a href="/at-the-field/exhibitions/permanent">Permanent Exhibitions</a></li>
+        <li><a href="/at-the-field/exhibitions/ticketed">Ticketed Exhibitions</a></li>
+        <li><a href="/at-the-field/exhibitions/3d-movies">3D Movies</a></li>
       </ul>
       <p class="tickets__disclaimer">
         Your <strong>All-Access Pass</strong> includes a single 3D movie.
@@ -10665,39 +10693,39 @@ function fieldmuseum_default_page_manager_pages() {
   <section class="tickets__type">
     <article class="tickets__article">
       <h4 class="tickets__heading">
-        <svg class="icon icon--ticket-2 tickets__icon" viewbox="0 0 500 500"> <use xlink:href="#ticket-2"></use> </svg> Discovery 
+        <svg class="icon icon--ticket-2 tickets__icon" viewbox="0 0 500 500"> <use xlink:href="#ticket-2"></use> </svg> Discovery
       </h4>
       <p class="tickets__details">
         Explore all of the <a href="http://fieldmusefacelift.devcloud.acquia-sites.com/at-the-field/exhibitions/permanent">permanent exhibitions</a> at The Field Museum, plus <a href="http://fieldmusefacelift.devcloud.acquia-sites.com/at-the-field/exhibitions/3d-movie">one 3D movie</a> or <a href="http://fieldmusefacelift.devcloud.acquia-sites.com/at-the-field/exhibitions/ticketed">ticketed exhibition</a>.
       </p>
       <ul class="priceList">
-        <li class="priceList__item"> 
+        <li class="priceList__item">
         <div class="priceList__details">
-          <span class="priceList__label"> Adults </span> <span class="priceList__price">$25</span> 
+          <span class="priceList__label"> Adults </span> <span class="priceList__price">$25</span>
         </div>
         <p class="priceList__condition">
           &nbsp;
         </p>
         </li>
-        <li class="priceList__item"> 
+        <li class="priceList__item">
         <div class="priceList__details">
-          <span class="priceList__label"> Children </span> <span class="priceList__price">$18</span> 
+          <span class="priceList__label"> Children </span> <span class="priceList__price">$18</span>
         </div>
         <p class="priceList__condition">
           (ages 3 – 11)
         </p>
         </li>
-        <li class="priceList__item"> 
+        <li class="priceList__item">
         <div class="priceList__details">
-          <span class="priceList__label"> Seniors </span> <span class="priceList__price">$20</span> 
+          <span class="priceList__label"> Seniors </span> <span class="priceList__price">$20</span>
         </div>
         <p class="priceList__condition">
           (ages 65+)
         </p>
         </li>
-        <li class="priceList__item"> 
+        <li class="priceList__item">
         <div class="priceList__details">
-          <span class="priceList__label"> Students </span> <span class="priceList__price">$20</span> 
+          <span class="priceList__label"> Students </span> <span class="priceList__price">$20</span>
         </div>
         <p class="priceList__condition">
           (w/ valid ID)
@@ -10720,39 +10748,39 @@ function fieldmuseum_default_page_manager_pages() {
   <section class="tickets__type">
     <article class="tickets__article">
       <h4 class="tickets__heading">
-        <svg class="icon icon--ticket-1 tickets__icon" viewbox="0 0 500 500"> <use xlink:href="#ticket-1"></use> </svg> Basic 
+        <svg class="icon icon--ticket-1 tickets__icon" viewbox="0 0 500 500"> <use xlink:href="#ticket-1"></use> </svg> Basic
       </h4>
       <p class="tickets__details">
         Enjoy all of the <a href="http://fieldmusefacelift.devcloud.acquia-sites.com/at-the-field/exhibitions/permanent">permanent exhibitions</a> of the Museum. This package does not include <a href="http://fieldmusefacelift.devcloud.acquia-sites.com/at-the-field/exhibitions/ticketed">ticketed exhibitions</a> or <a href="http://fieldmusefacelift.devcloud.acquia-sites.com/at-the-field/exhibitions/3d-movie">3D movies</a>.
       </p>
       <ul class="priceList">
-        <li class="priceList__item"> 
+        <li class="priceList__item">
         <div class="priceList__details">
-          <span class="priceList__label"> Adults </span> <span class="priceList__price">$18</span> 
+          <span class="priceList__label"> Adults </span> <span class="priceList__price">$18</span>
         </div>
         <p class="priceList__condition">
           &nbsp;
         </p>
         </li>
-        <li class="priceList__item"> 
+        <li class="priceList__item">
         <div class="priceList__details">
-          <span class="priceList__label"> Children </span> <span class="priceList__price">$13</span> 
+          <span class="priceList__label"> Children </span> <span class="priceList__price">$13</span>
         </div>
         <p class="priceList__condition">
           (ages 3 – 11)
         </p>
         </li>
-        <li class="priceList__item"> 
+        <li class="priceList__item">
         <div class="priceList__details">
-          <span class="priceList__label"> Seniors </span> <span class="priceList__price">$15</span> 
+          <span class="priceList__label"> Seniors </span> <span class="priceList__price">$15</span>
         </div>
         <p class="priceList__condition">
           (ages 65+)
         </p>
         </li>
-        <li class="priceList__item"> 
+        <li class="priceList__item">
         <div class="priceList__details">
-          <span class="priceList__label"> Students </span> <span class="priceList__price">$15</span> 
+          <span class="priceList__label"> Students </span> <span class="priceList__price">$15</span>
         </div>
         <p class="priceList__condition">
           (w/ valid ID)
@@ -10785,25 +10813,25 @@ function fieldmuseum_default_page_manager_pages() {
   </thead>
   <tbody>
     <tr>
-      <td class="is--centered"> 
+      <td class="is--centered">
       <p>
         $85 for 1yr<br />
         $160 for 2yrs
       </p>
       </td>
-      <td class="is--centered"> 
+      <td class="is--centered">
       <p>
         $145 for 1yr<br />
         $280 for 2yrs
       </p>
       </td>
-      <td class="is--centered"> 
+      <td class="is--centered">
       <p>
         $120 for 1yr<br />
         $230 for 2yrs
       </p>
       </td>
-      <td class="is--centered"> 
+      <td class="is--centered">
       <p>
         $70 for 1yr<br />
         $130 for 2yrs
@@ -10812,7 +10840,7 @@ function fieldmuseum_default_page_manager_pages() {
     </tr>
   </tbody>
 </table>
-<a href="http://fieldmusefacelift.devcloud.acquia-sites.com/support/members/member-benefits" class="button--cta ">View Member Benefits</a> 
+<a href="http://fieldmusefacelift.devcloud.acquia-sites.com/support/members/member-benefits" class="button--cta">View Member Benefits</a>
 ',
       'format' => 'unfiltered',
       'substitute' => TRUE,

@@ -581,14 +581,14 @@ function fmnh_landings_default_panels_mini() {
   $mini->requiredcontexts = array();
   $mini->contexts = array(
     0 => array(
-      'identifier' => 'List: Menu children',
+      'identifier' => 'List: Menu children (show children in other menus)',
       'keyword' => 'list',
-      'name' => 'entitylist:menu_children',
+      'name' => 'entitylist:menu_children_visible',
       'use_pager' => FALSE,
       'pager_id' => NULL,
       'range' => array(
         'offset' => 0,
-        'limit' => 10,
+        'limit' => 0,
       ),
       'id' => 1,
     ),

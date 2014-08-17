@@ -151,6 +151,8 @@ function fmnh_traveling_exhibit_default_page_manager_handlers() {
       'delta_reversed' => 0,
       'formatter_settings' => array(
         'link' => 0,
+        'view_mode' => 'entity_label',
+        'links' => 1,
       ),
       'context' => 'argument_entity_id:node_1',
       'override_title' => 1,
@@ -315,7 +317,7 @@ function fmnh_traveling_exhibit_default_page_manager_handlers() {
       'depth' => '0',
       'expanded' => 0,
       'sort' => 0,
-      'override_title' => 0,
+      'override_title' => 1,
       'override_title_text' => '',
       'identifier' => 'section',
     );

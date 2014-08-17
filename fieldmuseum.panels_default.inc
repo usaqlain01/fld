@@ -479,6 +479,44 @@ function fieldmuseum_default_panels_mini() {
     $display->content['new-2db08ebc-583e-414d-b4f7-2bb76e4ed0ae'] = $pane;
     $display->panels['main_a'][5] = 'new-2db08ebc-583e-414d-b4f7-2bb76e4ed0ae';
     $pane = new stdClass();
+    $pane->pid = 'new-134f11be-1143-413b-9399-e767a0a0fe0d';
+    $pane->panel = 'main_a';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => 'Google Translate widget script',
+      'title' => '',
+      'body' => '<div id="google_translate_element"></div>
+<script type="text/javascript">
+	function googleTranslateElementInit() {
+		new google.translate.TranslateElement({
+			pageLanguage: \'en\',
+			layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+			gaTrack: true,
+			gaId: \'UA-11881432-2\'},
+		\'google_translate_element\');
+	}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+',
+      'format' => 'unfiltered',
+      'substitute' => TRUE,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'naked',
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 6;
+    $pane->locks = array();
+    $pane->uuid = '134f11be-1143-413b-9399-e767a0a0fe0d';
+    $display->content['new-134f11be-1143-413b-9399-e767a0a0fe0d'] = $pane;
+    $display->panels['main_a'][6] = 'new-134f11be-1143-413b-9399-e767a0a0fe0d';
+    $pane = new stdClass();
     $pane->pid = 'new-85e07ff1-3c95-4e44-8e7b-dfbeab9c1794';
     $pane->panel = 'main_b';
     $pane->type = 'fieldable_panels_pane';
@@ -786,7 +824,7 @@ function fieldmuseum_default_panels_mini() {
       'identifier' => 'File',
       'keyword' => 'file',
       'name' => 'entity:file',
-      'entity_id' => '84281',
+      'entity_id' => '84666',
       'id' => 1,
     ),
   );
@@ -967,7 +1005,7 @@ function fieldmuseum_default_panels_mini() {
       'identifier' => 'File',
       'keyword' => 'file',
       'name' => 'entity:file',
-      'entity_id' => '84311',
+      'entity_id' => '84641',
       'id' => 1,
     ),
   );
@@ -1148,7 +1186,7 @@ function fieldmuseum_default_panels_mini() {
       'identifier' => 'File',
       'keyword' => 'file',
       'name' => 'entity:file',
-      'entity_id' => '84331',
+      'entity_id' => '84656',
       'id' => 1,
     ),
   );
@@ -1288,7 +1326,7 @@ function fieldmuseum_default_panels_mini() {
       'identifier' => 'File',
       'keyword' => 'file',
       'name' => 'entity:file',
-      'entity_id' => '84316',
+      'entity_id' => '84636',
       'id' => 1,
     ),
   );
@@ -1364,7 +1402,7 @@ function fieldmuseum_default_panels_mini() {
       'identifier' => 'File',
       'keyword' => 'file',
       'name' => 'entity:file',
-      'entity_id' => '84321',
+      'entity_id' => '84651',
       'id' => 1,
     ),
   );
@@ -1504,7 +1542,7 @@ function fieldmuseum_default_panels_mini() {
       'identifier' => 'File',
       'keyword' => 'file',
       'name' => 'entity:file',
-      'entity_id' => '84356',
+      'entity_id' => '84661',
       'id' => 1,
     ),
   );
@@ -1645,7 +1683,7 @@ function fieldmuseum_default_panels_mini() {
       'identifier' => 'File',
       'keyword' => 'file',
       'name' => 'entity:file',
-      'entity_id' => '84361',
+      'entity_id' => '84646',
       'id' => 1,
     ),
   );
