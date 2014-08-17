@@ -185,10 +185,11 @@ function fmnh_analytics_floodlight_access() {
 
   // Convert the Drupal path to lowercase
   $path = drupal_strtolower(drupal_get_path_alias($_GET['q']));
+  $patterns = implode("\n", array_keys($pages));
   // Compare the lowercase internal and lowercase path alias (if any).
-  $page_match = drupal_match_path($path, implode("\n", array_keys($pages)));
+  $page_match = drupal_match_path($path, $patterns);
   if ($path != $_GET['q']) {
-    $page_match = $page_match || drupal_match_path($_GET['q'], $pages);
+    $page_match = $page_match || drupal_match_path($_GET['q'], $patterns);
   }
   return $page_match;
 }
