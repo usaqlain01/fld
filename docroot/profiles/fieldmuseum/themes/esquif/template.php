@@ -230,15 +230,19 @@ EOT;
 function esquif_preprocess_node(&$variables, $hook) {
 
   switch ($variables['view_mode']) {
+    case 'banner':
+      $variables['classes_array'][] = 'banner';
+      $variables['content']['field_banner_image'][0]['file']['#item']['attributes']['class'][] = 'banner__image';
+      $variables['content_attributes_array']['class'][] = 'banner__description';
+      $variables['theme_hook_suggestions'][] = 'node__banner';
+      break;
+
     case 'promo':
       array_splice($variables['theme_hook_suggestions'], 1, 0, array('node__'. $variables['view_mode']));
       $variables['title_attributes_array']['class'][] = 'promo__title';
 
       if (isset($variables['content']['field_image'])) {
-        if (in_array('node__panel__banner', $variables['theme_hook_suggestions'])) {
-          $variables['content']['field_image'][0]['file']['#item']['attributes']['class'][] = 'banner__image';
-        }
-        else if ('image_formatter' == $variables['content']['field_image'][0]['file']['#theme']) {
+        if ('image_formatter' == $variables['content']['field_image'][0]['file']['#theme']) {
           $variables['content']['field_image'][0]['file']['#item']['attributes']['class'][] = 'promo__image';
         }
         else if ('image_style' == $variables['content']['field_image'][0]['file']['#theme']) {
@@ -336,11 +340,6 @@ function esquif_preprocess_node(&$variables, $hook) {
     $variables['classes_array'][] = $variables['view_mode'];
   }
 
-  // Unsightly hack that removes promo class attribute from banner themed nodes on home page.
-  if (in_array('node__panel__banner', $variables['theme_hook_suggestions'])) {
-    $variables['classes_array'] = array_diff($variables['classes_array'], array('promo'));
-  }
-
   // Optionally, run node-type-specific preprocess functions, like
   // esquif_preprocess_node_page() or esquif_preprocess_node_story().
   $function = __FUNCTION__ . '_' . $variables['node']->type;
@@ -375,11 +374,16 @@ function esquif_preprocess_node_faq(&$variables, $hook) {
 }
 
 function esquif_preprocess_node_blog(&$variables, $hook) {
-  $variables['classes_array'][] = 'article';
-  $variables['title_attributes_array']['class'][] = 'article__title';
   if ($variables['view_mode'] == 'teaser') {
+    $variables['classes_array'][] = 'excerpt';
+    $variables['title_attributes_array']['class'][] = 'excerpt__title';
     $variables['content']['field_image'][0]['file']['#item']['attributes']['class'][] = 'excerpt__image';
   }
+  else if ($variables['view_mode'] == 'full') {
+    $variables['classes_array'][] = 'article';
+    $variables['title_attributes_array']['class'][] = 'article__title';
+  }
+
 
   _esquif_preprocess_node_blog($variables, $hook);
 }
@@ -407,10 +411,14 @@ function esquif_preprocess_node_podcast(&$variables, $hook) {
 }
 
 function esquif_preprocess_node_video(&$variables, $hook) {
-  $variables['classes_array'][] = 'article';
-  $variables['title_attributes_array']['class'][] = 'article__title';
   if ($variables['view_mode'] == 'teaser') {
+    $variables['classes_array'][] = 'excerpt';
+    $variables['title_attributes_array']['class'][] = 'excerpt__title';
     $variables['content']['field_video'][0]['file']['#attributes']['class'][] = 'excerpt__image';
+  }
+  else if ($variables['view_mode'] == 'full') {
+    $variables['classes_array'][] = 'article';
+    $variables['title_attributes_array']['class'][] = 'article__title';
   }
 
   _esquif_preprocess_node_blog($variables, $hook);
@@ -461,10 +469,11 @@ function esquif_preprocess_region(&$variables, $hook) {
   if ($variables['region'] == 'footer') {
     $variables['classes_array'][] = 'pageFooter';
   }
+
   // Don't use Zen's region--sidebar.tpl.php template for sidebars.
-  //if (strpos($variables['region'], 'sidebar_') === 0) {
-  //  $variables['theme_hook_suggestions'] = array_diff($variables['theme_hook_suggestions'], array('region__sidebar'));
-  //}
+  if ($variables['region'] == 'page_top' || $variables['region'] == 'page_bottom' || $variables['region'] == 'highlighted') {
+    array_unshift($variables['theme_hook_suggestions'], 'region__no_wrapper');
+  }
 }
 
 /**
@@ -484,10 +493,20 @@ function esquif_preprocess_block(&$variables, $hook) {
   if (strpos($variables['block_html_id'], 'block-panels-mini-header') === 0) {
     $variables['theme_hook_suggestions'][] = 'block__no_wrapper';
   }
+
+  if (strpos($variables['block_html_id'], 'block-panels-mini-highlighted') === 0) {
+    $variables['theme_hook_suggestions'][] = 'block__no_wrapper';
+  }
 }
 
 function esquif_preprocess_taxonomy_term(&$variables, $hook) {
   switch ($variables['view_mode']) {
+    case 'banner':
+      $variables['classes_array'][] = 'banner';
+      $variables['content']['field_banner_image'][0]['file']['#item']['attributes']['class'][] = 'banner__image';
+      $variables['content_attributes_array']['class'][] = 'banner__description';
+      $variables['theme_hook_suggestions'][] = 'taxonomy_term__banner';
+      break;
     case 'promo':
       $variables['theme_hook_suggestions'][] = 'taxonomy_term__promo';
       $variables['classes_array'][] = 'promo';
@@ -1530,7 +1549,7 @@ function esquif_node_view_alter(&$build, $type) {
 }
 
 function esquif_taxonomy_term_view_alter(&$build, $type) {
-  if ('promo' == $build['#view_mode']) {
+  if ('promo' == $build['#view_mode'] || 'banner' == $build['#view_mode']) {
     unset($build['description']['#prefix']);
     unset($build['description']['#suffix']);
   }
@@ -1583,13 +1602,15 @@ function esquif_field__field_link__banner_description_and_list($variables) {
 }
 
 function esquif_preprocess_username(&$variables, $hook) {
-  $profile = profile2_by_uid_load($variables['uid'], 'main');
-  if ($profile) {
-    $variables['name'] = check_plain($profile->label);
-    $variables['name_raw'] = $profile->label;
+  $uid = $variables['uid'];
+  if ($uid && is_numeric($uid) && ($account = user_load($uid))) {
+    $profile = profile2_load_by_user($account, 'main');
+    if ($profile) {
+      $variables['name'] = check_plain($profile->label);
+      $variables['name_raw'] = $profile->label;
 
-    $uri = entity_uri('profile2', $profile);
-    $variables['link_path'] = $uri['path'];
+      $variables['link_path'] = url('about/staff/profile/'. $profile->pid, array('absolute' => TRUE));
+    }
   }
 }
 

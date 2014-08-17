@@ -49,6 +49,9 @@ projects[diff][version] = 3.2
 projects[disqus][subdir] = contrib
 projects[disqus][version] = 1.10
 
+projects[domain_301_redirect][subdir] = contrib
+projects[domain_301_redirect][version] = 1.2
+
 projects[draggableviews][subdir] = contrib
 projects[draggableviews][version] = 2.x-dev
 

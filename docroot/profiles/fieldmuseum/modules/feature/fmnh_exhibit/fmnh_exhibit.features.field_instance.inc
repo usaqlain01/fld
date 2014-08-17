@@ -21,7 +21,7 @@ function fmnh_exhibit_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 1,
+        'weight' => 3,
       ),
       'default' => array(
         'label' => 'hidden',
@@ -126,7 +126,7 @@ function fmnh_exhibit_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 11,
+        'weight' => 13,
       ),
       'default' => array(
         'label' => 'hidden',
@@ -204,10 +204,10 @@ function fmnh_exhibit_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'text',
         'settings' => array(
-          'field_formatter_class' => 'banner__description',
+          'field_formatter_class' => '',
         ),
         'type' => 'text_default',
-        'weight' => 2,
+        'weight' => 1,
       ),
       'default' => array(
         'label' => 'above',
@@ -305,6 +305,16 @@ function fmnh_exhibit_field_default_field_instances() {
     'deleted' => 0,
     'description' => 'This field is for an image sized specifically for the 5x2 ratio banners on the home page.',
     'display' => array(
+      'banner' => array(
+        'label' => 'hidden',
+        'module' => 'file_entity',
+        'settings' => array(
+          'field_formatter_class' => '',
+          'file_view_mode' => 'banner_5x2',
+        ),
+        'type' => 'file_rendered',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'settings' => array(),
@@ -389,7 +399,7 @@ function fmnh_exhibit_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 4,
+        'weight' => 7,
       ),
       'default' => array(
         'label' => 'hidden',
@@ -479,7 +489,7 @@ function fmnh_exhibit_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 9,
+        'weight' => 11,
       ),
       'default' => array(
         'label' => 'above',
@@ -543,7 +553,7 @@ function fmnh_exhibit_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 2,
+        'weight' => 5,
       ),
       'default' => array(
         'label' => 'above',
@@ -593,13 +603,9 @@ function fmnh_exhibit_field_default_field_instances() {
     'display' => array(
       'banner' => array(
         'label' => 'hidden',
-        'module' => 'file_entity',
-        'settings' => array(
-          'field_formatter_class' => 'banner__image',
-          'file_view_mode' => 'banner_5x2',
-        ),
-        'type' => 'file_rendered',
-        'weight' => 0,
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 4,
       ),
       'default' => array(
         'label' => 'hidden',
@@ -694,7 +700,7 @@ function fmnh_exhibit_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 6,
+        'weight' => 9,
       ),
       'default' => array(
         'label' => 'above',
@@ -753,7 +759,7 @@ function fmnh_exhibit_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 12,
+        'weight' => 14,
       ),
       'default' => array(
         'label' => 'above',
@@ -812,7 +818,7 @@ function fmnh_exhibit_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 5,
+        'weight' => 8,
       ),
       'default' => array(
         'label' => 'above',
@@ -871,7 +877,7 @@ function fmnh_exhibit_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 3,
+        'weight' => 6,
       ),
       'default' => array(
         'label' => 'above',
@@ -930,7 +936,7 @@ function fmnh_exhibit_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 7,
+        'weight' => 10,
       ),
       'default' => array(
         'label' => 'above',
@@ -985,6 +991,12 @@ function fmnh_exhibit_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'banner' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 2,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'link',
@@ -1052,6 +1064,12 @@ function fmnh_exhibit_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'banner' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 15,
+      ),
       'default' => array(
         'label' => 'above',
         'settings' => array(),
@@ -1105,7 +1123,7 @@ function fmnh_exhibit_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 10,
+        'weight' => 12,
       ),
       'default' => array(
         'label' => 'above',

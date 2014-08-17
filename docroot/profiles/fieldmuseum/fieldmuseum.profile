@@ -7,6 +7,22 @@
 include_once 'fieldmuseum.features.inc';
 
 /**
+ * Implement hook_menu().
+ */
+function fieldmuseum_menu() {
+  $items = array();
+  $items['admin/config/system/alert'] = array(
+    'title' => 'Alert',
+    'description' => 'Configure site-wide alert.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('fieldmuseum_alert_settings'),
+    'access arguments' => array('administer site configuration'),
+    'file' => 'fieldmuseum.admin.inc',
+  );
+  return $items;
+}
+
+/**
  * Implement hook_menu_alter().
  *
  * @param $items
@@ -101,13 +117,10 @@ function fieldmuseum_module_implements_alter(&$implementations, $hook) {
 }
 
 /**
- * Implementation of hook_ctools_plugin_directory() to let the system know
- * we implement task and task_handler plugins.
+ * Implement hook_ctools_plugin_directory().
  */
 function fieldmuseum_ctools_plugin_directory($module, $plugin) {
-  // Most of this module is implemented as an export ui plugin, and the
-  // rest is in ctools/includes/ctools_access_ruleset.inc
-  if ($module == 'ctools' && $plugin == 'access') {
+  if ($module == 'ctools' && ($plugin == 'access' || $plugin == 'content_types' || $plugin == 'contexts')) {
     return 'plugins/' . $plugin;
   }
 }
@@ -440,6 +453,13 @@ function fieldmuseum_preprocess_node_add_list(&$variables, $hook) {
  * Implements hook_panels_pane_content_alter().
  */
 function fieldmuseum_panels_pane_content_alter($content, $pane, $panel_args, $context, $render, $display) {
+
+  // Entity view plugin only displays one entity, so restructure array to align with
+  // existing entity rendering content type plugins.
+  if ($pane->type == 'entity_view') {
+    $content->content = array_pop(array_pop($content->content));
+  }
+
   if (isset($pane->style['style'])) {
     $plugin = panels_get_style($pane->style['style']);
     if ($plugin['name'] == 'naked') {
@@ -488,4 +508,15 @@ function fieldmuseum_preprocess(&$variables, $hook) {
       $variables['classes_array'] = array_unique(array_merge($variables['classes_array'], array($pane->css['css_class'])));
     }
   }
+}
+
+function fieldmuseum_preprocess_html(&$variables, $hook) {
+  $element = array(
+    '#tag' => 'meta',
+    '#attributes' => array(
+      'name' => 'google-translate-customization',
+      'content' => 'd4d405441fda0fcf-d7f6ef5c1c4efee4-g856c3f44175849f6-13',
+    ),
+  );
+  drupal_add_html_head($element, 'google_translate_customization');
 }

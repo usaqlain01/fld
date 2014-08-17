@@ -208,7 +208,7 @@ function fmnh_blog_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'fences_wrapper' => 'div',
+    'fences_wrapper' => 'no_wrapper',
     'field_name' => 'field_image',
     'label' => 'Image',
     'required' => 0,

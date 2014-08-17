@@ -41,6 +41,18 @@ function fieldmuseum_filter_default_formats() {
           'link' => 0,
         ),
       ),
+      'pathologic' => array(
+        'weight' => 50,
+        'status' => 1,
+        'settings' => array(
+          'local_paths' => 'http://fieldmusefacelift.devcloud.acquia-sites.com
+http://staging.fieldmuseum.org
+http://www.fieldmuseum.org
+http://fieldmuseum.org
+',
+          'protocol_style' => 'proto-rel',
+        ),
+      ),
     ),
   );
 
@@ -93,6 +105,18 @@ function fieldmuseum_filter_default_formats() {
           ),
         ),
       ),
+      'pathologic' => array(
+        'weight' => 50,
+        'status' => 1,
+        'settings' => array(
+          'local_paths' => 'http://fieldmusefacelift.devcloud.acquia-sites.com
+http://staging.fieldmuseum.org
+http://www.fieldmuseum.org
+http://fieldmuseum.org
+',
+          'protocol_style' => 'proto-rel',
+        ),
+      ),
     ),
   );
 
@@ -129,6 +153,18 @@ function fieldmuseum_filter_default_formats() {
         'weight' => -45,
         'status' => 1,
         'settings' => array(),
+      ),
+      'pathologic' => array(
+        'weight' => 50,
+        'status' => 1,
+        'settings' => array(
+          'local_paths' => 'http://fieldmusefacelift.devcloud.acquia-sites.com
+http://staging.fieldmuseum.org
+http://www.fieldmuseum.org
+http://fieldmuseum.org
+',
+          'protocol_style' => 'proto-rel',
+        ),
       ),
     ),
   );
@@ -185,6 +221,18 @@ function fieldmuseum_filter_default_formats() {
           ),
         ),
       ),
+      'pathologic' => array(
+        'weight' => 50,
+        'status' => 1,
+        'settings' => array(
+          'local_paths' => 'http://fieldmusefacelift.devcloud.acquia-sites.com
+http://staging.fieldmuseum.org
+http://www.fieldmuseum.org
+http://fieldmuseum.org
+',
+          'protocol_style' => 'proto-rel',
+        ),
+      ),
     ),
   );
 
@@ -205,6 +253,18 @@ function fieldmuseum_filter_default_formats() {
         'weight' => 10,
         'status' => 1,
         'settings' => array(),
+      ),
+      'pathologic' => array(
+        'weight' => 50,
+        'status' => 1,
+        'settings' => array(
+          'local_paths' => 'http://fieldmusefacelift.devcloud.acquia-sites.com
+http://staging.fieldmuseum.org
+http://www.fieldmuseum.org
+http://fieldmuseum.org
+',
+          'protocol_style' => 'proto-rel',
+        ),
       ),
     ),
   );
@@ -234,6 +294,18 @@ function fieldmuseum_filter_default_formats() {
         'status' => 1,
         'settings' => array(),
       ),
+      'pathologic' => array(
+        'weight' => 50,
+        'status' => 1,
+        'settings' => array(
+          'local_paths' => 'http://fieldmusefacelift.devcloud.acquia-sites.com
+http://staging.fieldmuseum.org
+http://www.fieldmuseum.org
+http://fieldmuseum.org
+',
+          'protocol_style' => 'proto-rel',
+        ),
+      ),
     ),
   );
 
@@ -244,7 +316,20 @@ function fieldmuseum_filter_default_formats() {
     'cache' => 1,
     'status' => 1,
     'weight' => -4,
-    'filters' => array(),
+    'filters' => array(
+      'pathologic' => array(
+        'weight' => 50,
+        'status' => 1,
+        'settings' => array(
+          'local_paths' => 'http://fieldmusefacelift.devcloud.acquia-sites.com
+http://staging.fieldmuseum.org
+http://www.fieldmuseum.org
+http://fieldmuseum.org
+',
+          'protocol_style' => 'proto-rel',
+        ),
+      ),
+    ),
   );
 
   // Exported format: Unfiltered Phrase HTML.
@@ -268,6 +353,18 @@ function fieldmuseum_filter_default_formats() {
         'weight' => 10,
         'status' => 1,
         'settings' => array(),
+      ),
+      'pathologic' => array(
+        'weight' => 50,
+        'status' => 1,
+        'settings' => array(
+          'local_paths' => 'http://fieldmusefacelift.devcloud.acquia-sites.com
+http://staging.fieldmuseum.org
+http://www.fieldmuseum.org
+http://fieldmuseum.org
+',
+          'protocol_style' => 'proto-rel',
+        ),
       ),
     ),
   );
