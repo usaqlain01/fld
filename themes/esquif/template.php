@@ -460,10 +460,11 @@ function esquif_preprocess_region(&$variables, $hook) {
   if ($variables['region'] == 'footer') {
     $variables['classes_array'][] = 'pageFooter';
   }
+
   // Don't use Zen's region--sidebar.tpl.php template for sidebars.
-  //if (strpos($variables['region'], 'sidebar_') === 0) {
-  //  $variables['theme_hook_suggestions'] = array_diff($variables['theme_hook_suggestions'], array('region__sidebar'));
-  //}
+  if ($variables['region'] == 'page_top' || $variables['region'] == 'page_bottom') {
+    array_unshift($variables['theme_hook_suggestions'], 'region__no_wrapper');
+  }
 }
 
 /**
