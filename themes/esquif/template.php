@@ -228,6 +228,7 @@ EOT;
  *   The name of the template being rendered ("node" in this case.)
  */
 function esquif_preprocess_node(&$variables, $hook) {
+  $node = $variables['node'];
 
   switch ($variables['view_mode']) {
     case 'banner':
@@ -239,6 +240,8 @@ function esquif_preprocess_node(&$variables, $hook) {
 
     case 'promo':
       array_splice($variables['theme_hook_suggestions'], 1, 0, array('node__'. $variables['view_mode']));
+      $variables['classes_array'] = array_diff($variables['classes_array'], array($node->type));
+      dpm($variables['classes_array']);
       $variables['title_attributes_array']['class'][] = 'promo__title';
 
       if (isset($variables['content']['field_image'])) {
@@ -250,11 +253,10 @@ function esquif_preprocess_node(&$variables, $hook) {
         }
       }
 
-      if ($variables['node']->type == 'media_gallery') {
+      if ($node->type == 'media_gallery') {
         $variables['content']['media_gallery_file'][0]['file']['#item']['attributes']['class'][] = 'promo__image';
       }
 
-      $node = $variables['node'];
       $links = array();
 
       if ((!isset($node->view) || empty($node->view->args)) && !arg(2)) {
@@ -342,7 +344,7 @@ function esquif_preprocess_node(&$variables, $hook) {
 
   // Optionally, run node-type-specific preprocess functions, like
   // esquif_preprocess_node_page() or esquif_preprocess_node_story().
-  $function = __FUNCTION__ . '_' . $variables['node']->type;
+  $function = __FUNCTION__ . '_' . $node->type;
   if (function_exists($function)) {
     $function($variables, $hook);
   }
@@ -428,9 +430,9 @@ function esquif_preprocess_node_video(&$variables, $hook) {
 function esquif_preprocess_node_collection(&$variables, $hook) {
   $node = $variables['node'];
 
-  $variables['classes_array'][] = 'collection';
-  $variables['title_attributes_array']['class'][] = 'collection__title';
   if ($variables['view_mode'] == 'teaser') {
+    $variables['classes_array'][] = 'collection';
+    $variables['title_attributes_array']['class'][] = 'collection__title';
     $variables['content']['field_image'][0]['file']['#item']['attributes']['class'][] = 'collection__image';
 
     $node_title_stripped = strip_tags($node->title);
