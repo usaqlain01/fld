@@ -19,7 +19,7 @@ function fmnh_collection_node_view($node, $view_mode, $langcode) {
     $items = field_get_items('node', $node, 'field_department');
     if ($items) {
       $item = reset($items);
-      $dept_node = $item['entity'];
+      $dept_node = node_load($item['target_id']);
 
       // Retrieve menu item specified in the rule.
       $menu_item = menu_link_get_preferred('node/'. $dept_node->nid .'/collections');

@@ -1,0 +1,58 @@
+<?php
+
+function fmnh_analytics_schema() {
+  $schema['fmnh_floodlight'] = array(
+    // Example (partial) specification for table "node".
+    'description' => 'The base table for nodes.',
+    'fields' => array(
+      'tid' => array(
+        'description' => 'The primary identifier for a floodlight code.',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'name' => array(
+        'type' => 'varchar',
+        'length' => '255',
+        'description' => 'Unique ID for this Floodlight tag. Used to identify it programmatically.',
+      ),
+      'admin_title' => array(
+        'type' => 'varchar',
+        'length' => '255',
+        'description' => 'Administrative title for this Floodlight tag.',
+      ),
+      'admin_description' => array(
+        'type' => 'text',
+        'size' => 'big',
+        'description' => 'Administrative description for this Floodlight tag.',
+        'object default' => '',
+      ),
+      'category' => array(
+        'type' => 'varchar',
+        'length' => '255',
+        'description' => 'Administrative category for this Floodlight tag.',
+      ),
+      'pages' => array(
+        'type' => 'text',
+        'not null' => TRUE,
+        'description' => 'Page visibility for this Floodlight tag',
+      ),
+      'tag' => array(
+        'type' => 'text',
+        'not null' => FALSE,
+        'size' => 'big',
+        'description' => 'Contents of this Floodlight tag',
+      ),
+    ),
+    'primary key' => array('tid'),
+    'export' => array(
+      'api' => array(
+        'owner' => 'fmnh_analytics',
+        'api' => 'default_fmnh_analytics_floodlight',  // Base name for api include files.
+        'minimum_version' => 1,
+        'current_version' => 1,
+      ),
+    ),
+  );
+  return $schema;
+}

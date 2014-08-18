@@ -38,7 +38,7 @@ function fmnh_program_strongarm() {
         'custom_settings' => FALSE,
       ),
       'banner' => array(
-        'custom_settings' => FALSE,
+        'custom_settings' => TRUE,
       ),
       'media_gallery_block' => array(
         'custom_settings' => FALSE,
@@ -90,6 +90,10 @@ function fmnh_program_strongarm() {
           ),
           'summary' => array(
             'weight' => '7',
+            'visible' => FALSE,
+          ),
+          'banner' => array(
+            'weight' => '4',
             'visible' => FALSE,
           ),
         ),
@@ -153,20 +157,26 @@ function fmnh_program_strongarm() {
       'default' => array(
         'status' => 0,
         'default' => 0,
+        'default display' => 0,
         'choice' => 0,
-        'selection' => 0,
       ),
       'teaser' => array(
         'status' => 0,
         'default' => 0,
+        'default display' => 0,
         'choice' => 0,
-        'selection' => 0,
       ),
       'promo' => array(
         'status' => 0,
         'default' => 0,
+        'default display' => 0,
         'choice' => 0,
-        'selection' => 0,
+      ),
+      'summary' => array(
+        'status' => 0,
+        'default' => 0,
+        'default display' => 0,
+        'choice' => 0,
       ),
     ),
   );

@@ -52,12 +52,12 @@
     <?php print render($content['field_bio_sketch']); ?>
   </section>
 
-  <?php if ($content['blogs_entity_view_2']): ?>
+  <?php if (isset($content['blogs_entity_view_2'])): ?>
   <h2 class="heading--stroked">Recent Blog Posts</h2>
   <?php print render($content['blogs_entity_view_2']); ?>
   <?php endif; ?>
 
-  <?php if ($field_education || $field_interests || $field_grants_awards || $field_publications || $field_work_experience || $field_accomplishments || $field_professional_affiliations): ?>
+  <?php if (isset($field_education) || isset($field_interests) || isset($field_grants_awards) || isset($field_publications) || isset($field_work_experience) || isset($field_accomplishments) || isset($field_professional_affiliations)): ?>
   <h2 class="heading--stroked">Additional Information</h2>
   <div class="l--2up l--vertical">
     <?php print render($content['field_education']); ?>

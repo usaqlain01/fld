@@ -1691,6 +1691,13 @@
        "rounds": 1,
        "type": "eq"
     },
+    {  "id": "calrgb",
+       "file": "pdfs/calrgb.pdf",
+       "md5": "625068e9a7dd80e4f70b24ce97b3ec5c",
+       "rounds": 1,
+       "lastPage": 8,
+       "type": "eq"
+    },
     {  "id": "bug900822",
        "file": "pdfs/bug900822.pdf",
        "md5": "70e2a3c5922574eeda169c955cf9d084",

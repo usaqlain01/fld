@@ -4062,7 +4062,9 @@ function fieldmuseum_default_page_manager_pages() {
     $pane->subtype = 'events-panel_pane_1';
     $pane->shown = TRUE;
     $pane->access = array();
-    $pane->configuration = array();
+    $pane->configuration = array(
+      'items_per_page' => '3',
+    );
     $pane->cache = array();
     $pane->style = array(
       'style' => 'semantic_panels',
@@ -4283,12 +4285,23 @@ function fieldmuseum_default_page_manager_pages() {
     'body_classes_to_add' => '',
     'css_id' => '',
     'css' => '',
-    'contexts' => array(),
+    'contexts' => array(
+      0 => array(
+        'identifier' => 'The Brain Scoop',
+        'keyword' => 'taxonomy_term',
+        'name' => 'entity:taxonomy_term',
+        'entity_id' => '1301',
+        'id' => 1,
+      ),
+    ),
+    'relationships' => array(),
   );
   $display = new panels_display();
   $display->layout = 'a';
   $display->layout_settings = array(
     'main_classes' => '',
+    'summary_a_classes' => 'summary',
+    'summary_b_classes' => 'summary',
   );
   $display->panel_settings = array(
     'style_settings' => array(
@@ -4297,6 +4310,8 @@ function fieldmuseum_default_page_manager_pages() {
       'banners' => NULL,
       'bottom_left' => NULL,
       'bottom_right' => NULL,
+      'summary_a' => NULL,
+      'summary_b' => NULL,
     ),
   );
   $display->cache = array();
@@ -4305,86 +4320,218 @@ function fieldmuseum_default_page_manager_pages() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-e966d21d-e76b-40f6-aae4-3faced670733';
+    $pane->pid = 'new-f5bf6f5f-7fca-4f9c-b612-be9e75c740de';
     $pane->panel = 'main';
-    $pane->type = 'panels_mini';
-    $pane->subtype = 'home_landing_exhibitions';
+    $pane->type = 'node';
+    $pane->subtype = 'node';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
+      'nid' => '791',
+      'links' => 1,
+      'leave_node_title' => 0,
+      'identifier' => '',
+      'build_mode' => 'banner',
+      'link_node_title' => 0,
       'override_title' => 0,
       'override_title_text' => '',
     );
     $pane->cache = array();
     $pane->style = array(
-      'style' => 'semantic_panels',
-      'settings' => array(
-        'element_title' => array(
-          'type' => 'h2',
-          'class_enable' => 1,
-          'class' => 'heading--stroked',
-          'attributes' => array(),
-          'link_enabled' => 0,
-          'link' => array(
-            'path' => '',
-            'class_enable' => 0,
-            'class' => '',
-            'attributes' => array(),
-            'attributes_array' => array(),
-          ),
-          'attributes_array' => array(),
-        ),
-        'element_content' => array(
-          'type' => 'section',
-          'class_enable' => 1,
-          'class' => 'banners',
-          'attributes' => array(),
-          'link_enabled' => 0,
-          'link' => array(
-            'path' => '',
-            'class_enable' => 0,
-            'class' => '',
-            'attributes' => array(),
-            'attributes_array' => array(),
-          ),
-          'attributes_array' => array(),
-        ),
-        'element_wrapper' => array(
-          'type' => '0',
-          'class_enable' => 0,
-          'class' => '',
-          'attributes' => array(),
-          'attributes_array' => array(),
-        ),
-        'add_default_classes' => 1,
-      ),
+      'style' => 'naked',
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'banner--primary',
+    );
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'f5bf6f5f-7fca-4f9c-b612-be9e75c740de';
+    $display->content['new-f5bf6f5f-7fca-4f9c-b612-be9e75c740de'] = $pane;
+    $display->panels['main'][0] = 'new-f5bf6f5f-7fca-4f9c-b612-be9e75c740de';
+    $pane = new stdClass();
+    $pane->pid = 'new-2bdf4afe-d11b-4cd2-97e1-27a788a5d6a1';
+    $pane->panel = 'main';
+    $pane->type = 'node';
+    $pane->subtype = 'node';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'nid' => '896',
+      'links' => 1,
+      'leave_node_title' => 0,
+      'identifier' => '',
+      'build_mode' => 'banner',
+      'link_node_title' => 0,
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'naked',
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'banner--secondary',
+    );
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = '2bdf4afe-d11b-4cd2-97e1-27a788a5d6a1';
+    $display->content['new-2bdf4afe-d11b-4cd2-97e1-27a788a5d6a1'] = $pane;
+    $display->panels['main'][1] = 'new-2bdf4afe-d11b-4cd2-97e1-27a788a5d6a1';
+    $pane = new stdClass();
+    $pane->pid = 'new-88e950fb-c0f9-4f0f-b6ab-7dbb54f84914';
+    $pane->panel = 'main';
+    $pane->type = 'node';
+    $pane->subtype = 'node';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'nid' => '9916',
+      'links' => 1,
+      'leave_node_title' => 0,
+      'identifier' => '',
+      'build_mode' => 'banner',
+      'link_node_title' => 0,
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'naked',
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'banner--secondary',
+    );
+    $pane->extras = array();
+    $pane->position = 2;
+    $pane->locks = array();
+    $pane->uuid = '88e950fb-c0f9-4f0f-b6ab-7dbb54f84914';
+    $display->content['new-88e950fb-c0f9-4f0f-b6ab-7dbb54f84914'] = $pane;
+    $display->panels['main'][2] = 'new-88e950fb-c0f9-4f0f-b6ab-7dbb54f84914';
+    $pane = new stdClass();
+    $pane->pid = 'new-22bdca7e-aa61-475c-8dab-4df6de5476cb';
+    $pane->panel = 'summary_a';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => 'Science at The Field header',
+      'title' => '',
+      'body' => '<h2 class="heading--stroked">Science at The Field</h2>
+',
+      'format' => 'unfiltered',
+      'substitute' => 1,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'naked',
+      'settings' => NULL,
     );
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = 'e966d21d-e76b-40f6-aae4-3faced670733';
-    $display->content['new-e966d21d-e76b-40f6-aae4-3faced670733'] = $pane;
-    $display->panels['main'][0] = 'new-e966d21d-e76b-40f6-aae4-3faced670733';
+    $pane->uuid = '22bdca7e-aa61-475c-8dab-4df6de5476cb';
+    $display->content['new-22bdca7e-aa61-475c-8dab-4df6de5476cb'] = $pane;
+    $display->panels['summary_a'][0] = 'new-22bdca7e-aa61-475c-8dab-4df6de5476cb';
     $pane = new stdClass();
-    $pane->pid = 'new-04373a0f-a137-4a2d-b95f-a8cd3d280013';
-    $pane->panel = 'main';
-    $pane->type = 'panels_mini';
-    $pane->subtype = 'home_landing';
+    $pane->pid = 'new-7be67e32-7caa-4fb0-ab65-efcbbb152fdf';
+    $pane->panel = 'summary_a';
+    $pane->type = 'entity_view';
+    $pane->subtype = 'taxonomy_term';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
+      'view_mode' => 'banner',
+      'context' => 'context_entity:taxonomy_term_1',
       'override_title' => 0,
       'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'naked',
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'banner--secondary',
+    );
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = '7be67e32-7caa-4fb0-ab65-efcbbb152fdf';
+    $display->content['new-7be67e32-7caa-4fb0-ab65-efcbbb152fdf'] = $pane;
+    $display->panels['summary_a'][1] = 'new-7be67e32-7caa-4fb0-ab65-efcbbb152fdf';
+    $pane = new stdClass();
+    $pane->pid = 'new-0a50c677-cbcc-42ec-8b58-4a5c9677bdd6';
+    $pane->panel = 'summary_a';
+    $pane->type = 'fieldable_panels_pane';
+    $pane->subtype = 'fpid:546';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'view_mode' => 'naked',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'naked',
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 2;
+    $pane->locks = array();
+    $pane->uuid = '0a50c677-cbcc-42ec-8b58-4a5c9677bdd6';
+    $display->content['new-0a50c677-cbcc-42ec-8b58-4a5c9677bdd6'] = $pane;
+    $display->panels['summary_a'][2] = 'new-0a50c677-cbcc-42ec-8b58-4a5c9677bdd6';
+    $pane = new stdClass();
+    $pane->pid = 'new-f84c318e-b8e3-4c00-a60d-3dd10189ce1b';
+    $pane->panel = 'summary_a';
+    $pane->type = 'fieldable_panels_pane';
+    $pane->subtype = 'fpid:516';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'view_mode' => 'full',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'naked',
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 3;
+    $pane->locks = array();
+    $pane->uuid = 'f84c318e-b8e3-4c00-a60d-3dd10189ce1b';
+    $display->content['new-f84c318e-b8e3-4c00-a60d-3dd10189ce1b'] = $pane;
+    $display->panels['summary_a'][3] = 'new-f84c318e-b8e3-4c00-a60d-3dd10189ce1b';
+    $pane = new stdClass();
+    $pane->pid = 'new-053eadd0-b8e7-4df7-8182-8b1fa1ec39bc';
+    $pane->panel = 'summary_a';
+    $pane->type = 'fieldable_panels_pane';
+    $pane->subtype = 'fpid:556';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'view_mode' => 'naked',
     );
     $pane->cache = array();
     $pane->style = array(
       'style' => 'semantic_panels',
       'settings' => array(
         'element_title' => array(
-          'type' => '0',
-          'class_enable' => 0,
-          'class' => '',
+          'type' => 'h4',
+          'class_enable' => 1,
+          'class' => 'scale--5',
           'attributes' => array(),
           'link_enabled' => 0,
           'link' => array(
@@ -4397,9 +4544,9 @@ function fieldmuseum_default_page_manager_pages() {
           'attributes_array' => array(),
         ),
         'element_content' => array(
-          'type' => 'section',
-          'class_enable' => 1,
-          'class' => 'summaries--2up',
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
           'attributes' => array(),
           'link_enabled' => 0,
           'link' => array(
@@ -4423,11 +4570,174 @@ function fieldmuseum_default_page_manager_pages() {
     );
     $pane->css = array();
     $pane->extras = array();
+    $pane->position = 4;
+    $pane->locks = array();
+    $pane->uuid = '053eadd0-b8e7-4df7-8182-8b1fa1ec39bc';
+    $display->content['new-053eadd0-b8e7-4df7-8182-8b1fa1ec39bc'] = $pane;
+    $display->panels['summary_a'][4] = 'new-053eadd0-b8e7-4df7-8182-8b1fa1ec39bc';
+    $pane = new stdClass();
+    $pane->pid = 'new-9c7c967d-f6dd-4d2e-9592-fcc315666935';
+    $pane->panel = 'summary_b';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => 'Events at The Field header',
+      'title' => '',
+      'body' => '<h2 class="heading--stroked">Events at The Field</h2>',
+      'format' => 'filtered_wysiwyg',
+      'substitute' => 1,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'naked',
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '9c7c967d-f6dd-4d2e-9592-fcc315666935';
+    $display->content['new-9c7c967d-f6dd-4d2e-9592-fcc315666935'] = $pane;
+    $display->panels['summary_b'][0] = 'new-9c7c967d-f6dd-4d2e-9592-fcc315666935';
+    $pane = new stdClass();
+    $pane->pid = 'new-0a8d1ba7-0feb-4ca0-a2b0-0ffcbbaab28b';
+    $pane->panel = 'summary_b';
+    $pane->type = 'node';
+    $pane->subtype = 'node';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'nid' => '9901',
+      'links' => 0,
+      'leave_node_title' => 0,
+      'identifier' => '',
+      'build_mode' => 'banner',
+      'link_node_title' => 0,
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'naked',
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'banner--secondary',
+    );
+    $pane->extras = array();
     $pane->position = 1;
     $pane->locks = array();
-    $pane->uuid = '04373a0f-a137-4a2d-b95f-a8cd3d280013';
-    $display->content['new-04373a0f-a137-4a2d-b95f-a8cd3d280013'] = $pane;
-    $display->panels['main'][1] = 'new-04373a0f-a137-4a2d-b95f-a8cd3d280013';
+    $pane->uuid = '0a8d1ba7-0feb-4ca0-a2b0-0ffcbbaab28b';
+    $display->content['new-0a8d1ba7-0feb-4ca0-a2b0-0ffcbbaab28b'] = $pane;
+    $display->panels['summary_b'][1] = 'new-0a8d1ba7-0feb-4ca0-a2b0-0ffcbbaab28b';
+    $pane = new stdClass();
+    $pane->pid = 'new-23e857a7-d4c1-4650-ba71-d5da16c8f547';
+    $pane->panel = 'summary_b';
+    $pane->type = 'fieldable_panels_pane';
+    $pane->subtype = 'fpid:551';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'view_mode' => 'naked',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'naked',
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 2;
+    $pane->locks = array();
+    $pane->uuid = '23e857a7-d4c1-4650-ba71-d5da16c8f547';
+    $display->content['new-23e857a7-d4c1-4650-ba71-d5da16c8f547'] = $pane;
+    $display->panels['summary_b'][2] = 'new-23e857a7-d4c1-4650-ba71-d5da16c8f547';
+    $pane = new stdClass();
+    $pane->pid = 'new-03c85560-2098-43ee-8420-f26f6f41d842';
+    $pane->panel = 'summary_b';
+    $pane->type = 'fieldable_panels_pane';
+    $pane->subtype = 'fpid:516';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'view_mode' => 'full',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'naked',
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 3;
+    $pane->locks = array();
+    $pane->uuid = '03c85560-2098-43ee-8420-f26f6f41d842';
+    $display->content['new-03c85560-2098-43ee-8420-f26f6f41d842'] = $pane;
+    $display->panels['summary_b'][3] = 'new-03c85560-2098-43ee-8420-f26f6f41d842';
+    $pane = new stdClass();
+    $pane->pid = 'new-fe76340e-2b72-479f-94e7-8af5b372ed18';
+    $pane->panel = 'summary_b';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'events-panel_pane_1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'items_per_page' => '0',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'semantic_panels',
+      'settings' => array(
+        'element_title' => array(
+          'type' => 'h4',
+          'class_enable' => 1,
+          'class' => 'scale--5',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => 'ul',
+          'class_enable' => 1,
+          'class' => 'eventsList',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 4;
+    $pane->locks = array();
+    $pane->uuid = 'fe76340e-2b72-479f-94e7-8af5b372ed18';
+    $display->content['new-fe76340e-2b72-479f-94e7-8af5b372ed18'] = $pane;
+    $display->panels['summary_b'][4] = 'new-fe76340e-2b72-479f-94e7-8af5b372ed18';
   $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
@@ -5950,7 +6260,7 @@ function fieldmuseum_default_page_manager_pages() {
           'attributes' => array(),
           'attributes_array' => array(),
         ),
-        'add_default_classes' => 1,
+        'add_default_classes' => 0,
       ),
     );
     $pane->css = array();
@@ -6547,6 +6857,32 @@ function fieldmuseum_default_page_manager_pages() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
+    $pane->pid = 'new-e2fa2669-b997-4b85-ac29-f16be2b34d04';
+    $pane->panel = 'main';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => '',
+      'title' => '',
+      'body' => '<h1>Plan Your Special Event</h1>',
+      'format' => 'unfiltered',
+      'substitute' => 1,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'naked',
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'e2fa2669-b997-4b85-ac29-f16be2b34d04';
+    $display->content['new-e2fa2669-b997-4b85-ac29-f16be2b34d04'] = $pane;
+    $display->panels['main'][0] = 'new-e2fa2669-b997-4b85-ac29-f16be2b34d04';
+    $pane = new stdClass();
     $pane->pid = 'new-581ed6b7-fe2f-4771-8049-1daa9ffc1096';
     $pane->panel = 'main';
     $pane->type = 'panels_mini';
@@ -6603,11 +6939,11 @@ function fieldmuseum_default_page_manager_pages() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 0;
+    $pane->position = 1;
     $pane->locks = array();
     $pane->uuid = '581ed6b7-fe2f-4771-8049-1daa9ffc1096';
     $display->content['new-581ed6b7-fe2f-4771-8049-1daa9ffc1096'] = $pane;
-    $display->panels['main'][0] = 'new-581ed6b7-fe2f-4771-8049-1daa9ffc1096';
+    $display->panels['main'][1] = 'new-581ed6b7-fe2f-4771-8049-1daa9ffc1096';
     $pane = new stdClass();
     $pane->pid = 'new-9721a1b3-a020-44c0-830e-1f549e9e5809';
     $pane->panel = 'nav';
@@ -9157,6 +9493,7 @@ function fieldmuseum_default_page_manager_pages() {
     $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,
+      'style' => 'naked',
     );
     $pane->css = array();
     $pane->extras = array();
@@ -10243,27 +10580,27 @@ function fieldmuseum_default_page_manager_pages() {
 <div class="l--2up">
   <div class="l--module">
     <p>
-      <strong>Save 49%</strong> or more on admission to 5 famous Chicago attractions! 
+      <strong>Save 49%</strong> or more on admission to 5 famous Chicago attractions!
     </p>
-    <a href="http://www.citypass.com/chicago?mv_source=field&campaign=citypass-ticket-book" class="button--cta ">Explore the CityPASS</a> 
+    <a href="http://www.citypass.com/chicago?mv_source=field&campaign=citypass-ticket-book" class="button--cta">Explore the CityPASS</a>
   </div>
   <div class="l--module">
     <ul class="priceList">
-      <li class="priceList__item"> 
+      <li class="priceList__item">
       <div class="priceList__details">
-        <span class="priceList__label"> Adults </span> <span class="priceList__price">$94</span> 
+        <span class="priceList__label"> Adults </span> <span class="priceList__price">$94</span>
       </div>
       </li>
-      <li class="priceList__item"> 
+      <li class="priceList__item">
       <div class="priceList__details">
-        <span class="priceList__label"> Children </span> <span class="priceList__price">$79</span> 
+        <span class="priceList__label"> Children </span> <span class="priceList__price">$79</span>
       </div>
       <p class="priceList__condition">
         (ages 3 – 11)
       </p>
       </li>
     </ul>
-    <a href="http://www.citypass.com/chicago?mv_source=field&campaign=citypass-ticket-book" class="button--buy "> <span class="button__leader"> <svg class="icon icon--ticket-2" viewbox="0 0 500 500"> <use xlink:href="#ticket-2"></use> </svg> </span> Buy CityPASS Online </a> 
+    <a href="http://www.citypass.com/chicago?mv_source=field&campaign=citypass-ticket-book" class="button--buy" data-analytics="ticketing-city-pass"> <span class="button__leader"> <svg class="icon icon--ticket-2" viewbox="0 0 500 500"> <use xlink:href="#ticket-2"></use> </svg> </span> Buy CityPASS Online </a>
   </div>
 </div>
 <h2 class="heading--stroked">
@@ -10274,13 +10611,13 @@ function fieldmuseum_default_page_manager_pages() {
 <section class="tickets is--visible--wide">
   <header class="tickets__header">
     <h4 class="tickets__heading">
-      <svg class="icon icon--ticket-3 tickets__icon" viewbox="0 0 500 500"> <use xlink:href="#ticket-3"></use> </svg> All-Access 
+      <svg class="icon icon--ticket-3 tickets__icon" viewbox="0 0 500 500"> <use xlink:href="#ticket-3"></use> </svg> All-Access
     </h4>
     <h4 class="tickets__heading">
-      <svg class="icon icon--ticket-2 tickets__icon" viewbox="0 0 500 500"> <use xlink:href="#ticket-2"></use> </svg> Discovery 
+      <svg class="icon icon--ticket-2 tickets__icon" viewbox="0 0 500 500"> <use xlink:href="#ticket-2"></use> </svg> Discovery
     </h4>
     <h4 class="tickets__heading">
-      <svg class="icon icon--ticket-1 tickets__icon" viewbox="0 0 500 500"> <use xlink:href="#ticket-1"></use> </svg> Basic 
+      <svg class="icon icon--ticket-1 tickets__icon" viewbox="0 0 500 500"> <use xlink:href="#ticket-1"></use> </svg> Basic
     </h4>
     <p class="tickets__details">
       See it all! Our All-Access Pass entitles you entry into all <a href="http://fieldmusefacelift.devcloud.acquia-sites.com/at-the-field/exhibitions/ticketed">ticketed exhibitions</a>, one <a href="http://fieldmusefacelift.devcloud.acquia-sites.com/at-the-field/exhibitions/3d-movie">3D movie</a> and all of the <a href="http://fieldmusefacelift.devcloud.acquia-sites.com/at-the-field/exhibitions/permanent">permanent exhibitions</a> at The Field Museum.
@@ -10291,26 +10628,26 @@ function fieldmuseum_default_page_manager_pages() {
     <p class="tickets__details">
       Enjoy all of the <a href="http://fieldmusefacelift.devcloud.acquia-sites.com/at-the-field/exhibitions/permanent">permanent exhibitions</a> of the Museum. This package does not include <a href="http://fieldmusefacelift.devcloud.acquia-sites.com/at-the-field/exhibitions/ticketed">ticketed exhibitions</a> or <a href="http://fieldmusefacelift.devcloud.acquia-sites.com/at-the-field/exhibitions/3d-movie">3D movies</a>.
     </p>
-    <button class="tickets__toggle js--toggleTickets">Learn More About Our Ticket Packages</button> 
+    <button class="tickets__toggle js--toggleTickets">Learn More About Our Ticket Packages</button>
   </header>
   <section class="ticketMatrix">
     <div class="ticketMatrix__column">
       <h3 class="ticketMatrix__heading">
-        <a href="http://fieldmusefacelift.devcloud.acquia-sites.com/at-the-field/exhibitions/permanent" class="ticketMatrix__link">Permanent Exhibitions</a> 
+        <a href="http://fieldmusefacelift.devcloud.acquia-sites.com/at-the-field/exhibitions/permanent" class="ticketMatrix__link">Permanent Exhibitions</a>
       </h3>
       <h3 class="ticketMatrix__heading">
-        <a href="http://fieldmusefacelift.devcloud.acquia-sites.com/at-the-field/exhibitions/ticketed" class="ticketMatrix__link">Ticketed Exhibitions</a> 
+        <a href="http://fieldmusefacelift.devcloud.acquia-sites.com/at-the-field/exhibitions/ticketed" class="ticketMatrix__link">Ticketed Exhibitions</a>
       </h3>
       <h3 class="ticketMatrix__heading">
-        <a href="http://fieldmusefacelift.devcloud.acquia-sites.com/at-the-field/exhibitions/3d-movie" class="ticketMatrix__link">3D Movies</a> 
+        <a href="http://fieldmusefacelift.devcloud.acquia-sites.com/at-the-field/exhibitions/3d-movie" class="ticketMatrix__link">3D Movies</a>
       </h3>
     </div>
     <div class="ticketMatrix__column">
       <div class="ticketMatrix__cell">
-        <i class="icon--circle ticketMatrix__icon"></i> 
+        <i class="icon--circle ticketMatrix__icon"></i>
       </div>
       <div class="ticketMatrix__cell">
-        <i class="icon--circle ticketMatrix__icon"></i> 
+        <i class="icon--circle ticketMatrix__icon"></i>
       </div>
       <div class="ticketMatrix__cell ticketMatrix__cell--text">
         <p>
@@ -10320,7 +10657,7 @@ function fieldmuseum_default_page_manager_pages() {
     </div>
     <div class="ticketMatrix__column">
       <div class="ticketMatrix__cell">
-        <i class="icon--circle ticketMatrix__icon"></i> 
+        <i class="icon--circle ticketMatrix__icon"></i>
       </div>
       <div class="ticketMatrix__cell ticketMatrix__cell--text ticketMatrix__cell--double">
         <p>
@@ -10330,7 +10667,7 @@ function fieldmuseum_default_page_manager_pages() {
     </div>
     <div class="ticketMatrix__column">
       <div class="ticketMatrix__cell">
-        <i class="icon--circle ticketMatrix__icon"></i> 
+        <i class="icon--circle ticketMatrix__icon"></i>
       </div>
       <div class="ticketMatrix__cell ticketMatrix__cell--text ticketMatrix__cell--double ticketMatrix__cell--disabled">
         <p>
@@ -10341,33 +10678,33 @@ function fieldmuseum_default_page_manager_pages() {
   </section>
   <section class="tickets__pricing">
     <ul class="priceList">
-      <li class="priceList__item"> 
+      <li class="priceList__item">
       <div class="priceList__details">
-        <span class="priceList__label"> Adults </span> <span class="priceList__price">$31</span> 
+        <span class="priceList__label"> Adults </span> <span class="priceList__price">$31</span>
       </div>
       <p class="priceList__condition">
         &nbsp;
       </p>
       </li>
-      <li class="priceList__item"> 
+      <li class="priceList__item">
       <div class="priceList__details">
-        <span class="priceList__label"> Children </span> <span class="priceList__price">$21</span> 
+        <span class="priceList__label"> Children </span> <span class="priceList__price">$21</span>
       </div>
       <p class="priceList__condition">
         (ages 3 – 11)
       </p>
       </li>
-      <li class="priceList__item"> 
+      <li class="priceList__item">
       <div class="priceList__details">
-        <span class="priceList__label"> Seniors </span> <span class="priceList__price">$25</span> 
+        <span class="priceList__label"> Seniors </span> <span class="priceList__price">$25</span>
       </div>
       <p class="priceList__condition">
         (ages 65+)
       </p>
       </li>
-      <li class="priceList__item"> 
+      <li class="priceList__item">
       <div class="priceList__details">
-        <span class="priceList__label"> Students </span> <span class="priceList__price">$25</span> 
+        <span class="priceList__label"> Students </span> <span class="priceList__price">$25</span>
       </div>
       <p class="priceList__condition">
         (w/ valid ID)
@@ -10375,33 +10712,33 @@ function fieldmuseum_default_page_manager_pages() {
       </li>
     </ul>
     <ul class="priceList">
-      <li class="priceList__item"> 
+      <li class="priceList__item">
       <div class="priceList__details">
-        <span class="priceList__label"> Adults </span> <span class="priceList__price">$25</span> 
+        <span class="priceList__label"> Adults </span> <span class="priceList__price">$25</span>
       </div>
       <p class="priceList__condition">
         &nbsp;
       </p>
       </li>
-      <li class="priceList__item"> 
+      <li class="priceList__item">
       <div class="priceList__details">
-        <span class="priceList__label"> Children </span> <span class="priceList__price">$18</span> 
+        <span class="priceList__label"> Children </span> <span class="priceList__price">$18</span>
       </div>
       <p class="priceList__condition">
         (ages 3 – 11)
       </p>
       </li>
-      <li class="priceList__item"> 
+      <li class="priceList__item">
       <div class="priceList__details">
-        <span class="priceList__label"> Seniors </span> <span class="priceList__price">$20</span> 
+        <span class="priceList__label"> Seniors </span> <span class="priceList__price">$20</span>
       </div>
       <p class="priceList__condition">
         (ages 65+)
       </p>
       </li>
-      <li class="priceList__item"> 
+      <li class="priceList__item">
       <div class="priceList__details">
-        <span class="priceList__label"> Students </span> <span class="priceList__price">$20</span> 
+        <span class="priceList__label"> Students </span> <span class="priceList__price">$20</span>
       </div>
       <p class="priceList__condition">
         (w/ valid ID)
@@ -10409,33 +10746,33 @@ function fieldmuseum_default_page_manager_pages() {
       </li>
     </ul>
     <ul class="priceList">
-      <li class="priceList__item"> 
+      <li class="priceList__item">
       <div class="priceList__details">
-        <span class="priceList__label"> Adults </span> <span class="priceList__price">$18</span> 
+        <span class="priceList__label"> Adults </span> <span class="priceList__price">$18</span>
       </div>
       <p class="priceList__condition">
         &nbsp;
       </p>
       </li>
-      <li class="priceList__item"> 
+      <li class="priceList__item">
       <div class="priceList__details">
-        <span class="priceList__label"> Children </span> <span class="priceList__price">$13</span> 
+        <span class="priceList__label"> Children </span> <span class="priceList__price">$13</span>
       </div>
       <p class="priceList__condition">
         (ages 3 – 11)
       </p>
       </li>
-      <li class="priceList__item"> 
+      <li class="priceList__item">
       <div class="priceList__details">
-        <span class="priceList__label"> Seniors </span> <span class="priceList__price">$15</span> 
+        <span class="priceList__label"> Seniors </span> <span class="priceList__price">$15</span>
       </div>
       <p class="priceList__condition">
         (ages 65+)
       </p>
       </li>
-      <li class="priceList__item"> 
+      <li class="priceList__item">
       <div class="priceList__details">
-        <span class="priceList__label"> Students </span> <span class="priceList__price">$15</span> 
+        <span class="priceList__label"> Students </span> <span class="priceList__price">$15</span>
       </div>
       <p class="priceList__condition">
         (w/ valid ID)
@@ -10445,13 +10782,13 @@ function fieldmuseum_default_page_manager_pages() {
   </section>
   <section class="tickets__buttons">
     <div class="tickets__button">
-      <a href="http://tickets.fieldmuseum.org" class="button--buy button--full"> <span class="button__leader"> <svg class="icon icon--ticket-3" viewbox="0 0 500 500"> <use xlink:href="#ticket-3"></use> </svg> </span> All-Access Pass </a> 
+      <a href="http://tickets.fieldmuseum.org" class="button--buy button--full" data-analytics="ticketing-all-access"> <span class="button__leader"> <svg class="icon icon--ticket-3" viewbox="0 0 500 500"> <use xlink:href="#ticket-3"></use> </svg> </span> All-Access Pass </a>
     </div>
     <div class="tickets__button">
-      <a href="http://tickets.fieldmuseum.org" class="button--buy button--full"> <span class="button__leader"> <svg class="icon icon--ticket-2" viewbox="0 0 500 500"> <use xlink:href="#ticket-2"></use> </svg> </span> Discovery Pass </a> 
+      <a href="http://tickets.fieldmuseum.org" class="button--buy button--full" data-analytics="ticketing-discovery"> <span class="button__leader"> <svg class="icon icon--ticket-2" viewbox="0 0 500 500"> <use xlink:href="#ticket-2"></use> </svg> </span> Discovery Pass </a>
     </div>
     <div class="tickets__button">
-      <a href="http://tickets.fieldmuseum.org" class="button--buy button--full"> <span class="button__leader"> <svg class="icon icon--ticket-1" viewbox="0 0 500 500"> <use xlink:href="#ticket-1"></use> </svg> </span> Basic Pass </a> 
+      <a href="http://tickets.fieldmuseum.org" class="button--buy button--full" data-analytics="ticketing-basic"> <span class="button__leader"> <svg class="icon icon--ticket-1" viewbox="0 0 500 500"> <use xlink:href="#ticket-1"></use> </svg> </span> Basic Pass </a>
     </div>
   </section>
 </section>
@@ -10461,39 +10798,39 @@ function fieldmuseum_default_page_manager_pages() {
   <section class="tickets__type">
     <article class="tickets__article">
       <h4 class="tickets__heading">
-        <svg class="icon icon--ticket-3 tickets__icon" viewbox="0 0 500 500"> <use xlink:href="#ticket-3"></use> </svg> All-Access 
+        <svg class="icon icon--ticket-3 tickets__icon" viewbox="0 0 500 500"> <use xlink:href="#ticket-3"></use> </svg> All-Access
       </h4>
       <p class="tickets__details">
         See it all! Our All-Access Pass entitles you entry into all <a href="http://fieldmusefacelift.devcloud.acquia-sites.com/at-the-field/exhibitions/ticketed">ticketed exhibitions</a>, one <a href="http://fieldmusefacelift.devcloud.acquia-sites.com/at-the-field/exhibitions/3d-movie">3D movie</a> and all of the <a href="http://fieldmusefacelift.devcloud.acquia-sites.com/at-the-field/exhibitions/permanent">permanent exhibitions</a> at The Field Museum.
       </p>
       <ul class="priceList">
-        <li class="priceList__item"> 
+        <li class="priceList__item">
         <div class="priceList__details">
-          <span class="priceList__label"> Adults </span> <span class="priceList__price">$31</span> 
+          <span class="priceList__label"> Adults </span> <span class="priceList__price">$31</span>
         </div>
         <p class="priceList__condition">
           &nbsp;
         </p>
         </li>
-        <li class="priceList__item"> 
+        <li class="priceList__item">
         <div class="priceList__details">
-          <span class="priceList__label"> Children </span> <span class="priceList__price">$21</span> 
+          <span class="priceList__label"> Children </span> <span class="priceList__price">$21</span>
         </div>
         <p class="priceList__condition">
           (ages 3 – 11)
         </p>
         </li>
-        <li class="priceList__item"> 
+        <li class="priceList__item">
         <div class="priceList__details">
-          <span class="priceList__label"> Seniors </span> <span class="priceList__price">$25</span> 
+          <span class="priceList__label"> Seniors </span> <span class="priceList__price">$25</span>
         </div>
         <p class="priceList__condition">
           (ages 65+)
         </p>
         </li>
-        <li class="priceList__item"> 
+        <li class="priceList__item">
         <div class="priceList__details">
-          <span class="priceList__label"> Students </span> <span class="priceList__price">$25</span> 
+          <span class="priceList__label"> Students </span> <span class="priceList__price">$25</span>
         </div>
         <p class="priceList__condition">
           (w/ valid ID)
@@ -10504,9 +10841,9 @@ function fieldmuseum_default_page_manager_pages() {
         Includes:
       </h5>
       <ul class="tickets__included">
-        <li><a href="#">Permanent Exhibitions</a></li>
-        <li><a href="#">Ticketed Exhibitions</a></li>
-        <li><a href="#">3D Movies</a></li>
+        <li><a href="/at-the-field/exhibitions/permanent">Permanent Exhibitions</a></li>
+        <li><a href="/at-the-field/exhibitions/ticketed">Ticketed Exhibitions</a></li>
+        <li><a href="/at-the-field/exhibitions/3d-movies">3D Movies</a></li>
       </ul>
       <p class="tickets__disclaimer">
         Your <strong>All-Access Pass</strong> includes a single 3D movie.
@@ -10516,39 +10853,39 @@ function fieldmuseum_default_page_manager_pages() {
   <section class="tickets__type">
     <article class="tickets__article">
       <h4 class="tickets__heading">
-        <svg class="icon icon--ticket-2 tickets__icon" viewbox="0 0 500 500"> <use xlink:href="#ticket-2"></use> </svg> Discovery 
+        <svg class="icon icon--ticket-2 tickets__icon" viewbox="0 0 500 500"> <use xlink:href="#ticket-2"></use> </svg> Discovery
       </h4>
       <p class="tickets__details">
         Explore all of the <a href="http://fieldmusefacelift.devcloud.acquia-sites.com/at-the-field/exhibitions/permanent">permanent exhibitions</a> at The Field Museum, plus <a href="http://fieldmusefacelift.devcloud.acquia-sites.com/at-the-field/exhibitions/3d-movie">one 3D movie</a> or <a href="http://fieldmusefacelift.devcloud.acquia-sites.com/at-the-field/exhibitions/ticketed">ticketed exhibition</a>.
       </p>
       <ul class="priceList">
-        <li class="priceList__item"> 
+        <li class="priceList__item">
         <div class="priceList__details">
-          <span class="priceList__label"> Adults </span> <span class="priceList__price">$25</span> 
+          <span class="priceList__label"> Adults </span> <span class="priceList__price">$25</span>
         </div>
         <p class="priceList__condition">
           &nbsp;
         </p>
         </li>
-        <li class="priceList__item"> 
+        <li class="priceList__item">
         <div class="priceList__details">
-          <span class="priceList__label"> Children </span> <span class="priceList__price">$18</span> 
+          <span class="priceList__label"> Children </span> <span class="priceList__price">$18</span>
         </div>
         <p class="priceList__condition">
           (ages 3 – 11)
         </p>
         </li>
-        <li class="priceList__item"> 
+        <li class="priceList__item">
         <div class="priceList__details">
-          <span class="priceList__label"> Seniors </span> <span class="priceList__price">$20</span> 
+          <span class="priceList__label"> Seniors </span> <span class="priceList__price">$20</span>
         </div>
         <p class="priceList__condition">
           (ages 65+)
         </p>
         </li>
-        <li class="priceList__item"> 
+        <li class="priceList__item">
         <div class="priceList__details">
-          <span class="priceList__label"> Students </span> <span class="priceList__price">$20</span> 
+          <span class="priceList__label"> Students </span> <span class="priceList__price">$20</span>
         </div>
         <p class="priceList__condition">
           (w/ valid ID)
@@ -10571,39 +10908,39 @@ function fieldmuseum_default_page_manager_pages() {
   <section class="tickets__type">
     <article class="tickets__article">
       <h4 class="tickets__heading">
-        <svg class="icon icon--ticket-1 tickets__icon" viewbox="0 0 500 500"> <use xlink:href="#ticket-1"></use> </svg> Basic 
+        <svg class="icon icon--ticket-1 tickets__icon" viewbox="0 0 500 500"> <use xlink:href="#ticket-1"></use> </svg> Basic
       </h4>
       <p class="tickets__details">
         Enjoy all of the <a href="http://fieldmusefacelift.devcloud.acquia-sites.com/at-the-field/exhibitions/permanent">permanent exhibitions</a> of the Museum. This package does not include <a href="http://fieldmusefacelift.devcloud.acquia-sites.com/at-the-field/exhibitions/ticketed">ticketed exhibitions</a> or <a href="http://fieldmusefacelift.devcloud.acquia-sites.com/at-the-field/exhibitions/3d-movie">3D movies</a>.
       </p>
       <ul class="priceList">
-        <li class="priceList__item"> 
+        <li class="priceList__item">
         <div class="priceList__details">
-          <span class="priceList__label"> Adults </span> <span class="priceList__price">$18</span> 
+          <span class="priceList__label"> Adults </span> <span class="priceList__price">$18</span>
         </div>
         <p class="priceList__condition">
           &nbsp;
         </p>
         </li>
-        <li class="priceList__item"> 
+        <li class="priceList__item">
         <div class="priceList__details">
-          <span class="priceList__label"> Children </span> <span class="priceList__price">$13</span> 
+          <span class="priceList__label"> Children </span> <span class="priceList__price">$13</span>
         </div>
         <p class="priceList__condition">
           (ages 3 – 11)
         </p>
         </li>
-        <li class="priceList__item"> 
+        <li class="priceList__item">
         <div class="priceList__details">
-          <span class="priceList__label"> Seniors </span> <span class="priceList__price">$15</span> 
+          <span class="priceList__label"> Seniors </span> <span class="priceList__price">$15</span>
         </div>
         <p class="priceList__condition">
           (ages 65+)
         </p>
         </li>
-        <li class="priceList__item"> 
+        <li class="priceList__item">
         <div class="priceList__details">
-          <span class="priceList__label"> Students </span> <span class="priceList__price">$15</span> 
+          <span class="priceList__label"> Students </span> <span class="priceList__price">$15</span>
         </div>
         <p class="priceList__condition">
           (w/ valid ID)
@@ -10636,25 +10973,25 @@ function fieldmuseum_default_page_manager_pages() {
   </thead>
   <tbody>
     <tr>
-      <td class="is--centered"> 
+      <td class="is--centered">
       <p>
         $85 for 1yr<br />
         $160 for 2yrs
       </p>
       </td>
-      <td class="is--centered"> 
+      <td class="is--centered">
       <p>
         $145 for 1yr<br />
         $280 for 2yrs
       </p>
       </td>
-      <td class="is--centered"> 
+      <td class="is--centered">
       <p>
         $120 for 1yr<br />
         $230 for 2yrs
       </p>
       </td>
-      <td class="is--centered"> 
+      <td class="is--centered">
       <p>
         $70 for 1yr<br />
         $130 for 2yrs
@@ -10663,7 +11000,7 @@ function fieldmuseum_default_page_manager_pages() {
     </tr>
   </tbody>
 </table>
-<a href="http://fieldmusefacelift.devcloud.acquia-sites.com/support/members/member-benefits" class="button--cta ">View Member Benefits</a> 
+<a href="http://fieldmusefacelift.devcloud.acquia-sites.com/support/members/member-benefits" class="button--cta">View Member Benefits</a>
 ',
       'format' => 'unfiltered',
       'substitute' => TRUE,

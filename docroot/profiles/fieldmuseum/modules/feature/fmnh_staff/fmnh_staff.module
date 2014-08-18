@@ -147,7 +147,6 @@ function fmnh_staff_filter($selected = '') {
       'guest-relations' => 'Guest Relations',
       'public-relations' => 'Public Relations',
       'special-events-and-group-sales' => 'Special Events and Group Sales',
-      'marketing' => 'Marketing',
       'communications' => 'Communications',
       'public-programs-and-education' => 'Public Programs and Education',
     ),
