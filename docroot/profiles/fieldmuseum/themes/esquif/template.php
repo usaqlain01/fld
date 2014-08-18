@@ -241,7 +241,6 @@ function esquif_preprocess_node(&$variables, $hook) {
     case 'promo':
       array_splice($variables['theme_hook_suggestions'], 1, 0, array('node__'. $variables['view_mode']));
       $variables['classes_array'] = array_diff($variables['classes_array'], array($node->type));
-      dpm($variables['classes_array']);
       $variables['title_attributes_array']['class'][] = 'promo__title';
 
       if (isset($variables['content']['field_image'])) {

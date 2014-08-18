@@ -53,7 +53,7 @@ function fmnh_media_image_default_styles() {
       241 => array(
         'label' => 'Reuse a javascript crop selection',
         'help' => 'Reuse crop selection from another javascript crop preset.',
-        'effect callback' => 'fieldmuseum_imagecrop_reuse_effect',
+        'effect callback' => 'imagecrop_reuse_effect',
         'form callback' => 'imagecrop_reuse_form',
         'summary theme' => 'theme_imagecrop_reuse',
         'module' => 'imagecrop',
@@ -61,7 +61,6 @@ function fmnh_media_image_default_styles() {
         'data' => array(
           'imagecrop_style' => '2x1_2400w',
         ),
-        'dimensions callback' => 'fieldmuseum_imagecrop_reuse_dimensions',
         'weight' => 1,
       ),
       246 => array(
@@ -91,7 +90,7 @@ function fmnh_media_image_default_styles() {
       251 => array(
         'label' => 'Reuse a javascript crop selection',
         'help' => 'Reuse crop selection from another javascript crop preset.',
-        'effect callback' => 'fieldmuseum_imagecrop_reuse_effect',
+        'effect callback' => 'imagecrop_reuse_effect',
         'form callback' => 'imagecrop_reuse_form',
         'summary theme' => 'theme_imagecrop_reuse',
         'module' => 'imagecrop',
@@ -99,7 +98,6 @@ function fmnh_media_image_default_styles() {
         'data' => array(
           'imagecrop_style' => '2x1_2400w',
         ),
-        'dimensions callback' => 'fieldmuseum_imagecrop_reuse_dimensions',
         'weight' => 1,
       ),
       256 => array(
@@ -129,7 +127,7 @@ function fmnh_media_image_default_styles() {
       261 => array(
         'label' => 'Reuse a javascript crop selection',
         'help' => 'Reuse crop selection from another javascript crop preset.',
-        'effect callback' => 'fieldmuseum_imagecrop_reuse_effect',
+        'effect callback' => 'imagecrop_reuse_effect',
         'form callback' => 'imagecrop_reuse_form',
         'summary theme' => 'theme_imagecrop_reuse',
         'module' => 'imagecrop',
@@ -137,7 +135,6 @@ function fmnh_media_image_default_styles() {
         'data' => array(
           'imagecrop_style' => '2x1_2400w',
         ),
-        'dimensions callback' => 'fieldmuseum_imagecrop_reuse_dimensions',
         'weight' => 1,
       ),
       266 => array(
@@ -167,7 +164,7 @@ function fmnh_media_image_default_styles() {
       271 => array(
         'label' => 'Javascript crop',
         'help' => 'Create a crop with a javascript toolbox.',
-        'effect callback' => 'fieldmuseum_imagecrop_effect',
+        'effect callback' => 'imagecrop_effect',
         'dimensions callback' => 'imagecrop_dimensions',
         'form callback' => 'imagecrop_effect_form',
         'summary theme' => 'imagecrop_effect_summary',
@@ -212,7 +209,7 @@ function fmnh_media_image_default_styles() {
       281 => array(
         'label' => 'Reuse a javascript crop selection',
         'help' => 'Reuse crop selection from another javascript crop preset.',
-        'effect callback' => 'fieldmuseum_imagecrop_reuse_effect',
+        'effect callback' => 'imagecrop_reuse_effect',
         'form callback' => 'imagecrop_reuse_form',
         'summary theme' => 'theme_imagecrop_reuse',
         'module' => 'imagecrop',
@@ -220,7 +217,6 @@ function fmnh_media_image_default_styles() {
         'data' => array(
           'imagecrop_style' => '2x1_2400w',
         ),
-        'dimensions callback' => 'fieldmuseum_imagecrop_reuse_dimensions',
         'weight' => 1,
       ),
       286 => array(
@@ -250,7 +246,7 @@ function fmnh_media_image_default_styles() {
       291 => array(
         'label' => 'Reuse a javascript crop selection',
         'help' => 'Reuse crop selection from another javascript crop preset.',
-        'effect callback' => 'fieldmuseum_imagecrop_reuse_effect',
+        'effect callback' => 'imagecrop_reuse_effect',
         'form callback' => 'imagecrop_reuse_form',
         'summary theme' => 'theme_imagecrop_reuse',
         'module' => 'imagecrop',
@@ -258,7 +254,6 @@ function fmnh_media_image_default_styles() {
         'data' => array(
           'imagecrop_style' => '2x1_2400w',
         ),
-        'dimensions callback' => 'fieldmuseum_imagecrop_reuse_dimensions',
         'weight' => 1,
       ),
       296 => array(
@@ -288,7 +283,7 @@ function fmnh_media_image_default_styles() {
       301 => array(
         'label' => 'Reuse a javascript crop selection',
         'help' => 'Reuse crop selection from another javascript crop preset.',
-        'effect callback' => 'fieldmuseum_imagecrop_reuse_effect',
+        'effect callback' => 'imagecrop_reuse_effect',
         'form callback' => 'imagecrop_reuse_form',
         'summary theme' => 'theme_imagecrop_reuse',
         'module' => 'imagecrop',
@@ -296,7 +291,6 @@ function fmnh_media_image_default_styles() {
         'data' => array(
           'imagecrop_style' => '5x2_2400w',
         ),
-        'dimensions callback' => 'fieldmuseum_imagecrop_reuse_dimensions',
         'weight' => 1,
       ),
       306 => array(
@@ -326,7 +320,7 @@ function fmnh_media_image_default_styles() {
       311 => array(
         'label' => 'Reuse a javascript crop selection',
         'help' => 'Reuse crop selection from another javascript crop preset.',
-        'effect callback' => 'fieldmuseum_imagecrop_reuse_effect',
+        'effect callback' => 'imagecrop_reuse_effect',
         'form callback' => 'imagecrop_reuse_form',
         'summary theme' => 'theme_imagecrop_reuse',
         'module' => 'imagecrop',
@@ -334,7 +328,6 @@ function fmnh_media_image_default_styles() {
         'data' => array(
           'imagecrop_style' => '5x2_2400w',
         ),
-        'dimensions callback' => 'fieldmuseum_imagecrop_reuse_dimensions',
         'weight' => 1,
       ),
       316 => array(
@@ -364,7 +357,7 @@ function fmnh_media_image_default_styles() {
       321 => array(
         'label' => 'Reuse a javascript crop selection',
         'help' => 'Reuse crop selection from another javascript crop preset.',
-        'effect callback' => 'fieldmuseum_imagecrop_reuse_effect',
+        'effect callback' => 'imagecrop_reuse_effect',
         'form callback' => 'imagecrop_reuse_form',
         'summary theme' => 'theme_imagecrop_reuse',
         'module' => 'imagecrop',
@@ -372,7 +365,6 @@ function fmnh_media_image_default_styles() {
         'data' => array(
           'imagecrop_style' => '5x2_2400w',
         ),
-        'dimensions callback' => 'fieldmuseum_imagecrop_reuse_dimensions',
         'weight' => 1,
       ),
       326 => array(
@@ -402,7 +394,7 @@ function fmnh_media_image_default_styles() {
       331 => array(
         'label' => 'Javascript crop',
         'help' => 'Create a crop with a javascript toolbox.',
-        'effect callback' => 'fieldmuseum_imagecrop_effect',
+        'effect callback' => 'imagecrop_effect',
         'dimensions callback' => 'imagecrop_dimensions',
         'form callback' => 'imagecrop_effect_form',
         'summary theme' => 'imagecrop_effect_summary',
@@ -447,7 +439,7 @@ function fmnh_media_image_default_styles() {
       341 => array(
         'label' => 'Reuse a javascript crop selection',
         'help' => 'Reuse crop selection from another javascript crop preset.',
-        'effect callback' => 'fieldmuseum_imagecrop_reuse_effect',
+        'effect callback' => 'imagecrop_reuse_effect',
         'form callback' => 'imagecrop_reuse_form',
         'summary theme' => 'theme_imagecrop_reuse',
         'module' => 'imagecrop',
@@ -455,7 +447,6 @@ function fmnh_media_image_default_styles() {
         'data' => array(
           'imagecrop_style' => '5x2_2400w',
         ),
-        'dimensions callback' => 'fieldmuseum_imagecrop_reuse_dimensions',
         'weight' => 1,
       ),
       346 => array(
@@ -485,7 +476,7 @@ function fmnh_media_image_default_styles() {
       351 => array(
         'label' => 'Reuse a javascript crop selection',
         'help' => 'Reuse crop selection from another javascript crop preset.',
-        'effect callback' => 'fieldmuseum_imagecrop_reuse_effect',
+        'effect callback' => 'imagecrop_reuse_effect',
         'form callback' => 'imagecrop_reuse_form',
         'summary theme' => 'theme_imagecrop_reuse',
         'module' => 'imagecrop',
@@ -493,7 +484,6 @@ function fmnh_media_image_default_styles() {
         'data' => array(
           'imagecrop_style' => '5x2_2400w',
         ),
-        'dimensions callback' => 'fieldmuseum_imagecrop_reuse_dimensions',
         'weight' => 1,
       ),
       356 => array(
@@ -523,7 +513,7 @@ function fmnh_media_image_default_styles() {
       361 => array(
         'label' => 'Reuse a javascript crop selection',
         'help' => 'Reuse crop selection from another javascript crop preset.',
-        'effect callback' => 'fieldmuseum_imagecrop_reuse_effect',
+        'effect callback' => 'imagecrop_reuse_effect',
         'form callback' => 'imagecrop_reuse_form',
         'summary theme' => 'theme_imagecrop_reuse',
         'module' => 'imagecrop',
@@ -531,7 +521,6 @@ function fmnh_media_image_default_styles() {
         'data' => array(
           'imagecrop_style' => '5x3_2400w',
         ),
-        'dimensions callback' => 'fieldmuseum_imagecrop_reuse_dimensions',
         'weight' => 1,
       ),
       366 => array(
@@ -561,7 +550,7 @@ function fmnh_media_image_default_styles() {
       371 => array(
         'label' => 'Reuse a javascript crop selection',
         'help' => 'Reuse crop selection from another javascript crop preset.',
-        'effect callback' => 'fieldmuseum_imagecrop_reuse_effect',
+        'effect callback' => 'imagecrop_reuse_effect',
         'form callback' => 'imagecrop_reuse_form',
         'summary theme' => 'theme_imagecrop_reuse',
         'module' => 'imagecrop',
@@ -569,7 +558,6 @@ function fmnh_media_image_default_styles() {
         'data' => array(
           'imagecrop_style' => '5x3_2400w',
         ),
-        'dimensions callback' => 'fieldmuseum_imagecrop_reuse_dimensions',
         'weight' => 1,
       ),
       376 => array(
@@ -599,7 +587,7 @@ function fmnh_media_image_default_styles() {
       381 => array(
         'label' => 'Reuse a javascript crop selection',
         'help' => 'Reuse crop selection from another javascript crop preset.',
-        'effect callback' => 'fieldmuseum_imagecrop_reuse_effect',
+        'effect callback' => 'imagecrop_reuse_effect',
         'form callback' => 'imagecrop_reuse_form',
         'summary theme' => 'theme_imagecrop_reuse',
         'module' => 'imagecrop',
@@ -607,7 +595,6 @@ function fmnh_media_image_default_styles() {
         'data' => array(
           'imagecrop_style' => '5x3_2400w',
         ),
-        'dimensions callback' => 'fieldmuseum_imagecrop_reuse_dimensions',
         'weight' => 1,
       ),
       386 => array(
@@ -637,7 +624,7 @@ function fmnh_media_image_default_styles() {
       421 => array(
         'label' => 'Javascript crop',
         'help' => 'Create a crop with a javascript toolbox.',
-        'effect callback' => 'fieldmuseum_imagecrop_effect',
+        'effect callback' => 'imagecrop_effect',
         'dimensions callback' => 'imagecrop_dimensions',
         'form callback' => 'imagecrop_effect_form',
         'summary theme' => 'imagecrop_effect_summary',
@@ -682,7 +669,7 @@ function fmnh_media_image_default_styles() {
       401 => array(
         'label' => 'Reuse a javascript crop selection',
         'help' => 'Reuse crop selection from another javascript crop preset.',
-        'effect callback' => 'fieldmuseum_imagecrop_reuse_effect',
+        'effect callback' => 'imagecrop_reuse_effect',
         'form callback' => 'imagecrop_reuse_form',
         'summary theme' => 'theme_imagecrop_reuse',
         'module' => 'imagecrop',
@@ -690,7 +677,6 @@ function fmnh_media_image_default_styles() {
         'data' => array(
           'imagecrop_style' => '5x3_2400w',
         ),
-        'dimensions callback' => 'fieldmuseum_imagecrop_reuse_dimensions',
         'weight' => 1,
       ),
       406 => array(
@@ -720,7 +706,7 @@ function fmnh_media_image_default_styles() {
       411 => array(
         'label' => 'Reuse a javascript crop selection',
         'help' => 'Reuse crop selection from another javascript crop preset.',
-        'effect callback' => 'fieldmuseum_imagecrop_reuse_effect',
+        'effect callback' => 'imagecrop_reuse_effect',
         'form callback' => 'imagecrop_reuse_form',
         'summary theme' => 'theme_imagecrop_reuse',
         'module' => 'imagecrop',
@@ -728,7 +714,6 @@ function fmnh_media_image_default_styles() {
         'data' => array(
           'imagecrop_style' => '5x3_2400w',
         ),
-        'dimensions callback' => 'fieldmuseum_imagecrop_reuse_dimensions',
         'weight' => 1,
       ),
       416 => array(
@@ -758,7 +743,7 @@ function fmnh_media_image_default_styles() {
       181 => array(
         'label' => 'Javascript crop',
         'help' => 'Create a crop with a javascript toolbox.',
-        'effect callback' => 'fieldmuseum_imagecrop_effect',
+        'effect callback' => 'imagecrop_effect',
         'dimensions callback' => 'imagecrop_dimensions',
         'form callback' => 'imagecrop_effect_form',
         'summary theme' => 'imagecrop_effect_summary',
@@ -803,7 +788,7 @@ function fmnh_media_image_default_styles() {
       191 => array(
         'label' => 'Javascript crop',
         'help' => 'Create a crop with a javascript toolbox.',
-        'effect callback' => 'fieldmuseum_imagecrop_effect',
+        'effect callback' => 'imagecrop_effect',
         'dimensions callback' => 'imagecrop_dimensions',
         'form callback' => 'imagecrop_effect_form',
         'summary theme' => 'imagecrop_effect_summary',
@@ -848,7 +833,7 @@ function fmnh_media_image_default_styles() {
       201 => array(
         'label' => 'Javascript crop',
         'help' => 'Create a crop with a javascript toolbox.',
-        'effect callback' => 'fieldmuseum_imagecrop_effect',
+        'effect callback' => 'imagecrop_effect',
         'dimensions callback' => 'imagecrop_dimensions',
         'form callback' => 'imagecrop_effect_form',
         'summary theme' => 'imagecrop_effect_summary',
@@ -893,7 +878,7 @@ function fmnh_media_image_default_styles() {
       211 => array(
         'label' => 'Reuse a javascript crop selection',
         'help' => 'Reuse crop selection from another javascript crop preset.',
-        'effect callback' => 'fieldmuseum_imagecrop_reuse_effect',
+        'effect callback' => 'imagecrop_reuse_effect',
         'form callback' => 'imagecrop_reuse_form',
         'summary theme' => 'theme_imagecrop_reuse',
         'module' => 'imagecrop',
@@ -901,7 +886,6 @@ function fmnh_media_image_default_styles() {
         'data' => array(
           'imagecrop_style' => 'thumbnail',
         ),
-        'dimensions callback' => 'fieldmuseum_imagecrop_reuse_dimensions',
         'weight' => -10,
       ),
       216 => array(
@@ -930,7 +914,7 @@ function fmnh_media_image_default_styles() {
       221 => array(
         'label' => 'Javascript crop',
         'help' => 'Create a crop with a javascript toolbox.',
-        'effect callback' => 'fieldmuseum_imagecrop_effect',
+        'effect callback' => 'imagecrop_effect',
         'dimensions callback' => 'imagecrop_dimensions',
         'form callback' => 'imagecrop_effect_form',
         'summary theme' => 'imagecrop_effect_summary',
@@ -975,7 +959,7 @@ function fmnh_media_image_default_styles() {
       231 => array(
         'label' => 'Javascript crop',
         'help' => 'Create a crop with a javascript toolbox.',
-        'effect callback' => 'fieldmuseum_imagecrop_effect',
+        'effect callback' => 'imagecrop_effect',
         'dimensions callback' => 'imagecrop_dimensions',
         'form callback' => 'imagecrop_effect_form',
         'summary theme' => 'imagecrop_effect_summary',

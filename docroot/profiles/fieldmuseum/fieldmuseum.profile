@@ -129,12 +129,14 @@ function fieldmuseum_ctools_plugin_directory($module, $plugin) {
  * Implement hook_image_effect_info_alter().
  */
 function fieldmuseum_image_effect_info_alter(&$effects) {
-  if ($effects['imagecrop_javascript']['effect callback'] == 'imagecrop_effect') {
-    $effects['imagecrop_javascript']['effect callback'] = 'fieldmuseum_imagecrop_effect';
-  }
-  if ($effects['imagecrop_reuse']['effect callback'] == 'imagecrop_reuse_effect') {
-    $effects['imagecrop_reuse']['effect callback'] = 'fieldmuseum_imagecrop_reuse_effect';
-    $effects['imagecrop_reuse']['dimensions callback'] = 'fieldmuseum_imagecrop_reuse_dimensions';
+  if (variable_get('fmnh_smart_crop', FALSE)) {
+    if ($effects['imagecrop_javascript']['effect callback'] == 'imagecrop_effect') {
+      $effects['imagecrop_javascript']['effect callback'] = 'fieldmuseum_imagecrop_effect';
+    }
+    if ($effects['imagecrop_reuse']['effect callback'] == 'imagecrop_reuse_effect') {
+      $effects['imagecrop_reuse']['effect callback'] = 'fieldmuseum_imagecrop_reuse_effect';
+      $effects['imagecrop_reuse']['dimensions callback'] = 'fieldmuseum_imagecrop_reuse_dimensions';
+    }
   }
 }
 
