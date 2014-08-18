@@ -396,7 +396,8 @@ function _esquif_preprocess_node_blog(&$variables, $hook) {
     foreach ($items as $item) {
       $parents = taxonomy_get_parents($item['target_id']);
       if (isset($parents[1216])) {
-        unset($variables['name']);
+        // @todo hide the name by setting a flag in the template variables.
+        $variables['name'] = '';
         break;
       }
     }
