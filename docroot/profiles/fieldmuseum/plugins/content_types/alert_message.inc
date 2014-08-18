@@ -39,8 +39,10 @@ function fieldmuseum_alert_message_content_type_render($subtype, $conf, $panel_a
       ),
     ),
   );
+
+  $content = array();
+
   if (ctools_access($settings)) {
-    $content = '';
     if ($conf['variant'] == 'home') {
       $content = '<div class="message message--alert" role="alert"><p>';
       $content .= variable_get('fmnh_alert_message_'. $conf['variant'], '');
@@ -52,9 +54,8 @@ function fieldmuseum_alert_message_content_type_render($subtype, $conf, $panel_a
       $content .= variable_get('fmnh_alert_message_'. $conf['variant'], '');
       $content .= '</span></span>';
     }
-    $block->content = $content;
   }
-
+  $block->content = $content;
 
   return $block;
 }
