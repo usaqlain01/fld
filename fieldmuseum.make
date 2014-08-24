@@ -259,7 +259,7 @@ projects[views_bulk_operations][subdir] = contrib
 projects[views_bulk_operations][version] = 3.2
 
 projects[webform][subdir] = contrib
-projects[webform][version] = 3.20
+projects[webform][version] = 4.0-rc6
 
 projects[workbench][subdir] = contrib
 projects[workbench][version] = 1.2
