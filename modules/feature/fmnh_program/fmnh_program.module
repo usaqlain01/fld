@@ -16,3 +16,23 @@ function fmnh_program_menu_position_rule_plugins() {
     ),
   );
 }
+
+/**
+ * Implement hook_views_pre_build().
+ *
+ * @param view $view
+ */
+function fmnh_program_views_pre_build(view &$view) {
+
+  // To display field trip programs like the one being viewed, we force the grade level
+  // argument based on the values of the same field in the node argument.
+  if ($view->name == 'field_trip_programs' && $view->current_display == 'panel_pane_1') {
+    $node = node_load($view->args[0]);
+    $items = field_get_items('node', $node, 'field_grade_level');
+    if ($items) {
+      $view->args[1] = implode(',', array_map(function ($item) {
+        return $item['target_id'];
+      }, (array) $items));
+    }
+  }
+}
