@@ -1156,7 +1156,7 @@ function fieldmuseum_panelizer_defaults() {
       'no_extras' => 1,
       'override_title' => 0,
       'override_title_text' => '',
-      'identifier' => '',
+      'identifier' => 'page__full__c3b',
       'link' => 0,
       'leave_node_title' => 1,
       'build_mode' => 'full',
@@ -1276,7 +1276,7 @@ function fieldmuseum_panelizer_defaults() {
     $display->content['new-fc0b78dd-e31c-433c-944b-e50078ca8698'] = $pane;
     $display->panels['nav'][1] = 'new-fc0b78dd-e31c-433c-944b-e50078ca8698';
   $display->hide_title = PANELS_TITLE_PANE;
-  $display->title_pane = '0';
+  $display->title_pane = 'new-afb5c667-bfff-4eb8-8f3e-957d44970256';
   $panelizer->display = $display;
   $export['node:page:c3_b'] = $panelizer;
 
