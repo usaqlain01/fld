@@ -34,7 +34,7 @@ function fieldmuseum_menu_alter(&$items) {
     'at-the-field/exhibitions/%pm_arg' => array('exhibitions', 'ctools_context_1'),
     'educators/field-trip-programs/%pm_arg' => array('field_trip_programs', 'ctools_context_1'),
     'educators/resources/%pm_arg' => array('learning_resources', 'ctools_context_1'),
-    'node/%pm_arg/people' => array('staff', 'ctools_context_1'),
+    'node/%pm_arg/people' => array('users', 'ctools_context_2'),
   );
   foreach ($changes as $path => $access_arguments) {
     $items[$path]['access callback'] = 'fieldmuseum_menu_access';
