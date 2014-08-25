@@ -4507,7 +4507,7 @@ $(function() {
     width: false,
     openOnEnter: true,
     selectOnBlur: true
-  }).on("change", function (e) { window.location = e.val; });
+  });
 });
 
   /*
