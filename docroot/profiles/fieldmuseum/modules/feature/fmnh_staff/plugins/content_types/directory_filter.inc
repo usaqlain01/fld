@@ -24,6 +24,13 @@ function fmnh_staff_directory_filter_content_type_render($subtype, $conf, $args,
   }
 
   $block = new stdClass();
-  $block->content = fmnh_staff_filter($selection);
+  $block->content = array(
+    '#markup' => fmnh_staff_filter($selection),
+    '#attached' => array(
+      'js' => array(
+        '(function ($, Drupal, window, document, undefined) { $(\'#select\').on("change", function (e) { window.location = e.val; }); })(jQuery, Drupal, this, this.document);' => array('type' => 'inline'),
+      )
+    ),
+  );
   return $block;
 }
