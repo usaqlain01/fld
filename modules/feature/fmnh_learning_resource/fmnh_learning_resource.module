@@ -5,22 +5,3 @@
  */
 
 include_once 'fmnh_learning_resource.features.inc';
-
-/**
- * Implement hook_node_view().
- *
- * @param $node
- * @param $view_mode
- * @param $langcode
- */
-function fmnh_learning_resource_node_view($node, $view_mode, $langcode) {
-  if ($view_mode == 'teaser' && $node->type == 'learning_resource') {
-    $items = field_get_items('node', $node, 'field_attachment');
-    if ($items) {
-      foreach ($items as $item) {
-        $node->content['links']['node']['#links']['node-readmore']['href'] = file_create_url($item['uri']);
-        break;
-      }
-    }
-  }
-}
