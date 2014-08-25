@@ -2339,7 +2339,7 @@ Gallery = (function() {
 $(function() {
   var gallery;
   gallery = new Gallery;
-  if ($("body.ltie9").length === 1) {
+  if ($("html.ltie9").length > 0) {
     return $(".gallery").addClass("is--disabled").html("Sorry. Our media galleries are not supported by your browser. You can find information about upgrading your browser at <a href='http://browsehappy.com/'>Browse Happy</a>.");
   } else {
     return gallery.load();

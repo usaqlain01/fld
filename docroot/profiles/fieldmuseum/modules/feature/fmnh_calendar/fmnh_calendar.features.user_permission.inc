@@ -43,6 +43,7 @@ function fmnh_calendar_user_default_permissions() {
     'name' => 'edit any event content',
     'roles' => array(
       'administrator' => 'administrator',
+      'publisher' => 'publisher',
     ),
     'module' => 'node',
   );

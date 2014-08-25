@@ -81,8 +81,8 @@ function fmnh_department_menu_link_alter(&$item) {
  * @param $config
  */
 function fmnh_department_menu_block_tree_alter(&$tree, $config) {
-  if (isset($config['identifier']) && 'section' == $config['identifier']) {
-    _fmnh_department_menu_block_tree_alter($tree);
+  if (isset($config['identifier']) && in_array($config['identifier'], array('section', 'focus'))) {
+    _fmnh_department_menu_block_tree_alter($tree, $config['identifier']);
     drupal_static_reset('menu_local_tasks');
     drupal_static_reset('menu_local_tasks:root_path');
   }
@@ -92,12 +92,13 @@ function fmnh_department_menu_block_tree_alter(&$tree, $config) {
  * Recursive helper function to identify department nodes in menu tree.
  *
  * @param $tree
+ * @param $identifier
  */
-function _fmnh_department_menu_block_tree_alter(&$tree) {
+function _fmnh_department_menu_block_tree_alter(&$tree, $identifier) {
   foreach ($tree as &$branch) {
     if (isset($branch['link']['options']['entity'])) {
       $entity_info = $branch['link']['options']['entity'];
-      if ($entity_info['bundle'] == 'department') {
+      if ($entity_info['bundle'] == 'department' && $identifier == 'section') {
         $path = $_GET['q'];
         $router_item = menu_get_item();
 
@@ -105,9 +106,15 @@ function _fmnh_department_menu_block_tree_alter(&$tree) {
 
         $_GET['q'] = $path;
         menu_set_item($path, $router_item);
+        if (!$branch['link']['in_active_trail'] && $branch['link']['depth'] > 3) {
+          $branch['link']['hidden'] = TRUE;
+        }
+      }
+      else if ($entity_info['bundle'] != 'department' && $identifier == 'focus') {
+        $branch['link']['hidden'] = TRUE;
       }
     }
-    _fmnh_department_menu_block_tree_alter($branch['below']);
+    _fmnh_department_menu_block_tree_alter($branch['below'], $identifier);
   }
 }
 

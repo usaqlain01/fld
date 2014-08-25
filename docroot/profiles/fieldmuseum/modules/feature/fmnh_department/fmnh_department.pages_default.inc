@@ -85,9 +85,9 @@ function fmnh_department_default_page_manager_pages() {
     'contexts' => array(),
     'relationships' => array(
       0 => array(
-        'identifier' => 'View: Staff',
+        'identifier' => 'View: users: filter by profile departments',
         'keyword' => 'view',
-        'name' => 'view_from_argument:staff-ctools_context_1',
+        'name' => 'view_from_argument:users-ctools_context_2',
         'context' => array(
           0 => 'argument_entity_id:node_1',
         ),

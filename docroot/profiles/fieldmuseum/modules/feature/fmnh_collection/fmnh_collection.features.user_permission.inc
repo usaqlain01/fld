@@ -43,6 +43,7 @@ function fmnh_collection_user_default_permissions() {
     'name' => 'edit any collection content',
     'roles' => array(
       'administrator' => 'administrator',
+      'publisher' => 'publisher',
     ),
     'module' => 'node',
   );

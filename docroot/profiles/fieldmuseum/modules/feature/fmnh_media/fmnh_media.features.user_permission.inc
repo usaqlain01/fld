@@ -318,6 +318,7 @@ function fmnh_media_user_default_permissions() {
     'name' => 'edit any audio files',
     'roles' => array(
       'administrator' => 'administrator',
+      'publisher' => 'publisher',
     ),
     'module' => 'file_entity',
   );
@@ -327,6 +328,7 @@ function fmnh_media_user_default_permissions() {
     'name' => 'edit any document files',
     'roles' => array(
       'administrator' => 'administrator',
+      'publisher' => 'publisher',
     ),
     'module' => 'file_entity',
   );
@@ -336,6 +338,7 @@ function fmnh_media_user_default_permissions() {
     'name' => 'edit any image files',
     'roles' => array(
       'administrator' => 'administrator',
+      'publisher' => 'publisher',
     ),
     'module' => 'file_entity',
   );
@@ -345,6 +348,7 @@ function fmnh_media_user_default_permissions() {
     'name' => 'edit any model files',
     'roles' => array(
       'administrator' => 'administrator',
+      'publisher' => 'publisher',
     ),
     'module' => 'file_entity',
   );
@@ -354,6 +358,7 @@ function fmnh_media_user_default_permissions() {
     'name' => 'edit any video files',
     'roles' => array(
       'administrator' => 'administrator',
+      'publisher' => 'publisher',
     ),
     'module' => 'file_entity',
   );

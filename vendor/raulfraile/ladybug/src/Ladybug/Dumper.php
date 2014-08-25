@@ -27,7 +27,7 @@ use Ladybug\Format\FormatResolver;
 class Dumper
 {
     const LEVEL_INIT = 1;
-private static $aaa = 12;
+
     /** @var array $nodes */
     protected $nodes;
 
@@ -150,7 +150,13 @@ private static $aaa = 12;
         $this->callFile = null;
         $this->callLine = null;
 
-        $backtrace = debug_backtrace();
+        $backtraceFlags = DEBUG_BACKTRACE_PROVIDE_OBJECT;
+        if (version_compare(PHP_VERSION, '5.3.6', '>=')) {
+            $backtraceFlags = DEBUG_BACKTRACE_IGNORE_ARGS;
+        }
+
+        $backtrace = debug_backtrace($backtraceFlags);
+
         $backtraceCount = count($backtrace);
         $idx = $backtraceCount - 1;
         $found = false;
