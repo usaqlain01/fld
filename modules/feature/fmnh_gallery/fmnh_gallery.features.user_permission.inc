@@ -61,6 +61,7 @@ function fmnh_gallery_user_default_permissions() {
     'name' => 'edit any media_gallery content',
     'roles' => array(
       'administrator' => 'administrator',
+      'publisher' => 'publisher',
     ),
     'module' => 'node',
   );

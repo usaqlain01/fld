@@ -1402,7 +1402,7 @@ function fieldmuseum_default_panels_mini() {
       'identifier' => 'File',
       'keyword' => 'file',
       'name' => 'entity:file',
-      'entity_id' => '84651',
+      'entity_id' => '84706',
       'id' => 1,
     ),
   );

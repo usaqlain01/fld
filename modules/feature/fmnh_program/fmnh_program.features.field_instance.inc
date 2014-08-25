@@ -21,7 +21,7 @@ function fmnh_program_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 5,
+        'weight' => 3,
       ),
       'default' => array(
         'label' => 'hidden',
@@ -515,7 +515,7 @@ function fmnh_program_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 2,
+        'weight' => 0,
       ),
       'default' => array(
         'label' => 'hidden',
@@ -675,7 +675,7 @@ function fmnh_program_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 3,
+        'weight' => 1,
       ),
       'default' => array(
         'label' => 'hidden',

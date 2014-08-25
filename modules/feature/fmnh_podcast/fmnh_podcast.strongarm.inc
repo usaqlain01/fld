@@ -34,6 +34,9 @@ function fmnh_podcast_strongarm() {
       'event' => array(
         'custom_settings' => FALSE,
       ),
+      'banner' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
