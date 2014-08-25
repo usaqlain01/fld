@@ -124,11 +124,39 @@
             category: 'general',
             label:    'store-global-nav'
           },
+          'resource-link': {
+            cateogry: 'general',
+            label:    'nav-resource'
+          },
+          'resource-filter': {
+            category: 'general',
+            label:    'nav-filter'
+          },
+          'google-play': {
+            category: 'general',
+            label:    'visit-google-play-store'
+          },
+          'app-store': {
+            category: 'general',
+            label:    'visit-apple-app-store'
+          },
 
           // ---------- Support Click Events ----------
           'donate-global': {
             category: 'support',
             label:    'donate-global-nav'
+          },
+          'volunteer': {
+            category: 'support',
+            lavel:    'volunteer-app-link'
+          },
+          'become-member': {
+            category: 'support',
+            label:    'click-become-member'
+          },
+          'give-member': {
+            category: 'support',
+            label:    'click-give-member'
           },
 
           // ------ Educator Click Events -----
@@ -179,10 +207,6 @@
             category: 'educators',
             label:    'field-trip-name'
           },
-          'volunteer-submit': {
-            category: 'support',
-            label:    'volunteer-application'
-          },
           'member-newsletter-submit': {
             category: 'support',
             label:    'member-newsletter-signup'
@@ -204,6 +228,9 @@
               return Analytics.social(options.network, options.action, options.target, window.location.pathname);
 
             } else {
+              if (event.match(/\bresource\b/)) {
+                options.label = $(this).text();
+              }
               if (event.match(/\bticketing\b/)) {
                 Analytics.dimension("dimension5", "true");
               }
