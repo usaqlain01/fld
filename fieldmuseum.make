@@ -249,6 +249,9 @@ projects[system_stream_wrapper][version] = 1.x-dev
 projects[token][subdir] = contrib
 projects[token][version] = 1.5
 
+projects[token_formatters][subdir] = contrib
+projects[token_formatters][version] = 1.x-dev
+
 projects[transliteration][subdir] = contrib
 projects[transliteration][version] = 3.2
 
