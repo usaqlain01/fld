@@ -522,3 +522,15 @@ function fieldmuseum_preprocess_html(&$variables, $hook) {
   );
   drupal_add_html_head($element, 'google_translate_customization');
 }
+
+function fieldmuseum_node_view($node, $view_mode, $langcode) {
+  if ($view_mode == 'summary') {
+    $node_title_stripped = strip_tags($node->title);
+    $node->content['links']['node']['#links']['node-readmore'] = array(
+      'title' => t('Read more<span class="element-invisible"> about @title</span>', array('@title' => $node_title_stripped)),
+      'href' => 'node/' . $node->nid,
+      'html' => TRUE,
+      'attributes' => array('rel' => 'tag', 'title' => $node_title_stripped),
+    );
+  }
+}

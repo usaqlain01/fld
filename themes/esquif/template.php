@@ -1559,7 +1559,7 @@ function esquif_preprocess_fieldable_panels_pane(&$variables) {
 }
 
 function esquif_node_view_alter(&$build, $type) {
-  if ('teaser' == $build['#view_mode']) {
+  if ('teaser' == $build['#view_mode'] || 'summary' == $build['#view_mode']) {
     $build['links']['node']['#links']['node-readmore']['attributes']['class'] = 'link--more';
   }
 }
