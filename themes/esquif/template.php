@@ -584,15 +584,25 @@ function esquif_preprocess(&$variables, $hook) {
     // Cut off 'esquif_'
     $template = substr($hook, 7);
 
+    $matches = array();
+    preg_match('/([l|c|a|s])([0-9]+)?([a-z])?/i', $template, $matches);
+
     // Ignore templates that are not named for Table XI wireframes
-    if ((strlen($template) <= 3) && (strpos($template, 'l') === 0 || strpos($template, 'c') === 0)) {
+    if ($matches[0] == $template) {
 
       // Add the template family to the class attribute.
-      ctools_class_add('t--'. substr($template, 0, 2));
+      if ($matches[1] == 'a' || $matches[1] == 's') {
+        ctools_class_add('t--'. $matches[1]);
+      }
+      else {
+        if (isset($matches[2])) {
+          ctools_class_add('t--'. $matches[1] . $matches[2]);
+        }
 
-      // When the template is a child of a template family, separate the modifier with a hyphen.
-      if (strlen($template) === 3) {
-        ctools_class_add('t--'. substr($template, 0, 2) .'-'. substr($template, 2, 1));
+        // When the template is a child of a template family, separate the modifier with a hyphen.
+        if (isset($matches[3])) {
+          ctools_class_add('t--'. $matches[1] . $matches[2] .'-'. $matches[3]);
+        }
       }
     }
   }
