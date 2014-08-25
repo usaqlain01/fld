@@ -48,6 +48,10 @@ function fmnh_calendar_views_default_views() {
   $handler->display->display_options['header']['groupings_menu']['id'] = 'groupings_menu';
   $handler->display->display_options['header']['groupings_menu']['table'] = 'views';
   $handler->display->display_options['header']['groupings_menu']['field'] = 'groupings_menu';
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_program_target_id']['id'] = 'field_program_target_id';
+  $handler->display->display_options['relationships']['field_program_target_id']['table'] = 'field_data_field_program';
+  $handler->display->display_options['relationships']['field_program_target_id']['field'] = 'field_program_target_id';
   /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
@@ -117,6 +121,7 @@ function fmnh_calendar_views_default_views() {
   $handler->display->display_options['filters']['field_grade_level_target_id']['id'] = 'field_grade_level_target_id';
   $handler->display->display_options['filters']['field_grade_level_target_id']['table'] = 'field_data_field_grade_level';
   $handler->display->display_options['filters']['field_grade_level_target_id']['field'] = 'field_grade_level_target_id';
+  $handler->display->display_options['filters']['field_grade_level_target_id']['relationship'] = 'field_program_target_id';
   $handler->display->display_options['filters']['field_grade_level_target_id']['operator'] = 'empty';
 
   /* Display: Upcoming Events */
