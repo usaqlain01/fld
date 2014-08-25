@@ -76,6 +76,9 @@ function fmnh_project_strongarm() {
       'list_item' => array(
         'custom_settings' => FALSE,
       ),
+      'banner' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(

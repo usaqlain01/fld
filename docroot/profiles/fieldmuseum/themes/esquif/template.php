@@ -215,6 +215,10 @@ EOT;
         // Is this a Panels page?
         $variables['theme_hook_suggestions'][] = 'page__panels';
         break;
+
+      case 'search_view':
+        ctools_class_add('t--s');
+        break;
     }
   }
 }
@@ -443,13 +447,10 @@ function esquif_preprocess_node_learning_resource(&$variables, $hook) {
   $variables['title_attributes_array']['class'][] = 'resource__title';
 
   $items = field_get_items('node', $variables['node'], 'field_attachment');
-  $field = field_info_field('field_attachment');
   if ($items) {
     foreach ($items as $item) {
-      if (!file_field_is_empty($item, $field)) {
-        $variables['node_url'] = file_create_url($item['uri']);
-        break;
-      }
+      $variables['node_url'] = file_create_url($item['uri']);
+      break;
     }
   }
 }
@@ -580,15 +581,25 @@ function esquif_preprocess(&$variables, $hook) {
     // Cut off 'esquif_'
     $template = substr($hook, 7);
 
+    $matches = array();
+    preg_match('/([l|c|a|s])([0-9]+)?([a-z])?/i', $template, $matches);
+
     // Ignore templates that are not named for Table XI wireframes
-    if ((strlen($template) <= 3) && (strpos($template, 'l') === 0 || strpos($template, 'c') === 0)) {
+    if ($matches[0] == $template) {
 
       // Add the template family to the class attribute.
-      ctools_class_add('t--'. substr($template, 0, 2));
+      if ($matches[1] == 'a' || $matches[1] == 's') {
+        ctools_class_add('t--'. $matches[1]);
+      }
+      else {
+        if (isset($matches[2])) {
+          ctools_class_add('t--'. $matches[1] . $matches[2]);
+        }
 
-      // When the template is a child of a template family, separate the modifier with a hyphen.
-      if (strlen($template) === 3) {
-        ctools_class_add('t--'. substr($template, 0, 2) .'-'. substr($template, 2, 1));
+        // When the template is a child of a template family, separate the modifier with a hyphen.
+        if (isset($matches[3])) {
+          ctools_class_add('t--'. $matches[1] . $matches[2] .'-'. $matches[3]);
+        }
       }
     }
   }
@@ -1007,7 +1018,7 @@ function esquif_more_link($variables) {
   $options = array(
     'attributes' => array(
       'title' => $variables['title'],
-      'class' => 'link--more',
+      'class' => array('link--more'),
     )
   );
   return l(t('More'), $variables['url'], $options);
@@ -1545,7 +1556,7 @@ function esquif_preprocess_fieldable_panels_pane(&$variables) {
 }
 
 function esquif_node_view_alter(&$build, $type) {
-  if ('teaser' == $build['#view_mode']) {
+  if ('teaser' == $build['#view_mode'] || 'summary' == $build['#view_mode']) {
     $build['links']['node']['#links']['node-readmore']['attributes']['class'] = 'link--more';
   }
 }
@@ -1629,11 +1640,6 @@ function esquif_menu_link__menu_block__main_menu__section__science_blog($variabl
   return esquif_menu_link__menu_block__main_menu__section($variables);
 }
 
-//function esquif_element_info_alter(&$type) {
-//  $type['actions']['#theme_wrappers'] = array_diff($type['actions']['#theme_wrappers'], array('container'));
-//  $type['']
-//}
-
 function esquif_form_element($variables) {
   $element = &$variables['element'];
 
@@ -1648,7 +1654,7 @@ function esquif_form_element($variables) {
     $attributes['id'] = $element['#id'];
   }
   // Add element's #type and #name as class to aid with JS/CSS selectors.
-  $attributes['class'] = array('form-item');
+  $attributes['class'] = array('form__field', 'form-item');
   if (!empty($element['#type'])) {
     $attributes['class'][] = 'form-type-' . strtr($element['#type'], '_', '-');
   }
@@ -1685,13 +1691,292 @@ function esquif_form_element($variables) {
       // Output no label and no required marker, only the children.
       $output .= ' ' . $prefix . $element['#children'] . $suffix . "\n";
       break;
+
+    case 'wrap':
+      if (!empty($prefix)) {
+        $variables['#field_prefix'] = $prefix;
+      }
+      if (!empty($suffix)) {
+        $variables['#field_suffix'] = $suffix;
+      }
+      $output .= ' ' . theme('form_element_label__'. $element['#type'], $variables)  . "\n";
+      break;
   }
 
   if (!empty($element['#description'])) {
-    $output .= '<div class="description">' . $element['#description'] . "</div>\n";
+    $output .= '<div class="field__hint">' . $element['#description'] . "</div>\n";
   }
 
   return $output;
+}
+
+/**
+ * Replacement for theme_form_element().
+ */
+function esquif_webform_element($variables) {
+  // Ensure defaults.
+  $variables['element'] += array(
+    '#title_display' => 'before',
+  );
+
+  $element = $variables['element'];
+
+  // All elements using this for display only are given the "display" type.
+  if (isset($element['#format']) && $element['#format'] == 'html') {
+    $type = 'display';
+  }
+  else {
+    $type = (isset($element['#type']) && !in_array($element['#type'], array('markup', 'textfield', 'webform_email', 'webform_number'))) ? $element['#type'] : $element['#webform_component']['type'];
+  }
+
+  // Convert the parents array into a string, excluding the "submitted" wrapper.
+  $nested_level = $element['#parents'][0] == 'submitted' ? 1 : 0;
+  $parents = str_replace('_', '-', implode('--', array_slice($element['#parents'], $nested_level)));
+
+  $wrapper_classes = array(
+    'form__field',
+    'form-item',
+    'webform-component',
+    'webform-component-' . $type,
+  );
+  if (isset($element['#title_display']) && strcmp($element['#title_display'], 'inline') === 0) {
+    $wrapper_classes[] = 'webform-container-inline';
+  }
+  $output = '<div class="' . implode(' ', $wrapper_classes) . '" id="webform-component-' . $parents . '">' . "\n";
+
+  // If #title is not set, we don't display any label or required marker.
+  if (!isset($element['#title'])) {
+    $element['#title_display'] = 'none';
+  }
+  $prefix = isset($element['#field_prefix']) ? '<span class="field-prefix">' . _webform_filter_xss($element['#field_prefix']) . '</span> ' : '';
+  $suffix = isset($element['#field_suffix']) ? ' <span class="field-suffix">' . _webform_filter_xss($element['#field_suffix']) . '</span>' : '';
+
+  switch ($element['#title_display']) {
+    case 'inline':
+    case 'before':
+    case 'invisible':
+      $output .= ' ' . theme('form_element_label', $variables);
+      $output .= ' ' . $prefix . $element['#children'] . $suffix . "\n";
+      break;
+
+    case 'after':
+      $output .= ' ' . $prefix . $element['#children'] . $suffix;
+      $output .= ' ' . theme('form_element_label', $variables) . "\n";
+      break;
+
+    case 'none':
+    case 'attribute':
+      // Output no label and no required marker, only the children.
+      $output .= ' ' . $prefix . $element['#children'] . $suffix . "\n";
+      break;
+
+    case 'wrap':
+      if (!empty($prefix)) {
+        $variables['#field_prefix'] = $prefix;
+      }
+      if (!empty($suffix)) {
+        $variables['#field_suffix'] = $suffix;
+      }
+      $output .= ' ' . theme('form_element_label__'. $element['#type'], $variables)  . "\n";
+      break;
+  }
+
+  if (!empty($element['#description'])) {
+    $output .= ' <div class="field__hint">' . $element['#description'] . "</div>\n";
+  }
+
+  $output .= "</div>\n";
+
+  return $output;
+}
+
+function esquif_preprocess_radio(&$variables, $hook) {
+  $variables['element']['#attributes']['class'][] = 'js--icheck';
+}
+
+function esquif_preprocess_form_element_label(&$variables, $hook) {
+  $variables['theme_hook_suggestions'][] = $hook .'__'. $variables['element']['#type'];
+}
+
+function esquif_preprocess_form_element(&$variables, $hook) {
+  if (isset($variables['element']['#theme']) && ($variables['element']['#theme'] == 'radio' || $variables['element']['#theme'] == 'checkbox')) {
+    $variables['element']['#title_display'] = 'wrap';
+  }
+  $variables['theme_hook_suggestions'][] = $hook .'__'. $variables['element']['#type'];
+}
+
+function esquif_form_element_label__radio($variables) {
+  $element = $variables['element'];
+  // This is also used in the installer, pre-database setup.
+  $t = get_t();
+
+  // If title and required marker are both empty, output no label.
+  if ((!isset($element['#title']) || $element['#title'] === '') && empty($element['#required'])) {
+    return '';
+  }
+
+  // If the element is required, a required marker is appended to the label.
+  $required = !empty($element['#required']) ? theme('form_required_marker', array('element' => $element)) : '';
+
+  $title = filter_xss_admin($element['#title']);
+
+  $attributes = array();
+  // Style the label as class option to display inline with the element.
+  if ($element['#title_display'] == 'after') {
+    $attributes['class'] = array('option');
+  }
+  // Show label only to screen readers to avoid disruption in visual flows.
+  elseif ($element['#title_display'] == 'invisible') {
+    $attributes['class'] = array('element-invisible');
+  }
+
+  $attributes['class'][] = 'radio';
+  $attributes['class'][] = 'boolean';
+
+  if (!empty($element['#id'])) {
+    $attributes['for'] = $element['#id'];
+  }
+
+  // The leading whitespace helps visually separate fields from inline labels.
+  return ' <label' . drupal_attributes($attributes) . '>' . $element['#children'] .' '. $t('!title !required', array('!title' => $title, '!required' => $required)) . "</label>\n";
+}
+
+function esquif_radios($variables) {
+  $element = $variables['element'];
+  $attributes = array();
+  if (isset($element['#id'])) {
+    $attributes['id'] = $element['#id'];
+  }
+  $attributes['class'] = 'form-radios';
+  if (!empty($element['#attributes']['class'])) {
+    $attributes['class'] .= ' ' . implode(' ', $element['#attributes']['class']);
+  }
+  if (isset($element['#attributes']['title'])) {
+    $attributes['title'] = $element['#attributes']['title'];
+  }
+  return (!empty($element['#children']) ? $element['#children'] : '');
+}
+
+function esquif_preprocess_checkbox(&$variables, $hook) {
+  $variables['element']['#attributes']['class'][] = 'js--icheck';
+
+}
+
+function esquif_form_element_label__checkbox($variables) {
+  $element = $variables['element'];
+  // This is also used in the installer, pre-database setup.
+  $t = get_t();
+
+  // If title and required marker are both empty, output no label.
+  if ((!isset($element['#title']) || $element['#title'] === '') && empty($element['#required'])) {
+    return '';
+  }
+
+  // If the element is required, a required marker is appended to the label.
+  $required = !empty($element['#required']) ? theme('form_required_marker', array('element' => $element)) : '';
+
+  $title = filter_xss_admin($element['#title']);
+
+  $attributes = array();
+  // Style the label as class option to display inline with the element.
+  if ($element['#title_display'] == 'after') {
+    $attributes['class'] = array('option');
+  }
+  // Show label only to screen readers to avoid disruption in visual flows.
+  elseif ($element['#title_display'] == 'invisible') {
+    $attributes['class'] = array('element-invisible');
+  }
+
+  $attributes['class'][] = 'checkbox';
+  $attributes['class'][] = 'boolean';
+
+  if (!empty($element['#id'])) {
+    $attributes['for'] = $element['#id'];
+  }
+
+  // The leading whitespace helps visually separate fields from inline labels.
+  return ' <label' . drupal_attributes($attributes) . '>' . $element['#children'] .' '. $t('!title !required', array('!title' => $title, '!required' => $required)) . "</label>\n";
+}
+
+function esquif_checkboxes($variables) {
+  $element = $variables['element'];
+  $attributes = array();
+  if (isset($element['#id'])) {
+    $attributes['id'] = $element['#id'];
+  }
+  $attributes['class'][] = 'form-checkboxes';
+  if (!empty($element['#attributes']['class'])) {
+    $attributes['class'] = array_merge($attributes['class'], $element['#attributes']['class']);
+  }
+  if (isset($element['#attributes']['title'])) {
+    $attributes['title'] = $element['#attributes']['title'];
+  }
+  return (!empty($element['#children']) ? $element['#children'] : '');
+}
+
+function esquif_textarea($variables) {
+  $element = $variables['element'];
+  element_set_attributes($element, array('id', 'name', 'cols', 'rows'));
+  _form_set_class($element, array('form-textarea'));
+  _esquif_rewrite_form_set_class($element);
+
+  $output = '<textarea' . drupal_attributes($element['#attributes']) . '>' . check_plain($element['#value']) . '</textarea>';
+  return $output;
+}
+
+function esquif_preprocess_select(&$variables, $hook) {
+  $variables['element']['#attributes']['class'][] = 'js--selectMenu';
+}
+
+function esquif_select($variables) {
+  $element = $variables['element'];
+  element_set_attributes($element, array('id', 'name', 'size'));
+  _form_set_class($element, array('form-select'));
+  _esquif_rewrite_form_set_class($element);
+
+  return '<select' . drupal_attributes($element['#attributes']) . '>' . form_select_options($element) . '</select>';
+}
+
+function esquif_form_required_marker($variables) {
+  // This is also used in the installer, pre-database setup.
+  $t = get_t();
+  $attributes = array(
+    'title' => $t('This field is required.'),
+  );
+  return '<span' . drupal_attributes($attributes) . '>'. $t('(required)') .'</span>';
+}
+
+function esquif_textfield($variables) {
+  $element = $variables['element'];
+  $element['#attributes']['type'] = 'text';
+  element_set_attributes($element, array('id', 'name', 'value', 'size', 'maxlength'));
+  _form_set_class($element, array('form-text'));
+  _esquif_rewrite_form_set_class($element);
+
+  $extra = '';
+  if ($element['#autocomplete_path'] && drupal_valid_path($element['#autocomplete_path'])) {
+    drupal_add_library('system', 'drupal.autocomplete');
+    $element['#attributes']['class'][] = 'form-autocomplete';
+
+    $attributes = array();
+    $attributes['type'] = 'hidden';
+    $attributes['id'] = $element['#attributes']['id'] . '-autocomplete';
+    $attributes['value'] = url($element['#autocomplete_path'], array('absolute' => TRUE));
+    $attributes['disabled'] = 'disabled';
+    $attributes['class'][] = 'autocomplete';
+    $extra = '<input' . drupal_attributes($attributes) . ' />';
+  }
+
+  $output = '<input' . drupal_attributes($element['#attributes']) . ' />';
+
+  return $output . $extra;
+}
+
+function _esquif_rewrite_form_set_class(&$element) {
+  if (isset($element['#parents']) && form_get_error($element) !== NULL && !empty($element['#validated'])) {
+    $element['#attributes']['class'] = array_diff($element['#attributes']['class'], array('error'));
+    $element['#attributes']['class'][] = 'is--error';
+  }
 }
 
 function esquif_item_list__calendar($variables) {

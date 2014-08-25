@@ -34,6 +34,7 @@ function fieldmuseum_menu_alter(&$items) {
     'at-the-field/exhibitions/%pm_arg' => array('exhibitions', 'ctools_context_1'),
     'educators/field-trip-programs/%pm_arg' => array('field_trip_programs', 'ctools_context_1'),
     'educators/resources/%pm_arg' => array('learning_resources', 'ctools_context_1'),
+    'node/%pm_arg/people' => array('users', 'ctools_context_2'),
   );
   foreach ($changes as $path => $access_arguments) {
     $items[$path]['access callback'] = 'fieldmuseum_menu_access';
@@ -54,8 +55,7 @@ function fieldmuseum_menu_alter(&$items) {
 function fieldmuseum_menu_access($view_name, $display) {
   $args = func_get_args();
   $args = array_splice($args, 2);
-  $term = $args[1]->data;
-  $result = views_get_view_result($view_name, $display, $term->tid);
+  $result = views_get_view_result($view_name, $display, $args[1]->get_argument());
 
   if (!empty($result)) {
     return call_user_func_array('ctools_access_menu', $args);
@@ -521,4 +521,16 @@ function fieldmuseum_preprocess_html(&$variables, $hook) {
     ),
   );
   drupal_add_html_head($element, 'google_translate_customization');
+}
+
+function fieldmuseum_node_view($node, $view_mode, $langcode) {
+  if ($view_mode == 'summary') {
+    $node_title_stripped = strip_tags($node->title);
+    $node->content['links']['node']['#links']['node-readmore'] = array(
+      'title' => t('Read more<span class="element-invisible"> about @title</span>', array('@title' => $node_title_stripped)),
+      'href' => 'node/' . $node->nid,
+      'html' => TRUE,
+      'attributes' => array('rel' => 'tag', 'title' => $node_title_stripped),
+    );
+  }
 }

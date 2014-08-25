@@ -93,7 +93,7 @@ function fmnh_program_strongarm() {
             'visible' => FALSE,
           ),
           'banner' => array(
-            'weight' => '4',
+            'weight' => '2',
             'visible' => FALSE,
           ),
         ),

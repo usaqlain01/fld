@@ -30,7 +30,7 @@ function fieldmuseum_default_environment_indicator_environment() {
   $environment->api_version = 1;
   $environment->machine = 'production';
   $environment->name = 'Production';
-  $environment->regexurl = 'fieldmusefacelift.devcloud.acquia-sites.com';
+  $environment->regexurl = 'www.fieldmuseum.org';
   $environment->settings = array(
     'color' => '#d00000',
     'text_color' => '#ffffff',

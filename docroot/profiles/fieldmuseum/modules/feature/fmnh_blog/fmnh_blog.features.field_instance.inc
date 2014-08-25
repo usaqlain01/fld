@@ -17,6 +17,12 @@ function fmnh_blog_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'banner' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'hidden',
         'module' => 'text',
@@ -82,6 +88,12 @@ function fmnh_blog_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'banner' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'file',
@@ -167,6 +179,12 @@ function fmnh_blog_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'banner' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'hidden',
         'module' => 'file_entity',
@@ -208,7 +226,7 @@ function fmnh_blog_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'fences_wrapper' => 'no_wrapper',
+    'fences_wrapper' => 'div',
     'field_name' => 'field_image',
     'label' => 'Image',
     'required' => 0,
@@ -263,6 +281,12 @@ function fmnh_blog_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'banner' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'settings' => array(),
@@ -320,6 +344,12 @@ function fmnh_blog_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'banner' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'settings' => array(),
@@ -377,6 +407,12 @@ function fmnh_blog_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'banner' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'settings' => array(),
@@ -434,6 +470,12 @@ function fmnh_blog_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'banner' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'settings' => array(),
@@ -491,6 +533,12 @@ function fmnh_blog_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'banner' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'settings' => array(),
@@ -548,6 +596,12 @@ function fmnh_blog_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'banner' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'settings' => array(),

@@ -1394,6 +1394,28 @@ function fmnh_program_default_page_manager_pages() {
     $display->content['new-61828bf9-f2f5-4684-a8a4-f25f5af43451'] = $pane;
     $display->panels['main'][1] = 'new-61828bf9-f2f5-4684-a8a4-f25f5af43451';
     $pane = new stdClass();
+    $pane->pid = 'new-039e5ab8-6a0c-4814-a954-75fad2a64d80';
+    $pane->panel = 'main';
+    $pane->type = 'fieldable_panels_pane';
+    $pane->subtype = 'fpid:561';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'view_mode' => 'full',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'default',
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 2;
+    $pane->locks = array();
+    $pane->uuid = '039e5ab8-6a0c-4814-a954-75fad2a64d80';
+    $display->content['new-039e5ab8-6a0c-4814-a954-75fad2a64d80'] = $pane;
+    $display->panels['main'][2] = 'new-039e5ab8-6a0c-4814-a954-75fad2a64d80';
+    $pane = new stdClass();
     $pane->pid = 'new-d0d93e2f-2712-4461-a28d-98cdd57df5ca';
     $pane->panel = 'nav';
     $pane->type = 'menu_tree';

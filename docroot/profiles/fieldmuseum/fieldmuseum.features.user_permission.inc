@@ -220,6 +220,7 @@ function fieldmuseum_user_default_permissions() {
     'name' => 'edit any page content',
     'roles' => array(
       'administrator' => 'administrator',
+      'publisher' => 'publisher',
     ),
     'module' => 'node',
   );

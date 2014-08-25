@@ -32,10 +32,11 @@
   <div class="summary__description">
     <?php
       // We hide the comments and links now so that we can render them later.
+      hide($content['links']);
       hide($content['comments']);
       print render($content);
     ?>
 
-    <?php print render($content['comments']); ?>
+    <?php print render($content['links']['node']); ?>
   </div>
 </div>

@@ -174,7 +174,6 @@ function fmnh_exhibit_views_default_views() {
   $handler->display->display_options['arguments']['field_exhibit_type_target_id']['id'] = 'field_exhibit_type_target_id';
   $handler->display->display_options['arguments']['field_exhibit_type_target_id']['table'] = 'field_data_field_exhibit_type';
   $handler->display->display_options['arguments']['field_exhibit_type_target_id']['field'] = 'field_exhibit_type_target_id';
-  $handler->display->display_options['arguments']['field_exhibit_type_target_id']['breadcrumb_enable'] = TRUE;
   $handler->display->display_options['arguments']['field_exhibit_type_target_id']['breadcrumb'] = '%1';
   $handler->display->display_options['arguments']['field_exhibit_type_target_id']['default_argument_type'] = 'fixed';
   $handler->display->display_options['arguments']['field_exhibit_type_target_id']['summary']['number_of_records'] = '0';

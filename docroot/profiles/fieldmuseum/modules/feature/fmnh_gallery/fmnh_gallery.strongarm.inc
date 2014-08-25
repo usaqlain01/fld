@@ -55,6 +55,9 @@ function fmnh_gallery_strongarm() {
       'token' => array(
         'custom_settings' => FALSE,
       ),
+      'banner' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(),
@@ -107,7 +110,7 @@ function fmnh_gallery_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'pathauto_node_media_gallery_pattern';
-  $strongarm->value = '';
+  $strongarm->value = '[node:menu-link:parent:url:path]/[node:title]';
   $export['pathauto_node_media_gallery_pattern'] = $strongarm;
 
   $strongarm = new stdClass();

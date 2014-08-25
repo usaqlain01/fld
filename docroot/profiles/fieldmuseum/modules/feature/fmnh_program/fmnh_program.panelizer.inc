@@ -86,7 +86,7 @@ function fmnh_program_panelizer_defaults() {
     $pane->panel = 'main';
     $pane->type = 'entity_field';
     $pane->subtype = 'node:field_references';
-    $pane->shown = TRUE;
+    $pane->shown = FALSE;
     $pane->access = array();
     $pane->configuration = array(
       'label' => 'title',
@@ -152,6 +152,72 @@ function fmnh_program_panelizer_defaults() {
     $pane->uuid = '267c0bfa-7fc1-4363-badc-ba0b10752492';
     $display->content['new-267c0bfa-7fc1-4363-badc-ba0b10752492'] = $pane;
     $display->panels['main'][1] = 'new-267c0bfa-7fc1-4363-badc-ba0b10752492';
+    $pane = new stdClass();
+    $pane->pid = 'new-56cce475-ed51-40a7-aa4a-1b2995d13e78';
+    $pane->panel = 'main';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'field_trip_programs-panel_pane_1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'context' => array(
+        0 => 'panelizer',
+      ),
+      'arguments' => array(
+        'field_grade_level_target_id' => '%node:field-grade-level',
+      ),
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'semantic_panels',
+      'settings' => array(
+        'element_title' => array(
+          'type' => 'h2',
+          'class_enable' => 1,
+          'class' => 'heading--stroked',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => 'section',
+          'class_enable' => 1,
+          'class' => 'promos--3up',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 2;
+    $pane->locks = array();
+    $pane->uuid = '56cce475-ed51-40a7-aa4a-1b2995d13e78';
+    $display->content['new-56cce475-ed51-40a7-aa4a-1b2995d13e78'] = $pane;
+    $display->panels['main'][2] = 'new-56cce475-ed51-40a7-aa4a-1b2995d13e78';
     $pane = new stdClass();
     $pane->pid = 'new-66258765-b9d3-4c9f-b781-7c93eea79944';
     $pane->panel = 'nav';
@@ -517,26 +583,8 @@ function fmnh_program_panelizer_defaults() {
   $panelizer->css_id = '';
   $panelizer->css = '';
   $panelizer->pipeline = 'standard';
-  $panelizer->contexts = array(
-    0 => array(
-      'identifier' => 'Educators',
-      'keyword' => 'taxonomy_term',
-      'name' => 'entity:taxonomy_term',
-      'entity_id' => '16',
-      'id' => 1,
-    ),
-  );
-  $panelizer->relationships = array(
-    0 => array(
-      'identifier' => 'View: Programs: Filtered list of promos',
-      'keyword' => 'view',
-      'name' => 'view_from_argument:programs-ctools_context_1',
-      'context' => array(
-        0 => 'context_entity:taxonomy_term_1',
-      ),
-      'id' => 1,
-    ),
-  );
+  $panelizer->contexts = array();
+  $panelizer->relationships = array();
   $panelizer->access = array(
     'plugins' => array(),
     'logic' => 'and',
@@ -578,10 +626,10 @@ function fmnh_program_panelizer_defaults() {
       'override_title' => 0,
       'override_title_text' => '',
       'identifier' => '',
-      'link' => 1,
+      'link' => 0,
       'leave_node_title' => 1,
       'build_mode' => 'full',
-      'context' => 'argument_entity_id:node_1',
+      'context' => 'panelizer',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -667,19 +715,18 @@ function fmnh_program_panelizer_defaults() {
     $display->content['new-267c0bfa-7fc1-4363-badc-ba0b10752492'] = $pane;
     $display->panels['main'][1] = 'new-267c0bfa-7fc1-4363-badc-ba0b10752492';
     $pane = new stdClass();
-    $pane->pid = 'new-be2c9f7f-fbf5-4742-9a47-f37bd48b6587';
+    $pane->pid = 'new-b4b78170-2da2-49cb-8ce0-27f3579da2a8';
     $pane->panel = 'main';
-    $pane->type = 'views_row';
-    $pane->subtype = 'views_row';
+    $pane->type = 'panels_mini';
+    $pane->subtype = 'teacher_professional_development';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'rows' => NULL,
-      'use_fields' => NULL,
-      'fields' => NULL,
-      'context' => 'relationship_view_from_argument:programs-ctools_context_1_1',
-      'override_title' => 1,
-      'override_title_text' => 'Other Programs',
+      'override_title' => 0,
+      'override_title_text' => '',
+      'context' => array(
+        0 => 'panelizer',
+      ),
     );
     $pane->cache = array();
     $pane->style = array(
@@ -729,9 +776,9 @@ function fmnh_program_panelizer_defaults() {
     $pane->extras = array();
     $pane->position = 2;
     $pane->locks = array();
-    $pane->uuid = 'be2c9f7f-fbf5-4742-9a47-f37bd48b6587';
-    $display->content['new-be2c9f7f-fbf5-4742-9a47-f37bd48b6587'] = $pane;
-    $display->panels['main'][2] = 'new-be2c9f7f-fbf5-4742-9a47-f37bd48b6587';
+    $pane->uuid = 'b4b78170-2da2-49cb-8ce0-27f3579da2a8';
+    $display->content['new-b4b78170-2da2-49cb-8ce0-27f3579da2a8'] = $pane;
+    $display->panels['main'][2] = 'new-b4b78170-2da2-49cb-8ce0-27f3579da2a8';
     $pane = new stdClass();
     $pane->pid = 'new-66258765-b9d3-4c9f-b781-7c93eea79944';
     $pane->panel = 'nav';

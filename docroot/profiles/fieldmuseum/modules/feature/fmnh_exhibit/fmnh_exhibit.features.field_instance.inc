@@ -21,7 +21,7 @@ function fmnh_exhibit_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 3,
+        'weight' => 1,
       ),
       'default' => array(
         'label' => 'hidden',
@@ -126,7 +126,7 @@ function fmnh_exhibit_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 13,
+        'weight' => 11,
       ),
       'default' => array(
         'label' => 'hidden',
@@ -207,7 +207,7 @@ function fmnh_exhibit_field_default_field_instances() {
           'field_formatter_class' => '',
         ),
         'type' => 'text_default',
-        'weight' => 1,
+        'weight' => 2,
       ),
       'default' => array(
         'label' => 'above',
@@ -399,7 +399,7 @@ function fmnh_exhibit_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 7,
+        'weight' => 4,
       ),
       'default' => array(
         'label' => 'hidden',
@@ -489,7 +489,7 @@ function fmnh_exhibit_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 11,
+        'weight' => 9,
       ),
       'default' => array(
         'label' => 'above',
@@ -553,7 +553,7 @@ function fmnh_exhibit_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 5,
+        'weight' => 2,
       ),
       'default' => array(
         'label' => 'above',
@@ -605,7 +605,7 @@ function fmnh_exhibit_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 4,
+        'weight' => 0,
       ),
       'default' => array(
         'label' => 'hidden',
@@ -700,7 +700,7 @@ function fmnh_exhibit_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 9,
+        'weight' => 6,
       ),
       'default' => array(
         'label' => 'above',
@@ -759,7 +759,7 @@ function fmnh_exhibit_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 14,
+        'weight' => 12,
       ),
       'default' => array(
         'label' => 'above',
@@ -818,7 +818,7 @@ function fmnh_exhibit_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 8,
+        'weight' => 5,
       ),
       'default' => array(
         'label' => 'above',
@@ -877,7 +877,7 @@ function fmnh_exhibit_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 6,
+        'weight' => 3,
       ),
       'default' => array(
         'label' => 'above',
@@ -936,7 +936,7 @@ function fmnh_exhibit_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 10,
+        'weight' => 7,
       ),
       'default' => array(
         'label' => 'above',
@@ -992,10 +992,10 @@ function fmnh_exhibit_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'banner' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 2,
+        'weight' => 15,
       ),
       'default' => array(
         'label' => 'above',
@@ -1068,7 +1068,7 @@ function fmnh_exhibit_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 15,
+        'weight' => 14,
       ),
       'default' => array(
         'label' => 'above',
@@ -1123,7 +1123,7 @@ function fmnh_exhibit_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 12,
+        'weight' => 10,
       ),
       'default' => array(
         'label' => 'above',

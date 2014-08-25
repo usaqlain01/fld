@@ -17,6 +17,15 @@ function fieldmuseum_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'banner' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(
+          'field_formatter_class' => '',
+        ),
+        'type' => 'text_default',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'hidden',
         'module' => 'text',
@@ -64,6 +73,15 @@ function fieldmuseum_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'banner' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(
+          'field_formatter_class' => '',
+        ),
+        'type' => 'text_default',
+        'weight' => 3,
+      ),
       'default' => array(
         'label' => 'hidden',
         'module' => 'text',
@@ -175,6 +193,15 @@ function fieldmuseum_field_default_field_instances() {
     'deleted' => 0,
     'description' => '"CTA links." They may be displayed as button next to the title of this page or below the image.',
     'display' => array(
+      'banner' => array(
+        'label' => 'hidden',
+        'module' => 'link',
+        'settings' => array(
+          'field_formatter_class' => '',
+        ),
+        'type' => 'link_default',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'hidden',
         'module' => 'link',
@@ -243,6 +270,15 @@ function fieldmuseum_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'banner' => array(
+        'label' => 'hidden',
+        'module' => 'file',
+        'settings' => array(
+          'field_formatter_class' => '',
+        ),
+        'type' => 'file_default',
+        'weight' => 5,
+      ),
       'default' => array(
         'label' => 'hidden',
         'module' => 'file',
@@ -326,6 +362,16 @@ function fieldmuseum_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'banner' => array(
+        'label' => 'hidden',
+        'module' => 'file_entity',
+        'settings' => array(
+          'field_formatter_class' => '',
+          'file_view_mode' => 'primary_2x1',
+        ),
+        'type' => 'file_rendered',
+        'weight' => 1,
+      ),
       'default' => array(
         'label' => 'hidden',
         'module' => 'file_entity',
@@ -423,6 +469,16 @@ function fieldmuseum_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'banner' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'field_formatter_class' => '',
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 4,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'entityreference',
@@ -480,6 +536,15 @@ function fieldmuseum_field_default_field_instances() {
     'deleted' => 0,
     'description' => 'The message appears above the body and below the image on a full view of this page.',
     'display' => array(
+      'banner' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(
+          'field_formatter_class' => 'message message--cta',
+        ),
+        'type' => 'text_default',
+        'weight' => 2,
+      ),
       'default' => array(
         'label' => 'hidden',
         'module' => 'text',
@@ -579,11 +644,8 @@ function fieldmuseum_field_default_field_instances() {
     'display' => array(
       'banner' => array(
         'label' => 'hidden',
-        'module' => 'text',
-        'settings' => array(
-          'field_formatter_class' => '',
-        ),
-        'type' => 'text_default',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 2,
       ),
       'default' => array(
@@ -606,14 +668,58 @@ function fieldmuseum_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'taxonomy_term',
+    'fences_wrapper' => 'no_wrapper',
     'field_name' => 'field_banner_description',
     'label' => 'Banner description',
-    'required' => FALSE,
+    'required' => 0,
     'settings' => array(
-      'text_processing' => 0,
+      'better_formats' => array(
+        'allowed_formats' => array(
+          'filtered_html' => 'filtered_html',
+          'filtered_wysiwyg' => 'filtered_wysiwyg',
+          'full_html' => 'full_html',
+          'full_wysiwyg' => 'full_wysiwyg',
+          'markdown' => 'markdown',
+          'plain_text' => 'plain_text',
+          'unfiltered' => 'unfiltered',
+          'unfiltered_phrase_html' => 'unfiltered_phrase_html',
+        ),
+        'allowed_formats_toggle' => 0,
+        'default_order_toggle' => 0,
+        'default_order_wrapper' => array(
+          'formats' => array(
+            'filtered_html' => array(
+              'weight' => -9,
+            ),
+            'filtered_wysiwyg' => array(
+              'weight' => -10,
+            ),
+            'full_html' => array(
+              'weight' => -7,
+            ),
+            'full_wysiwyg' => array(
+              'weight' => -8,
+            ),
+            'markdown' => array(
+              'weight' => -6,
+            ),
+            'plain_text' => array(
+              'weight' => -3,
+            ),
+            'unfiltered' => array(
+              'weight' => -4,
+            ),
+            'unfiltered_phrase_html' => array(
+              'weight' => -5,
+            ),
+          ),
+        ),
+      ),
+      'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
+      'active' => 1,
       'module' => 'text',
       'settings' => array(
         'rows' => 5,
@@ -637,7 +743,7 @@ function fieldmuseum_field_default_field_instances() {
           'file_view_mode' => 'banner_5x2',
         ),
         'type' => 'file_rendered',
-        'weight' => 1,
+        'weight' => 0,
       ),
       'default' => array(
         'label' => 'above',
