@@ -750,7 +750,7 @@ function fmnh_department_panelizer_defaults() {
       'admin_title' => '',
       'level' => '2',
       'follow' => 0,
-      'depth' => '2',
+      'depth' => '4',
       'expanded' => 0,
       'sort' => 0,
       'override_title' => 1,

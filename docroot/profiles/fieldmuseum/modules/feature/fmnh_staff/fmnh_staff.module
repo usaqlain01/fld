@@ -118,6 +118,9 @@ function fmnh_staff_filter($selected = '') {
     '' => array(
       '' => '- all -',
     ),
+    'Executive Staff' => array(
+      'executive-staff' => 'Executive Staff',
+    ),
     'Board of Trustees' => array(
       'board-of-trustees' => 'Board of Trustees',
     ),

@@ -43,6 +43,7 @@ function fmnh_project_user_default_permissions() {
     'name' => 'edit any project content',
     'roles' => array(
       'administrator' => 'administrator',
+      'publisher' => 'publisher',
     ),
     'module' => 'node',
   );

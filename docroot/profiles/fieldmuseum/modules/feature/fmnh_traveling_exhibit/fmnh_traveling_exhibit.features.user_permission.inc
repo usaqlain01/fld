@@ -43,6 +43,7 @@ function fmnh_traveling_exhibit_user_default_permissions() {
     'name' => 'edit any traveling_exhibit content',
     'roles' => array(
       'administrator' => 'administrator',
+      'publisher' => 'publisher',
     ),
     'module' => 'node',
   );

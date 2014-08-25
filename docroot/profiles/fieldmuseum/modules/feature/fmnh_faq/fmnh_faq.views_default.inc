@@ -61,7 +61,7 @@ function fmnh_faq_views_default_views() {
     'field_formatter_class' => '',
   );
   $handler->display->display_options['fields']['field_faq_topic']['field_api_classes'] = TRUE;
-  /* Field: Content: Rendered Content */
+  /* Field: Content: Rendered Node */
   $handler->display->display_options['fields']['rendered_entity']['id'] = 'rendered_entity';
   $handler->display->display_options['fields']['rendered_entity']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['rendered_entity']['field'] = 'rendered_entity';

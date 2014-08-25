@@ -35,6 +35,8 @@ function fmnh_program_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['default_row_class'] = FALSE;
+  $handler->display->display_options['style_options']['row_class_special'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'node';
   $handler->display->display_options['row_options']['view_mode'] = 'promo';
   /* Field: Content: Title */
@@ -86,8 +88,8 @@ function fmnh_program_views_default_views() {
   $handler->display->display_options['filters']['field_audience_target_id']['field'] = 'field_audience_target_id';
   $handler->display->display_options['filters']['field_audience_target_id']['operator'] = 'empty';
 
-  /* Display: Context */
-  $handler = $view->new_display('ctools_context', 'Context', 'ctools_context_1');
+  /* Display: Filtered by grade level */
+  $handler = $view->new_display('ctools_context', 'Filtered by grade level', 'ctools_context_1');
   $handler->display->display_options['style_plugin'] = 'ctools_context';
   $handler->display->display_options['row_plugin'] = 'node';
   $handler->display->display_options['row_options']['view_mode'] = 'promo';
@@ -96,6 +98,59 @@ function fmnh_program_views_default_views() {
       'type' => 'context',
       'context' => 'entity:taxonomy_term.tid',
       'context_optional' => 1,
+    ),
+  );
+
+  /* Display: Other programs like this one */
+  $handler = $view->new_display('panel_pane', 'Other programs like this one', 'panel_pane_1');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Other Programs';
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Content: Nid */
+  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['table'] = 'node';
+  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['nid']['specify_validation'] = TRUE;
+  $handler->display->display_options['arguments']['nid']['validate']['type'] = 'node';
+  $handler->display->display_options['arguments']['nid']['validate_options']['types'] = array(
+    'program' => 'program',
+  );
+  $handler->display->display_options['arguments']['nid']['not'] = TRUE;
+  /* Contextual filter: Content: Grade level (field_grade_level) */
+  $handler->display->display_options['arguments']['field_grade_level_target_id']['id'] = 'field_grade_level_target_id';
+  $handler->display->display_options['arguments']['field_grade_level_target_id']['table'] = 'field_data_field_grade_level';
+  $handler->display->display_options['arguments']['field_grade_level_target_id']['field'] = 'field_grade_level_target_id';
+  $handler->display->display_options['arguments']['field_grade_level_target_id']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['field_grade_level_target_id']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_grade_level_target_id']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_grade_level_target_id']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['field_grade_level_target_id']['specify_validation'] = TRUE;
+  $handler->display->display_options['arguments']['field_grade_level_target_id']['validate']['type'] = 'taxonomy_term';
+  $handler->display->display_options['arguments']['field_grade_level_target_id']['validate_options']['vocabularies'] = array(
+    'grade_level' => 'grade_level',
+  );
+  $handler->display->display_options['arguments']['field_grade_level_target_id']['validate_options']['type'] = 'tids';
+  $handler->display->display_options['arguments']['field_grade_level_target_id']['break_phrase'] = TRUE;
+  $handler->display->display_options['argument_input'] = array(
+    'nid' => array(
+      'type' => 'context',
+      'context' => 'entity:node.nid',
+      'context_optional' => 0,
+      'panel' => '0',
+      'fixed' => '',
+      'label' => 'Content: Nid',
+    ),
+    'field_grade_level_target_id' => array(
+      'type' => 'none',
+      'context' => 'entity:node.field-acknowledgements',
+      'context_optional' => 0,
+      'panel' => '0',
+      'fixed' => '',
+      'label' => 'Content: Grade level (field_grade_level)',
     ),
   );
   $export['field_trip_programs'] = $view;

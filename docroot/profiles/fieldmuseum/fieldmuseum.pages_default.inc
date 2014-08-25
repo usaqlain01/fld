@@ -917,7 +917,7 @@ function fieldmuseum_default_page_manager_pages() {
   $page->task = 'page';
   $page->admin_title = 'Citizen science';
   $page->admin_description = '';
-  $page->path = 'science/community-science';
+  $page->path = 'science/citizen-science';
   $page->access = array(
     'plugins' => array(
       0 => array(
@@ -935,9 +935,9 @@ function fieldmuseum_default_page_manager_pages() {
   );
   $page->menu = array(
     'type' => 'normal',
-    'title' => 'Citizen science',
+    'title' => 'Citizen Science',
     'name' => 'main-menu',
-    'weight' => '0',
+    'weight' => '-49',
     'parent' => array(
       'type' => 'none',
       'title' => '',
@@ -4738,6 +4738,32 @@ function fieldmuseum_default_page_manager_pages() {
     $pane->uuid = 'fe76340e-2b72-479f-94e7-8af5b372ed18';
     $display->content['new-fe76340e-2b72-479f-94e7-8af5b372ed18'] = $pane;
     $display->panels['summary_b'][4] = 'new-fe76340e-2b72-479f-94e7-8af5b372ed18';
+    $pane = new stdClass();
+    $pane->pid = 'new-068cd16e-eeeb-4c11-b499-3580eec2e766';
+    $pane->panel = 'summary_b';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => 'Full event calendar link',
+      'title' => '',
+      'body' => '<a class="link--more" href="/at-the-field/calendar">Full Events Calendar</a>',
+      'format' => 'unfiltered',
+      'substitute' => 1,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'naked',
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 5;
+    $pane->locks = array();
+    $pane->uuid = '068cd16e-eeeb-4c11-b499-3580eec2e766';
+    $display->content['new-068cd16e-eeeb-4c11-b499-3580eec2e766'] = $pane;
+    $display->panels['summary_b'][5] = 'new-068cd16e-eeeb-4c11-b499-3580eec2e766';
   $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
@@ -8721,8 +8747,8 @@ function fieldmuseum_default_page_manager_pages() {
     $pane->access = array();
     $pane->configuration = array(
       'menu_name' => 'main-menu',
-      'parent_mlid' => 8131,
-      'parent' => 'main-menu:8131',
+      'parent_mlid' => 16441,
+      'parent' => 'main-menu:16441',
       'title_link' => 0,
       'admin_title' => '',
       'level' => '1',

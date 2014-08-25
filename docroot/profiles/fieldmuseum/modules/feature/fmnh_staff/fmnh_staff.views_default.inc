@@ -153,8 +153,8 @@ function fmnh_staff_views_default_views() {
   $handler->display->display_options['filters']['field_surname_value']['relationship'] = 'user';
   $handler->display->display_options['filters']['field_surname_value']['operator'] = 'not empty';
 
-  /* Display: Context */
-  $handler = $view->new_display('ctools_context', 'Context', 'ctools_context_1');
+  /* Display: Filter by profile departments */
+  $handler = $view->new_display('ctools_context', 'Filter by profile departments', 'ctools_context_1');
   $handler->display->display_options['style_plugin'] = 'ctools_context';
   $handler->display->display_options['row_plugin'] = 'entity';
   $handler->display->display_options['row_options']['view_mode'] = 'summary';
@@ -257,8 +257,8 @@ function fmnh_staff_views_default_views() {
   $handler->display->display_options['filters']['field_surname_value']['field'] = 'field_surname_value';
   $handler->display->display_options['filters']['field_surname_value']['operator'] = 'not empty';
 
-  /* Display: Context */
-  $handler = $view->new_display('ctools_context', 'Context', 'ctools_context_1');
+  /* Display: filter by home department */
+  $handler = $view->new_display('ctools_context', 'filter by home department', 'ctools_context_1');
   $handler->display->display_options['style_plugin'] = 'ctools_context';
   $handler->display->display_options['row_plugin'] = 'user';
   $handler->display->display_options['row_options']['view_mode'] = 'summary';
@@ -267,6 +267,37 @@ function fmnh_staff_views_default_views() {
       'type' => 'context',
       'context' => 'string.html_safe',
       'context_optional' => 1,
+    ),
+  );
+
+  /* Display: filter by profile departments */
+  $handler = $view->new_display('ctools_context', 'filter by profile departments', 'ctools_context_2');
+  $handler->display->display_options['style_plugin'] = 'ctools_context';
+  $handler->display->display_options['row_plugin'] = 'user';
+  $handler->display->display_options['row_options']['view_mode'] = 'summary';
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: User: Profile */
+  $handler->display->display_options['relationships']['profile']['id'] = 'profile';
+  $handler->display->display_options['relationships']['profile']['table'] = 'users';
+  $handler->display->display_options['relationships']['profile']['field'] = 'profile';
+  $handler->display->display_options['relationships']['profile']['bundle_types'] = array(
+    'main' => 'main',
+  );
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Field: Department (field_department) */
+  $handler->display->display_options['arguments']['field_department_target_id']['id'] = 'field_department_target_id';
+  $handler->display->display_options['arguments']['field_department_target_id']['table'] = 'field_data_field_department';
+  $handler->display->display_options['arguments']['field_department_target_id']['field'] = 'field_department_target_id';
+  $handler->display->display_options['arguments']['field_department_target_id']['relationship'] = 'profile';
+  $handler->display->display_options['arguments']['field_department_target_id']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['field_department_target_id']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_department_target_id']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_department_target_id']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['argument_input'] = array(
+    'field_department_target_id' => array(
+      'type' => 'context',
+      'context' => 'entity:node.nid',
+      'context_optional' => 0,
     ),
   );
   $export['users'] = $view;

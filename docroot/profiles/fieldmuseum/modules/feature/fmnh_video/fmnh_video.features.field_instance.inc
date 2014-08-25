@@ -17,6 +17,12 @@ function fmnh_video_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'banner' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'hidden',
         'module' => 'text',
@@ -64,6 +70,12 @@ function fmnh_video_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'banner' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'settings' => array(),
@@ -99,6 +111,12 @@ function fmnh_video_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'banner' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'settings' => array(),
@@ -134,6 +152,12 @@ function fmnh_video_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'banner' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'settings' => array(),
@@ -175,6 +199,12 @@ function fmnh_video_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'banner' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'hidden',
         'settings' => array(),
@@ -216,6 +246,12 @@ function fmnh_video_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'banner' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'settings' => array(),
@@ -257,6 +293,12 @@ function fmnh_video_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'banner' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'settings' => array(),
@@ -267,7 +309,7 @@ function fmnh_video_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 2,
+        'weight' => 3,
       ),
     ),
     'entity_type' => 'node',
@@ -298,6 +340,12 @@ function fmnh_video_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'banner' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'hidden',
         'module' => 'entityreference',
@@ -309,10 +357,16 @@ function fmnh_video_field_default_field_instances() {
         'weight' => 1,
       ),
       'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 3,
+        'label' => 'hidden',
+        'module' => 'token_formatters',
+        'settings' => array(
+          'check_access' => 1,
+          'field_formatter_class' => '',
+          'link' => 'science/blog/[entity:id]',
+          'text' => '[entity:label]',
+        ),
+        'type' => 'token_formatters_entity_reference',
+        'weight' => 2,
       ),
     ),
     'entity_type' => 'node',
@@ -337,6 +391,12 @@ function fmnh_video_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'banner' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'hidden',
         'module' => 'file_entity',
@@ -359,7 +419,6 @@ function fmnh_video_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'fences_wrapper' => 'no_wrapper',
     'field_name' => 'field_video',
     'label' => 'Video',
     'required' => 0,
@@ -367,16 +426,6 @@ function fmnh_video_field_default_field_instances() {
       'description_field' => 0,
       'file_directory' => '[current-user:name]/[current-date:custom:Y]/[current-date:custom:m]/[current-date:custom:d]',
       'file_extensions' => 'mov mp4 m4a m4v mpeg avi ogg oga ogv weba webp webm',
-      'imagecrop' => array(
-        '2x1_2400w' => 0,
-        '5x2_2400w' => 0,
-        '5x3_2400w' => 0,
-        'large' => 0,
-        'media_gallery_large' => 0,
-        'media_gallery_thumbnail' => 0,
-        'medium' => 0,
-        'thumbnail' => 0,
-      ),
       'max_filesize' => '',
       'user_register_form' => FALSE,
     ),
@@ -392,13 +441,11 @@ function fmnh_video_field_default_field_instances() {
           'audio' => 0,
           'document' => 0,
           'image' => 0,
-          'model' => 0,
           'video' => 'video',
         ),
         'browser_plugins' => array(
           'media_default--media_browser_1' => 0,
           'media_default--media_browser_my_files' => 0,
-          'media_internet' => 0,
           'upload' => 0,
         ),
       ),

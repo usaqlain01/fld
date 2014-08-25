@@ -17,6 +17,12 @@ function fmnh_faq_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'banner' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'hidden',
         'module' => 'text',
@@ -64,6 +70,12 @@ function fmnh_faq_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'banner' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'entityreference',
@@ -103,6 +115,12 @@ function fmnh_faq_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'banner' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'entityreference',
@@ -148,6 +166,12 @@ function fmnh_faq_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'banner' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'entityreference',
@@ -193,6 +217,12 @@ function fmnh_faq_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'banner' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'text',
@@ -235,6 +265,12 @@ function fmnh_faq_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'banner' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'entityreference',
@@ -280,6 +316,12 @@ function fmnh_faq_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'banner' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'entityreference',
@@ -325,6 +367,12 @@ function fmnh_faq_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'banner' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'entityreference',
@@ -370,6 +418,12 @@ function fmnh_faq_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'banner' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'entityreference',

@@ -16,8 +16,8 @@ body {
     display: block;
     margin: 0 auto 0.125in;
     padding-bottom: 0.25in;
-    border-bottom: 1pt solid black;
-    content: url("");
+    border-bottom: 3pt solid black;
+    content: url(../images/logos/field-logo--PRINT.png);
     /* Insert Logo Here */
     text-align: center; }
 
@@ -29,40 +29,66 @@ a {
     word-wrap: break-word !important; }
   a[href=""]:after, a[href^="#"]:after, a[href^="javascript"]:after, a[href^="mailto:"]:after {
     display: none; }
+    h1 a[href=""]:after, h2 a[href=""]:after, .hero__headline a[href=""]:after, h3 a[href=""]:after, .hero__subheadline a[href=""]:after, h4 a[href=""]:after, .callout > p a[href=""]:after, .callout > .button a[href=""]:after,
+    .callout > .button--cta a[href=""]:after,
+    .callout > .button--buy a[href=""]:after, h5 a[href=""]:after, .resource__title a[href=""]:after, .timeline__heading a[href=""]:after, h6 a[href=""]:after, h1 a[href^="#"]:after, h2 a[href^="#"]:after, .hero__headline a[href^="#"]:after, h3 a[href^="#"]:after, .hero__subheadline a[href^="#"]:after, h4 a[href^="#"]:after, .callout > p a[href^="#"]:after, .callout > .button a[href^="#"]:after,
+    .callout > .button--cta a[href^="#"]:after,
+    .callout > .button--buy a[href^="#"]:after, h5 a[href^="#"]:after, .resource__title a[href^="#"]:after, .timeline__heading a[href^="#"]:after, h6 a[href^="#"]:after, h1 a[href^="javascript"]:after, h2 a[href^="javascript"]:after, .hero__headline a[href^="javascript"]:after, h3 a[href^="javascript"]:after, .hero__subheadline a[href^="javascript"]:after, h4 a[href^="javascript"]:after, .callout > p a[href^="javascript"]:after, .callout > .button a[href^="javascript"]:after,
+    .callout > .button--cta a[href^="javascript"]:after,
+    .callout > .button--buy a[href^="javascript"]:after, h5 a[href^="javascript"]:after, .resource__title a[href^="javascript"]:after, .timeline__heading a[href^="javascript"]:after, h6 a[href^="javascript"]:after, h1 a[href^="mailto:"]:after, h2 a[href^="mailto:"]:after, .hero__headline a[href^="mailto:"]:after, h3 a[href^="mailto:"]:after, .hero__subheadline a[href^="mailto:"]:after, h4 a[href^="mailto:"]:after, .callout > p a[href^="mailto:"]:after, .callout > .button a[href^="mailto:"]:after,
+    .callout > .button--cta a[href^="mailto:"]:after,
+    .callout > .button--buy a[href^="mailto:"]:after, h5 a[href^="mailto:"]:after, .resource__title a[href^="mailto:"]:after, .timeline__heading a[href^="mailto:"]:after, h6 a[href^="mailto:"]:after {
+      display: none; }
 
 /* ----- Sensible Element Defaults ----- */
 h1 {
   font-size: 24pt; }
 
-h2 {
+h2, .hero__headline {
   font-size: 21pt; }
 
-h3 {
+h3, .hero__subheadline {
   font-size: 18pt; }
 
-h4 {
+h4, .callout > p, .callout > .button,
+.callout > .button--cta,
+.callout > .button--buy {
   font-size: 16pt; }
 
-h5 {
+h5, .resource__title, .timeline__heading {
   font-size: 14pt; }
 
 h6 {
   font-size: 11pt; }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, .hero__headline, h3, .hero__subheadline, h4, .callout > p, .callout > .button,
+.callout > .button--cta,
+.callout > .button--buy, h5, .resource__title, .timeline__heading, h6 {
   margin: 1em 0 0.5em;
   text-decoration: none !important;
-  font-weight: 500;
+  font-weight: 700;
   font-family: "proxima-nova", "Helvetica Neue", Helmet, Freesans, sans-serif;
   page-break-after: avoid !important; }
+  h1:first-child, h2:first-child, .hero__headline:first-child, h3:first-child, .hero__subheadline:first-child, h4:first-child, .callout > p:first-child, .callout > .button:first-child,
+  .callout > .button--cta:first-child,
+  .callout > .button--buy:first-child, h5:first-child, .resource__title:first-child, .timeline__heading:first-child, h6:first-child {
+    margin-top: 0; }
+  h1 a, h2 a, .hero__headline a, h3 a, .hero__subheadline a, h4 a, .callout > p a, .callout > .button a,
+  .callout > .button--cta a,
+  .callout > .button--buy a, h5 a, .resource__title a, .timeline__heading a, h6 a {
+    text-decoration: none; }
 
-p,
+p, .button,
+.button--cta,
+.button--buy,
 li,
 small,
-mark {
+mark,
+dt,
+dd {
   margin: 0 0 0.5em;
   font-size: 10pt;
-  font-family: "proxima-nova", "Helvetica Neue", Helmet, Freesans, sans-serif;
+  font-family: "freight-text-pro", Georgia, Times, "Times New Roman", serif;
   line-height: 14pt; }
 
 img {
@@ -78,9 +104,24 @@ pre {
 tr, img {
   page-break-inside: avoid !important; }
 
-p, h1, h2, h3, h4, h5, h6 {
+p, .button,
+.button--cta,
+.button--buy, h1, h2, .hero__headline, h3, .hero__subheadline, h4, .callout > p, .callout > .button,
+.callout > .button--cta,
+.callout > .button--buy, h5, .resource__title, .timeline__heading, h6 {
   orphans: 3 !important;
   widows: 3 !important; }
+
+dl {
+  margin: 0.125in 0; }
+
+dt {
+  font-weight: 700;
+  font-family: "proxima-nova", "Helvetica Neue", Helmet, Freesans, sans-serif;
+  margin: 0; }
+
+dd {
+  margin-left: 0; }
 
 figure {
   margin: 0;
@@ -91,10 +132,10 @@ blockquote {
   padding: 2em 0;
   border-top: 1pt solid black;
   border-bottom: 1pt solid black;
-  text-align: center; }
+  text-align: center;
+  font-family: "proxima-nova", "Helvetica Neue", Helmet, Freesans, sans-serif; }
   blockquote footer {
-    text-align: right;
-    font-family: "proxima-nova", "Helvetica Neue", Helmet, Freesans, sans-serif; }
+    text-align: right; }
 
 address {
   font-style: normal; }
@@ -105,21 +146,24 @@ form {
     display: block; }
   form input,
   form textarea,
-  form .chzn-container {
+  form select {
     margin: 0.5em 0 1em;
     width: 100%; }
+  form .field__hint {
+    margin: 0 0 1em;
+    color: #555;
+    font-size: 8pt;
+    font-family: "proxima-nova", "Helvetica Neue", Helmet, Freesans, sans-serif; }
   form fieldset {
     overflow: hidden;
     margin: 0 0 10pt; }
-  form .field {
+  form .form__field {
     float: left;
     margin-right: 3%;
     width: 97%; }
-  form .field--third {
+  form .fields--3up .form__field {
     width: 30%; }
-  form .field--quarter {
-    width: 22%; }
-  form .field--half {
+  form .fields--2up .form__field {
     width: 47%; }
 
 table {
@@ -132,7 +176,27 @@ th {
   text-align: center; }
 
 /* ----- Chain up everything you want to remove from the page ----- */
-.delete-these-items {
+.navMain,
+.navSection,
+.navFooter,
+.newsletter,
+form.search,
+.icon,
+.link--more,
+.tooltip,
+.navSectionJump,
+.breadcrumb,
+.navTarget,
+.tickets,
+.navFaqs,
+.socialShare,
+hr,
+.select2-container,
+.pagination,
+.form__filter,
+.image--primary,
+audio,
+.gallery {
   display: none;
   overflow: hidden;
   margin: 0;
@@ -141,3 +205,342 @@ th {
   height: 0; }
 
 /* ----- Site specific styles ----- */
+.group:after, .banners:after, .promo:after, .summary:after, .excerpt:after,
+.collection:after, .eventSummary:after, .resource:after,
+.resource--leaflet:after, .persons--2up:after, .imageThumbnails:after, .article__image:after {
+  display: table !important;
+  clear: both !important;
+  content: '' !important; }
+
+.heading--stroked, .events__heading, .answers__category,
+.targetPoint, .explore, .pageFooter {
+  margin-top: 0.25in;
+  padding-top: 0.25in;
+  border-top: 3pt solid black; }
+
+.summary, .excerpt,
+.collection, .eventSummary, .t--a .summary, .t--a .excerpt,
+.t--a .collection, .t--a .eventSummary, .tickets__type, .answer, .explore__subheading, .timeline__item {
+  margin-top: 0.125in;
+  padding-top: 0.125in;
+  border-top: 1pt solid black; }
+
+.callout {
+  margin: 0 0 0.25in;
+  padding: 0.125in;
+  border-top: 1pt solid black;
+  border-bottom: 1pt solid black; }
+  .callout > p, .callout > .button,
+  .callout > .button--cta,
+  .callout > .button--buy {
+    margin: 0;
+    text-align: center;
+    font-weight: 500;
+    line-height: 1.2; }
+
+.rule--deco {
+  display: block;
+  margin: 0.25in 0;
+  width: 100%;
+  height: auto;
+  border: 0;
+  border-top: 3pt solid black; }
+
+.message--alert {
+  padding: 0.0625in;
+  border-bottom: 1pt dotted black;
+  text-align: center; }
+  .message--alert strong {
+    font-family: "proxima-nova", "Helvetica Neue", Helmet, Freesans, sans-serif; }
+
+.message--cta p, .message--cta .button,
+.message--cta .button--cta,
+.message--cta .button--buy,
+.message--detail p,
+.message--detail .button,
+.message--detail .button--cta,
+.message--detail .button--buy,
+.exhibition__dateRange {
+  font-weight: 700;
+  font-size: 14pt; }
+
+.exhibition__dateRange {
+  margin-top: 0.25in; }
+
+.hero__headline {
+  margin-bottom: 0.125em; }
+
+.hero__subheadline {
+  margin-top: 0;
+  font-style: italic;
+  font-family: "freight-text-pro", Georgia, Times, "Times New Roman", serif; }
+
+.button,
+.button--cta,
+.button--buy {
+  display: block; }
+
+.banner {
+  margin-bottom: 0.25in;
+  text-decoration: none; }
+
+.banner__image {
+  float: left;
+  clear: left;
+  margin: 0 2.5% 2.5% 0;
+  width: 40%; }
+
+.banner__description {
+  float: left;
+  width: 57.5%; }
+
+.promos--3up,
+.promos--2up {
+  margin-top: 0.25in; }
+
+.promo__link {
+  text-decoration: none; }
+
+.promo__image {
+  float: left;
+  clear: both;
+  margin: 0 2.5% 2.5% 0;
+  width: 32.5%; }
+
+.promo__title {
+  margin-top: 0; }
+
+.promo__categories, .categoryLinks, .navList {
+  margin: 0;
+  padding: 0;
+  list-style-type: none; }
+  .promo__categories li, .categoryLinks li, .navList li {
+    display: inline;
+    padding: 0 1em;
+    border-left: 1pt solid black; }
+    .promo__categories li:first-child, .categoryLinks li:first-child, .navList li:first-child {
+      padding-left: 0;
+      border-left: 0; }
+  .promo__categories a, .categoryLinks a, .navList a {
+    text-decoration: none; }
+
+.promo__description,
+.promo__title,
+.promo__categories,
+.categoryLinks,
+.navList {
+  float: right;
+  width: 65%; }
+
+.summary, .excerpt,
+.collection, .eventSummary {
+  clear: both; }
+  .summary .heading--stroked, .excerpt .heading--stroked,
+  .collection .heading--stroked, .eventSummary .heading--stroked {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 0; }
+
+.summary__title, .excerpt__title,
+.collection__title, .eventSummary__title {
+  clear: left;
+  margin-top: 0; }
+
+.summary__image, .excerpt__image,
+.collection__image, .eventSummary__image {
+  float: right;
+  margin: 0 0 0 0.25in; }
+
+.excerpt,
+.collection {
+  padding-right: 0;
+  padding-left: 0; }
+
+.byline {
+  margin: 0;
+  margin: 0 0 0.125in;
+  padding: 0;
+  list-style-type: none; }
+  .byline li {
+    display: inline;
+    font-family: "proxima-nova", "Helvetica Neue", Helmet, Freesans, sans-serif; }
+
+.byline__date:before {
+  content: "Published by "; }
+
+.byline__author:before {
+  content: " by "; }
+.byline__author a:after {
+  display: none; }
+
+.byline__categories:before {
+  content: " || "; }
+.byline__categories a:after {
+  display: none; }
+
+.eventSummary__image {
+  width: 20%; }
+  .eventSummary__image img {
+    width: 100%; }
+
+.eventSummary__title {
+  margin: 0 0 0.25em; }
+
+.eventSummary__offer {
+  margin: 0.25em 0 0;
+  text-decoration: none; }
+  .eventSummary__offer .button__leader {
+    font-weight: 700;
+    font-family: "proxima-nova", "Helvetica Neue", Helmet, Freesans, sans-serif; }
+
+.eventsList,
+.eventsList--single {
+  margin: 0 0 0.125in;
+  padding: 0;
+  border-bottom: 1pt dotted black; }
+
+.eventsList__item {
+  margin: 0;
+  padding: 0.125in 0;
+  border-top: 1pt dotted black;
+  list-style-type: none; }
+
+.eventsList__heading {
+  margin: 0.0625in 0 0; }
+
+.categoryLinks {
+  display: block;
+  float: none;
+  clear: left;
+  margin: 0.125in 0;
+  width: 100%; }
+
+.navAreas h5, .navAreas .resource__title, .navAreas .timeline__heading {
+  margin: 0; }
+
+.navList {
+  display: block;
+  clear: left;
+  margin: 0 0 0.125in;
+  width: 100%; }
+
+.navList__item a:after {
+  display: none; }
+
+.priceList__details,
+.priceList__condition {
+  display: inline; }
+
+.priceList__label {
+  font-weight: 700; }
+  .priceList__label:after {
+    content: " - ";
+    font-weight: 400; }
+
+.priceList__price {
+  font-weight: 700; }
+
+.priceList__condition {
+  color: #555;
+  font-weight: 400; }
+
+.resource,
+.resource--leaflet {
+  margin-bottom: 0.125in; }
+
+.resource__thumbnail {
+  float: left;
+  clear: left;
+  margin: 0 0.125in 0.125in 0;
+  width: 0.5in; }
+  .resource__thumbnail img {
+    margin: 0;
+    width: 100%; }
+  .resource__thumbnail a:after {
+    display: none; }
+
+.resource__description {
+  overflow: hidden; }
+
+.resource__title {
+  margin: 0; }
+  .resource__title a:after {
+    display: block !important;
+    width: 100%;
+    content: attr(href);
+    font-weight: 400;
+    font-size: 11pt; }
+
+.personSummary, .imageSummary {
+  float: left;
+  margin: 0 2.5% 2.5% 0;
+  width: 22.5%; }
+  .personSummary:nth-child(4n+1), .imageSummary:nth-child(4n+1) {
+    clear: left; }
+  .personSummary img, .imageSummary img {
+    width: 100%; }
+
+.persons--2up, .imageThumbnails {
+  overflow: hidden; }
+
+.person__name {
+  margin: 0;
+  font-size: 14pt; }
+
+.person__title, .imageSummary__title {
+  margin: 0;
+  font-size: 11pt; }
+
+.person__department {
+  margin: 0;
+  font-size: 11pt;
+  font-family: "freight-text-pro", Georgia, Times, "Times New Roman", serif; }
+
+.bio__figure {
+  width: 30%;
+  float: right;
+  margin: 0 0 .25in .25in; }
+  .bio__figure img {
+    width: 100%;
+    margin: 0; }
+
+.bio__name,
+.bio__title {
+  margin: 0; }
+
+.bio__department {
+  margin-top: 0; }
+
+.bio__email {
+  font-size: 7pt;
+  text-decoration: none; }
+
+.imageSummary__link {
+  text-decoration: none; }
+
+.answers__category,
+.targetPoint {
+  margin-top: 0.25in !important;
+  padding-top: 0.25in !important; }
+
+.article__image {
+  overflow: hidden;
+  margin: .125in 0;
+  padding: 5pt;
+  border: 1pt solid #aaa; }
+  .article__image img {
+    float: left;
+    margin: 0 .125in 0 0;
+    width: 1.5in; }
+  .article__image figcaption {
+    overflow: hidden;
+    color: #aaa;
+    font-size: 8pt; }
+
+.timeline {
+  padding: 0;
+  margin: 0;
+  list-style: none; }
+
+.pageFooter {
+  clear: both; }

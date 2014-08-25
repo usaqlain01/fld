@@ -43,6 +43,7 @@ function fmnh_press_release_user_default_permissions() {
     'name' => 'edit any press_release content',
     'roles' => array(
       'administrator' => 'administrator',
+      'publisher' => 'publisher',
     ),
     'module' => 'node',
   );

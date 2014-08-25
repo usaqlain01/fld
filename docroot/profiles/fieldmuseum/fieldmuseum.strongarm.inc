@@ -19,6 +19,9 @@ function fieldmuseum_strongarm() {
       'event' => array(
         'custom_settings' => FALSE,
       ),
+      'banner' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(),
@@ -58,7 +61,7 @@ function fieldmuseum_strongarm() {
         'custom_settings' => FALSE,
       ),
       'banner' => array(
-        'custom_settings' => FALSE,
+        'custom_settings' => TRUE,
       ),
       'promo' => array(
         'custom_settings' => TRUE,

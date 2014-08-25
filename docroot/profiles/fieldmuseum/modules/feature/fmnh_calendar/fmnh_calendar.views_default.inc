@@ -28,7 +28,7 @@ function fmnh_calendar_views_default_views() {
   $handler->display->display_options['cache']['type'] = 'time';
   $handler->display->display_options['cache']['results_lifespan'] = '3600';
   $handler->display->display_options['cache']['results_lifespan_custom'] = '0';
-  $handler->display->display_options['cache']['output_lifespan'] = '3600';
+  $handler->display->display_options['cache']['output_lifespan'] = '-1';
   $handler->display->display_options['cache']['output_lifespan_custom'] = '0';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
@@ -48,6 +48,10 @@ function fmnh_calendar_views_default_views() {
   $handler->display->display_options['header']['groupings_menu']['id'] = 'groupings_menu';
   $handler->display->display_options['header']['groupings_menu']['table'] = 'views';
   $handler->display->display_options['header']['groupings_menu']['field'] = 'groupings_menu';
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_program_target_id']['id'] = 'field_program_target_id';
+  $handler->display->display_options['relationships']['field_program_target_id']['table'] = 'field_data_field_program';
+  $handler->display->display_options['relationships']['field_program_target_id']['field'] = 'field_program_target_id';
   /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
@@ -113,6 +117,12 @@ function fmnh_calendar_views_default_views() {
   $handler->display->display_options['filters']['field_date_value_1']['field'] = 'field_date_value';
   $handler->display->display_options['filters']['field_date_value_1']['operator'] = '<=';
   $handler->display->display_options['filters']['field_date_value_1']['default_date'] = 'now +6 month';
+  /* Filter criterion: Content: Grade level (field_grade_level) */
+  $handler->display->display_options['filters']['field_grade_level_target_id']['id'] = 'field_grade_level_target_id';
+  $handler->display->display_options['filters']['field_grade_level_target_id']['table'] = 'field_data_field_grade_level';
+  $handler->display->display_options['filters']['field_grade_level_target_id']['field'] = 'field_grade_level_target_id';
+  $handler->display->display_options['filters']['field_grade_level_target_id']['relationship'] = 'field_program_target_id';
+  $handler->display->display_options['filters']['field_grade_level_target_id']['operator'] = 'empty';
 
   /* Display: Upcoming Events */
   $handler = $view->new_display('ctools_context', 'Upcoming Events', 'ctools_context_2');

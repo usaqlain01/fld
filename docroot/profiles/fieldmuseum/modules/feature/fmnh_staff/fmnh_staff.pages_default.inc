@@ -694,6 +694,14 @@ function fmnh_staff_default_page_manager_pages() {
     ),
     'access' => array(
       'logic' => 'and',
+      'plugins' => array(
+        0 => array(
+          'name' => 'user_status',
+          'settings' => NULL,
+          'context' => 'relationship_entity_from_schema:uid-profile2-user_1',
+          'not' => FALSE,
+        ),
+      ),
     ),
   );
   $display = new panels_display();

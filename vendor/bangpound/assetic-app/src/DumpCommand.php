@@ -52,8 +52,10 @@ class DumpCommand extends ContainerAwareCommand
         /** @var \Symfony\Component\Finder\SplFileInfo $file  */
         foreach ($finder as $file) {
             $asset = new \Assetic\Asset\FileAsset($file->getPathname(), array(
-              $app['assetic.filter.codekit.coffeescript'],
+              $app['assetic.filter.strip.jquery'],
+              $file->getFilename() == 'head.coffee' ? $app['assetic.filter.codekit.coffeescript'] : $app['assetic.filter.codekit.coffeescript.drupal'],
               $app['assetic.filter.coffeescript'],
+              $app['assetic.filter.pathfixer.js'],
             ));
             $asset->setTargetPath('/js/'. $file->getBasename('.coffee'). '.js');
             $output->write('<Info>js/'. $file->getBasename('.coffee'). '.js</Info> ');
@@ -69,6 +71,7 @@ class DumpCommand extends ContainerAwareCommand
             $asset = new \Assetic\Asset\FileAsset($file->getPathname(), array(
               $app['assetic.filter.compass'],
               $app['assetic.filter.autoprefixer'],
+              $app['assetic.filter.pathfixer.css'],
             ));
             $asset->setTargetPath('/css/'. $file->getBasename('.scss'). '.css');
             $output->write('<Info>css/'. $file->getBasename('.scss'). '.css</Info> ');

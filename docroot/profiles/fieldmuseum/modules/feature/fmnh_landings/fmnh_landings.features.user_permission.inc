@@ -22,7 +22,9 @@ function fmnh_landings_user_default_permissions() {
   // Exported permission: 'create fieldable hero'.
   $permissions['create fieldable hero'] = array(
     'name' => 'create fieldable hero',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'fieldable_panels_panes',
   );
 
@@ -38,7 +40,9 @@ function fmnh_landings_user_default_permissions() {
   // Exported permission: 'delete fieldable hero'.
   $permissions['delete fieldable hero'] = array(
     'name' => 'delete fieldable hero',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'fieldable_panels_panes',
   );
 
@@ -54,7 +58,9 @@ function fmnh_landings_user_default_permissions() {
   // Exported permission: 'edit fieldable hero'.
   $permissions['edit fieldable hero'] = array(
     'name' => 'edit fieldable hero',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'fieldable_panels_panes',
   );
 

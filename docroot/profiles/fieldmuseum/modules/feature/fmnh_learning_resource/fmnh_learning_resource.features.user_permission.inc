@@ -43,6 +43,7 @@ function fmnh_learning_resource_user_default_permissions() {
     'name' => 'edit any learning_resource content',
     'roles' => array(
       'administrator' => 'administrator',
+      'publisher' => 'publisher',
     ),
     'module' => 'node',
   );
