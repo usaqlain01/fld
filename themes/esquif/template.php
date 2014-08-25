@@ -215,6 +215,10 @@ EOT;
         // Is this a Panels page?
         $variables['theme_hook_suggestions'][] = 'page__panels';
         break;
+
+      case 'search_view':
+        ctools_class_add('t--s');
+        break;
     }
   }
 }
