@@ -447,6 +447,14 @@ function esquif_preprocess_node_learning_resource(&$variables, $hook) {
   $variables['title_attributes_array']['class'][] = 'resource__title';
 }
 
+function esquif_preprocess_node_department(&$variables, $hook) {
+  if ($variables['view_mode'] == 'teaser') {
+    $variables['classes_array'][] = 'excerpt';
+    $variables['title_attributes_array']['class'][] = 'excerpt__title';
+    $variables['content']['field_image'][0]['file']['#item']['attributes']['class'][] = 'excerpt__image';
+  }
+}
+
 /**
  * Override or insert variables into the region templates.
  *
