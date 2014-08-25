@@ -445,13 +445,13 @@ function esquif_preprocess_node_collection(&$variables, $hook) {
 
 function esquif_preprocess_node_learning_resource(&$variables, $hook) {
   $variables['title_attributes_array']['class'][] = 'resource__title';
+}
 
-  $items = field_get_items('node', $variables['node'], 'field_attachment');
-  if ($items) {
-    foreach ($items as $item) {
-      $variables['node_url'] = file_create_url($item['uri']);
-      break;
-    }
+function esquif_preprocess_node_department(&$variables, $hook) {
+  if ($variables['view_mode'] == 'teaser') {
+    $variables['classes_array'][] = 'excerpt';
+    $variables['title_attributes_array']['class'][] = 'excerpt__title';
+    $variables['content']['field_image'][0]['file']['#item']['attributes']['class'][] = 'excerpt__image';
   }
 }
 
