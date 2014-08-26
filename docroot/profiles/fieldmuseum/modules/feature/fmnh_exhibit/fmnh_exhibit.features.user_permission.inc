@@ -25,7 +25,6 @@ function fmnh_exhibit_user_default_permissions() {
     'name' => 'delete any exhibit content',
     'roles' => array(
       'administrator' => 'administrator',
-      'reviewer' => 'reviewer',
     ),
     'module' => 'node',
   );
@@ -35,7 +34,6 @@ function fmnh_exhibit_user_default_permissions() {
     'name' => 'delete own exhibit content',
     'roles' => array(
       'administrator' => 'administrator',
-      'reviewer' => 'reviewer',
     ),
     'module' => 'node',
   );
@@ -46,6 +44,7 @@ function fmnh_exhibit_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'publisher' => 'publisher',
+      'reviewer' => 'reviewer',
     ),
     'module' => 'node',
   );
@@ -65,6 +64,9 @@ function fmnh_exhibit_user_default_permissions() {
     'name' => 'enter exhibit revision log entry',
     'roles' => array(
       'administrator' => 'administrator',
+      'author' => 'author',
+      'publisher' => 'publisher',
+      'reviewer' => 'reviewer',
     ),
     'module' => 'override_node_options',
   );

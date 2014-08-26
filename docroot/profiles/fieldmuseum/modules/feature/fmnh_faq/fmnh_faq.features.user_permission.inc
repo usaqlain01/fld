@@ -78,6 +78,9 @@ function fmnh_faq_user_default_permissions() {
     'name' => 'enter faq revision log entry',
     'roles' => array(
       'administrator' => 'administrator',
+      'author' => 'author',
+      'publisher' => 'publisher',
+      'reviewer' => 'reviewer',
     ),
     'module' => 'override_node_options',
   );

@@ -49,6 +49,8 @@ stylesheets[all][] = system.menus.css
 stylesheets[all][] = system.messages.css
 stylesheets[all][] = system.theme.css
 
+stylesheets[all][] = workbench_moderation.css
+
 ; Then we add our own stylesheet.
 stylesheets[screen][] = css/style.css
 stylesheets[screen][] = css/messages.css

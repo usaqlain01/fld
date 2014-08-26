@@ -209,20 +209,22 @@
             "source": {
                 "type": "git",
                 "url": "https://caxy.codebasehq.com/field-museum-main-site/assetic-app.git",
-                "reference": "8e62fa81e3c58b507fde8d14f43bc71e3c1487bf"
+                "reference": "fbf349d5187520295eea529b3d2eccaf2ed2b851"
             },
             "require": {
                 "bangpound/assetic-codekit": "1.0.*@dev",
                 "cilex/console-service-provider": "2.*@dev",
                 "kriswallsmith/assetic": "~1.2@dev",
                 "php": ">=5.3.3",
-                "pimple/pimple": "~2.1",
+                "pimple/pimple": "~3.0",
                 "symfony/config": "~2.3",
                 "symfony/console": "~2.3",
-                "symfony/debug": "~2.3",
                 "symfony/finder": "~2.3",
                 "symfony/yaml": "~2.3",
                 "zacoza/assetic-filters": "dev-master"
+            },
+            "require-dev": {
+                "symfony/debug": "~2.3"
             },
             "bin": [
                 "bin/assetic"
@@ -242,7 +244,7 @@
                 "MIT"
             ],
             "description": "Command line tool for Assetic",
-            "time": "2014-08-25 16:49:15"
+            "time": "2014-08-26 01:41:36"
         },
         {
             "name": "bangpound/assetic-codekit",
@@ -460,7 +462,8 @@
                 "classmap": [
                     "DrushTask.php"
                 ]
-            }
+            },
+            "time": "2014-02-03 14:51:47"
         },
         {
             "name": "pear-pear.php.net/VersionControl_Git",
@@ -574,16 +577,16 @@
         },
         {
             "name": "pimple/pimple",
-            "version": "v2.1.1",
+            "version": "v3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/Pimple.git",
-                "reference": "ea22fb2880faf7b7b0e17c9809c6fe25b071fd76"
+                "reference": "876bf0899d01feacd2a2e83f04641e51350099ef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Pimple/zipball/ea22fb2880faf7b7b0e17c9809c6fe25b071fd76",
-                "reference": "ea22fb2880faf7b7b0e17c9809c6fe25b071fd76",
+                "url": "https://api.github.com/repos/fabpot/Pimple/zipball/876bf0899d01feacd2a2e83f04641e51350099ef",
+                "reference": "876bf0899d01feacd2a2e83f04641e51350099ef",
                 "shasum": ""
             },
             "require": {
@@ -592,7 +595,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.1.x-dev"
+                    "dev-master": "3.0.x-dev"
                 }
             },
             "autoload": {
@@ -616,7 +619,7 @@
                 "container",
                 "dependency injection"
             ],
-            "time": "2014-07-24 07:10:08"
+            "time": "2014-07-24 09:48:15"
         },
         {
             "name": "ptachoire/cssembed",

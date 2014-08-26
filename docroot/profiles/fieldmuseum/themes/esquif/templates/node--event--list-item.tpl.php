@@ -14,7 +14,8 @@
     $items = field_get_items('node', $node, 'field_date');
     if ($items) {
       foreach ($items as $item) {
-        $date = new DateObject($item['value'], $item['timezone'], date_type_format($item['date_type']));
+        $date = new DateObject($item['value'], $item['timezone_db'], date_type_format($item['date_type']));
+        $date->setTimezone(new DateTimeZone($item['timezone']));
         $base_attributes = array(
           'property' => array('dc:date'),
           'datatype' => 'xsd:dateTime',
