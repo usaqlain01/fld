@@ -44,6 +44,7 @@ function fmnh_project_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'publisher' => 'publisher',
+      'reviewer' => 'reviewer',
     ),
     'module' => 'node',
   );
@@ -63,6 +64,9 @@ function fmnh_project_user_default_permissions() {
     'name' => 'enter project revision log entry',
     'roles' => array(
       'administrator' => 'administrator',
+      'author' => 'author',
+      'publisher' => 'publisher',
+      'reviewer' => 'reviewer',
     ),
     'module' => 'override_node_options',
   );

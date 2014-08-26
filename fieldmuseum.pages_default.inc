@@ -10598,7 +10598,7 @@ function fieldmuseum_default_page_manager_pages() {
   </p>
 </section>
 <p>
-  The Crown Family PlayLab is free with Basic admission and is open Thursdays through Mondays from 10am to 4pm. The last admission for the PlayLab is 3pm. <a href="http://fieldmusefacelift.devcloud.acquia-sites.com/at-the-field/exhibitions/crown-family-playlab" class="link--more">Find Out More</a>
+  The Crown Family PlayLab is free with Basic admission and is open Thursdays through Mondays from 10am to 4pm. The last admission for the PlayLab is 3pm. <a href="/at-the-field/exhibitions/crown-family-playlab" class="link--more">Find Out More</a>
 </p>
 <h2 class="heading--stroked">
   CityPASS
@@ -10608,7 +10608,7 @@ function fieldmuseum_default_page_manager_pages() {
     <p>
       <strong>Save 49%</strong> or more on admission to 5 famous Chicago attractions!
     </p>
-    <a href="http://www.citypass.com/chicago?mv_source=field&campaign=citypass-ticket-book" class="button--cta">Explore the CityPASS</a>
+    <a href="/visit/admission-and-hours/citypass-ticket-book" class="button--cta">Explore the CityPASS</a>
   </div>
   <div class="l--module">
     <ul class="priceList">
@@ -10646,26 +10646,26 @@ function fieldmuseum_default_page_manager_pages() {
       <svg class="icon icon--ticket-1 tickets__icon" viewbox="0 0 500 500"> <use xlink:href="#ticket-1"></use> </svg> Basic
     </h4>
     <p class="tickets__details">
-      See it all! Our All-Access Pass entitles you entry into all <a href="http://fieldmusefacelift.devcloud.acquia-sites.com/at-the-field/exhibitions/ticketed">ticketed exhibitions</a>, one <a href="http://fieldmusefacelift.devcloud.acquia-sites.com/at-the-field/exhibitions/3d-movie">3D movie</a> and all of the <a href="http://fieldmusefacelift.devcloud.acquia-sites.com/at-the-field/exhibitions/permanent">permanent exhibitions</a> at The Field Museum.
+      See it all! Our All-Access Pass entitles you entry into all <a href="/at-the-field/exhibitions/ticketed">ticketed exhibitions</a>, one <a href="/at-the-field/exhibitions/3d-movie">3D movie</a> and all of the <a href="/at-the-field/exhibitions/permanent">permanent exhibitions</a> at The Field Museum.
     </p>
     <p class="tickets__details">
-      Explore all of the <a href="http://fieldmusefacelift.devcloud.acquia-sites.com/at-the-field/exhibitions/permanent">permanent exhibitions</a> at The Field Museum, plus one <a href="http://fieldmusefacelift.devcloud.acquia-sites.com/at-the-field/exhibitions/3d-movie">3D movie</a> or <a href="http://fieldmusefacelift.devcloud.acquia-sites.com/at-the-field/exhibitions/ticketed">ticketed exhibition</a>.
+      Explore all of the <a href="/at-the-field/exhibitions/permanent">permanent exhibitions</a> at The Field Museum, plus one <a href="/at-the-field/exhibitions/3d-movie">3D movie</a> or <a href="/at-the-field/exhibitions/ticketed">ticketed exhibition</a>.
     </p>
     <p class="tickets__details">
-      Enjoy all of the <a href="http://fieldmusefacelift.devcloud.acquia-sites.com/at-the-field/exhibitions/permanent">permanent exhibitions</a> of the Museum. This package does not include <a href="http://fieldmusefacelift.devcloud.acquia-sites.com/at-the-field/exhibitions/ticketed">ticketed exhibitions</a> or <a href="http://fieldmusefacelift.devcloud.acquia-sites.com/at-the-field/exhibitions/3d-movie">3D movies</a>.
+      Enjoy all of the <a href="/at-the-field/exhibitions/permanent">permanent exhibitions</a> of the Museum. This package does not include <a href="/at-the-field/exhibitions/ticketed">ticketed exhibitions</a> or <a href="/at-the-field/exhibitions/3d-movie">3D movies</a>.
     </p>
     <button class="tickets__toggle js--toggleTickets">Learn More About Our Ticket Packages</button>
   </header>
   <section class="ticketMatrix">
     <div class="ticketMatrix__column">
       <h3 class="ticketMatrix__heading">
-        <a href="http://fieldmusefacelift.devcloud.acquia-sites.com/at-the-field/exhibitions/permanent" class="ticketMatrix__link">Permanent Exhibitions</a>
+        <a href="/at-the-field/exhibitions/permanent" class="ticketMatrix__link">Permanent Exhibitions</a>
       </h3>
       <h3 class="ticketMatrix__heading">
-        <a href="http://fieldmusefacelift.devcloud.acquia-sites.com/at-the-field/exhibitions/ticketed" class="ticketMatrix__link">Ticketed Exhibitions</a>
+        <a href="/at-the-field/exhibitions/ticketed" class="ticketMatrix__link">Ticketed Exhibitions</a>
       </h3>
       <h3 class="ticketMatrix__heading">
-        <a href="http://fieldmusefacelift.devcloud.acquia-sites.com/at-the-field/exhibitions/3d-movie" class="ticketMatrix__link">3D Movies</a>
+        <a href="/at-the-field/exhibitions/3d-movie" class="ticketMatrix__link">3D Movies</a>
       </h3>
     </div>
     <div class="ticketMatrix__column">
@@ -10827,7 +10827,7 @@ function fieldmuseum_default_page_manager_pages() {
         <svg class="icon icon--ticket-3 tickets__icon" viewbox="0 0 500 500"> <use xlink:href="#ticket-3"></use> </svg> All-Access
       </h4>
       <p class="tickets__details">
-        See it all! Our All-Access Pass entitles you entry into all <a href="http://fieldmusefacelift.devcloud.acquia-sites.com/at-the-field/exhibitions/ticketed">ticketed exhibitions</a>, one <a href="http://fieldmusefacelift.devcloud.acquia-sites.com/at-the-field/exhibitions/3d-movie">3D movie</a> and all of the <a href="http://fieldmusefacelift.devcloud.acquia-sites.com/at-the-field/exhibitions/permanent">permanent exhibitions</a> at The Field Museum.
+        See it all! Our All-Access Pass entitles you entry into all <a href="/at-the-field/exhibitions/ticketed">ticketed exhibitions</a>, one <a href="/at-the-field/exhibitions/3d-movie">3D movie</a> and all of the <a href="/at-the-field/exhibitions/permanent">permanent exhibitions</a> at The Field Museum.
       </p>
       <ul class="priceList">
         <li class="priceList__item">
@@ -10882,7 +10882,7 @@ function fieldmuseum_default_page_manager_pages() {
         <svg class="icon icon--ticket-2 tickets__icon" viewbox="0 0 500 500"> <use xlink:href="#ticket-2"></use> </svg> Discovery
       </h4>
       <p class="tickets__details">
-        Explore all of the <a href="http://fieldmusefacelift.devcloud.acquia-sites.com/at-the-field/exhibitions/permanent">permanent exhibitions</a> at The Field Museum, plus <a href="http://fieldmusefacelift.devcloud.acquia-sites.com/at-the-field/exhibitions/3d-movie">one 3D movie</a> or <a href="http://fieldmusefacelift.devcloud.acquia-sites.com/at-the-field/exhibitions/ticketed">ticketed exhibition</a>.
+        Explore all of the <a href="/at-the-field/exhibitions/permanent">permanent exhibitions</a> at The Field Museum, plus <a href="/at-the-field/exhibitions/3d-movie">one 3D movie</a> or <a href="/at-the-field/exhibitions/ticketed">ticketed exhibition</a>.
       </p>
       <ul class="priceList">
         <li class="priceList__item">
@@ -10922,9 +10922,9 @@ function fieldmuseum_default_page_manager_pages() {
         Includes:
       </h5>
       <ul class="tickets__included">
-        <li><a href="http://fieldmusefacelift.devcloud.acquia-sites.com/at-the-field/exhibitions/permanent">Permanent Exhibitions</a></li>
-        <li><a href="http://fieldmusefacelift.devcloud.acquia-sites.com/at-the-field/exhibitions/ticketed">Ticketed Exhibitions</a></li>
-        <li><a href="http://fieldmusefacelift.devcloud.acquia-sites.com/at-the-field/exhibitions/3d-movie">3D Movies</a></li>
+        <li><a href="/at-the-field/exhibitions/permanent">Permanent Exhibitions</a></li>
+        <li><a href="/at-the-field/exhibitions/ticketed">Ticketed Exhibitions</a></li>
+        <li><a href="/at-the-field/exhibitions/3d-movie">3D Movies</a></li>
       </ul>
       <p class="tickets__disclaimer">
         Your <strong>Discovery Pass</strong> includes a single ticketed exhibition or 3D movie.
@@ -10937,7 +10937,7 @@ function fieldmuseum_default_page_manager_pages() {
         <svg class="icon icon--ticket-1 tickets__icon" viewbox="0 0 500 500"> <use xlink:href="#ticket-1"></use> </svg> Basic
       </h4>
       <p class="tickets__details">
-        Enjoy all of the <a href="http://fieldmusefacelift.devcloud.acquia-sites.com/at-the-field/exhibitions/permanent">permanent exhibitions</a> of the Museum. This package does not include <a href="http://fieldmusefacelift.devcloud.acquia-sites.com/at-the-field/exhibitions/ticketed">ticketed exhibitions</a> or <a href="http://fieldmusefacelift.devcloud.acquia-sites.com/at-the-field/exhibitions/3d-movie">3D movies</a>.
+        Enjoy all of the <a href="/at-the-field/exhibitions/permanent">permanent exhibitions</a> of the Museum. This package does not include <a href="/at-the-field/exhibitions/ticketed">ticketed exhibitions</a> or <a href="/at-the-field/exhibitions/3d-movie">3D movies</a>.
       </p>
       <ul class="priceList">
         <li class="priceList__item">
@@ -10977,7 +10977,7 @@ function fieldmuseum_default_page_manager_pages() {
         Includes:
       </h5>
       <ul class="tickets__included">
-        <li><a href="http://fieldmusefacelift.devcloud.acquia-sites.com/at-the-field/exhibitions/permanent">Permanent Exhibitions</a></li>
+        <li><a href="/at-the-field/exhibitions/permanent">Permanent Exhibitions</a></li>
       </ul>
       <p class="tickets__disclaimer">
         Ticketed exhibitions and 3D movies are not included with <strong>Basic admission</strong>.
@@ -11026,7 +11026,7 @@ function fieldmuseum_default_page_manager_pages() {
     </tr>
   </tbody>
 </table>
-<a href="http://fieldmusefacelift.devcloud.acquia-sites.com/support/members/member-benefits" class="button--cta">View Member Benefits</a>
+<a href="/support/members/member-benefits" class="button--cta">View Member Benefits</a>
 ',
       'format' => 'unfiltered',
       'substitute' => TRUE,
