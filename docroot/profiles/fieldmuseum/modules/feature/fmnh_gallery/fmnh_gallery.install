@@ -1,0 +1,18 @@
+<?php
+
+/**
+ * Remove wrong options from media gallery node form.
+ */
+function fmnh_gallery_update_7000() {
+  $existing_field = field_read_field('media_gallery_format', array('include_inactive' => TRUE));
+  if ($existing_field['settings']['allowed_values_function'] == '_media_gallery_get_format_values') {
+    $existing_field['settings']['allowed_values_function'] = '_fmnh_gallery_get_format_values';
+    field_update_field($existing_field);
+  }
+
+  $existing_field = field_read_field('media_gallery_description', array('include_inactive' => TRUE));
+  if ($existing_field['locked']) {
+    $existing_field['locked'] = FALSE;
+    field_update_field($existing_field);
+  }
+}

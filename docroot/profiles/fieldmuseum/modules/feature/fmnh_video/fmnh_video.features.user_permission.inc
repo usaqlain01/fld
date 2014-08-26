@@ -16,8 +16,6 @@ function fmnh_video_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'author' => 'author',
-      'publisher' => 'publisher',
-      'reviewer' => 'reviewer',
     ),
     'module' => 'node',
   );
@@ -27,7 +25,6 @@ function fmnh_video_user_default_permissions() {
     'name' => 'delete any video content',
     'roles' => array(
       'administrator' => 'administrator',
-      'reviewer' => 'reviewer',
     ),
     'module' => 'node',
   );
@@ -37,7 +34,6 @@ function fmnh_video_user_default_permissions() {
     'name' => 'delete own video content',
     'roles' => array(
       'administrator' => 'administrator',
-      'reviewer' => 'reviewer',
     ),
     'module' => 'node',
   );
@@ -59,8 +55,6 @@ function fmnh_video_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'author' => 'author',
-      'publisher' => 'publisher',
-      'reviewer' => 'reviewer',
     ),
     'module' => 'node',
   );
@@ -70,6 +64,9 @@ function fmnh_video_user_default_permissions() {
     'name' => 'enter video revision log entry',
     'roles' => array(
       'administrator' => 'administrator',
+      'author' => 'author',
+      'publisher' => 'publisher',
+      'reviewer' => 'reviewer',
     ),
     'module' => 'override_node_options',
   );
