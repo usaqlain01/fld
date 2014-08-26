@@ -62,6 +62,7 @@ function fmnh_gallery_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'publisher' => 'publisher',
+      'reviewer' => 'reviewer',
     ),
     'module' => 'node',
   );
@@ -90,6 +91,9 @@ function fmnh_gallery_user_default_permissions() {
     'name' => 'enter media_gallery revision log entry',
     'roles' => array(
       'administrator' => 'administrator',
+      'author' => 'author',
+      'publisher' => 'publisher',
+      'reviewer' => 'reviewer',
     ),
     'module' => 'override_node_options',
   );

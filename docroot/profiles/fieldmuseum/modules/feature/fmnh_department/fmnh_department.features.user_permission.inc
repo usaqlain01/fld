@@ -60,6 +60,9 @@ function fmnh_department_user_default_permissions() {
     'name' => 'enter department revision log entry',
     'roles' => array(
       'administrator' => 'administrator',
+      'author' => 'author',
+      'publisher' => 'publisher',
+      'reviewer' => 'reviewer',
     ),
     'module' => 'override_node_options',
   );
