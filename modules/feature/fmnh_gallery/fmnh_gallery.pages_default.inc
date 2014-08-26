@@ -131,7 +131,7 @@ function fmnh_gallery_default_page_manager_handlers() {
     );
     $pane->configuration = array(
       'links' => 1,
-      'no_extras' => 1,
+      'no_extras' => 0,
       'override_title' => 0,
       'override_title_text' => '',
       'identifier' => '',
@@ -266,4 +266,148 @@ function fmnh_gallery_default_page_manager_handlers() {
   $export['node_view_panel_context_3'] = $handler;
 
   return $export;
+}
+
+/**
+ * Implements hook_default_page_manager_pages().
+ */
+function fmnh_gallery_default_page_manager_pages() {
+  $page = new stdClass();
+  $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
+  $page->api_version = 1;
+  $page->name = 'gallery_sort';
+  $page->task = 'page';
+  $page->admin_title = 'Gallery admin';
+  $page->admin_description = '';
+  $page->path = 'node/%node/sort';
+  $page->access = array(
+    'plugins' => array(
+      0 => array(
+        'name' => 'entity_bundle:node',
+        'settings' => array(
+          'type' => array(
+            'media_gallery' => 'media_gallery',
+          ),
+        ),
+        'context' => 'argument_entity_id:node_1',
+        'not' => FALSE,
+      ),
+      1 => array(
+        'name' => 'node_access',
+        'settings' => array(
+          'type' => 'update',
+        ),
+        'context' => array(
+          0 => 'logged-in-user',
+          1 => 'argument_entity_id:node_1',
+        ),
+        'not' => FALSE,
+      ),
+    ),
+    'logic' => 'and',
+    'type' => 'none',
+    'settings' => NULL,
+  );
+  $page->menu = array(
+    'type' => 'tab',
+    'title' => 'Sort media',
+    'name' => 'navigation',
+    'weight' => '0',
+    'parent' => array(
+      'type' => 'none',
+      'title' => '',
+      'name' => 'navigation',
+      'weight' => '0',
+    ),
+  );
+  $page->arguments = array(
+    'node' => array(
+      'id' => 1,
+      'identifier' => 'Content: ID',
+      'name' => 'entity_id:node',
+      'settings' => array(),
+    ),
+  );
+  $page->conf = array(
+    'admin_paths' => FALSE,
+  );
+  $page->default_handlers = array();
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'page_gallery_sort_panel_context';
+  $handler->task = 'page';
+  $handler->subtask = 'gallery_sort';
+  $handler->handler = 'panel_context';
+  $handler->weight = 0;
+  $handler->conf = array(
+    'title' => 'Panel',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => '',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(),
+    'access' => array(
+      'logic' => 'and',
+    ),
+  );
+  $display = new panels_display();
+  $display->layout = 'zen_no_wrapper';
+  $display->layout_settings = array(
+    'main_classes' => '',
+  );
+  $display->panel_settings = array(
+    'style' => 'default',
+    'style_settings' => array(
+      'default' => NULL,
+      'main' => NULL,
+      'nav' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = '';
+  $display->uuid = '818d8eb3-25a8-41a9-9c24-070881870eca';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-2dacabce-310f-4269-a4ad-1745cb376afa';
+    $pane->panel = 'main';
+    $pane->type = 'node_content';
+    $pane->subtype = 'node_content';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'links' => 1,
+      'no_extras' => 0,
+      'override_title' => 0,
+      'override_title_text' => '',
+      'identifier' => '',
+      'link' => 0,
+      'leave_node_title' => 0,
+      'build_mode' => 'full',
+      'context' => 'argument_entity_id:node_1',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'naked',
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '2dacabce-310f-4269-a4ad-1745cb376afa';
+    $display->content['new-2dacabce-310f-4269-a4ad-1745cb376afa'] = $pane;
+    $display->panels['main'][0] = 'new-2dacabce-310f-4269-a4ad-1745cb376afa';
+  $display->hide_title = PANELS_TITLE_PANE;
+  $display->title_pane = 'new-2dacabce-310f-4269-a4ad-1745cb376afa';
+  $handler->conf['display'] = $display;
+  $page->default_handlers[$handler->name] = $handler;
+  $pages['gallery_sort'] = $page;
+
+  return $pages;
+
 }
