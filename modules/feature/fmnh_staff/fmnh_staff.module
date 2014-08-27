@@ -34,6 +34,40 @@ function fmnh_staff_menu_alter(&$items) {
   if (isset($_ENV['AH_SITE_ENVIRONMENT']) && $_ENV['AH_SITE_ENVIRONMENT'] == 'prod') {
     $items['import/%/delete-items']['access callback'] = FALSE;
   }
+
+  $profile_type = profile2_get_types('main');
+  $base_path = profile2_page_get_base_path($profile_type);
+  foreach ($items as $path => &$item) {
+    if (strpos($path, $base_path) === 0) {
+
+      // Force title to use the auto entity label value which for
+      // this is based on fields from the user account only.
+      if ($item['title callback'] == 'profile2_page_title') {
+        $item['title callback'] = 'fmnh_staff_profile2_page_title';
+      }
+    }
+  }
+}
+
+/**
+ * Menu title callback.
+ */
+function fmnh_staff_profile2_page_title($type_name, $profile2 = NULL) {
+  $type = profile2_get_types($type_name);
+  // If no profile is given, we are at the general path pointing to the own
+  // profile.
+  if (!isset($profile2)) {
+    return t('My @profile-label', array('@profile-label' => drupal_strtolower($type->getTranslation('label'))));
+  }
+
+  if (!$profile2->pid) {
+    $pattern = variable_get('auto_entitylabel_pattern_profile2_' . $type_name, '');
+    if ($pattern) {
+      $profile2->label = decode_entities(_auto_entitylabel_patternprocessor($pattern, $profile2, 'profile2'));
+      return $profile2->label;
+    }
+  }
+  return drupal_ucfirst($profile2->label());
 }
 
 /**
