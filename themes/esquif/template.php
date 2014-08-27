@@ -1055,6 +1055,9 @@ function esquif_form_search_block_form_alter(&$form, &$form_state) {
   $form['search_block_form']['#attributes']['class'][] = 'search__input';
   $form['search_block_form']['#attributes']['placeholder'] = 'Search fieldmuseum.org';
   $form['search_block_form']['#size'] = 22;
+
+  // Unwrap the search button.
+  unset($form['actions']['#type']);
   $form['actions']['submit']['#attributes']['class'][] = 'search__button';
   $form['actions']['submit']['#theme_wrappers'][0] = 'button__search_box';
   $form['actions']['submit'][] = array(
