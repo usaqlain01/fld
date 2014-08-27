@@ -84,6 +84,9 @@ projects[environment_indicator][contrib] = 2.5
 projects[eva][subdir] = contrib
 projects[eva][version] = 1.x-dev
 
+projects[fast_404][subdir] = contrib
+projects[fast_404][version] = 1.x-dev
+
 projects[features][subdir] = contrib
 projects[features][version] = 2.2
 
