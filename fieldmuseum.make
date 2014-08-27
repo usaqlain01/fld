@@ -246,9 +246,6 @@ projects[semantic_panels][patch][] = https://www.drupal.org/files/semantic_panel
 projects[strongarm][subdir] = contrib
 projects[strongarm][version] = 2.x-dev
 
-projects[system_stream_wrapper][subdir] = contrib
-projects[system_stream_wrapper][version] = 1.x-dev
-
 projects[token][subdir] = contrib
 projects[token][version] = 1.5
 
@@ -269,9 +266,6 @@ projects[webform][version] = 4.0-rc6
 
 projects[workbench][subdir] = contrib
 projects[workbench][version] = 1.2
-
-projects[workbench_access][subdir] = contrib
-projects[workbench_access][version] = 1.x-dev
 
 projects[workbench_moderation][subdir] = contrib
 projects[workbench_moderation][version] = 1.x-dev
