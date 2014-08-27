@@ -9352,7 +9352,7 @@ function fieldmuseum_default_page_manager_pages() {
       'identifier' => 'Taxonomy term: ID',
       'name' => 'term',
       'settings' => array(
-        'input_form' => 'term',
+        'input_form' => 'tid',
         'vids' => array(
           21 => '21',
           1 => 0,
@@ -9367,7 +9367,7 @@ function fieldmuseum_default_page_manager_pages() {
           31 => 0,
         ),
         'breadcrumb' => 0,
-        'transform' => 1,
+        'transform' => 0,
       ),
     ),
   );
