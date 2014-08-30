@@ -22,7 +22,6 @@ dependencies[] = options
 dependencies[] = page_manager
 dependencies[] = profile2
 dependencies[] = strongarm
-dependencies[] = system_stream_wrapper
 dependencies[] = text
 dependencies[] = views
 dependencies[] = views_content

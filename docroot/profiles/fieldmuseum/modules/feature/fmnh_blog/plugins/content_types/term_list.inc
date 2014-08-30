@@ -23,7 +23,7 @@ function fmnh_blog_term_list_content_type_render($subtype, $conf, $args, $pane_c
 
   foreach ($tree as $term) {
     $items['term-'. $term->tid] = array(
-      'data' => l($term->name, 'science/blog/'. drupal_strtolower(str_replace(' ', '-', $term->name))),
+      'data' => l($term->name, 'science/blog/'. $term->tid),
       'class' => array('contentLinks__item'),
     );
   }
