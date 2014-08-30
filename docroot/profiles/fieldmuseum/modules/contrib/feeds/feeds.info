@@ -38,6 +38,7 @@ files[] = tests/feeds_mapper_field.test
 files[] = tests/feeds_mapper_file.test
 files[] = tests/feeds_mapper_path.test
 files[] = tests/feeds_mapper_profile.test
+files[] = tests/feeds_mapper_unique.test
 files[] = tests/feeds_mapper.test
 files[] = tests/feeds_mapper_config.test
 files[] = tests/feeds_fetcher_file.test
@@ -62,9 +63,9 @@ files[] = views/feeds_views_handler_field_severity.inc
 files[] = views/feeds_views_handler_field_source.inc
 files[] = views/feeds_views_handler_filter_severity.inc
 
-; Information added by Drupal.org packaging script on 2014-08-06
-version = "7.x-2.0-alpha8+44-dev"
+; Information added by Drupal.org packaging script on 2014-08-28
+version = "7.x-2.0-alpha8+46-dev"
 core = "7.x"
 project = "feeds"
-datestamp = "1407357366"
+datestamp = "1409268532"
 

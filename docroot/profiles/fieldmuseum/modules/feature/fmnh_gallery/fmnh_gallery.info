@@ -33,6 +33,7 @@ features[field_instance][] = node-media_gallery-field_exhibit
 features[field_instance][] = node-media_gallery-field_science_focus
 features[field_instance][] = node-media_gallery-field_topic
 features[page_manager_handlers][] = node_view_panel_context_3
+features[page_manager_pages][] = gallery_sort
 features[user_permission][] = administer media galleries
 features[user_permission][] = create media_gallery content
 features[user_permission][] = delete any media_gallery content

@@ -38,3 +38,20 @@ ul.tabs {
     padding: 0;
   }
 }
+
+.workbench-moderation-moderate-form {
+  margin-bottom: 0;
+  display: inline;
+  .form-select {
+    width: 50%;
+  }
+}
+
+.webform-container-inline {
+  .select2-display-none {
+    display: none;
+  }
+  .select2-container {
+    display: inline-block;
+  }
+}

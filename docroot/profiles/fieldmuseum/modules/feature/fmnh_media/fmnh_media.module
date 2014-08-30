@@ -33,7 +33,7 @@ function fmnh_media_theme($existing, $type, $theme, $path) {
  * @param $hook
  */
 function fmnh_media_preprocess_image_style(&$variables, $hook) {
-  $conflate_styles_prefixed = array('5x2', '5x3', '2x1', '3x4');
+  $conflate_styles_prefixed = array('5x2', '5x3', '2x1', '3x4', 'gallery');
   foreach ($conflate_styles_prefixed as $style_prefix) {
     if (strpos($variables['style_name'], $style_prefix) === 0) {
       $srcsets = fmnh_media_srcset($style_prefix, $variables['path']);
@@ -81,9 +81,9 @@ function theme_tablexi_gallery($variables) {
 
   }
   $item = reset($items);
-  $href = image_style_url('2x1_1200w', $item['uri']);
-  $src = image_style_url('2x1_800w', $item['uri']);
-  $srcset = implode(',', fmnh_media_srcset('2x1', $item['uri']));
+  $href = image_style_url('gallery_1200w', $item['uri']);
+  $src = image_style_url('gallery_800w', $item['uri']);
+  $srcset = implode(',', fmnh_media_srcset('gallery', $item['uri']));
   $alt = $item['alt'];
 
   if (isset($item['field_caption'])) {
@@ -131,9 +131,9 @@ EOT;
     $attributes = array(
       'data-type' => $item['type'],
       'data-sizes' => '100vw',
-      'data-href' => image_style_url('2x1_1200w', $item['uri']),
-      'data-src' => image_style_url('2x1_1200w', $item['uri']),
-      'data-srcset' => implode(',', fmnh_media_srcset('2x1', $item['uri'])),
+      'data-href' => image_style_url('gallery_1200w', $item['uri']),
+      'data-src' => image_style_url('gallery_1200w', $item['uri']),
+      'data-srcset' => implode(',', fmnh_media_srcset('gallery', $item['uri'])),
       'data-alt' => $item['alt'],
       'data-caption' => $item['field_caption'][LANGUAGE_NONE][0]['safe_value'],
     );

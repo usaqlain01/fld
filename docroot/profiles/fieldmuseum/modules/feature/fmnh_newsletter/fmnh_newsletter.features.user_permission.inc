@@ -15,7 +15,6 @@ function fmnh_newsletter_user_default_permissions() {
     'name' => 'create newsletter content',
     'roles' => array(
       'administrator' => 'administrator',
-      'reviewer' => 'reviewer',
     ),
     'module' => 'node',
   );
@@ -25,7 +24,6 @@ function fmnh_newsletter_user_default_permissions() {
     'name' => 'delete any newsletter content',
     'roles' => array(
       'administrator' => 'administrator',
-      'reviewer' => 'reviewer',
     ),
     'module' => 'node',
   );
@@ -35,7 +33,6 @@ function fmnh_newsletter_user_default_permissions() {
     'name' => 'delete own newsletter content',
     'roles' => array(
       'administrator' => 'administrator',
-      'reviewer' => 'reviewer',
     ),
     'module' => 'node',
   );
@@ -45,7 +42,6 @@ function fmnh_newsletter_user_default_permissions() {
     'name' => 'edit any newsletter content',
     'roles' => array(
       'administrator' => 'administrator',
-      'reviewer' => 'reviewer',
     ),
     'module' => 'node',
   );
@@ -55,7 +51,6 @@ function fmnh_newsletter_user_default_permissions() {
     'name' => 'edit own newsletter content',
     'roles' => array(
       'administrator' => 'administrator',
-      'reviewer' => 'reviewer',
     ),
     'module' => 'node',
   );
@@ -65,6 +60,9 @@ function fmnh_newsletter_user_default_permissions() {
     'name' => 'enter newsletter revision log entry',
     'roles' => array(
       'administrator' => 'administrator',
+      'author' => 'author',
+      'publisher' => 'publisher',
+      'reviewer' => 'reviewer',
     ),
     'module' => 'override_node_options',
   );

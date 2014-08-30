@@ -43,6 +43,27 @@ function fieldmuseum_menu_alter(&$items) {
 }
 
 /**
+ * Implements hook_menu_get_item_alter().
+ *
+ * When Drupal matches a Page Manager callback without a trailing argument,
+ * this returns "not found" if the requested path is longer than the
+ * matched path.
+ *
+ * @param $router_item
+ * @param $path
+ * @param $original_map
+ */
+function fieldmuseum_menu_get_item_alter(&$router_item, $path, $original_map) {
+  if (!strpos($router_item['path'], '%', strlen($router_item['path']) - 1)
+    && $router_item['access_callback'] === 'ctools_access_menu'
+    && $router_item['page_callback'] === 'page_manager_page_execute'
+    && count($original_map) > $router_item['number_parts'])  {
+
+    $router_item['page_callback'] = 'drupal_not_found';
+  }
+}
+
+/**
  * Access callback for filter views.
  *
  * This loads the view, executes it, and returns false if it is empty. This will

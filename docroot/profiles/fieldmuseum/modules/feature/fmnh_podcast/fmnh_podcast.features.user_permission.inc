@@ -25,7 +25,6 @@ function fmnh_podcast_user_default_permissions() {
     'name' => 'delete any podcast content',
     'roles' => array(
       'administrator' => 'administrator',
-      'reviewer' => 'reviewer',
     ),
     'module' => 'node',
   );
@@ -35,7 +34,6 @@ function fmnh_podcast_user_default_permissions() {
     'name' => 'delete own podcast content',
     'roles' => array(
       'administrator' => 'administrator',
-      'reviewer' => 'reviewer',
     ),
     'module' => 'node',
   );
@@ -66,6 +64,9 @@ function fmnh_podcast_user_default_permissions() {
     'name' => 'enter podcast revision log entry',
     'roles' => array(
       'administrator' => 'administrator',
+      'author' => 'author',
+      'publisher' => 'publisher',
+      'reviewer' => 'reviewer',
     ),
     'module' => 'override_node_options',
   );

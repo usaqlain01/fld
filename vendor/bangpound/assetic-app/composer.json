@@ -8,16 +8,18 @@
     },
     "require": {
         "php": ">=5.3.3",
-        "pimple/pimple": "~2.1",
+        "pimple/pimple": "~3.0",
         "symfony/config": "~2.3",
         "symfony/console": "~2.3",
-        "symfony/debug": "~2.3",
         "symfony/finder": "~2.3",
         "symfony/yaml": "~2.3",
         "cilex/console-service-provider": "2.*@dev",
         "kriswallsmith/assetic": "~1.2@dev",
         "zacoza/assetic-filters": "dev-master",
         "bangpound/assetic-codekit": "1.0.*@dev"
+    },
+    "require-dev": {
+        "symfony/debug": "~2.3"
     },
     "bin": ["bin/assetic"],
     "config": {

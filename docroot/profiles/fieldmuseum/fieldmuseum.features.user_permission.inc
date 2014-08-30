@@ -35,6 +35,9 @@ function fieldmuseum_user_default_permissions() {
     'name' => 'access content overview',
     'roles' => array(
       'administrator' => 'administrator',
+      'author' => 'author',
+      'publisher' => 'publisher',
+      'reviewer' => 'reviewer',
     ),
     'module' => 'node',
   );
@@ -163,7 +166,6 @@ function fieldmuseum_user_default_permissions() {
     'name' => 'delete any article content',
     'roles' => array(
       'administrator' => 'administrator',
-      'reviewer' => 'reviewer',
     ),
     'module' => 'node',
   );
@@ -182,7 +184,6 @@ function fieldmuseum_user_default_permissions() {
     'name' => 'delete own article content',
     'roles' => array(
       'administrator' => 'administrator',
-      'reviewer' => 'reviewer',
     ),
     'module' => 'node',
   );
@@ -211,6 +212,7 @@ function fieldmuseum_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'publisher' => 'publisher',
+      'reviewer' => 'reviewer',
     ),
     'module' => 'node',
   );
@@ -221,6 +223,7 @@ function fieldmuseum_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'publisher' => 'publisher',
+      'reviewer' => 'reviewer',
     ),
     'module' => 'node',
   );
@@ -250,6 +253,9 @@ function fieldmuseum_user_default_permissions() {
     'name' => 'enter article revision log entry',
     'roles' => array(
       'administrator' => 'administrator',
+      'author' => 'author',
+      'publisher' => 'publisher',
+      'reviewer' => 'reviewer',
     ),
     'module' => 'override_node_options',
   );
@@ -259,6 +265,9 @@ function fieldmuseum_user_default_permissions() {
     'name' => 'enter page revision log entry',
     'roles' => array(
       'administrator' => 'administrator',
+      'author' => 'author',
+      'publisher' => 'publisher',
+      'reviewer' => 'reviewer',
     ),
     'module' => 'override_node_options',
   );
