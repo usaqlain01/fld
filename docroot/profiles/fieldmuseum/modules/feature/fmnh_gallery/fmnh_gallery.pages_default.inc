@@ -380,7 +380,7 @@ function fmnh_gallery_default_page_manager_pages() {
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'links' => 1,
+      'links' => 0,
       'no_extras' => 0,
       'override_title' => 0,
       'override_title_text' => '',

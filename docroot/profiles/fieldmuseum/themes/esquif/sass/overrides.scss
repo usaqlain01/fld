@@ -46,3 +46,12 @@ ul.tabs {
     width: 50%;
   }
 }
+
+.webform-container-inline {
+  .select2-display-none {
+    display: none;
+  }
+  .select2-container {
+    display: inline-block;
+  }
+}
