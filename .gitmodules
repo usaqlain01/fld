@@ -1,0 +1,3 @@
+[submodule "build/fieldmuseum-website"]
+	path = build/fieldmuseum-website
+	url = git@github.com:tablexi/fieldmuseum-website.git
