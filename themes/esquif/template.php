@@ -564,6 +564,13 @@ function esquif_preprocess_file_entity(&$variables, $hook) {
     case 'primary_2x1':
       $variables['theme_hook_suggestion'] = 'file_entity__naked';
       break;
+    case 'embed':
+      $variables['theme_hook_suggestion'] = 'file_entity__embed';
+      $variables['classes_array'][] = 'article__image';
+      if (isset($variables['override']['attributes']['align'])) {
+        $variables['classes_array'][] = 'article__image--'. $variables['override']['attributes']['align'];
+      }
+      break;
   }
 }
 
