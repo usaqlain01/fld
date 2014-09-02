@@ -571,6 +571,13 @@ function esquif_preprocess_file_entity(&$variables, $hook) {
         $variables['classes_array'][] = 'article__image--'. $variables['override']['attributes']['align'];
       }
       break;
+    case 'resource':
+      $variables['theme_hook_suggestion'] = 'file_entity__resource';
+      $variables['classes_array'][] = 'resource';
+      $variables['title_attributes_array']['class'][] = 'resource__title';
+      $variables['title_attributes_array']['class'] = array_diff($variables['title_attributes_array']['class'], array('element-invisible'));
+      $variables['content_attributes_array']['class'][] = 'resource__description';
+      break;
   }
 }
 
