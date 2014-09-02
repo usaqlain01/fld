@@ -482,7 +482,8 @@ function fieldmuseum_panels_pane_content_alter($content, $pane, $panel_args, $co
   // Entity view plugin only displays one entity, so restructure array to align with
   // existing entity rendering content type plugins.
   if ($pane->type == 'entity_view') {
-    $content->content = array_pop(array_pop($content->content));
+    $temp = array_pop($content->content);
+    $content->content = array_pop($temp);
   }
 
   if (isset($pane->style['style'])) {

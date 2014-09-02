@@ -77,8 +77,8 @@ function fmnh_media_ctools_plugin_directory($module, $plugin) {
 function theme_tablexi_gallery($variables) {
   $node = $variables['node'];
   $items = field_get_items('node', $node, 'media_gallery_file');
-  if ($items) {
-
+  if (!$items) {
+    return '';
   }
   $item = reset($items);
   $href = image_style_url('gallery_1200w', $item['uri']);
@@ -86,8 +86,10 @@ function theme_tablexi_gallery($variables) {
   $srcset = implode(',', fmnh_media_srcset('gallery', $item['uri']));
   $alt = $item['alt'];
 
-  if (isset($item['field_caption'])) {
-    $caption = $item['field_caption'][LANGUAGE_NONE][0]['safe_value'];
+  $caption_items = field_get_items('file', (object) $item, 'field_caption');
+  if ($caption_items) {
+    $element = field_view_value('file', (object) $item, 'field_caption', $caption_items[0]);
+    $caption = drupal_render($element);
   }
   else {
     $caption = '';
@@ -128,6 +130,15 @@ EOT;
   foreach ($items as $item) {
     $output .= '<li class="carousel__item js--carousel__item" ';
 
+    $caption_items = field_get_items('file', (object) $item, 'field_caption');
+    if ($caption_items) {
+      $element = field_view_value('file', (object) $item, 'field_caption', $caption_items[0]);
+      $caption = drupal_render($element);
+    }
+    else {
+      $caption = '';
+    }
+
     $attributes = array(
       'data-type' => $item['type'],
       'data-sizes' => '100vw',
@@ -135,7 +146,7 @@ EOT;
       'data-src' => image_style_url('gallery_1200w', $item['uri']),
       'data-srcset' => implode(',', fmnh_media_srcset('gallery', $item['uri'])),
       'data-alt' => $item['alt'],
-      'data-caption' => $item['field_caption'][LANGUAGE_NONE][0]['safe_value'],
+      'data-caption' => $caption,
     );
 
     $output .= drupal_attributes($attributes);
