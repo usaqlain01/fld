@@ -559,88 +559,6 @@ function fmnh_staff_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'profile2-main-field_image'
-  $field_instances['profile2-main-field_image'] = array(
-    'bundle' => 'main',
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'hidden',
-        'module' => 'file_entity',
-        'settings' => array(
-          'field_formatter_class' => 'bio__image headshot',
-          'file_view_mode' => 'square',
-        ),
-        'type' => 'file_rendered',
-        'weight' => 0,
-      ),
-      'list_item' => array(
-        'label' => 'hidden',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 2,
-      ),
-      'summary' => array(
-        'label' => 'hidden',
-        'module' => 'file_entity',
-        'settings' => array(
-          'field_formatter_class' => 'headshot',
-          'file_view_mode' => 'headshot',
-        ),
-        'type' => 'file_rendered',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'profile2',
-    'fences_wrapper' => 'no_wrapper',
-    'field_name' => 'field_image',
-    'label' => 'Image',
-    'required' => 0,
-    'settings' => array(
-      'description_field' => 0,
-      'file_directory' => '[current-user:name]/[current-date:custom:Y]/[current-date:custom:m]/[current-date:custom:d]',
-      'file_extensions' => 'png gif jpg jpeg',
-      'imagecrop' => array(
-        '2x1_2400w' => '2x1_2400w',
-        '5x2_2400w' => '5x2_2400w',
-        '5x3_2400w' => '5x3_2400w',
-        'large' => 0,
-        'media_gallery_large' => 0,
-        'media_gallery_thumbnail' => 0,
-        'medium' => 0,
-        'thumbnail' => 'thumbnail',
-      ),
-      'max_filesize' => '',
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'media',
-      'settings' => array(
-        'allowed_schemes' => array(
-          'oembed' => 0,
-          'public' => 0,
-        ),
-        'allowed_types' => array(
-          'audio' => 0,
-          'document' => 0,
-          'image' => 'image',
-          'model' => 0,
-          'video' => 'video',
-        ),
-        'browser_plugins' => array(
-          'media_default--media_browser_1' => 0,
-          'media_default--media_browser_my_files' => 0,
-          'media_internet' => 0,
-          'upload' => 0,
-        ),
-      ),
-      'type' => 'media_generic',
-      'weight' => 13,
-    ),
-  );
-
   // Exported field_instance: 'profile2-main-field_interests'
   $field_instances['profile2-main-field_interests'] = array(
     'bundle' => 'main',
@@ -1902,7 +1820,6 @@ function fmnh_staff_field_default_field_instances() {
   t('First Name');
   t('Grants & awards');
   t('Home Department');
-  t('Image');
   t('Interests');
   t('Introduction');
   t('Last Name');

@@ -22,7 +22,7 @@
   <?php if ($unpublished): ?>
     <mark class="unpublished"><?php print t('Unpublished'); ?></mark>
   <?php endif; ?>
-  <section class="article__body"<?php print drupal_attributes(rdf_rdfa_attributes($node->rdf_mapping['media_gallery_description'])); ?>>
+  <section class="article__body"<?php if (isset($node->rdf_mapping['media_gallery_description'])) { print drupal_attributes(rdf_rdfa_attributes($node->rdf_mapping['media_gallery_description'])); } ?>>
     <?php
     // We hide the comments and links now so that we can render them later.
     hide($content['media_gallery_file']);

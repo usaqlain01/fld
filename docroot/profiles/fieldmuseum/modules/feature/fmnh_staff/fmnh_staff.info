@@ -72,7 +72,6 @@ features[field_instance][] = profile2-main-field_exhibit
 features[field_instance][] = profile2-main-field_fax
 features[field_instance][] = profile2-main-field_givenname
 features[field_instance][] = profile2-main-field_grants_awards
-features[field_instance][] = profile2-main-field_image
 features[field_instance][] = profile2-main-field_interests
 features[field_instance][] = profile2-main-field_introduction
 features[field_instance][] = profile2-main-field_location_region

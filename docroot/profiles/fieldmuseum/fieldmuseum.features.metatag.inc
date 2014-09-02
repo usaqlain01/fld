@@ -49,6 +49,9 @@ function fieldmuseum_metatag_export_default() {
       'generator' => array(
         'value' => 'Drupal 7 (http://drupal.org)',
       ),
+      'rights' => array(
+        'value' => 'Copyright The Field Museum, [current-date:custom:Y]',
+      ),
       'image_src' => array(
         'value' => '',
       ),
@@ -70,6 +73,9 @@ function fieldmuseum_metatag_export_default() {
       'revisit-after' => array(
         'value' => 1,
         'period' => 'day',
+      ),
+      'content-language' => array(
+        'value' => '',
       ),
       'distribution' => array(
         'value' => 'global',
@@ -93,6 +99,9 @@ function fieldmuseum_metatag_export_default() {
         'value' => '',
       ),
       'dcterms.date' => array(
+        'value' => '',
+      ),
+      'dcterms.modified' => array(
         'value' => '',
       ),
       'dcterms.type' => array(
@@ -128,14 +137,26 @@ function fieldmuseum_metatag_export_default() {
       'og:site_name' => array(
         'value' => '[site:name]',
       ),
+      'og:type' => array(
+        'value' => 'article',
+      ),
+      'og:url' => array(
+        'value' => '[current-page:url:absolute]',
+      ),
       'og:title' => array(
         'value' => '[current-page:title]',
+      ),
+      'og:determiner' => array(
+        'value' => '',
       ),
       'og:description' => array(
         'value' => '[site:slogan]',
       ),
-      'og:type' => array(
-        'value' => 'article',
+      'og:updated_time' => array(
+        'value' => '',
+      ),
+      'og:see_also' => array(
+        'value' => '',
       ),
       'og:image' => array(
         'value' => '',
@@ -143,8 +164,14 @@ function fieldmuseum_metatag_export_default() {
       'og:image:secure_url' => array(
         'value' => '',
       ),
-      'og:url' => array(
-        'value' => '[current-page:url:absolute]',
+      'og:image:type' => array(
+        'value' => '',
+      ),
+      'og:image:width' => array(
+        'value' => '',
+      ),
+      'og:image:height' => array(
+        'value' => '',
       ),
       'og:latitude' => array(
         'value' => '',
@@ -179,6 +206,18 @@ function fieldmuseum_metatag_export_default() {
       'og:locale' => array(
         'value' => '',
       ),
+      'og:locale:alternate' => array(
+        'value' => '',
+      ),
+      'og:audio' => array(
+        'value' => '',
+      ),
+      'og:audio:secure_url' => array(
+        'value' => '',
+      ),
+      'og:audio:type' => array(
+        'value' => '',
+      ),
       'og:video' => array(
         'value' => '',
       ),
@@ -192,6 +231,51 @@ function fieldmuseum_metatag_export_default() {
         'value' => '',
       ),
       'og:video:type' => array(
+        'value' => '',
+      ),
+      'article:author' => array(
+        'value' => '',
+      ),
+      'article:publisher' => array(
+        'value' => '',
+      ),
+      'article:section' => array(
+        'value' => '',
+      ),
+      'article:tag' => array(
+        'value' => '',
+      ),
+      'article:published_time' => array(
+        'value' => '',
+      ),
+      'article:modified_time' => array(
+        'value' => '',
+      ),
+      'article:expiration_time' => array(
+        'value' => '',
+      ),
+      'book:author' => array(
+        'value' => '',
+      ),
+      'book:isbn' => array(
+        'value' => '',
+      ),
+      'book:release_date' => array(
+        'value' => '',
+      ),
+      'book:tag' => array(
+        'value' => '',
+      ),
+      'profile:first_name' => array(
+        'value' => '',
+      ),
+      'profile:last_name' => array(
+        'value' => '',
+      ),
+      'profile:username' => array(
+        'value' => '',
+      ),
+      'profile:gender' => array(
         'value' => '',
       ),
       'twitter:card' => array(
@@ -217,6 +301,9 @@ function fieldmuseum_metatag_export_default() {
       ),
       'twitter:description' => array(
         'value' => '[site:slogan]',
+      ),
+      'twitter:image:src' => array(
+        'value' => '',
       ),
       'twitter:image:width' => array(
         'value' => '',
@@ -288,7 +375,7 @@ function fieldmuseum_metatag_export_default() {
         'value' => '',
       ),
       'google_webmaster_verification' => array(
-        'value' => '5ybSWr2TxZhRNSSqvKBEUgUOL3Rrvc67pX8Jnmsk_Gg',
+        'value' => 'RycWvlcAyPnTPAGDJYrIgkSEHGwR2A5sVVool4QJJOg',
       ),
       'bing_webmaster_verification' => array(
         'value' => '1C53ECBFCB6E0CB18FD89A7089C88C65',
@@ -300,12 +387,6 @@ function fieldmuseum_metatag_export_default() {
         'value' => '',
       ),
       'yandex_webmaster_verification' => array(
-        'value' => '',
-      ),
-      'rights' => array(
-        'value' => 'Copyright The Field Museum, [current-date:custom:Y]',
-      ),
-      'twitter:image:src' => array(
         'value' => '',
       ),
     ),

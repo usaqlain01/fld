@@ -35,7 +35,7 @@
       <?php endif; ?>
     <?php endif; ?>
 
-    <p class="collection__description"<?php print drupal_attributes(rdf_rdfa_attributes($node->rdf_mapping['body'])); ?>>
+    <p class="collection__description"<?php if (isset($node->rdf_mapping['body'])) { print drupal_attributes(rdf_rdfa_attributes($node->rdf_mapping['body'])); } ?>>
       <?php print check_markup(render($content['body']), 'unfiltered_phrase_html', '', TRUE); ?>
     </p>
 

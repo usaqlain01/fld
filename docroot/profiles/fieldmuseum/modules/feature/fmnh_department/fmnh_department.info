@@ -15,6 +15,7 @@ dependencies[] = fmnh_science_tags
 dependencies[] = image
 dependencies[] = link
 dependencies[] = media
+dependencies[] = menuentity
 dependencies[] = node
 dependencies[] = options
 dependencies[] = override_node_options
