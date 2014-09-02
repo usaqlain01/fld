@@ -455,6 +455,12 @@ function esquif_preprocess_node_department(&$variables, $hook) {
   }
 }
 
+function esquif_preprocess_node_media_gallery(&$variables, $hook) {
+  if ($variables['view_mode'] == 'teaser') {
+    $variables['content']['media_gallery_file'][0]['file']['#item']['attributes']['class'][] = 'excerpt__image';
+  }
+}
+
 /**
  * Override or insert variables into the region templates.
  *
@@ -2288,6 +2294,22 @@ function esquif_field___custom_display__field_image__department($variables) {
 
   foreach ($variables['items'] as $delta => $item) {
     $output .=  drupal_render($item);
+  }
+
+  return $output;
+}
+
+function esquif_field__media_gallery_file__media_gallery(&$variables) {
+  $output = '';
+
+  // Render the label, if it's not hidden.
+  if (!$variables['label_hidden']) {
+    $output .= '<div class="field-label"' . $variables['title_attributes'] . '>' . $variables['label'] . ':&nbsp;</div>';
+  }
+
+  // Render the items.
+  foreach ($variables['items'] as $delta => $item) {
+    $output .= drupal_render($item);
   }
 
   return $output;
