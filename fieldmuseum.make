@@ -147,6 +147,7 @@ projects[imagemagick][version] = 1.x-dev
 
 projects[inline][subdir] = contrib
 projects[inline][version] = 2.x-dev
+projects[inline][patch][] = https://gist.githubusercontent.com/bangpound/73e57ffeed3051d06cb7/raw/9ccac28340468cf1d1a0d55a94b247a6f9888871/inline-work_on_all_text_fields.patch
 
 projects[invisimail][subdir] = contrib
 projects[invisimail][version] = 1.1
