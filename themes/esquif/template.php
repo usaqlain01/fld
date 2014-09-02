@@ -2314,3 +2314,13 @@ function esquif_field__media_gallery_file__media_gallery(&$variables) {
 
   return $output;
 }
+
+function esquif_element_info_alter(&$type) {
+  array_unshift($type['fieldset']['#process'], 'esquif_form_process_fieldset');
+}
+
+function esquif_form_process_fieldset(&$element, &$form_state) {
+  $element['#collapsible'] = FALSE;
+  $element['#collapsed'] = FALSE;
+  return $element;
+}
