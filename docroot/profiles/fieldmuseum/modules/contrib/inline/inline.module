@@ -176,7 +176,7 @@ function inline_macro_render(MacroInterface $macro, array $context) {
 function inline_field_attach_view_alter(&$output, array $context) {
   foreach (element_children($output) as $field_name) {
     $element = &$output[$field_name];
-    if ($element['#field_type'] != 'text_with_summary') {
+    if (strpos($element['#field_type'], 'text') !== 0) {
       continue;
     }
     foreach ($element['#items'] as $delta => $item) {

@@ -1,4 +1,4 @@
-/** X3DOM Runtime, http://www.x3dom.org/ 1.6.0 - 5e8c0441fe2cbe9970ffd14f1546100672a95185 - Thu May 8 20:51:15 2014 +0200 */
+/** X3DOM Runtime, http://www.x3dom.org/ 1.6.1 - 979902877438b38183164b102350130392ada7d5 - Thu Jul 24 17:38:21 2014 +0200 */
 x3dom.registerNodeType("IndexedQuadSet","CADGeometry",defineClass(x3dom.nodeTypes.X3DComposedGeometryNode,function(ctx){x3dom.nodeTypes.IndexedQuadSet.superClass.call(this,ctx);this.addField_MFInt32(ctx,'index',[]);},{nodeChanged:function()
 {var time0=new Date().getTime();this.handleAttribs();var colPerVert=this._vf.colorPerVertex;var normPerVert=this._vf.normalPerVertex;var indexes=this._vf.index;var hasNormal=false,hasTexCoord=false,hasColor=false;var positions,normals,texCoords,colors;var coordNode=this._cf.coord.node;x3dom.debug.assert(coordNode);positions=coordNode._vf.point;var normalNode=this._cf.normal.node;if(normalNode){hasNormal=true;normals=normalNode._vf.vector;}
 else{hasNormal=false;}
@@ -86,11 +86,11 @@ pnts=texCoordNode._vf.point;this._mesh._texCoords[0]=pnts.toGL();Array.forEach(t
 {var vol=this._graph.volume;if(!this.volumeValid()&&this._vf.render)
 {var child=this._cf.shape.node;var childVol=(child&&child._vf.render===true)?child.getVolume():null;if(childVol&&childVol.isValid())
 vol.extendBounds(childVol.min,childVol.max);}
-return vol;},collectDrawableObjects:function(transform,drawableCollection,singlePath,invalidateCache,planeMask)
+return vol;},collectDrawableObjects:function(transform,drawableCollection,singlePath,invalidateCache,planeMask,clipPlanes)
 {if(singlePath&&(this._parentNodes.length>1))
 singlePath=false;if(singlePath&&(invalidateCache=invalidateCache||this.cacheInvalid()))
 this.invalidateCache();if(!this._cf.shape.node||(planeMask=drawableCollection.cull(transform,this.graphState(),singlePath,planeMask))<=0){return;}
 var cnode,childTransform;if(singlePath){if(!this._graph.globalMatrix){this._graph.globalMatrix=this.transformMatrix(transform);}
 childTransform=this._graph.globalMatrix;}
 else{childTransform=this.transformMatrix(transform);}
-if((cnode=this._cf.shape.node)){cnode.collectDrawableObjects(childTransform,drawableCollection,singlePath,invalidateCache,planeMask);}}}));
+if((cnode=this._cf.shape.node)){cnode.collectDrawableObjects(childTransform,drawableCollection,singlePath,invalidateCache,planeMask,clipPlanes);}}}));
