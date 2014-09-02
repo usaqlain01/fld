@@ -327,8 +327,8 @@ libraries[markdown][destination] = libraries
 libraries[markdown][type] = library
 libraries[markdown][download][tag] = x1.2.8
 
-libraries[pdf.js][download][type] = git
-libraries[pdf.js][download][url] = https://github.com/mozilla/pdf.js.git
+libraries[pdf.js][download][type] = get
+libraries[pdf.js][download][url] = https://github.com/mozilla/pdf.js/releases/download/v1.0.473/pdfjs-1.0.473-dist.zip
 libraries[pdf.js][destination] = libraries
 libraries[pdf.js][type] = library
 libraries[pdf.js][download][branch] = master
