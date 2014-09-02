@@ -162,3 +162,23 @@ EOT;
 
   return $output;
 }
+
+/**
+ * Implement hook_bangpoundmedia_wysiwyg_token_alter().
+ *
+ * Force the view mode and add the correct class attribute for aligned media.
+ *
+ * @param $tag_info
+ */
+function fmnh_media_bangpoundmedia_wysiwyg_token_alter(&$tag_info) {
+  if ($tag_info['view_mode'] != 'full') {
+    $tag_info['view_mode'] = 'embed';
+  }
+
+  /** @todo parse the style attribute for floats. */
+  if (isset($tag_info['attributes']['align'])) {
+    $tag_info['attributes']['class'] .= ' article__image--'. $tag_info['attributes']['align'];
+  }
+
+  /** @todo rewrite the dimension style and attributes to trigger image resize filter. */
+}
