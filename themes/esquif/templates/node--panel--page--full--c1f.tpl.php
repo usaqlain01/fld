@@ -27,7 +27,7 @@
   </section>
   <?php print render($content['field_summary']); ?>
 
-  <section class="article__body"<?php print drupal_attributes(rdf_rdfa_attributes($node->rdf_mapping['body'])); ?>>
+  <section class="article__body"<?php if (isset($node->rdf_mapping['body'])) { print drupal_attributes(rdf_rdfa_attributes($node->rdf_mapping['body'])); } ?>>
     <?php print render($content['body']); ?>
   </section>
 

@@ -75,7 +75,7 @@
   <?php endif; ?>
   <?php print render($title_suffix); ?>
   <?php print render($content['file']); ?>
-  <figcaption<?php print drupal_attributes(rdf_rdfa_attributes($file->rdf_mapping['field_caption'])); ?>>
+  <figcaption<?php if (isset($file->rdf_mapping['field_caption'])) { print drupal_attributes(rdf_rdfa_attributes($file->rdf_mapping['field_caption'])); } ?>>
     <?php print check_markup(render($content['field_caption']), 'unfiltered_phrase_html', '', TRUE); ?>
   </figcaption>
 </figure>
