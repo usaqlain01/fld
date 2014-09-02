@@ -124,7 +124,7 @@ function fmnh_media_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'file',
-    'fences_wrapper' => 'div',
+    'fences_wrapper' => 'no_wrapper',
     'field_name' => 'field_caption',
     'label' => 'Caption',
     'required' => 0,
