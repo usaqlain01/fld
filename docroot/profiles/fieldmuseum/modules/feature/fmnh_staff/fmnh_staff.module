@@ -97,14 +97,10 @@ function fmnh_staff_preprocess_entity(&$variables, $hook) {
     list($id, $vid, $bundle) = entity_extract_ids('profile2', $variables['profile2']);
     if ($bundle == 'main' && $variables['elements']['#view_mode'] == 'page') {
       $account = user_load($variables['profile2']->uid);
-
-      $items = field_get_items('profile2', $variables['profile2'], 'field_image');
-      if (!$items) {
-        $variables['content']['field_image'] = array(
-          '#theme' => 'user_picture',
-          '#account' => $account,
-        );
-      }
+      $variables['content']['field_image'] = array(
+        '#theme' => 'user_picture',
+        '#account' => $account,
+      );
 
       foreach (array('field_business_unit', 'field_home_department', 'field_position') as $field_name) {
         $items = field_get_items('user', $account, $field_name);
@@ -236,5 +232,57 @@ function fmnh_staff_profile2_access($op, $profile = NULL, $account = NULL) {
   if (($op == 'view') && (isset($profile))) {
     $account2 = user_load($profile->uid);
     return $account2->status == 0 ? FALSE : TRUE;
+  }
+}
+
+function fmnh_staff_preprocess_user_picture(&$variables, $hook) {
+  $variables['user_picture'] = '';
+  if (variable_get('user_pictures', 0)) {
+    $account = $variables['account'];
+    if (!empty($account->picture)) {
+      // @TODO: Ideally this function would only be passed file objects, but
+      // since there's a lot of legacy code that JOINs the {users} table to
+      // {node} or {comments} and passes the results into this function if we
+      // a numeric value in the picture field we'll assume it's a file id
+      // and load it for them. Once we've got user_load_multiple() and
+      // comment_load_multiple() functions the user module will be able to load
+      // the picture files in mass during the object's load process.
+      if (is_numeric($account->picture)) {
+        $account->picture = file_load($account->picture);
+      }
+      if (!empty($account->picture->uri)) {
+        $filepath = $account->picture->uri;
+      }
+    }
+    elseif (variable_get('user_picture_default', '')) {
+      $filepath = variable_get('user_picture_default', '');
+    }
+    if (isset($filepath)) {
+      $profile = profile2_by_uid_load($account->uid, 'main');
+      $path = "about/staff/profile/$profile->pid";
+      $attributes = array();
+      // Append active class.
+      if ($path == $_GET['q']) {
+        $attributes['class'] = array('bio__image');
+      }
+
+      $alt = t("@user's picture", array('@user' => format_username($account)));
+      // If the image does not have a valid Drupal scheme (for eg. HTTP),
+      // don't load image styles.
+      if (module_exists('image') && file_valid_uri($filepath) && $style = variable_get('user_picture_style', '')) {
+        $variables['user_picture'] = theme('image_style', array('style_name' => $style, 'path' => $filepath, 'alt' => $alt, 'title' => $alt, 'attributes' => $attributes));
+      }
+      else {
+        $variables['user_picture'] = theme('image', array('path' => $filepath, 'alt' => $alt, 'title' => $alt, 'attributes' => $attributes));
+      }
+
+      if (!empty($account->uid) && user_access('access user profiles') && $path != $_GET['q']) {
+        $options = array('attributes' => array('title' => t('View user profile.')), 'html' => TRUE);
+        if (profile2_access('view', $profile) && !isset($profile->is_new)) {
+          $item = menu_get_item();
+          $variables['user_picture'] = l($variables['user_picture'], $path, $options);
+        }
+      }
+    }
   }
 }

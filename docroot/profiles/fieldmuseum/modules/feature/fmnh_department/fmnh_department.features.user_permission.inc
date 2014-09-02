@@ -42,6 +42,8 @@ function fmnh_department_user_default_permissions() {
     'name' => 'edit any department content',
     'roles' => array(
       'administrator' => 'administrator',
+      'publisher' => 'publisher',
+      'reviewer' => 'reviewer',
     ),
     'module' => 'node',
   );
@@ -51,6 +53,7 @@ function fmnh_department_user_default_permissions() {
     'name' => 'edit own department content',
     'roles' => array(
       'administrator' => 'administrator',
+      'author' => 'author',
     ),
     'module' => 'node',
   );

@@ -1,0 +1,3 @@
+name = Menu Entity
+core = 7.x
+description = Decorates menu link options with entity metadata.

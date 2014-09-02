@@ -392,7 +392,7 @@ function fieldmuseum_panelizer_defaults() {
       'no_extras' => 0,
       'override_title' => 0,
       'override_title_text' => '',
-      'identifier' => '',
+      'identifier' => 'page__full__c1f',
       'link' => 0,
       'leave_node_title' => 1,
       'build_mode' => 'full',

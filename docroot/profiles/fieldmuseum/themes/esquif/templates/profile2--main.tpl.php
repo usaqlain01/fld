@@ -40,7 +40,7 @@
   <h3 class="bio__title" itemprop="jobTitle"><?php print render($content['field_position']); ?></h3>
   <h5 class="bio__department"><?php print render($content['field_home_department']); ?></h5>
 
-  <?php if ($field_research_area): ?>
+  <?php if (isset($field_research_area)): ?>
   <dl class="bio__meta">
     <?php print render($content['field_research_area']); ?>
   </dl>

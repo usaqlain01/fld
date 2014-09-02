@@ -126,7 +126,6 @@ function fmnh_blog_views_default_views() {
   $handler->display->display_options['arguments']['pid']['table'] = 'profile';
   $handler->display->display_options['arguments']['pid']['field'] = 'pid';
   $handler->display->display_options['arguments']['pid']['relationship'] = 'profile';
-  $handler->display->display_options['arguments']['pid']['default_action'] = 'not found';
   $handler->display->display_options['arguments']['pid']['default_argument_type'] = 'fixed';
   $handler->display->display_options['arguments']['pid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['pid']['summary']['format'] = 'default_summary';
