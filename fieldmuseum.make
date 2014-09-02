@@ -61,7 +61,7 @@ projects[draggableviews][subdir] = contrib
 projects[draggableviews][version] = 2.x-dev
 
 projects[editableviews][subdir] = contrib
-projects[editableviews][version] = 1.0-beta8
+projects[editableviews][version] = 1.0-beta9
 
 projects[email][subdir] = contrib
 projects[email][version] = 1.3
@@ -267,7 +267,7 @@ projects[views_bulk_operations][subdir] = contrib
 projects[views_bulk_operations][version] = 3.2
 
 projects[webform][subdir] = contrib
-projects[webform][version] = 4.0-rc6
+projects[webform][version] = 4.0
 
 projects[workbench][subdir] = contrib
 projects[workbench][version] = 1.2
@@ -302,7 +302,7 @@ libraries[backbone][type] = library
 libraries[backbone][download][tag] = 1.1.2
 
 libraries[ckeditor][download][type] = get
-libraries[ckeditor][download][url] = http://download.cksource.com/CKEditor/CKEditor/CKEditor%203.6.6.1/ckeditor_3.6.6.1.tar.gz
+libraries[ckeditor][download][url] = http://download.cksource.com/CKEditor/CKEditor/CKEditor%203.6.6.2/ckeditor_3.6.6.2.zip
 libraries[ckeditor][directory_name] = ckeditor
 libraries[ckeditor][destination] = libraries
 libraries[ckeditor][type] = library
@@ -312,7 +312,7 @@ libraries[underscore][download][url] = https://github.com/jashkenas/underscore.g
 libraries[underscore][directory_name] = underscore
 libraries[underscore][destination] = libraries
 libraries[underscore][type] = library
-libraries[underscore][download][tag] = 1.6.0
+libraries[underscore][download][tag] = 1.7.0
 
 libraries[disqus-php][download][type] = git
 libraries[disqus-php][download][url] = https://github.com/disqus/disqus-php.git
@@ -351,7 +351,7 @@ libraries[Jcrop][destination] = libraries
 libraries[Jcrop][type] = library
 
 libraries[x3dom][download][type] = get
-libraries[x3dom][download][url] = http://x3dom.org/download/1.6/x3dom-1.6.0.zip
+libraries[x3dom][download][url] = http://x3dom.org/download/1.6.1/x3dom-1.6.1.zip
 libraries[x3dom][type] = library
 
 ; for local development environment
