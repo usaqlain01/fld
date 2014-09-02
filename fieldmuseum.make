@@ -339,11 +339,6 @@ libraries[plupload][download][url] = https://github.com/moxiecode/plupload/archi
 libraries[plupload][patch][] = https://drupal.org/files/issues/plupload-1_5_8-rm_examples-1903850-16.patch
 libraries[plupload][type] = library
 
-libraries[colorbox][download][type] = git
-libraries[colorbox][directory_name] = colorbox
-libraries[colorbox][download][url] = https://github.com/jackmoore/colorbox.git
-libraries[colorbox][type] = library
-
 libraries[Jcrop][download][type] = git
 libraries[Jcrop][download][url] = https://github.com/tapmodo/Jcrop.git
 libraries[Jcrop][directory_name] = Jcrop
