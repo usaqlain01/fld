@@ -2299,6 +2299,17 @@ function esquif_field___custom_display__field_image__department($variables) {
   return $output;
 }
 
+function esquif_field___custom_display__field_image__topic($variables) {
+  $variables['items'][0]['file']['#item']['attributes']['class'][] = 'image--primary';
+  $output = '';
+
+  foreach ($variables['items'] as $delta => $item) {
+    $output .=  drupal_render($item);
+  }
+
+  return $output;
+}
+
 function esquif_field__media_gallery_file__media_gallery(&$variables) {
   $output = '';
 
