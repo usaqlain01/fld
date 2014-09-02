@@ -72,8 +72,8 @@ function fmnh_gallery_strongarm() {
             'visible' => FALSE,
           ),
           'teaser' => array(
+            'weight' => '6',
             'visible' => FALSE,
-            'weight' => 1,
           ),
           'media_gallery_block' => array(
             'visible' => FALSE,
