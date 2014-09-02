@@ -17,6 +17,11 @@ projects[bangpoundefq][type] = module
 projects[bangpoundefq][download][url] = https://github.com/bangpound/bangpoundefq.git
 projects[bangpoundefq][download][type] = git
 
+projects[bangpoundmedia][subdir] = bangpound
+projects[bangpoundmedia][type] = module
+projects[bangpoundmedia][download][url] = https://github.com/bangpound/bangpoundmedia.git
+projects[bangpoundmedia][download][type] = git
+
 projects[bangpoundpanels][subdir] = bangpound
 projects[bangpoundpanels][type] = module
 projects[bangpoundpanels][download][url] = https://github.com/bangpound/bangpoundpanels.git
@@ -56,7 +61,7 @@ projects[draggableviews][subdir] = contrib
 projects[draggableviews][version] = 2.x-dev
 
 projects[editableviews][subdir] = contrib
-projects[editableviews][version] = 1.0-beta8
+projects[editableviews][version] = 1.0-beta9
 
 projects[email][subdir] = contrib
 projects[email][version] = 1.3
@@ -142,6 +147,7 @@ projects[imagemagick][version] = 1.x-dev
 
 projects[inline][subdir] = contrib
 projects[inline][version] = 2.x-dev
+projects[inline][patch][] = https://gist.githubusercontent.com/bangpound/73e57ffeed3051d06cb7/raw/9ccac28340468cf1d1a0d55a94b247a6f9888871/inline-work_on_all_text_fields.patch
 
 projects[invisimail][subdir] = contrib
 projects[invisimail][version] = 1.1
@@ -262,7 +268,7 @@ projects[views_bulk_operations][subdir] = contrib
 projects[views_bulk_operations][version] = 3.2
 
 projects[webform][subdir] = contrib
-projects[webform][version] = 4.0-rc6
+projects[webform][version] = 4.0
 
 projects[workbench][subdir] = contrib
 projects[workbench][version] = 1.2
@@ -297,7 +303,7 @@ libraries[backbone][type] = library
 libraries[backbone][download][tag] = 1.1.2
 
 libraries[ckeditor][download][type] = get
-libraries[ckeditor][download][url] = http://download.cksource.com/CKEditor/CKEditor/CKEditor%203.6.6.1/ckeditor_3.6.6.1.tar.gz
+libraries[ckeditor][download][url] = http://download.cksource.com/CKEditor/CKEditor/CKEditor%203.6.6.2/ckeditor_3.6.6.2.zip
 libraries[ckeditor][directory_name] = ckeditor
 libraries[ckeditor][destination] = libraries
 libraries[ckeditor][type] = library
@@ -307,7 +313,7 @@ libraries[underscore][download][url] = https://github.com/jashkenas/underscore.g
 libraries[underscore][directory_name] = underscore
 libraries[underscore][destination] = libraries
 libraries[underscore][type] = library
-libraries[underscore][download][tag] = 1.6.0
+libraries[underscore][download][tag] = 1.7.0
 
 libraries[disqus-php][download][type] = git
 libraries[disqus-php][download][url] = https://github.com/disqus/disqus-php.git
@@ -322,8 +328,8 @@ libraries[markdown][destination] = libraries
 libraries[markdown][type] = library
 libraries[markdown][download][tag] = x1.2.8
 
-libraries[pdf.js][download][type] = git
-libraries[pdf.js][download][url] = https://github.com/mozilla/pdf.js.git
+libraries[pdf.js][download][type] = get
+libraries[pdf.js][download][url] = https://github.com/mozilla/pdf.js/releases/download/v1.0.473/pdfjs-1.0.473-dist.zip
 libraries[pdf.js][destination] = libraries
 libraries[pdf.js][type] = library
 libraries[pdf.js][download][branch] = master
@@ -334,11 +340,6 @@ libraries[plupload][download][url] = https://github.com/moxiecode/plupload/archi
 libraries[plupload][patch][] = https://drupal.org/files/issues/plupload-1_5_8-rm_examples-1903850-16.patch
 libraries[plupload][type] = library
 
-libraries[colorbox][download][type] = git
-libraries[colorbox][directory_name] = colorbox
-libraries[colorbox][download][url] = https://github.com/jackmoore/colorbox.git
-libraries[colorbox][type] = library
-
 libraries[Jcrop][download][type] = git
 libraries[Jcrop][download][url] = https://github.com/tapmodo/Jcrop.git
 libraries[Jcrop][directory_name] = Jcrop
@@ -346,7 +347,7 @@ libraries[Jcrop][destination] = libraries
 libraries[Jcrop][type] = library
 
 libraries[x3dom][download][type] = get
-libraries[x3dom][download][url] = http://x3dom.org/download/1.6/x3dom-1.6.0.zip
+libraries[x3dom][download][url] = http://x3dom.org/download/1.6.1/x3dom-1.6.1.zip
 libraries[x3dom][type] = library
 
 ; for local development environment

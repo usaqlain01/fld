@@ -1,0 +1,59 @@
+<?php
+
+/**
+ * Implement hook_menu_link_alter().
+ */
+function menuentity_menu_link_alter(&$item) {
+  if (strpos($item['link_path'], '%') === FALSE) {
+
+    /** @see menu_get_item() */
+    // Do not call menu_get_item() in this function because it will cause recursion during menu rebuilds.
+    $original_map = arg(NULL, $item['link_path']);
+    $parts = array_slice($original_map, 0, MENU_MAX_PARTS);
+    $ancestors = menu_get_ancestors($parts);
+    $router_item = db_query_range('SELECT * FROM {menu_router} WHERE path IN (:ancestors) ORDER BY fit DESC', 0, 1, array(':ancestors' => $ancestors))->fetchAssoc();
+    if ($router_item) {
+      // Allow modules to alter the router item before it is translated and
+      // checked for access.
+      drupal_alter('menu_get_item', $router_item, $item['link_path'], $original_map);
+
+      $map = _menu_translate($router_item, $original_map);
+      $router_item['original_map'] = $original_map;
+      if ($map) {
+        $router_item['map'] = $map;
+        $router_item['page_arguments'] = array_merge(menu_unserialize($router_item['page_arguments'], $map), array_slice($map, $router_item['number_parts']));
+        $router_item['theme_arguments'] = array_merge(menu_unserialize($router_item['theme_arguments'], $map), array_slice($map, $router_item['number_parts']));
+
+        foreach (entity_get_info() as $entity_type => $info) {
+          if (isset($info['path'])) {
+            // @see menu_router_rebuild
+            $parts = explode('/', $info['path'], MENU_MAX_PARTS);
+            $position = 0;
+
+            foreach ($parts as $k => $part) {
+              if (preg_match('/^%(|' . DRUPAL_PHP_FUNCTION_PATTERN . ')$/', $part, $matches)) {
+                $parts[$k] = '%';
+                $position = $k;
+              }
+            }
+
+            if ($router_item['path'] == implode('/', $parts)) {
+
+              if (isset($router_item['load_functions'][$position]) && !empty($router_item['map'][$position]) && $router_item['load_functions'][$position] == $entity_type . '_load') {
+                $entity = $router_item['map'][$position];
+
+                list($id, $vid, $bundle) = entity_extract_ids($entity_type, $entity);
+                $item['options']['entity'] = array(
+                  'entity_type' => $entity_type,
+                  'id' => $id,
+                  'vid' => $vid,
+                  'bundle' => $bundle,
+                );
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

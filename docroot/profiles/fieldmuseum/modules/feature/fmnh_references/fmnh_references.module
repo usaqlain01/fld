@@ -37,7 +37,14 @@ function theme_field__field_references($variables) {
       'title_attributes' => array('class' => 'explore__subheading'),
       'content_attributes' => array('class' => 'promos--3up'),
       'view_mode' => 'promo',
-      'bundles' => array('exhibit', 'collection'),
+      'bundles' => array('collection'),
+    ),
+    array(
+      'title' => t('In Our Exhibitions'),
+      'title_attributes' => array('class' => 'explore__subheading'),
+      'content_attributes' => array('class' => 'promos--3up'),
+      'view_mode' => 'promo',
+      'bundles' => array('exhibit'),
     ),
     array(
       'title' => t('From Our Galleries'),

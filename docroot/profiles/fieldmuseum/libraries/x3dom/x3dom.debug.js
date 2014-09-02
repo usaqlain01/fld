@@ -1,4 +1,4 @@
-/** X3DOM Runtime, http://www.x3dom.org/ 2.0.0-dev - cbcee9080402f6d5507f747da625deca8ac3fc62 - Mon Jun 2 17:35:17 2014 +0200 *//*
+/** X3DOM Runtime, http://www.x3dom.org/ 1.6.1 - 979902877438b38183164b102350130392ada7d5 - Thu Jul 24 17:38:21 2014 +0200 *//*
  * X3DOM JavaScript Library
  * http://www.x3dom.org
  *
@@ -1085,6 +1085,299 @@ get : function(urls, onloadCallbacks, priorities) {
 	
 };
 
+/*
+ * X3DOM JavaScript Library
+ * http://www.x3dom.org
+ *
+ * (C)2009 Fraunhofer IGD, Darmstadt, Germany
+ * Dual licensed under the MIT and GPL
+ *
+ * Based on code originally provided by
+ * Philip Taylor: http://philip.html5.org
+ */
+
+
+/**
+ *  Parts Object is return
+ */
+x3dom.Parts = function(multiPart, ids, colorMap, visibilityMap)
+{
+    var parts = this;
+    this.multiPart = multiPart;
+    this.ids = ids;
+    this.colorMap = colorMap;
+    this.visibilityMap = visibilityMap;
+
+    /**
+     *
+     * @param color
+     */
+    this.setColor = function(color) {
+
+        var i, x, y;
+
+        if (color.split(" ").length == 3) {
+            color += " 1";
+        }
+
+        var colorRGBA = x3dom.fields.SFColorRGBA.parse(color);
+
+        if (ids.length && ids.length > 1) //Multi select
+        {
+            var pixels = parts.colorMap.getPixels();
+
+            for(i=0; i<parts.ids.length; i++) {
+                if (this.multiPart._highlightedParts[parts.ids[i]]){
+                    this.multiPart._highlightedParts[parts.ids[i]] = colorRGBA;
+                } else {
+                    pixels[parts.ids[i]] = colorRGBA;
+                }
+            }
+
+            parts.colorMap.setPixels(pixels);
+        }
+        else //Single select
+        {
+            if (this.multiPart._highlightedParts[parts.ids[0]]){
+                this.multiPart._highlightedParts[parts.ids[0]] = colorRGBA;
+            } else {
+                x = parts.ids[0] % parts.colorMap.getWidth();
+                y = Math.floor(parts.ids[0] / parts.colorMap.getHeight());
+                parts.colorMap.setPixel(x, y, colorRGBA);
+            }
+        }
+    };
+	
+	/**
+     *
+     * @param color
+     */
+    this.resetColor = function() {
+
+        var i, x, y, colorRGBA;
+		
+        if (ids.length && ids.length > 1) //Multi select
+        {
+            var pixels = parts.colorMap.getPixels();
+
+            for(i=0; i<parts.ids.length; i++) {
+				colorRGBA = this.multiPart._originalColor[parts.ids[i]];
+			
+                if (this.multiPart._highlightedParts[parts.ids[i]]){
+                    this.multiPart._highlightedParts[parts.ids[i]] = colorRGBA;
+                } else {
+                    pixels[parts.ids[i]] = colorRGBA;
+                }
+            }
+
+            parts.colorMap.setPixels(pixels);
+        }
+        else //Single select
+        {
+			colorRGBA = this.multiPart._originalColor[parts.ids[0]];
+            if (this.multiPart._highlightedParts[parts.ids[0]]){
+                this.multiPart._highlightedParts[parts.ids[0]] = colorRGBA;
+            } else {
+                x = parts.ids[0] % parts.colorMap.getWidth();
+                y = Math.floor(parts.ids[0] / parts.colorMap.getHeight());
+                parts.colorMap.setPixel(x, y, colorRGBA);
+            }
+        }
+    };
+
+    /**
+     *
+     * @param transparency
+     */
+    this.setTransparency = function(transparency) {
+
+        var i, x, y;
+
+        if (ids.length && ids.length > 1) //Multi select
+        {
+            var pixels = parts.colorMap.getPixels();
+
+            for(i=0; i<parts.ids.length; i++) {
+                if (this.multiPart._highlightedParts[parts.ids[i]]){
+                    this.multiPart._highlightedParts[parts.ids[i]].a = 1.0 - transparency;
+                } else {
+                    pixels[parts.ids[i]].a = 1.0 - transparency;
+                }
+            }
+
+            parts.colorMap.setPixels(pixels);
+        }
+        else //Single select
+        {
+            if (this.multiPart._highlightedParts[parts.ids[0]]){
+                this.multiPart._highlightedParts[parts.ids[0]].a = 1.0 - transparency;
+            } else {
+                x = parts.ids[0] % parts.colorMap.getWidth();
+                y = Math.floor(parts.ids[0] / parts.colorMap.getHeight());
+
+                var pixel = parts.colorMap.getPixel(x, y);
+
+                pixel.a = 1.0 - transparency;
+
+                parts.colorMap.setPixel(x, y, pixel);
+            }
+        }
+    };
+
+    /**
+     *
+     * @param visibility
+     */
+    this.setVisibility = function(visibility) {
+
+        var i, j, x, y, usage, visibleCount, visibilityAsInt;
+
+        if (!(ids.length && ids.length > 1)) {
+            x = parts.ids[0] % parts.colorMap.getWidth();
+            y = Math.floor(parts.ids[0] / parts.colorMap.getHeight());
+
+            var pixel = parts.visibilityMap.getPixel(x, y);
+
+            visibilityAsInt = (visibility) ? 1 : 0;
+
+            if (pixel.r != visibilityAsInt) {
+                pixel.r = visibilityAsInt;
+
+                this.multiPart._partVisibility[parts.ids[0]] = visibility;
+                
+                //get used shapes
+                usage = this.multiPart._idMap.mapping[parts.ids[0]].usage;
+
+                //Change the shapes render flag
+                for (j = 0; j < usage.length; j++) {
+                    visibleCount = this.multiPart._visiblePartsPerShape[usage[j]];
+                    if (visibility && visibleCount.val < visibleCount.max) {
+                        visibleCount.val++;
+                    } else if (!visibility && visibleCount.val > 0) {
+                        visibleCount.val--;
+                    }
+
+                    if (visibleCount.val) {
+                        this.multiPart._inlineNamespace.defMap[usage[j]]._vf.render = true;
+                    } else {
+                        this.multiPart._inlineNamespace.defMap[usage[j]]._vf.render = false;
+                    }
+                }
+            }
+
+            parts.visibilityMap.setPixel(x, y, pixel);
+            this.multiPart.invalidateVolume();
+        }
+        else
+        {
+            var pixels = parts.visibilityMap.getPixels();
+
+            for (i = 0; i < parts.ids.length; i++) {
+
+                visibilityAsInt = (visibility) ? 1 : 0;
+
+                if (pixels[parts.ids[i]].r != visibilityAsInt) {
+                    pixels[parts.ids[i]].r = visibilityAsInt;
+
+                    this.multiPart._partVisibility[parts.ids[i]] = visibility;
+
+                    //get used shapes
+                    usage = this.multiPart._idMap.mapping[parts.ids[i]].usage;
+
+                    //Change the shapes render flag
+                    for (j = 0; j < usage.length; j++) {
+                        visibleCount = this.multiPart._visiblePartsPerShape[usage[j]];
+                        if (visibility && visibleCount.val < visibleCount.max) {
+                            visibleCount.val++;
+                        } else if (!visibility && visibleCount.val > 0) {
+                            visibleCount.val--;
+                        }
+
+                        if (visibleCount.val) {
+                            this.multiPart._inlineNamespace.defMap[usage[j]]._vf.render = true;
+                        } else {
+                            this.multiPart._inlineNamespace.defMap[usage[j]]._vf.render = false;
+                        }
+                    }
+                }
+            }
+
+            parts.visibilityMap.setPixels(pixels);
+            this.multiPart.invalidateVolume();
+        }
+    };
+
+    /**
+     *
+     * @param color
+     */
+    this.highlight = function(color) {
+
+        var i, x, y;
+
+        if (color.split(" ").length == 3) {
+            color += " 1";
+        }
+
+        var colorRGBA = x3dom.fields.SFColorRGBA.parse(color);
+
+        if (ids.length && ids.length > 1) //Multi select
+        {
+            var pixels = parts.colorMap.getPixels();
+
+            for(i=0; i<parts.ids.length; i++) {
+                if (this.multiPart._highlightedParts[parts.ids[i]] == undefined) {
+                    this.multiPart._highlightedParts[parts.ids[i]] = pixels[parts.ids[i]]
+                    pixels[parts.ids[i]] = colorRGBA;
+                }
+            }
+
+            parts.colorMap.setPixels(pixels);
+        }
+        else //Single select
+        {
+            if (this.multiPart._highlightedParts[parts.ids[0]] == undefined){
+
+                x = parts.ids[0] % parts.colorMap.getWidth();
+                y = Math.floor(parts.ids[0] / parts.colorMap.getHeight());
+                this.multiPart._highlightedParts[parts.ids[0]] = parts.colorMap.getPixel(x, y);
+                parts.colorMap.setPixel(x, y, colorRGBA);
+            }
+        }
+    };
+
+    /**
+     *
+     * @param color
+     */
+    this.unhighlight = function() {
+
+        var i, x, y;
+
+        if (ids.length && ids.length > 1) //Multi select
+        {
+            var pixels = parts.colorMap.getPixels();
+            for(i=0; i<parts.ids.length; i++) {
+                if (this.multiPart._highlightedParts[parts.ids[i]]) {
+                    pixels[parts.ids[i]] = this.multiPart._highlightedParts[parts.ids[i]];
+                    this.multiPart._highlightedParts[parts.ids[i]] = undefined;
+                }
+            }
+            parts.colorMap.setPixels(pixels);
+        }
+        else
+        {
+            if (this.multiPart._highlightedParts[parts.ids[0]]) {
+
+                x = parts.ids[0] % parts.colorMap.getWidth();
+                y = Math.floor(parts.ids[0] / parts.colorMap.getHeight());
+                var pixel = this.multiPart._highlightedParts[parts.ids[0]];
+                this.multiPart._highlightedParts[parts.ids[0]] = undefined;
+                parts.colorMap.setPixel(x, y, pixel);
+            }
+        }
+    };
+};
 /*
  * X3DOM JavaScript Library
  * http://www.x3dom.org
@@ -2198,9 +2491,11 @@ x3dom.Utils.generateProperties = function (viewarea, shape)
         property.IG_INDEXED       = (property.IMAGEGEOMETRY && geometry.getIndexTexture() != null) ? 1 : 0;
         property.POINTLINE2D      = !geometry.needLighting() ? 1 : 0;
         property.VERTEXID         = (property.BINARYGEOMETRY && geometry._vf.idsPerVertex) ? 1 : 0;
-
+        property.IS_PARTICLE      = (x3dom.isa(geometry, x3dom.nodeTypes.ParticleSet)) ? 1 : 0;
 
         property.APPMAT           = (appearance && (material || property.CSSHADER) ) ? 1 : 0;
+        property.TWOSIDEDMAT      = ( property.APPMAT && x3dom.isa(material, x3dom.nodeTypes.TwoSidedMaterial)) ? 1 : 0;
+        property.SEPARATEBACKMAT  = ( property.TWOSIDEDMAT && material._vf.separateBackColor) ? 1 : 0;
         property.SHADOW           = (viewarea.getLightsShadow()) ? 1 : 0;
         property.FOG              = (viewarea._scene.getFog()._vf.visibilityRange > 0) ? 1 : 0;
         property.CSSHADER         = (appearance && appearance._shader &&
@@ -2212,7 +2507,7 @@ x3dom.Utils.generateProperties = function (viewarea, shape)
         property.DIFFUSEMAP       = (property.CSSHADER && appearance._shader.getDiffuseMap()) ? 1 : 0;
         property.NORMALMAP        = (property.CSSHADER && appearance._shader.getNormalMap()) ? 1 : 0;
         property.SPECMAP          = (property.CSSHADER && appearance._shader.getSpecularMap()) ? 1 : 0;
-        property.SHINMAP        = (property.CSSHADER && appearance._shader.getShininessMap()) ? 1 : 0;
+        property.SHINMAP          = (property.CSSHADER && appearance._shader.getShininessMap()) ? 1 : 0;
         property.DISPLACEMENTMAP  = (property.CSSHADER && appearance._shader.getDisplacementMap()) ? 1 : 0;
         property.DIFFPLACEMENTMAP = (property.CSSHADER && appearance._shader.getDiffuseDisplacementMap()) ? 1 : 0;
         property.MULTIDIFFALPMAP  = (property.VERTEXID && property.CSSHADER && appearance._shader.getMultiDiffuseAlphaMap()) ? 1 : 0;
@@ -2233,6 +2528,7 @@ x3dom.Utils.generateProperties = function (viewarea, shape)
                                      (property.IMAGEGEOMETRY && geometry.getColorTexture()) ||
                                      (property.POPGEOMETRY    && geometry.hasColor()) ||
                                      (geometry._vf.color !== undefined && geometry._vf.color.length > 0)) ? 1 : 0;
+        property.CLIPPLANES       = shape._clipPlanes.length;
         
         property.GAMMACORRECTION  = environment._vf.gammaCorrectionDefault;
 	}
@@ -3191,7 +3487,7 @@ x3dom.BinaryContainerLoader.setupBinGeo = function(shape, sp, gl, viewarea, curr
     if (binGeo._vf.index.length > 0)
     {
         var xmlhttp0 = new XMLHttpRequest();
-        xmlhttp0.open("GET", encodeURI(shape._nameSpace.getURL(binGeo._vf.index)), true);
+        xmlhttp0.open("GET", shape._nameSpace.getURL(binGeo._vf.index), true);
         xmlhttp0.responseType = "arraybuffer";
 
         shape._nameSpace.doc.downloadCount += 1;
@@ -3265,7 +3561,7 @@ x3dom.BinaryContainerLoader.setupBinGeo = function(shape, sp, gl, viewarea, curr
     if (binGeo._hasStrideOffset && binGeo._vf.coord.length > 0)
     {
         var xmlhttp = new XMLHttpRequest();
-        xmlhttp.open("GET", encodeURI(shape._nameSpace.getURL(binGeo._vf.coord)), true);
+        xmlhttp.open("GET", shape._nameSpace.getURL(binGeo._vf.coord), true);
         xmlhttp.responseType = "arraybuffer";
 
         shape._nameSpace.doc.downloadCount += 1;
@@ -3375,7 +3671,7 @@ x3dom.BinaryContainerLoader.setupBinGeo = function(shape, sp, gl, viewarea, curr
     if (!binGeo._hasStrideOffset && binGeo._vf.coord.length > 0)
     {
         var xmlhttp1 = new XMLHttpRequest();
-        xmlhttp1.open("GET", encodeURI(shape._nameSpace.getURL(binGeo._vf.coord)), true);
+        xmlhttp1.open("GET", shape._nameSpace.getURL(binGeo._vf.coord), true);
         xmlhttp1.responseType = "arraybuffer";
 
         shape._nameSpace.doc.downloadCount += 1;
@@ -3471,7 +3767,7 @@ x3dom.BinaryContainerLoader.setupBinGeo = function(shape, sp, gl, viewarea, curr
     if (!binGeo._hasStrideOffset && binGeo._vf.normal.length > 0)
     {
         var xmlhttp2 = new XMLHttpRequest();
-        xmlhttp2.open("GET", encodeURI(shape._nameSpace.getURL(binGeo._vf.normal)), true);
+        xmlhttp2.open("GET", shape._nameSpace.getURL(binGeo._vf.normal), true);
         xmlhttp2.responseType = "arraybuffer";
 
         shape._nameSpace.doc.downloadCount += 1;
@@ -3528,7 +3824,7 @@ x3dom.BinaryContainerLoader.setupBinGeo = function(shape, sp, gl, viewarea, curr
     if (!binGeo._hasStrideOffset && binGeo._vf.texCoord.length > 0)
     {
         var xmlhttp3 = new XMLHttpRequest();
-        xmlhttp3.open("GET", encodeURI(shape._nameSpace.getURL(binGeo._vf.texCoord)), true);
+        xmlhttp3.open("GET", shape._nameSpace.getURL(binGeo._vf.texCoord), true);
         xmlhttp3.responseType = "arraybuffer";
 
         shape._nameSpace.doc.downloadCount += 1;
@@ -3617,7 +3913,7 @@ x3dom.BinaryContainerLoader.setupBinGeo = function(shape, sp, gl, viewarea, curr
     if (!binGeo._hasStrideOffset && binGeo._vf.color.length > 0)
     {
         var xmlhttp4 = new XMLHttpRequest();
-        xmlhttp4.open("GET", encodeURI(shape._nameSpace.getURL(binGeo._vf.color)), true);
+        xmlhttp4.open("GET", shape._nameSpace.getURL(binGeo._vf.color), true);
         xmlhttp4.responseType = "arraybuffer";
 
         shape._nameSpace.doc.downloadCount += 1;
@@ -4821,8 +5117,8 @@ x3dom.X3DCanvas = function(x3dElem, canvasIdx)
 
     //try to determine behavior of certain DOMNodeInsertedEvent:
     //IE11 dispatches one event for each node in an inserted subtree, other browsers use a single event per subtree
-    x3dom.caps.DOMNodeInsertedEvent_perSubtree = (navigator.userAgent.indexOf('MSIE')    != -1 ||
-                                                  navigator.userAgent.indexOf('Trident') != -1   ) ? false : true;
+    x3dom.caps.DOMNodeInsertedEvent_perSubtree = !(navigator.userAgent.indexOf('MSIE')    != -1 ||
+                                                   navigator.userAgent.indexOf('Trident') != -1 );
 
     // allow listening for (size) changes
     x3dElem.__setAttribute = x3dElem.setAttribute;
@@ -4854,7 +5150,6 @@ x3dom.X3DCanvas = function(x3dElem, canvasIdx)
                 break;
         }
     };
-
 
 
     x3dom.caps.MOBILE = (navigator.appVersion.indexOf("Mobile") > -1);
@@ -4973,6 +5268,7 @@ x3dom.X3DCanvas = function(x3dElem, canvasIdx)
             if(!this.isMulti) {
                 this.focus();
                 this.classList.add('x3dom-canvas-mousedown');
+
                 switch(evt.button) {
                     case 0:  this.mouse_button = 1; break;  //left
                     case 1:  this.mouse_button = 4; break;  //middle
@@ -4999,6 +5295,7 @@ x3dom.X3DCanvas = function(x3dElem, canvasIdx)
             if(!this.isMulti) {
                 var prev_mouse_button = this.mouse_button;
                 this.classList.remove('x3dom-canvas-mousedown');
+
                 this.mouse_button = 0;
                 this.mouse_dragging = false;
 
@@ -5021,6 +5318,7 @@ x3dom.X3DCanvas = function(x3dElem, canvasIdx)
             if(!this.isMulti) {
                 this.mouse_button = 0;
                 this.mouse_dragging = false;
+                this.classList.remove('x3dom-canvas-mousedown');
 
                 this.parent.doc.onMouseOut(that.gl, this.mouse_drag_x, this.mouse_drag_y, this.mouse_button);
                 this.parent.doc.needRender = true;
@@ -5076,6 +5374,7 @@ x3dom.X3DCanvas = function(x3dElem, canvasIdx)
 
                 this.parent.doc.onDrag(that.gl, this.mouse_drag_x, this.mouse_drag_y, 2);
                 this.parent.doc.needRender = true;
+                this.parent.doc.onMouseRelease(that.gl, this.mouse_drag_x, this.mouse_drag_y, 0, 0);
 
                 evt.preventDefault();
                 evt.stopPropagation();
@@ -5090,6 +5389,7 @@ x3dom.X3DCanvas = function(x3dElem, canvasIdx)
 
                 this.parent.doc.onDrag(that.gl, this.mouse_drag_x, this.mouse_drag_y, 2);
                 this.parent.doc.needRender = true;
+                this.parent.doc.onMouseRelease(that.gl, this.mouse_drag_x, this.mouse_drag_y, 0, 0);
 
                 evt.preventDefault();
                 evt.stopPropagation();
@@ -5132,15 +5432,15 @@ x3dom.X3DCanvas = function(x3dElem, canvasIdx)
             firstTouchTime: new Date().getTime(),
             firstTouchPoint: new x3dom.fields.SFVec2f(0,0),
 
+            lastPos : new x3dom.fields.SFVec2f(),
             lastDrag : new x3dom.fields.SFVec2f(),
 
             lastMiddle : new x3dom.fields.SFVec2f(),
-            lastDistance : new x3dom.fields.SFVec2f(),
             lastSquareDistance : 0,
             lastAngle : 0,
             lastLayer : [],
 
-            examineNavType: true,
+            examineNavType: 1,
 
             calcAngle : function(vector)
             {
@@ -5205,7 +5505,7 @@ x3dom.X3DCanvas = function(x3dElem, canvasIdx)
             }
         };
 
-        // Mozilla Touches
+        // Mozilla Touches (seems obsolete now...)
         var mozilla_ids = [];
 
         var mozilla_touches =
@@ -5227,7 +5527,18 @@ x3dom.X3DCanvas = function(x3dElem, canvasIdx)
                 doc = this.parent.doc;
 
             var navi = doc._scene.getNavigationInfo();
-            touches.examineNavType = (navi.getType() == "examine");
+
+            switch(navi.getType()) {
+                case "examine":
+                    touches.examineNavType = 1;
+                    break;
+                case "turntable":
+                    touches.examineNavType = 2;
+                    break;
+                default:
+                    touches.examineNavType = 0;
+                    break;
+            }
 
             touches.lastLayer = [];
 
@@ -5253,16 +5564,17 @@ x3dom.X3DCanvas = function(x3dElem, canvasIdx)
                 var middle = distance.multiply(0.5).add(touch0);
                 var squareDistance = distance.dot(distance);
 
-                touches.lastDistance = distance;
                 touches.lastMiddle = middle;
                 touches.lastSquareDistance = squareDistance;
                 touches.lastAngle = touches.calcAngle(distance);
+
+                touches.lastPos = this.parent.mousePosition(evt.touches[0]);
             }
 
             // update scene bbox
             doc._scene.updateVolume();
 
-            if (touches.examineNavType) {
+            if (touches.examineNavType == 1) {
                 for(i = 0; i < evt.touches.length; i++) {
                     pos = this.parent.mousePosition(evt.touches[i]);
                     doc.onPick(that.gl, pos.x, pos.y);
@@ -5308,7 +5620,9 @@ x3dom.X3DCanvas = function(x3dElem, canvasIdx)
             var pos = null;
             var rotMatrix = null;
 
-            if (touches.examineNavType) {
+            var touch0, touch1, distance, middle, squareDistance, deltaMiddle, deltaZoom, deltaMove;
+
+            if (touches.examineNavType == 1) {
                 /*
                  if (doc._scene._vf.doPickPass && doc._scene._vf.pickMode.toLowerCase() !== "box") {
                  for(var i = 0; i < evt.touches.length; i++) {
@@ -5335,20 +5649,19 @@ x3dom.X3DCanvas = function(x3dElem, canvasIdx)
                 }
                 // two fingers: scale, translation, rotation around view (z) axis
                 else if(evt.touches.length >= 2) {
-                    var touch0 = new x3dom.fields.SFVec2f(evt.touches[0].screenX, evt.touches[0].screenY);
-                    var touch1 = new x3dom.fields.SFVec2f(evt.touches[1].screenX, evt.touches[1].screenY);
+                    touch0 = new x3dom.fields.SFVec2f(evt.touches[0].screenX, evt.touches[0].screenY);
+                    touch1 = new x3dom.fields.SFVec2f(evt.touches[1].screenX, evt.touches[1].screenY);
 
-                    var distance = touch1.subtract(touch0);
-                    var middle = distance.multiply(0.5).add(touch0);
-                    var squareDistance = distance.dot(distance);
+                    distance = touch1.subtract(touch0);
+                    middle = distance.multiply(0.5).add(touch0);
+                    squareDistance = distance.dot(distance);
 
-                    var deltaMiddle = middle.subtract(touches.lastMiddle);
-                    var deltaZoom = squareDistance - touches.lastSquareDistance;
+                    deltaMiddle = middle.subtract(touches.lastMiddle);
+                    deltaZoom = squareDistance - touches.lastSquareDistance;
 
-                    var deltaMove = new x3dom.fields.SFVec3f(
-                        deltaMiddle.x / screen.width,
-                        -deltaMiddle.y / screen.height,
-                        deltaZoom / (screen.width * screen.height * 0.2));
+                    deltaMove = new x3dom.fields.SFVec3f(
+                                deltaMiddle.x / screen.width, -deltaMiddle.y / screen.height,
+                                deltaZoom / (screen.width * screen.height * 0.2));
 
                     var rotation = touches.calcAngle(distance);
                     var angleDelta = touches.lastAngle - rotation;
@@ -5357,15 +5670,30 @@ x3dom.X3DCanvas = function(x3dElem, canvasIdx)
                     rotMatrix = x3dom.fields.SFMatrix4f.rotationZ(angleDelta);
 
                     touches.lastMiddle = middle;
-                    touches.lastDistance = distance;
                     touches.lastSquareDistance = squareDistance;
 
                     doc.onMoveView(that.gl, deltaMove, rotMatrix);
                 }
             }
             else if (evt.touches.length) {
-                pos = this.parent.mousePosition(evt.touches[0]);
-                doc.onDrag(that.gl, pos.x, pos.y, 1);
+                if (touches.examineNavType == 2 && evt.touches.length >= 2) {
+                    touch0 = new x3dom.fields.SFVec2f(evt.touches[0].screenX, evt.touches[0].screenY);
+                    touch1 = new x3dom.fields.SFVec2f(evt.touches[1].screenX, evt.touches[1].screenY);
+
+                    distance = touch1.subtract(touch0);
+                    squareDistance = distance.dot(distance);
+                    deltaZoom = (squareDistance - touches.lastSquareDistance) / (0.1 * (screen.width + screen.height));
+
+                    touches.lastPos.y += deltaZoom;
+                    touches.lastSquareDistance = squareDistance;
+
+                    doc.onDrag(that.gl, touches.lastPos.x, touches.lastPos.y, 2);
+                }
+                else {
+                    pos = this.parent.mousePosition(evt.touches[0]);
+
+                    doc.onDrag(that.gl, pos.x, pos.y, 1);
+                }
             }
 
             doc.needRender = true;
@@ -5406,7 +5734,7 @@ x3dom.X3DCanvas = function(x3dElem, canvasIdx)
                 touches.numTouches = evt.touches.length;
             }
 
-            if (touches.examineNavType) {
+            if (touches.examineNavType == 1) {
                 for(var i = 0; i < touches.lastLayer.length; i++) {
                     var pos = touches.lastLayer[i][1];
 
@@ -5479,10 +5807,11 @@ x3dom.X3DCanvas = function(x3dElem, canvasIdx)
 
         if (!this.disableTouch)
         {
-            // mozilla touch events
-            this.canvas.addEventListener('MozTouchDown',  touchStartHandlerMoz, true);
-            this.canvas.addEventListener('MozTouchMove',  touchMoveHandlerMoz,  true);
-            this.canvas.addEventListener('MozTouchUp',    touchEndHandlerMoz,   true);
+            // mozilla touch events (TODO: seem to be obsolete now, completely remove all code if no one complains!)
+            // However, touch in general seems to be broken if this flag is not set: dom.w3c_touch_events.enabled;10
+            //this.canvas.addEventListener('MozTouchDown',  touchStartHandlerMoz, true);
+            //this.canvas.addEventListener('MozTouchMove',  touchMoveHandlerMoz,  true);
+            //this.canvas.addEventListener('MozTouchUp',    touchEndHandlerMoz,   true);
 
             // w3c / apple touch events (in Chrome via chrome://flags)
             this.canvas.addEventListener('touchstart',    touchStartHandler, true);
@@ -5550,9 +5879,9 @@ x3dom.X3DCanvas.prototype._initFlashContext = function(canvas, renderType) {
 
 /**
  * Creates a param node and adds it to the target node's children
- * @param {node} - the target node
- * @param {name} - the name for the parameter
- * @param {value} - the value for the parameter
+ * @param {String} node - the target node
+ * @param {String} name - the name for the parameter
+ * @param {String} value - the value for the parameter
  */
 x3dom.X3DCanvas.prototype.appendParam = function(node, name, value) {
     var param = document.createElement('param');
@@ -5819,15 +6148,10 @@ x3dom.X3DCanvas.prototype._createHTMLCanvas = function(x3dElem)
         "ontouchleave",
         "ontouchenter",
 
-        // apple gestures
-        //"ongesturestart",
-        //"ongesturechange",
-        //"ongestureend",
-
         // mozilla touch
-        "onMozTouchDown",
-        "onMozTouchMove",
-        "onMozTouchUp",
+        //"onMozTouchDown",
+        //"onMozTouchMove",
+        //"onMozTouchUp",
 
         // drag and drop, requires 'draggable' source property set true (usually of an img)
         "ondragstart",
@@ -5876,7 +6200,7 @@ x3dom.X3DCanvas.prototype._createHTMLCanvas = function(x3dElem)
 
             if (found) {
                 x3dom.debug.logInfo('addEventListener for div.on' + type);
-                that.canvas.addEventListener(type, func, phase);
+                canvas.addEventListener(type, func, phase);
             } else {
                 x3dom.debug.logInfo('addEventListener for X3D.on' + type);
                 this.__addEventListener(type, func, phase);
@@ -5893,7 +6217,7 @@ x3dom.X3DCanvas.prototype._createHTMLCanvas = function(x3dElem)
 
             if (found) {
                 x3dom.debug.logInfo('removeEventListener for div.on' + type);
-                that.canvas.removeEventListener(type, func, phase);
+                canvas.removeEventListener(type, func, phase);
             } else {
                 x3dom.debug.logInfo('removeEventListener for X3D.on' + type);
                 this.__removeEventListener(type, func, phase);
@@ -7731,6 +8055,19 @@ x3dom.Cache.prototype.getTexture2D = function (gl, doc, url, bgnd, withCredentia
 };
 
 /**
+ * Returns a Texture 2D
+ */
+x3dom.Cache.prototype.getTexture2DByDEF = function (gl, nameSpace, def) {
+    var textureIdentifier = nameSpace.name + "_" + def;
+
+    if (this.textures[textureIdentifier] === undefined) {
+        this.textures[textureIdentifier] = gl.createTexture();
+    }
+
+    return this.textures[textureIdentifier];
+};
+
+/**
  * Returns a Cube Texture
  */
 x3dom.Cache.prototype.getTextureCube = function (gl, doc, url, bgnd, withCredentials, scale, genMipMaps) {
@@ -7840,16 +8177,22 @@ x3dom.Cache.prototype.getDynamicShader = function (gl, viewarea, shape) {
 /**
  * Returns a dynamic generated shader program by properties
  */
-x3dom.Cache.prototype.getShaderByProperties = function (gl, shape, properties) {
+x3dom.Cache.prototype.getShaderByProperties = function (gl, shape, properties, pickMode) {
 
     //Get shaderID
     var shaderID = properties.id;
+
+    if(pickMode != undefined || pickMode != null) {
+        shaderID += pickMode;
+    }
 
     if (this.shaders[shaderID] === undefined)
     {
         var program;
         if (properties.CSHADER != -1) {
             program = new x3dom.shader.ComposedShader(gl, shape);
+        } else if(pickMode != undefined || pickMode != null) {
+            program = new x3dom.shader.DynamicShaderPicking(gl, properties, pickMode);
         } else {
             program = (x3dom.caps.MOBILE && !properties.CSSHADER) ? new x3dom.shader.DynamicMobileShader(gl, properties) :
                 new x3dom.shader.DynamicShader(gl, properties);
@@ -7969,6 +8312,8 @@ x3dom.Texture = function (gl, doc, cache, node) {
     var tex = this.node;
     var suffix = "mpd";
 
+    this.node._x3domTexture = this;
+
     if (x3dom.isa(tex, x3dom.nodeTypes.MovieTexture)) {
         // for dash we are lazy and check only the first url
         if (tex._vf.url[0].indexOf(suffix, tex._vf.url[0].length - suffix.length) !== -1) {
@@ -8026,6 +8371,23 @@ x3dom.Texture.prototype.update = function()
 	{
 		this.updateTexture();
 	}
+};
+
+x3dom.Texture.prototype.setPixel = function(x, y, pixel)
+{
+    var gl  = this.gl;
+
+    var pixels = new Uint8Array(pixel);
+
+    gl.bindTexture(this.type, this.texture);
+
+    gl.pixelStorei(gl.UNPACK_ALIGNMENT, 1);
+
+    gl.texSubImage2D(this.type, 0, x, y, 1, 1, this.format, gl.UNSIGNED_BYTE, pixels);
+
+    gl.bindTexture(this.type, null);
+    
+    this.doc.needRender = true;
 };
 
 x3dom.Texture.prototype.updateTexture = function()
@@ -8155,7 +8517,11 @@ x3dom.Texture.prototype.updateTexture = function()
 	else if (x3dom.isa(tex, x3dom.nodeTypes.PixelTexture))
 	{
 		if (this.texture == null) {
-			this.texture = gl.createTexture()
+            if (this.node._DEF) {
+                this.texture = this.cache.getTexture2DByDEF(gl, this.node._nameSpace, this.node._DEF);
+            } else {
+                this.texture = gl.createTexture();
+            }
 		}
         this.texture.width  = tex._vf.image.width;
         this.texture.height = tex._vf.image.height;
@@ -9191,15 +9557,15 @@ x3dom.MatrixMixer.prototype.mix = function(time) {
  * During each frame, only interaction of the current type is being processed, it is not possible to
  * perform interaction (for instance, selecting or dragging objects) and navigation at the same time
  */
-x3dom.InputTypes = {};
-
-x3dom.InputTypes.NAVIGATION  = 1;
-x3dom.InputTypes.INTERACTION = 2;
+x3dom.InputTypes = {
+    NAVIGATION:  1,
+    INTERACTION: 2
+};
 
 
 /**
 * Constructor.
-    *
+*
 * @class represents a view area
 * @param {x3dom.X3DDocument} document - the target X3DDocument
 * @param {Object} scene - the scene
@@ -9275,6 +9641,8 @@ x3dom.Viewarea = function (document, scene) {
      * @protected
      */
     this._deltaT = 0;
+
+    this._flyMat = null;
 
     this._pitch = 0;
     this._yaw = 0;
@@ -9526,8 +9894,10 @@ x3dom.Viewarea.prototype.navigateTo = function(timeStamp)
             tmpMat = x3dom.fields.SFMatrix4f.lookAt(tmpFrom, tmpAt, tmpUp);
             tmpMat = tmpMat.inverse();
 
+            this._scene._forcePicking = true;
             this._scene._nameSpace.doc.ctx.pickValue(this, this._width/2, this._height/2,
                         this._lastButton, tmpMat, this.getProjectionMatrix().mult(tmpMat));
+            this._scene._forcePicking = false;            
 
             if (this._pickingInfo.pickObj)
             {
@@ -9647,6 +10017,7 @@ x3dom.Viewarea.prototype.navigateTo = function(timeStamp)
             var currProjMat = this.getProjectionMatrix();
 
             if (navType !== "freefly") {
+                this._scene._forcePicking = true;
                 if (step < 0) {
                     // backwards: negate viewing direction
                     tmpMat = new x3dom.fields.SFMatrix4f();
@@ -9659,7 +10030,7 @@ x3dom.Viewarea.prototype.navigateTo = function(timeStamp)
                 else {
                     this._scene._nameSpace.doc.ctx.pickValue(this, this._width/2, this._height/2, this._lastButton);
                 }
-
+                this._scene._forcePicking = false;
                 if (this._pickingInfo.pickObj)
                 {
                     dist = this._pickingInfo.pickPos.subtract(this._from).length();
@@ -9684,8 +10055,10 @@ x3dom.Viewarea.prototype.navigateTo = function(timeStamp)
                 tmpMat = x3dom.fields.SFMatrix4f.lookAt(this._from, tmpAt, tmpUp);
                 tmpMat = tmpMat.inverse();
 
+                this._scene._forcePicking = true;
                 this._scene._nameSpace.doc.ctx.pickValue(this, this._width/2, this._height/2,
                             this._lastButton, tmpMat, currProjMat.mult(tmpMat));
+                this._scene._forcePicking = false;            
 
                 if (this._pickingInfo.pickObj)
                 {
@@ -9728,7 +10101,9 @@ x3dom.Viewarea.prototype.moveFwd = function()
         var fMat = this._flyMat.inverse();
 
         // check front for collisions
+        this._scene._forcePicking = true;
         this._scene._nameSpace.doc.ctx.pickValue(this, this._width/2, this._height/2, this._lastButton);
+        this._scene._forcePicking = false;
 
         if (this._pickingInfo.pickObj)
         {
@@ -10374,7 +10749,7 @@ x3dom.Viewarea.prototype.checkEvents = function (obj, x, y, buttonState, eventTy
     var that = this;
     var needRecurse = true;
     var childNode;
-    var i;
+    var i, n;
     var target = (obj && obj._xmlNode) ? obj._xmlNode : {};
 
 
@@ -10436,11 +10811,13 @@ x3dom.Viewarea.prototype.checkEvents = function (obj, x, y, buttonState, eventTy
             if (buttonState == 0 && affectedPointingSensorsList.length == 0 &&
                 (eventType == 'onmousemove' || eventType == 'onmouseover' || eventType == 'onmouseout') )
             {
-                for (i = 0; i < node._childNodes.length; ++i)
+                n = node._childNodes.length;
+
+                for (i = 0; i < n; ++i)
                 {
                     childNode = node._childNodes[i];
 
-                    if (x3dom.isa(childNode, x3dom.nodeTypes.X3DPointingDeviceSensorNode))
+                    if (x3dom.isa(childNode, x3dom.nodeTypes.X3DPointingDeviceSensorNode) && childNode._vf.enabled)
                     {
                         affectedPointingSensorsList.push(childNode);
                     }
@@ -10464,7 +10841,6 @@ x3dom.Viewarea.prototype.checkEvents = function (obj, x, y, buttonState, eventTy
 	return needRecurse;
 };
 
-//----------------------------------------------------------------------------------------------------------------------
 
 /**
  * Notifies all pointing device sensors that are currently affected by mouse events, if any, about the given event
@@ -10472,43 +10848,24 @@ x3dom.Viewarea.prototype.checkEvents = function (obj, x, y, buttonState, eventTy
  */
 x3dom.Viewarea.prototype._notifyAffectedPointingSensors = function(event)
 {
-    var i;
+    var funcDict = {
+        "mousedown" : "pointerPressedOverSibling",
+        "mousemove" : "pointerMoved",
+        "mouseover" : "pointerMovedOver",
+        "mouseout"  : "pointerMovedOut"
+    };
+
+    var func = funcDict[event.type];
     var affectedPointingSensorsList = this._doc._nodeBag.affectedPointingSensors;
+    var i, n = affectedPointingSensorsList.length;
 
-    if (affectedPointingSensorsList.length > 0)
+    if (n > 0 && func !== undefined)
     {
-        if (event.type == 'mousedown')
-        {
-            for (i = 0; i < affectedPointingSensorsList.length; ++i)
-            {
-                affectedPointingSensorsList[i].pointerPressedOverSibling(event);
-            }
-        }
-        else if (event.type == 'mousemove')
-        {
-            for (i = 0; i < affectedPointingSensorsList.length; ++i)
-            {
-                affectedPointingSensorsList[i].pointerMoved(event);
-            }
-        }
-        else if (event.type == 'mouseover')
-        {
-            for (i = 0; i < affectedPointingSensorsList.length; ++i)
-            {
-                affectedPointingSensorsList[i].pointerMovedOver(event);
-            }
-        }
-        else if (event.type == 'mouseout')
-        {
-            for (i = 0; i < affectedPointingSensorsList.length; ++i)
-            {
-                affectedPointingSensorsList[i].pointerMovedOut(event);
-            }
-        }
+        for (i = 0; i < n; i++)
+            affectedPointingSensorsList[i][func](event);
     }
-}
+};
 
-//----------------------------------------------------------------------------------------------------------------------
 
 x3dom.Viewarea.prototype.initMouseState = function()
 {
@@ -10721,7 +11078,8 @@ x3dom.Viewarea.prototype.onMouseOut = function (x, y, buttonState)
 
 x3dom.Viewarea.prototype.onDoubleClick = function (x, y)
 {
-    if (this._doc.properties.getProperty('disableDoubleClick', 'false') === 'true') {
+    if (this._doc._x3dElem.hasAttribute('disableDoubleClick') &&
+        this._doc._x3dElem.getAttribute('disableDoubleClick') === 'true') {
         return;
     }
     
@@ -10867,7 +11225,7 @@ x3dom.Viewarea.prototype.onDrag = function (x, y, buttonState)
         var d, vec, cor, mat = null;
         var alpha, beta;
 
-        buttonState = ((navRestrict & buttonState) != buttonState) ? navRestrict : buttonState;
+        buttonState = (!navRestrict || (navRestrict != 7 && buttonState == 1)) ? navRestrict : buttonState;
 
         if (navType === "examine")
         {
@@ -10932,6 +11290,9 @@ x3dom.Viewarea.prototype.onDrag = function (x, y, buttonState)
         }
         else if (navType === "turntable")   // requires that y is up vector in world coords
         {
+            if (!this._flyMat)
+                this.initTurnTable(navi);
+
             if (buttonState & 1) //left
             {
                 alpha = (dy * 2 * Math.PI) / this._height;
@@ -12323,6 +12684,31 @@ x3dom.fields.SFMatrix4f.prototype.multFullMatrixPnt = function (vec) {
     );
 };
 
+
+/**
+ * Transforms a given 3D point, using this matrix as a transform matrix
+ * (also includes projection part of matrix - required for e.g. modelview-projection matrix).
+ * The resulting point is normalized by a w component.
+ * @param {x3dom.fields.SFVec4f} vec - plane to transform
+ * @return {x3dom.fields.SFVec4f} resulting plane
+ */
+x3dom.fields.SFMatrix4f.prototype.multMatrixPlane = function (plane) {
+
+    var normal = new x3dom.fields.SFVec3f(plane.x, plane.y, plane.z);
+
+    var memberPnt = normal.multiply(-plane.w);
+
+    memberPnt = this.multMatrixPnt(memberPnt);
+
+    var invTranspose = this.inverse().transpose();
+
+    normal = invTranspose.multMatrixVec(normal);
+
+    var d = -normal.dot(memberPnt);
+
+    return new x3dom.fields.SFVec4f(normal.x, normal.y, normal.z, d);
+};
+
 /**
  * Returns a transposed version of this matrix.
  * @return {x3dom.fields.SFMatrix4f} resulting matrix
@@ -13317,7 +13703,7 @@ x3dom.fields.SFVec3f.copy = function(v) {
 };
 
 x3dom.fields.SFVec3f.MIN = function() {
-    return new x3dom.fields.SFVec3f(Number.MIN_VALUE, Number.MIN_VALUE, Number.MIN_VALUE);
+    return new x3dom.fields.SFVec3f(-Number.MAX_VALUE, -Number.MAX_VALUE, -Number.MAX_VALUE);
 };
 
 x3dom.fields.SFVec3f.MAX = function() {
@@ -15375,6 +15761,8 @@ x3dom.fields.BoxVolume.prototype.getRadialVec = function()
 x3dom.fields.BoxVolume.prototype.invalidate = function()
 {
     this.valid = false;
+    this.min = new x3dom.fields.SFVec3f(0, 0, 0);
+    this.max = new x3dom.fields.SFVec3f(0, 0, 0);
 };
 
 x3dom.fields.BoxVolume.prototype.isValid = function()
@@ -16027,6 +16415,20 @@ x3dom.shader.TEXTURE_REFINEMENT = "textureRefinement";
 					 
 	return shaderPart;
 };
+
+/*******************************************************************************
+ * TwoSidedMaterial
+ ********************************************************************************/
+x3dom.shader.twoSidedMaterial = function() {
+    var shaderPart = "uniform vec3  backDiffuseColor;\n" +
+                     "uniform vec3  backSpecularColor;\n" +
+                     "uniform vec3  backEmissiveColor;\n" +
+                     "uniform float backShininess;\n" +
+                     "uniform float backTransparency;\n" +
+                     "uniform float backAmbientIntensity;\n";
+
+    return shaderPart;
+};
 						 
 /*******************************************************************************
 * Fog
@@ -16053,6 +16455,49 @@ x3dom.shader.fog = function() {
 					 "}\n";
 					 
 	return shaderPart;
+};
+
+/*******************************************************************************
+ * Clipplane
+ ********************************************************************************/
+x3dom.shader.clipPlanes = function(numClipPlanes) {
+    var shaderPart = "", c;
+
+    for(c=0; c<numClipPlanes; c++) {
+        shaderPart += 	"uniform vec4 clipPlane"+c+"_Plane;\n";
+        shaderPart += 	"uniform float clipPlane"+c+"_CappingStrength;\n";
+        shaderPart += 	"uniform vec3 clipPlane"+c+"_CappingColor;\n";
+    }
+
+    shaderPart += "vec3 calculateClipPlanes() {\n";
+
+    for(c=0; c<numClipPlanes; c++) {
+        shaderPart += "    vec4 clipPlane" + c + " = clipPlane" + c + "_Plane * viewMatrixInverse;\n";
+        shaderPart += "    float dist" + c + " = dot(fragPosition, clipPlane" + c + ");\n";
+    }
+
+    shaderPart += "    if( ";
+
+    for(c=0; c<numClipPlanes; c++) {
+        if(c!=0) {
+            shaderPart += " || ";
+        }
+        shaderPart += "dist" + c + " < 0.0" ;
+    }
+
+    shaderPart += " ) ";
+    shaderPart += "{ discard; }\n";
+
+    for (c = 0; c < numClipPlanes; c++) {
+        shaderPart += "    if( abs(dist" + c + ") < clipPlane" + c + "_CappingStrength ) ";
+        shaderPart += "{ return clipPlane" + c + "_CappingColor; }\n";
+    }
+
+    shaderPart += "    return vec3(-1.0, -1.0, -1.0);\n";
+
+    shaderPart += "}\n";
+
+    return shaderPart;
 };
 
 /*******************************************************************************
@@ -16285,7 +16730,7 @@ x3dom.shader.light = function(numLights) {
 	
 	shaderPart += 	"vec3 lighting(in float lType, in vec3 lLocation, in vec3 lDirection, in vec3 lColor, in vec3 lAttenuation, " +
 					"in float lRadius, in float lIntensity, in float lAmbientIntensity, in float lBeamWidth, " +
-					"in float lCutOffAngle, in vec3 N, in vec3 V, float shin)\n" +
+					"in float lCutOffAngle, in vec3 N, in vec3 V, float shin, float ambIntensity)\n" +
 					"{\n" +
 					"   vec3 L;\n" +
 					"   float spot = 1.0, attentuation = 0.0;\n" +
@@ -16313,7 +16758,7 @@ x3dom.shader.light = function(numLights) {
 					"   float NdotL = clamp(dot(L, N), 0.0, 1.0);\n" +
 					"   float NdotH = clamp(dot(H, N), 0.0, 1.0);\n" +
 					
-					"   float ambientFactor  = lAmbientIntensity * ambientIntensity;\n" +
+					"   float ambientFactor  = lAmbientIntensity * ambIntensity;\n" +
 					"   float diffuseFactor  = lIntensity * NdotL;\n" +
 					"   float specularFactor = lIntensity * pow(NdotH, shin*128.0);\n" +
                     "   return vec3(ambientFactor, diffuseFactor, specularFactor) * attentuation * spot;\n" +
@@ -16492,7 +16937,7 @@ x3dom.shader.DynamicShader.prototype.generateVertexShader = function(gl, propert
 		if(!properties.SPHEREMAPPING) {
 			if(properties.IMAGEGEOMETRY) {
 				shader += "uniform sampler2D IG_texCoords;\n";
-			} else {
+			} else if (!properties.IS_PARTICLE) {
 				shader += "attribute vec2 texcoord;\n";
 			}
 		}
@@ -16517,10 +16962,10 @@ x3dom.shader.DynamicShader.prototype.generateVertexShader = function(gl, propert
 			shader += "uniform mat4 viewMatrix;\n";
 		}
         if (properties.DISPLACEMENTMAP) {
-          shader += "uniform sampler2D displacementMap;\n";
-          shader += "uniform float displacementFactor;\n";
-          shader += "uniform float displacementWidth;\n";
-          shader += "uniform float displacementHeight;\n";
+            shader += "uniform sampler2D displacementMap;\n";
+            shader += "uniform float displacementFactor;\n";
+            shader += "uniform float displacementWidth;\n";
+            shader += "uniform float displacementHeight;\n";
             shader += "uniform float displacementAxis;\n";
         }
         if (properties.DIFFPLACEMENTMAP) {
@@ -16535,11 +16980,14 @@ x3dom.shader.DynamicShader.prototype.generateVertexShader = function(gl, propert
             shader += "varying float fragID;\n";
         }
 	}
+    if (properties.IS_PARTICLE) {
+        shader += "attribute vec3 particleSize;\n";
+    }
 	
 	//Lights & Fog
-	if(properties.LIGHTS || properties.FOG){
+	if(properties.LIGHTS || properties.FOG || properties.CLIPPLANES){
 		shader += "uniform vec3 eyePosition;\n";
-		shader += "varying vec3 fragPosition;\n";
+		shader += "varying vec4 fragPosition;\n";
 		if(properties.FOG) {
 			shader += "varying vec3 fragEyePosition;\n";
 		}
@@ -16566,9 +17014,6 @@ x3dom.shader.DynamicShader.prototype.generateVertexShader = function(gl, propert
 	* Generate main function
 	********************************************************************************/
 	shader += "void main(void) {\n";
-	
-	//Set point size
-	shader += "gl_PointSize = 2.0;\n";	
   
 	/*******************************************************************************
 	* Start of special Geometry switch
@@ -16687,10 +17132,15 @@ x3dom.shader.DynamicShader.prototype.generateVertexShader = function(gl, propert
 		
 		//TexCoords
 		if( (properties.TEXTURED || properties.CSSHADER) && !properties.SPHEREMAPPING) {
-			shader += "vec2 vertTexCoord = texcoord;\n";
-			if(properties.REQUIREBBOXTEX) {
-				shader += "vertTexCoord = vertTexCoord / bgPrecisionTexMax;\n";
-			}
+            if (properties.IS_PARTICLE) {
+                shader += "vec2 vertTexCoord = vec2(0.0);\n";
+            }
+            else {
+                shader += "vec2 vertTexCoord = texcoord;\n";
+                if (properties.REQUIREBBOXTEX) {
+                    shader += "vertTexCoord = vertTexCoord / bgPrecisionTexMax;\n";
+                }
+            }
 		}
 	}
 	
@@ -16772,10 +17222,10 @@ x3dom.shader.DynamicShader.prototype.generateVertexShader = function(gl, propert
 	}
 	
 	//Lights & Fog
-	if(properties.LIGHTS || properties.FOG){    
-		shader += "fragPosition = (modelViewMatrix * vec4(vertPosition, 1.0)).xyz;\n";
+	if(properties.LIGHTS || properties.FOG || properties.CLIPPLANES){
+		shader += "fragPosition = (modelViewMatrix * vec4(vertPosition, 1.0));\n";
 		if (properties.FOG) {
-			shader += "fragEyePosition = eyePosition - fragPosition;\n";
+			shader += "fragEyePosition = eyePosition - fragPosition.xyz;\n";
 		}
 	}
 
@@ -16793,8 +17243,18 @@ x3dom.shader.DynamicShader.prototype.generateVertexShader = function(gl, propert
         shader += "vertPosition += normalize(vertNormal) * texture2D(diffuseDisplacementMap, vec2(fragTexcoord.x, 1.0-fragTexcoord.y)).a * displacementFactor;\n";
     }
   
-  //Positions
+    //Positions
 	shader += "gl_Position = modelViewProjectionMatrix * vec4(vertPosition, 1.0);\n";
+
+    //Set point size
+    if (properties.IS_PARTICLE) {
+        shader += "float spriteDist = (gl_Position.w > 0.000001) ? gl_Position.w : 0.000001;\n";
+        shader += "float pointSize = floor(length(particleSize) * 256.0 / spriteDist + 0.5);\n";
+        shader += "gl_PointSize = clamp(pointSize, 2.0, 256.0);\n";
+    }
+    else {
+        shader += "gl_PointSize = 2.0;\n";
+    }
   
 	//END OF SHADER
 	shader += "}\n";
@@ -16816,10 +17276,6 @@ x3dom.shader.DynamicShader.prototype.generateVertexShader = function(gl, propert
  */
 x3dom.shader.DynamicShader.prototype.generateFragmentShader = function(gl, properties)
 {
-	/*var shader = "#ifdef GL_ES\n" +
-    			 "  precision highp float;\n" +
-    			 "#endif\n\n";*/
-    
   var shader = "#ifdef GL_FRAGMENT_PRECISION_HIGH\n";
   shader += " precision highp float;\n";
   shader += "#else\n";
@@ -16833,9 +17289,14 @@ x3dom.shader.DynamicShader.prototype.generateFragmentShader = function(gl, prope
 	//Default Matrices
 	shader += "uniform mat4 modelMatrix;\n";
     shader += "uniform mat4 modelViewMatrix;\n";
+    shader += "uniform mat4 viewMatrixInverse;\n";
 	
 	//Material
-	shader += x3dom.shader.material();
+    shader += x3dom.shader.material();
+
+    if (properties.TWOSIDEDMAT ) {
+        shader += x3dom.shader.twoSidedMaterial();
+    }
 	
 	//Colors
 	if(properties.VERTEXCOLOR){
@@ -16845,6 +17306,11 @@ x3dom.shader.DynamicShader.prototype.generateFragmentShader = function(gl, prope
 			shader += "varying vec4 fragColor;  \n";
 		}
 	}
+
+    if(properties.CUBEMAP || properties.CLIPPLANES)
+    {
+        shader += "uniform mat4 modelViewMatrixInverse;\n";
+    }
 	
 	//Textures
 	if(properties.TEXTURED || properties.CSSHADER) {
@@ -16854,7 +17320,7 @@ x3dom.shader.DynamicShader.prototype.generateFragmentShader = function(gl, prope
 		} else if(properties.CUBEMAP) {
 			shader += "uniform samplerCube cubeMap;\n";
 			shader += "varying vec3 fragViewDir;\n";
-			shader += "uniform mat4 modelViewMatrixInverse;\n";
+
 		}
 		if(properties.SPECMAP){
 			shader += "uniform sampler2D specularMap;\n";
@@ -16902,13 +17368,22 @@ x3dom.shader.DynamicShader.prototype.generateFragmentShader = function(gl, prope
 	if(properties.FOG) {
 		shader += x3dom.shader.fog();
 	}
-	
+
+    if(properties.LIGHTS || properties.CLIPPLANES)
+    {
+        shader += "varying vec4 fragPosition;\n";
+    }
+
 	//Lights
 	if(properties.LIGHTS) {
 		shader += "varying vec3 fragNormal;\n";
-    shader += "varying vec3 fragPosition;\n";
+
 		shader += x3dom.shader.light(properties.LIGHTS);
 	}
+
+    if(properties.CLIPPLANES) {
+        shader += x3dom.shader.clipPlanes(properties.CLIPPLANES);
+    }
 
     // Declare gamma correction for color computation (see property "GAMMACORRECTION")
     shader += x3dom.shader.gammaCorrectionDecl(properties);
@@ -16918,11 +17393,18 @@ x3dom.shader.DynamicShader.prototype.generateFragmentShader = function(gl, prope
 	* Generate main function
 	********************************************************************************/
 	shader += "void main(void) {\n";
+
+
+    if(properties.CLIPPLANES)
+    {
+        shader += "vec3 cappingColor = calculateClipPlanes();\n";
+    }
 	
 	//Init color. In the fragment shader we are treating color linear by
     //gamma-adjusting actively before doing lighting computations. At the end
     //the color value is encoded again. See shader propery GAMMACORRECTION.
     shader += "vec4 color;\n";
+
 	shader += "color.rgb = " + x3dom.shader.decodeGamma(properties, "diffuseColor") + ";\n";
 	shader += "color.a = 1.0 - transparency;\n";
 
@@ -16960,15 +17442,19 @@ x3dom.shader.DynamicShader.prototype.generateFragmentShader = function(gl, prope
 		shader += "vec3 diffuse   = vec3(0.0, 0.0, 0.0);\n";
 		shader += "vec3 specular  = vec3(0.0, 0.0, 0.0);\n";
 		shader += "vec3 normal 	  = normalize(fragNormal);\n";
-		shader += "vec3 eye 	  = -fragPosition;\n";
-        shader += "float shin     = shininess;\n";
+		shader += "vec3 eye 	  = -fragPosition.xyz;\n";
+
+        shader += "float _shininess     = shininess;\n";
+        shader += "vec3 _specularColor  = specularColor;\n";
+        shader += "vec3 _emissiveColor  = emissiveColor;\n";
+        shader += "float _ambientIntensity = ambientIntensity;\n";
 		
 		//Normalmap
 		if(properties.NORMALMAP){
 			shader += "vec3 n = normalize( fragNormal );\n";
 
             if (x3dom.caps.STD_DERIVATIVES) {
-                shader += "normal = perturb_normal( n, fragPosition, vec2(fragTexcoord.x, 1.0-fragTexcoord.y) );\n";
+                shader += "normal = perturb_normal( n, fragPosition.xyz, vec2(fragTexcoord.x, 1.0-fragTexcoord.y) );\n";
             } else {
                 shader += "vec3 t = normalize( fragTangent );\n";
                 shader += "vec3 b = normalize( fragBinormal );\n";
@@ -16984,15 +17470,27 @@ x3dom.shader.DynamicShader.prototype.generateFragmentShader = function(gl, prope
 		}
 
         if(properties.SHINMAP){
-            shader += "shin = texture2D( shininessMap, vec2(fragTexcoord.x, 1.0-fragTexcoord.y) ).r;\n";
+            shader += "_shininess = texture2D( shininessMap, vec2(fragTexcoord.x, 1.0-fragTexcoord.y) ).r;\n";
         }
 		
 		//Solid
-		if(!properties.SOLID) {
+		if(!properties.SOLID || properties.TWOSIDEDMAT) {
 			shader += "if (dot(normal, eye) < 0.0) {\n";
 			shader += "  normal *= -1.0;\n";
-			shader += "}\n";
+            shader += "}\n";
 		}
+
+        if(properties.SEPARATEBACKMAT) {
+            shader += "  if(gl_FrontFacing) {\n";
+            shader += "    color.rgb = " + x3dom.shader.decodeGamma(properties, "backDiffuseColor") + ";\n";
+            shader += "    color.a = 1.0 - backTransparency;\n";
+            shader += "    _shininess = backShininess;\n";
+            shader += "    _emissiveColor = backEmissiveColor;\n";
+            shader += "    _specularColor = backSpecularColor;\n";
+            shader += "    _ambientIntensity = backAmbientIntensity;\n";
+            shader += "  }\n";
+        }
+
 		
 		//Calculate lights
         if (properties.LIGHTS) {
@@ -17010,7 +17508,7 @@ x3dom.shader.DynamicShader.prototype.generateFragmentShader = function(gl, prope
                                     "light"+l+"_AmbientIntensity, " +
                                     "light"+l+"_BeamWidth, " +
                                     "light"+l+"_CutOffAngle, " +
-                                    "normal, eye, shin);\n";
+                                    "normal, eye, _shininess, _ambientIntensity);\n";
                 shader += "   ambient  += " + lightCol + " * ads.r;\n" +
                           "   diffuse  += " + lightCol + " * ads.g;\n" +
                           "   specular += " + lightCol + " * ads.b;\n";
@@ -17047,17 +17545,17 @@ x3dom.shader.DynamicShader.prototype.generateFragmentShader = function(gl, prope
 				shader += "color.a *= texColor.a;\n";
 			}
 			if(properties.BLENDING){
-				shader += "color.rgb = (emissiveColor + max(ambient + diffuse, 0.0) * color.rgb + specular*specularColor);\n";
+				shader += "color.rgb = (_emissiveColor + max(ambient + diffuse, 0.0) * color.rgb + specular*_specularColor);\n";
 				if(properties.CUBEMAP) {
 					shader += "color.rgb = mix(color.rgb, texColor.rgb, vec3(0.75));\n";
 				} else {
 					shader += "color.rgb *= texColor.rgb;\n";
 				}
 			}else{
-				shader += "color.rgb = (emissiveColor + max(ambient + diffuse, 0.0) * texColor.rgb + specular*specularColor);\n";
+				shader += "color.rgb = (_emissiveColor + max(ambient + diffuse, 0.0) * texColor.rgb + specular*_specularColor);\n";
 			}
 		}else{
-			shader += "color.rgb = (emissiveColor + max(ambient + diffuse, 0.0) * color.rgb + specular*specularColor);\n";
+			shader += "color.rgb = (_emissiveColor + max(ambient + diffuse, 0.0) * color.rgb + specular*_specularColor);\n";
 		}
 		
 	} else {
@@ -17066,10 +17564,15 @@ x3dom.shader.DynamicShader.prototype.generateFragmentShader = function(gl, prope
 		}
 		
 		if(properties.TEXTURED || properties.DIFFUSEMAP){
-			shader += "vec2 texCoord = vec2(fragTexcoord.x, 1.0-fragTexcoord.y);\n";
-			shader += "vec4 texColor = " + x3dom.shader.decodeGamma(properties, "texture2D(diffuseMap, texCoord)") + ";\n";
-			shader += "color.a = texColor.a;\n";
-			if(properties.BLENDING){
+            shader += "vec2 texCoord = vec2(fragTexcoord.x, 1.0-fragTexcoord.y);\n";
+
+            if (properties.IS_PARTICLE) {
+                shader += "texCoord = clamp(gl_PointCoord, 0.01, 0.99);\n";
+            }
+            shader += "vec4 texColor = " + x3dom.shader.decodeGamma(properties, "texture2D(diffuseMap, texCoord)") + ";\n";
+            shader += "color.a = texColor.a;\n";
+
+			if(properties.BLENDING || properties.IS_PARTICLE){
 				shader += "color.rgb += emissiveColor.rgb;\n";
 				shader += "color.rgb *= texColor.rgb;\n";
 			} else {
@@ -17079,8 +17582,24 @@ x3dom.shader.DynamicShader.prototype.generateFragmentShader = function(gl, prope
 			shader += "color.rgb += emissiveColor;\n";
 		} else if(!properties.VERTEXCOLOR && properties.POINTLINE2D && !properties.MULTIDIFFALPMAP){
 			shader += "color.rgb = emissiveColor;\n";
-		}
+            if (properties.IS_PARTICLE) {
+                shader += "float pAlpha = 1.0 - clamp(length((gl_PointCoord - 0.5) * 2.0), 0.0, 1.0);\n";
+                shader += "color.rgb *= vec3(pAlpha);\n";
+                shader += "color.a = pAlpha;\n";
+            }
+		} else if (properties.IS_PARTICLE) {
+            shader += "float pAlpha = 1.0 - clamp(length((gl_PointCoord - 0.5) * 2.0), 0.0, 1.0);\n";
+            shader += "color.rgb *= vec3(pAlpha);\n";
+            shader += "color.a = pAlpha;\n";
+        }
 	}
+
+    if(properties.CLIPPLANES)
+    {
+        shader += "if (cappingColor.r != -1.0) {\n";
+        shader += "    color.rgb = cappingColor;\n";
+        shader += "}\n";
+    }
 	
 	//Kill pixel
 	if(properties.TEXT) {
@@ -17098,7 +17617,7 @@ x3dom.shader.DynamicShader.prototype.generateFragmentShader = function(gl, prope
 		shader += "float f0 = calcFog(fragEyePosition);\n";
 		shader += "color.rgb = fogColor * (1.0-f0) + f0 * (color.rgb);\n";
 	}
-	
+
     shader += "gl_FragColor = color;\n";
 	
 	//End Of Shader
@@ -17161,6 +17680,10 @@ x3dom.shader.DynamicMobileShader.prototype.generateVertexShader = function(gl, p
 	
 	//Material
 	shader += x3dom.shader.material();
+
+    if (properties.TWOSIDEDMAT ) {
+        shader += x3dom.shader.twoSidedMaterial();
+    }
 	
 	//Default Matrices
 	shader += "uniform mat4 normalMatrix;\n";
@@ -17483,13 +18006,27 @@ x3dom.shader.DynamicMobileShader.prototype.generateVertexShader = function(gl, p
 		shader += "vec3 ambient   = vec3(0.0, 0.0, 0.0);\n";
 		shader += "vec3 diffuse   = vec3(0.0, 0.0, 0.0);\n";
 		shader += "vec3 specular  = vec3(0.0, 0.0, 0.0);\n";
+        shader += "float _shininess     = shininess;\n";
+        shader += "vec3 _specularColor  = specularColor;\n";
+        shader += "vec3 _emissiveColor  = emissiveColor;\n";
+        shader += "float _ambientIntensity = ambientIntensity;\n";
 		
 		//Solid
-		if(!properties.SOLID) {
+		if(!properties.SOLID || properties.TWOSIDEDMAT) {
 			shader += "if (dot(normalMV, eye) < 0.0) {\n";
 			shader += "	 normalMV *= -1.0;\n";
-			shader += "}\n";
 		}
+
+        if(properties.SEPARATEBACKMAT) {
+            shader += "  if(gl_FrontFacing) {\n";
+            shader += "    color.rgb = " + x3dom.shader.decodeGamma(properties, "backDiffuseColor") + ";\n";
+            shader += "    color.a = 1.0 - backTransparency;\n";
+            shader += "    _shininess = backShininess;\n";
+            shader += "    _emissiveColor = backEmissiveColor;\n";
+            shader += "    _specularColor = backSpecularColor;\n";
+            shader += "    _ambientIntensity = backAmbientIntensity;\n";
+            shader += "  }\n";
+        }
 		
 		//Calculate lighting
         if (properties.LIGHTS) {
@@ -17507,7 +18044,7 @@ x3dom.shader.DynamicMobileShader.prototype.generateVertexShader = function(gl, p
                           "light"+l+"_AmbientIntensity, " +
                           "light"+l+"_BeamWidth, " +
                           "light"+l+"_CutOffAngle, " +
-                          "normalMV, eye, shininess);\n";
+                          "normalMV, eye, _shininess, _ambientIntensity);\n";
                 shader += "   ambient  += " + lightCol + " * ads.r;\n" +
                           "   diffuse  += " + lightCol + " * ads.g;\n" +
                           "   specular += " + lightCol + " * ads.b;\n";
@@ -17522,10 +18059,10 @@ x3dom.shader.DynamicMobileShader.prototype.generateVertexShader = function(gl, p
 		if(properties.TEXTURED  && !properties.BLENDING) {
 			shader += "fragAmbient = ambient;\n";
 			shader += "fragDiffuse = diffuse;\n";
-			shader += "fragColor.rgb = (emissiveColor + specular*specularColor);\n";
+			shader += "fragColor.rgb = (_emissiveColor + specular*_specularColor);\n";
 			shader += "fragColor.a = alpha;\n";
 		} else {
-			shader += "fragColor.rgb = (emissiveColor + max(ambient + diffuse, 0.0) * rgb + specular*specularColor);\n";
+			shader += "fragColor.rgb = (_emissiveColor + max(ambient + diffuse, 0.0) * rgb + specular*_specularColor);\n";
 			shader += "fragColor.a = alpha;\n";
 		}
 	} else {
@@ -17657,6 +18194,344 @@ x3dom.shader.DynamicMobileShader.prototype.generateFragmentShader = function(gl,
 		x3dom.debug.logError("[DynamicMobileShader] FragmentShader " + gl.getShaderInfoLog(fragmentShader));		
 	}
 	
+	return fragmentShader;
+};
+
+/*
+ * X3DOM JavaScript Library
+ * http://www.x3dom.org
+ *
+ * (C)2009 Fraunhofer IGD, Darmstadt, Germany
+ * Dual licensed under the MIT and GPL
+ *
+ * Based on code originally provided by
+ * Philip Taylor: http://philip.html5.org
+ */
+
+/**
+ * Generate the final Shader program
+ */
+x3dom.shader.DynamicShaderPicking = function(gl, properties, pickMode)
+{
+	this.program = gl.createProgram();
+	
+	var vertexShader 	= this.generateVertexShader(gl, properties, pickMode);
+	var fragmentShader 	= this.generateFragmentShader(gl, properties, pickMode);
+	
+	gl.attachShader(this.program, vertexShader);
+    gl.attachShader(this.program, fragmentShader);
+    
+    // optional, but position should be at location 0 for performance reasons
+    gl.bindAttribLocation(this.program, 0, "position");
+    
+	gl.linkProgram(this.program);
+	
+	return this.program;
+};
+
+/**
+ * Generate the vertex shader
+ */
+x3dom.shader.DynamicShaderPicking.prototype.generateVertexShader = function(gl, properties, pickMode)
+{
+	var shader = "";
+	
+	/*******************************************************************************
+	* Generate dynamic attributes & uniforms & varyings
+	********************************************************************************/
+
+	//Default Matrices
+    shader += "uniform mat4 modelMatrix;\n";
+    shader += "uniform mat4 modelViewProjectionMatrix;\n";
+
+    shader += "attribute vec3 position;\n";
+    shader += "uniform vec3 from;\n";
+    shader += "varying vec3 worldCoord;\n";
+
+    if(pickMode == 1) { // Color Picking
+        shader += "attribute vec3 color;\n";
+        shader += "varying vec3 fragColor;\n";
+    } else if(pickMode == 2){ //TexCoord Picking
+        shader += "attribute vec2 texcoord;\n";
+        shader += "varying vec3 fragColor;\n";
+    }
+
+    //Bounding stuff
+    if(properties.REQUIREBBOX) {
+        shader += "uniform vec3 bgCenter;\n";
+        shader += "uniform vec3 bgSize;\n";
+        shader += "uniform float bgPrecisionMax;\n";
+    }
+    if(properties.REQUIREBBOXCOL) {
+        shader += "uniform float bgPrecisionColMax;\n";
+    }
+    if(properties.REQUIREBBOXTEX) {
+        shader += "uniform float bgPrecisionTexMax;\n";
+    }
+
+    //ShadowID stuff
+    if(properties.VERTEXID) {
+        shader += "uniform float shadowIDs;\n";
+
+        if (pickMode == 3) { //24bit
+            shader += "varying vec3 idCoord;\n";
+        } else {
+            shader += "varying vec2 idCoord;\n";
+        }
+        shader += "varying float fragID;\n";
+        shader += "attribute float id;\n";
+    }
+	
+    //ImageGeometry stuff
+	if(properties.IMAGEGEOMETRY) {
+		shader += "uniform vec3 IG_bboxMin;\n";
+		shader += "uniform vec3 IG_bboxMax;\n";
+		shader += "uniform float IG_coordTextureWidth;\n";
+		shader += "uniform float IG_coordTextureHeight;\n";
+		shader += "uniform vec2 IG_implicitMeshSize;\n";
+		
+		for( var i = 0; i < properties.IG_PRECISION; i++ ) {
+			shader += "uniform sampler2D IG_coords" + i + "\n;";
+		}
+		
+		if(properties.IG_INDEXED) {
+			shader += "uniform sampler2D IG_index;\n";
+			shader += "uniform float IG_indexTextureWidth;\n";
+			shader += "uniform float IG_indexTextureHeight;\n";
+		}
+	}
+    
+    //PopGeometry
+    if (properties.POPGEOMETRY) {
+        shader += "uniform float PG_precisionLevel;\n";
+        shader += "uniform float PG_powPrecision;\n";
+        shader += "uniform vec3 PG_maxBBSize;\n";
+        shader += "uniform vec3 PG_bbMin;\n";
+        shader += "uniform vec3 PG_bbMaxModF;\n";
+        shader += "uniform vec3 PG_bboxShiftVec;\n";
+        shader += "uniform float PG_numAnchorVertices;\n";
+        shader += "attribute float PG_vertexID;\n";
+    }
+
+    //ClipPlane stuff
+    if(properties.CLIPPLANES) {
+        shader += "uniform mat4 modelViewMatrix;\n";
+        shader += "varying vec4 fragPosition;\n";
+    }
+
+      
+	/*******************************************************************************
+	* Generate main function
+	********************************************************************************/
+
+	shader += "void main(void) {\n";
+
+    shader += "gl_PointSize = 2.0;\n";
+    shader += "vec3 pos = position;\n";
+
+
+    if(properties.VERTEXID) {
+       if(pickMode == 0) { //Default Picking
+           shader += "idCoord = vec2((id + shadowIDs) / 256.0);\n";
+           shader += "idCoord.x = floor(idCoord.x) / 255.0;\n";
+           shader += "idCoord.y = fract(idCoord.y) * 1.00392156862745;\n";
+           shader += "fragID = id;\n";
+       } else if(pickMode == 3) { //Picking with 24bit precision
+           //composed id is at least 32 (= 2*16) bit + num bits for max-orig-shape-id
+           shader += "float ID = id + shadowIDs;\n";
+           //however, let's ignore this and assume a maximum of 24 bits for all id's
+           shader += "float h = floor(ID / 256.0);\n";
+           shader += "idCoord.x = ID - (h * 256.0);\n";
+           shader += "idCoord.z = floor(h / 256.0);\n";
+           shader += "idCoord.y = h - (idCoord.z * 256.0);\n";
+           shader += "idCoord = idCoord.zyx / 255.0;\n";
+           shader += "fragID = id;\n";
+       } else if(pickMode == 4) { //Picking with 32bit precision
+           shader += "idCoord = vec2((id + shadowIDs) / 256.0);\n";
+           shader += "idCoord.x = floor(idCoord.x) / 255.0;\n";
+           shader += "idCoord.y = fract(idCoord.y) * 1.00392156862745;\n";
+           shader += "fragID = id;\n";
+       }
+    }
+
+    /*******************************************************************************
+     * Start of special Geometry switch
+     ********************************************************************************/
+    if(properties.IMAGEGEOMETRY) { //ImageGeometry
+        if(properties.IG_INDEXED) {
+            shader += "vec2 halfPixel = vec2(0.5/IG_indexTextureWidth,0.5/IG_indexTextureHeight);\n";
+            shader += "vec2 IG_texCoord = vec2(position.x*(IG_implicitMeshSize.x/IG_indexTextureWidth), position.y*(IG_implicitMeshSize.y/IG_indexTextureHeight)) + halfPixel;\n";
+            shader += "vec2 IG_indices = texture2D( IG_index, IG_texCoord ).rg;\n";
+            shader += "halfPixel = vec2(0.5/IG_coordTextureWidth,0.5/IG_coordTextureHeight);\n";
+            shader += "IG_texCoord = (IG_indices * 0.996108948) + halfPixel;\n";
+        } else {
+            shader += "vec2 halfPixel = vec2(0.5/IG_coordTextureWidth, 0.5/IG_coordTextureHeight);\n";
+            shader += "vec2 IG_texCoord = vec2(position.x*(IG_implicitMeshSize.x/IG_coordTextureWidth), position.y*(IG_implicitMeshSize.y/IG_coordTextureHeight)) + halfPixel;\n";
+        }
+
+        shader += "pos = texture2D( IG_coordinateTexture, IG_texCoord ).rgb;\n";
+        shader += "pos = pos * (IG_bboxMax - IG_bboxMin) + IG_bboxMin;\n";
+    } else if (properties.POPGEOMETRY) { //PopGeometry
+        shader += "vec3 offsetVec = step(pos / bgPrecisionMax, PG_bbMaxModF) * PG_bboxShiftVec;\n";
+            shader += "if (PG_precisionLevel <= 2.0) {\n";
+            shader += "pos = floor(pos / PG_powPrecision) * PG_powPrecision;\n";
+            shader += "pos /= (65536.0 - PG_powPrecision);\n";
+            shader += "}\n";
+            shader += "else {\n";
+            shader += "pos /= bgPrecisionMax;\n";
+            shader += "}\n";
+            shader += "pos = (pos + offsetVec + PG_bbMin) * PG_maxBBSize;\n";
+    } else {
+
+        if(properties.REQUIREBBOX) {
+            shader += "pos = bgCenter + bgSize * pos / bgPrecisionMax;\n";
+        }
+
+        if(pickMode == 1 && !properties.REQUIREBBOXCOL) { //Color Picking
+            shader += "fragColor = color;\n";
+        } else if(pickMode == 1 && properties.REQUIREBBOXCOL) { //Color Picking
+            shader += "fragColor = color / bgPrecisionColMax;\n";
+        } else  if(pickMode == 2 && !properties.REQUIREBBOXCOL) { //TexCoord Picking
+            shader += "fragColor = vec3(abs(texcoord.x), abs(texcoord.y), 0.0);\n";
+        } else if(pickMode == 2 && properties.REQUIREBBOXTEX) { //TexCoord Picking
+            shader += "vec2 texCoord = texcoord / bgPrecisionTexMax;\n";
+            shader += "fragColor = vec3(abs(texCoord.x), abs(texCoord.y), 0.0);\n";
+        }
+    }
+
+    if(properties.CLIPPLANES) {
+        shader += "fragPosition = (modelViewMatrix * vec4(pos, 1.0));\n";
+    }
+
+    shader += "worldCoord = (modelMatrix * vec4(pos, 1.0)).xyz - from;\n";
+    shader += "gl_Position = modelViewProjectionMatrix * vec4(pos, 1.0);\n";
+
+
+	//END OF SHADER
+	shader += "}\n";
+	
+	var vertexShader = gl.createShader(gl.VERTEX_SHADER);
+	gl.shaderSource(vertexShader, shader);
+    gl.compileShader(vertexShader);
+		
+	if(!gl.getShaderParameter(vertexShader, gl.COMPILE_STATUS)){
+        x3dom.debug.logInfo("VERTEX:\n" + shader);
+		x3dom.debug.logError("VertexShader " + gl.getShaderInfoLog(vertexShader));		
+	}
+	
+	return vertexShader;
+};
+
+/**
+ * Generate the fragment shader
+ */
+x3dom.shader.DynamicShaderPicking.prototype.generateFragmentShader = function(gl, properties, pickMode)
+{
+  var shader = "#ifdef GL_FRAGMENT_PRECISION_HIGH\n";
+  shader += " precision highp float;\n";
+  shader += "#else\n";
+  shader += " precision mediump float;\n";
+  shader += "#endif\n\n";
+	
+	/*******************************************************************************
+	* Generate dynamic uniforms & varyings
+	********************************************************************************/
+
+    shader += "uniform float highBit;\n";
+    shader += "uniform float lowBit;\n";
+    shader += "uniform float sceneSize;\n";
+    shader += "varying vec3 worldCoord;\n";
+
+    if(pickMode == 1 || pickMode == 2) {
+        shader += "varying vec3 fragColor;\n";
+    }
+
+    //ShadowID stuff
+    if(properties.VERTEXID) {
+        if (pickMode == 3) { //24bit
+            shader += "varying vec3 idCoord;\n";
+        } else {
+            shader += "varying vec2 idCoord;\n";
+        }
+        shader += "varying float fragID;\n";
+    }
+
+    //ClipPlane stuff
+    if(properties.CLIPPLANES) {
+        shader += "uniform mat4 viewMatrixInverse;\n";
+        shader += "varying vec4 fragPosition;\n";
+    }
+
+    if (properties.MULTIVISMAP) {
+        shader += "uniform sampler2D multiVisibilityMap;\n";
+        shader += "uniform float multiVisibilityWidth;\n";
+        shader += "uniform float multiVisibilityHeight;\n";
+    }
+
+    if(properties.CLIPPLANES) {
+        shader += x3dom.shader.clipPlanes(properties.CLIPPLANES);
+    }
+
+	/*******************************************************************************
+	* Generate main function
+	********************************************************************************/
+	shader += "void main(void) {\n";
+
+    if(properties.CLIPPLANES)
+    {
+        shader += "calculateClipPlanes();\n";
+    }
+
+    if(pickMode == 1 || pickMode == 2) { //Picking Color || Picking TexCoord
+        shader += "vec4 color = vec4(fragColor, lowBit);\n";
+    } else if(pickMode == 4) { //Picking with 32bit precision
+        shader += "vec4 color = vec4(highBit, lowBit, 0.0, 0.0);\n";
+    } else {
+        shader += "vec4 color = vec4(0.0, 0.0, highBit, lowBit);\n";
+    }
+
+    if(properties.VERTEXID) {
+        if(pickMode == 0 || pickMode == 4) { //Default Picking || Picking with 32bit precision
+            shader += "color.ba = idCoord;\n";
+        } else if(pickMode == 3) { //Picking with 24bit precision
+            shader += "color.gba = idCoord;\n";
+        }
+
+        if (properties.MULTIVISMAP) {
+            shader += "vec2 idTexCoord;\n";
+            shader += "float roundedID = floor(fragID+0.5);\n";
+            shader += "idTexCoord.x = (mod(roundedID, multiVisibilityWidth)) * (1.0 / multiVisibilityWidth) + (0.5 / multiVisibilityWidth);\n";
+            shader += "idTexCoord.y = (floor(roundedID / multiVisibilityHeight)) * (1.0 / multiVisibilityHeight) + (0.5 / multiVisibilityHeight);\n";
+            shader += "vec4 visibility = texture2D( multiVisibilityMap, idTexCoord );\n";
+            shader += "if (visibility.r < 1.0) discard; \n";
+        }
+    }
+
+    if(pickMode != 1 || pickMode != 2) {
+        shader += "float d = length(worldCoord) / sceneSize;\n";
+    }
+
+    if(pickMode == 0) { //Default Picking
+        shader += "vec2 comp = fract(d * vec2(256.0, 1.0));\n";
+        shader += "color.rg = comp - (comp.rr * vec2(0.0, 1.0/256.0));\n";
+    } else if(pickMode == 3) { //Picking with 24bit precision
+        shader += "color.r = d;\n";
+    }
+
+    shader += "gl_FragColor = color;\n";
+
+    //END OF SHADER
+    shader += "}\n";
+
+    var fragmentShader = gl.createShader(gl.FRAGMENT_SHADER);
+	gl.shaderSource(fragmentShader, shader);
+    gl.compileShader(fragmentShader);
+		
+	if(!gl.getShaderParameter(fragmentShader, gl.COMPILE_STATUS)){
+        x3dom.debug.logInfo("FRAGMENT:\n" + shader);
+		x3dom.debug.logError("FragmentShader " + gl.getShaderInfoLog(fragmentShader));
+	}
+
 	return fragmentShader;
 };
 
@@ -17816,702 +18691,6 @@ x3dom.shader.NormalShader.prototype.generateFragmentShader = function(gl)
 		
 	if(!gl.getShaderParameter(fragmentShader, gl.COMPILE_STATUS)){
 		x3dom.debug.logError("[NormalShader] FragmentShader " + gl.getShaderInfoLog(fragmentShader));		
-	}
-	
-	return fragmentShader;
-};
-
-/*
- * X3DOM JavaScript Library
- * http://www.x3dom.org
- *
- * (C)2009 Fraunhofer IGD, Darmstadt, Germany
- * Dual licensed under the MIT and GPL
- *
- * Based on code originally provided by
- * Philip Taylor: http://philip.html5.org
- */
-
-/**
- * Generate the final Shader program
- */
-x3dom.shader.PickingShader = function(gl)
-{
-	this.program = gl.createProgram();
-	
-	var vertexShader   = this.generateVertexShader(gl);
-	var fragmentShader = this.generateFragmentShader(gl);
-	
-	gl.attachShader(this.program, vertexShader);
-    gl.attachShader(this.program, fragmentShader);
-    
-    // optional, but position should be at location 0 for performance reasons
-    gl.bindAttribLocation(this.program, 0, "position");
-    
-	gl.linkProgram(this.program);
-	
-	return this.program;
-};
-
-/**
- * Generate the vertex shader
- */
-x3dom.shader.PickingShader.prototype.generateVertexShader = function(gl)
-{
-	var shader = "";
-
-    var popUniforms = "";
-    var popDecoder = "";
-
-    // leave possibility to disable this stuff...
-    {
-        popUniforms +=  "uniform float popGeometry;\n" +
-                        "uniform float PG_precisionLevel;\n" +
-                        "uniform float PG_powPrecision;\n" +
-                        "uniform vec3 PG_maxBBSize;\n" +
-                        "uniform vec3 PG_bbMin;\n" +
-                        "uniform vec3 PG_bbMaxModF;\n" +
-                        "uniform vec3 PG_bboxShiftVec;\n";
-
-        popDecoder +=   "   else if (popGeometry != 0.0) {\n" +
-                        "		vec3 offsetVec = step(pos / bgPrecisionMax, PG_bbMaxModF) * PG_bboxShiftVec;\n" +
-                        "		if (PG_precisionLevel <= 2.0) {\n" +
-                        "   		pos = floor(pos / PG_powPrecision) * PG_powPrecision;\n" +
-                        "   		pos /= (65536.0 - PG_powPrecision);\n" +
-                        "		}\n" +
-                        "		else {\n" +
-                        "   		pos /= bgPrecisionMax;\n" +
-                        "		}\n" +
-                        "		pos = (pos + offsetVec + PG_bbMin) * PG_maxBBSize;\n" +
-                        "	}\n" +
-                        "   else\n";
-    }
-
-    if (!x3dom.caps.MOBILE) {
-        shader =    "attribute vec3 position;\n" +
-                    "attribute float id;\n" +
-					"uniform vec3 bgCenter;\n" +
-					"uniform vec3 bgSize;\n" +
-					"uniform float bgPrecisionMax;\n" +
-					"uniform mat4 modelMatrix;\n" +
-					"uniform mat4 modelViewProjectionMatrix;\n" +
-					"uniform vec3 from;\n" +
-					"varying vec3 worldCoord;\n" +
-					"varying vec2 idCoord;\n" +
-                    "varying float fragID;\n" +
-					"uniform float writeShadowIDs;\n" +
-                    //image geometry
-					"uniform float imageGeometry;\n" +
-					"uniform vec3 IG_bboxMin;\n" +
-					"uniform vec3 IG_bboxMax;\n" +
-					"uniform float IG_coordTextureWidth;\n" +
-					"uniform float IG_coordTextureHeight;\n" +
-					"uniform float IG_indexTextureWidth;\n" +
-					"uniform float IG_indexTextureHeight;\n" +
-					"uniform sampler2D IG_indexTexture;\n" +
-					"uniform sampler2D IG_coordinateTexture;\n" +
-					"uniform vec2 IG_implicitMeshSize;\n" +
-                    //pop geometry
-                    popUniforms +
-
-					"void main(void) {\n" +
-					"   gl_PointSize = 2.0;\n" +
-                    "   vec3 pos = position;\n" +
-
-					"   if (writeShadowIDs > 0.0) {\n" +
-					"	    idCoord = vec2((id + writeShadowIDs) / 256.0);\n" +
-    				"       idCoord.x = floor(idCoord.x) / 255.0;\n" +
-    				"       idCoord.y = fract(idCoord.y) * 1.00392156862745;\n" +
-                    "       fragID = id;\n" +
-					"	}\n" +
-					"	if (imageGeometry != 0.0) {\n" +
-					"		vec2 IG_texCoord;\n" +
-					"		if(imageGeometry == 1.0) {\n" +
-					"			vec2 halfPixel = vec2(0.5/IG_indexTextureWidth,0.5/IG_indexTextureHeight);\n" +
-					"			IG_texCoord = vec2(position.x*(IG_implicitMeshSize.x/IG_indexTextureWidth), position.y*(IG_implicitMeshSize.y/IG_indexTextureHeight)) + halfPixel;\n" +
-					"			vec2 IG_index = texture2D( IG_indexTexture, IG_texCoord ).rg;\n" + 
-					"			IG_texCoord = IG_index * 0.996108948;\n" +
-					"		} else {\n" +
-					"			vec2 halfPixel = vec2(0.5/IG_coordTextureWidth, 0.5/IG_coordTextureHeight);\n" +
-					"			IG_texCoord = vec2(position.x*(IG_implicitMeshSize.x/IG_coordTextureWidth), position.y*(IG_implicitMeshSize.y/IG_coordTextureHeight)) + halfPixel;\n" +
-					"		}\n" +
-					"		pos = texture2D( IG_coordinateTexture, IG_texCoord ).rgb;\n" +
-					"	 	pos = pos * (IG_bboxMax - IG_bboxMin) + IG_bboxMin;\n" +
-                    "	} \n" +
-
-                    popDecoder +
-                    "   {\n" +
-					"		pos = bgCenter + bgSize * pos / bgPrecisionMax;\n" +
-					"	}\n" +
-                    "	worldCoord = (modelMatrix * vec4(pos, 1.0)).xyz - from;\n" +
-                    "	gl_Position = modelViewProjectionMatrix * vec4(pos, 1.0);\n" +
-					"}\n";
-    }
-    else {
-        shader =    "attribute vec3 position;\n" +
-                    "attribute float id;\n" +
-                    "uniform vec3 bgCenter;\n" +
-                    "uniform vec3 bgSize;\n" +
-                    "uniform float bgPrecisionMax;\n" +
-					"uniform float writeShadowIDs;\n" +
-                    "uniform mat4 modelMatrix;\n" +
-                    "uniform mat4 modelViewProjectionMatrix;\n" +
-                    "uniform vec3 from;\n" +
-                    "varying vec3 worldCoord;\n" +
-                    "varying vec2 idCoord;\n" +
-                    "varying float fragID;\n" +
-                    //pop geometry
-                    popUniforms +
-                    
-                    "void main(void) {\n" +
-                    "    gl_PointSize = 2.0;\n" +
-                    "    vec3 pos = position;\n" +
-					"    if (writeShadowIDs > 0.0) {\n" +
-					"	    idCoord = vec2((id + writeShadowIDs) / 256.0);\n" +
-    				"       idCoord.x = floor(idCoord.x) / 255.0;\n" +
-    				"       idCoord.y = fract(idCoord.y) * 1.00392156862745;\n" +
-                    "       fragID = id;\n" +
-					"	 }\n" +
-
-                    popDecoder +
-                    "	 {\n" +
-                    "       pos = bgCenter + bgSize * pos / bgPrecisionMax;\n" +
-                    "	 }\n" +
-                    "    worldCoord = (modelMatrix * vec4(pos, 1.0)).xyz - from;\n" +
-                    "    gl_Position = modelViewProjectionMatrix * vec4(pos, 1.0);\n" +
-                    "}\n";
-    }
-
-	var vertexShader = gl.createShader(gl.VERTEX_SHADER);
-	gl.shaderSource(vertexShader, shader);
-    gl.compileShader(vertexShader);
-		
-	if(!gl.getShaderParameter(vertexShader, gl.COMPILE_STATUS)){
-		x3dom.debug.logError("[PickingShader] VertexShader " + gl.getShaderInfoLog(vertexShader));		
-	}
-	
-	return vertexShader;
-};
-
-/**
- * Generate the fragment shader
- */
-x3dom.shader.PickingShader.prototype.generateFragmentShader = function(gl)
-{
-    var shader = "#ifdef GL_FRAGMENT_PRECISION_HIGH\n";
-    shader +=    " precision highp float;\n";
-    shader +=    "#else\n";
-    shader +=    " precision mediump float;\n";
-    shader +=    "#endif\n\n";
-
-    shader +=   "uniform float writeShadowIDs;\n" +
-                "uniform float highBit;\n" +
-                "uniform float lowBit;\n" +
-                "uniform float sceneSize;\n" +
-                "uniform float visibilityMap;\n" +
-                "uniform float multiVisibilityWidth;\n" +
-                "uniform float multiVisibilityHeight;\n" +
-                "varying vec3 worldCoord;\n" +
-                "varying vec2 idCoord;\n" +
-                "varying float fragID;\n" +
-                "uniform sampler2D multiVisibilityMap;\n" +
-
-                "void main(void) {\n" +
-                "    vec4 col = vec4(0.0, 0.0, highBit, lowBit);\n" +
-                "    if (writeShadowIDs > 0.0) {\n" +
-                "       col.ba = idCoord;\n" +
-                "       if (visibilityMap > 0.1) {\n" +
-                "           vec2 idTexCoord;\n" +
-                "           float roundedID = floor(fragID+0.5);\n" +
-                "           idTexCoord.x = (mod(roundedID, multiVisibilityWidth)) * (1.0 / multiVisibilityWidth) + (0.5 / multiVisibilityWidth);\n" +
-                "           idTexCoord.y = (floor(roundedID / multiVisibilityHeight)) * (1.0 / multiVisibilityHeight) + (0.5 / multiVisibilityHeight);\n" +
-                "           vec4 visibility = texture2D( multiVisibilityMap, idTexCoord );\n" +
-                "           if (visibility.r < 1.0) discard; \n" +
-                "       }\n" +
-                "	 }\n" +
-                "    float d = length(worldCoord) / sceneSize;\n" +
-                "    vec2 comp = fract(d * vec2(256.0, 1.0));\n" +
-                "    col.rg = comp - (comp.rr * vec2(0.0, 1.0/256.0));\n" +
-                "    gl_FragColor = col;\n" +
-                "}\n";
-
-    var fragmentShader = gl.createShader(gl.FRAGMENT_SHADER);
-    gl.shaderSource(fragmentShader, shader);
-    gl.compileShader(fragmentShader);
-
-    if (!gl.getShaderParameter(fragmentShader, gl.COMPILE_STATUS)) {
-        x3dom.debug.logError("[PickingShader] FragmentShader " + gl.getShaderInfoLog(fragmentShader));
-    }
-
-    return fragmentShader;
-};
-
-/*
- * X3DOM JavaScript Library
- * http://www.x3dom.org
- *
- * (C)2009 Fraunhofer IGD, Darmstadt, Germany
- * Dual licensed under the MIT and GPL
- *
- * Based on code originally provided by
- * Philip Taylor: http://philip.html5.org
- */
-
-/**
- * Generate the final Shader program
- */
-x3dom.shader.Picking24Shader = function(gl)
-{
-	this.program = gl.createProgram();
-	
-	var vertexShader   = this.generateVertexShader(gl);
-	var fragmentShader = this.generateFragmentShader(gl);
-	
-	gl.attachShader(this.program, vertexShader);
-    gl.attachShader(this.program, fragmentShader);
-    
-    // optional, but position should be at location 0 for performance reasons
-    gl.bindAttribLocation(this.program, 0, "position");
-    
-	gl.linkProgram(this.program);
-	
-	return this.program;
-};
-
-/**
- * Generate the vertex shader
- */
-x3dom.shader.Picking24Shader.prototype.generateVertexShader = function(gl)
-{
-	var shader = "";
-
-    if (!x3dom.caps.MOBILE) {
-        shader =    "attribute vec3 position;\n" +
-                    "attribute float id;\n" +
-					"uniform vec3 bgCenter;\n" +
-					"uniform vec3 bgSize;\n" +
-					"uniform float bgPrecisionMax;\n" +
-					"uniform mat4 modelMatrix;\n" +
-					"uniform mat4 modelViewProjectionMatrix;\n" +
-					"uniform vec3 from;\n" +
-					"varying vec3 worldCoord;\n" +
-					"varying vec3 idCoord;\n" +
-                    "varying float fragID;\n" +
-					"uniform float writeShadowIDs;\n" +
-					"uniform float imageGeometry;\n" +
-					"uniform vec3 IG_bboxMin;\n" +
-					"uniform vec3 IG_bboxMax;\n" +
-					"uniform float IG_coordTextureWidth;\n" +
-					"uniform float IG_coordTextureHeight;\n" +
-					"uniform float IG_indexTextureWidth;\n" +
-					"uniform float IG_indexTextureHeight;\n" +
-					"uniform sampler2D IG_indexTexture;\n" +
-					"uniform sampler2D IG_coordinateTexture;\n" +
-					"uniform vec2 IG_implicitMeshSize;\n" +
-					
-					"void main(void) {\n" +
-                    "   gl_PointSize = 2.0;\n" +
-					"   if (writeShadowIDs > 0.0) {\n" +
-                    //      composed id is at least 32 (= 2*16) bit + num bits for max-orig-shape-id
-                    "       float ID = id + writeShadowIDs;\n" +
-                    //      however, let's ignore this and assume a maximum of 24 bits for all id's
-                    "       float h = floor(ID / 256.0);\n" +
-                    "       idCoord.x = ID - (h * 256.0);\n" +
-                    "       idCoord.z = floor(h / 256.0);\n" +
-                    "       idCoord.y = h - (idCoord.z * 256.0);\n" +
-                    "       idCoord = idCoord.zyx / 255.0;\n" +
-                    "       fragID = id;\n" +
-					"	}\n" +
-					"	if (imageGeometry != 0.0) {\n" +
-					"		vec2 IG_texCoord;\n" +
-					"		if(imageGeometry == 1.0) {\n" +
-					"			vec2 halfPixel = vec2(0.5/IG_indexTextureWidth,0.5/IG_indexTextureHeight);\n" +
-					"			IG_texCoord = vec2(position.x*(IG_implicitMeshSize.x/IG_indexTextureWidth), position.y*(IG_implicitMeshSize.y/IG_indexTextureHeight)) + halfPixel;\n" +
-					"			vec2 IG_index = texture2D( IG_indexTexture, IG_texCoord ).rg;\n" + 
-					"			IG_texCoord = IG_index * 0.996108948;\n" +
-					"		} else {\n" +
-					"			vec2 halfPixel = vec2(0.5/IG_coordTextureWidth, 0.5/IG_coordTextureHeight);\n" +
-					"			IG_texCoord = vec2(position.x*(IG_implicitMeshSize.x/IG_coordTextureWidth), position.y*(IG_implicitMeshSize.y/IG_coordTextureHeight)) + halfPixel;\n" +
-					"		}\n" +
-					"		vec3 pos = texture2D( IG_coordinateTexture, IG_texCoord ).rgb;\n" +
-					"	 	pos = pos * (IG_bboxMax - IG_bboxMin) + IG_bboxMin;\n" +
-					"    	worldCoord = (modelMatrix * vec4(pos, 1.0)).xyz - from;\n" +
-					"		gl_Position = modelViewProjectionMatrix * vec4(pos, 1.0);\n" +
-					"	} else {\n" +
-					"		vec3 pos = bgCenter + bgSize * position / bgPrecisionMax;\n" +
-					"		worldCoord = (modelMatrix * vec4(pos, 1.0)).xyz - from;\n" +
-					"		gl_Position = modelViewProjectionMatrix * vec4(pos, 1.0);\n" +
-					"	}\n" +
-					"}\n";
-    }
-    else {
-        shader =    "attribute vec3 position;\n" +
-                    "attribute float id;\n" +
-                    "uniform vec3 bgCenter;\n" +
-                    "uniform vec3 bgSize;\n" +
-                    "uniform float bgPrecisionMax;\n" +
-					"uniform float writeShadowIDs;\n" +
-                    "varying float fragID;\n" +
-                    "uniform mat4 modelMatrix;\n" +
-                    "uniform mat4 modelViewProjectionMatrix;\n" +
-                    "uniform vec3 from;\n" +
-                    "varying vec3 worldCoord;\n" +
-                    "varying vec3 idCoord;\n" +
-                    
-                    "void main(void) {\n" +
-                    "    gl_PointSize = 2.0;\n" +
-                    "    if (writeShadowIDs > 0.0) {\n" +
-                    //      composed id is at least 32 (= 2*16) bit + num bits for max-orig-shape-id
-                    "       float ID = id + writeShadowIDs;\n" +
-                    //      however, let's ignore this and assume a maximum of 24 bits for all id's
-                    "       float h = floor(ID / 256.0);\n" +
-                    "       idCoord.x = ID - (h * 256.0);\n" +
-                    "       idCoord.z = floor(h / 256.0);\n" +
-                    "       idCoord.y = h - (idCoord.z * 256.0);\n" +
-                    "       idCoord = idCoord.zyx / 255.0;\n" +
-                    "       fragID = id;\n" +
-                    "	 }\n" +
-                    "    vec3 pos = bgCenter + bgSize * position / bgPrecisionMax;\n" +
-                    "    worldCoord = (modelMatrix * vec4(pos, 1.0)).xyz - from;\n" +
-                    "    gl_Position = modelViewProjectionMatrix * vec4(pos, 1.0);\n" +
-                    "}\n";
-    }
-
-	var vertexShader = gl.createShader(gl.VERTEX_SHADER);
-	gl.shaderSource(vertexShader, shader);
-    gl.compileShader(vertexShader);
-		
-	if(!gl.getShaderParameter(vertexShader, gl.COMPILE_STATUS)){
-		x3dom.debug.logError("[Picking24Shader] VertexShader " + gl.getShaderInfoLog(vertexShader));		
-	}
-	
-	return vertexShader;
-};
-
-/**
- * Generate the fragment shader
- */
-x3dom.shader.Picking24Shader.prototype.generateFragmentShader = function(gl)
-{
-  var shader = "#ifdef GL_FRAGMENT_PRECISION_HIGH\n";
-  shader += "precision highp float;\n";
-  shader += "#else\n";
-  shader += " precision mediump float;\n";
-  shader += "#endif\n\n";
-
-	shader += "uniform float writeShadowIDs;\n" +
-					"uniform float highBit;\n" +
-					"uniform float lowBit;\n" +
-					"uniform float sceneSize;\n" +
-                    "uniform float visibilityMap;\n" +
-                    "uniform float multiVisibilityWidth;\n" +
-                    "uniform float multiVisibilityHeight;\n" +
-					"varying vec3 worldCoord;\n" +
-					"varying vec3 idCoord;\n" +
-                    "varying float fragID;\n" +
-                    "uniform sampler2D multiVisibilityMap;\n" +
-					
-					"void main(void) {\n" +
-					"    vec4 col = vec4(0.0, 0.0, highBit, lowBit);\n" +
-					"    if (writeShadowIDs > 0.0) {\n" +
-    				"       col.gba = idCoord;\n" +
-                    "       if (visibilityMap > 0.0) {\n" +
-                    "           vec2 idTexCoord;\n" +
-                    "           float roundedID = floor(fragID+0.5);\n" +
-                    "           idTexCoord.x = (mod(roundedID, multiVisibilityWidth)) * (1.0 / multiVisibilityWidth) + (0.5 / multiVisibilityWidth);\n" +
-                    "           idTexCoord.y = (floor(roundedID / multiVisibilityHeight)) * (1.0 / multiVisibilityHeight) + (0.5 / multiVisibilityHeight);\n" +
-                    "           vec4 visibility = texture2D( multiVisibilityMap, idTexCoord );\n" +
-                    "           if (visibility.a < 1.0) discard; \n" +
-                    "       }\n" +
-					"	 }\n" +
-					"    col.r = length(worldCoord) / sceneSize;\n" +
-					"    gl_FragColor = col;\n" +
-					"}\n";
-
-    var fragmentShader = gl.createShader(gl.FRAGMENT_SHADER);
-	gl.shaderSource(fragmentShader, shader);
-    gl.compileShader(fragmentShader);
-		
-	if(!gl.getShaderParameter(fragmentShader, gl.COMPILE_STATUS)){
-		x3dom.debug.logError("[Picking24Shader] FragmentShader " + gl.getShaderInfoLog(fragmentShader));		
-	}
-	
-	return fragmentShader;
-};
-
-/*
- * X3DOM JavaScript Library
- * http://www.x3dom.org
- *
- * (C)2009 Fraunhofer IGD, Darmstadt, Germany
- * Dual licensed under the MIT and GPL
- *
- * Based on code originally provided by
- * Philip Taylor: http://philip.html5.org
- */
-
-/**
- * Generate the final Shader program
- */
-x3dom.shader.PickingIdShader = function(gl)
-{
-	this.program = gl.createProgram();
-	
-	var vertexShader   = this.generateVertexShader(gl);
-	var fragmentShader = this.generateFragmentShader(gl);
-	
-	gl.attachShader(this.program, vertexShader);
-    gl.attachShader(this.program, fragmentShader);
-    
-    // optional, but position should be at location 0 for performance reasons
-    gl.bindAttribLocation(this.program, 0, "position");
-    
-	gl.linkProgram(this.program);
-	
-	return this.program;
-};
-
-/**
- * Generate the vertex shader
- */
-x3dom.shader.PickingIdShader.prototype.generateVertexShader = function(gl)
-{
-	var shader =    "attribute vec3 position;\n" +
-                    "attribute float id;\n" +
-                    "uniform vec3 bgCenter;\n" +
-                    "uniform vec3 bgSize;\n" +
-                    "uniform float bgPrecisionMax;\n" +
-					"uniform float writeShadowIDs;\n" +
-                    "uniform mat4 modelMatrix;\n" +
-                    "uniform mat4 modelViewProjectionMatrix;\n" +
-                    "varying vec2 idCoord;\n" +
-                    
-                    "void main(void) {\n" +
-					"    if (writeShadowIDs > 0.0) {\n" +
-					"	    idCoord = vec2((id + writeShadowIDs) / 256.0);\n" +
-    				"       idCoord.x = floor(idCoord.x) / 255.0;\n" +
-    				"       idCoord.y = fract(idCoord.y) * 1.00392156862745;\n" +
-					"	 }\n" +
-                    "    vec3 pos = bgCenter + bgSize * position / bgPrecisionMax;\n" +
-                    "    gl_Position = modelViewProjectionMatrix * vec4(pos, 1.0);\n" +
-                    "}\n";
-
-	var vertexShader = gl.createShader(gl.VERTEX_SHADER);
-	gl.shaderSource(vertexShader, shader);
-    gl.compileShader(vertexShader);
-		
-	if(!gl.getShaderParameter(vertexShader, gl.COMPILE_STATUS)){
-		x3dom.debug.logError("[PickingIdShader] VertexShader " + gl.getShaderInfoLog(vertexShader));
-	}
-	
-	return vertexShader;
-};
-
-/**
- * Generate the fragment shader
- */
-x3dom.shader.PickingIdShader.prototype.generateFragmentShader = function(gl)
-{
-    var shader = "#ifdef GL_FRAGMENT_PRECISION_HIGH\n";
-    shader    += " precision highp float;\n";
-    shader    += "#else\n";
-    shader    += " precision mediump float;\n";
-    shader    += "#endif\n\n";
-
-    shader   += "uniform float writeShadowIDs;\n" +
-                "uniform float highBit;\n" +
-                "uniform float lowBit;\n" +
-                "varying vec2 idCoord;\n" +
-
-                "void main(void) {\n" +
-                "    vec4 col = vec4(highBit, lowBit, 0.0, 0.0);\n" +
-                "    if (writeShadowIDs > 0.0) {\n" +
-                "       col.ba = idCoord;\n" +
-                "	 }\n" +
-                "    gl_FragColor = col;\n" +
-                "}\n";
-
-    var fragmentShader = gl.createShader(gl.FRAGMENT_SHADER);
-	gl.shaderSource(fragmentShader, shader);
-    gl.compileShader(fragmentShader);
-		
-	if(!gl.getShaderParameter(fragmentShader, gl.COMPILE_STATUS)){
-		x3dom.debug.logError("[PickingIdShader] FragmentShader " + gl.getShaderInfoLog(fragmentShader));
-	}
-	
-	return fragmentShader;
-};
-
-/*
- * X3DOM JavaScript Library
- * http://www.x3dom.org
- *
- * (C)2009 Fraunhofer IGD, Darmstadt, Germany
- * Dual licensed under the MIT and GPL
- *
- * Based on code originally provided by
- * Philip Taylor: http://philip.html5.org
- */
-
-/**
- * Generate the final Shader program
- */
-x3dom.shader.PickingColorShader = function(gl)
-{
-	this.program = gl.createProgram();
-	
-	var vertexShader 	= this.generateVertexShader(gl);
-	var fragmentShader 	= this.generateFragmentShader(gl);
-	
-	gl.attachShader(this.program, vertexShader);
-    gl.attachShader(this.program, fragmentShader);
-    
-    // optional, but position should be at location 0 for performance reasons
-    gl.bindAttribLocation(this.program, 0, "position");
-    
-	gl.linkProgram(this.program);
-	
-	return this.program;
-};
-
-/**
- * Generate the vertex shader
- */
-x3dom.shader.PickingColorShader.prototype.generateVertexShader = function(gl)
-{
-	var shader = 	"attribute vec3 position;\n" +
-					"attribute vec3 color;\n" +
-					"varying vec3 fragColor;\n" +
-					"uniform mat4 modelViewProjectionMatrix;\n" +
-					"\n" +
-					"void main(void) {\n" +
-					"    gl_Position = modelViewProjectionMatrix * vec4(position, 1.0);\n" +
-					"    gl_PointSize = 2.0;\n" + 
-					"    fragColor = color;\n" +
-					"}\n";
-
-	var vertexShader = gl.createShader(gl.VERTEX_SHADER);
-	gl.shaderSource(vertexShader, shader);
-    gl.compileShader(vertexShader);
-		
-	if(!gl.getShaderParameter(vertexShader, gl.COMPILE_STATUS)){
-		x3dom.debug.logError("[PickingColorShader] VertexShader " + gl.getShaderInfoLog(vertexShader));		
-	}
-	
-	return vertexShader;
-};
-
-/**
- * Generate the fragment shader
- */
-x3dom.shader.PickingColorShader.prototype.generateFragmentShader = function(gl)
-{
-  var shader = "#ifdef GL_FRAGMENT_PRECISION_HIGH\n";
-  shader += "precision highp float;\n";
-  shader += "#else\n";
-  shader += " precision mediump float;\n";
-  shader += "#endif\n\n";
-
-	shader += "uniform float lowBit;\n" +
-					"varying vec3 fragColor;\n" +
-					"\n" +
-					"void main(void) {\n" +
-					"    gl_FragColor = vec4(fragColor, lowBit);\n" +
-					"}\n";
-
-    var fragmentShader = gl.createShader(gl.FRAGMENT_SHADER);
-	gl.shaderSource(fragmentShader, shader);
-    gl.compileShader(fragmentShader);
-		
-	if(!gl.getShaderParameter(fragmentShader, gl.COMPILE_STATUS)){
-		x3dom.debug.logError("[PickingColorShader] FragmentShader " + gl.getShaderInfoLog(fragmentShader));		
-	}
-	
-	return fragmentShader;
-};
-
-/*
- * X3DOM JavaScript Library
- * http://www.x3dom.org
- *
- * (C)2009 Fraunhofer IGD, Darmstadt, Germany
- * Dual licensed under the MIT and GPL
- *
- * Based on code originally provided by
- * Philip Taylor: http://philip.html5.org
- */
-
-/**
- * Generate the final Shader program
- */
-x3dom.shader.PickingTexcoordShader = function(gl)
-{
-	this.program = gl.createProgram();
-	
-	var vertexShader 	= this.generateVertexShader(gl);
-	var fragmentShader 	= this.generateFragmentShader(gl);
-	
-	gl.attachShader(this.program, vertexShader);
-    gl.attachShader(this.program, fragmentShader);
-    
-    // optional, but position should be at location 0 for performance reasons
-    gl.bindAttribLocation(this.program, 0, "position");
-    
-	gl.linkProgram(this.program);
-	
-	return this.program;
-};
-
-/**
- * Generate the vertex shader
- */
-x3dom.shader.PickingTexcoordShader.prototype.generateVertexShader = function(gl)
-{
-	var shader = 	"attribute vec3 position;\n" +
-					"attribute vec2 texcoord;\n" +
-					"varying vec3 fragColor;\n" +
-					"uniform mat4 modelViewProjectionMatrix;\n" +
-					"" +
-					"void main(void) {\n" +
-					"    gl_Position = modelViewProjectionMatrix * vec4(position, 1.0);\n" +
-					"    fragColor = vec3(abs(texcoord.x), abs(texcoord.y), 0.0);\n" +
-					"}\n";
-
-	var vertexShader = gl.createShader(gl.VERTEX_SHADER);
-	gl.shaderSource(vertexShader, shader);
-    gl.compileShader(vertexShader);
-		
-	if(!gl.getShaderParameter(vertexShader, gl.COMPILE_STATUS)){
-		x3dom.debug.logError("[PickingTexcoordShader] VertexShader " + gl.getShaderInfoLog(vertexShader));		
-	}
-	
-	return vertexShader;
-};
-
-/**
- * Generate the fragment shader
- */
-x3dom.shader.PickingTexcoordShader.prototype.generateFragmentShader = function(gl)
-{
-  var shader = "#ifdef GL_FRAGMENT_PRECISION_HIGH\n";
-  shader += "precision highp float;\n";
-  shader += "#else\n";
-  shader += " precision mediump float;\n";
-  shader += "#endif\n\n";
-
-	shader += "uniform float lowBit;\n" +
-					"varying vec3 fragColor;\n" +
-					"\n" +
-					"void main(void) {\n" +
-					"    gl_FragColor = vec4(fragColor, lowBit);\n" +
-					"}\n";
-
-    var fragmentShader = gl.createShader(gl.FRAGMENT_SHADER);
-	gl.shaderSource(fragmentShader, shader);
-    gl.compileShader(fragmentShader);
-		
-	if(!gl.getShaderParameter(fragmentShader, gl.COMPILE_STATUS)){
-		x3dom.debug.logError("[PickingTexcoordShader] FragmentShader " + gl.getShaderInfoLog(fragmentShader));		
 	}
 	
 	return fragmentShader;
@@ -19706,7 +19885,6 @@ x3dom.gfx_webgl = (function () {
             //Check if we need a new shader
             shape._webgl.shader = this.cache.getShaderByProperties(gl, shape, shape.getShaderProperties(viewarea));
 
-
             if (!needFullReInit && shape._webgl.binaryGeometry == 0)    // THINKABOUTME: What about PopGeo & Co.?
             {
                 for (q = 0; q < shape._webgl.positions.length; q++)
@@ -19841,29 +20019,21 @@ x3dom.gfx_webgl = (function () {
                         shape._dirty.texcoords = false;
                     }
 
-                    if (shape._dirty.ids == true) {
-                        if (shape._webgl.shader.texcoord !== undefined) {
-                            shape._webgl.texcoords[q] = geoNode._mesh._texCoords[q];
+                    if (shape._dirty.specialAttribs == true) {
+                        if (shape._webgl.shader.particleSize !== undefined) {
+                            var szArr = geoNode._vf.size.toGL();
 
-                            gl.deleteBuffer(shape._webgl.buffers[q6 + 3]);
+                            if (szArr.length) {
+                                gl.deleteBuffer(shape._webgl.buffers[q6 + 5]);
+                                shape._webgl.buffers[q6 + 5] = gl.createBuffer();
 
-                            texCoordBuffer = gl.createBuffer();
-                            shape._webgl.buffers[q6 + 3] = texCoordBuffer;
+                                gl.bindBuffer(gl.ARRAY_BUFFER, shape._webgl.buffers[q6 + 5]);
+                                gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(szArr), gl.STATIC_DRAW);
+                            }
 
-                            texCoords = new Float32Array(shape._webgl.texcoords[q]);
-
-                            gl.bindBuffer(gl.ARRAY_BUFFER, texCoordBuffer);
-                            gl.bufferData(gl.ARRAY_BUFFER, texCoords, gl.STATIC_DRAW);
-
-                            gl.vertexAttribPointer(shape._webgl.shader.texCoord,
-                                geoNode._mesh._numTexComponents,
-                                shape._webgl.texCoordType, false,
-                                shape._texCoordStrideOffset[0], shape._texCoordStrideOffset[1]);
-
-                            texCoords = null;
+                            shape._dirty.specialAttribs = false;
                         }
-
-                        shape._dirty.texcoords = false;
+                        // Maybe other special attribs here, though e.g. AFAIK only BG (which not handled here) has ids.
                     }
                 }
             }
@@ -20138,6 +20308,17 @@ x3dom.gfx_webgl = (function () {
 
                     colors = null;
                 }
+                if (sp.particleSize !== undefined) {
+                    var sizeArr = geoNode._vf.size.toGL();
+
+                    if (sizeArr.length) {
+                        var sizeBuffer = gl.createBuffer();
+                        shape._webgl.buffers[q6 + 5] = sizeBuffer;
+
+                        gl.bindBuffer(gl.ARRAY_BUFFER, sizeBuffer);
+                        gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(sizeArr), gl.STATIC_DRAW);
+                    }
+                }
             }
 
             // TODO; FIXME; handle geometry with split mesh that has dynamic fields!
@@ -20302,7 +20483,12 @@ x3dom.gfx_webgl = (function () {
                     sky[i] /= Math.PI;
                 }
 
-                x3dom.debug.assert(sky.length == colors.length);
+                if (sky.length != colors.length) {
+                    x3dom.debug.logError("Number of background colors and corresponding angles are different!");
+                    var minArrayLength = (sky.length < colors.length) ? sky.length : colors.length;
+                    sky.length = minArrayLength;
+                    colors.length = minArrayLength;
+                }
 
                 var interp = new x3dom.nodeTypes.ColorInterpolator();
 
@@ -20899,19 +21085,6 @@ x3dom.gfx_webgl = (function () {
         var bufHeight = scene._webgl.fboPick.height;
         var x = lastX * ps;
         var y = (bufHeight - 1) - lastY * ps;
-        var sp = null;
-
-        switch (pickMode) {
-            case 0: sp = scene._webgl.pickShader;         break;
-            case 1: sp = scene._webgl.pickColorShader;    break;
-            case 2: sp = scene._webgl.pickTexCoordShader; break;
-            case 3: sp = scene._webgl.pickShader24;       break;
-            case 4: sp = scene._webgl.pickShaderId;       break;
-            default: break;
-        }
-        if (!sp) {   // error
-            return;
-        }
 
         this.stateManager.bindFramebuffer(gl.FRAMEBUFFER, scene._webgl.fboPick.fbo);
         this.stateManager.viewport(0, 0, scene._webgl.fboPick.width, bufHeight);
@@ -20941,19 +21114,6 @@ x3dom.gfx_webgl = (function () {
         this.stateManager.enable(gl.CULL_FACE);
         this.stateManager.disable(gl.BLEND);
 
-        this.stateManager.useProgram(sp);
-
-        // workaround for old graphics cards/ drivers
-        if (pickMode == 0)  //pop geo only here impl.
-        {
-            sp.PG_precisionLevel = 1.0;
-            sp.PG_powPrecision = 1.0;
-            sp.PG_maxBBSize = [0, 0, 0];
-            sp.PG_bbMin = [0, 0, 0];
-            sp.PG_bbMaxModF = [0, 0, 0];
-            sp.PG_bboxShiftVec = [0, 0, 0];
-        }
-
         if (x3dom.Utils.needLineWidth) {
             this.stateManager.lineWidth(2);     // bigger lines for better picking
         }
@@ -20973,6 +21133,19 @@ x3dom.gfx_webgl = (function () {
             var s_app = shape._cf.appearance.node;
             var s_msh = s_geo._mesh;
 
+            //Get shapes shader properties
+            var properties = shape.getShaderProperties(viewarea);
+
+            //Generate Dynamic picking shader
+            var sp = this.cache.getShaderByProperties(gl, shape, properties, pickMode);
+
+            if (!sp) {   // error
+                return;
+            }
+
+            //Bind shader
+            this.stateManager.useProgram(sp);
+
             sp.modelMatrix = trafo.toGL();
             sp.modelViewProjectionMatrix = mat_scene.mult(trafo).toGL();
 
@@ -20982,16 +21155,12 @@ x3dom.gfx_webgl = (function () {
             sp.from = from.toGL();
             sp.sceneSize = sceneSize;
 
-            //Set ImageGeometry switch
-            sp.imageGeometry = s_gl.imageGeometry;
-            sp.popGeometry = s_gl.popGeometry;
+            // Set shadow ids if available
+            if(s_gl.binaryGeometry != 0 && s_geo._vf.idsPerVertex) {
+                sp.shadowIDs = (shape._vf.idOffset + x3dom.nodeTypes.Shape.objectID + 2);
+            }
 
-            // Set IDs perVertex switch
-            sp.writeShadowIDs = (s_gl.binaryGeometry != 0 && s_geo._vf.idsPerVertex) ?
-                                (shape._vf.idOffset + x3dom.nodeTypes.Shape.objectID + 2) : 0;
-
-            sp.visibilityMap = 0.0;
-
+            // BoundingBox stuff
             if (s_gl.coordType != gl.FLOAT) {
                 if (!s_gl.popGeometry && (x3dom.Utils.isUnsignedType(s_geo._vf.coordType))) {
                     sp.bgCenter = s_geo.getMin().toGL();
@@ -21002,18 +21171,31 @@ x3dom.gfx_webgl = (function () {
                 sp.bgSize = s_geo._vf.size.toGL();
                 sp.bgPrecisionMax = s_geo.getPrecisionMax('coordType');
             }
-            else {
-                sp.bgCenter = bgCenter;
-                sp.bgSize = bgSize;
-                sp.bgPrecisionMax = 1;
-            }
-            if (s_gl.colorType != gl.FLOAT) {
+
+            if (pickMode == 1 && s_gl.colorType != gl.FLOAT) {
                 sp.bgPrecisionColMax = s_geo.getPrecisionMax('colorType');
             }
-            if (s_gl.texCoordType != gl.FLOAT) {
+
+            if (pickMode == 2 && s_gl.texCoordType != gl.FLOAT) {
                 sp.bgPrecisionTexMax = s_geo.getPrecisionMax('texCoordType');
             }
 
+            //===========================================================================
+            // Set ClipPlanes
+            //===========================================================================
+            if (shape._clipPlanes) {
+                sp.modelViewMatrix = mat_view.mult(trafo).toGL();
+                sp.viewMatrixInverse = mat_view.inverse().toGL();
+                for (var cp = 0; cp < shape._clipPlanes.length; cp++) {
+                    var clip_trafo = shape._clipPlanes[cp].getCurrentTransform();
+
+                    sp['clipPlane' + cp + '_Plane'] = clip_trafo.multMatrixPlane(shape._clipPlanes[cp]._vf.plane).toGL();
+                    sp['clipPlane' + cp + '_CappingStrength'] = shape._clipPlanes[cp]._vf.cappingStrength;
+                    sp['clipPlane' + cp + '_CappingColor'] = shape._clipPlanes[cp]._vf.cappingColor.toGL();
+                }
+            }
+
+            //ImageGeometry stuff
             if (s_gl.imageGeometry != 0 && !x3dom.caps.MOBILE)  // FIXME: mobile errors
             {
                 sp.IG_bboxMin = s_geo.getMin().toGL();
@@ -21061,11 +21243,10 @@ x3dom.gfx_webgl = (function () {
                     }
                 }
             }
-            else if (s_gl.binaryGeometry != 0 && s_geo._vf.idsPerVertex) {
+            else if (s_gl.binaryGeometry != 0 && s_geo._vf.idsPerVertex) { //MultiPart
                 var shader = s_app._shader;
                 if(shader && x3dom.isa(s_app._shader, x3dom.nodeTypes.CommonSurfaceShader)) {
                     if (shader.getMultiVisibilityMap()) {
-                        sp.visibilityMap = 1.0;
                         sp.multiVisibilityMap = 0;
                         var visTex = x3dom.Utils.findTextureByName(s_gl.texture, "multiVisibilityMap");
                         sp.multiVisibilityWidth = visTex.texture.width;
@@ -21164,7 +21345,7 @@ x3dom.gfx_webgl = (function () {
                     shape._coordStrideOffset[0], shape._coordStrideOffset[1]);
                 gl.enableVertexAttribArray(sp.position);
 
-                if (sp.texcoord !== undefined && s_gl.buffers[q6 + 3]) {
+                if (pickMode == 1 && sp.texcoord !== undefined && s_gl.buffers[q6 + 3]) {
                     gl.bindBuffer(gl.ARRAY_BUFFER, s_gl.buffers[q6 + 3]);
 
                     gl.vertexAttribPointer(sp.texcoord,
@@ -21172,7 +21353,7 @@ x3dom.gfx_webgl = (function () {
                         shape._texCoordStrideOffset[0], shape._texCoordStrideOffset[1]);
                     gl.enableVertexAttribArray(sp.texcoord);
                 }
-                if (sp.color !== undefined && s_gl.buffers[q6 + 4]) {
+                if (pickMode == 2 && sp.color !== undefined && s_gl.buffers[q6 + 4]) {
                     gl.bindBuffer(gl.ARRAY_BUFFER, s_gl.buffers[q6 + 4]);
 
                     gl.vertexAttribPointer(sp.color,
@@ -21405,6 +21586,7 @@ x3dom.gfx_webgl = (function () {
         //===========================================================================
         var mat = s_app ? s_app._cf.material.node : null;
         var shader = s_app ? s_app._shader : null;
+        var twoSidedMat = false;
 
         var isUserDefinedShader = shader && x3dom.isa(shader, x3dom.nodeTypes.ComposedShader);
 
@@ -21454,6 +21636,15 @@ x3dom.gfx_webgl = (function () {
             sp.shininess = mat._vf.shininess;
             sp.ambientIntensity = mat._vf.ambientIntensity;
             sp.transparency = mat._vf.transparency;
+            if (x3dom.isa(mat, x3dom.nodeTypes.TwoSidedMaterial)) {
+                twoSidedMat = true;
+                sp.backDiffuseColor = mat._vf.backDiffuseColor.toGL();
+                sp.backSpecularColor = mat._vf.backSpecularColor.toGL();
+                sp.backEmissiveColor = mat._vf.backEmissiveColor.toGL();
+                sp.backShininess = mat._vf.backShininess;
+                sp.backAmbientIntensity = mat._vf.backAmbientIntensity;
+                sp.backTransparency = mat._vf.backTransparency;
+            }
         }
         else {
             sp.diffuseColor = [1.0, 1.0, 1.0];
@@ -21558,6 +21749,19 @@ x3dom.gfx_webgl = (function () {
             sp['light' + numLights + '_ShadowIntensity'] = 0.0;
         }
 
+        //===========================================================================
+        // Set ClipPlanes
+        //===========================================================================
+        if (shape._clipPlanes) {
+            for (var cp = 0; cp < shape._clipPlanes.length; cp++) {
+                var clip_trafo = shape._clipPlanes[cp].getCurrentTransform();
+
+                sp['clipPlane' + cp + '_Plane'] = clip_trafo.multMatrixPlane(shape._clipPlanes[cp]._vf.plane).toGL();
+                sp['clipPlane' + cp + '_CappingStrength'] = shape._clipPlanes[cp]._vf.cappingStrength;
+                sp['clipPlane' + cp + '_CappingColor'] = shape._clipPlanes[cp]._vf.cappingColor.toGL();
+            }
+        }
+
 
         //===========================================================================
         // Set DepthMode
@@ -21658,7 +21862,7 @@ x3dom.gfx_webgl = (function () {
             this.stateManager.lineWidth(1);
         }
 
-        if (shape.isSolid()) {
+        if (shape.isSolid() && !twoSidedMat) {
             this.stateManager.enable(gl.CULL_FACE);
 
             if (shape.isCCW()) {
@@ -21685,15 +21889,19 @@ x3dom.gfx_webgl = (function () {
 
         sp.modelViewProjectionMatrix = mat_scene.mult(transform).toGL();
 
+        if (isUserDefinedShader || shape._clipPlanes && shape._clipPlanes.length)
+        {
+            sp.viewMatrixInverse = mat_view.inverse().toGL();
+        }
+
         // only calculate on "request" (maybe of interest for users)
         if (isUserDefinedShader) {
             sp.projectionMatrix = mat_proj.toGL();
 
             sp.worldMatrix = transform.toGL();
             sp.worldInverseTranspose = transform.inverse().transpose().toGL();
-            sp.viewMatrixInverse = mat_view.inverse().toGL();
-        }
 
+        }
 
         //PopGeometry: adapt LOD and set shader variables
         if (s_gl.popGeometry) {
@@ -21740,6 +21948,11 @@ x3dom.gfx_webgl = (function () {
 
         // render object
         var v, v_n, offset, q_n;
+        var isParticleSet = false;
+
+        if (x3dom.isa(s_geo, x3dom.nodeTypes.ParticleSet)) {
+            isParticleSet = true;
+        }
 
         if (s_gl.externalGeometry != 0)
         {
@@ -21757,6 +21970,40 @@ x3dom.gfx_webgl = (function () {
                 continue;
 
             if (s_gl.buffers[q6]) {
+                if (isParticleSet && s_geo.drawOrder() != "any") {  // sort
+                    var indexArray, zPos = [];
+                    var pnts = s_geo._cf.coord.node.getPoints();
+                    var pn = (pnts.length == s_gl.indexes[q].length) ? s_gl.indexes[q].length : 0;
+
+                    for (var i=0; i<pn; i++) {
+                        var center = model_view.multMatrixPnt(pnts[i]);
+                        zPos.push([i, center.z]);
+                    }
+
+                    if (s_geo.drawOrder() == "backtofront")
+                        zPos.sort(function(a, b) { return a[1] - b[1]; });
+                    else
+                        zPos.sort(function(b, a) { return a[1] - b[1]; });
+
+                    for (i=0; i<pn; i++) {
+                        shape._webgl.indexes[q][i] = zPos[i][0];
+                    }
+
+                    if (x3dom.caps.INDEX_UINT && (pn > 65535)) {
+                        indexArray = new Uint32Array(shape._webgl.indexes[q]);
+                        shape._webgl.indexType = gl.UNSIGNED_INT;
+                    }
+                    else {
+                        indexArray = new Uint16Array(shape._webgl.indexes[q]);
+                        shape._webgl.indexType = gl.UNSIGNED_SHORT;
+                    }
+
+                    gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, s_gl.buffers[q6]);
+                    gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, indexArray, gl.DYNAMIC_DRAW);
+
+                    indexArray = null;
+                }
+
                 gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, s_gl.buffers[q6]);
             }
 
@@ -21791,25 +22038,21 @@ x3dom.gfx_webgl = (function () {
                     shape._colorStrideOffset[0], shape._colorStrideOffset[1]);
                 gl.enableVertexAttribArray(sp.color);
             }
-            if (sp.id !== undefined && s_gl.buffers[q6 + 5]) {
+            if ((sp.id !== undefined || sp.particleSize !== undefined) && s_gl.buffers[q6 + 5]) {
                 gl.bindBuffer(gl.ARRAY_BUFFER, s_gl.buffers[q6 + 5]);
 
                 //texture coordinate hack for IDs
-                if (s_gl.binaryGeometry != 0 && s_geo._vf["idsPerVertex"] == true)
+                if (s_gl.binaryGeometry != 0 && s_geo._vf.idsPerVertex == true)
                 {
                     gl.vertexAttribPointer(sp.id,
-                        1, gl.FLOAT, false,
-                       4, 0);
+                        1, gl.FLOAT, false, 4, 0);
                     gl.enableVertexAttribArray(sp.id);
                 }
-                else
+                else if (isParticleSet)
                 {
-                    /*
-                    gl.vertexAttribPointer(sp.id,
-                        1, gl.FLOAT, false,
-                        shape._idStrideOffset[0], shape._idStrideOffset[1]);
-                    gl.enableVertexAttribArray(sp.id);
-                    */
+                    gl.vertexAttribPointer(sp.particleSize,
+                        3, gl.FLOAT, false, 0, 0);
+                    gl.enableVertexAttribArray(sp.particleSize);
                 }
             }
             if (s_gl.popGeometry != 0 && s_gl.buffers[q6 + 5]) {
@@ -21918,8 +22161,11 @@ x3dom.gfx_webgl = (function () {
             if (sp.color !== undefined) {
                 gl.disableVertexAttribArray(sp.color);
             }
-            if (sp.id !== undefined && s_gl.buffers[q6 + 5]) {
-                gl.disableVertexAttribArray(sp.id);
+            if (s_gl.buffers[q6 + 5]) {
+                if (sp.id !== undefined)
+                    gl.disableVertexAttribArray(sp.id);
+                else if (sp.particleSize !== undefined)
+                    gl.disableVertexAttribArray(sp.particleSize);
             }
             if (s_gl.popGeometry != 0 && sp.PG_vertexID !== undefined) {
                 gl.disableVertexAttribArray(sp.PG_vertexID);    // mimic gl_VertexID
@@ -22120,7 +22366,7 @@ x3dom.gfx_webgl = (function () {
         
         var scene = viewarea._scene;
         
-        if (scene._vf.pickOnNav || (!viewarea._isMoving && !viewarea._isAnimating)) 
+        if (scene._forcePicking || scene._vf.pickOnNav || (!viewarea._isMoving && !viewarea._isAnimating)) 
         {
             var gl = this.ctx3d;
             
@@ -22312,10 +22558,12 @@ x3dom.gfx_webgl = (function () {
 
                     //Check if there are MultiParts
                     if (scene._multiPartMap) {
+                        var mp, multiPart;
+
                         //Find related MultiPart
-                        for (var mp=0; mp<scene._multiPartMap.multiParts.length; mp++)
+                        for (mp=0; mp<scene._multiPartMap.multiParts.length; mp++)
                         {
-                            var multiPart = scene._multiPartMap.multiParts[mp];
+                            multiPart = scene._multiPartMap.multiParts[mp];
                             if (objId >= multiPart._minId && objId <= multiPart._maxId)
                             {
                                 hitObject = multiPart._xmlNode;
@@ -22335,8 +22583,20 @@ x3dom.gfx_webgl = (function () {
                                 };
 
                                 multiPart.handleEvents(event);
+                            }
+                            else
+                            {
+                                event = {
+                                    target: multiPart._xmlNode,
+                                    button: button, mouseup: ((buttonState >>> 8) > 0),
+                                    layerX: x, layerY: y,
+                                    pickedId: -1,
+                                    cancelBubble: false,
+                                    stopPropagation: function () { this.cancelBubble = true; },
+                                    preventDefault:  function () { this.cancelBubble = true; }
+                                };
 
-                                break;
+                                multiPart.handleEvents(event);
                             }
                         }
                     }
@@ -22370,23 +22630,25 @@ x3dom.gfx_webgl = (function () {
                     if (scene._shadowIdMap && scene._shadowIdMap.mapping &&
                         objId < scene._shadowIdMap.mapping.length) {
                         var shIds = scene._shadowIdMap.mapping[objId].usage;
+                        var n, c, shObj;
+
                         if (!line) {
                             line = viewarea.calcViewRay(x, y, cctowc);
                         }
                         // find corresponding dom tree object
-                        for (var c = 0; c < shIds.length; c++) {
-                            var shObj = scene._nameSpace.defMap[shIds[c]];
+                        for (c = 0; c < shIds.length; c++) {
+                            shObj = scene._nameSpace.defMap[shIds[c]];
                             // FIXME; bbox test too coarse (+ should include trafo)
                             if (shObj && shObj.doIntersect(line)) {
                                 viewarea._pickingInfo.pickObj = shObj;
                                 break;
                             }
                         }
-                        //Check for other namespaces e.g. Inline/Multipart
-                        for (var n = 0; n<scene._nameSpace.childSpaces.length; n++)
+                        //Check for other namespaces e.g. Inline/Multipart (FIXME; check recursively)
+                        for (n = 0; n<scene._nameSpace.childSpaces.length; n++)
                         {
-                            for (var c = 0; c < shIds.length; c++) {
-                                var shObj = scene._nameSpace.childSpaces[n].defMap[shIds[c]];
+                            for (c = 0; c < shIds.length; c++) {
+                                shObj = scene._nameSpace.childSpaces[n].defMap[shIds[c]];
                                 // FIXME; bbox test too coarse (+ should include trafo)
                                 if (shObj && shObj.doIntersect(line)) {
                                     viewarea._pickingInfo.pickObj = shObj;
@@ -22401,9 +22663,9 @@ x3dom.gfx_webgl = (function () {
                     if (scene._multiPartMap) {
 
                         //Find related MultiPart
-                        for (var mp=0; mp<scene._multiPartMap.multiParts.length; mp++)
+                        for (mp=0; mp<scene._multiPartMap.multiParts.length; mp++)
                         {
-                            var multiPart = scene._multiPartMap.multiParts[mp];
+                            multiPart = scene._multiPartMap.multiParts[mp];
 
                             event = {
                                 target: multiPart._xmlNode,
@@ -22585,11 +22847,11 @@ x3dom.gfx_webgl = (function () {
             scene._webgl.fboPick.pixelData = null;
 
             //Set picking shaders
-            scene._webgl.pickShader = this.cache.getShader(gl, x3dom.shader.PICKING);
+            /*scene._webgl.pickShader = this.cache.getShader(gl, x3dom.shader.PICKING);
             scene._webgl.pickShader24 = this.cache.getShader(gl, x3dom.shader.PICKING_24);
             scene._webgl.pickShaderId = this.cache.getShader(gl, x3dom.shader.PICKING_ID);
             scene._webgl.pickColorShader = this.cache.getShader(gl, x3dom.shader.PICKING_COLOR);
-            scene._webgl.pickTexCoordShader = this.cache.getShader(gl, x3dom.shader.PICKING_TEXCOORD);
+            scene._webgl.pickTexCoordShader = this.cache.getShader(gl, x3dom.shader.PICKING_TEXCOORD);*/
 
             scene._webgl.normalShader = this.cache.getShader(gl, x3dom.shader.NORMAL);
 
@@ -22872,7 +23134,7 @@ x3dom.gfx_webgl = (function () {
 
             x3dom.Utils.startMeasure('traverse');
 
-            scene.collectDrawableObjects(x3dom.fields.SFMatrix4f.identity(), scene.drawableCollection, true, false, 0);
+            scene.collectDrawableObjects(x3dom.fields.SFMatrix4f.identity(), scene.drawableCollection, true, false, 0, []);
 
             var traverseTime = x3dom.Utils.stopMeasure('traverse');
             this.x3dElem.runtime.addMeasurement('TRAVERSE', traverseTime);
@@ -23308,7 +23570,7 @@ x3dom.gfx_webgl = (function () {
             locScene.drawableCollection = new x3dom.DrawableCollection(drawableCollectionConfig);
 
             locScene.collectDrawableObjects(x3dom.fields.SFMatrix4f.identity(),
-                                            locScene.drawableCollection, true, false, 0);
+                                            locScene.drawableCollection, true, false, 0, []);
 
             locScene.drawableCollection.sort();
 
@@ -23965,6 +24227,12 @@ x3dom.gfx_flash = (function () {
 
         //Setup the background
         this.setupBackground(background);
+		
+		// Get the fog node
+		var fog = scene.getFog();
+		
+		// Setup the fog
+		this.setupFog(fog);
 
         //Collect all drawableObjects
         scene.drawableCollection = null;
@@ -23983,7 +24251,7 @@ x3dom.gfx_flash = (function () {
         };
 
         scene.drawableCollection = new x3dom.DrawableCollection(drawableCollectionConfig);
-        scene.collectDrawableObjects(x3dom.fields.SFMatrix4f.identity(), scene.drawableCollection, true, false, 0);
+        scene.collectDrawableObjects(x3dom.fields.SFMatrix4f.identity(), scene.drawableCollection, true, false, 0, []);
 
         scene.drawableCollection.concat();
 
@@ -24162,6 +24430,26 @@ x3dom.gfx_flash = (function () {
                 transparency: background.getTransparency() });
             background._dirty = false;
         }
+    };
+	
+	/** setup Fog
+     *
+     */
+    Context.prototype.setupFog = function (fog) {
+		if (!fog || !fog._vf || fog._vf.visibilityRange <= 0.0) {
+			this.object.setFog({
+				color: null,
+				visibilityRange: -1.0,
+				fogType: -1.0
+			});
+			return;
+		};		
+		
+		this.object.setFog({
+			color: fog._vf.color.toGL(),
+			visibilityRange: fog._vf.visibilityRange,
+			fogType: (fog._vf.fogType === "LINEAR") ? 0.0 : 1.0
+		});
     };
 
     /** setup Shape
@@ -24722,6 +25010,7 @@ x3dom.setFieldValue = function(fieldName, fieldvalue) {
  * Returns the field object of the field with the given name.
  * The returned object is no copy, but instead a reference to X3DOM's internal field object.
  * Changes to this object should be committed using the returnFieldRef function.
+ * Note: this only works for fields with pointer types such as MultiFields!
  *
  * @param {String} fieldName - the name of the field
  */
@@ -25053,6 +25342,7 @@ x3dom.registerNodeType(
                                 }
                                 for (var j = this._childNodes.length - 1; j >= 0; j--) {
                                     if (this._childNodes[j] === node) {
+                                        node.onRemove();
                                         this._childNodes.splice(j, 1);
                                         return true;
                                     }
@@ -25062,6 +25352,10 @@ x3dom.registerNodeType(
                     }
                 }
                 return false;
+            },
+
+            onRemove: function() {
+                // to be overwritten by concrete classes
             },
 
             parentAdded: function(parent) {
@@ -25108,7 +25402,7 @@ x3dom.registerNodeType(
             },
 
             // Collects all objects to be drawn
-            collectDrawableObjects: function (transform, drawableCollection, singlePath, invalidateCache, planeMask) {
+            collectDrawableObjects: function (transform, drawableCollection, singlePath, invalidateCache, planeMask, clipPlanes) {
                 // explicitly do nothing on collect traversal for (most) nodes
             },
 
@@ -25173,12 +25467,12 @@ x3dom.registerNodeType(
                 //for Web-style access to the output data of ROUTES, provide a callback function
                 var eventObject = {
                     target: that._xmlNode,
-                    type: "onoutputchange",
+                    type: "outputchange",   // event only called onxxx if used as old-fashioned attribute
                     fieldName: field,
                     value: msg
                 };
 
-                this.callEvtHandler(eventObject.type, eventObject);
+                this.callEvtHandler("onoutputchange", eventObject);
             },
 
             // method for handling field updates
@@ -25553,6 +25847,15 @@ x3dom.registerNodeType(
                 this._vfFieldTypes[name] = "SFVec3f";
             },
 
+            addField_SFVec4f: function (ctx, name, x, y, z, w) {
+                this._vf[name] = ctx && ctx.xmlNode && ctx.xmlNode.hasAttribute(name) ?
+                    x3dom.fields.SFVec4f.parse(ctx.xmlNode.getAttribute(name)) :
+                    new x3dom.fields.SFVec4f(x, y, z, w);
+
+                if (ctx && ctx.xmlNode) { this.initSetter(ctx.xmlNode, name); }
+                this._vfFieldTypes[name] = "SFVec4f";
+            },
+
             addField_SFVec3d: function(ctx, name, x, y, z) {
                 this.addField_SFVec3f(ctx, name, x, y, z);
                 this._vfFieldTypes[name] = "SFVec3d";
@@ -25697,7 +26000,8 @@ x3dom.registerNodeType(
                 this._cfFieldTypes[name] = "MFNode";
             }
         }
-    ));
+    )
+);
 
 /** @namespace x3dom.nodeTypes */
 /*
@@ -26610,7 +26914,7 @@ x3dom.registerNodeType(
         
         },
         {
-            collectDrawableObjects: function (transform, drawableCollection, singlePath, invalidateCache, planeMask)
+            collectDrawableObjects: function (transform, drawableCollection, singlePath, invalidateCache, planeMask, clipPlanes)
             {
                 // check if multi parent sub-graph, don't cache in that case
                 if (singlePath && (this._parentNodes.length > 1))
@@ -26639,9 +26943,25 @@ x3dom.registerNodeType(
                     childTransform = this.transformMatrix(transform);
                 }
 
-                for (var i=0, n=this._childNodes.length; i<n; i++) {
+                var n = this._childNodes.length;
+
+                if (x3dom.nodeTypes.ClipPlane.count > 0) {
+                    var localClipPlanes = [];
+
+                    for (var j = 0; j < n; j++) {
+                        if ( (cnode = this._childNodes[j]) ) {
+                            if (x3dom.isa(cnode, x3dom.nodeTypes.ClipPlane) && cnode._vf.on && cnode._vf.enabled) {
+                                localClipPlanes.push(cnode);
+                            }
+                        }
+                    }
+
+                    clipPlanes = localClipPlanes.concat(clipPlanes);
+                }
+
+                for (var i=0; i<n; i++) {
                     if ( (cnode = this._childNodes[i]) ) {
-                        cnode.collectDrawableObjects(childTransform, drawableCollection, singlePath, invalidateCache, planeMask);
+                        cnode.collectDrawableObjects(childTransform, drawableCollection, singlePath, invalidateCache, planeMask, clipPlanes);
                     }
                 }
             }
@@ -26720,7 +27040,7 @@ x3dom.registerNodeType(
                 return vol;
             },
 
-            collectDrawableObjects: function (transform, drawableCollection, singlePath, invalidateCache, planeMask)
+            collectDrawableObjects: function (transform, drawableCollection, singlePath, invalidateCache, planeMask, clipPlanes)
             {
                 if (singlePath && (this._parentNodes.length > 1))
                     singlePath = false;
@@ -26746,7 +27066,7 @@ x3dom.registerNodeType(
                 }
 
                 if ( (cnode = this._childNodes[this._vf.whichChoice]) ) {
-                    cnode.collectDrawableObjects(childTransform, drawableCollection, singlePath, invalidateCache, planeMask);
+                    cnode.collectDrawableObjects(childTransform, drawableCollection, singlePath, invalidateCache, planeMask, clipPlanes);
                 }
             },
 
@@ -27097,7 +27417,8 @@ x3dom.registerNodeType(
              * @field x3dom
              * @instance
              */
-            this.addField_SFMatrix4f(ctx, 'matrix', 1, 0, 0, 0,
+            this.addField_SFMatrix4f(ctx, 'matrix',
+                1, 0, 0, 0,
                 0, 1, 0, 0,
                 0, 0, 1, 0,
                 0, 0, 0, 1);
@@ -27224,6 +27545,7 @@ x3dom.registerNodeType(
 
             // Node implements optimizations; no need to maintain the children node's
             // X3D representations, as they cannot be accessed after creation time
+            x3dom.debug.logWarning("StaticGroup erroneously also bakes parent transforms, if happens use Group node!"); // Blender exports to SG
 
             /**
              * Enables debugging.
@@ -27303,7 +27625,7 @@ x3dom.registerNodeType(
                 return this._vf.maxDepth;
             },
 
-            collectDrawableObjects: function (transform, drawableCollection, singlePath, invalidateCache, planeMask)
+            collectDrawableObjects: function (transform, drawableCollection, singlePath, invalidateCache, planeMask, clipPlanes)
             {
                 // check if multi parent sub-graph, don't cache in that case
                 if (singlePath && (this._parentNodes.length > 1))
@@ -27351,7 +27673,7 @@ x3dom.registerNodeType(
                     for (i=0; i<n; i++) {
                         if ( (cnode = this._childNodes[i]) ) {
                             //this is only used to collect all drawables once
-                            cnode.collectDrawableObjects(childTransform, this.drawableCollection, singlePath, invalidateCache, planeMask);
+                            cnode.collectDrawableObjects(childTransform, this.drawableCollection, singlePath, invalidateCache, planeMask, clipPlanes);
                         }
                     }
                     this.drawableCollection.concat();
@@ -27730,7 +28052,7 @@ x3dom.registerNodeType(
                 return n;
             },
 
-            collectDrawableObjects: function (transform, drawableCollection, singlePath, invalidateCache, planeMask)
+            collectDrawableObjects: function (transform, drawableCollection, singlePath, invalidateCache, planeMask, clipPlanes)
             {
                 if (singlePath && (this._parentNodes.length > 1))
                     singlePath = false;
@@ -27764,7 +28086,7 @@ x3dom.registerNodeType(
                             var needCleanup = true;
 
                             if (this._visibleList[i] && cnt < n &&
-                                shape.collectDrawableObjects(transform, drawableCollection, singlePath, invalidateCache, planeMask))
+                                shape.collectDrawableObjects(transform, drawableCollection, singlePath, invalidateCache, planeMask, clipPlanes))
                             {
                                 this._createTime[i] = ts;
                                 cnt++;
@@ -27794,7 +28116,7 @@ x3dom.registerNodeType(
                     {
                         var obj = this._nameObjMap[this._idList[i]];
                         if (obj && obj.shape) {
-                            obj.shape.collectDrawableObjects(transform, drawableCollection, singlePath, invalidateCache, planeMask);
+                            obj.shape.collectDrawableObjects(transform, drawableCollection, singlePath, invalidateCache, planeMask, clipPlanes);
                             this._createTime[obj.pos] = ts;
                         }
                         else
@@ -27897,6 +28219,8 @@ x3dom.registerNodeType(
             this.loadMapping();
 
             this._multiPartMap = null;
+            
+            this._forcePicking = false;
         
         },
         {
@@ -27930,7 +28254,7 @@ x3dom.registerNodeType(
                 var that = this;
                 var xhr = new XMLHttpRequest();
 
-                xhr.open("GET", encodeURI(this._nameSpace.getURL(this._vf.shadowObjectIdMapping)), true);
+                xhr.open("GET", this._nameSpace.getURL(this._vf.shadowObjectIdMapping), true);
                 xhr.send();
 
                 xhr.onload = function()
@@ -27951,6 +28275,7 @@ x3dom.registerNodeType(
         }
     )
 );
+
 /*
  * X3DOM JavaScript Library
  * http://www.x3dom.org
@@ -28477,7 +28802,7 @@ x3dom.registerNodeType(
                 var time0 = new Date().getTime();
 
                 var coordNode = this._cf.coord.node;
-                x3dom.debug.assert(coordNode);
+                x3dom.debug.assert(coordNode, "PointSet without coord node!");
                 var positions = coordNode.getPoints();
 
                 var numColComponents = 3;
@@ -28485,7 +28810,7 @@ x3dom.registerNodeType(
                 var colors = new x3dom.fields.MFColor();
                 if (colorNode) {
                     colors = colorNode._vf.color;
-                    x3dom.debug.assert(positions.length == colors.length);
+                    x3dom.debug.assert(positions.length == colors.length, "Size of color and coord array differs!");
 
                     if (x3dom.isa(colorNode, x3dom.nodeTypes.ColorRGBA)) {
                         numColComponents = 4;
@@ -30832,7 +31157,7 @@ x3dom.registerNodeType(
 x3dom.registerNodeType(
     "ParticleSet",
     "Rendering",
-    defineClass(x3dom.nodeTypes.X3DGeometryNode,
+    defineClass(x3dom.nodeTypes.PointSet,
 
         /**
          * Constructor for ParticleSet
@@ -30840,18 +31165,17 @@ x3dom.registerNodeType(
          * @x3d x.x
          * @component Rendering
          * @status experimental
-         * @extends x3dom.nodeTypes.X3DGeometryNode
+         * @extends x3dom.nodeTypes.PointSet
          * @param {Object} [ctx=null] - context object, containing initial settings like namespace
          * @classdesc The ParticleSet is a geometry node used in combination with a ParticleSystem node.
          *  Attention: So far this is only a stub.
          */
-            function (ctx) {
+         function (ctx) {
             x3dom.nodeTypes.ParticleSet.superClass.call(this, ctx);
 
-
             /**
-             * Drawing mode: "ViewDirQuads" - Draws quads directed to the viewpoint (default). "Points" - Draw points. "Lines" - Draw
-             * lines. These modes must not match the finally supported modes.
+             * Drawing mode: "ViewDirQuads" - Draws quads directed to the viewpoint (default). "Points" - Draw points.
+             * "Lines" - Draw lines. These modes must not match the finally supported modes.
              * @var {x3dom.fields.SFString} mode
              * @memberof x3dom.nodeTypes.ParticleSet
              * @initvalue ViewDirQuads
@@ -30859,49 +31183,22 @@ x3dom.registerNodeType(
              * @field x3dom
              * @instance
              */
-            this.addField_SFString(ctx, 'mode', 'ViewDirQuads');
+            this.addField_SFString(ctx, 'mode', 'ViewDirQuads'); // only default value supported
 
             /**
              * Defines the drawing order for the particles. Possible values: "Any" - The order is undefined.
              *  "BackToFront" - Draw from back to front. "FrontToBack" - Draw from front to back.
              * @var {x3dom.fields.SFString} drawOrder
              * @memberof x3dom.nodeTypes.ParticleSet
-             * @initvalue ViewDirQuads
+             * @initvalue Any
              * @range [Any, BackToFront, FrontToBack]
              * @field x3dom
              * @instance
              */
-            this.addField_SFString(ctx, 'mode', 'ViewDirQuads');
+            this.addField_SFString(ctx, 'drawOrder', 'Any');
 
-            /**
-             * Stores a Coordinate node containing the coordinates of the particles.
-             * @var {x3dom.fields.SFNode} coord
-             * @memberof x3dom.nodeTypes.ParticleSet
-             * @initvalue null
-             * @field x3dom
-             * @instance
-             */
-            this.addField_SFNode(ctx, 'coord', null);
-
-            /**
-             * Stores a Coordinate node containing the second coordinates of the particles.
-             * @var {x3dom.fields.SFNode} secCoord
-             * @memberof x3dom.nodeTypes.ParticleSet
-             * @initvalue null
-             * @field x3dom
-             * @instance
-             */
-            this.addField_SFNode(ctx, 'secCoord', null);
-
-            /**
-             * Stores a Color node containing the colors of the particles.
-             * @var {x3dom.fields.SFNode} color
-             * @memberof x3dom.nodeTypes.ParticleSet
-             * @initvalue null
-             * @field x3dom
-             * @instance
-             */
-            this.addField_SFNode(ctx, 'color', null);
+            // THINKABOUTME; does this very special field makes sense for being impl. in WebGL?
+            //this.addField_SFNode('secCoord', x3dom.nodeTypes.X3DCoordinateNode); // NOT YET SUPPORTED!
 
             /**
              * Stores a Normal node containing the normals of the particles.
@@ -30911,7 +31208,7 @@ x3dom.registerNodeType(
              * @field x3dom
              * @instance
              */
-            this.addField_SFNode(ctx, 'normal', null);
+            this.addField_SFNode('normal', x3dom.nodeTypes.Normal); // NOT YET SUPPORTED
 
             /**
              * An MFVec3f field containing the sizes of the particles.
@@ -30920,46 +31217,259 @@ x3dom.registerNodeType(
              * @field x3dom
              * @instance
              */
-            this.addField_MFVec3f(ctx, 'size', null);
+            this.addField_MFVec3f(ctx, 'size', []);
 
             /**
-             * An MFInt32 field containing indices which specifiy the order ofthe vertices in the "coord" field.
+             * An MFInt32 field containing indices which specify the order of the vertices in the "coord" field.
              * @var {x3dom.fields.MFInt32} index
              * @memberof x3dom.nodeTypes.ParticleSet
              * @field x3dom
              * @instance
              */
-            this.addField_MFInt32(ctx, 'index', null);
+            this.addField_MFInt32(ctx, 'index', []);
 
             /**
-             * An MFFloat field containing z-values for the texure of a particle (usedwith 3D textures).
+             * An MFFloat field containing z-values for the texture of a particle (used with 3D textures).
              * @var {x3dom.fields.MFFloat} textureZ
              * @memberof x3dom.nodeTypes.ParticleSet
              * @field x3dom
              * @instance
              */
-            this.addField_MFFloat(ctx, 'textureZ', null);
+            this.addField_MFFloat(ctx, 'textureZ', []); // NOT YET SUPPORTED! (3D textures not supported in WebGL)
+
+            this._mesh._primType = 'POINTS';
         },
         {
-            getVolume: function() {
+            drawOrder: function() {
+                return this._vf.drawOrder.toLowerCase();
+            },
+
+            nodeChanged: function()
+            {
+                var coordNode = this._cf.coord.node;
+                x3dom.debug.assert(coordNode, "ParticleSet without coord node!");
+                var positions = coordNode.getPoints();
+
+                var numColComponents = 3;
+                var colorNode = this._cf.color.node;
+                var colors = new x3dom.fields.MFColor();
+                if (colorNode) {
+                    colors = colorNode._vf.color;
+                    x3dom.debug.assert(positions.length == colors.length, "Size of color and coord array differs!");
+
+                    if (x3dom.isa(colorNode, x3dom.nodeTypes.ColorRGBA)) {
+                        numColComponents = 4;
+                    }
+                }
+
+                var normalNode = this._cf.normal.node;
+                var normals = new x3dom.fields.MFVec3f();
+                if (normalNode) {
+                    normals = normalNode._vf.vector;
+                }
+
+                var indices = [];
+                if (this.drawOrder() != "any") {
+                    indices = this._vf.index.toGL();
+
+                    // generate indices since also used for sorting
+                    if (indices.length == 0) {
+                        var i, n = positions.length;
+                        indices = new Array(n);
+                        for (i = 0; i < n; i++) {
+                            indices[i] = i;
+                        }
+                    }
+                }
+
+                this._mesh._numColComponents = numColComponents;
+                this._mesh._lit = false;
+
+                this._mesh._indices[0] = indices;
+                this._mesh._positions[0] = positions.toGL();
+                this._mesh._colors[0] = colors.toGL();
+                this._mesh._normals[0] = normals.toGL();
+                this._mesh._texCoords[0] = [];
+
+                this.invalidateVolume();
+                this._mesh._numCoords = this._mesh._positions[0].length / 3;
             },
 
             fieldChanged: function(fieldName)
             {
-                if(fieldName == 'mode')
+                var pnts = null;
+
+                if (fieldName == "index")
                 {
-                    console.log("mode has been changed");
+                    this._mesh._indices[0] = this._vf.index.toGL();
+
+                    Array.forEach(this._parentNodes, function (node) {
+                        node._dirty.indexes = true;
+                    });
                 }
-            },
+                else if (fieldName == "size")
+                {
+                    Array.forEach(this._parentNodes, function (node) {
+                        node._dirty.specialAttribs = true;
+                    });
+                }
+                else if (fieldName == "coord")
+                {
+                    pnts = this._cf.coord.node.getPoints();
 
-            getCenter: function() {
-            },
+                    this._mesh._positions[0] = pnts.toGL();
 
-            getDiameter: function() {
+                    var indices = [];
+                    if (this.drawOrder() != "any") {
+                        indices = this._vf.index.toGL();
+
+                        // generate indices since also used for sorting
+                        if (indices.length == 0) {
+                            var i, n = pnts.length;
+                            indices = new Array(n);
+                            for (i = 0; i < n; i++) {
+                                indices[i] = i;
+                            }
+                        }
+                    }
+                    this._mesh._indices[0] = indices;
+
+                    this.invalidateVolume();
+
+                    Array.forEach(this._parentNodes, function (node) {
+                        node._dirty.positions = true;
+                        node._dirty.indexes = true;
+                        node.invalidateVolume();
+                    });
+                }
+                else if (fieldName == "color")
+                {
+                    pnts = this._cf.color.node._vf.color;
+
+                    this._mesh._colors[0] = pnts.toGL();
+
+                    Array.forEach(this._parentNodes, function (node) {
+                        node._dirty.colors = true;
+                    });
+                }
             }
         }
     )
 );
+
+/** @namespace x3dom.nodeTypes */
+/*
+ * X3DOM JavaScript Library
+ * http://www.x3dom.org
+ *
+ * (C)2009 Fraunhofer IGD, Darmstadt, Germany
+ * Dual licensed under the MIT and GPL
+ */
+
+/* ### ClipPlane ### */
+x3dom.registerNodeType(
+    "ClipPlane",
+    "Rendering",
+    defineClass(x3dom.nodeTypes.X3DChildNode,
+
+        /**
+         * Constructor for ClipPlane
+         * @constructs x3dom.nodeTypes.ClipPlane
+         * @x3d 3.2
+         * @component Rendering
+         * @status full
+         * @extends x3dom.nodeTypes.X3DChildNode
+         * @param {Object} [ctx=null] - context object, containing initial settings like namespace
+         * @classdesc A clip plane is defined as a plane that generates two half-spaces. The effected geometry in the
+         * half-space that is defined as being outside the plane is removed from the rendered image as a result of a
+         * clipping operation.
+         */
+            function (ctx) {
+            x3dom.nodeTypes.ClipPlane.superClass.call(this, ctx);
+
+
+            /**
+             * Defines activation state of the clip plane.
+             * @var {x3dom.fields.SFBool} enabled
+             * @memberof x3dom.nodeTypes.ClipPlane
+             * @initvalue true
+             * @field x3d
+             * @instance
+             */
+            this.addField_SFBool(ctx, 'enabled', true);
+
+            /**
+             * The ClipPlane node specifies a single plane equation that will be used to clip the geometry.
+             * The plane field specifies a four-component plane equation that describes the inside and outside half
+             * space. The first three components are a normalized vector describing the direction of the plane's
+             * normal direction.
+             * @var {x3dom.fields.SFVec4f} plane
+             * @memberof x3dom.nodeTypes.ClipPlane
+             * @initvalue 0,1,0,0
+             * @field x3d
+             * @instance
+             */
+            this.addField_SFVec4f(ctx, 'plane', 0, 1, 0, 0);
+
+            /**
+             * Defines the strength of the capping.
+             * @var {x3dom.fields.SFFloat} cappingStrength
+             * @memberof x3dom.nodeTypes.ClipPlane
+             * @initvalue 0.0
+             * @field x3dom
+             * @instance
+             */
+            this.addField_SFFloat(ctx, 'cappingStrength', 0.0);
+
+            /**
+             * Defines the color of the capping.
+             * @var {x3dom.fields.SFColor} cappingColor
+             * @memberof x3dom.nodeTypes.ClipPlane
+             * @initvalue 1.0,1.0,1.0
+             * @field x3dom
+             * @instance
+             */
+            this.addField_SFColor(ctx, 'cappingColor', 1.0, 1.0, 1.0);
+
+
+            /**
+             * Enables/disables this effector (e.g. light)
+             * @var {x3dom.fields.SFBool} on
+             * @memberof x3dom.nodeTypes.ClipPlane
+             * @initvalue true
+             * @field x3d
+             * @instance
+             */
+            this.addField_SFBool(ctx, 'on', true);
+        },
+        {
+            fieldChanged: function (fieldName) {
+                if (fieldName == "enabled" || fieldName == "on") {
+                    //TODO
+                }
+            },
+
+            nodeChanged: function () {
+                x3dom.nodeTypes.ClipPlane.count++;
+            },
+
+            onRemove: function() {
+                x3dom.nodeTypes.ClipPlane.count--;
+            },
+
+            parentAdded: function(parent) {
+            },
+
+            parentRemoved: function(parent) {
+                //TODO
+            }
+        }
+    )
+);
+
+/** Static class ID counter (needed for caching) */
+x3dom.nodeTypes.ClipPlane.count = 0;
+
 /** @namespace x3dom.nodeTypes */
 /*
  * X3DOM JavaScript Library
@@ -31152,7 +31662,8 @@ x3dom.registerNodeType(
 
             checkSortType: function() {
                 if (this._vf.sortType == 'auto') {
-                    if (this._cf.material.node && this._cf.material.node._vf.transparency > 0) {
+                    if (this._cf.material.node && (this._cf.material.node._vf.transparency > 0 ||
+                        this._cf.material.node._vf.backTransparency && this._cf.material.node._vf.backTransparency > 0)) {
                         this._vf.sortType = 'transparent';
                     }
                     else if (this._cf.texture.node && this._cf.texture.node._vf.url.length) {
@@ -31636,7 +32147,6 @@ x3dom.registerNodeType(
              * The emissiveColor field models "glowing" objects.
              * This can be useful for displaying pre-lit models (where the light energy of the room is computed explicitly), or for displaying scientific data.
              * @var {x3dom.fields.SFColor} diffuseColor
-             * @range [0, 1]
              * @memberof x3dom.nodeTypes.X3DMaterialNode
              * @initvalue 0.8,0.8,0.8
              * @field x3d
@@ -31648,7 +32158,6 @@ x3dom.registerNodeType(
              * The emissiveColor field models "glowing" objects.
              * This can be useful for displaying pre-lit models (where the light energy of the room is computed explicitly), or for displaying scientific data.
              * @var {x3dom.fields.SFColor} emissiveColor
-             * @range [0, 1]
              * @memberof x3dom.nodeTypes.X3DMaterialNode
              * @initvalue 0,0,0
              * @field x3d
@@ -31664,7 +32173,7 @@ x3dom.registerNodeType(
              * @range [0, 1]
              * @memberof x3dom.nodeTypes.X3DMaterialNode
              * @initvalue 0.2
-             * @field x3dom
+             * @field x3d
              * @instance
              */
             this.addField_SFFloat(ctx, 'shininess', 0.2);
@@ -31674,10 +32183,9 @@ x3dom.registerNodeType(
              * When the angle from the light to the surface is close to the angle from the surface to the viewer, the specularColor is added to the diffuse and ambient colour calculations.
              * Lower shininess values produce soft glows, while higher values result in sharper, smaller highlights.
              * @var {x3dom.fields.SFColor} specularColor
-             * @range [0, 1]
              * @memberof x3dom.nodeTypes.X3DMaterialNode
              * @initvalue 0,0,0
-             * @field x3dom
+             * @field x3d
              * @instance
              */
             this.addField_SFColor(ctx, 'specularColor', 0, 0, 0);
@@ -31688,7 +32196,7 @@ x3dom.registerNodeType(
              * @range [0, 1]
              * @memberof x3dom.nodeTypes.X3DMaterialNode
              * @initvalue 0
-             * @field x3dom
+             * @field x3d
              * @instance
              */
             this.addField_SFFloat(ctx, 'transparency', 0);
@@ -31732,7 +32240,7 @@ x3dom.nodeTypes.Material.defaultNode = function() {
 x3dom.registerNodeType(
     "TwoSidedMaterial",
     "Shape",
-    defineClass(x3dom.nodeTypes.X3DMaterialNode,
+    defineClass(x3dom.nodeTypes.Material,
         
         /**
          * Constructor for TwoSidedMaterial
@@ -31752,6 +32260,7 @@ x3dom.registerNodeType(
             /**
              * Defines the ambient intensity for the back side.
              * @var {x3dom.fields.SFFloat} backAmbientIntensity
+             * @range [0, 1]
              * @memberof x3dom.nodeTypes.TwoSidedMaterial
              * @initvalue 0.2
              * @field x3d
@@ -31782,6 +32291,7 @@ x3dom.registerNodeType(
             /**
              * Defines the shininess for the back side.
              * @var {x3dom.fields.SFFloat} backShininess
+             * @range [0, 1]
              * @memberof x3dom.nodeTypes.TwoSidedMaterial
              * @initvalue 0.2
              * @field x3d
@@ -31802,6 +32312,7 @@ x3dom.registerNodeType(
             /**
              * Defines the transparency for the back side.
              * @var {x3dom.fields.SFFloat} backTransparency
+             * @range [0, 1]
              * @memberof x3dom.nodeTypes.TwoSidedMaterial
              * @initvalue 0
              * @field x3d
@@ -31913,6 +32424,7 @@ x3dom.registerNodeType(
 
             this._objectID = 0;
             this._shaderProperties = null;
+            this._clipPlanes = [];
 
             // in WebGL-based renderer a clean-up function is attached
             this._cleanupGLObjects = null;
@@ -31922,6 +32434,7 @@ x3dom.registerNodeType(
                 normals: true,
                 texcoords: true,
                 colors: true,
+                specialAttribs: true,   // e.g., particleSize, IDs,...
                 indexes: true,
                 texture: true,
                 material: true,
@@ -31936,10 +32449,9 @@ x3dom.registerNodeType(
             this._colorStrideOffset = [0, 0];
 
             this._tessellationProperties = [];
-        
         },
         {
-            collectDrawableObjects: function (transform, drawableCollection, singlePath, invalidateCache, planeMask)
+            collectDrawableObjects: function (transform, drawableCollection, singlePath, invalidateCache, planeMask, clipPlanes)
             {
                 // attention, in contrast to other collectDrawableObjects()
                 // this one has boolean return type to better work with RSG
@@ -31958,6 +32470,13 @@ x3dom.registerNodeType(
 
                 if (singlePath && !this._graph.globalMatrix)
                     this._graph.globalMatrix = transform;
+
+                if (this._clipPlanes.length != clipPlanes.length)
+                {
+                    this._dirty.shader = true;
+                }
+
+                this._clipPlanes = clipPlanes;
 
                 drawableCollection.addShape(this, transform, graphState);
 
@@ -32015,7 +32534,9 @@ x3dom.registerNodeType(
             },
 
             isSolid: function() {
-                return this._cf.geometry.node._vf.solid;
+                var twoSidedMat = (this._cf.appearance.node && this._cf.appearance.node._cf.material.node &&
+                                   x3dom.isa(this._cf.appearance.node._cf.material.node, x3dom.nodeTypes.TwoSidedMaterial));
+                return this._cf.geometry.node._vf.solid && !twoSidedMat;
             },
 
             isCCW: function() {
@@ -32046,7 +32567,8 @@ x3dom.registerNodeType(
                 this._dirty.positions = false;
                 this._dirty.normals = false;
                 this._dirty.texcoords = false;
-                this._dirty.colors =  false;
+                this._dirty.colors = false;
+                this._dirty.specialAttribs = false;
                 // indices/topology
                 this._dirty.indexes = false;
                 // appearance properties
@@ -32060,7 +32582,8 @@ x3dom.registerNodeType(
                 this._dirty.positions = false;
                 this._dirty.normals = false;
                 this._dirty.texcoords = false;
-                this._dirty.colors =  false;
+                this._dirty.colors = false;
+                this._dirty.specialAttribs = false;
                 this._dirty.indexes = false;
             },
 
@@ -32069,7 +32592,8 @@ x3dom.registerNodeType(
                 this._dirty.positions = true;
                 this._dirty.normals = true;
                 this._dirty.texcoords = true;
-                this._dirty.colors =  true;
+                this._dirty.colors = true;
+                this._dirty.specialAttribs = true;
                 // indices/topology
                 this._dirty.indexes = true;
                 // appearance properties
@@ -32094,6 +32618,7 @@ x3dom.registerNodeType(
                 this._dirty.normals = true;
                 this._dirty.texcoords = true;
                 this._dirty.colors = true;
+                this._dirty.specialAttribs = true;
                 this._dirty.indexes = true;
                 // finally invalidate volume
                 this.invalidateVolume();
@@ -32157,6 +32682,7 @@ x3dom.registerNodeType(
         }
     )
 );
+
 /** @namespace x3dom.nodeTypes */
 /*
  * X3DOM JavaScript Library
@@ -36563,16 +37089,28 @@ x3dom.registerNodeType(
                         return xhr;
                     }
 
-                    if (xhr.status === x3dom.nodeTypes.Inline.AwaitTranscoding && that.count < that.numRetries) {
-                        that.count++;
-                        var refreshTime = +xhr.getResponseHeader("Refresh") || 5;
-                        x3dom.debug.logInfo('Statuscode ' + xhr.status + ' and send new request in ' + refreshTime + ' sec.');
-
-                        window.setTimeout(function() {
+                    if (xhr.status === x3dom.nodeTypes.Inline.AwaitTranscoding) {
+                        if (that.count < that.numRetries)
+                        {
+                            that.count++;
+                            var refreshTime = +xhr.getResponseHeader("Refresh") || 5;
+                            x3dom.debug.logInfo('XHR status: ' + xhr.status + ' - Await Transcoding (' + that.count + '/' + that.numRetries + '): ' + 
+                                                'Next request in ' + refreshTime + ' seconds');
+                      
+                            window.setTimeout(function() {
+                                that._nameSpace.doc.downloadCount -= 1;
+                                that.loadInline();
+                            }, refreshTime * 1000);
+                            return xhr;
+                        }
+                        else
+                        {
+                            x3dom.debug.logError('XHR status: ' + xhr.status + ' - Await Transcoding (' + that.count + '/' + that.numRetries + '): ' + 
+                                                 'No Retries left');
                             that._nameSpace.doc.downloadCount -= 1;
-                            that.loadInline();
-                        }, refreshTime * 1000);
-                        return xhr;
+                            that.count = 0;
+                            return xhr;
+                        }
                     }
                     else if ((xhr.status !== 200) && (xhr.status !== 0)) {
                         that.fireEvents("error");
@@ -36692,15 +37230,6 @@ x3dom.registerNodeType(
                 {
                     var xhrURI = this._nameSpace.getURL(this._vf.url[0]);
 
-                    //Unfortunately, there is currently an inconsistent behavior between
-                    //chrome and firefox, where the first one is "escaping" the "%" character in the
-                    //blob URI, which contains a ref to a "file" object. This can also not be fixed by
-                    //first using "decodeURI", because, in that case, "%3A" is not resolved to "%".
-                    if (!(xhrURI.substr(0, 5) === "blob:"))
-                    {
-                        xhrURI = encodeURI(xhrURI);
-                    }
-
                     xhr.open('GET', xhrURI, true);
 
                     this._nameSpace.doc.downloadCount += 1;
@@ -36788,6 +37317,48 @@ x3dom.registerNodeType(
              * @instance
              */
             this.addField_SFBool(ctx, 'isPickable', true);
+            
+            /**
+             * Defines the shape type for sorting.
+             * @var {x3dom.fields.SFString} sortType
+             * @range [auto, transparent, opaque]
+             * @memberof x3dom.nodeTypes.MultiPart
+             * @initvalue 'auto'
+             * @field x3dom
+             * @instance
+             */
+            this.addField_SFString(ctx, 'sortType', 'auto');
+
+            /**
+             * Specifies whether backface-culling is used. If solid is TRUE only front-faces are drawn.
+             * @var {x3dom.fields.SFBool} solid
+             * @memberof x3dom.nodeTypes.MultiPart
+             * @initvalue true
+             * @field x3dom
+             * @instance
+             */
+            this.addField_SFBool(ctx, 'solid', true);
+
+            /**
+             * Change render order manually.
+             * @var {x3dom.fields.SFInt32} sortKey
+             * @memberof x3dom.nodeTypes.MultiPart
+             * @initvalue 0
+             * @field x3dom
+             * @instance
+             */
+            this.addField_SFInt32(ctx, 'sortKey', 0);
+
+            /**
+             * Set the initial visibility.
+             * @var {x3dom.fields.SFInt32} initialVisibility
+             * @range [auto, visible, invisible]
+             * @memberof x3dom.nodeTypes.MultiPart
+             * @initvalue 'auto'
+             * @field x3dom
+             * @instance
+             */
+            this.addField_SFString(ctx, 'initialVisibility', 'auto');
 
             this._idMap = null;
             this._inlineNamespace = null;
@@ -36796,8 +37367,12 @@ x3dom.registerNodeType(
             this._maxId = 0;
             this._lastId = -1;
             this._lastButton = 0;
-            this._identifierToShapeId = [];
+            this._identifierToPartId = [];
             this._identifierToAppId = [];
+            this._visiblePartsPerShape = [];
+            this._partVolume = [];
+            this._partVisibility = [];
+			this._originalColor = [];
 
         },
         {
@@ -36827,71 +37402,96 @@ x3dom.registerNodeType(
                 if (!this.initDone) {
                     this.initDone = true;
                     this.loadIDMap();
-                    //this.appendAPI();
-                    //this.appendEventListeners();
                 }
+            },
+            
+            getVolume: function ()
+            {
+                var vol = this._graph.volume;
+
+                if (!this.volumeValid() && this._vf.render)
+                {
+                    for (var i=0; i<this._partVisibility.length; i++)
+                    {
+                        if (!this._partVisibility[i])
+                            continue;
+
+                        var childVol = this._partVolume[i];
+
+                        if (childVol && childVol.isValid())
+                            vol.extendBounds(childVol.min, childVol.max);
+                    }
+                }
+                
+                return vol;
             },
 
             handleEvents: function(e)
             {
-                if (e.pickedId != -1)
-                {
-                    e.partID = this._idMap.mapping[e.pickedId - this._minId].name;
+                if( this._inlineNamespace ) {
+                    var colorMap = this._inlineNamespace.defMap["MultiMaterial_ColorMap"];
+                    var visibilityMap = this._inlineNamespace.defMap["MultiMaterial_VisibilityMap"];
 
-                    //fire mousemove event
-                    e.type = "mousemove";
-                    this.callEvtHandler("onmousemove", e);
+                    if (e.pickedId != -1) {
+                        e.part = new x3dom.Parts(this, [e.pickedId - this._minId], colorMap, visibilityMap);
+                        e.partID = this._idMap.mapping[e.pickedId - this._minId].name;
 
-                    //fire mousemove event
-                    e.type = "mouseover";
-                    this.callEvtHandler("onmouseover", e);
+                        //fire mousemove event
+                        e.type = "mousemove";
+                        this.callEvtHandler("onmousemove", e);
 
-                    //fire click event
-                    if (e.button && e.button != this._lastButton) {
-                        e.type = "click";
-                        this.callEvtHandler("onclick", e);
-                        this._lastButton = e.button;
-                    }
+                        //fire mousemove event
+                        e.type = "mouseover";
+                        this.callEvtHandler("onmouseover", e);
 
-                    //if some mouse button is down fire mousedown event
-                    if (e.button) {
-                        e.type = "mousedown";
-                        this.callEvtHandler("onmousedown", e);
-                        this._lastButton = e.button;
-                    }
-
-                    //if some mouse button is up fire mouseup event
-                    if (this._lastButton != 0 && e.button == 0) {
-                        e.type = "mouseup";
-                        this.callEvtHandler("onmouseup", e);
-                        this._lastButton = 0;
-                    }
-
-                    //If the picked id has changed we enter+leave a part
-                    if (e.pickedId != this._lastId)
-                    {
-                        if (this._lastId != -1) {
-                            e.partID = this._idMap.mapping[this._lastId - this._minId].name;
-                            e.type = "mouseleave";
-                            this.callEvtHandler("onmouseleave", e);
+                        //fire click event
+                        if (e.button && e.button != this._lastButton) {
+                            e.type = "click";
+                            this.callEvtHandler("onclick", e);
+                            this._lastButton = e.button;
                         }
 
-                        e.partID = this._idMap.mapping[e.pickedId - this._minId].name;
-                        e.type = "mouseenter";
-                        this.callEvtHandler("onmouseenter", e);
+                        //if some mouse button is down fire mousedown event
+                        if (e.button) {
+                            e.type = "mousedown";
+                            this.callEvtHandler("onmousedown", e);
+                            this._lastButton = e.button;
+                        }
+
+                        //if some mouse button is up fire mouseup event
+                        if (this._lastButton != 0 && e.button == 0) {
+                            e.type = "mouseup";
+                            this.callEvtHandler("onmouseup", e);
+                            this._lastButton = 0;
+                        }
+
+                        //If the picked id has changed we enter+leave a part
+                        if (e.pickedId != this._lastId) {
+                            if (this._lastId != -1) {
+                                e.part = new x3dom.Parts(this, [this._lastId - this._minId], colorMap, visibilityMap);
+                                e.partID = this._idMap.mapping[this._lastId - this._minId].name;
+                                e.type = "mouseleave";
+                                this.callEvtHandler("onmouseleave", e);
+                            }
+
+                            e.part = new x3dom.Parts(this, [e.pickedId - this._minId], colorMap, visibilityMap);
+                            e.partID = this._idMap.mapping[e.pickedId - this._minId].name;
+                            e.type = "mouseenter";
+                            this.callEvtHandler("onmouseenter", e);
+                            this._lastId = e.pickedId;
+                        }
+
                         this._lastId = e.pickedId;
                     }
-
-                    this._lastId = e.pickedId;
-                }
-                else if (this._lastId != -1)
-                {
-                    e.partID = this._idMap.mapping[this._lastId - this._minId].name;
-                    e.type = "mouseout";
-                    this.callEvtHandler("onmouseout", e);
-                    e.type = "mouseleave";
-                    this.callEvtHandler("onmouseleave", e);
-                    this._lastId = -1;
+                    else if (this._lastId != -1) {
+                        e.part = new x3dom.Parts(this, [this._lastId - this._minId], colorMap, visibilityMap);
+                        e.partID = this._idMap.mapping[this._lastId - this._minId].name;
+                        e.type = "mouseout";
+                        this.callEvtHandler("onmouseout", e);
+                        e.type = "mouseleave";
+                        this.callEvtHandler("onmouseleave", e);
+                        this._lastId = -1;
+                    }
                 }
 
             },
@@ -36900,7 +37500,7 @@ x3dom.registerNodeType(
             {
                 if (this._vf.urlIDMap.length && this._vf.urlIDMap[0].length)
                 {
-                    var i;
+                    var i, min, max;
 
                     var that = this;
 
@@ -36930,16 +37530,24 @@ x3dom.registerNodeType(
                         //prepare internal shape map
                         for (i=0; i<that._idMap.mapping.length; i++)
                         {
-                            if (!that._identifierToShapeId[that._idMap.mapping[i].name]) {
-                                that._identifierToShapeId[that._idMap.mapping[i].name] = [];
+                            if (!that._identifierToPartId[that._idMap.mapping[i].name]) {
+                                that._identifierToPartId[that._idMap.mapping[i].name] = [];
                             }
 
-                            if (!that._identifierToShapeId[that._idMap.mapping[i].appearance]) {
-                                that._identifierToShapeId[that._idMap.mapping[i].appearance] = [];
+                            if (!that._identifierToPartId[that._idMap.mapping[i].appearance]) {
+                                that._identifierToPartId[that._idMap.mapping[i].appearance] = [];
                             }
 
-                            that._identifierToShapeId[that._idMap.mapping[i].name].push(i);
-                            that._identifierToShapeId[that._idMap.mapping[i].appearance].push(i);
+                            that._identifierToPartId[that._idMap.mapping[i].name].push(i);
+                            that._identifierToPartId[that._idMap.mapping[i].appearance].push(i);
+
+                            if (!that._partVolume[i]) {
+                                var min = x3dom.fields.SFVec3f.parse(that._idMap.mapping[i].min);
+                                var max = x3dom.fields.SFVec3f.parse(that._idMap.mapping[i].max);
+
+                                that._partVolume[i] = new x3dom.fields.BoxVolume(min, max);
+                            }
+
                         }
 
                         //prepare internal appearance map
@@ -36955,11 +37563,16 @@ x3dom.registerNodeType(
                 }
             },
 
-            createImageData: function ()
+            createColorData: function ()
             {
                 var diffuseColor, transparency, rgba;
-                var size = x3dom.Utils.nextHighestPowerOfTwo(Math.ceil(Math.sqrt(this._idMap.numberOfIDs)));
-                var imageData = size + " " + size + " 4";
+
+                var size = Math.ceil(Math.sqrt(this._idMap.numberOfIDs));
+
+                //scale image data array size to the next highest power of two
+                size = x3dom.Utils.nextHighestPowerOfTwo(size);
+
+                var colorData = size + " " + size + " 4";
 
                 for (var i=0; i<size*size; i++)
                 {
@@ -36973,27 +37586,85 @@ x3dom.registerNodeType(
 
                         rgba = x3dom.fields.SFColorRGBA.parse(diffuseColor + " " + transparency);
 
-                        imageData += " " + rgba.toUint();
+                        colorData += " " + rgba.toUint();
+						
+						this._originalColor[i] = rgba;
                     }
                     else
                     {
-                        imageData += " 255";
+                        colorData += " 255";
                     }
                 }
 
-                return imageData;
+                return colorData;
             },
 
             createVisibilityData: function ()
             {
-                var size = x3dom.Utils.nextHighestPowerOfTwo(Math.ceil(Math.sqrt(this._idMap.numberOfIDs)));
+                var i, j;
+                var size = Math.ceil(Math.sqrt(this._idMap.numberOfIDs));
+
+                //scale image data array size to the next highest power of two
+                size = x3dom.Utils.nextHighestPowerOfTwo(size);
+                
                 var visibilityData = size + " " + size + " 1";
 
-                for (var i=0; i<size*size; i++)
+                for (i=0; i<size*size; i++)
                 {
                     if (i < this._idMap.mapping.length)
                     {
-                        visibilityData += " 255";
+                        if (this._vf.initialVisibility == 'auto')
+                        {
+                            //TODO get the Data from JSON
+                            visibilityData += " 255";
+
+                            if (!this._partVisibility[i]) {
+                                this._partVisibility[i] = true;
+                            }
+
+                            for (j=0; j<this._idMap.mapping[i].usage.length; j++)
+                            {
+                                if (!this._visiblePartsPerShape[this._idMap.mapping[i].usage[j]]) {
+                                    this._visiblePartsPerShape[this._idMap.mapping[i].usage[j]] = {val:0, max:0};
+                                }
+                                this._visiblePartsPerShape[this._idMap.mapping[i].usage[j]].val++;
+                                this._visiblePartsPerShape[this._idMap.mapping[i].usage[j]].max++;
+                            }
+                        }
+                        else if (this._vf.initialVisibility == 'visible')
+                        {
+                            visibilityData += " 255";
+
+                            if (!this._partVisibility[i]) {
+                                this._partVisibility[i] = true;
+                            }
+
+                            for (j=0; j<this._idMap.mapping[i].usage.length; j++)
+                            {
+                                if (!this._visiblePartsPerShape[this._idMap.mapping[i].usage[j]]) {
+                                    this._visiblePartsPerShape[this._idMap.mapping[i].usage[j]] = {val:0, max:0};
+                                }
+                                this._visiblePartsPerShape[this._idMap.mapping[i].usage[j]].val++;
+                                this._visiblePartsPerShape[this._idMap.mapping[i].usage[j]].max++;
+                            }
+                        }
+                        else if (this._vf.initialVisibility == 'invisible')
+                        {
+                            visibilityData += " 0";
+
+                            if (!this._partVisibility[i]) {
+                                this._partVisibility[i] = false;
+                            }
+
+                            for (j=0; j<this._idMap.mapping[i].usage.length; j++)
+                            {
+                                if (!this._visiblePartsPerShape[this._idMap.mapping[i].usage[j]]) {
+                                    this._visiblePartsPerShape[this._idMap.mapping[i].usage[j]] = {val:0, max:0};
+                                }
+                                this._visiblePartsPerShape[this._idMap.mapping[i].usage[j]].max++;
+                            }
+                        }
+
                     }
                     else
                     {
@@ -37005,19 +37676,39 @@ x3dom.registerNodeType(
 
             replaceMaterials: function (inlScene)
             {
-                var css;
+                var css, shapeDEF, colorData, visibilityData, appearance;
                 var firstMat = true;
                 if (inlScene && inlScene.hasChildNodes())
                 {
+                    colorData = this.createColorData();
+                    visibilityData = this.createVisibilityData();
+
                     var shapes = inlScene.getElementsByTagName("Shape");
 
                     for (var s=0; s<shapes.length; s++)
                     {
+                        shapeDEF = shapes[s].getAttribute("DEF") ||
+                                   shapes[s].getAttribute("def");
+
+                        if(shapeDEF && this._visiblePartsPerShape[shapeDEF] && 
+                           this._visiblePartsPerShape[shapeDEF].val == 0)
+                        {
+                            shapes[s].setAttribute("render", "false");
+                        }
+
                         shapes[s].setAttribute("idOffset", this._minId);
                         shapes[s].setAttribute("isPickable", this._vf.isPickable);
 
-                        var appearances = shapes[s].getElementsByTagName("Appearance");
+                        var geometries = shapes[s].getElementsByTagName("BinaryGeometry");
 
+                        if (geometries && geometries.length) {
+                            for (var g = 0; g < geometries.length; g++) {
+                                geometries[g].setAttribute("solid", this._vf.solid);
+                            }
+                        }
+
+                        var appearances = shapes[s].getElementsByTagName("Appearance");
+                        
                         if (appearances.length)
                         {
                             for (var a = 0; a < appearances.length; a++)
@@ -37025,6 +37716,9 @@ x3dom.registerNodeType(
                                 //Remove DEF/USE
                                 appearances[a].removeAttribute("DEF");
                                 appearances[a].removeAttribute("USE");
+                                
+                                appearances[a].setAttribute("sortType", this._vf.sortType);
+                                appearances[a].setAttribute("sortKey", this._vf.sortKey);
 
                                 var materials = appearances[a].getElementsByTagName("Material");
 
@@ -37039,12 +37733,12 @@ x3dom.registerNodeType(
                                         var ptDA = document.createElement("PixelTexture");
                                         ptDA.setAttribute("containerField", "multiDiffuseAlphaTexture");
                                         ptDA.setAttribute("id", "MultiMaterial_ColorMap");
-                                        ptDA.setAttribute("image", this.createImageData());
+                                        ptDA.setAttribute("image", colorData);
 
                                         var ptV = document.createElement("PixelTexture");
                                         ptV.setAttribute("containerField", "multiVisibilityTexture");
                                         ptV.setAttribute("id", "MultiMaterial_VisibilityMap");
-                                        ptV.setAttribute("image", this.createVisibilityData());
+                                        ptV.setAttribute("image", visibilityData);
 
                                         css.appendChild(ptDA);
                                         css.appendChild(ptV);
@@ -37067,12 +37761,12 @@ x3dom.registerNodeType(
                                         var ptDA = document.createElement("PixelTexture");
                                         ptDA.setAttribute("containerField", "multiDiffuseAlphaTexture");
                                         ptDA.setAttribute("id", "MultiMaterial_ColorMap");
-                                        ptDA.setAttribute("image", this.createImageData());
+                                        ptDA.setAttribute("image", colorData);
 
                                         var ptV = document.createElement("PixelTexture");
                                         ptV.setAttribute("containerField", "multiVisibilityTexture");
                                         ptV.setAttribute("id", "MultiMaterial_VisibilityMap");
-                                        ptV.setAttribute("image", this.createVisibilityData());
+                                        ptV.setAttribute("image", visibilityData);
 
                                         css.appendChild(ptDA);
                                         css.appendChild(ptV);
@@ -37089,8 +37783,36 @@ x3dom.registerNodeType(
                         }
                         else
                         {
-                            //Add Appearance + Material
-                            console.log("Add Appearance + Material");
+                            //Add Appearance
+                            appearance = document.createElement("Appearance");
+                            
+                            //Add Material
+                            if (firstMat) {
+                                firstMat = false;
+                                css = document.createElement("CommonSurfaceShader");
+                                css.setAttribute("DEF", "MultiMaterial");
+
+                                var ptDA = document.createElement("PixelTexture");
+                                ptDA.setAttribute("containerField", "multiDiffuseAlphaTexture");
+                                ptDA.setAttribute("id", "MultiMaterial_ColorMap");
+                                ptDA.setAttribute("image", colorData);
+
+                                var ptV = document.createElement("PixelTexture");
+                                ptV.setAttribute("containerField", "multiVisibilityTexture");
+                                ptV.setAttribute("id", "MultiMaterial_VisibilityMap");
+                                ptV.setAttribute("image", visibilityData);
+
+                                css.appendChild(ptDA);
+                                css.appendChild(ptV);
+                            }
+                            else
+                            {
+                                css = document.createElement("CommonSurfaceShader");
+                                css.setAttribute("USE", "MultiMaterial");
+                            }
+
+                            appearance.appendChild(css);
+                            geometries[g].appendChild(appearance);
                         }
                     }
                 }
@@ -37099,6 +37821,18 @@ x3dom.registerNodeType(
             appendAPI: function ()
             {
                 var multiPart = this;
+
+                this._xmlNode.getIdList = function ()
+                {
+                    var i, ids = [];
+
+                    for (i=0; i<multiPart._idMap.mapping.length; i++) {
+                        ids.push( multiPart._idMap.mapping[i].name );
+                    }
+
+                    return ids;
+                };
+
                 this._xmlNode.getParts = function (selector)
                 {
                     var i, m;
@@ -37110,205 +37844,43 @@ x3dom.registerNodeType(
                         }
                     } else {
                         for (i=0; i<selector.length; i++) {
-                            if (multiPart._identifierToShapeId[selector[i]]) {
-                                selection = selection.concat(multiPart._identifierToShapeId[selector[i]]);
+                            if (multiPart._identifierToPartId[selector[i]]) {
+                                selection = selection.concat(multiPart._identifierToPartId[selector[i]]);
                             }
                         }
                     }
 
-                    var Parts = function(ids, colorMap, visibilityMap)
-                    {
-                        var parts = this;
-                        this.ids = ids;
-                        this.colorMap = colorMap;
-                        this.visibilityMap = visibilityMap;
-
-                        /**
-                         *
-                         * @param color
-                         */
-                        this.setColor = function(color) {
-
-                            var i, x, y;
-
-                            if (color.split(" ").length == 3) {
-                                color += " 1";
-                            }
-
-                            var colorRGBA = x3dom.fields.SFColorRGBA.parse(color);
-
-                            if (ids.length && ids.length > 1) //Multi select
-                            {
-                                var pixels = parts.colorMap.getPixels();
-
-                                for(i=0; i<parts.ids.length; i++) {
-                                    if (multiPart._highlightedParts[parts.ids[i]]){
-                                        multiPart._highlightedParts[parts.ids[i]] = colorRGBA;
-                                    } else {
-                                        pixels[parts.ids[i]] = colorRGBA;
-                                    }
-                                }
-
-                                parts.colorMap.setPixels(pixels);
-                            }
-                            else //Single select
-                            {
-                                if (multiPart._highlightedParts[parts.ids[0]]){
-                                    multiPart._highlightedParts[parts.ids[0]] = colorRGBA;
-                                } else {
-                                    x = parts.ids[0] % parts.colorMap.getWidth();
-                                    y = Math.floor(parts.ids[0] / parts.colorMap.getHeight());
-                                    parts.colorMap.setPixel(x, y, colorRGBA);
-                                }
-                            }
-                        };
-
-                        /**
-                         *
-                         * @param transparency
-                         */
-                        this.setTransparency = function(transparency) {
-
-                            var i, x, y;
-
-                            if (ids.length && ids.length > 1) //Multi select
-                            {
-                                var pixels = parts.colorMap.getPixels();
-
-                                for(i=0; i<parts.ids.length; i++) {
-                                    if (multiPart._highlightedParts[parts.ids[i]]){
-                                        multiPart._highlightedParts[parts.ids[i]].a = 1.0 - transparency;
-                                    } else {
-                                        pixels[parts.ids[i]].a = 1.0 - transparency;
-                                    }
-                                }
-
-                                parts.colorMap.setPixels(pixels);
-                            }
-                            else //Single select
-                            {
-                                if (multiPart._highlightedParts[parts.ids[0]]){
-                                    multiPart._highlightedParts[parts.ids[0]].a = 1.0 - transparency;
-                                } else {
-                                    x = parts.ids[0] % parts.colorMap.getWidth();
-                                    y = Math.floor(parts.ids[0] / parts.colorMap.getHeight());
-
-                                    var pixel = parts.colorMap.getPixel(x, y);
-
-                                    pixel.a = 1.0 - transparency;
-
-                                    parts.colorMap.setPixel(x, y, pixel);
-                                }
-                            }
-                        };
-
-                        /**
-                         *
-                         * @param visibility
-                         */
-                        this.setVisibility = function(visibility) {
-
-                            var i, x, y;
-
-                            if (ids.length && ids.length > 1) //Multi select
-                            {
-                                var pixels = parts.visibilityMap.getPixels();
-
-                                for(i=0; i<parts.ids.length; i++) {
-                                    pixels[parts.ids[i]].r = (visibility) ? 1 : 0;
-                                }
-
-                                parts.visibilityMap.setPixels(pixels);
-                            }
-                            else //Single select
-                            {
-                                x = parts.ids[0] % parts.colorMap.getWidth();
-                                y = Math.floor(parts.ids[0] / parts.colorMap.getHeight());
-
-                                var pixel = parts.visibilityMap.getPixel(x, y);
-
-                                pixel.r = (visibility) ? 1 : 0;
-
-                                parts.visibilityMap.setPixel(x, y, pixel);
-                            }
-                        };
-
-                        /**
-                         *
-                         * @param color
-                         */
-                        this.highlight = function(color) {
-
-                            var i, x, y;
-
-                            if (color.split(" ").length == 3) {
-                                color += " 1";
-                            }
-
-                            var colorRGBA = x3dom.fields.SFColorRGBA.parse(color);
-
-                            if (ids.length && ids.length > 1) //Multi select
-                            {
-                                var pixels = parts.colorMap.getPixels();
-
-                                for(i=0; i<parts.ids.length; i++) {
-                                    if (multiPart._highlightedParts[parts.ids[i]] == undefined) {
-                                        multiPart._highlightedParts[parts.ids[i]] = pixels[parts.ids[i]]
-                                        pixels[parts.ids[i]] = colorRGBA;
-                                    }
-                                }
-
-                                parts.colorMap.setPixels(pixels);
-                            }
-                            else //Single select
-                            {
-                                if (multiPart._highlightedParts[parts.ids[0]] == undefined){
-
-                                    x = parts.ids[0] % parts.colorMap.getWidth();
-                                    y = Math.floor(parts.ids[0] / parts.colorMap.getHeight());
-                                    multiPart._highlightedParts[parts.ids[0]] = parts.colorMap.getPixel(x, y);
-                                    parts.colorMap.setPixel(x, y, colorRGBA);
-                                }
-                            }
-                        };
-
-                        /**
-                         *
-                         * @param color
-                         */
-                        this.unhighlight = function() {
-
-                            var i, x, y;
-
-                            if (ids.length && ids.length > 1) //Multi select
-                            {
-                                var pixels = parts.colorMap.getPixels();
-                                for(i=0; i<parts.ids.length; i++) {
-                                    if (multiPart._highlightedParts[parts.ids[i]]) {
-                                        pixels[parts.ids[i]] = multiPart._highlightedParts[parts.ids[i]];
-                                        multiPart._highlightedParts[parts.ids[i]] = undefined;
-                                    }
-                                }
-                                parts.colorMap.setPixels(pixels);
-                            }
-                            else
-                            {
-                                if (multiPart._highlightedParts[parts.ids[0]]) {
-
-                                    x = parts.ids[0] % parts.colorMap.getWidth();
-                                    y = Math.floor(parts.ids[0] / parts.colorMap.getHeight());
-                                    var pixel = multiPart._highlightedParts[parts.ids[0]];
-                                    multiPart._highlightedParts[parts.ids[0]] = undefined;
-                                    parts.colorMap.setPixel(x, y, pixel);
-                                }
-                            }
-                        };
-                    };
-
                     var colorMap = multiPart._inlineNamespace.defMap["MultiMaterial_ColorMap"];
                     var visibilityMap = multiPart._inlineNamespace.defMap["MultiMaterial_VisibilityMap"];
-                    return new Parts(selection, colorMap, visibilityMap);
-                }
+
+                    if ( selection.length == 0) {
+                        return null;
+                    } else {
+                        return new x3dom.Parts(multiPart, selection, colorMap, visibilityMap);
+                    }
+                };
+                
+                this._xmlNode.fitPart = function (id, updateCenterOfRotation)
+                {
+                    var shapeID = multiPart._identifierToPartId[id];
+                
+                    if (shapeID)
+                    {
+                        if (updateCenterOfRotation === undefined) {
+                            updateCenterOfRotation = true;
+                        }
+                        
+                        var min = multiPart._partVolume[shapeID[0]].min;
+                        var max = multiPart._partVolume[shapeID[0]].max;
+
+                        var mat = multiPart.getCurrentTransform();
+
+                        min = mat.multMatrixPnt(min);
+                        max = mat.multMatrixPnt(max);
+                         
+                        multiPart._nameSpace.doc._viewarea.fit(min, max, updateCenterOfRotation);
+                    }
+                };
             },
 
             loadInline: function ()
@@ -37326,16 +37898,28 @@ x3dom.registerNodeType(
                         return xhr;
                     }
 
-                    if (xhr.status === x3dom.nodeTypes.Inline.AwaitTranscoding && that.count < that.numRetries) {
-                        that.count++;
-                        var refreshTime = +xhr.getResponseHeader("Refresh") || 5;
-                        x3dom.debug.logInfo('Statuscode ' + xhr.status + ' and send new request in ' + refreshTime + ' sec.');
-
-                        window.setTimeout(function() {
+                    if (xhr.status === x3dom.nodeTypes.Inline.AwaitTranscoding) {
+                        if (that.count < that.numRetries)
+                        {
+                            that.count++;
+                            var refreshTime = +xhr.getResponseHeader("Refresh") || 5;
+                            x3dom.debug.logInfo('XHR status: ' + xhr.status + ' - Await Transcoding (' + that.count + '/' + that.numRetries + '): ' + 
+                                                'Next request in ' + refreshTime + ' seconds');
+                      
+                            window.setTimeout(function() {
+                                that._nameSpace.doc.downloadCount -= 1;
+                                that.loadInline();
+                            }, refreshTime * 1000);
+                            return xhr;
+                        }
+                        else
+                        {
+                            x3dom.debug.logError('XHR status: ' + xhr.status + ' - Await Transcoding (' + that.count + '/' + that.numRetries + '): ' + 
+                                                 'No Retries left');
                             that._nameSpace.doc.downloadCount -= 1;
-                            that.loadInline();
-                        }, refreshTime * 1000);
-                        return xhr;
+                            that.count = 0;
+                            return xhr;
+                        }
                     }
                     else if ((xhr.status !== 200) && (xhr.status !== 0)) {
                         that.fireEvents("error");
@@ -37370,8 +37954,10 @@ x3dom.registerNodeType(
 
                     if (inlScene)
                     {
+                        var nsDefault = "ns" + that._nameSpace.childSpaces.length;
+                        
                         var nsName = (that._vf.nameSpaceName.length != 0) ?
-                                      that._vf.nameSpaceName.toString().replace(' ','') : "";
+                                      that._vf.nameSpaceName.toString().replace(' ','') : nsDefault;
 
                         that._inlineNamespace = new x3dom.NodeNameSpace(nsName, that._nameSpace.doc);
 
@@ -37469,15 +38055,6 @@ x3dom.registerNodeType(
                 {
                     var xhrURI = this._nameSpace.getURL(this._vf.url[0]);
 
-                    //Unfortunately, there is currently an inconsistent behavior between
-                    //chrome and firefox, where the first one is "escaping" the "%" character in the
-                    //blob URI, which contains a ref to a "file" object. This can also not be fixed by
-                    //first using "decodeURI", because, in that case, "%3A" is not resolved to "%".
-                    if (!(xhrURI.substr(0, 5) === "blob:"))
-                    {
-                        xhrURI = encodeURI(xhrURI);
-                    }
-
                     xhr.open('GET', xhrURI, true);
 
                     this._nameSpace.doc.downloadCount += 1;
@@ -37494,6 +38071,7 @@ x3dom.registerNodeType(
         }
     )
 );
+
 /** @namespace x3dom.nodeTypes */
 /*
  * X3DOM JavaScript Library
@@ -38777,7 +39355,8 @@ x3dom.registerNodeType(
              * @field x3dom
              * @instance
              */
-            this.addField_SFMatrix4f(ctx, 'modelview',  1, 0, 0, 0,
+            this.addField_SFMatrix4f(ctx, 'modelview',
+                1, 0, 0, 0,
                 0, 1, 0, 0,
                 0, 0, 1, 0,
                 0, 0, 0, 1);
@@ -38790,7 +39369,8 @@ x3dom.registerNodeType(
              * @field x3dom
              * @instance
              */
-            this.addField_SFMatrix4f(ctx, 'projection', 1, 0, 0, 0,
+            this.addField_SFMatrix4f(ctx, 'projection',
+                1, 0, 0, 0,
                 0, 1, 0, 0,
                 0, 0, 1, 0,
                 0, 0, 0, 1);
@@ -39197,7 +39777,7 @@ x3dom.registerNodeType(
         
         },
         {
-            collectDrawableObjects: function (transform, drawableCollection, singlePath, invalidateCache, planeMask)
+            collectDrawableObjects: function (transform, drawableCollection, singlePath, invalidateCache, planeMask, clipPlanes)
             {
                 if (singlePath && (this._parentNodes.length > 1))
                     singlePath = false;
@@ -39277,7 +39857,7 @@ x3dom.registerNodeType(
                 {
                     var cnode = this._childNodes[i];
                     if (cnode) {
-                        cnode.collectDrawableObjects(childTransform, drawableCollection, singlePath, invalidateCache, planeMask);
+                        cnode.collectDrawableObjects(childTransform, drawableCollection, singlePath, invalidateCache, planeMask, clipPlanes);
                     }
                 }
             }
@@ -39350,7 +39930,7 @@ x3dom.registerNodeType(
              * @field x3d
              * @instance
              */
-            this.addField_SFTime ("collideTime", 0);
+            this.addField_SFTime (ctx, "collideTime", 0);
 
             /**
              * NOT YET IMPLEMENTED. The value of the isActive field indicates the current state of the Collision node.
@@ -39361,10 +39941,10 @@ x3dom.registerNodeType(
              * @field x3d
              * @instance
              */
-            this.addField_SFBool ("isActive", true);
+            this.addField_SFBool (ctx, "isActive", true);
         },
         {
-            collectDrawableObjects: function (transform, drawableCollection, singlePath, invalidateCache, planeMask)
+            collectDrawableObjects: function (transform, drawableCollection, singlePath, invalidateCache, planeMask, clipPlanes)
             {
                 if (singlePath && (this._parentNodes.length > 1))
                     singlePath = false;
@@ -39392,7 +39972,7 @@ x3dom.registerNodeType(
                 for (var i=0, n=this._childNodes.length; i<n; i++)
                 {
                     if ((cnode = this._childNodes[i]) && (cnode !== this._cf.proxy.node)) {
-                        cnode.collectDrawableObjects(childTransform, drawableCollection, singlePath, invalidateCache, planeMask);
+                        cnode.collectDrawableObjects(childTransform, drawableCollection, singlePath, invalidateCache, planeMask, clipPlanes);
                     }
                 }
             }
@@ -39450,7 +40030,7 @@ x3dom.registerNodeType(
         
         },
         {
-            collectDrawableObjects: function(transform, drawableCollection, singlePath, invalidateCache, planeMask)
+            collectDrawableObjects: function(transform, drawableCollection, singlePath, invalidateCache, planeMask, clipPlanes)
             {
                 if (singlePath && (this._parentNodes.length > 1))
                     singlePath = false;
@@ -39466,12 +40046,12 @@ x3dom.registerNodeType(
                 // at the moment, no caching here as children may change every frame
                 singlePath = false;
 
-                this.visitChildren(transform, drawableCollection, singlePath, invalidateCache, planeMask);
+                this.visitChildren(transform, drawableCollection, singlePath, invalidateCache, planeMask, clipPlanes);
 
                 //out.LODs.push( [transform, this] );
             },
 
-            visitChildren: function(transform, drawableCollection, singlePath, invalidateCache, planeMask) {
+            visitChildren: function(transform, drawableCollection, singlePath, invalidateCache, planeMask, clipPlanes) {
                 // overwritten
             }
         }
@@ -39524,7 +40104,7 @@ x3dom.registerNodeType(
         
         },
         {
-            visitChildren: function(transform, drawableCollection, singlePath, invalidateCache, planeMask)
+            visitChildren: function(transform, drawableCollection, singlePath, invalidateCache, planeMask, clipPlanes)
             {
                 var i=0, n=this._childNodes.length;
 
@@ -39552,7 +40132,7 @@ x3dom.registerNodeType(
                 if (n && cnode)
                 {
                     var childTransform = this.transformMatrix(transform);
-                    cnode.collectDrawableObjects(childTransform, drawableCollection, singlePath, invalidateCache, planeMask);
+                    cnode.collectDrawableObjects(childTransform, drawableCollection, singlePath, invalidateCache, planeMask, clipPlanes);
                 }
             },
 
@@ -39732,7 +40312,7 @@ x3dom.registerNodeType(
                 this._nameSpace.doc.needRender = true;
             },
 
-            visitChildren: function(transform, drawableCollection, singlePath, invalidateCache, planeMask)
+            visitChildren: function(transform, drawableCollection, singlePath, invalidateCache, planeMask, clipPlanes)
             {
                 var root = this._cf.root.node;
 
@@ -39813,12 +40393,12 @@ x3dom.registerNodeType(
                     }
                     else {
                         for (l=1; l<this._childNodes.length; l++) {
-                            this._childNodes[l].collectDrawableObjects(transform, drawableCollection, singlePath, invalidateCache, planeMask);
+                            this._childNodes[l].collectDrawableObjects(transform, drawableCollection, singlePath, invalidateCache, planeMask, clipPlanes);
                         }
                     }
                 }
                 else {
-                    root.collectDrawableObjects(transform, drawableCollection, singlePath, invalidateCache, planeMask);
+                    root.collectDrawableObjects(transform, drawableCollection, singlePath, invalidateCache, planeMask, clipPlanes);
                 }
             },
 
@@ -40950,6 +41530,14 @@ x3dom.registerNodeType(
                                 shape._dirty.texture = true;
                             });
                         }
+                        else if (x3dom.isa(app, x3dom.nodeTypes.MultiTexture)) {
+                            Array.forEach(app._parentNodes, function (realApp) {
+                                realApp.nodeChanged();
+                                Array.forEach(realApp._parentNodes, function (shape) {
+                                    shape._dirty.texture = true;
+                                });
+                            });
+                        }
                         else if (x3dom.isa(app, x3dom.nodeTypes.ImageGeometry)) {
                             var cf = null;
                             if (that._xmlNode && that._xmlNode.hasAttribute('containerField')) {
@@ -40960,9 +41548,18 @@ x3dom.registerNodeType(
                         else if (x3dom.nodeTypes.X3DVolumeDataNode !== undefined) {
                             if (x3dom.isa(app, x3dom.nodeTypes.X3DVolumeRenderStyleNode)) {
                                 if (that._xmlNode && that._xmlNode.hasAttribute('containerField')) {
-                                    Array.forEach(app._parentNodes, function(shape){
-                                        shape._dirty.texture = true;
-                                    });
+                                    if(app._volumeDataParent){
+                                        app._volumeDataParent._dirty.texture = true;
+                                    }else{
+                                        //Texture maybe under a ComposedVolumeStyle
+                                        var volumeDataParent = app._parentNodes[0];
+                                        while(!x3dom.isa(volumeDataParent, x3dom.nodeTypes.X3DVolumeDataNode) && x3dom.isa(volumeDataParent, x3dom.nodeTypes.X3DNode)){
+                                            volumeDataParent = volumeDataParent._parentNodes[0];
+                                        }
+                                        if(x3dom.isa(volumeDataParent, x3dom.nodeTypes.X3DNode)){
+                                            volumeDataParent._dirty.texture = true;
+                                        }
+                                    }
                                 }
                             } else if (x3dom.isa(app, x3dom.nodeTypes.X3DVolumeDataNode)) {
                                 if (that._xmlNode && that._xmlNode.hasAttribute('containerField')) {
@@ -41660,8 +42257,20 @@ x3dom.registerNodeType(
             },
 
             setPixel: function(x, y, color) {
-                this._vf.image.setPixel(x, y, color);
-                this.invalidateGLObject();
+                if (this._x3domTexture) {
+                    this._x3domTexture.setPixel(x, y, [
+                        color.r*255,
+                        color.g*255,
+                        color.b*255,
+                        color.a*255 ] );
+                    this._vf.image.setPixel(x, y, color);
+                }
+                else
+                {
+                    this._vf.image.setPixel(x, y, color);
+                    this.invalidateGLObject();
+                }
+
             },
 
             getPixel: function(x, y) {
@@ -43586,8 +44195,8 @@ x3dom.registerNodeType(
                 ctx.xmlNode.id : ++x3dom.nodeTypes.Shape.shaderPartID;
 
             x3dom.debug.assert(this._vf.type.toLowerCase() == 'vertex' ||
-                this._vf.type.toLowerCase() == 'fragment');
-        
+                               this._vf.type.toLowerCase() == 'fragment',
+                               "Unknown shader part type!");
         },
         {
             nodeChanged: function()
@@ -43602,7 +44211,7 @@ x3dom.registerNodeType(
                     if (that._vf.url.length && that._vf.url[0].indexOf('\n') == -1)
                     {
                         var xhr = new XMLHttpRequest();
-                        xhr.open("GET", encodeURI(that._nameSpace.getURL(that._vf.url[0])), false);
+                        xhr.open("GET", that._nameSpace.getURL(that._vf.url[0]), false);
                         xhr.onload = function() {
                             that._vf.url = new x3dom.fields.MFString( [] );
                             that._vf.url.push(xhr.response);
@@ -43660,6 +44269,7 @@ x3dom.registerNodeType(
         }
     )
 );
+
 /** @namespace x3dom.nodeTypes */
 /*
  * X3DOM JavaScript Library
@@ -45695,14 +46305,14 @@ x3dom.registerNodeType(
                 //post request
                 xhr = new XMLHttpRequest();
 
-                xhr.open("GET", encodeURI(this._vf['url']), true);
+                xhr.open("GET", this._vf['url'], true);
 
                 xhr.responseType = "arraybuffer";
 
                 xhr.send(null);
 
                 xhr.onerror = function() {
-                    x3dom.debug.logError("Unable to load SRC data from URL \"" + encodeURI(that._vf['url']) + "\"");
+                    x3dom.debug.logError("Unable to load SRC data from URL \"" + that._vf['url'] + "\"");
                 };
 
                 //TODO: currently, we assume that the referenced file is always an SRC file
@@ -45717,7 +46327,7 @@ x3dom.registerNodeType(
 
                     var srcHeaderObj;
 
-                    if (xhr.status == 200 && responseBeginUint32.length >= 3) {
+                    if ((xhr.status == 200 || xhr.status == 0) && responseBeginUint32.length >= 3) {
 
                         srcHeaderSize = responseBeginUint32[2];
                         srcBodyOffset = srcHeaderSize + 12;
@@ -45745,13 +46355,13 @@ x3dom.registerNodeType(
                         else
                         {
                             x3dom.debug.logError("Invalid SRC data, loaded from URL \"" +
-                                                 encodeURI(that._vf['url']) + "\"");
+                                                 that._vf['url'] + "\"");
                             return;
                         }
                     }
                     else
                     {
-                        x3dom.debug.logError("Unable to load SRC data from URL \"" + encodeURI(that._vf['url']) + "\"");
+                        x3dom.debug.logError("Unable to load SRC data from URL \"" + that._vf['url'] + "\"");
                     }
                 };
             } ,
@@ -45899,7 +46509,7 @@ x3dom.registerNodeType(
                                 //for non-indexed rendering, we assume that all attributes have the same count
                                 if (mesh["indices"] == "")
                                 {
-                                    shape._webgl.drawCount = attributeView["count"];
+                                    shape._webgl.drawCount[meshIdx] = attributeView["count"];
                                     //TODO: add support for LINES and POINTS
                                     this._mesh._numFaces += attributeView["count"] / 3;
                                 }
@@ -45933,7 +46543,7 @@ x3dom.registerNodeType(
                                 shape._webgl.buffers[ID_BUFFER_IDX + bufferOffset] =
                                     viewIDsToGLBufferIDs[attributeView["bufferView"]];
                                 break;
-                        };
+                        }
 
                         shape["_" + x3domTypeID + "StrideOffset"][0] = attributeView["byteStride"];
                         shape["_" + x3domTypeID + "StrideOffset"][1] = attributeView["byteOffset"];
@@ -46129,7 +46739,7 @@ x3dom.nodeTypes.ExternalGeometry._findNumComponentsForSRCAccessorType = function
         case "VEC4":   return 4;
         default:       return 0;
     }
-}
+};
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -49138,7 +49748,8 @@ x3dom.registerNodeType(
              * @field x3dom
              * @instance
              */
-            this.addField_SFMatrix4f(ctx, 'matrix', 1, 0, 0, 0,
+            this.addField_SFMatrix4f(ctx, 'matrix',
+                1, 0, 0, 0,
                 0, 1, 0, 0,
                 0, 0, 1, 0,
                 0, 0, 0, 1);
@@ -49203,9 +49814,9 @@ x3dom.registerNodeType(
              */
             pointerPressedOverSibling: function(event)
             {
-                if (this._vf["enabled"])
+                if (this._vf.enabled)
                 {
-                    this._vf["isActive"] = true;
+                    this._vf.isActive = true;
                     this.postMessage('isActive', true);
                 }
             },
@@ -49231,7 +49842,7 @@ x3dom.registerNodeType(
              */
             pointerMovedOver: function(event)
             {
-                if (this._vf["enabled"])
+                if (this._vf.enabled)
                 {
                     this.postMessage('isOver', true);
                 }
@@ -49245,7 +49856,7 @@ x3dom.registerNodeType(
              */
             pointerMovedOut: function(event)
             {
-                if (this._vf["enabled"])
+                if (this._vf.enabled)
                 {
                     this.postMessage('isOver', false);
                 }
@@ -49260,9 +49871,9 @@ x3dom.registerNodeType(
              */
             pointerReleased: function()
             {
-                if (this._vf["enabled"])
+                if (this._vf.enabled)
                 {
-                    this._vf["isActive"] = false;
+                    this._vf.isActive = false;
                     this.postMessage('isActive', false);
                 }
             }
@@ -49372,7 +49983,7 @@ x3dom.registerNodeType(
             {
                 x3dom.nodeTypes.X3DPointingDeviceSensorNode.prototype.pointerMoved.call(this, event);
 
-                if (this._vf["isActive"] && this._vf["enabled"])
+                if (this._vf.isActive && this._vf.enabled)
                 {
                     this._process2DDrag(event.layerX,
                                         event.layerY,
@@ -49385,7 +49996,6 @@ x3dom.registerNodeType(
 
             /**
              * @overrides x3dom.nodeTypes.X3DPointingDeviceSensorNode._pointerReleased
-             * @param {DOMEvent] event - the pointer event
              * @private
              */
             pointerReleased: function()
@@ -49423,7 +50033,7 @@ x3dom.registerNodeType(
              * @param {Double} x - 2D pointer x coordinate at the time of the dragging initiation
              * @param {Double} y - 2D pointer y coordinate at the time of the dragging initiation
              * @param {Double} dx - delta of x, with respect to the last time the function was invoked
-             * @param {Double} dY - delta of Y, with respect to the last time the function was invoked
+             * @param {Double} dy - delta of Y, with respect to the last time the function was invoked
              * @private
              */
             _process2DDrag: function(x, y, dx, dy)
@@ -49520,7 +50130,7 @@ x3dom.registerNodeType(
          * @param {Object} [ctx=null] - context object, containing initial settings like namespace
          * @classdesc TouchSensor tracks location and state of the pointing device, and detects when user points at
          * geometry. Hint: X3DOM, running in an HTML environment, you actually don't need this node, as you can
-         * simply use HTML events (like onlick) on your nodes. However, this node is implemented to complete the
+         * simply use HTML events (like onclick) on your nodes. However, this node is implemented to complete the
          * pointing device sensor component, and it may be useful to ensure compatibility with older X3D scene content.
          */
         function (ctx)
@@ -49653,7 +50263,7 @@ x3dom.registerNodeType(
              * @private
              */
             //TODO: update on change
-            this._rotationMatrix = this._vf['axisRotation'].toMatrix();
+            this._rotationMatrix = this._vf.axisRotation.toMatrix();
 
             /**
              * World-To-Local matrix for this node, including the axisRotation of the sensor
@@ -49768,11 +50378,11 @@ x3dom.registerNodeType(
                     {
                         //compute difference between new point of intersection and initial point
                         this._currentTranslation = intersectionPoint.subtract(this._initialPlaneIntersection);
-                        this._currentTranslation = this._currentTranslation.add(this._vf["offset"]);
+                        this._currentTranslation = this._currentTranslation.add(this._vf.offset);
 
                         //clamp translation components, if desired
-                        minPos = this._vf["minPosition"];
-                        maxPos = this._vf["maxPosition"];
+                        minPos = this._vf.minPosition;
+                        maxPos = this._vf.maxPosition;
 
                         if (minPos.x <= maxPos.x)
                         {
@@ -49801,10 +50411,10 @@ x3dom.registerNodeType(
             {
                 x3dom.nodeTypes.X3DDragSensorNode.prototype._stopDragging.call(this);
 
-                if (this._vf["autoOffset"])
+                if (this._vf.autoOffset)
                 {
-                    this._vf["offset"] = x3dom.fields.SFVec3f.copy(this._currentTranslation);
-                    this.postMessage('offset_changed', this._vf["offset"]);
+                    this._vf.offset = x3dom.fields.SFVec3f.copy(this._currentTranslation);
+                    this.postMessage('offset_changed', this._vf.offset);
                 }
             }
 
@@ -49819,6 +50429,12 @@ x3dom.registerNodeType(
  *
  * (C)2009 Fraunhofer IGD, Darmstadt, Germany
  * Dual licensed under the MIT and GPL
+ */
+ 
+ /*
+ * Based on code provided by Fraunhofer IGD.
+ * (C)2014 Toshiba Corporation, Japan.
+ * Dual licensed under the MIT and GPL.
  */
 
 x3dom.registerNodeType(
@@ -49868,27 +50484,62 @@ x3dom.registerNodeType(
              * @type {x3dom.fields.Quaternion}
              * @private
              */
-            this._currentRotation = new x3dom.fields.Quaternion();
+            this._currentRotation = null;
+			
+			/**
+             * Rotation matrix, derived from the current value of the offset field
+             * @type {x3dom.fields.SFMatrix4f}
+             * @private
+             */
+            this._rotationMatrix = this._vf.offset.toMatrix();
         },
         {
             //----------------------------------------------------------------------------------------------------------------------
             // PUBLIC FUNCTIONS
             //----------------------------------------------------------------------------------------------------------------------
-
+			
+			/**
+             * This function returns the parent transformation of this node, combined with its current rotation
+             * @overrides x3dom.nodeTypes.X3DPointingDeviceSensorNode.getCurrentTransform
+             */
+            getCurrentTransform: function ()
+            {
+                var parentTransform = x3dom.nodeTypes.X3DDragSensorNode.prototype.getCurrentTransform.call(this);
+				
+                return parentTransform.mult(this._rotationMatrix);
+            },
 
 
             //----------------------------------------------------------------------------------------------------------------------
             // PRIVATE FUNCTIONS
             //----------------------------------------------------------------------------------------------------------------------
-
+			
             /**
              * @overrides x3dom.nodeTypes.X3DDragSensorNode.prototype._startDragging
              * @private
              */
-            _startDragging: function(viewarea, x, y, z)
+            _startDragging: function(viewarea, x, y, wx, wy, wz)
             {
-                x3dom.nodeTypes.X3DDragSensorNode.prototype._startDragging.call(this, viewarea, x, y, z);
+				//console.log(viewarea, x, y, wx, wy, wz);
+                x3dom.nodeTypes.X3DDragSensorNode.prototype._startDragging.call(this, viewarea, x, y, wx, wy, wz);
+				
+				this._currentRotation = new x3dom.fields.Quaternion();
+				
+				this._viewArea = viewarea;	
+				
+				// origin of sphere in local coordinates
+				this._localOrigin = new x3dom.fields.SFVec3f(0.0, 0.0, 0.0);
+				
+				this._inverseToWorldMatrix = this.getCurrentTransform().inverse();
 
+				// compute initial point of intersection on the sphere sensor's geometry, in local sphere sensor's coordinate system
+				var firstIntersection = this._inverseToWorldMatrix.multMatrixPnt(new x3dom.fields.SFVec3f(wx, wy, wz));
+				
+				this._initialSphereIntersectionVector = firstIntersection.subtract(this._localOrigin);
+
+				this._sphereRadius = this._initialSphereIntersectionVector.length();
+
+				this._initialSphereIntersectionVector = this._initialSphereIntersectionVector.normalize();
             },
 
             //----------------------------------------------------------------------------------------------------------------------
@@ -49901,7 +50552,64 @@ x3dom.registerNodeType(
             {
                 x3dom.nodeTypes.X3DDragSensorNode.prototype._process2DDrag.call(this, x, y, dx, dy);
 
-
+				// We have to compute hit point on virtual sphere's geometry
+				var viewRay = this._viewArea.calcViewRay(x, y);
+				viewRay.pos = this._inverseToWorldMatrix.multMatrixPnt(viewRay.pos);
+				viewRay.dir = this._inverseToWorldMatrix.multMatrixVec(viewRay.dir);
+				
+				/*
+				 * S := Ray Origin	  = viewRay.pos
+				 * V := Ray Direction = viewRay.dir
+				 * O := Sphere Center = this._localOrigin
+				 * r := Sphere Radius = this._sphereRadius
+				 * alpha := Ray parameter
+				 * 
+				 * If the view ray intersects the virtual sphere centred at O
+				 * at (S + alpha*V), it must satisfy the following equation:
+				 * | S + alpha*V - O | = r
+				 * dot_prod((S + alpha*V - O),(S + alpha*V - O)) = r*r
+				 * or,
+				 * alpha*alpha*V.V + alpha*2*(V.(S-O)) + (S.S -2O.S + O.O) - r*r = 0
+				 * or,
+				 * A*alpha*alpha + B*alpha + C = 0
+				 */
+				 
+				 var A = viewRay.dir.dot(viewRay.dir);
+				 var B = 2.0*(viewRay.dir.dot(viewRay.pos.subtract(this._localOrigin)));
+				 var C = viewRay.pos.dot(viewRay.pos) - 2.0*this._localOrigin.dot(viewRay.pos) +
+                         this._localOrigin.dot(this._localOrigin) - this._sphereRadius*this._sphereRadius;
+				 
+				 var determinant = (B*B) - (4.0*A*C);
+				 var alpha_1;
+				 var alpha_2;
+				 
+				 // if the roots are real i.e. the ray intersects the sphere, the determinant must be greater
+				 // than or equal to zero
+				 if(determinant >= 0.0) {
+					alpha_1 = (-B + Math.sqrt(determinant)) / (2.0*A);
+					alpha_2 = (-B - Math.sqrt(determinant)) / (2.0*A);
+					
+					// pick the closer of the two points
+					alpha_1 = Math.min(alpha_1, alpha_2);
+					
+					// if the closer intersection point has alpha < 0, then we are inside the sphere and must not do anything
+					if(alpha_1 >= 1.0) {
+						//TODO: output trackPoint_changed event
+						var hitPoint = viewRay.pos.add(viewRay.dir.multiply(alpha_1));
+						
+						var vecToHitPoint = hitPoint.subtract(this._localOrigin).normalize();
+						
+						this._currentRotation = x3dom.fields.Quaternion.rotateFromTo(this._initialSphereIntersectionVector, vecToHitPoint);
+						
+						this._currentRotation = this._currentRotation.multiply(this._vf.offset);
+						
+						// output rotationChanged_event, given in local sphere sensor coordinates
+						this.postMessage('rotation_changed',  this._currentRotation);
+					}
+				 }
+				 else {
+					// do nothing, because no intersection
+				 }
             },
 
             //----------------------------------------------------------------------------------------------------------------------
@@ -49914,15 +50622,13 @@ x3dom.registerNodeType(
             {
                 x3dom.nodeTypes.X3DDragSensorNode.prototype._stopDragging.call(this);
 
-                if (this._vf["autoOffset"])
+                if (this._vf.autoOffset)
                 {
-                    //TODO: implement
-                    //this._vf["offset"] = this._currentRotation;
-
-                    //this.postMessage('offset_changed', x3dom.fields.Quaternion.copy(this._currentRotation));
+                    this._vf.offset = this._currentRotation;
+					this.postMessage('offset_changed', this._vf.offset);
                 }
-
-                this._currentRotation = new x3dom.fields.Quaternion();
+				
+				this._currentRotation = new x3dom.fields.Quaternion();
             }
 
             //----------------------------------------------------------------------------------------------------------------------
@@ -50044,7 +50750,7 @@ x3dom.registerNodeType(
              * @private
              */
             //TODO: updates
-            this._rotationMatrix = this._vf['axisRotation'].toMatrix();
+            this._rotationMatrix = this._vf.axisRotation.toMatrix();
 
             /**
              * Current value of the matrix that transforms world coordinates to local sensor coordinates
@@ -50189,7 +50895,8 @@ x3dom.registerNodeType(
                     //1. bring equation into the following form:
                     //   | alpha * A - B | = r
                     var A = viewRay.dir.subtract(this._yAxisLine.dir.multiply(viewRay.dir.dot(this._yAxisLine.dir)));
-                    var B = viewRay.pos.subtract(this._yAxisLine.pos).add(this._yAxisLine.dir.multiply(this._yAxisLine.dir.dot(this._yAxisLine.pos.subtract(viewRay.pos))));
+                    var B = viewRay.pos.subtract(this._yAxisLine.pos).add(this._yAxisLine.dir.multiply(
+                            this._yAxisLine.dir.dot(this._yAxisLine.pos.subtract(viewRay.pos))));
 
                     //2. solve quadratic formula (0, 1 or 2 solutions are possible)
                     var p = 2 * A.dot(B) / A.dot(A);
@@ -50221,7 +50928,7 @@ x3dom.registerNodeType(
 
                             this._currentRotation = x3dom.fields.Quaternion.rotateFromTo(this._initialCylinderIntersectionVector, vecToHitPoint);
 
-                            var offsetQuat = x3dom.fields.Quaternion.axisAngle(this._yAxisLine.dir, this._vf["offset"]);
+                            var offsetQuat = x3dom.fields.Quaternion.axisAngle(this._yAxisLine.dir, this._vf.offset);
 
                             this._currentRotation = this._currentRotation.multiply(offsetQuat);
 
@@ -50247,10 +50954,10 @@ x3dom.registerNodeType(
             {
                 x3dom.nodeTypes.X3DDragSensorNode.prototype._stopDragging.call(this);
 
-                if (this._vf["autoOffset"])
+                if (this._vf.autoOffset)
                 {
-                    this._vf["offset"] = this._currentRotation.angle();
-                    this.postMessage('offset_changed', this._vf["offset"]);
+                    this._vf.offset = this._currentRotation.angle();
+                    this.postMessage('offset_changed', this._vf.offset);
                 }
             }
 
@@ -50260,15 +50967,15 @@ x3dom.registerNodeType(
 );
 
 x3dom.versionInfo = {
-    version:  '2.0.0-dev',
-    revision: 'cbcee9080402f6d5507f747da625deca8ac3fc62',
-    date:     'Mon Jun 2 17:35:17 2014 +0200'
+    version:  '1.6.1',
+    revision: '979902877438b38183164b102350130392ada7d5',
+    date:     'Thu Jul 24 17:38:21 2014 +0200'
 };
 
 
 x3dom.versionInfo = {
-    version:  '2.0.0-dev',
-    revision: 'cbcee9080402f6d5507f747da625deca8ac3fc62',
-    date:     'Mon Jun 2 17:35:17 2014 +0200'
+    version:  '1.6.1',
+    revision: '979902877438b38183164b102350130392ada7d5',
+    date:     'Thu Jul 24 17:38:21 2014 +0200'
 };
 

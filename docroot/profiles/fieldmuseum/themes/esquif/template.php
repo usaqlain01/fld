@@ -455,6 +455,12 @@ function esquif_preprocess_node_department(&$variables, $hook) {
   }
 }
 
+function esquif_preprocess_node_media_gallery(&$variables, $hook) {
+  if ($variables['view_mode'] == 'teaser') {
+    $variables['content']['media_gallery_file'][0]['file']['#item']['attributes']['class'][] = 'excerpt__image';
+  }
+}
+
 /**
  * Override or insert variables into the region templates.
  *
@@ -563,6 +569,20 @@ function esquif_preprocess_file_entity(&$variables, $hook) {
     case 'banner_5x3':
     case 'primary_2x1':
       $variables['theme_hook_suggestion'] = 'file_entity__naked';
+      break;
+    case 'embed':
+      $variables['theme_hook_suggestion'] = 'file_entity__embed';
+      $variables['classes_array'][] = 'article__image';
+      if (isset($variables['override']['attributes']['align'])) {
+        $variables['classes_array'][] = 'article__image--'. $variables['override']['attributes']['align'];
+      }
+      break;
+    case 'resource':
+      $variables['theme_hook_suggestion'] = 'file_entity__resource';
+      $variables['classes_array'][] = 'resource';
+      $variables['title_attributes_array']['class'][] = 'resource__title';
+      $variables['title_attributes_array']['class'] = array_diff($variables['title_attributes_array']['class'], array('element-invisible'));
+      $variables['content_attributes_array']['class'][] = 'resource__description';
       break;
   }
 }
@@ -2277,4 +2297,41 @@ function esquif_field___custom_display__field_image__department($variables) {
   }
 
   return $output;
+}
+
+function esquif_field___custom_display__field_image__topic($variables) {
+  $variables['items'][0]['file']['#item']['attributes']['class'][] = 'image--primary';
+  $output = '';
+
+  foreach ($variables['items'] as $delta => $item) {
+    $output .=  drupal_render($item);
+  }
+
+  return $output;
+}
+
+function esquif_field__media_gallery_file__media_gallery(&$variables) {
+  $output = '';
+
+  // Render the label, if it's not hidden.
+  if (!$variables['label_hidden']) {
+    $output .= '<div class="field-label"' . $variables['title_attributes'] . '>' . $variables['label'] . ':&nbsp;</div>';
+  }
+
+  // Render the items.
+  foreach ($variables['items'] as $delta => $item) {
+    $output .= drupal_render($item);
+  }
+
+  return $output;
+}
+
+function esquif_element_info_alter(&$type) {
+  array_unshift($type['fieldset']['#process'], 'esquif_form_process_fieldset');
+}
+
+function esquif_form_process_fieldset(&$element, &$form_state) {
+  $element['#collapsible'] = FALSE;
+  $element['#collapsed'] = FALSE;
+  return $element;
 }

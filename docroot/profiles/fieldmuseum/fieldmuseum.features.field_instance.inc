@@ -281,11 +281,12 @@ function fieldmuseum_field_default_field_instances() {
       ),
       'default' => array(
         'label' => 'hidden',
-        'module' => 'file',
+        'module' => 'file_entity',
         'settings' => array(
           'field_formatter_class' => '',
+          'file_view_mode' => 'resource',
         ),
-        'type' => 'file_default',
+        'type' => 'file_rendered',
         'weight' => 5,
       ),
       'promo' => array(
@@ -308,7 +309,7 @@ function fieldmuseum_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'fences_wrapper' => 'div',
+    'fences_wrapper' => 'no_wrapper',
     'field_name' => 'field_attachment',
     'label' => 'Attachment',
     'required' => 0,

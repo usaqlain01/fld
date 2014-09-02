@@ -31,7 +31,7 @@ function fmnh_department_panelizer_defaults() {
       'pager_id' => NULL,
       'range' => array(
         'offset' => 0,
-        'limit' => 10,
+        'limit' => 0,
       ),
       'context' => array(
         0 => 'panelizer',
@@ -233,7 +233,7 @@ function fmnh_department_panelizer_defaults() {
     $pane->configuration = array(
       'range' => array(
         'offset' => '0',
-        'limit' => '10',
+        'limit' => '0',
       ),
       'view_mode' => 'node:teaser',
       'use_pager' => FALSE,
@@ -399,7 +399,7 @@ function fmnh_department_panelizer_defaults() {
       'pager_id' => NULL,
       'range' => array(
         'offset' => 0,
-        'limit' => 10,
+        'limit' => 0,
       ),
       'context' => array(
         0 => 'panelizer',
@@ -675,7 +675,7 @@ function fmnh_department_panelizer_defaults() {
     $pane->configuration = array(
       'range' => array(
         'offset' => '0',
-        'limit' => '10',
+        'limit' => '0',
       ),
       'view_mode' => 'node:teaser',
       'use_pager' => FALSE,
