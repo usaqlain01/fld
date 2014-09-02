@@ -135,7 +135,7 @@ function fieldmuseum_default_page_manager_handlers() {
     $pane->access = array();
     $pane->configuration = array(
       'links' => 1,
-      'no_extras' => 1,
+      'no_extras' => 0,
       'override_title' => 0,
       'override_title_text' => '',
       'identifier' => '',
