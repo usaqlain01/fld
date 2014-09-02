@@ -257,6 +257,5 @@ features[variable][] = panelizer_node:page:page_manager_selection
 features[variable][] = user_admin_role
 features[wysiwyg][] = filtered_wysiwyg
 features[wysiwyg][] = full_wysiwyg
-files[] = lib/NodesByAudienceEFQ.inc
 files[] = handlers/bangpound_views_handler_area_groupings_menu.inc
 required = 1
