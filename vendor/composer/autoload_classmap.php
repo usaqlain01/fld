@@ -203,6 +203,7 @@ return array(
     'DocBlox_Parallel_Manager' => $vendorDir . '/phing/phing/classes/phing/contrib/DocBlox/Parallel/Manager.php',
     'DocBlox_Parallel_Worker' => $vendorDir . '/phing/phing/classes/phing/contrib/DocBlox/Parallel/Worker.php',
     'DocBlox_Parallel_WorkerPipe' => $vendorDir . '/phing/phing/classes/phing/contrib/DocBlox/Parallel/WorkerPipe.php',
+    'Drupal\\bangpoundmedia\\MediaFilterMacro' => $baseDir . '/docroot/profiles/fieldmuseum/modules/bangpound/bangpoundmedia/lib/Drupal/bangpoundmedia/MediaFilterMacro.php',
     'DrushOption' => $vendorDir . '/mongolito404/phingdrushtask/DrushTask.php',
     'DrushParam' => $vendorDir . '/mongolito404/phingdrushtask/DrushTask.php',
     'DrushTask' => $vendorDir . '/mongolito404/phingdrushtask/DrushTask.php',

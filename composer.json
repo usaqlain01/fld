@@ -10,6 +10,18 @@
         "autoloader-suffix": "ComposerManager",
         "vendor-dir": "docroot/../vendor"
     },
+    "autoload": {
+        "psr-0": {
+            "Drupal\\bangpoundmedia\\": [
+                "docroot/profiles/fieldmuseum/modules/bangpound/bangpoundmedia/lib/"
+            ]
+        },
+        "psr-4": {
+            "": [
+                "docroot/profiles/fieldmuseum/lib/"
+            ]
+        }
+    },
     "require-dev": {
         "symfony/debug": "~2.4",
         "phing/phing": "dev-master",
@@ -49,13 +61,6 @@
             }
         }
     ],
-    "autoload": {
-        "psr-4": {
-            "": [
-                "docroot/profiles/fieldmuseum/lib/"
-            ]
-        }
-    },
     "minimum-stability": "dev",
     "prefer-stable": true
 }
