@@ -4774,25 +4774,25 @@ function fieldmuseum_default_page_manager_pages() {
     $display->content['new-9c7c967d-f6dd-4d2e-9592-fcc315666935'] = $pane;
     $display->panels['summary_b'][0] = 'new-9c7c967d-f6dd-4d2e-9592-fcc315666935';
     $pane = new stdClass();
-    $pane->pid = 'new-5a088fd3-0b7e-47bd-a6f7-05eb427cc767';
+    $pane->pid = 'new-00e56b40-6b63-4d1b-af28-555f4feac3eb';
     $pane->panel = 'summary_b';
     $pane->type = 'node';
     $pane->subtype = 'node';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'nid' => '14981',
+      'nid' => '15896',
       'links' => 0,
       'leave_node_title' => 0,
       'identifier' => '',
       'build_mode' => 'banner',
       'link_node_title' => 0,
-      'override_title' => 0,
+      'override_title' => 1,
       'override_title_text' => '',
     );
     $pane->cache = array();
     $pane->style = array(
-      'style' => 'naked',
+      'style' => 'default',
       'settings' => NULL,
     );
     $pane->css = array(
@@ -4802,9 +4802,9 @@ function fieldmuseum_default_page_manager_pages() {
     $pane->extras = array();
     $pane->position = 1;
     $pane->locks = array();
-    $pane->uuid = '5a088fd3-0b7e-47bd-a6f7-05eb427cc767';
-    $display->content['new-5a088fd3-0b7e-47bd-a6f7-05eb427cc767'] = $pane;
-    $display->panels['summary_b'][1] = 'new-5a088fd3-0b7e-47bd-a6f7-05eb427cc767';
+    $pane->uuid = '00e56b40-6b63-4d1b-af28-555f4feac3eb';
+    $display->content['new-00e56b40-6b63-4d1b-af28-555f4feac3eb'] = $pane;
+    $display->panels['summary_b'][1] = 'new-00e56b40-6b63-4d1b-af28-555f4feac3eb';
     $pane = new stdClass();
     $pane->pid = 'new-23e857a7-d4c1-4650-ba71-d5da16c8f547';
     $pane->panel = 'summary_b';
@@ -7671,7 +7671,7 @@ function fieldmuseum_default_page_manager_pages() {
     ),
   );
   $display->cache = array();
-  $display->title = 'Publications';
+  $display->title = 'Museum Publications';
   $display->uuid = '5cf2f779-14ca-4bad-8d58-c0e373cb4690';
   $display->content = array();
   $display->panels = array();
@@ -8240,7 +8240,7 @@ function fieldmuseum_default_page_manager_pages() {
   $page->task = 'page';
   $page->admin_title = 'Research resources';
   $page->admin_description = '';
-  $page->path = 'science/resources';
+  $page->path = 'science/labs';
   $page->access = array(
     'plugins' => array(
       0 => array(
@@ -8258,7 +8258,7 @@ function fieldmuseum_default_page_manager_pages() {
   );
   $page->menu = array(
     'type' => 'normal',
-    'title' => 'Research resources',
+    'title' => 'Labs & Tools',
     'name' => 'main-menu',
     'weight' => '5',
     'parent' => array(
@@ -8319,7 +8319,7 @@ function fieldmuseum_default_page_manager_pages() {
     ),
   );
   $display->cache = array();
-  $display->title = 'Resources & Tools';
+  $display->title = 'Labs and Tools';
   $display->uuid = '4aaab591-7563-4741-b367-7eb3834321bc';
   $display->content = array();
   $display->panels = array();
