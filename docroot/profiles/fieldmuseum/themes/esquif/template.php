@@ -583,6 +583,7 @@ function esquif_preprocess_file_entity(&$variables, $hook) {
       $variables['title_attributes_array']['class'][] = 'resource__title';
       $variables['title_attributes_array']['class'] = array_diff($variables['title_attributes_array']['class'], array('element-invisible'));
       $variables['content_attributes_array']['class'][] = 'resource__description';
+      $variables['file_url'] = file_entity_access('view', $variables['file']) ? $variables['file_url'] : file_create_url($variables['file']->uri);
       break;
   }
 }
