@@ -72,7 +72,7 @@ function fmnh_gallery_strongarm() {
             'visible' => FALSE,
           ),
           'teaser' => array(
-            'weight' => '6',
+            'weight' => '1',
             'visible' => FALSE,
           ),
           'media_gallery_block' => array(
