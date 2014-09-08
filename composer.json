@@ -42,6 +42,9 @@
         }
     ],
     "autoload": {
-        "psr-4": {"": "lib/"}
+        "psr-4": {
+            "": "lib/",
+            "Drupal\\inline\\": "modules/contrib/inline/lib/Drupal/inline/"
+        }
     }
 }
