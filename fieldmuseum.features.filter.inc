@@ -32,15 +32,6 @@ function fieldmuseum_filter_default_formats() {
           'filter_html_nofollow' => 0,
         ),
       ),
-      'invisimail_encode_html_entities' => array(
-        'weight' => -42,
-        'status' => 1,
-        'settings' => array(
-          'encoder' => 'html_entities',
-          'chunk' => 0,
-          'link' => 0,
-        ),
-      ),
       'pathologic' => array(
         'weight' => 50,
         'status' => 1,
@@ -76,15 +67,6 @@ http://fieldmuseum.org
           'allowed_html' => '<a> <em> <strong> <cite> <blockquote> <code> <ul> <ol> <li> <dl> <dt> <dd> <img> <br> <p> <h2> <h3> <h4> <table> <th> <tr> <td> <hr> <iframe> <u>',
           'filter_html_help' => 1,
           'filter_html_nofollow' => 0,
-        ),
-      ),
-      'invisimail_encode_html_entities' => array(
-        'weight' => -48,
-        'status' => 1,
-        'settings' => array(
-          'encoder' => 'html_entities',
-          'chunk' => 0,
-          'link' => 0,
         ),
       ),
       'media_filter' => array(
@@ -128,15 +110,6 @@ http://fieldmuseum.org
     'status' => 1,
     'weight' => -7,
     'filters' => array(
-      'invisimail_encode_html_entities' => array(
-        'weight' => -48,
-        'status' => 1,
-        'settings' => array(
-          'encoder' => 'html_entities',
-          'chunk' => 0,
-          'link' => 1,
-        ),
-      ),
       'filter_url' => array(
         'weight' => -47,
         'status' => 1,
@@ -177,15 +150,6 @@ http://fieldmuseum.org
     'status' => 1,
     'weight' => -8,
     'filters' => array(
-      'invisimail_encode_html_entities' => array(
-        'weight' => -50,
-        'status' => 1,
-        'settings' => array(
-          'encoder' => 'html_entities',
-          'chunk' => 0,
-          'link' => 1,
-        ),
-      ),
       'filter_url' => array(
         'weight' => -49,
         'status' => 1,
