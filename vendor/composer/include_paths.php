@@ -6,6 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    $vendorDir . '/phing/phing/classes',
     $vendorDir . '/pear-pear.php.net/VersionControl_Git',
+    $vendorDir . '/phing/phing/classes',
 );

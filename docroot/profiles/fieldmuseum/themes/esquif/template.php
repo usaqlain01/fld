@@ -444,7 +444,9 @@ function esquif_preprocess_node_collection(&$variables, $hook) {
 }
 
 function esquif_preprocess_node_learning_resource(&$variables, $hook) {
-  $variables['title_attributes_array']['class'][] = 'resource__title';
+  if ($variables['view_mode'] == 'teaser') {
+    $variables['title_attributes_array']['class'][] = 'resource__title';
+  }
 }
 
 function esquif_preprocess_node_department(&$variables, $hook) {

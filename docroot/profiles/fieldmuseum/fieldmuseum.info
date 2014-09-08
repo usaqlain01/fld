@@ -30,7 +30,6 @@ dependencies[] = image
 dependencies[] = image_resize_filter
 dependencies[] = imagecrop
 dependencies[] = inline
-dependencies[] = invisimail
 dependencies[] = link
 dependencies[] = list
 dependencies[] = markdown
