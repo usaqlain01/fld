@@ -55,6 +55,9 @@ function fmnh_department_strongarm() {
       'banner' => array(
         'custom_settings' => TRUE,
       ),
+      'list_item' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -65,7 +68,26 @@ function fmnh_department_strongarm() {
           'weight' => '3',
         ),
       ),
-      'display' => array(),
+      'display' => array(
+        'department_people_entity_view_1' => array(
+          'default' => array(
+            'weight' => '2',
+            'visible' => TRUE,
+          ),
+          'teaser' => array(
+            'weight' => '2',
+            'visible' => FALSE,
+          ),
+          'banner' => array(
+            'weight' => '0',
+            'visible' => FALSE,
+          ),
+          'promo' => array(
+            'weight' => '3',
+            'visible' => FALSE,
+          ),
+        ),
+      ),
     ),
   );
   $export['field_bundle_settings_node__department'] = $strongarm;

@@ -30,7 +30,7 @@ function fmnh_learning_resource_field_default_field_instances() {
           'field_formatter_class' => '',
         ),
         'type' => 'text_default',
-        'weight' => 0,
+        'weight' => 1,
       ),
       'teaser' => array(
         'label' => 'hidden',
@@ -76,13 +76,14 @@ function fmnh_learning_resource_field_default_field_instances() {
         'weight' => 0,
       ),
       'default' => array(
-        'label' => 'above',
-        'module' => 'file',
+        'label' => 'hidden',
+        'module' => 'file_entity',
         'settings' => array(
           'field_formatter_class' => '',
+          'file_view_mode' => 'resource',
         ),
-        'type' => 'file_default',
-        'weight' => 2,
+        'type' => 'file_rendered',
+        'weight' => 3,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -145,13 +146,9 @@ function fmnh_learning_resource_field_default_field_instances() {
       ),
       'default' => array(
         'label' => 'above',
-        'module' => 'entityreference',
-        'settings' => array(
-          'field_formatter_class' => '',
-          'link' => FALSE,
-        ),
-        'type' => 'entityreference_label',
-        'weight' => 1,
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 2,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -188,13 +185,10 @@ function fmnh_learning_resource_field_default_field_instances() {
         'weight' => 0,
       ),
       'default' => array(
-        'label' => 'above',
-        'module' => 'file',
-        'settings' => array(
-          'field_formatter_class' => '',
-        ),
-        'type' => 'file_default',
-        'weight' => 3,
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'hidden',
