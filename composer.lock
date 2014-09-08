@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "52016194130f5d24c5b163a600f31a3f",
+    "hash": "ead767861e405f64b8a7ac8f2b792206",
     "packages": [
         {
             "name": "bangpound/crop-extension",

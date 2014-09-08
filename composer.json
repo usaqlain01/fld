@@ -20,7 +20,7 @@
             "": [
                 "docroot/profiles/fieldmuseum/lib/"
             ],
-            "Drupal\\inline\\Parser\\": [
+            "Drupal\\inline\\": [
                 "docroot/profiles/fieldmuseum/modules/contrib/inline/lib/Drupal/inline/"
             ]
         }
