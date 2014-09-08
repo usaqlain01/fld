@@ -155,6 +155,69 @@ function fmnh_department_panelizer_defaults() {
     $display->content['new-7e9a77ce-6e6e-4f77-97bb-c64280d67175'] = $pane;
     $display->panels['main'][2] = 'new-7e9a77ce-6e6e-4f77-97bb-c64280d67175';
     $pane = new stdClass();
+    $pane->pid = 'new-ca6e4c1d-fbfd-4e74-8106-4dd94ba09405';
+    $pane->panel = 'main';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'department_people-panel_pane_1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'context' => array(
+        0 => 'panelizer',
+      ),
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'semantic_panels',
+      'settings' => array(
+        'element_title' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => 'div',
+          'class_enable' => 1,
+          'class' => 'persons--2up',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 3;
+    $pane->locks = array();
+    $pane->uuid = 'ca6e4c1d-fbfd-4e74-8106-4dd94ba09405';
+    $display->content['new-ca6e4c1d-fbfd-4e74-8106-4dd94ba09405'] = $pane;
+    $display->panels['main'][3] = 'new-ca6e4c1d-fbfd-4e74-8106-4dd94ba09405';
+    $pane = new stdClass();
     $pane->pid = 'new-a9ee75ad-c849-4492-82ed-0cf3b74145e6';
     $pane->panel = 'main';
     $pane->type = 'entity_field';
@@ -218,11 +281,11 @@ function fmnh_department_panelizer_defaults() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 3;
+    $pane->position = 4;
     $pane->locks = array();
     $pane->uuid = 'a9ee75ad-c849-4492-82ed-0cf3b74145e6';
     $display->content['new-a9ee75ad-c849-4492-82ed-0cf3b74145e6'] = $pane;
-    $display->panels['main'][3] = 'new-a9ee75ad-c849-4492-82ed-0cf3b74145e6';
+    $display->panels['main'][4] = 'new-a9ee75ad-c849-4492-82ed-0cf3b74145e6';
     $pane = new stdClass();
     $pane->pid = 'new-c030e82d-c9e7-4070-a64a-aeb941837125';
     $pane->panel = 'main';
@@ -288,11 +351,11 @@ function fmnh_department_panelizer_defaults() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 4;
+    $pane->position = 5;
     $pane->locks = array();
     $pane->uuid = 'c030e82d-c9e7-4070-a64a-aeb941837125';
     $display->content['new-c030e82d-c9e7-4070-a64a-aeb941837125'] = $pane;
-    $display->panels['main'][4] = 'new-c030e82d-c9e7-4070-a64a-aeb941837125';
+    $display->panels['main'][5] = 'new-c030e82d-c9e7-4070-a64a-aeb941837125';
     $pane = new stdClass();
     $pane->pid = 'new-4d87cf10-353c-4eea-8679-409010040835';
     $pane->panel = 'nav';
@@ -597,6 +660,69 @@ function fmnh_department_panelizer_defaults() {
     $display->content['new-5d6f672f-da36-4207-82a0-18f081c3f4d5'] = $pane;
     $display->panels['main'][3] = 'new-5d6f672f-da36-4207-82a0-18f081c3f4d5';
     $pane = new stdClass();
+    $pane->pid = 'new-eb3b1de6-ebcd-4bff-9968-0ec3a83a7ab8';
+    $pane->panel = 'main';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'department_people-panel_pane_1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'context' => array(
+        0 => 'panelizer',
+      ),
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'semantic_panels',
+      'settings' => array(
+        'element_title' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => 'div',
+          'class_enable' => 1,
+          'class' => 'persons--2up',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 4;
+    $pane->locks = array();
+    $pane->uuid = 'eb3b1de6-ebcd-4bff-9968-0ec3a83a7ab8';
+    $display->content['new-eb3b1de6-ebcd-4bff-9968-0ec3a83a7ab8'] = $pane;
+    $display->panels['main'][4] = 'new-eb3b1de6-ebcd-4bff-9968-0ec3a83a7ab8';
+    $pane = new stdClass();
     $pane->pid = 'new-e808f1dd-ce73-4abc-8f68-ec1358a4d2ea';
     $pane->panel = 'main';
     $pane->type = 'entity_field';
@@ -660,11 +786,11 @@ function fmnh_department_panelizer_defaults() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 4;
+    $pane->position = 5;
     $pane->locks = array();
     $pane->uuid = 'e808f1dd-ce73-4abc-8f68-ec1358a4d2ea';
     $display->content['new-e808f1dd-ce73-4abc-8f68-ec1358a4d2ea'] = $pane;
-    $display->panels['main'][4] = 'new-e808f1dd-ce73-4abc-8f68-ec1358a4d2ea';
+    $display->panels['main'][5] = 'new-e808f1dd-ce73-4abc-8f68-ec1358a4d2ea';
     $pane = new stdClass();
     $pane->pid = 'new-0ff73ec8-abda-4cb0-bb73-541610b182a1';
     $pane->panel = 'main';
@@ -730,11 +856,11 @@ function fmnh_department_panelizer_defaults() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 5;
+    $pane->position = 6;
     $pane->locks = array();
     $pane->uuid = '0ff73ec8-abda-4cb0-bb73-541610b182a1';
     $display->content['new-0ff73ec8-abda-4cb0-bb73-541610b182a1'] = $pane;
-    $display->panels['main'][5] = 'new-0ff73ec8-abda-4cb0-bb73-541610b182a1';
+    $display->panels['main'][6] = 'new-0ff73ec8-abda-4cb0-bb73-541610b182a1';
     $pane = new stdClass();
     $pane->pid = 'new-4d87cf10-353c-4eea-8679-409010040835';
     $pane->panel = 'nav';
@@ -1016,6 +1142,69 @@ function fmnh_department_panelizer_defaults() {
     $display->content['new-5d6f672f-da36-4207-82a0-18f081c3f4d5'] = $pane;
     $display->panels['main'][3] = 'new-5d6f672f-da36-4207-82a0-18f081c3f4d5';
     $pane = new stdClass();
+    $pane->pid = 'new-c5715a9a-4253-49a8-9963-09a77c17279e';
+    $pane->panel = 'main';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'department_people-panel_pane_1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'context' => array(
+        0 => 'panelizer',
+      ),
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'semantic_panels',
+      'settings' => array(
+        'element_title' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => 'div',
+          'class_enable' => 1,
+          'class' => 'persons--2up',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 1,
+      ),
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 4;
+    $pane->locks = array();
+    $pane->uuid = 'c5715a9a-4253-49a8-9963-09a77c17279e';
+    $display->content['new-c5715a9a-4253-49a8-9963-09a77c17279e'] = $pane;
+    $display->panels['main'][4] = 'new-c5715a9a-4253-49a8-9963-09a77c17279e';
+    $pane = new stdClass();
     $pane->pid = 'new-9ac160cb-08ad-4ea5-a5cc-0126a8227f2a';
     $pane->panel = 'main';
     $pane->type = 'entity_field';
@@ -1079,11 +1268,11 @@ function fmnh_department_panelizer_defaults() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 4;
+    $pane->position = 5;
     $pane->locks = array();
     $pane->uuid = '9ac160cb-08ad-4ea5-a5cc-0126a8227f2a';
     $display->content['new-9ac160cb-08ad-4ea5-a5cc-0126a8227f2a'] = $pane;
-    $display->panels['main'][4] = 'new-9ac160cb-08ad-4ea5-a5cc-0126a8227f2a';
+    $display->panels['main'][5] = 'new-9ac160cb-08ad-4ea5-a5cc-0126a8227f2a';
     $pane = new stdClass();
     $pane->pid = 'new-4d87cf10-353c-4eea-8679-409010040835';
     $pane->panel = 'nav';
