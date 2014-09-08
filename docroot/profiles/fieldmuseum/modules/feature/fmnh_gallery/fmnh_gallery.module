@@ -98,7 +98,7 @@ function fmnh_gallery_entity_load($entities, $type) {
       list(,,$bundle) = entity_extract_ids($type, $entity);
       if ($bundle == 'media_gallery') {
         $entity->media_gallery_columns['und'][0]['value'] = '6';
-        $entity->media_gallery_rows['und'][0]['value'] = PHP_INT_MAX;
+        $entity->media_gallery_rows['und'][0]['value'] = pow(2, 29);
       }
     }
   }
