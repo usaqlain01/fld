@@ -19,6 +19,9 @@
         "psr-4": {
             "": [
                 "docroot/profiles/fieldmuseum/lib/"
+            ],
+            "Drupal\\inline\\Parser\\": [
+                "docroot/profiles/fieldmuseum/modules/contrib/inline/lib/Drupal/inline/"
             ]
         }
     },
