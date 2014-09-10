@@ -77,12 +77,11 @@ function fmnh_learning_resource_field_default_field_instances() {
       ),
       'default' => array(
         'label' => 'hidden',
-        'module' => 'file_entity',
+        'module' => 'file',
         'settings' => array(
           'field_formatter_class' => '',
-          'file_view_mode' => 'resource',
         ),
-        'type' => 'file_rendered',
+        'type' => 'file_default',
         'weight' => 3,
       ),
       'teaser' => array(
