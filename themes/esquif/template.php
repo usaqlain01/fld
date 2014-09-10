@@ -1109,7 +1109,15 @@ function esquif_js_alter(&$js) {
 }
 
 function esquif_preprocess_pager(&$variables) {
+  global $pager_total;
+
+  $element = $variables['element'];
+
   $variables['quantity'] = 5;
+
+  // Override the labels for the first and last pager elements.
+  $variables['tags'][0] = '1';
+  $variables['tags'][4] = $pager_total[$element];
 }
 
 /**

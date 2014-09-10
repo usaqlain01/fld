@@ -52,8 +52,8 @@ function esquif_pager($variables) {
   }
   // End of generation loop preparation.
 
-  $li_first = theme('pager_first', array('text' => (1), 'element' => $element, 'parameters' => $parameters));
-  $li_last = theme('pager_last', array('text' => ($pager_max), 'element' => $element, 'parameters' => $parameters));
+  $li_first = theme('pager_first', array('text' => (isset($tags[0]) ? $tags[0] : t('« first')), 'element' => $element, 'parameters' => $parameters));
+  $li_last = theme('pager_last', array('text' => (isset($tags[4]) ? $tags[4] : t('last »')), 'element' => $element, 'parameters' => $parameters));
 
   if ($pager_total[$element] > 1) {
     if ($li_first && $pager_current > 3 && $pager_max > 5) {
