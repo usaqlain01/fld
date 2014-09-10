@@ -52,11 +52,30 @@ function esquif_pager($variables) {
   }
   // End of generation loop preparation.
 
-  $li_first = theme('pager_first', array('text' => (isset($tags[0]) ? $tags[0] : t('« first')), 'element' => $element, 'parameters' => $parameters));
-  $li_last = theme('pager_last', array('text' => (isset($tags[4]) ? $tags[4] : t('last »')), 'element' => $element, 'parameters' => $parameters));
+  // Only show first and last links if the maximum page number is greater than number of pages in the list.
+  if ($pager_max > $quantity) {
+    // Show first link if the first page listed is greater than 1.
+    if ($pager_first > 1) {
+      $li_first = theme('pager_first', array('text' => (isset($tags[0]) ? $tags[0] : t('« first')), 'element' => $element, 'parameters' => $parameters));
+    }
+    else {
+      $li_first = FALSE;
+    }
+    // Show last link if the last page listed is less than the maximum page number.
+    if ($pager_last < $pager_max) {
+      $li_last = theme('pager_last', array('text' => (isset($tags[4]) ? $tags[4] : t('last »')), 'element' => $element, 'parameters' => $parameters));
+    }
+    else {
+      $li_last = FALSE;
+    }
+  }
+  else {
+    $li_first = FALSE;
+    $li_last = FALSE;
+  }
 
   if ($pager_total[$element] > 1) {
-    if ($li_first && $pager_current > 3 && $pager_max > 5) {
+    if ($li_first) {
       $items[] = array(
         'class' => array('pagination__first'),
         'data' => $li_first,
@@ -65,7 +84,7 @@ function esquif_pager($variables) {
 
     // When there is more than one page, create the pager list.
     if ($i != $pager_max) {
-      if ($i > 1 && $pager_current > 4) {
+      if ($i > 1) {
         $items[] = array(
           'class' => array('pagination__gap'),
           'data' => '<span class="pagination__unlinked">…</span>',
@@ -100,7 +119,7 @@ function esquif_pager($variables) {
       }
     }
     // End generation.
-    if ($li_last && $pager_current < $pager_max && $pager_max > 5) {
+    if ($li_last) {
       $items[] = array(
         'class' => array('pagination__last'),
         'data' => $li_last,
