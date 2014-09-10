@@ -66,6 +66,7 @@ features[image][] = media_gallery_large
 features[image][] = media_gallery_thumbnail
 features[image][] = media_thumbnail
 features[image][] = medium
+features[image][] = resource_thumbnail
 features[image][] = thumbnail
 features[user_permission][] = access media browser
 features[user_permission][] = add media from remote sources
