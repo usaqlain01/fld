@@ -1,9 +1,22 @@
 <?php
 
 /**
+ * Returns HTML for a query pager.
+ *
+ * Menu callbacks that display paged query results should call theme('pager') to
+ * retrieve a pager control so that users can view other results. Format a list
+ * of nearby pages with additional query results.
+ *
  * @param $variables
- * @return string
- * @see theme_pager
+ *   An associative array containing:
+ *   - tags: An array of labels for the controls in the pager.
+ *   - element: An optional integer to distinguish between multiple pagers on
+ *     one page.
+ *   - parameters: An associative array of query string parameters to append to
+ *     the pager links.
+ *   - quantity: The number of pages in the list.
+ *
+ * @ingroup themeable
  */
 function esquif_pager($variables) {
   $tags = $variables['tags'];
@@ -101,6 +114,15 @@ function esquif_pager($variables) {
   }
 }
 
+
+/**
+ * @defgroup pagerpieces Pager pieces
+ * @{
+ * Theme functions for customizing pager elements.
+ *
+ * Note that you should NOT modify this file to customize your pager.
+ */
+
 /**
  * Returns HTML for the "first page" link in a query pager.
  *
@@ -112,7 +134,6 @@ function esquif_pager($variables) {
  *   - parameters: An associative array of query string parameters to append to
  *     the pager links.
  *
- * @return string
  * @ingroup themeable
  */
 function esquif_pager_first($variables) {
@@ -122,7 +143,6 @@ function esquif_pager_first($variables) {
   $attributes = array(
     'class' => array('pagination__link')
   );
-
   global $pager_page_array;
   $output = '';
 
@@ -146,7 +166,6 @@ function esquif_pager_first($variables) {
  *   - parameters: An associative array of query string parameters to append to
  *     the pager links.
  *
- * @return string
  * @ingroup themeable
  */
 function esquif_pager_previous($variables) {
@@ -157,7 +176,6 @@ function esquif_pager_previous($variables) {
   $attributes = array(
     'class' => array('pagination__link')
   );
-
   global $pager_page_array;
   $output = '';
 
@@ -190,7 +208,6 @@ function esquif_pager_previous($variables) {
  *   - parameters: An associative array of query string parameters to append to
  *     the pager links.
  *
- * @return string
  * @ingroup themeable
  */
 function esquif_pager_next($variables) {
@@ -201,7 +218,6 @@ function esquif_pager_next($variables) {
   $attributes = array(
     'class' => array('pagination__link')
   );
-
   global $pager_page_array, $pager_total;
   $output = '';
 
@@ -232,7 +248,6 @@ function esquif_pager_next($variables) {
  *   - parameters: An associative array of query string parameters to append to
  *     the pager links.
  *
- * @return string
  * @ingroup themeable
  */
 function esquif_pager_last($variables) {
@@ -242,7 +257,6 @@ function esquif_pager_last($variables) {
   $attributes = array(
     'class' => array('pagination__link')
   );
-
   global $pager_page_array, $pager_total;
   $output = '';
 
