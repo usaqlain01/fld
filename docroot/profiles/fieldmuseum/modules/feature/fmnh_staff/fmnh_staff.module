@@ -42,7 +42,7 @@ function fmnh_staff_menu_alter(&$items) {
 
       // Force title to use the auto entity label value which for
       // this is based on fields from the user account only.
-      if ($item['title callback'] == 'profile2_page_title') {
+      if (isset($item['title callback']) && $item['title callback'] == 'profile2_page_title') {
         $item['title callback'] = 'fmnh_staff_profile2_page_title';
       }
     }

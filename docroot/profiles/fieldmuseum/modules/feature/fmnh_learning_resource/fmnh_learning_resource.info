@@ -24,6 +24,7 @@ features[field_instance][] = node-learning_resource-field_attachment
 features[field_instance][] = node-learning_resource-field_grade_level
 features[field_instance][] = node-learning_resource-field_image
 features[node][] = learning_resource
+features[page_manager_handlers][] = node_view_panel_context_10
 features[page_manager_pages][] = learning_resources_filtered
 features[user_permission][] = create learning_resource content
 features[user_permission][] = delete any learning_resource content
