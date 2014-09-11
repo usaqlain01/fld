@@ -384,5 +384,72 @@ function fmnh_department_views_default_views() {
   $handler->display->display_options['menu']['context_only_inline'] = 0;
   $export['department_administration_nodes'] = $view;
 
+  $view = new view();
+  $view->name = 'department_people';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'users';
+  $view->human_name = 'Department people';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['access']['perm'] = 'view any main profile';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['row_plugin'] = 'user';
+  $handler->display->display_options['row_options']['view_mode'] = 'summary';
+  /* Relationship: Entity Reference: Referencing entity */
+  $handler->display->display_options['relationships']['reverse_field_person_node']['id'] = 'reverse_field_person_node';
+  $handler->display->display_options['relationships']['reverse_field_person_node']['table'] = 'users';
+  $handler->display->display_options['relationships']['reverse_field_person_node']['field'] = 'reverse_field_person_node';
+  $handler->display->display_options['relationships']['reverse_field_person_node']['required'] = TRUE;
+  /* Field: User: Name */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'users';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['label'] = '';
+  $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
+  /* Contextual filter: Content: Nid */
+  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['table'] = 'node';
+  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['relationship'] = 'reverse_field_person_node';
+  $handler->display->display_options['arguments']['nid']['default_action'] = 'not found';
+  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
+  /* Filter criterion: User: Active */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'users';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = '1';
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+
+  /* Display: Content pane */
+  $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
+  $handler->display->display_options['argument_input'] = array(
+    'nid' => array(
+      'type' => 'context',
+      'context' => 'entity:node.nid',
+      'context_optional' => 0,
+      'panel' => '0',
+      'fixed' => '',
+      'label' => 'Content: Nid',
+    ),
+  );
+  $export['department_people'] = $view;
+
   return $export;
 }
