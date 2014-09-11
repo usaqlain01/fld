@@ -17,6 +17,7 @@ return array(
     'Symfony\\Component\\Console\\' => array($vendorDir . '/symfony/console'),
     'Symfony\\Component\\Config\\' => array($vendorDir . '/symfony/config'),
     'Pimple' => array($vendorDir . '/pimple/pimple/src'),
+    'Drupal\\bangpoundmedia\\' => array($baseDir . '/docroot/profiles/fieldmuseum/modules/bangpound/bangpoundmedia/lib'),
     'Cilex\\Provider\\Console' => array($vendorDir . '/cilex/console-service-provider/src'),
     'Assetic' => array($vendorDir . '/kriswallsmith/assetic/src'),
     '' => array($vendorDir . '/bangpound/assetic-app/src'),
