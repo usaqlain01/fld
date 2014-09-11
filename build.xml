@@ -39,6 +39,14 @@
         <property name="repo.dir" value="build/fieldmuseum-website" />
         <resolvepath propertyName="repo.dir.resolved" file="${repo.dir}" />
 
+        <!-- Clone repository -->
+        <phingcall target="setup-git-repo">
+            <property name="repo.dir" value="${repo.dir.resolved}"/>
+            <property name="repo.url" value="git@github.com:tablexi/fieldmuseum-website.git"/>
+        </phingcall>
+
+        <gitpull repository="${repo.dir.resolved}" all="true" />
+
         <copy todir="docroot/profiles/fieldmuseum/themes/esquif/bower_components" overwrite="true">
             <fileset dir="${repo.dir.resolved}/patternlab/source/bower_components">
                 <include name="**"></include>
