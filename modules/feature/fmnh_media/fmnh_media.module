@@ -46,7 +46,25 @@ function fmnh_media_preprocess_image_style(&$variables, $hook) {
 
 function fmnh_media_srcset($style_prefix, $path) {
   $srcsets = array();
-  foreach (array_keys(image_styles()) as $style_name) {
+  $style_names = array_keys(image_styles());
+
+  usort($style_names, function ($a, $b) {
+    $matchesA = $matchesB = array();
+    preg_match('/([0-9]+)?/i', substr($a, strpos($a, '_') + 1), $matchesA);
+    preg_match('/([0-9]+)?/i', substr($b, strpos($b, '_') + 1), $matchesB);
+    if (!isset($matchesA[1])) {
+      $matchesA[1] = 0;
+    }
+    if (!isset($matchesB[1])) {
+      $matchesB[1] = 0;
+    }
+    if ((!isset($matchesA[1]) && !isset($matchesB[1])) || ($matchesA[1] == $matchesB[1])) {
+      return 0;
+    }
+    return ($matchesA[1] > $matchesB[1]) ? -1 : 1;
+  });
+
+  foreach ($style_names as $style_name) {
     if (strpos($style_name, $style_prefix) === 0) {
       list(, $candidate_string) = explode('_', $style_name);
       $srcset = image_style_url($style_name, $path);
