@@ -99,7 +99,7 @@ function theme_tablexi_gallery($variables) {
     return '';
   }
   $item = reset($items);
-  $href = drupal_realpath($item['uri']);
+  $href = file_create_url($item['uri']);
   $src = image_style_url('gallery_800w', $item['uri']);
   $srcset = implode(',', fmnh_media_srcset('gallery', $item['uri']));
   $alt = $item['alt'];
@@ -160,7 +160,7 @@ EOT;
     $attributes = array(
       'data-type' => $item['type'],
       'data-sizes' => '(min-width: 118.8125em) calc(100% - 555px),(min-width: 100.0625em) calc(100% - 380px),(min-width: 81.3125em) calc(100% - 325px),(min-width: 62.5625em) calc(100% - 300px),100vw',
-      'data-href' => drupal_realpath($item['uri']),
+      'data-href' => file_create_url($item['uri']),
       'data-src' => image_style_url('gallery_800w', $item['uri']),
       'data-srcset' => implode(',', fmnh_media_srcset('gallery', $item['uri'])),
       'data-alt' => $item['alt'],
