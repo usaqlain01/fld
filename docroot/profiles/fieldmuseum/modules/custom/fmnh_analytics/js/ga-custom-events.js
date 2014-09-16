@@ -176,21 +176,52 @@
             category: 'educators',
             label:    'target-url'
           },
-
           // ------ Further Explorations Click Events -----
-          'explore-collection': {
-            category: 'further-explorations',
-            label:    'target-link'
-          },
-          'explore-gallery': {
-            category: 'further-explorations',
-            label:    'target-link'
-          },
-          'explore-resource': {
+          'explore-article': {
             category: 'further-explorations',
             label:    'target-link'
           },
           'explore-blog': {
+            category: 'further-explorations',
+            label:    'target-link'
+          },
+          'explore-collection': {
+            category: 'further-explorations',
+            label:    'target-link'
+          },
+          'explore-department': {
+            category: 'further-explorations',
+            label:    'target-link'
+          },
+          'explore-event': {
+            category: 'further-explorations',
+            label:    'target-link'
+          },
+          'explore-exhibit': {
+            category: 'further-explorations',
+            label:    'target-link'
+          },
+          'explore-learning-resource': {
+            category: 'further-explorations',
+            label:    'target-link'
+          },
+          'explore-page': {
+            category: 'further-explorations',
+            label:    'target-link'
+          },
+          'explore-podcast': {
+            category: 'further-explorations',
+            label:    'target-link'
+          },
+          'explore-program': {
+            category: 'further-explorations',
+            label:    'target-link'
+          },
+          'explore-project': {
+            category: 'further-explorations',
+            label:    'target-link'
+          },
+          'explore-video': {
             category: 'further-explorations',
             label:    'target-link'
           }

@@ -42,7 +42,7 @@
  */
 ?>
 <div id="taxonomy-term-<?php print $term->tid; ?>" class="<?php print $classes; ?>"<?php print $attributes; ?>>
-  <a class="promo_link" href="<?php print $term_url; ?>">
+  <a<?php print $content_attributes; ?>>
     <figure>
       <?php print render($content['field_image']); ?>
       <figcaption class="promo__description">

@@ -1883,9 +1883,7 @@ window.matchMedia || (window.matchMedia = function() {
         "iframe[src*='player.vimeo.com']",
         "iframe[src*='youtube.com']",
         "iframe[src*='youtube-nocookie.com']",
-        "iframe[src*='kickstarter.com'][src*='video.html']",
-        "object",
-        "embed"
+        "iframe[src*='kickstarter.com'][src*='video.html']"
       ];
 
       if (settings.customSelector) {
