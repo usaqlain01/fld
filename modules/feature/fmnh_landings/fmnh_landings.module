@@ -31,6 +31,12 @@ function fmnh_landings_entity_prepare_view($entities, $type, $langcode) {
 
 /**
  * Extract, update or construct the read more link.
+ *
+ * This function is duplicated from the readmorecontrol module to apply on
+ * fieldable panels pane entities which normally do not have a "Read more"
+ * link.
+ *
+ * @see readmorecontrol_entity_view
  */
 function fmnh_landings_entity_view($entity, $entity_type, $view_mode, $langcode) {
   $do_readmore = FALSE;
