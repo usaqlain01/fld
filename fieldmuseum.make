@@ -236,6 +236,9 @@ projects[plupload][version] = 1.6
 projects[profile2][subdir] = contrib
 projects[profile2][version] = 1.x-dev
 
+projects[readmorecontrol][subdir] = contrib
+projects[readmorecontrol][version] = 1.x-dev
+
 projects[redirect][subdir] = contrib
 projects[redirect][version] = 1.x-dev
 

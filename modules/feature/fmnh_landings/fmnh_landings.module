@@ -29,3 +29,296 @@ function fmnh_landings_entity_prepare_view($entities, $type, $langcode) {
   }
 }
 
+/**
+ * Extract, update or construct the read more link.
+ */
+function fmnh_landings_entity_view($entity, $entity_type, $view_mode, $langcode) {
+  $do_readmore = FALSE;
+  if ($entity_type == 'fieldable_panels_pane' && $entity->bundle == 'banner_description_and_list') {
+    $items = field_get_items($entity_type, $entity, 'field_more_link');
+    if ($items) {
+      /** @var array $items */
+      $item = reset($items);
+      if ($item['value'] === '1') {
+        $do_readmore = TRUE;
+      }
+    }
+  }
+
+  // Ensure that this entity is actually supported.
+  $entity_info = entity_get_info($entity_type);
+  if (!$do_readmore) {
+    return;
+  }
+
+  // Only process enabled view modes.
+  list($id, $vid, $bundle) = entity_extract_ids($entity_type, $entity);
+
+  $behaviour = 'always';
+  $full_mode = empty($entity_info['view modes']['full']) ? 'default' : 'full';
+  $view_mode_settings = field_view_mode_settings($entity_type, $bundle);
+  $actual_mode = empty($view_mode_settings[$view_mode]['custom_settings']) ? 'default' : $view_mode;
+  $actual_full_mode = empty($view_mode_settings[$full_mode]['custom_settings']) ? 'default' : $full_mode;
+
+  // Determine the behaviour of the modules processing of the link.
+  $entity->readmorebehaviour = $behaviour;
+  switch ($entity->readmorebehaviour) {
+    case 'always':
+      $entity->readmore_required = TRUE;
+      break;
+
+    case 'never':
+      $entity->readmore_required = FALSE;
+      break;
+
+    default:
+      // Test the view mode to see really different.
+      if ($actual_mode == $actual_full_mode) {
+        $entity->readmore_required = FALSE;
+      }
+      else {
+        foreach (field_info_instances($entity_type, $bundle) as $field_name => $instance) {
+          // Get the field display info for full view mode.
+          $display = field_get_display($instance, $view_mode, $entity);
+          $display_full = field_get_display($instance, $full_mode, $entity);
+
+          // If the full view mode is hidden, we can ignore this field.
+          if ($display_full['type'] == 'hidden') {
+            continue;
+          }
+          $field = field_info_field($field_name);
+          if (readmorecontrol_field_requires_processing($entity_type, $entity, $field, $instance)) {
+            // Only test fields that have data.
+            $items = field_get_items($entity_type, $entity, $field_name, $langcode);
+            if (!empty($items)) {
+              // If current view is hidden, we can assume that the main view
+              // has values.
+              if ($display['type'] == 'hidden') {
+                $entity->readmore_required = TRUE;
+                break;
+              }
+
+              $func = "readmorecontrol_{$display['module']}_compare_items";
+              if (function_exists($func)) {
+                $context = array(
+                  'display' => $display,
+                  'display_full' => $display_full,
+                  'instance' => $instance,
+                  'field' => $field,
+                  'langcode' => $langcode,
+                  'entity' => $entity,
+                  'entity_type' => $entity_type,
+                );
+                if ($func($items, $context)) {
+                  $entity->readmore_required = TRUE;
+                  break;
+                }
+              }
+              else {
+                if ($display_full['type'] != $display['type'] || $display_full['settings'] !== $display['settings']) {
+                  $entity->readmore_required = TRUE;
+                  break;
+                }
+              }
+            }
+          }
+        }
+      }
+      break;
+  }
+
+  // No differences were found.
+  if (!isset($entity->readmore_required)) {
+    $entity->readmore_required = FALSE;
+  }
+
+  // Apply the settings.
+  $format = readmorecontrol_format_settings($entity_type, $bundle, $view_mode);
+
+  // Create and append a copy of the Read More link to the entity itself.
+  $has_readmore = !empty($entity->content['links']) && !empty($entity->content['links'][$entity_type])
+    && !empty($entity->content['links'][$entity_type]['#links'][$entity_type . '-readmore']);
+
+  if ($has_readmore) {
+    $readmorelink = $entity->content['links'][$entity_type]['#links'][$entity_type . '-readmore'];
+  }
+  else {
+    $title = entity_label($entity_type, $entity);
+    $title_stripped = strip_tags($title);
+    $readmorelink = array(
+      'title' => t('Read more<span class="element-invisible"> about @title</span>', array('@title' => $title_stripped)),
+      'href' => $entity->path,
+      'html' => TRUE,
+      'attributes' => array('title' => $title_stripped, 'class' => 'link--more'),
+    );
+    if (in_array($view_mode, variable_get('readmodecontrol_external_view_modes', array('rss')))) {
+      $readmorelink['absolute'] = 1;
+    }
+  }
+
+  if (!empty($format['text'])) {
+    if ($title = filter_xss_admin(_rmc_token_replace($format['text'], $entity_type, $entity))) {
+      $readmorelink['title'] = $title;
+      $readmorelink['html'] = 1;
+    }
+  }
+
+  // The generated URL is passed through check_plain() internally.
+  if (!empty($format['href'])) {
+    if ($format['href'] == '<none>') {
+      unset($readmorelink['href']);
+    }
+    else {
+      $readmorelink['href'] = _rmc_token_replace($format['href'], $entity_type, $entity);
+    }
+  }
+  if (!empty($format['query'])) {
+    if ($query_string = _rmc_token_replace($format['query'], $entity_type, $entity)) {
+      $query = array();
+      foreach (explode('&', $query_string) as $query_argument) {
+        list($key, $value) = explode('=', $query_argument . '=1');
+        $query[$key] = $value;
+      }
+      $readmorelink['query'] = $query;
+    }
+  }
+  if (!empty($format['fragment'])) {
+    if ($fragment = _rmc_token_replace($format['fragment'], $entity_type, $entity)) {
+      $readmorelink['fragment'] = $fragment;
+    }
+  }
+
+  // Append any link attributes. Like the link options, these have are also
+  // passed through check_plain() internally.
+  $attributes = empty($readmorelink['attributes']) ? array() : $readmorelink['attributes'];
+  if (!empty($format['title'])) {
+    if ($attr_title = _rmc_token_replace($format['title'], $entity_type, $entity)) {
+      $attributes['title'] = $attr_title;
+    }
+  }
+  if (!empty($attributes['class'])) {
+    $attributes['class'] = is_array($attributes['class']) ? $attributes['class'] : explode(' ', $attributes['class']);
+    if (!in_array('read-more', $attributes['class'])) {
+      $attributes['class'][] = 'read-more';
+    }
+  }
+  else {
+    $attributes['class'] = array('read-more');
+  }
+  if (!empty($format['class'])) {
+    if ($classes = _rmc_token_replace($format['class'], $entity_type, $entity)) {
+      $attributes['class'][] = $classes;
+    }
+  }
+
+  if (!empty($format['rel'])) {
+    if ($rel_title = _rmc_token_replace($format['rel'], $entity_type, $entity)) {
+      $attributes['rel'] = $rel_title;
+    }
+  }
+  if (!empty($format['target'])) {
+    $attributes['target'] = $format['target'];
+  }
+  $readmorelink['attributes'] = $attributes;
+
+  $entity->readmorelink = theme('readmorecontrol_link__' . $entity_type, array(
+    'entity' => $entity,
+    'entity_type' => $entity_type,
+    'bundle' => $bundle,
+    'link' => $readmorelink,
+  ));
+
+  $entity->readmorelink_raw = $readmorelink;
+  $entity->readmorelink_placement = $format['placement'];
+  if (!$entity->readmore_required || $view_mode == 'search_result') {
+    if ($has_readmore) {
+      unset($entity->content['links'][$entity_type]['#links'][$entity_type . '-readmore']);
+    }
+    return;
+  }
+
+  // If required, process the placement.
+  if ($format['placement'] != 'none') {
+    $field_item = NULL;
+    if (strpos($format['placement'], 'body_') === 0) {
+      if (isset($entity->content['body'])) {
+        $field_item = &$entity->content['body'];
+      }
+    }
+    else {
+      $rendered_fields = array();
+      foreach (field_info_instances($entity_type, $bundle) as $field_name => $instance) {
+        if (isset($entity->content[$field_name])) {
+          $display = $instance['display'][$actual_mode];
+          $rendered_fields[$field_name] = $display['weight'];
+        }
+      }
+      // This places the field last
+      if ($format['placement'] == 'append') {
+        $extra_fields = field_extra_fields_get_display($entity_type, $bundle, $view_mode);
+        foreach ($extra_fields as $name => $settings) {
+          if (isset($entity->content[$name])) {
+            $rendered_fields[$name] = $settings['weight'];
+          }
+        }
+      }
+      asort($rendered_fields);
+      foreach ($rendered_fields as $key => $weight) {
+        if ($format['placement'] == 'append') {
+          $field_item = &$entity->content[$key];
+        }
+        elseif ($format['placement'] == 'field_append' || $format['placement'] == 'field_inline') {
+          $field_item = &$entity->content[$key];
+        }
+        elseif (isset($entity->content[$key]['#field_type'])) {
+          if (in_array($entity->content[$key]['#field_type'], array('text_with_summary', 'text_long'))) {
+            $field_item = &$entity->content[$key];
+          }
+        }
+      }
+    }
+
+    if (isset($field_item)) {
+      $deltas = element_children($field_item);
+      $last_delta = array_pop($deltas);
+      if (isset($last_delta)) {
+        $item = &$field_item[$last_delta];
+        if (strpos($format['placement'], '_inline') && isset($item['#markup'])) {
+          $link = ' <span class="read-more-link">' . $entity->readmorelink . '</span>';
+          if (preg_match('!</?(?:p|div)[^>]*>\s*$!i', $item['#markup'], $match, PREG_OFFSET_CAPTURE)) {
+            $insert_point = strpos('teaser', $item['#markup']) + $match[0][1];
+            $item['#markup'] = substr_replace($item['#markup'], $link, $insert_point, 0);
+          }
+          else {
+            $item['#markup'] .= $link;
+          }
+        }
+        else {
+          $field_item[$last_delta]['#suffix'] = '<div class="read-more-link">' . $entity->readmorelink . '</div>';
+        }
+      }
+      else {
+        $field_item['#suffix'] = '<div class="read-more-link">' . $entity->readmorelink . '</div>';
+      }
+      if ($has_readmore) {
+        unset($entity->content['links'][$entity_type]['#links'][$entity_type . '-readmore']);
+      }
+      return;
+    }
+  }
+
+  // Fallen though, apply as a links element.
+  if (empty($entity->content['links'])) {
+    $entity->content['links'] = array(
+      '#theme' => 'links__' . $entity_type,
+      '#pre_render' => array('drupal_pre_render_links'),
+      '#attributes' => array('class' => array('links', 'inline')),
+      $entity_type => array(
+        '#theme' => 'links__' . $entity_type . '__' . $bundle,
+        '#links' => array(),
+        '#attributes' => array('class' => array('links', 'inline')),
+      ),
+    );
+  }
+  $entity->content['links'][$entity_type]['#links'][$entity_type . '-readmore'] = $readmorelink;
+}
