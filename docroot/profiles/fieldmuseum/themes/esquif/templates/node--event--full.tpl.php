@@ -20,6 +20,12 @@
           foreach ($items as $item) {
             $date = new DateObject($item['value'], $item['timezone_db'], date_type_format($item['date_type']));
             $date->setTimezone(new DateTimeZone($item['timezone']));
+            if ($item['value'] !== $item['value2']) {
+              $date2 = new DateObject($item['value2'], $item['timezone_db'], date_type_format($item['date_type']));
+              $date2->setTimezone(new DateTimeZone($item['timezone']));
+              /** @var \DateInterval $diff */
+              $diff = \Bangpound\DateInterval::createFromDateInterval($date->diff($date2));
+            }
             ?>
             <time<?php if (isset($node->rdf_mapping['field_date'])) { print drupal_attributes(rdf_rdfa_attributes($node->rdf_mapping['field_date'])); } ?>>
               <?php print $date->format('l, F j, Y'); ?> @ <?php
@@ -28,6 +34,15 @@
               }
               else {
                 print $date->format('ga');
+              }
+              if (isset($diff) && strpos($diff, 'PT') === 0) {
+                print ' - ';
+                if (intval($date2->format('i')) > 0) {
+                  print $date2->format('g:ia');
+                }
+                else {
+                  print $date2->format('ga');
+                }
               }
               ?>
             </time>
