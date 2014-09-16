@@ -124,6 +124,7 @@ return array(
     'AutoloaderTask' => $vendorDir . '/phing/phing/classes/phing/tasks/ext/AutoloaderTask.php',
     'AvailableTask' => $vendorDir . '/phing/phing/classes/phing/tasks/system/AvailableTask.php',
     'Bangpound\\Assetic\\Filter\\CodekitCoffeeScriptFilter' => $vendorDir . '/bangpound/assetic-codekit/CodekitCoffeeScriptFilter.php',
+    'Bangpound\\DateInterval' => $baseDir . '/docroot/profiles/fieldmuseum/lib/Bangpound/DateInterval.php',
     'Bangpound\\Drupal\\Driver\\Cores\\Drupal7' => $baseDir . '/docroot/profiles/fieldmuseum/lib/Bangpound/Drupal/Driver/Cores/Drupal7.php',
     'Bangpound\\stojg\\crop\\CropBalanced' => $vendorDir . '/bangpound/crop-extension/src/CropBalanced.php',
     'Bangpound\\stojg\\crop\\CropEntropy' => $vendorDir . '/bangpound/crop-extension/src/CropEntropy.php',
