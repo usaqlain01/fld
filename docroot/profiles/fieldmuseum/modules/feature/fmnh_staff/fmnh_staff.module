@@ -262,9 +262,7 @@ function fmnh_staff_preprocess_user_picture(&$variables, $hook) {
       $path = "about/staff/profile/$profile->pid";
       $attributes = array();
       // Append active class.
-      if ($path == $_GET['q']) {
-        $attributes['class'] = array('bio__image');
-      }
+      $attributes['class'] = array('bio__image', 'headshot');
 
       $alt = t("@user's picture", array('@user' => format_username($account)));
       // If the image does not have a valid Drupal scheme (for eg. HTTP),
@@ -282,6 +280,24 @@ function fmnh_staff_preprocess_user_picture(&$variables, $hook) {
           $item = menu_get_item();
           $variables['user_picture'] = l($variables['user_picture'], $path, $options);
         }
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_field_formatter_view().
+ *
+ * Merge field formatter class into link class attribute on email formatter.
+ */
+function fmnh_staff_field_attach_view_alter(&$output, $context) {
+  foreach (element_children($output) as $key) {
+    if ($output[$key]['#formatter'] == 'email_default') {
+      list(,,$bundle) = entity_extract_ids($context['entity_type'], $context['entity']);
+      $instance = field_info_instance($context['entity_type'], $key, $bundle);
+      $display = field_get_display($instance, $context['view_mode'], $context['entity']);
+      foreach ($output[$key]['#items'] as $delta => $item) {
+        $output[$key][$delta] = array('#markup' => l($item['email'], 'mailto:' . $item['email'], array('attributes' => array('class' => $display['settings']['field_formatter_class']))));
       }
     }
   }

@@ -247,6 +247,9 @@ function esquif_preprocess_node(&$variables, $hook) {
       array_splice($variables['theme_hook_suggestions'], 1, 0, array('node__'. $variables['view_mode']));
       $variables['classes_array'] = array_diff($variables['classes_array'], array($node->type));
       $variables['title_attributes_array']['class'][] = 'promo__title';
+      $variables['content_attributes_array']['class'][] = 'promo__link';
+      $variables['content_attributes_array']['href'] = $variables['node_url'];
+      $variables['content_attributes_array']['property'] = 'url';
 
       if (isset($variables['content']['field_image'])) {
         if ('image_formatter' == $variables['content']['field_image'][0]['file']['#theme']) {
@@ -524,6 +527,9 @@ function esquif_preprocess_taxonomy_term(&$variables, $hook) {
       $variables['classes_array'][] = 'promo';
       $variables['title_attributes_array']['class'][] = 'promo__title';
       $variables['term_url'] = url('science/blog/'. drupal_strtolower(str_replace(' ', '-', $variables['name'])));
+      $variables['content_attributes_array']['class'][] = 'promo__link';
+      $variables['content_attributes_array']['href'] = $variables['term_url'];
+      $variables['content_attributes_array']['property'] = 'url';
       $variables['content']['field_image'][0]['file']['#item']['attributes']['class'][] = 'promo__image';
       break;
     case 'summary':
