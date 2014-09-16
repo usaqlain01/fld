@@ -1620,6 +1620,13 @@ blockquote {
     font-weight: 800;
     font-size: 4em;
     line-height: 0; }
+  blockquote :last-child {
+    margin-bottom: 0; }
+  @media (max-width: 46.875em) {
+    blockquote {
+      font-size: 1.2em;
+      line-height: 1.4;
+      padding: 0.5em; } }
 
 .quote__attribute {
   text-align: right;
@@ -4412,7 +4419,8 @@ form {
       margin: 0.3em;
       vertical-align: top; } }
   .navGlobal__item .button, .navGlobal__item .button--tiny, .navGlobal__item .link--directions, .navGlobal__item .categoryLinks__item a, .categoryLinks__item .navGlobal__item a {
-    display: block; }
+    display: block;
+    white-space: nowrap; }
     @media (min-width: 46.9375em) and (max-width: 64.0625em), (min-width: 64.125em) and (max-height: 31.25em) {
       .navGlobal__item .button, .navGlobal__item .button--tiny, .navGlobal__item .link--directions, .navGlobal__item .categoryLinks__item a, .categoryLinks__item .navGlobal__item a {
         border-radius: 0;
@@ -4719,12 +4727,13 @@ form {
       padding-left: 100px; } }
 
 .breadcrumb__list {
-  margin: 0; }
+  margin: 0;
+  padding: 0.25em 0; }
 
 .breadcrumb__item {
   display: inline-block;
   margin: 0;
-  padding: 0;
+  padding: 0.25em 0;
   color: #fff; }
   .breadcrumb__item:after {
     padding: 0 10px;
@@ -4738,7 +4747,6 @@ form {
 
 .breadcrumb__link {
   display: inline-block;
-  padding: 0.5em 0;
   color: #c0c0c0;
   text-decoration: none; }
   .breadcrumb__link:hover {
@@ -5114,10 +5122,10 @@ form {
 
 .bio__figure {
   float: right;
-  margin-bottom: 20px;
-  margin-left: 20px;
+  width: 40%;
   max-width: 320px;
-  width: 40%; }
+  margin-bottom: 20px;
+  margin-left: 20px; }
   @media (min-width: 100.0625em) {
     .bio__figure {
       margin-bottom: 25px;
@@ -5133,8 +5141,8 @@ form {
     .bio__figure {
       margin-left: 0;
       float: none;
-      max-width: 200px;
-      width: 100%; } }
+      width: 100%;
+      max-width: 200px; } }
 
 .bio__image {
   border-bottom-left-radius: 0;
@@ -5145,18 +5153,17 @@ form {
 .bio__email {
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
+  font-family: "proxima-nova", "Helvetica Neue", Helmet, Freesans, sans-serif;
   display: block;
   overflow: hidden;
   padding: 0.25em 0.5em;
-  background: #84a726;
+  white-space: nowrap;
   text-decoration: none;
   text-overflow: ellipsis;
-  white-space: nowrap;
-  font-family: "proxima-nova", "Helvetica Neue", Helmet, Freesans, sans-serif; }
-  .bio__email:link, .bio__email:hover, .bio__email:focus {
-    color: #fff; }
+  color: #fff;
+  background: #84a726; }
   .bio__email:hover, .bio__email:focus {
-    background: #497d8d; }
+    color: #fff; }
 
 .bio__name {
   margin-top: 0;
@@ -5164,15 +5171,15 @@ form {
   clear: none; }
 
 .bio__title {
-  margin-top: 0;
-  clear: none; }
+  clear: none;
+  margin-top: 0; }
 
 .bio__department {
-  margin-top: 0;
-  color: #c0c0c0;
-  text-transform: none;
   font-weight: 400;
-  clear: none; }
+  clear: none;
+  margin-top: 0;
+  text-transform: none;
+  color: #c0c0c0; }
 
 .bio__meta {
   display: inline-block;
