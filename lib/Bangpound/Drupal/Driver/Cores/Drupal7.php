@@ -4,8 +4,8 @@ namespace Bangpound\Drupal\Driver\Cores;
 
 use Drupal\Driver\Cores\Drupal7 as BaseDriver;
 
-class Drupal7 extends BaseDriver {
-
+class Drupal7 extends BaseDriver
+{
   /**
    * Given a node object, expand fields to match the format expected by node_save().
    *
@@ -17,7 +17,8 @@ class Drupal7 extends BaseDriver {
    *   Entity bundle.
    * @return \stdClass
    */
-  function expandEntityFields(\stdClass $entity, $entityType = 'node', $bundle = '') {
+  public function expandEntityFields(\stdClass $entity, $entityType = 'node', $bundle = '')
+  {
     if ($entityType === 'node' && !$bundle) {
       $bundle = $entity->type;
     }
@@ -60,8 +61,7 @@ class Drupal7 extends BaseDriver {
                     $new_entity->{$param}[LANGUAGE_NONE][$i][$column] = array_shift($tid)->tid;
                     $i++;
                   }
-                }
-                elseif ('entityreference' === $info['module']) {
+                } elseif ('entityreference' === $info['module']) {
                   $labels = explode(',', $value);
                   $i = 0;
                   foreach ($labels as $label) {
@@ -80,15 +80,11 @@ class Drupal7 extends BaseDriver {
                       }
                     }
                   }
-                }
-
-                elseif (is_array($value)) {
+                } elseif (is_array($value)) {
                   foreach ($value as $key => $data) {
                     $new_entity->{$param}[LANGUAGE_NONE][0][$key] = $data;
                   }
-                }
-
-                else {
+                } else {
                   $new_entity->{$param}[LANGUAGE_NONE][0][$column] = $value;
                 }
               }
