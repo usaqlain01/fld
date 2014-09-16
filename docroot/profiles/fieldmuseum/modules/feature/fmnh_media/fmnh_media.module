@@ -46,7 +46,25 @@ function fmnh_media_preprocess_image_style(&$variables, $hook) {
 
 function fmnh_media_srcset($style_prefix, $path) {
   $srcsets = array();
-  foreach (array_keys(image_styles()) as $style_name) {
+  $style_names = array_keys(image_styles());
+
+  usort($style_names, function ($a, $b) {
+    $matchesA = $matchesB = array();
+    preg_match('/([0-9]+)?/i', substr($a, strpos($a, '_') + 1), $matchesA);
+    preg_match('/([0-9]+)?/i', substr($b, strpos($b, '_') + 1), $matchesB);
+    if (!isset($matchesA[1])) {
+      $matchesA[1] = 0;
+    }
+    if (!isset($matchesB[1])) {
+      $matchesB[1] = 0;
+    }
+    if ((!isset($matchesA[1]) && !isset($matchesB[1])) || ($matchesA[1] == $matchesB[1])) {
+      return 0;
+    }
+    return ($matchesA[1] > $matchesB[1]) ? -1 : 1;
+  });
+
+  foreach ($style_names as $style_name) {
     if (strpos($style_name, $style_prefix) === 0) {
       list(, $candidate_string) = explode('_', $style_name);
       $srcset = image_style_url($style_name, $path);
@@ -81,7 +99,7 @@ function theme_tablexi_gallery($variables) {
     return '';
   }
   $item = reset($items);
-  $href = image_style_url('gallery_1200w', $item['uri']);
+  $href = drupal_realpath($item['uri']);
   $src = image_style_url('gallery_800w', $item['uri']);
   $srcset = implode(',', fmnh_media_srcset('gallery', $item['uri']));
   $alt = $item['alt'];
@@ -111,7 +129,7 @@ function theme_tablexi_gallery($variables) {
 				<a class="viewer__link" href="$href">
 <!-- CAXY: Don't focus on these image sizes just yet. Let us work through the responsive layer and then we'll supply image size targets. -->
 <!-- CAXY: We'll also update the sizes attribute after we've passed in the responsive layer. -->
-				<img class="viewer__image" src="$src" srcset="$srcset" sizes="100vw" alt="$alt" /> </a>
+				<img class="viewer__image" src="$src" srcset="$srcset" sizes="(min-width: 118.8125em) calc(100% - 555px),(min-width: 100.0625em) calc(100% - 380px),(min-width: 81.3125em) calc(100% - 325px),(min-width: 62.5625em) calc(100% - 300px),100vw" alt="$alt" /> </a>
 				<figcaption class="viewer__caption">$caption</figcaption>
 			</figure>
 
@@ -141,9 +159,9 @@ EOT;
 
     $attributes = array(
       'data-type' => $item['type'],
-      'data-sizes' => '100vw',
-      'data-href' => image_style_url('gallery_1200w', $item['uri']),
-      'data-src' => image_style_url('gallery_1200w', $item['uri']),
+      'data-sizes' => '(min-width: 118.8125em) calc(100% - 555px),(min-width: 100.0625em) calc(100% - 380px),(min-width: 81.3125em) calc(100% - 325px),(min-width: 62.5625em) calc(100% - 300px),100vw',
+      'data-href' => drupal_realpath($item['uri']),
+      'data-src' => image_style_url('gallery_800w', $item['uri']),
       'data-srcset' => implode(',', fmnh_media_srcset('gallery', $item['uri'])),
       'data-alt' => $item['alt'],
       'data-caption' => $caption,

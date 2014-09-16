@@ -13,9 +13,9 @@ files[] = plugins/views/panelizer_handler_filter_panelizer_status.inc
 files[] = plugins/views/panelizer_plugin_row_panelizer_node_view.inc
 files[] = plugins/entity/PanelizerEntityDefault.class.php
 
-; Information added by Drupal.org packaging script on 2014-09-08
-version = "7.x-3.1+67-dev"
+; Information added by Drupal.org packaging script on 2014-09-13
+version = "7.x-3.1+70-dev"
 core = "7.x"
 project = "panelizer"
-datestamp = "1410157430"
+datestamp = "1410573235"
 

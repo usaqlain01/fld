@@ -19,6 +19,9 @@
 
   <div class="summary__description">
     <?php print render($content['field_banner_description']); ?>
+    <?php if (isset($content['links'])): ?>
+      <?php print l($content['links']['fieldable_panels_pane']['#links']['fieldable_panels_pane-readmore']['title'], $content['links']['fieldable_panels_pane']['#links']['fieldable_panels_pane-readmore']['href'], $content['links']['fieldable_panels_pane']['#links']['fieldable_panels_pane-readmore']); ?>
+    <?php endif; ?>
   </div>
 
   <?php if (isset($field_link)): ?>

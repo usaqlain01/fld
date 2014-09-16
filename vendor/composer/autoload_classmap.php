@@ -462,6 +462,7 @@ return array(
     'Ssh2MethodConnectionParam' => $vendorDir . '/phing/phing/classes/phing/tasks/ext/ssh/Ssh2MethodConnectionParam.php',
     'Ssh2MethodParam' => $vendorDir . '/phing/phing/classes/phing/tasks/ext/ssh/Ssh2MethodParam.php',
     'SshTask' => $vendorDir . '/phing/phing/classes/phing/tasks/ext/ssh/SshTask.php',
+    'StopwatchTask' => $vendorDir . '/phing/phing/classes/phing/tasks/ext/StopwatchTask.php',
     'StreamRequiredBuildLogger' => $vendorDir . '/phing/phing/classes/phing/listener/StreamRequiredBuildLogger.php',
     'StringHelper' => $vendorDir . '/phing/phing/classes/phing/util/StringHelper.php',
     'StringReader' => $vendorDir . '/phing/phing/classes/phing/system/io/StringReader.php',
