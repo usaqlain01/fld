@@ -241,6 +241,81 @@ function fieldmuseum_default_page_manager_handlers() {
   $handler->conf['display'] = $display;
   $export['node_view_panel_context_7'] = $handler;
 
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'search_google_cse_panel_context';
+  $handler->task = 'search';
+  $handler->subtask = 'google_cse';
+  $handler->handler = 'panel_context';
+  $handler->weight = 0;
+  $handler->conf = array(
+    'title' => 'Panel',
+    'no_blocks' => 0,
+    'pipeline' => 'ipe',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => '',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(),
+  );
+  $display = new panels_display();
+  $display->layout = 's';
+  $display->layout_settings = array(
+    'main_classes' => '',
+  );
+  $display->panel_settings = array(
+    'style' => 'default',
+    'style_settings' => array(
+      'default' => NULL,
+      'main' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = '';
+  $display->uuid = '7f3dc273-fc78-4572-90c7-7274f2105c27';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-a696acad-1f08-4b74-8e63-f433af356cb4';
+    $pane->panel = 'main';
+    $pane->type = 'search_result';
+    $pane->subtype = 'search_result';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'type' => 'google_cse',
+      'log' => 1,
+      'override_empty' => 0,
+      'empty_title' => '',
+      'empty' => '',
+      'empty_format' => 'plain_text',
+      'override_no_key' => 0,
+      'no_key_title' => '',
+      'no_key' => '',
+      'no_key_format' => 'plain_text',
+      'context' => 'argument_string_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'naked',
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'a696acad-1f08-4b74-8e63-f433af356cb4';
+    $display->content['new-a696acad-1f08-4b74-8e63-f433af356cb4'] = $pane;
+    $display->panels['main'][0] = 'new-a696acad-1f08-4b74-8e63-f433af356cb4';
+  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->title_pane = 'new-a696acad-1f08-4b74-8e63-f433af356cb4';
+  $handler->conf['display'] = $display;
+  $export['search_google_cse_panel_context'] = $handler;
+
   return $export;
 }
 
