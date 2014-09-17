@@ -2099,3 +2099,22 @@ function esquif_form_process_fieldset(&$element, &$form_state) {
   $element['#collapsed'] = FALSE;
   return $element;
 }
+
+function esquif_field__profile2__main__wrapped($variables) {
+  $output = '';
+
+  // Render the label, if it's not hidden.
+  if (!$variables['label_hidden']) {
+    $output .= '<h3' . $variables['title_attributes'] . '>' . $variables['label'] . '</h3>';
+  }
+
+  // Render the items.
+  foreach ($variables['items'] as $delta => $item) {
+    $output .= drupal_render($item);
+  }
+
+  // Render the top-level DIV.
+  $output = '<div class="' . $variables['classes'] . '"' . $variables['attributes'] . '>' . $output . '</div>';
+
+  return $output;
+}
