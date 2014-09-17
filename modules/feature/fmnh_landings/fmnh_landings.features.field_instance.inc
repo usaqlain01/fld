@@ -10,6 +10,61 @@
 function fmnh_landings_field_default_field_instances() {
   $field_instances = array();
 
+  // Exported field_instance: 'fieldable_panels_pane-banner_description_and_list-field_action_link'
+  $field_instances['fieldable_panels_pane-banner_description_and_list-field_action_link'] = array(
+    'bundle' => 'banner_description_and_list',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'link',
+        'settings' => array(
+          'field_formatter_class' => '',
+        ),
+        'type' => 'link_default',
+        'weight' => 3,
+      ),
+      'excerpt' => array(
+        'label' => 'hidden',
+        'module' => 'link',
+        'settings' => array(
+          'field_formatter_class' => '',
+        ),
+        'type' => 'link_default',
+        'weight' => 3,
+      ),
+    ),
+    'entity_type' => 'fieldable_panels_pane',
+    'field_name' => 'field_action_link',
+    'label' => 'Action link',
+    'required' => FALSE,
+    'settings' => array(
+      'attributes' => array(
+        'class' => '',
+        'rel' => '',
+        'target' => 'default',
+      ),
+      'display' => array(
+        'url_cutoff' => 80,
+      ),
+      'enable_tokens' => 1,
+      'title' => 'optional',
+      'title_maxlength' => 128,
+      'title_value' => '',
+      'url' => 0,
+      'user_register_form' => FALSE,
+      'validate_url' => 1,
+    ),
+    'widget' => array(
+      'module' => 'link',
+      'settings' => array(),
+      'type' => 'link_field',
+      'weight' => 5,
+    ),
+  );
+
   // Exported field_instance: 'fieldable_panels_pane-banner_description_and_list-field_banner_description'
   $field_instances['fieldable_panels_pane-banner_description_and_list-field_banner_description'] = array(
     'bundle' => 'banner_description_and_list',
@@ -605,6 +660,7 @@ function fmnh_landings_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Action link');
   t('Banner description');
   t('Body');
   t('Headline');
