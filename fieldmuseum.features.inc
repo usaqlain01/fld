@@ -156,6 +156,9 @@ function fieldmuseum_rdf_default_mappings() {
       'predicates' => array(),
       'type' => 'rel',
     ),
+    'field_read_more_label' => array(
+      'predicates' => array(),
+    ),
   );
 
   return $schemaorg;
