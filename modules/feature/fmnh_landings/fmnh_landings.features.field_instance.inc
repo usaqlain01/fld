@@ -234,6 +234,138 @@ function fmnh_landings_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'fieldable_panels_pane-banner_description_and_list-field_more_link'
+  $field_instances['fieldable_panels_pane-banner_description_and_list-field_more_link'] = array(
+    'bundle' => 'banner_description_and_list',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => 'Show a "read more" link.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 5,
+      ),
+      'excerpt' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 5,
+      ),
+    ),
+    'entity_type' => 'fieldable_panels_pane',
+    'fences_wrapper' => 'div',
+    'field_name' => 'field_more_link',
+    'label' => 'More link',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 0,
+      ),
+      'type' => 'options_onoff',
+      'weight' => 6,
+    ),
+  );
+
+  // Exported field_instance: 'fieldable_panels_pane-banner_description_and_list-field_read_more_label'
+  $field_instances['fieldable_panels_pane-banner_description_and_list-field_read_more_label'] = array(
+    'bundle' => 'banner_description_and_list',
+    'default_value' => array(
+      0 => array(
+        'value' => 'Read more<span class="element-invisible"> about @title</span>',
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(
+          'field_formatter_class' => '',
+        ),
+        'type' => 'text_default',
+        'weight' => 6,
+      ),
+      'excerpt' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'fieldable_panels_pane',
+    'fences_wrapper' => 'no_wrapper',
+    'field_name' => 'field_read_more_label',
+    'label' => 'Read more label',
+    'required' => 0,
+    'settings' => array(
+      'better_formats' => array(
+        'allowed_formats' => array(
+          'filtered_html' => 0,
+          'filtered_wysiwyg' => 0,
+          'full_html' => 0,
+          'full_wysiwyg' => 0,
+          'markdown' => 0,
+          'plain_text' => 0,
+          'unfiltered' => 0,
+          'unfiltered_phrase_html' => 'unfiltered_phrase_html',
+        ),
+        'allowed_formats_toggle' => 1,
+        'default_order_toggle' => 0,
+        'default_order_wrapper' => array(
+          'formats' => array(
+            'filtered_html' => array(
+              'weight' => -9,
+            ),
+            'filtered_wysiwyg' => array(
+              'weight' => -10,
+            ),
+            'full_html' => array(
+              'weight' => -7,
+            ),
+            'full_wysiwyg' => array(
+              'weight' => -8,
+            ),
+            'markdown' => array(
+              'weight' => -6,
+            ),
+            'plain_text' => array(
+              'weight' => -3,
+            ),
+            'unfiltered' => array(
+              'weight' => -4,
+            ),
+            'unfiltered_phrase_html' => array(
+              'weight' => -5,
+            ),
+          ),
+        ),
+      ),
+      'text_processing' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 8,
+    ),
+  );
+
   // Exported field_instance: 'fieldable_panels_pane-hero-field_headline'
   $field_instances['fieldable_panels_pane-hero-field_headline'] = array(
     'bundle' => 'hero',
@@ -478,6 +610,9 @@ function fmnh_landings_field_default_field_instances() {
   t('Headline');
   t('Image');
   t('Link');
+  t('More link');
+  t('Read more label');
+  t('Show a "read more" link.');
   t('Subheadline');
 
   return $field_instances;

@@ -221,7 +221,7 @@ function fieldmuseum_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 5,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -299,7 +299,7 @@ function fieldmuseum_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 3,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -493,10 +493,10 @@ function fieldmuseum_field_default_field_instances() {
         'weight' => 0,
       ),
       'summary' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 2,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -514,16 +514,16 @@ function fieldmuseum_field_default_field_instances() {
     'settings' => array(
       'better_formats' => array(
         'allowed_formats' => array(
-          'filtered_html' => 'filtered_html',
-          'filtered_wysiwyg' => 'filtered_wysiwyg',
-          'full_html' => 'full_html',
-          'full_wysiwyg' => 'full_wysiwyg',
-          'markdown' => 'markdown',
-          'plain_text' => 'plain_text',
-          'unfiltered' => 'unfiltered',
+          'filtered_html' => 0,
+          'filtered_wysiwyg' => 0,
+          'full_html' => 0,
+          'full_wysiwyg' => 0,
+          'markdown' => 0,
+          'plain_text' => 0,
+          'unfiltered' => 0,
           'unfiltered_phrase_html' => 'unfiltered_phrase_html',
         ),
-        'allowed_formats_toggle' => 0,
+        'allowed_formats_toggle' => 1,
         'default_order_toggle' => 0,
         'default_order_wrapper' => array(
           'formats' => array(
@@ -554,7 +554,7 @@ function fieldmuseum_field_default_field_instances() {
           ),
         ),
       ),
-      'text_processing' => 0,
+      'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -605,7 +605,7 @@ function fieldmuseum_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 6,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -670,7 +670,7 @@ function fieldmuseum_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 4,
       ),
       'teaser' => array(
         'label' => 'above',
