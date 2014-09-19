@@ -4506,7 +4506,8 @@ $(function() {
   return $(selector).select2({
     width: false,
     openOnEnter: true,
-    selectOnBlur: true
+    selectOnBlur: true,
+    minimumResultsForSearch: 50
   });
 });
 
