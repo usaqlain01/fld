@@ -279,7 +279,7 @@ function fmnh_staff_field_default_field_instances() {
         'settings' => array(
           'field_formatter_class' => 'bio__email',
         ),
-        'type' => 'email_plain',
+        'type' => 'email_default',
         'weight' => 1,
       ),
       'full' => array(
@@ -305,6 +305,7 @@ function fmnh_staff_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'profile2',
+    'fences_wrapper' => 'no_wrapper',
     'field_name' => 'field_email',
     'label' => 'Contact Info',
     'required' => 0,

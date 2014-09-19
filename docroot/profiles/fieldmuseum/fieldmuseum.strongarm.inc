@@ -229,6 +229,31 @@ function fieldmuseum_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'readmorecontrol_behaviour__node__page__summary';
+  $strongarm->value = 'always';
+  $export['readmorecontrol_behaviour__node__page__summary'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'readmorecontrol_format__node__page__summary';
+  $strongarm->value = array(
+    'enabled' => 'custom',
+    'text' => '[node:field-read-more-label:value]',
+    'href' => '',
+    'query' => '',
+    'fragment' => '',
+    'title' => '',
+    'class' => '',
+    'rel' => '',
+    'target' => '',
+    'placement' => 'none',
+  );
+  $export['readmorecontrol_format__node__page__summary'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'user_admin_role';
   $strongarm->value = '3';
   $export['user_admin_role'] = $strongarm;

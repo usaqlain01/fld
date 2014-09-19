@@ -184,7 +184,7 @@ projects[menu_position][subdir] = contrib
 projects[menu_position][version] = 1.x-dev
 
 projects[metatag][subdir] = contrib
-projects[metatag][version] = 1.0-rc2
+projects[metatag][version] = 1.0
 
 projects[migrate_d2d][subdir] = contrib
 projects[migrate_d2d][version] = 2.x-dev
@@ -193,7 +193,7 @@ projects[migrate][subdir] = contrib
 projects[migrate][version] = 2.x-dev
 
 projects[mollom][subdir] = contrib
-projects[mollom][version] 2.10
+projects[mollom][version] 2.11
 
 projects[multiform][subdir] = contrib
 projects[multiform][version] = 1.1

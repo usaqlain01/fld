@@ -68,5 +68,30 @@ function fmnh_landings_strongarm() {
   );
   $export['field_bundle_settings_fieldable_panels_pane__hero'] = $strongarm;
 
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'readmorecontrol_behaviour__fieldable_panels_pane__banner_description_and_list';
+  $strongarm->value = 'always';
+  $export['readmorecontrol_behaviour__fieldable_panels_pane__banner_description_and_list'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'readmorecontrol_format__fieldable_panels_pane__banner_description_and_list';
+  $strongarm->value = array(
+    'enabled' => 'custom',
+    'text' => '[fieldable_panels_pane:field-read-more-label:value]',
+    'href' => '',
+    'query' => '',
+    'fragment' => '',
+    'title' => '',
+    'class' => '',
+    'rel' => '',
+    'target' => '',
+    'placement' => 'none',
+  );
+  $export['readmorecontrol_format__fieldable_panels_pane__banner_description_and_list'] = $strongarm;
+
   return $export;
 }
