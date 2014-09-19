@@ -909,12 +909,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/phingofficial/phing.git",
-            "reference": "0c4d897026381bdad21bbb3efaf6926f41cb0ec4"
+            "reference": "a4239641f685c0f06258309620e28ea4c2911fd0"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/phingofficial/phing/zipball/0c4d897026381bdad21bbb3efaf6926f41cb0ec4",
-            "reference": "0c4d897026381bdad21bbb3efaf6926f41cb0ec4",
+            "url": "https://api.github.com/repos/phingofficial/phing/zipball/a4239641f685c0f06258309620e28ea4c2911fd0",
+            "reference": "a4239641f685c0f06258309620e28ea4c2911fd0",
             "shasum": ""
         },
         "require": {
@@ -951,7 +951,7 @@
             "sebastian/phpcpd": "Copy/Paste Detector (CPD) for PHP code",
             "tedivm/jshrink": "Javascript Minifier built in PHP"
         },
-        "time": "2014-09-16 15:02:09",
+        "time": "2014-09-18 12:52:32",
         "bin": [
             "bin/phing"
         ],

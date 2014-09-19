@@ -166,7 +166,9 @@ function fmnh_staff_field_default_field_bases() {
     'indexes' => array(),
     'locked' => 0,
     'module' => 'email',
-    'settings' => array(),
+    'settings' => array(
+      'profile2_private' => 0,
+    ),
     'translatable' => 1,
     'type' => 'email',
   );

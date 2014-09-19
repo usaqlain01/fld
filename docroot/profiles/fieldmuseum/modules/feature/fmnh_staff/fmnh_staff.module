@@ -302,3 +302,24 @@ function fmnh_staff_field_attach_view_alter(&$output, $context) {
     }
   }
 }
+
+function fmnh_staff_preprocess_field(&$variables, $hook) {
+  $entity_type = $variables['element']['#entity_type'];
+  $bundle = $variables['element']['#bundle'];
+  $field_name = $variables['element']['#field_name'];
+
+  $field_names = array(
+    'field_education',
+    'field_interests',
+    'field_grants_awards',
+    'field_publications',
+    'field_work_experience',
+    'field_accomplishments',
+    'field_professional_affiliations',
+  );
+
+  if ($entity_type == 'profile2' && $bundle == 'main' && in_array($field_name, $field_names)) {
+    $variables['theme_hook_suggestions'][] = 'field__profile2__main__wrapped';
+    $variables['classes_array'][] = 'l--module';
+  }
+}
