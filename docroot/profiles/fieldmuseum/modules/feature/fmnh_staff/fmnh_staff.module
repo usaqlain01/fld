@@ -105,6 +105,7 @@ function fmnh_staff_preprocess_entity(&$variables, $hook) {
       foreach (array('field_business_unit', 'field_home_department', 'field_position') as $field_name) {
         $items = field_get_items('user', $account, $field_name);
         if ($items) {
+          $variables['content'][$field_name] = array();
           foreach ($items as $item) {
             $variables['content'][$field_name][] = field_view_value('user', $account, $field_name, $item);
           }

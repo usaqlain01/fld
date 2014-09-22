@@ -184,7 +184,7 @@ projects[menu_position][subdir] = contrib
 projects[menu_position][version] = 1.x-dev
 
 projects[metatag][subdir] = contrib
-projects[metatag][version] = 1.0
+projects[metatag][version] = 1.1
 
 projects[migrate_d2d][subdir] = contrib
 projects[migrate_d2d][version] = 2.x-dev
@@ -208,7 +208,7 @@ projects[oembed][subdir] = contrib
 projects[oembed][version] = 1.x-dev
 
 projects[override_node_options][subdir] = contrib
-projects[override_node_options][version] = 1.x-dev
+projects[override_node_options][version] = 1.13
 
 projects[panels][subdir] = contrib
 projects[panels][version] = 3.4
