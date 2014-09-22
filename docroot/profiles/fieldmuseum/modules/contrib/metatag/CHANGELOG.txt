@@ -1,3 +1,12 @@
+Metatag 7.x-1.1, 2014-09-18
+---------------------------
+#2340639 by agoradesign: Additional check needed in hook_requirements to avoid
+  breaking installation profiles.
+#2340337 by DamienMcKenna: Config system updated for the new language-based
+  data handling.
+#2330823 by DamienMcKenna: REVERT: Remove the deprecated G+ Author meta tag.
+
+
 Metatag 7.x-1.0, 2014-09-17
 ---------------------------
 #2319389 by DamienMcKenna: Additional Open Graph meta tags, for videos.
