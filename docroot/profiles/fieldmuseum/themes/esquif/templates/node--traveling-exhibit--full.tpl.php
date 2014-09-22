@@ -26,11 +26,12 @@
     <mark class="unpublished"><?php print t('Unpublished'); ?></mark>
   <?php endif; ?>
 
-  <?php print render($content['field_specification']); ?>
-
   <section class="article__body"<?php if (isset($node->rdf_mapping['body'])) { print drupal_attributes(rdf_rdfa_attributes($node->rdf_mapping['body'])); } ?>>
     <?php print render($content['body']); ?>
   </section>
+
+  <?php print render($content['field_specification']); ?>
+  
   <?php
   // We hide the comments and links now so that we can render them later.
   hide($content['comments']);
