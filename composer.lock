@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ead767861e405f64b8a7ac8f2b792206",
+    "hash": "ca23dfd01e0d34385c7bf9abc05df210",
     "packages": [
         {
             "name": "bangpound/crop-extension",
@@ -48,12 +48,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bangpound/crop.git",
-                "reference": "36df35504d096085debc8796b350e6c33bad30df"
+                "reference": "58a34ccbb021343dc933a3a6b13b6818a0623338"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bangpound/crop/zipball/36df35504d096085debc8796b350e6c33bad30df",
-                "reference": "36df35504d096085debc8796b350e6c33bad30df",
+                "url": "https://api.github.com/repos/bangpound/crop/zipball/58a34ccbb021343dc933a3a6b13b6818a0623338",
+                "reference": "58a34ccbb021343dc933a3a6b13b6818a0623338",
                 "shasum": ""
             },
             "require": {
@@ -92,21 +92,21 @@
             "support": {
                 "source": "https://github.com/bangpound/crop/tree/develop"
             },
-            "time": "2014-08-06 21:12:37"
+            "time": "2014-09-30 06:37:35"
         },
         {
             "name": "symfony/property-access",
-            "version": "v2.5.4",
+            "version": "v2.5.5",
             "target-dir": "Symfony/Component/PropertyAccess",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/PropertyAccess.git",
-                "reference": "4a4376295635e3b0d5f6bf2025810a6b69791d6e"
+                "reference": "4d055bbc5cd8d19885e68637fbe03b814c208eb4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/PropertyAccess/zipball/4a4376295635e3b0d5f6bf2025810a6b69791d6e",
-                "reference": "4a4376295635e3b0d5f6bf2025810a6b69791d6e",
+                "url": "https://api.github.com/repos/symfony/PropertyAccess/zipball/4d055bbc5cd8d19885e68637fbe03b814c208eb4",
+                "reference": "4d055bbc5cd8d19885e68637fbe03b814c208eb4",
                 "shasum": ""
             },
             "require": {
@@ -150,7 +150,7 @@
                 "property path",
                 "reflection"
             ],
-            "time": "2014-08-06 06:44:37"
+            "time": "2014-09-22 09:14:18"
         },
         {
             "name": "symfony/yaml",
@@ -205,14 +205,15 @@
     "packages-dev": [
         {
             "name": "bangpound/assetic-app",
-            "version": "dev-master",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://caxy.codebasehq.com/field-museum-main-site/assetic-app.git",
-                "reference": "fbf349d5187520295eea529b3d2eccaf2ed2b851"
+                "reference": "7d8b647513bc72e8dfa93bdd9a84c1341ec3593f"
             },
             "require": {
                 "bangpound/assetic-codekit": "1.0.*@dev",
+                "bangpound/assetic-service-provider": "~1.0@dev",
                 "cilex/console-service-provider": "2.*@dev",
                 "kriswallsmith/assetic": "~1.2@dev",
                 "php": ">=5.3.3",
@@ -232,7 +233,7 @@
             "type": "project",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0-dev"
+                    "dev-develop": "1.1.x-dev"
                 }
             },
             "autoload": {
@@ -244,7 +245,7 @@
                 "MIT"
             ],
             "description": "Command line tool for Assetic",
-            "time": "2014-08-26 01:41:36"
+            "time": "2014-10-01 11:43:36"
         },
         {
             "name": "bangpound/assetic-codekit",
@@ -286,6 +287,43 @@
             ],
             "description": "Assetic filters to support proprietary Codekit extensions",
             "time": "2014-08-25 16:48:53"
+        },
+        {
+            "name": "bangpound/assetic-service-provider",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bangpound/assetic-service-provider.git",
+                "reference": "e66147b2dbb19cfcde8f2ea61285dcfa772f4f8a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bangpound/assetic-service-provider/zipball/e66147b2dbb19cfcde8f2ea61285dcfa772f4f8a",
+                "reference": "e66147b2dbb19cfcde8f2ea61285dcfa772f4f8a",
+                "shasum": ""
+            },
+            "require": {
+                "kriswallsmith/assetic": "~1.2@dev",
+                "php": ">=5.3.3",
+                "pimple/pimple": ">=2.1,<4"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Bangpound\\Pimple\\Provider\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Assetic service provider for Pimple",
+            "time": "2014-10-01 11:23:18"
         },
         {
             "name": "cac/autophing",
@@ -462,8 +500,7 @@
                 "classmap": [
                     "DrushTask.php"
                 ]
-            },
-            "time": "2014-02-03 14:51:47"
+            }
         },
         {
             "name": "pear-pear.php.net/VersionControl_Git",
@@ -497,12 +534,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phingofficial/phing.git",
-                "reference": "a4239641f685c0f06258309620e28ea4c2911fd0"
+                "reference": "3227900babf77683d874b33db62f910423e02bfe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phingofficial/phing/zipball/a4239641f685c0f06258309620e28ea4c2911fd0",
-                "reference": "a4239641f685c0f06258309620e28ea4c2911fd0",
+                "url": "https://api.github.com/repos/phingofficial/phing/zipball/3227900babf77683d874b33db62f910423e02bfe",
+                "reference": "3227900babf77683d874b33db62f910423e02bfe",
                 "shasum": ""
             },
             "require": {
@@ -573,7 +610,7 @@
                 "task",
                 "tool"
             ],
-            "time": "2014-09-18 12:52:32"
+            "time": "2014-09-23 11:57:09"
         },
         {
             "name": "pimple/pimple",
@@ -623,17 +660,17 @@
         },
         {
             "name": "symfony/config",
-            "version": "v2.5.4",
+            "version": "v2.5.5",
             "target-dir": "Symfony/Component/Config",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Config.git",
-                "reference": "080eabdc256c1d7a3a7cf6296271edb68eb1ab2b"
+                "reference": "0316364bfebc8b080077c731a99f189341476bd7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Config/zipball/080eabdc256c1d7a3a7cf6296271edb68eb1ab2b",
-                "reference": "080eabdc256c1d7a3a7cf6296271edb68eb1ab2b",
+                "url": "https://api.github.com/repos/symfony/Config/zipball/0316364bfebc8b080077c731a99f189341476bd7",
+                "reference": "0316364bfebc8b080077c731a99f189341476bd7",
                 "shasum": ""
             },
             "require": {
@@ -667,21 +704,21 @@
             ],
             "description": "Symfony Config Component",
             "homepage": "http://symfony.com",
-            "time": "2014-08-31 03:22:04"
+            "time": "2014-09-23 05:25:11"
         },
         {
             "name": "symfony/console",
-            "version": "v2.5.4",
+            "version": "v2.5.5",
             "target-dir": "Symfony/Component/Console",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Console.git",
-                "reference": "748beed2a1e73179c3f5154d33fe6ae100c1aeb1"
+                "reference": "ca053eaa031c93afb68a71e4eb1f4168dfd4a661"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Console/zipball/748beed2a1e73179c3f5154d33fe6ae100c1aeb1",
-                "reference": "748beed2a1e73179c3f5154d33fe6ae100c1aeb1",
+                "url": "https://api.github.com/repos/symfony/Console/zipball/ca053eaa031c93afb68a71e4eb1f4168dfd4a661",
+                "reference": "ca053eaa031c93afb68a71e4eb1f4168dfd4a661",
                 "shasum": ""
             },
             "require": {
@@ -722,21 +759,21 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "http://symfony.com",
-            "time": "2014-08-14 16:10:54"
+            "time": "2014-09-25 09:53:56"
         },
         {
             "name": "symfony/debug",
-            "version": "v2.5.4",
+            "version": "v2.5.5",
             "target-dir": "Symfony/Component/Debug",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Debug.git",
-                "reference": "189da713c1f8bb03f9184eb87b43ecbc732284ac"
+                "reference": "4a3dd4ef3fc0cee2fd9faaae12bd7af43afcf648"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Debug/zipball/189da713c1f8bb03f9184eb87b43ecbc732284ac",
-                "reference": "189da713c1f8bb03f9184eb87b43ecbc732284ac",
+                "url": "https://api.github.com/repos/symfony/Debug/zipball/4a3dd4ef3fc0cee2fd9faaae12bd7af43afcf648",
+                "reference": "4a3dd4ef3fc0cee2fd9faaae12bd7af43afcf648",
                 "shasum": ""
             },
             "require": {
@@ -777,21 +814,21 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "http://symfony.com",
-            "time": "2014-07-09 09:05:48"
+            "time": "2014-09-28 15:22:14"
         },
         {
             "name": "symfony/filesystem",
-            "version": "v2.5.4",
+            "version": "v2.5.5",
             "target-dir": "Symfony/Component/Filesystem",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Filesystem.git",
-                "reference": "a765efd199e02ff4001c115c318e219030be9364"
+                "reference": "4e62fab0060a826561c78b665925b37c870c45f5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Filesystem/zipball/a765efd199e02ff4001c115c318e219030be9364",
-                "reference": "a765efd199e02ff4001c115c318e219030be9364",
+                "url": "https://api.github.com/repos/symfony/Filesystem/zipball/4e62fab0060a826561c78b665925b37c870c45f5",
+                "reference": "4e62fab0060a826561c78b665925b37c870c45f5",
                 "shasum": ""
             },
             "require": {
@@ -824,21 +861,21 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "http://symfony.com",
-            "time": "2014-09-03 09:00:14"
+            "time": "2014-09-22 09:14:18"
         },
         {
             "name": "symfony/finder",
-            "version": "v2.5.4",
+            "version": "v2.5.5",
             "target-dir": "Symfony/Component/Finder",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Finder.git",
-                "reference": "f40854d1a19c339c7f969f8f6d6d6e9153311c4c"
+                "reference": "d5033742b9a6206ef6d06e813870bca18e9205df"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Finder/zipball/f40854d1a19c339c7f969f8f6d6d6e9153311c4c",
-                "reference": "f40854d1a19c339c7f969f8f6d6d6e9153311c4c",
+                "url": "https://api.github.com/repos/symfony/Finder/zipball/d5033742b9a6206ef6d06e813870bca18e9205df",
+                "reference": "d5033742b9a6206ef6d06e813870bca18e9205df",
                 "shasum": ""
             },
             "require": {
@@ -871,21 +908,21 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "http://symfony.com",
-            "time": "2014-09-03 09:00:14"
+            "time": "2014-09-27 08:35:39"
         },
         {
             "name": "symfony/process",
-            "version": "v2.5.4",
+            "version": "v2.5.5",
             "target-dir": "Symfony/Component/Process",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Process.git",
-                "reference": "136cf0bdaacea81f779583376d47dd8aef4fc6ba"
+                "reference": "8a1ec96c4e519cee0fb971ea48a1eb7369dda54b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Process/zipball/136cf0bdaacea81f779583376d47dd8aef4fc6ba",
-                "reference": "136cf0bdaacea81f779583376d47dd8aef4fc6ba",
+                "url": "https://api.github.com/repos/symfony/Process/zipball/8a1ec96c4e519cee0fb971ea48a1eb7369dda54b",
+                "reference": "8a1ec96c4e519cee0fb971ea48a1eb7369dda54b",
                 "shasum": ""
             },
             "require": {
@@ -918,7 +955,7 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "http://symfony.com",
-            "time": "2014-08-31 03:22:04"
+            "time": "2014-09-23 05:25:11"
         },
         {
             "name": "zacoza/assetic-filters",

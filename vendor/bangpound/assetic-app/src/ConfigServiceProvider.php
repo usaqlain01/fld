@@ -1,41 +1,42 @@
 <?php
 
+use Pimple\Container;
+use Pimple\ServiceProviderInterface;
 use Symfony\Component\Yaml;
 
-class ConfigServiceProvider implements \Pimple\ServiceProviderInterface
+class ConfigServiceProvider implements ServiceProviderInterface
 {
-    public function register(\Pimple\Container $app)
+    public function register(Container $pimple)
     {
-        $app['config'] = function () use ($app) {
-            if (!file_exists($app['config.path'])) {
+        $pimple['config'] = function () use ($pimple) {
+            if (!file_exists($pimple['config.path'])) {
                 throw new \InvalidArgumentException(
-                  $app['config.path'] . ' is not a valid path to the '
+                  $pimple['config.path'].' is not a valid path to the '
                   .'configuration'
                 );
             }
 
-            $fullpath = explode('.', $app['config.path']);
+            $fullpath = explode('.', $pimple['config.path']);
 
             switch (strtolower(end($fullpath))) {
                 case 'php':
-                    $result = include($app['config.path']);
+                    $result = include $pimple['config.path'];
                     break;
                 case 'yml':
                     $parser = new Yaml\Parser();
                     $result = new \ArrayObject(
-                      $parser->parse(file_get_contents($app['config.path']))
+                      $parser->parse(file_get_contents($pimple['config.path']))
                     );
                     break;
                 case 'xml':
-                    $result = simplexml_load_file($app['config.path']);
+                    $result = simplexml_load_file($pimple['config.path']);
                     break;
                 case 'json':
-                    $result = json_decode(file_get_contents($app['config.path']));
+                    $result = json_decode(file_get_contents($pimple['config.path']));
 
                     if (null == $result) {
-
                         throw new \InvalidArgumentException(
-                          'Unable to decode the configuration file: ' . $app['config.path']
+                          'Unable to decode the configuration file: '.$pimple['config.path']
                         );
                     }
                     break;

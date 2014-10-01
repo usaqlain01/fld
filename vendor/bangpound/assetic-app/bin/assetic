@@ -24,8 +24,10 @@ if (!defined('ASSETIC_APP_COMPOSER_INSTALL')) {
 
 require ASSETIC_APP_COMPOSER_INSTALL;
 
-use Symfony\Component\Console\Input\ArgvInput;
+use Bangpound\Pimple\Provider\AsseticServiceProvider;
+use Bangpound\Pimple\Provider\Filter\CompassFilterServiceProvider;
 use Cilex\Provider\Console\ConsoleServiceProvider;
+use Symfony\Component\Console\Input\ArgvInput;
 use Symfony\Component\Debug\Debug;
 
 $input = new ArgvInput();
@@ -35,14 +37,17 @@ if ($debug) {
     Debug::enable();
 }
 
-$app = new Pimple\Container;
-$app['console.name'] = 'Assetic';
-$app['console.version'] = '1.0-dev';
-$app['console.class'] = 'Application';
-$app['config.path'] = __DIR__ .'/../assetic.yml';
-
-(new ConsoleServiceProvider)->register($app);
-(new ConfigServiceProvider)->register($app);
-(new AsseticServiceProvider)->register($app);
-
+$app = new Pimple\Container();
+$app->register(new ConsoleServiceProvider(), array(
+    'console.name' => 'Assetic',
+    'console.version' => '1.0-dev',
+));
+$app->register(new ConfigServiceProvider(), array(
+    'config.path' => __DIR__ .'/../assetic.yml',
+));
+$app->register(new AsseticServiceProvider());
+$app->register(new CompassFilterServiceProvider());
+$app->register(new FieldAsseticServiceProvider(), (array) $app['config']);
+$app['console']->add($app['assetic.command.dump']);
+//$app['console']->add($app['assetic.command.watch']);
 $app['console']->run($input);

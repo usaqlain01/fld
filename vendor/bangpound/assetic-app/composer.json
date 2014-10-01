@@ -13,6 +13,7 @@
         "symfony/console": "~2.3",
         "symfony/finder": "~2.3",
         "symfony/yaml": "~2.3",
+        "bangpound/assetic-service-provider": "~1.0@dev",
         "cilex/console-service-provider": "2.*@dev",
         "kriswallsmith/assetic": "~1.2@dev",
         "zacoza/assetic-filters": "dev-master",
@@ -27,7 +28,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "1.0-dev"
+            "dev-develop": "1.1.x-dev"
         }
     }
 }
