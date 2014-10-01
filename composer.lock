@@ -209,7 +209,7 @@
             "source": {
                 "type": "git",
                 "url": "https://caxy.codebasehq.com/field-museum-main-site/assetic-app.git",
-                "reference": "7d8b647513bc72e8dfa93bdd9a84c1341ec3593f"
+                "reference": "249c29814a22e7b95bc366c313358dc81c61a383"
             },
             "require": {
                 "bangpound/assetic-codekit": "1.0.*@dev",
@@ -245,7 +245,7 @@
                 "MIT"
             ],
             "description": "Command line tool for Assetic",
-            "time": "2014-10-01 11:43:36"
+            "time": "2014-10-01 17:22:32"
         },
         {
             "name": "bangpound/assetic-codekit",

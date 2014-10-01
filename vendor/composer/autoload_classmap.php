@@ -234,7 +234,7 @@ return array(
     'ExtendedFileStream' => $vendorDir . '/phing/phing/classes/phing/util/ExtendedFileStream.php',
     'ExtractBaseTask' => $vendorDir . '/phing/phing/classes/phing/tasks/ext/ExtractBaseTask.php',
     'FailTask' => $vendorDir . '/phing/phing/classes/phing/tasks/system/FailTask.php',
-    'FieldAsseticServiceProvider' => $vendorDir . '/bangpound/assetic-app/src/FieldAsseticServiceProvider.php',
+    'FieldAsseticServiceProvider' => $baseDir . '/docroot/profiles/fieldmuseum/lib/FieldAsseticServiceProvider.php',
     'FileHashTask' => $vendorDir . '/phing/phing/classes/phing/tasks/ext/FileHashTask.php',
     'FileInputStream' => $vendorDir . '/phing/phing/classes/phing/system/io/FileInputStream.php',
     'FileList' => $vendorDir . '/phing/phing/classes/phing/types/FileList.php',
