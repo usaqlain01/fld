@@ -1,0 +1,33 @@
+parameters:
+    read_from: /Users/bjd/workspace/caxy/fldmuse/build/fieldmuseum-website/patternlab/source
+    write_to: /Users/bjd/workspace/caxy/fldmuse/docroot/profiles/fieldmuseum/themes/esquif
+    node_bin: /usr/local/bin/node
+    java_bin: /usr/bin/java
+    ruby_bin: /usr/bin/ruby
+    sass_bin: /usr/bin/sass
+    compass_bin: /usr/local/bin/compass
+
+providers:
+    Bangpound\Pimple\Provider\AsseticServiceProvider:
+        assetic.read_from: %read_from%
+        assetic.write_to: %write_to%
+        assetic.ruby_bin: %ruby_bin%
+        assetic.sass_bin: %sass_bin%
+        assetic.filter.autoprefixer.bin: /usr/local/bin/autoprefixer
+        assetic.filter.autoprefixer.browsers:
+            - > 1%
+            - last 3 versions
+            - ff >= 17
+            - opera >= 12.1
+            - ie >= 8
+            - Android >= 3
+
+        assetic.filter.coffeescript.bin: /usr/local/bin/coffee
+
+    Bangpound\Pimple\Provider\Filter\CompassFilterServiceProvider:
+        assetic.filter.compass.bin: /Users/bjd/.rvm/gems/ruby-1.9.3-p545@fmnh/bin/compass
+        assetic.filter.compass.no_line_comments: true
+        assetic.filter.compass.style: nested
+
+    FieldAsseticServiceProvider:
+        nothing: nobody

@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ca23dfd01e0d34385c7bf9abc05df210",
+    "hash": "b788e8153861d34fc7337b0fe2fa849d",
     "packages": [
         {
             "name": "bangpound/crop-extension",
@@ -204,25 +204,30 @@
     ],
     "packages-dev": [
         {
-            "name": "bangpound/assetic-app",
-            "version": "dev-develop",
+            "name": "bangpound/assetic-cli",
+            "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://caxy.codebasehq.com/field-museum-main-site/assetic-app.git",
-                "reference": "249c29814a22e7b95bc366c313358dc81c61a383"
+                "url": "https://github.com/bangpound/Assetic-CLI.git",
+                "reference": "2e4d99bf5d4055b1850b66e3c9973465171afb38"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bangpound/Assetic-CLI/zipball/2e4d99bf5d4055b1850b66e3c9973465171afb38",
+                "reference": "2e4d99bf5d4055b1850b66e3c9973465171afb38",
+                "shasum": ""
             },
             "require": {
-                "bangpound/assetic-codekit": "1.0.*@dev",
                 "bangpound/assetic-service-provider": "~1.0@dev",
-                "cilex/console-service-provider": "2.*@dev",
-                "kriswallsmith/assetic": "~1.2@dev",
+                "cilex/console-service-provider": "2.0.*@dev",
+                "flint/tacker": "~1.1.0",
+                "incenteev/composer-parameter-handler": "~2.0",
+                "kriswallsmith/spork": "dev-master",
                 "php": ">=5.3.3",
-                "pimple/pimple": "~3.0",
-                "symfony/config": "~2.3",
                 "symfony/console": "~2.3",
-                "symfony/finder": "~2.3",
-                "symfony/yaml": "~2.3",
-                "zacoza/assetic-filters": "dev-master"
+                "symfony/event-dispatcher": "~2.3",
+                "symfony/property-access": "~2.3",
+                "symfony/yaml": "~2.3"
             },
             "require-dev": {
                 "symfony/debug": "~2.3"
@@ -232,20 +237,29 @@
             ],
             "type": "project",
             "extra": {
+                "incenteev-parameters": [
+                    {
+                        "file": "conf/parameters.yml"
+                    },
+                    {
+                        "file": "conf/assetic.yml"
+                    }
+                ],
                 "branch-alias": {
-                    "dev-develop": "1.1.x-dev"
+                    "dev-master": "1.0.x-dev"
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "": "src/"
+                "psr-4": {
+                    "Bangpound\\Assetic\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
-            "description": "Command line tool for Assetic",
-            "time": "2014-10-01 17:22:32"
+            "description": "Assetic as a command line tool",
+            "time": "2014-10-02 12:10:58"
         },
         {
             "name": "bangpound/assetic-codekit",
@@ -294,23 +308,23 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bangpound/assetic-service-provider.git",
-                "reference": "e66147b2dbb19cfcde8f2ea61285dcfa772f4f8a"
+                "reference": "0053759f19a1b572543ef012ed00358414ce20a1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bangpound/assetic-service-provider/zipball/e66147b2dbb19cfcde8f2ea61285dcfa772f4f8a",
-                "reference": "e66147b2dbb19cfcde8f2ea61285dcfa772f4f8a",
+                "url": "https://api.github.com/repos/bangpound/assetic-service-provider/zipball/0053759f19a1b572543ef012ed00358414ce20a1",
+                "reference": "0053759f19a1b572543ef012ed00358414ce20a1",
                 "shasum": ""
             },
             "require": {
-                "kriswallsmith/assetic": "~1.2@dev",
+                "kriswallsmith/assetic": "~1.1",
                 "php": ">=5.3.3",
                 "pimple/pimple": ">=2.1,<4"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0-dev"
+                    "dev-master": "1.0.x-dev"
                 }
             },
             "autoload": {
@@ -323,7 +337,7 @@
                 "MIT"
             ],
             "description": "Assetic service provider for Pimple",
-            "time": "2014-10-01 11:23:18"
+            "time": "2014-10-02 12:00:25"
         },
         {
             "name": "cac/autophing",
@@ -414,6 +428,98 @@
             "time": "2014-07-28 20:37:06"
         },
         {
+            "name": "flint/tacker",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/flint/tacker.git",
+                "reference": "45f6b541c93ee46cb3189405ba49fb09d4f504cf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/flint/tacker/zipball/45f6b541c93ee46cb3189405ba49fb09d4f504cf",
+                "reference": "45f6b541c93ee46cb3189405ba49fb09d4f504cf",
+                "shasum": ""
+            },
+            "require": {
+                "php": "~5.4",
+                "symfony/config": "~2.3"
+            },
+            "require-dev": {
+                "pimple/pimple": "~3.0",
+                "symfony/yaml": "~2.4"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Tacker\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Easy configuration based on Symfony Config",
+            "time": "2014-07-28 12:58:59"
+        },
+        {
+            "name": "incenteev/composer-parameter-handler",
+            "version": "v2.1.0",
+            "target-dir": "Incenteev/ParameterHandler",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Incenteev/ParameterHandler.git",
+                "reference": "143272a0a09c62616a3c8011fc165a10c6b35241"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Incenteev/ParameterHandler/zipball/143272a0a09c62616a3c8011fc165a10c6b35241",
+                "reference": "143272a0a09c62616a3c8011fc165a10c6b35241",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "symfony/yaml": "~2.0"
+            },
+            "require-dev": {
+                "composer/composer": "1.0.*@dev",
+                "phpspec/prophecy-phpunit": "~1.0",
+                "symfony/filesystem": "~2.2"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Incenteev\\ParameterHandler": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christophe Coevoet",
+                    "email": "stof@notk.org"
+                }
+            ],
+            "description": "Composer script handling your ignored parameter file",
+            "homepage": "https://github.com/Incenteev/ParameterHandler",
+            "keywords": [
+                "parameters management"
+            ],
+            "time": "2013-12-07 10:10:39"
+        },
+        {
             "name": "kriswallsmith/assetic",
             "version": "v1.2.0-alpha1",
             "source": {
@@ -486,6 +592,47 @@
                 "minification"
             ],
             "time": "2014-07-08 11:30:40"
+        },
+        {
+            "name": "kriswallsmith/spork",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kriswallsmith/spork.git",
+                "reference": "70a466937572d59b20b8356d75f19e7abbeb5b0a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kriswallsmith/spork/zipball/70a466937572d59b20b8356d75f19e7abbeb5b0a",
+                "reference": "70a466937572d59b20b8356d75f19e7abbeb5b0a",
+                "shasum": ""
+            },
+            "require": {
+                "ext-pcntl": "*",
+                "ext-posix": "*",
+                "php": ">=5.3.0",
+                "symfony/event-dispatcher": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Spork": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kris Wallsmith",
+                    "email": "kris.wallsmith@gmail.com",
+                    "homepage": "http://kriswallsmith.net/"
+                }
+            ],
+            "description": "Asynchronous PHP",
+            "homepage": "https://github.com/kriswallsmith/spork",
+            "time": "2013-07-14 20:18:13"
         },
         {
             "name": "mongolito404/phingdrushtask",
@@ -817,6 +964,63 @@
             "time": "2014-09-28 15:22:14"
         },
         {
+            "name": "symfony/event-dispatcher",
+            "version": "v2.5.5",
+            "target-dir": "Symfony/Component/EventDispatcher",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/EventDispatcher.git",
+                "reference": "f6281337bf5f985f585d1db6a83adb05ce531f46"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/EventDispatcher/zipball/f6281337bf5f985f585d1db6a83adb05ce531f46",
+                "reference": "f6281337bf5f985f585d1db6a83adb05ce531f46",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "psr/log": "~1.0",
+                "symfony/config": "~2.0",
+                "symfony/dependency-injection": "~2.0,<2.6.0",
+                "symfony/stopwatch": "~2.2"
+            },
+            "suggest": {
+                "symfony/dependency-injection": "",
+                "symfony/http-kernel": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.5-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Symfony\\Component\\EventDispatcher\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                },
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                }
+            ],
+            "description": "Symfony EventDispatcher Component",
+            "homepage": "http://symfony.com",
+            "time": "2014-09-28 15:56:11"
+        },
+        {
             "name": "symfony/filesystem",
             "version": "v2.5.5",
             "target-dir": "Symfony/Component/Filesystem",
@@ -1003,7 +1207,10 @@
         "bangpound/crop-extension": 20,
         "phing/phing": 20,
         "mongolito404/phingdrushtask": 20,
-        "bangpound/assetic-app": 20
+        "bangpound/assetic-cli": 20,
+        "bangpound/assetic-service-provider": 20,
+        "zacoza/assetic-filters": 20,
+        "bangpound/assetic-codekit": 20
     },
     "prefer-stable": true,
     "platform": {

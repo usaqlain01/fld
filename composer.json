@@ -10,37 +10,22 @@
         "autoloader-suffix": "ComposerManager",
         "vendor-dir": "docroot/../vendor"
     },
-    "autoload": {
-        "psr-0": {
-            "Drupal\\bangpoundmedia\\": [
-                "docroot/profiles/fieldmuseum/modules/bangpound/bangpoundmedia/lib/"
-            ]
-        },
-        "psr-4": {
-            "": [
-                "docroot/profiles/fieldmuseum/lib/"
-            ],
-            "Drupal\\inline\\": [
-                "docroot/profiles/fieldmuseum/modules/contrib/inline/lib/Drupal/inline/"
-            ]
-        }
-    },
     "require-dev": {
         "symfony/debug": "~2.4",
+        "symfony/finder": "~2.4",
         "phing/phing": "dev-master",
         "cac/autophing": "~1.3.3",
         "mongolito404/phingdrushtask": "7.1.*@dev",
         "pear-pear.php.net/VersionControl_Git": "*",
-        "bangpound/assetic-app": "~1.1@dev"
+        "bangpound/assetic-cli": "~1.0@dev",
+        "bangpound/assetic-service-provider": "~1.0@dev",
+        "zacoza/assetic-filters": "dev-master",
+        "bangpound/assetic-codekit": "1.0.*@dev"
     },
     "repositories": [
         {
             "type": "vcs",
             "url": "https://github.com/bangpound/crop.git"
-        },
-        {
-            "type": "vcs",
-            "url": "https://caxy.codebasehq.com/field-museum-main-site/assetic-app.git"
         },
         {
             "type": "pear",
@@ -64,6 +49,16 @@
             }
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "": [
+                "docroot/profiles/fieldmuseum/lib/"
+            ],
+            "Drupal\\inline\\": [
+                "docroot/profiles/fieldmuseum/modules/contrib/inline/lib/Drupal/inline/"
+            ]
+        }
+    },
     "minimum-stability": "dev",
     "prefer-stable": true
 }

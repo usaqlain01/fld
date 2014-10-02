@@ -1,0 +1,4 @@
+vendor
+composer.lock
+assetic.yml
+parameters.yml

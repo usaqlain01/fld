@@ -9,11 +9,11 @@
     "require": {
         "php": ">=5.3.3",
         "pimple/pimple": ">=2.1,<4",
-        "kriswallsmith/assetic": "~1.2@dev"
+        "kriswallsmith/assetic": "~1.1"
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "1.0-dev"
+            "dev-master": "1.0.x-dev"
         }
     }
 }

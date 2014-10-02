@@ -91,165 +91,6 @@
         }
     },
     {
-        "name": "kriswallsmith/assetic",
-        "version": "v1.2.0-alpha1",
-        "version_normalized": "1.2.0.0-alpha1",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/kriswallsmith/assetic.git",
-            "reference": "5bea57990f7ddbeb3d57e7ef96eae9ddd56c4297"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/kriswallsmith/assetic/zipball/5bea57990f7ddbeb3d57e7ef96eae9ddd56c4297",
-            "reference": "5bea57990f7ddbeb3d57e7ef96eae9ddd56c4297",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.1",
-            "symfony/process": "~2.1"
-        },
-        "require-dev": {
-            "cssmin/cssmin": "*",
-            "joliclic/javascript-packer": "*",
-            "kamicane/packager": "*",
-            "leafo/lessphp": "*",
-            "leafo/scssphp": "*",
-            "leafo/scssphp-compass": "*",
-            "mrclay/minify": "*",
-            "patchwork/jsqueeze": "*",
-            "phpunit/phpunit": "~3.7",
-            "psr/log": "~1.0",
-            "ptachoire/cssembed": "*",
-            "twig/twig": "~1.6"
-        },
-        "suggest": {
-            "leafo/lessphp": "Assetic provides the integration with the lessphp LESS compiler",
-            "leafo/scssphp": "Assetic provides the integration with the scssphp SCSS compiler",
-            "leafo/scssphp-compass": "Assetic provides the integration with the SCSS compass plugin",
-            "patchwork/jsqueeze": "Assetic provides the integration with the JSqueeze JavaScript compressor",
-            "ptachoire/cssembed": "Assetic provides the integration with phpcssembed to embed data uris",
-            "twig/twig": "Assetic provides the integration with the Twig templating engine"
-        },
-        "time": "2014-07-08 11:30:40",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.2-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "Assetic": "src/"
-            },
-            "files": [
-                "src/functions.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Kris Wallsmith",
-                "email": "kris.wallsmith@gmail.com",
-                "homepage": "http://kriswallsmith.net/"
-            }
-        ],
-        "description": "Asset Management for PHP",
-        "homepage": "https://github.com/kriswallsmith/assetic",
-        "keywords": [
-            "assets",
-            "compression",
-            "minification"
-        ]
-    },
-    {
-        "name": "bangpound/assetic-codekit",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/bangpound/assetic-codekit.git",
-            "reference": "57066355a9ab664a677f6bfbe70e9fe3673c3d13"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/bangpound/assetic-codekit/zipball/57066355a9ab664a677f6bfbe70e9fe3673c3d13",
-            "reference": "57066355a9ab664a677f6bfbe70e9fe3673c3d13",
-            "shasum": ""
-        },
-        "require": {
-            "kriswallsmith/assetic": "~1.1"
-        },
-        "time": "2014-08-25 16:48:53",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.0.x-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Bangpound\\Assetic\\Filter\\": ""
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Benjamin Doherty",
-                "email": "bjd@bangpound.org"
-            }
-        ],
-        "description": "Assetic filters to support proprietary Codekit extensions"
-    },
-    {
-        "name": "zacoza/assetic-filters",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/SimonDegraeve/assetic-filters.git",
-            "reference": "c1a16eb93faa8eb0d325e525dfd0bf77720fa400"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/SimonDegraeve/assetic-filters/zipball/c1a16eb93faa8eb0d325e525dfd0bf77720fa400",
-            "reference": "c1a16eb93faa8eb0d325e525dfd0bf77720fa400",
-            "shasum": ""
-        },
-        "require": {
-            "kriswallsmith/assetic": "1.2.*@dev",
-            "php": ">=5.3.0"
-        },
-        "time": "2014-02-05 02:01:30",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "ZaCoZa\\Assetic": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Simon Degraeve",
-                "email": "simon.degraeve@gmail.com",
-                "homepage": "http://about.me/SimonDegraeve",
-                "role": "Developer"
-            }
-        ]
-    },
-    {
         "name": "pimple/pimple",
         "version": "v3.0.0",
         "version_normalized": "3.0.0.0",
@@ -295,62 +136,6 @@
         "keywords": [
             "container",
             "dependency injection"
-        ]
-    },
-    {
-        "name": "cilex/console-service-provider",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/Cilex/console-service-provider.git",
-            "reference": "3abf600fd9f6ac54f56cf1ce7fb3a7c0c533cd03"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/Cilex/console-service-provider/zipball/3abf600fd9f6ac54f56cf1ce7fb3a7c0c533cd03",
-            "reference": "3abf600fd9f6ac54f56cf1ce7fb3a7c0c533cd03",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.3",
-            "pimple/pimple": ">=2.1,<4",
-            "symfony/console": "~2.4"
-        },
-        "time": "2014-07-28 20:37:06",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.0-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "Cilex\\Provider\\Console": "src"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Mike van Riel",
-                "email": "me@mikevanriel.com"
-            },
-            {
-                "name": "Beau Simensen",
-                "email": "beau@dflydev.com"
-            }
-        ],
-        "description": "Console Service Provider",
-        "keywords": [
-            "cilex",
-            "console",
-            "pimple",
-            "service-provider",
-            "silex"
         ]
     },
     {
@@ -536,94 +321,6 @@
             }
         ],
         "description": "Symfony Console Component",
-        "homepage": "http://symfony.com"
-    },
-    {
-        "name": "bangpound/assetic-service-provider",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/bangpound/assetic-service-provider.git",
-            "reference": "e66147b2dbb19cfcde8f2ea61285dcfa772f4f8a"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/bangpound/assetic-service-provider/zipball/e66147b2dbb19cfcde8f2ea61285dcfa772f4f8a",
-            "reference": "e66147b2dbb19cfcde8f2ea61285dcfa772f4f8a",
-            "shasum": ""
-        },
-        "require": {
-            "kriswallsmith/assetic": "~1.2@dev",
-            "php": ">=5.3.3",
-            "pimple/pimple": ">=2.1,<4"
-        },
-        "time": "2014-10-01 11:23:18",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.0-dev"
-            }
-        },
-        "installation-source": "source",
-        "autoload": {
-            "psr-4": {
-                "Bangpound\\Pimple\\Provider\\": ""
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "description": "Assetic service provider for Pimple"
-    },
-    {
-        "name": "symfony/finder",
-        "version": "v2.5.5",
-        "version_normalized": "2.5.5.0",
-        "target-dir": "Symfony/Component/Finder",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/symfony/Finder.git",
-            "reference": "d5033742b9a6206ef6d06e813870bca18e9205df"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/symfony/Finder/zipball/d5033742b9a6206ef6d06e813870bca18e9205df",
-            "reference": "d5033742b9a6206ef6d06e813870bca18e9205df",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.3"
-        },
-        "time": "2014-09-27 08:35:39",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.5-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "Symfony\\Component\\Finder\\": ""
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Symfony Community",
-                "homepage": "http://symfony.com/contributors"
-            },
-            {
-                "name": "Fabien Potencier",
-                "email": "fabien@symfony.com"
-            }
-        ],
-        "description": "Symfony Finder Component",
         "homepage": "http://symfony.com"
     },
     {
@@ -843,52 +540,6 @@
         "homepage": "http://symfony.com"
     },
     {
-        "name": "bangpound/assetic-app",
-        "version": "dev-develop",
-        "version_normalized": "dev-develop",
-        "source": {
-            "type": "git",
-            "url": "https://caxy.codebasehq.com/field-museum-main-site/assetic-app.git",
-            "reference": "249c29814a22e7b95bc366c313358dc81c61a383"
-        },
-        "require": {
-            "bangpound/assetic-codekit": "1.0.*@dev",
-            "bangpound/assetic-service-provider": "~1.0@dev",
-            "cilex/console-service-provider": "2.*@dev",
-            "kriswallsmith/assetic": "~1.2@dev",
-            "php": ">=5.3.3",
-            "pimple/pimple": "~3.0",
-            "symfony/config": "~2.3",
-            "symfony/console": "~2.3",
-            "symfony/finder": "~2.3",
-            "symfony/yaml": "~2.3",
-            "zacoza/assetic-filters": "dev-master"
-        },
-        "require-dev": {
-            "symfony/debug": "~2.3"
-        },
-        "time": "2014-10-01 17:22:32",
-        "bin": [
-            "bin/assetic"
-        ],
-        "type": "project",
-        "extra": {
-            "branch-alias": {
-                "dev-develop": "1.1.x-dev"
-            }
-        },
-        "installation-source": "source",
-        "autoload": {
-            "psr-0": {
-                "": "src/"
-            }
-        },
-        "license": [
-            "MIT"
-        ],
-        "description": "Command line tool for Assetic"
-    },
-    {
         "name": "stojg/crop",
         "version": "dev-develop",
         "version_normalized": "dev-develop",
@@ -1027,5 +678,566 @@
             "task",
             "tool"
         ]
+    },
+    {
+        "name": "flint/tacker",
+        "version": "1.1.0",
+        "version_normalized": "1.1.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/flint/tacker.git",
+            "reference": "45f6b541c93ee46cb3189405ba49fb09d4f504cf"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/flint/tacker/zipball/45f6b541c93ee46cb3189405ba49fb09d4f504cf",
+            "reference": "45f6b541c93ee46cb3189405ba49fb09d4f504cf",
+            "shasum": ""
+        },
+        "require": {
+            "php": "~5.4",
+            "symfony/config": "~2.3"
+        },
+        "require-dev": {
+            "pimple/pimple": "~3.0",
+            "symfony/yaml": "~2.4"
+        },
+        "time": "2014-07-28 12:58:59",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0.x-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Tacker\\": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "description": "Easy configuration based on Symfony Config"
+    },
+    {
+        "name": "incenteev/composer-parameter-handler",
+        "version": "v2.1.0",
+        "version_normalized": "2.1.0.0",
+        "target-dir": "Incenteev/ParameterHandler",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Incenteev/ParameterHandler.git",
+            "reference": "143272a0a09c62616a3c8011fc165a10c6b35241"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Incenteev/ParameterHandler/zipball/143272a0a09c62616a3c8011fc165a10c6b35241",
+            "reference": "143272a0a09c62616a3c8011fc165a10c6b35241",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.3",
+            "symfony/yaml": "~2.0"
+        },
+        "require-dev": {
+            "composer/composer": "1.0.*@dev",
+            "phpspec/prophecy-phpunit": "~1.0",
+            "symfony/filesystem": "~2.2"
+        },
+        "time": "2013-12-07 10:10:39",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.1.x-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Incenteev\\ParameterHandler": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Christophe Coevoet",
+                "email": "stof@notk.org"
+            }
+        ],
+        "description": "Composer script handling your ignored parameter file",
+        "homepage": "https://github.com/Incenteev/ParameterHandler",
+        "keywords": [
+            "parameters management"
+        ]
+    },
+    {
+        "name": "bangpound/assetic-cli",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/bangpound/Assetic-CLI.git",
+            "reference": "2e4d99bf5d4055b1850b66e3c9973465171afb38"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/bangpound/Assetic-CLI/zipball/2e4d99bf5d4055b1850b66e3c9973465171afb38",
+            "reference": "2e4d99bf5d4055b1850b66e3c9973465171afb38",
+            "shasum": ""
+        },
+        "require": {
+            "bangpound/assetic-service-provider": "~1.0@dev",
+            "cilex/console-service-provider": "2.0.*@dev",
+            "flint/tacker": "~1.1.0",
+            "incenteev/composer-parameter-handler": "~2.0",
+            "kriswallsmith/spork": "dev-master",
+            "php": ">=5.3.3",
+            "symfony/console": "~2.3",
+            "symfony/event-dispatcher": "~2.3",
+            "symfony/property-access": "~2.3",
+            "symfony/yaml": "~2.3"
+        },
+        "require-dev": {
+            "symfony/debug": "~2.3"
+        },
+        "time": "2014-10-02 12:10:58",
+        "bin": [
+            "bin/assetic"
+        ],
+        "type": "project",
+        "extra": {
+            "incenteev-parameters": [
+                {
+                    "file": "conf/parameters.yml"
+                },
+                {
+                    "file": "conf/assetic.yml"
+                }
+            ],
+            "branch-alias": {
+                "dev-master": "1.0.x-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Bangpound\\Assetic\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "description": "Assetic as a command line tool"
+    },
+    {
+        "name": "kriswallsmith/assetic",
+        "version": "v1.2.0-alpha1",
+        "version_normalized": "1.2.0.0-alpha1",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/kriswallsmith/assetic.git",
+            "reference": "5bea57990f7ddbeb3d57e7ef96eae9ddd56c4297"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/kriswallsmith/assetic/zipball/5bea57990f7ddbeb3d57e7ef96eae9ddd56c4297",
+            "reference": "5bea57990f7ddbeb3d57e7ef96eae9ddd56c4297",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.1",
+            "symfony/process": "~2.1"
+        },
+        "require-dev": {
+            "cssmin/cssmin": "*",
+            "joliclic/javascript-packer": "*",
+            "kamicane/packager": "*",
+            "leafo/lessphp": "*",
+            "leafo/scssphp": "*",
+            "leafo/scssphp-compass": "*",
+            "mrclay/minify": "*",
+            "patchwork/jsqueeze": "*",
+            "phpunit/phpunit": "~3.7",
+            "psr/log": "~1.0",
+            "ptachoire/cssembed": "*",
+            "twig/twig": "~1.6"
+        },
+        "suggest": {
+            "leafo/lessphp": "Assetic provides the integration with the lessphp LESS compiler",
+            "leafo/scssphp": "Assetic provides the integration with the scssphp SCSS compiler",
+            "leafo/scssphp-compass": "Assetic provides the integration with the SCSS compass plugin",
+            "patchwork/jsqueeze": "Assetic provides the integration with the JSqueeze JavaScript compressor",
+            "ptachoire/cssembed": "Assetic provides the integration with phpcssembed to embed data uris",
+            "twig/twig": "Assetic provides the integration with the Twig templating engine"
+        },
+        "time": "2014-07-08 11:30:40",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.2-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Assetic": "src/"
+            },
+            "files": [
+                "src/functions.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Kris Wallsmith",
+                "email": "kris.wallsmith@gmail.com",
+                "homepage": "http://kriswallsmith.net/"
+            }
+        ],
+        "description": "Asset Management for PHP",
+        "homepage": "https://github.com/kriswallsmith/assetic",
+        "keywords": [
+            "assets",
+            "compression",
+            "minification"
+        ]
+    },
+    {
+        "name": "bangpound/assetic-service-provider",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/bangpound/assetic-service-provider.git",
+            "reference": "0053759f19a1b572543ef012ed00358414ce20a1"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/bangpound/assetic-service-provider/zipball/0053759f19a1b572543ef012ed00358414ce20a1",
+            "reference": "0053759f19a1b572543ef012ed00358414ce20a1",
+            "shasum": ""
+        },
+        "require": {
+            "kriswallsmith/assetic": "~1.1",
+            "php": ">=5.3.3",
+            "pimple/pimple": ">=2.1,<4"
+        },
+        "time": "2014-10-02 12:00:25",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0.x-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Bangpound\\Pimple\\Provider\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "description": "Assetic service provider for Pimple"
+    },
+    {
+        "name": "zacoza/assetic-filters",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/SimonDegraeve/assetic-filters.git",
+            "reference": "c1a16eb93faa8eb0d325e525dfd0bf77720fa400"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/SimonDegraeve/assetic-filters/zipball/c1a16eb93faa8eb0d325e525dfd0bf77720fa400",
+            "reference": "c1a16eb93faa8eb0d325e525dfd0bf77720fa400",
+            "shasum": ""
+        },
+        "require": {
+            "kriswallsmith/assetic": "1.2.*@dev",
+            "php": ">=5.3.0"
+        },
+        "time": "2014-02-05 02:01:30",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "ZaCoZa\\Assetic": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Simon Degraeve",
+                "email": "simon.degraeve@gmail.com",
+                "homepage": "http://about.me/SimonDegraeve",
+                "role": "Developer"
+            }
+        ]
+    },
+    {
+        "name": "bangpound/assetic-codekit",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/bangpound/assetic-codekit.git",
+            "reference": "57066355a9ab664a677f6bfbe70e9fe3673c3d13"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/bangpound/assetic-codekit/zipball/57066355a9ab664a677f6bfbe70e9fe3673c3d13",
+            "reference": "57066355a9ab664a677f6bfbe70e9fe3673c3d13",
+            "shasum": ""
+        },
+        "require": {
+            "kriswallsmith/assetic": "~1.1"
+        },
+        "time": "2014-08-25 16:48:53",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0.x-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Bangpound\\Assetic\\Filter\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Benjamin Doherty",
+                "email": "bjd@bangpound.org"
+            }
+        ],
+        "description": "Assetic filters to support proprietary Codekit extensions"
+    },
+    {
+        "name": "symfony/finder",
+        "version": "v2.5.5",
+        "version_normalized": "2.5.5.0",
+        "target-dir": "Symfony/Component/Finder",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/Finder.git",
+            "reference": "d5033742b9a6206ef6d06e813870bca18e9205df"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/Finder/zipball/d5033742b9a6206ef6d06e813870bca18e9205df",
+            "reference": "d5033742b9a6206ef6d06e813870bca18e9205df",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.3"
+        },
+        "time": "2014-09-27 08:35:39",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.5-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Symfony\\Component\\Finder\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Symfony Community",
+                "homepage": "http://symfony.com/contributors"
+            },
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            }
+        ],
+        "description": "Symfony Finder Component",
+        "homepage": "http://symfony.com"
+    },
+    {
+        "name": "cilex/console-service-provider",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Cilex/console-service-provider.git",
+            "reference": "3abf600fd9f6ac54f56cf1ce7fb3a7c0c533cd03"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Cilex/console-service-provider/zipball/3abf600fd9f6ac54f56cf1ce7fb3a7c0c533cd03",
+            "reference": "3abf600fd9f6ac54f56cf1ce7fb3a7c0c533cd03",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.3",
+            "pimple/pimple": ">=2.1,<4",
+            "symfony/console": "~2.4"
+        },
+        "time": "2014-07-28 20:37:06",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.0-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Cilex\\Provider\\Console": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Mike van Riel",
+                "email": "me@mikevanriel.com"
+            },
+            {
+                "name": "Beau Simensen",
+                "email": "beau@dflydev.com"
+            }
+        ],
+        "description": "Console Service Provider",
+        "keywords": [
+            "cilex",
+            "console",
+            "pimple",
+            "service-provider",
+            "silex"
+        ]
+    },
+    {
+        "name": "symfony/event-dispatcher",
+        "version": "v2.5.5",
+        "version_normalized": "2.5.5.0",
+        "target-dir": "Symfony/Component/EventDispatcher",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/EventDispatcher.git",
+            "reference": "f6281337bf5f985f585d1db6a83adb05ce531f46"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/EventDispatcher/zipball/f6281337bf5f985f585d1db6a83adb05ce531f46",
+            "reference": "f6281337bf5f985f585d1db6a83adb05ce531f46",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.3"
+        },
+        "require-dev": {
+            "psr/log": "~1.0",
+            "symfony/config": "~2.0",
+            "symfony/dependency-injection": "~2.0,<2.6.0",
+            "symfony/stopwatch": "~2.2"
+        },
+        "suggest": {
+            "symfony/dependency-injection": "",
+            "symfony/http-kernel": ""
+        },
+        "time": "2014-09-28 15:56:11",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.5-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Symfony\\Component\\EventDispatcher\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Symfony Community",
+                "homepage": "http://symfony.com/contributors"
+            },
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            }
+        ],
+        "description": "Symfony EventDispatcher Component",
+        "homepage": "http://symfony.com"
+    },
+    {
+        "name": "kriswallsmith/spork",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/kriswallsmith/spork.git",
+            "reference": "70a466937572d59b20b8356d75f19e7abbeb5b0a"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/kriswallsmith/spork/zipball/70a466937572d59b20b8356d75f19e7abbeb5b0a",
+            "reference": "70a466937572d59b20b8356d75f19e7abbeb5b0a",
+            "shasum": ""
+        },
+        "require": {
+            "ext-pcntl": "*",
+            "ext-posix": "*",
+            "php": ">=5.3.0",
+            "symfony/event-dispatcher": "*"
+        },
+        "time": "2013-07-14 20:18:13",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Spork": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Kris Wallsmith",
+                "email": "kris.wallsmith@gmail.com",
+                "homepage": "http://kriswallsmith.net/"
+            }
+        ],
+        "description": "Asynchronous PHP",
+        "homepage": "https://github.com/kriswallsmith/spork"
     }
 ]
