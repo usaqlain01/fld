@@ -84,7 +84,7 @@
     <!-- ============================================  -->
     <!-- (DEFAULT)  Target: dist                       -->
     <!-- ============================================  -->
-    <target name="dist" depends="subtree-update,compass-compile,composer-manager-update,merge-tablexi,analytics">
+    <target name="dist" depends="compass-compile,composer-manager-update,merge-tablexi,analytics">
     </target>
 
     <!-- ## Main targets -->
