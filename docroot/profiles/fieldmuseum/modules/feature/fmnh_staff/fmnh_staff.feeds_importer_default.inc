@@ -48,41 +48,46 @@ function fmnh_staff_feeds_importer_default() {
         'defuse_mail' => 0,
         'mappings' => array(
           0 => array(
+            'source' => 'TX',
+            'target' => 'status',
+            'unique' => FALSE,
+          ),
+          1 => array(
             'source' => 'First Name',
             'target' => 'field_givenname',
             'unique' => FALSE,
           ),
-          1 => array(
+          2 => array(
             'source' => 'Last Name',
             'target' => 'field_surname',
             'unique' => FALSE,
           ),
-          2 => array(
+          3 => array(
             'source' => 'Job title',
             'target' => 'field_position',
             'unique' => FALSE,
           ),
-          3 => array(
+          4 => array(
             'source' => 'File Number',
             'target' => 'guid',
             'unique' => 1,
           ),
-          4 => array(
+          5 => array(
             'source' => 'Business Unit',
             'target' => 'field_business_unit',
             'unique' => FALSE,
           ),
-          5 => array(
+          6 => array(
             'source' => 'Home Department',
             'target' => 'field_home_department',
             'unique' => FALSE,
           ),
-          6 => array(
+          7 => array(
             'source' => 'Work Email',
             'target' => 'mail',
             'unique' => FALSE,
           ),
-          7 => array(
+          8 => array(
             'source' => 'Work Email',
             'target' => 'name',
             'unique' => FALSE,
@@ -92,6 +97,7 @@ function fmnh_staff_feeds_importer_default() {
         'input_format' => 'plain_text',
         'skip_hash_check' => 0,
         'bundle' => 'user',
+        'update_non_existent' => 'skip',
       ),
     ),
     'content_type' => '',
