@@ -126,6 +126,13 @@ function fmnh_staff_preprocess_entity(&$variables, $hook) {
 function fmnh_staff_feeds_processor_targets_alter(&$targets, $entity_type, $bundle_name) {
   if ($entity_type == 'user' && $bundle_name == 'user') {
     $targets['name']['callback'] = 'fmnh_staff_user_name_callback';
+    $targets['status']['callback'] = 'fmnh_staff_status_callback';
+  }
+}
+
+function fmnh_staff_status_callback($source, $entity, $target, array $values, $mapping) {
+  if ($target == 'status') {
+    $entity->status = ($values[0] == 'D') ? 0 : 1;
   }
 }
 
