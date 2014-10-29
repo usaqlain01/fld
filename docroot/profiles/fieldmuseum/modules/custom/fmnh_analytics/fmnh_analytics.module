@@ -129,7 +129,18 @@ function fmnh_analytics_preprocess_field(&$variables) {
 
   if ($field_name == 'field_ticket_link') {
     foreach ($variables['items'] as $delta => &$value) {
-      $value['#element']['attributes']['data-analytics'] = 'ticketing-'. $bundle;
+
+      $attr = null;
+
+      switch ($bundle) {
+        case "exhibit":
+          $attr = 'ticketing-exhibition';
+          break;
+        default:
+          $attr = 'ticketing-'. $bundle;
+      }
+
+      $value['#element']['attributes']['data-analytics'] = 'ticketing-'. $attr;
     }
   }
 }
