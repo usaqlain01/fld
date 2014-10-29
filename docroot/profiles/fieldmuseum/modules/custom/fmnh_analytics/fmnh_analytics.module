@@ -140,7 +140,7 @@ function fmnh_analytics_preprocess_field(&$variables) {
           $attr = 'ticketing-'. $bundle;
       }
 
-      $value['#element']['attributes']['data-analytics'] = 'ticketing-'. $attr;
+      $value['#element']['attributes']['data-analytics'] = $attr;
     }
   }
 }
