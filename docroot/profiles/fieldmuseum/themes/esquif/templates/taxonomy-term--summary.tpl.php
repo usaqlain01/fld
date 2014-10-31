@@ -43,7 +43,7 @@
 ?>
 <div id="taxonomy-term-<?php print $term->tid; ?>" class="<?php print $classes; ?>"<?php print $attributes; ?>>
   <figure>
-    <?php print render($content['field_image']); ?>
+    <a href="<?php print $term_url; ?>"><?php print render($content['field_image']); ?></a>
   </figure>
   <?php print render($title_prefix); ?>
     <h3<?php print $title_attributes; ?>><a href="<?php print $term_url; ?>"><?php print $term_name; ?></a></h3>

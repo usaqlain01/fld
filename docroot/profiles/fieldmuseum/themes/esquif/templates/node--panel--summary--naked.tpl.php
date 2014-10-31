@@ -9,7 +9,7 @@
 ?>
 <?php if (isset($field_image)): ?>
 <figure>
-  <?php print render($content['field_image']); ?>
+  <a href="<?php print $node_url; ?>"><?php print render($content['field_image']); ?></a>
 </figure>
 <?php endif; ?>
 <?php if ($title_prefix || $title_suffix || $display_submitted || $unpublished || !$page && $title): ?>

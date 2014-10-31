@@ -1,6 +1,12 @@
 <?php if (isset($field_image)): ?>
   <figure>
+  <?php if ($url): ?>
+  <a href="<?php print $url; ?>">
+  <?php endif; ?>
     <?php print render($content['field_image']); ?>
+  <?php if ($url): ?>
+  </a>
+  <?php endif; ?>
   </figure>
 <?php endif; ?>
 

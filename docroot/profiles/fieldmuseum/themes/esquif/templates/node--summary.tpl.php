@@ -10,7 +10,7 @@
 <div class="node-<?php print $node->nid; ?> <?php print $classes; ?>"<?php print $attributes; ?>>
 
   <figure>
-    <?php print render($content['field_image']); ?>
+    <a href="<?php print $node_url; ?>"><?php print render($content['field_image']); ?></a>
   </figure>
 
   <?php if ($title_prefix || $title_suffix || $display_submitted || $unpublished || !$page && $title): ?>
