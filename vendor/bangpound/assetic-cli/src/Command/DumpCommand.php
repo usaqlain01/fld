@@ -32,7 +32,7 @@ class DumpCommand extends AbstractCommand
     protected function configure()
     {
         $this
-            ->setName('assetic:dump')
+            ->setName('dump')
             ->setDescription('Dumps all assets to the filesystem')
             ->addArgument('write_to', InputArgument::OPTIONAL, 'Override the configured asset root')
             ->addOption('forks', null, InputOption::VALUE_REQUIRED, 'Fork work across many processes (requires kriswallsmith/spork)')
@@ -61,14 +61,16 @@ class DumpCommand extends AbstractCommand
 
     protected function execute(InputInterface $input, OutputInterface $stdout)
     {
+        $c = $this->getApplication()->getContainer();
+
         // capture error output
         $stderr = $stdout instanceof ConsoleOutputInterface
             ? $stdout->getErrorOutput()
             : $stdout;
 
         // print the header
-//        $stdout->writeln(sprintf('Dumping all <comment>%s</comment> assets.', $input->getOption('env')));
-//        $stdout->writeln(sprintf('Debug mode is <comment>%s</comment>.', $this->am->isDebug() ? 'on' : 'off'));
+        $stdout->writeln(sprintf('Dumping all assets.'));
+        $stdout->writeln(sprintf('Debug mode is <comment>%s</comment>.', $c['debug'] ? 'on' : 'off'));
         $stdout->writeln('');
 
         if ($this->spork) {

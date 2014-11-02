@@ -5,13 +5,15 @@
         "symfony/yaml": "2.4.2"
     },
     "require-dev": {
+        "symfony/console": "~2.4",
         "symfony/debug": "~2.4",
         "symfony/finder": "~2.4",
-        "phing/phing": "dev-master",
+        "phing/phing": "~2.9@dev",
         "cac/autophing": "~1.3.3",
         "mongolito404/phingdrushtask": "7.1.*@dev",
         "pear-pear.php.net/VersionControl_Git": "*",
-        "bangpound/assetic-cli": "~1.0@dev",
+        "pimple/pimple": "~3.0",
+        "bangpound/assetic-cli": "~1.1@dev",
         "bangpound/assetic-service-provider": "~1.0@dev",
         "zacoza/assetic-filters": "dev-master",
         "bangpound/assetic-codekit": "1.0.*@dev"

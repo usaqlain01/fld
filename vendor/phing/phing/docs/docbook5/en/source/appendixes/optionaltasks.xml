@@ -8252,6 +8252,10 @@ Note that you can omit both startpoint and track attributes in this case
                 xlink:href="http://ant.apache.org/manual/OptionalTasks/junit.html" role="extern"
                 >JUnit</link> task.</para>
         <para>
+            <emphasis role="bold">NB:</emphasis> if you have installed the
+            PHPUnit PHAR, make sure you set the
+            <literal>pharlocation</literal> attribute!</para>
+        <para>
             <emphasis role="bold">NB:</emphasis> the identifiers <literal>phpunit2</literal>
             (PHPUnit2Task) and <literal>phpunit3</literal> (PHPUnit3Task) have been deprecated! </para>
 
@@ -12108,6 +12112,13 @@ a2.a3.a4=false</programlisting>
                         <entry><literal role="type">Boolean</literal></entry>
                         <entry>If set to <literal>true</literal>, also empty directories are copied. </entry>
                         <entry><literal>true</literal></entry>
+                        <entry>No</entry>
+                    </row>
+                    <row>
+                        <entry><literal>comment</literal></entry>
+                        <entry><literal role="type">String</literal></entry>
+                        <entry>Comment to add to the zip archive</entry>
+                        <entry>none</entry>
                         <entry>No</entry>
                     </row>
                 </tbody>

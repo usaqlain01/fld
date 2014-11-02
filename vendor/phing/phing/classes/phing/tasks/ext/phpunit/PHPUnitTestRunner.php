@@ -32,13 +32,10 @@ require_once 'phing/system/util/Timer.php';
  */
 class PHPUnitTestRunner extends PHPUnit_Runner_BaseTestRunner implements PHPUnit_Framework_TestListener
 {
-    const SUCCESS = 0;
-    const FAILURES = 1;
-    const ERRORS = 2;
-    const INCOMPLETES = 3;
-    const SKIPPED = 4;
-
-    private $retCode = 0;
+    private $hasErrors = false;
+    private $hasFailures = false;
+    private $hasIncomplete = false;
+    private $hasSkipped = false;
     private $lastErrorMessage = '';
     private $lastFailureMessage = '';
     private $lastIncompleteMessage = '';
@@ -56,6 +53,12 @@ class PHPUnitTestRunner extends PHPUnit_Runner_BaseTestRunner implements PHPUnit
 
     private $useCustomErrorHandler = true;
 
+    /**
+     * @param Project $project
+     * @param array $groups
+     * @param array $excludeGroups
+     * @param bool $processIsolation
+     */
     public function __construct(
         Project $project,
         $groups = array(),
@@ -66,24 +69,38 @@ class PHPUnitTestRunner extends PHPUnit_Runner_BaseTestRunner implements PHPUnit
         $this->groups = $groups;
         $this->excludeGroups = $excludeGroups;
         $this->processIsolation = $processIsolation;
-        $this->retCode = self::SUCCESS;
     }
 
+    /**
+     * @param $codecoverage
+     */
     public function setCodecoverage($codecoverage)
     {
         $this->codecoverage = $codecoverage;
     }
 
+    /**
+     * @param $useCustomErrorHandler
+     */
     public function setUseCustomErrorHandler($useCustomErrorHandler)
     {
         $this->useCustomErrorHandler = $useCustomErrorHandler;
     }
 
+    /**
+     * @param $formatter
+     */
     public function addFormatter($formatter)
     {
         $this->formatters[] = $formatter;
     }
 
+    /**
+     * @param $level
+     * @param $message
+     * @param $file
+     * @param $line
+     */
     public function handleError($level, $message, $file, $line)
     {
         return PHPUnit_Util_ErrorHandler::handleError($level, $message, $file, $line);
@@ -91,6 +108,7 @@ class PHPUnitTestRunner extends PHPUnit_Runner_BaseTestRunner implements PHPUnit
 
     /**
      * Run a test
+     * @param PHPUnit_Framework_TestSuite $suite
      */
     public function run(PHPUnit_Framework_TestSuite $suite)
     {
@@ -130,48 +148,98 @@ class PHPUnitTestRunner extends PHPUnit_Runner_BaseTestRunner implements PHPUnit
             CoverageMerger::merge($this->project, $this->codecoverage->getData());
         }
 
-        if ($res->errorCount() != 0) {
-            $this->retCode = self::ERRORS;
-        } else {
-            if ($res->failureCount() != 0) {
-                $this->retCode = self::FAILURES;
-            } else {
-                if ($res->notImplementedCount() != 0) {
-                    $this->retCode = self::INCOMPLETES;
-                } else {
-                    if ($res->skippedCount() != 0) {
-                        $this->retCode = self::SKIPPED;
-                    }
-                }
-            }
+        $this->checkResult($res);
+    }
+
+    private function checkResult($res)
+    {
+        if ($res->skippedCount() > 0) {
+            $this->hasSkipped = true;
+        }
+
+        if ($res->notImplementedCount() > 0) {
+            $this->hasIncomplete = true;
+        }
+
+        if ($res->failureCount() > 0) {
+            $this->hasFailures = true;
+        }
+
+        if ($res->errorCount() > 0) {
+            $this->hasErrors = true;
         }
     }
 
-    public function getRetCode()
+    /**
+     * @return boolean
+     */
+    public function hasErrors()
     {
-        return $this->retCode;
+        return $this->hasErrors;
     }
 
+    /**
+     * @return boolean
+     */
+    public function hasFailures()
+    {
+        return $this->hasFailures;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function hasIncomplete()
+    {
+        return $this->hasIncomplete;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function hasSkipped()
+    {
+        return $this->hasSkipped;
+    }
+
+    /**
+     * @return string
+     */
     public function getLastErrorMessage()
     {
         return $this->lastErrorMessage;
     }
 
+    /**
+     * @return string
+     */
     public function getLastFailureMessage()
     {
         return $this->lastFailureMessage;
     }
 
+    /**
+     * @return string
+     */
     public function getLastIncompleteMessage()
     {
         return $this->lastIncompleteMessage;
     }
 
+    /**
+     * @return string
+     */
     public function getLastSkippedMessage()
     {
         return $this->lastSkippedMessage;
     }
 
+    /**
+     * @param string $message
+     * @param PHPUnit_Framework_Test $test
+     * @param Exception $e
+     * @return string
+     */
     protected function composeMessage($message, PHPUnit_Framework_Test $test, Exception $e)
     {
         $message = "Test $message (" . $test->getName() . " in class " . get_class($test) . "): " . $e->getMessage();
@@ -277,6 +345,7 @@ class PHPUnitTestRunner extends PHPUnit_Runner_BaseTestRunner implements PHPUnit
      * a test suite.
      *
      * @param string $message
+     * @throws BuildException
      */
     protected function runFailed($message)
     {

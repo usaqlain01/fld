@@ -15,6 +15,8 @@ use Symfony\Component\Console\Command\Command;
 
 class AsseticServiceProvider implements ServiceProviderInterface
 {
+    const ASSET_MANAGER_MATCH = '/^[a-z0-9_.]+?\.asset_manager$/';
+
     /**
      * Registers services on the given container.
      *
@@ -32,16 +34,22 @@ class AsseticServiceProvider implements ServiceProviderInterface
         $pimple['assetic.assets'] = array();
         $pimple['assetic.variables'] = array();
 
+        $pimple['assetic.register_functions'] = true;
+
         $pimple['assetic.java.bin'] = '/usr/bin/java';
         $pimple['assetic.node.bin'] = '/usr/bin/node';
         $pimple['assetic.node.paths'] = array();
         $pimple['assetic.ruby.bin'] = '/usr/bin/ruby';
         $pimple['assetic.sass.bin'] = '/usr/bin/sass';
 
-        $pimple['assetic.asset_manager_names'] = array(
-            'assetic.asset_manager',
-            'assetic.lazy_asset_manager',
-        );
+        /**
+         * Finds IDs of all Asset Manager services.
+         */
+        $pimple['assetic.asset_managers'] = $pimple->factory(function (Container $c) {
+            $ids = preg_grep(self::ASSET_MANAGER_MATCH, $c->keys());
+
+            return $ids;
+        });
 
         /**
          * Asset Factory configuration happens here
@@ -69,7 +77,11 @@ class AsseticServiceProvider implements ServiceProviderInterface
             $factory = new AssetFactory($root, $c['assetic.debug']);
             $factory->setAssetManager($c['assetic.asset_manager']);
             $factory->setFilterManager($c['assetic.filter_manager']);
-            assetic_init($factory);
+
+            // Optionally enable the global asset functions.
+            if ($c['assetic.register_functions']) {
+                assetic_init($factory);
+            }
 
             return $factory;
         };
@@ -108,7 +120,7 @@ class AsseticServiceProvider implements ServiceProviderInterface
          * @param Container $c
          * @return \Assetic\Factory\LazyAssetManager
          */
-        $pimple['assetic.lazy_asset_manager'] = function (Container $c) {
+        $pimple['assetic.lazy.asset_manager'] = function (Container $c) {
             $lazy     = new LazyAssetManager($c['assetic.factory']);
 
             foreach ($c['assetic.assets'] as $name => $formula) {
@@ -129,7 +141,7 @@ class AsseticServiceProvider implements ServiceProviderInterface
          * @return \Symfony\Component\Console\Command\Command
          */
         $pimple['assetic.dump.command'] = function (Container $c) {
-            return new DumpCommand();
+            return new DumpCommand($c['assetic.asset_manager'], $c['assetic.write_to']);
         };
 
         /**
@@ -137,7 +149,7 @@ class AsseticServiceProvider implements ServiceProviderInterface
          * @return Command
          */
         $pimple['assetic.watch.command'] = function (Container $c) {
-            return new WatchCommand();
+            return new WatchCommand($c['assetic.asset_manager'], $c['assetic.write_to']);
         };
     }
 }

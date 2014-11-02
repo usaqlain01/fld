@@ -5,33 +5,36 @@ if (PHP_SAPI !== 'cli') {
     echo 'Warning: Assetic should be invoked via the CLI version of PHP, not the ' . PHP_SAPI . ' SAPI' . PHP_EOL;
 }
 
-require __DIR__ . '/../src/bootstrap.php';
-
 call_user_func(function () {
-    $container = new Bangpound\Assetic\Container(array(
-        'dir.conf' => __DIR__ .'/../conf',
-        'debug' => function ($c) {
-            $debug = getenv('ASSETIC_DEBUG') !== '0' && !$c['console.input']->hasParameterOption(array('--no-debug', ''));
-            if ($debug) {
-                Symfony\Component\Debug\Debug::enable();
-            }
-            return $debug;
-        },
+    $loader = require __DIR__ . '/../src/bootstrap.php';
+    $container = new Bangpound\Assetic\Container(dirname(__DIR__), getenv('ASSETIC_DEBUG') !== '0', array(
+        'conf' => 'assetic.yml',
+        'conf_paths' => array(getcwd()),
+        'class_loader' => $loader,
+        'cache_dir' => '/tmp',
     ));
 
-    $loader = \Tacker\LoaderBuilder::create((array) $container['dir.conf'], null, $container['debug'])->build();
-    $configurator = new \Bangpound\Assetic\Configurator($loader);
-    $configurator->configureFromPath($container, 'parameters.yml', '[parameters]');
-
-    $config = $container['tracker.loader']->load('assetic.yml');
-
-    // The configurator runs twice because the Pimple Normalizer
-    // had no effect on the previous run.
-    foreach ($config['providers'] as $className => $values) {
-        $container->register(new $className(), $values);
+    if ($container['console.input']->hasParameterOption(array('--config', '-c'))) {
+        $conf_paths = $container['conf_paths'];
+        $conf_paths[] = dirname($container['console.input']->getParameterOption(array('--config', '-c')));
+        $container['conf_paths'] = $conf_paths;
     }
 
-    $app = new Bangpound\Assetic\Application($container);
-    $app->setAutoExit(false);
-    $app->run($container['console.input']);
+    $builder = new \Tacker\LoaderBuilder($container['conf_paths'], $container['cache_dir'], $container['debug']);
+    $builder
+        ->addDefaultNormalizers()
+        ->configureNormalizers(function (\Tacker\Normalizer\ChainNormalizer $normalizer) use ($container) {
+            $normalizer->add(new \Tacker\Normalizer\EnvironmentNormalizer());
+            $normalizer->add(new \Tacker\Normalizer\PimpleNormalizer($container));
+        });
+
+    $loader = $builder->build();
+    $config = $loader->load($container['conf']);
+
+    foreach ($config['files'] as $path) {
+        includeIfExists($path);
+    }
+
+    $container->register(new \Bangpound\Pimple\Provider\ProviderServiceProvider($config['providers']));
+    $container['console']->run($container['console.input']);
 });
