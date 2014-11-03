@@ -2,13 +2,13 @@
 
 use Assetic\Asset\AssetInterface;
 use Assetic\AssetManager;
+use Assetic\Filter\AutoprefixerFilter;
 use Assetic\Filter\CallablesFilter;
 use Assetic\Filter\CoffeeScriptFilter;
 use Assetic\Util\CssUtils;
 use Bangpound\Assetic\Filter\CodekitCoffeeScriptFilter;
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
-use ZaCoZa\Assetic\Filter\AutoprefixerFilter;
 
 class FieldAsseticServiceProvider implements ServiceProviderInterface
 {
@@ -35,7 +35,9 @@ class FieldAsseticServiceProvider implements ServiceProviderInterface
 
         // Assetic filter service to support autoprefixer tool.
         $pimple['assetic.filter.autoprefixer'] = function ($c) {
-            return new AutoprefixerFilter($c['assetic.filter.autoprefixer.bin'], $c['assetic.filter.autoprefixer.browsers']);
+            $filter = new AutoprefixerFilter($c['assetic.filter.autoprefixer.bin']);
+            $filter->setBrowsers($c['assetic.filter.autoprefixer.browsers']);
+            return $filter;
         };
 
         // Assetic filter service that rewrites absolute paths to be relative.
