@@ -19,10 +19,6 @@
     <!-- ============================================  -->
     <!-- Target: build                                 -->
     <!-- ============================================  -->
-    <target name="subtree-update" depends="prepare">
-        <exec command="git pull -s subtree -X subtree=docroot/profiles/fieldmuseum profile develop"/>
-    </target>
-
     <target name="build" depends="init,clean,verify,analyze"/>
 
     <target name="composer-manager-update" depends="prepare">
