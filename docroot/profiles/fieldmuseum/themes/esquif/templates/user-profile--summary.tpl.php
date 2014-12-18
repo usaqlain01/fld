@@ -42,14 +42,16 @@
   </figure>
   <figcaption class="person__details">
     <h3 class="person__name"<?php print $title_attributes; ?>>
-      <?php if (isset($url)): ?><a itemprop="url" href="<?php print $url; ?>"><?php endif; ?><?php print render($user_profile['field_givenname']); ?> <?php print render($user_profile['field_surname']); ?><?php if (isset($url)): ?></a><?php endif; ?>
+      <?php if (isset($url)): ?><a itemprop="url" href="<?php print $url; ?>"><?php endif; ?><?php print render($user_profile['field_preferred_name'] ?: $user_profile['field_givenname']); ?> <?php print render($user_profile['field_surname']); ?><?php if (isset($url)): ?></a><?php endif; ?>
     </h3>
     <h6 class="person__title" itemprop="jobTitle">
       <?php print render($user_profile['field_position']); ?>
     </h6>
     <h6 class="person__department">
       <?php print render($user_profile['field_home_department']); ?>
-      (<?php print trim(render($user_profile['field_business_unit'])); ?>)
+      <?php if ($user_profile['field_business_unit']) { ?>
+        (<?php print trim(render($user_profile['field_business_unit'])); ?>)
+      <?php } ?>
     </h6>
   </figcaption>
 </section>
