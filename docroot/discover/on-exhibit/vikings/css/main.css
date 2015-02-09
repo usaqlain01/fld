@@ -1,0 +1,157 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+* {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smoothing: antialiased; }
+
+.serif, body, .whoTheyWere__focus, .discoverMore__focus {
+  font-family: "freight-text-pro",Georgia,Times,"Times New Roman",serif;
+  line-height: 1.5; }
+
+.sans, h1, h2, h3, h4, h5, h6 {
+  font-family: "proxima-nova","Helvetica Neue",Helmet,Freesans,sans-serif;
+  line-height: 1.2; }
+
+.is--visHidden {
+  position: absolute !important;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px); }
+
+.slide {
+  background: #fac695;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #fac695 0%, #f5ab66 47%, #ef8d31 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fac695), color-stop(47%, #f5ab66), color-stop(100%, #ef8d31));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #fac695 0%, #f5ab66 47%, #ef8d31 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #fac695 0%, #f5ab66 47%, #ef8d31 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #fac695 0%, #f5ab66 47%, #ef8d31 100%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, #fac695 0%, #f5ab66 47%, #ef8d31 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fac695', endColorstr='#ef8d31',GradientType=0 );
+  /* IE6-9 */
+  width: 100vw;
+  height: 120vh;
+  background-size: cover; }
+
+/* Jump Nav */
+.jumpNav {
+  position: fixed;
+  right: 0;
+  top: 40%; }
+
+.jumpNav__link {
+  background: #FFF;
+  width: 1em;
+  height: 1em;
+  display: block;
+  margin: 1em;
+  border-radius: .5em;
+  box-shadow: 0px 0px 25px #000;
+  transition: background-color .5s; }
+
+.jumpNav__link--selected {
+  background: #F00; }
+
+/* headers */
+.whoTheyWere, .discoverMore {
+  background: url(../images/coin.svg);
+  display: block;
+  margin: auto;
+  width: 200px;
+  height: 200px;
+  position: relative;
+  top: -100px;
+  text-align: center;
+  padding: 60px 0px;
+  box-sizing: border-box; }
+
+.whoTheyWere__focus, .discoverMore__focus {
+  display: block;
+  font-size: 2em;
+  text-transform: uppercase; }
+
+.whoTheyWere--tradersCraftspeople {
+  padding: 50px 0px; }
+
+.whoTheyWere--tradersCraftspeople .whoTheyWere__focus, .discoverMore__focus {
+  font-size: 1.5em;
+  line-height: 1em;
+  margin: 0.3em 0; }
+
+.discoverMore {
+  padding: 80px 0px; }
+
+.slide--ship {
+  background-color: #000813;
+  background-image: url(../images/ship.jpg);
+  background-position: center center; }
+
+.fieldLogo {
+  padding: 1em;
+  width: 10vw; }
+
+.vikingsLogo {
+  margin: 0 auto;
+  padding: 2em 0;
+  width: 20vw; }
+
+.slide--explore {
+  background-color: #000813;
+  background-image: url(../images/map.svg);
+  background-position: center center; }
