@@ -1,7 +1,48 @@
 <!DOCTYPE html>
-<html>
+<!--[if lt IE 9 ]>    <html class="oldIE"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html> <!--<![endif]-->
+<!-- 
 
-  <head>
+
+                                                                                                   .:+ydNd                  `:/oydm          
+                                         /syhddddhhhhhhhhhhhddd:    yNMm:                        `+osNMMd                  +osmMMm          
+                                            /MMMM/----------:yM/    +yhs.                            sMMd                     oMMm          
+                                             MMMM:            h/                                     oMMd                     oMMm          
+                                             MMMM:            ``                                     oMMd                     oMMm          
+                                             MMMM:           ``       `.               ``            oMMd               ````  oMMm          
+                                             MMMM:          `yo  .:+shmN-         `:+o+osyy+.        oMMd          `-+oooosyyydMMm          
+                                             MMMMyooooooooosdMo  /symMMM-       `omy-   `:dMNs`      oMMd        `+dd/.    `:yNMMm          
+                                             MMMMs/////////+yMo     -MMM-      .dMh```````.mMMy`     oMMd       .dMh`         +MMm          
+     `:----:----:`./s`                       MMMM:           yo     .MMM-      dMMyooooooooyhhh/     oMMd      `mMM-          :MMm          
+     -s---oMo---s-`+M`                       MMMM:           ``     .MMM-     -MMd                   oMMd      +MMM           :MMm          
+     ``   /M/   `` /M..--`    `...`          MMMM:                  .MMM-     :MMN`                  oMMd      sMMM-          :MMm          
+          /M/      /M/-:sm.  +o-:hd-         MMMM:                  .MMM-     `NMMs                  oMMd      /MMMd`         :MMm          
+          /M/      /M`  -M: :M:--:/:        `MMMM:                  -MMM-      :NMMh-`      `/s`     sMMm       yMMMd:`     `-yMMN          
+          +M+      /M.  :M- -N+`  `.     ``.sMMMMh-.``           `.-hMMMy-``    -hNMNds+++oys/`   `.:mMMN:.`    `+mMMNds++oyyohMMMhso-      
+::::::::+ohmho+:::+hNhosdmy+:sdhyss/:++++shdmmmmmmdhho::::::::::/hhdmmmmmdhs:::::/ohmmmmmmho/::::ohhdmmmmdhh+:::::+ymmmmmmho/:ymmhs+/:::::::
+````````````````````./MMN/``````````+MMm-.``````````````````````````````````````````````````````````````````````````````````````````````````
+                     .MsMN-        /myMm                                                                                                    
+                     :M`+MN-      :m-/MM    -:/.  .::/-    `::/+-    `--:+-    .:/:  `-://    .:+- .:++:  `-/+/.                            
+                     +N  +MN-    :m- -MM.   -hM+  `-yMo   `ms``/s   +d-``+Nh`  .oMy   .+Mh   ./dMs/-.-sMh::../Nm`                           
+                     om   +MN-  :m:  .MM:    oM+    +Mo   `mNs:``  :Ms::::ss/   -My    .Mh     sM+    .Md     dM-                           
+                     yh    +MN-:N:    MM+    oM+    +Mo    `:smmo  oM:          -My    .Mh     sM+    .Md     dM-                           
+                     ds     +MNN:     mMs    +Ms   `sMo   .:  `sM/ .Nm:    :.   -Md`   /Md     yM+    -Mm     dM-                           
+                  `/oMm+-    +M:   `/oNMN/:  `yNms+/omy/` `N+//yo   .smmhso-     smNyo/:Nh/. .+hdy/``/sdh+. :+ddo/.  
+
+
+
+The Vikings team:
+=================
+Brad Dunn (Director of Web and Digital @ The Field Museum)
+MaryPat Hofer (QA Tester & Volunteer Extraordinaire @ The Field Museum)
+Nick Kalmus (Designer @ The Field Museum)
+Franck Mercurio (Independent Content Developer, http://www.mercurio-exhibits.com/)
+Stefan Tran (Design Principal @ Pax Rodentia, http://www.paxrodentia.com/)
+Graham Troyer-Joy (Front-End Developer @ The Field Museum)
+
+-->
+	<head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -31,14 +72,36 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
   <script src="/discover/on-exhibit/vikings/scripts/script.js"></script>
+  <script src="//cdn.optimizely.com/js/1907020047.js"></script>
   <script src="//use.typekit.net/fke5kfl.js"></script>
   <script>try{Typekit.load();}catch(e){}</script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-11881432-2', 'auto');
+    ga('send', 'pageview');
+  </script>
 </head>
 
+	<body>
+		<div class="browserWarning">
+	<div class="browserWarning__text">
+		<h1>Oops.</h1>
 
-  <body>
+		<p>This Field Museum interactive experience uses state-of-the-art web technologies. As a result, it's not compatible with older versions of some browsers.</p>
 
-	
+		<p>You can update your browser to the latest version, or upgrade to a new browser at <a href="http://browsehappy.com/">http://browsehappy.com/</a></p>
+
+		<button type="button" class="browserWarning__hide" onclick="console.log(this); this.parentNode.parentNode.style.display = 'none'">
+			I understand and I want to continue
+		</button>
+	</div>
+</div>
+
+		
 
 	<section id="introduction" class="slide slide--intro">
 	<figure class="fieldLogo">
@@ -50,9 +113,39 @@
 		<img src="images/vikings-logo.svg" alt="Vikings" title="Vikings" />
 	</h1>
 	<section class="underwater">
-		<h2><strong>Explore</strong> the world of the Vikings.</h2>
+		<div class="buttonWrapper">
+			<a href="https://tickets.fieldmuseum.org/" class="button--cta button--water" onclick="vikings.analytics.buyTicketsButtonClick(this, 'intro')">
+				<span class="buttonLights--large"></span>
+				<span class="buttonLights--small"></span>
+				<span class="button__leader">
+					<svg class="icon" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+		 viewBox="10 0 180 100" enable-background="new 0 0 380 120" xml:space="preserve">
+						<path id="ticket-3" fill="#ffffff" d="M190,36.6V10H10v26.6c10.4,1.9,18.2,11,18.2,21.9s-7.9,20-18.2,21.9v28.9h180V80.4
+							c-10.4-1.9-18.2-11-18.2-21.9S179.6,38.5,190,36.6z M54.9,104.1h-4.8v-4.8h4.8V104.1z M54.9,94.8h-4.8V90h4.8V94.8z M54.9,85.4h-4.8
+							v-4.8h4.8V85.4z M54.9,76.1h-4.8v-4.8h4.8V76.1z M54.9,66.7h-4.8v-4.8h4.8V66.7z M54.9,57.4h-4.8v-4.8h4.8V57.4z M54.9,48h-4.8v-4.8
+							h4.8V48z M54.9,38.7h-4.8v-4.8h4.8V38.7z M54.9,29.4h-4.8v-4.8h4.8V29.4z M54.9,20h-4.8v-4.8h4.8V20z M119.2,88.1L100,78l-19.2,10
+							l3.7-21.2L69,51.8l21.4-3.1l9.6-19.3l9.6,19.3l21.4,3.1l-15.5,15L119.2,88.1z M144.9,104.1h-4.8v-4.8h4.8V104.1z M144.9,94.8h-4.8
+							V90h4.8V94.8z M144.9,85.4h-4.8v-4.8h4.8V85.4z M144.9,76.1h-4.8v-4.8h4.8V76.1z M144.9,66.7h-4.8v-4.8h4.8V66.7z M144.9,57.4h-4.8
+							v-4.8h4.8V57.4z M144.9,48h-4.8v-4.8h4.8V48z M144.9,38.7h-4.8v-4.8h4.8V38.7z M144.9,29.4h-4.8v-4.8h4.8V29.4z M144.9,20h-4.8v-4.8
+							h4.8V20z"/>
+					</svg>
+				</span>
+				Buy tickets now
+			</a>
+		</div>
+		<div class="buttonWrapper">
+			<a href="#world" class="button--cta button--excited" onclick="vikings.analytics.scrollDownButtonClick(this);">
+				Scroll down to explore more
+				<span class="button__leader">
+					<svg class="icon" version="1.1" id="down_arrow" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+						 viewBox="200 -15 180 120" enable-background="new 0 0 380 120" xml:space="preserve">
+					<polyline fill="none" stroke="#ffffff" stroke-width="26.75" stroke-miterlimit="10" points="220,20 290,90 360,20 "/>
+					</svg>
+				</span>
+			</a>
+		</div>
+		<small class="sponsorLine">The exhibition was organized by the Swedish History Museum in Sweden, in partnership with MuseumsPartner in Austria.</small>
 		<footer class="sponsorLogos">
-			<small class="sponsorLine">The exhibition was organized by the Swedish History Museum in Sweden, in partnership with MuseumsPartner in Austria.</small>
 			
 			<figure class="sponsorLogo sponsorLogo--discover">
 				<span class="is--visHidden">Discover</span>
@@ -66,12 +159,12 @@
 			
 			<figure class="sponsorLogo sponsorLogo--swedish-museum">
 				<span class="is--visHidden">The Swedish History Museum</span>
-				<img src="images/swedish-history-museum-hrz.svg" alt="The Swedish History Museum" title="The Swedish History Museum" />
+				<img src="images/swedish-history-museum-white.svg" alt="The Swedish History Museum" title="The Swedish History Museum" />
 			</figure>
 			
 			<figure class="sponsorLogo sponsorLogo--museums-partner">
 				<span class="is--visHidden">Museums Partner</span>
-				<img src="images/museums-partner.svg" alt="Museums Partner" title="Museums Partner" />
+				<img src="images/museums-partner-white.svg" alt="Museums Partner" title="Museums Partner" />
 			</figure>
 			
 		</footer>
@@ -103,8 +196,12 @@
 
 	<section id="farmers" class="slide slide--farmers">
 	<h2 class="whoTheyWere whoTheyWere--blueCross whoTheyWere--farmers">
-<span class="whoTheyWere__rune"></span>
-Who they were<span class="header__focus">Farmers</span>
+	<svg class="whoTheyWere__rune">
+		<use xlink:href="#th"></use>
+	</svg>
+	
+		Who they were<span class="header__focus">Farmers</span>
+		
 
 </h2>
 	<article class="blurb blurb--farmers">
@@ -118,57 +215,72 @@ Who they were<span class="header__focus">Farmers</span>
 	<button type="button" class="zoom__expander">
 		&times;
 	</button>
-	<figure class="zoom__figure ">
-		<button type="button" class="zoom__nav zoom__nav--back" onclick="return vikings.zoom.nav(this, true)">
+	<figure class="zoom__figure " onclick="return vikings.zoom.figureClick(this, event)">
+		<button type="button" class="zoom__nav zoom__nav--back" onclick="return vikings.zoom.nav(this, event, true)">
 		</button>
 		
-		<img src="images/spice.jpg" alt="" title="" class="detail" />
-		<figcaption>
-			<h4>Keys for <span class="nobr">the “Lady of</span> the House”</h4>
-			<p>Viking women wore keys&mdash;fully visible on the outside of their<br />clothing&mdash;as symbols of power. Old Norse written sources<br />indicate that women ruled the households and farms<br />while men plowed the fields. Archaeological<br />evidence suggests that women also<br />took part in trade<br />and sometimes carried weapons, too.</p>
+		<img src="images/detail/Key-with-Chain.jpg" alt="" title="" class="detail zoom__sliders keysForLady" />
+		<figcaption class="zoom__sliders">
+			<h4 class="zoom__title">Keys for <span class="nobr">the “Lady of</span> the House”</h4>
+			<p>Viking women wore keys—fully visible
+on the outside of their clothing—as symbols of power. Old Norse
+written sources indicate that women ruled the households and farms
+while men plowed the fields. Archaeological evidence suggests that
+women also took part in trade and sometimes
+carried weapons, too.</p>
 		</figcaption>
-		<button type="button" class="zoom__nav zoom__nav--next" onclick="return vikings.zoom.nav(this)">
+		<button type="button" class="zoom__nav zoom__nav--next" onclick="return vikings.zoom.nav(this, event)">
 		</button>
 	</figure>
 </li>
+
 		
 			<li class="zoom minimized" onclick="vikings.zoom.toggle(this)">
 	<div class="zoom__wrapper"></div>
 	<button type="button" class="zoom__expander">
 		&times;
 	</button>
-	<figure class="zoom__figure ">
-		<button type="button" class="zoom__nav zoom__nav--back" onclick="return vikings.zoom.nav(this, true)">
+	<figure class="zoom__figure " onclick="return vikings.zoom.figureClick(this, event)">
+		<button type="button" class="zoom__nav zoom__nav--back" onclick="return vikings.zoom.nav(this, event, true)">
 		</button>
 		
-		<img src="images/spice.jpg" alt="" title="" class="detail" />
-		<figcaption>
-			<h4>Land, family, and farming</h4>
-			<p>The farm was at the center of Viking life and the extended family was the basic community on the farm. Women and men&mdash;both free and unfree&mdash;lived and worked on farms growing crops and raising animals.</p>
+		<img src="images/detail/Family-and-Farming.jpg" alt="" title="" class="detail zoom__sliders landFamilyFarming" />
+		<figcaption class="zoom__sliders">
+			<h4 class="zoom__title">Land, family, and farming</h4>
+			<p>The farm was at the center of Viking life
+and the extended family was the basic community on the farm.
+Women and men&mdash;both free and unfree&mdash;lived and worked
+on farms growing crops and raising animals.</p>
 		</figcaption>
-		<button type="button" class="zoom__nav zoom__nav--next" onclick="return vikings.zoom.nav(this)">
+		<button type="button" class="zoom__nav zoom__nav--next" onclick="return vikings.zoom.nav(this, event)">
 		</button>
 	</figure>
 </li>
+
 		
 			<li class="zoom minimized" onclick="vikings.zoom.toggle(this)">
 	<div class="zoom__wrapper"></div>
 	<button type="button" class="zoom__expander">
 		&times;
 	</button>
-	<figure class="zoom__figure ">
-		<button type="button" class="zoom__nav zoom__nav--back" onclick="return vikings.zoom.nav(this, true)">
+	<figure class="zoom__figure " onclick="return vikings.zoom.figureClick(this, event)">
+		<button type="button" class="zoom__nav zoom__nav--back" onclick="return vikings.zoom.nav(this, event, true)">
 		</button>
 		
-		<img src="images/spice.jpg" alt="" title="" class="detail" />
-		<figcaption>
-			<h4>Longhouses</h4>
-			<p>Farm settlements consisted of a large dwelling house&mdash;called a longhouse&mdash;surrounded by a few smaller buildings. Archaeological evidence indicates that a longhouse was a sign of a family’s ownership of land and played an important role as a ceremonial banqueting hall—possibly a link to the mythical halls of Valhalla and Fólkvangr in Norse religion.</p>
+		<img src="images/detail/Longhouse.jpg" alt="" title="" class="detail zoom__sliders longhouses" />
+		<figcaption class="zoom__sliders">
+			<h4 class="zoom__title">Longhouses</h4>
+			<p>Farm settlements consisted of a large dwelling house&mdash;called a longhouse&mdash;surrounded
+by a few smaller buildings. Archaeological evidence indicates that a longhouse
+was a sign of a family’s ownership of land and played an important role as a
+ceremonial banqueting hall—possibly a link to the mythical halls of
+Valhalla and Fólkvangr in Norse religion.</p>
 		</figcaption>
-		<button type="button" class="zoom__nav zoom__nav--next" onclick="return vikings.zoom.nav(this)">
+		<button type="button" class="zoom__nav zoom__nav--next" onclick="return vikings.zoom.nav(this, event)">
 		</button>
 	</figure>
 </li>
+
 		
 	</ul>
 </section>
@@ -177,14 +289,18 @@ Who they were<span class="header__focus">Farmers</span>
 
 	<section id="traders-craftspeople" class="slide slide--tradersCraftspeople">
 	<h2 class="whoTheyWere whoTheyWere--tradersCraftspeople whoTheyWere--quadrants">
-<span class="whoTheyWere__rune"></span>
-Who they were<span class="header__focus">Traders & <span class="cram">Craftspeople</span></span>
+	<svg class="whoTheyWere__rune">
+		<use xlink:href="#a"></use>
+	</svg>
+	
+		Who they were<span class="header__focus">Traders & <span class="cram">Craftspeople</span></span>
+		
 
 </h2>
 	<article class="blurb blurb--tradersCraftspeople">
-		<h3>Crafting valuable objects, <strong class="nobr">exchanging goods and ideas</strong></h3>
-		<hr />
-		<p>The Vikings founded trading centers across Scandinavia where townsfolk manufactured and exchanged a wide range of goods. During the Viking Age, highly skilled craftspeople worked with many different materials including textiles, wood, metal, bone, leather, glass, and ceramics.</p>
+		<h3 class="subBlurb">Crafting valuable objects, <strong class="nobr">exchanging goods and ideas</strong></h3>
+		<hr class="materialsRule" />
+		<p class="subBlurb">The Vikings founded trading centers across Scandinavia where townsfolk manufactured and exchanged a wide range of goods. During the Viking Age, highly skilled craftspeople worked with many different materials including textiles, wood, metal, bone, leather, glass, and ceramics.</p>
 	</article>
 	<ul class="zooms zooms--tradersCraftspeople">
 		
@@ -193,76 +309,100 @@ Who they were<span class="header__focus">Traders & <span class="cram">Craftspeop
 	<button type="button" class="zoom__expander">
 		&times;
 	</button>
-	<figure class="zoom__figure ">
-		<button type="button" class="zoom__nav zoom__nav--back" onclick="return vikings.zoom.nav(this, true)">
+	<figure class="zoom__figure hasThumbnail" onclick="return vikings.zoom.figureClick(this, event)">
+		<button type="button" class="zoom__nav zoom__nav--back" onclick="return vikings.zoom.nav(this, event, true)">
 		</button>
 		
-		<img src="images/spice.jpg" alt="" title="" class="detail" />
-		<figcaption>
-			<h4>Iron Axe</h4>
-			<p>Art during the Viking Age was primarily decorative and used to ornament a variety of objects. Even functional weapons often had artistic elements. This iron axe head includes a design motif based on vegetation.</p>
+		<img src="images/thumbs/insert-insert-axe.jpg" alt="" title="" class="thumbnail" />
+		
+		<img src="images/detail/Iron-Axe.jpg" alt="" title="" class="detail zoom__sliders ironAxe" />
+		<figcaption class="zoom__sliders">
+			<h4 class="zoom__title">Iron Axe</h4>
+			<p>Art during the Viking Age was primarily decorative and used to ornament
+a variety of objects. Even functional weapons often had artistic elements.
+This iron axe head includes a design motif based on vegetation.</p>
 		</figcaption>
-		<button type="button" class="zoom__nav zoom__nav--next" onclick="return vikings.zoom.nav(this)">
+		<button type="button" class="zoom__nav zoom__nav--next" onclick="return vikings.zoom.nav(this, event)">
 		</button>
 	</figure>
 </li>
+
 		
 			<li class="zoom minimized" onclick="vikings.zoom.toggle(this)">
 	<div class="zoom__wrapper"></div>
 	<button type="button" class="zoom__expander">
 		&times;
 	</button>
-	<figure class="zoom__figure ">
-		<button type="button" class="zoom__nav zoom__nav--back" onclick="return vikings.zoom.nav(this, true)">
+	<figure class="zoom__figure hasThumbnail" onclick="return vikings.zoom.figureClick(this, event)">
+		<button type="button" class="zoom__nav zoom__nav--back" onclick="return vikings.zoom.nav(this, event, true)">
 		</button>
 		
-		<img src="images/spice.jpg" alt="" title="" class="detail" />
-		<figcaption>
-			<h4>Imported Beads</h4>
-			<p>These beads of carnelian and rock crystal came from the Caucasus area around the Black Sea. Their origins reveal the Vikings’ connections to distant lands and cultures. Beads were valuable and desirable commodities for trade.</p>
+		<img src="images/thumbs/insert-beads.jpg" alt="" title="" class="thumbnail" />
+		
+		<img src="images/detail/Imported-Beads.jpg" alt="" title="" class="detail zoom__sliders importedBeads" />
+		<figcaption class="zoom__sliders">
+			<h4 class="zoom__title">Imported Beads</h4>
+			<p>These beads of carnelian and rock crystal came from
+the Caucasus area around the Black Sea. Their origins reveal
+the Vikings’ connections to distant lands and cultures.
+Beads were valuable and desirable
+commodities for trade.</p>
 		</figcaption>
-		<button type="button" class="zoom__nav zoom__nav--next" onclick="return vikings.zoom.nav(this)">
+		<button type="button" class="zoom__nav zoom__nav--next" onclick="return vikings.zoom.nav(this, event)">
 		</button>
 	</figure>
 </li>
+
 		
 			<li class="zoom minimized" onclick="vikings.zoom.toggle(this)">
 	<div class="zoom__wrapper"></div>
 	<button type="button" class="zoom__expander">
 		&times;
 	</button>
-	<figure class="zoom__figure ">
-		<button type="button" class="zoom__nav zoom__nav--back" onclick="return vikings.zoom.nav(this, true)">
+	<figure class="zoom__figure hasThumbnail" onclick="return vikings.zoom.figureClick(this, event)">
+		<button type="button" class="zoom__nav zoom__nav--back" onclick="return vikings.zoom.nav(this, event, true)">
 		</button>
 		
-		<img src="images/spice.jpg" alt="" title="" class="detail" />
-		<figcaption>
-			<h4>Ring-Headed Brooch</h4>
-			<p>This brooch of bronze, gold, and silver features a “gripping-beast” ornament along with a bearded demon. Crafts, especially metal crafts, were associated with the Norse gods, who were at times described as metalsmiths who forged the world.</p>
+		<img src="images/thumbs/insert-brooch.jpg" alt="" title="" class="thumbnail" />
+		
+		<img src="images/detail/Ring-Headed-Brooch.jpg" alt="" title="" class="detail zoom__sliders ringHeadedBrooch" />
+		<figcaption class="zoom__sliders">
+			<h4 class="zoom__title">Ring-Headed Brooch</h4>
+			<p>This brooch of bronze, gold, and silver features
+a “gripping-beast” ornament along with a bearded demon.
+Crafts, especially metal crafts, were associated with
+the Norse gods, who were at times described
+as metalsmiths who forged the world.</p>
 		</figcaption>
-		<button type="button" class="zoom__nav zoom__nav--next" onclick="return vikings.zoom.nav(this)">
+		<button type="button" class="zoom__nav zoom__nav--next" onclick="return vikings.zoom.nav(this, event)">
 		</button>
 	</figure>
 </li>
+
 		
 			<li class="zoom minimized" onclick="vikings.zoom.toggle(this)">
 	<div class="zoom__wrapper"></div>
 	<button type="button" class="zoom__expander">
 		&times;
 	</button>
-	<figure class="zoom__figure ">
-		<button type="button" class="zoom__nav zoom__nav--back" onclick="return vikings.zoom.nav(this, true)">
+	<figure class="zoom__figure hasThumbnail" onclick="return vikings.zoom.figureClick(this, event)">
+		<button type="button" class="zoom__nav zoom__nav--back" onclick="return vikings.zoom.nav(this, event, true)">
 		</button>
 		
-		<img src="images/spice.jpg" alt="" title="" class="detail" />
-		<figcaption>
-			<h4>Gold Filigree Pendant</h4>
-			<p>This elaborate filigree pendant features tightly woven patterns and bird of prey imagery—both characteristic of Old Norse motifs.</p>
+		<img src="images/thumbs/insert-pendant.jpg" alt="" title="" class="thumbnail" />
+		
+		<img src="images/detail/Gold-Filigree-Pendant.jpg" alt="" title="" class="detail zoom__sliders goldFiligreePendant" />
+		<figcaption class="zoom__sliders">
+			<h4 class="zoom__title">Gold Filigree Pendant</h4>
+			<p>This elaborate filigree pendant features tightly woven
+patterns and bird of prey imagery—both characteristic
+of Old Norse motifs.</p>
 		</figcaption>
-		<button type="button" class="zoom__nav zoom__nav--next" onclick="return vikings.zoom.nav(this)">
+		<button type="button" class="zoom__nav zoom__nav--next" onclick="return vikings.zoom.nav(this, event)">
 		</button>
 	</figure>
 </li>
+
 		
 	</ul>
 </section>
@@ -271,72 +411,103 @@ Who they were<span class="header__focus">Traders & <span class="cram">Craftspeop
 
 	<section id="voyagers" class="slide slide--voyagers">
 	<h2 class="whoTheyWere whoTheyWere--cross">
-<span class="whoTheyWere__rune"></span>
-Who they were<span class="header__focus">Voyagers</span>
+	<svg class="whoTheyWere__rune">
+		<use xlink:href="#r"></use>
+	</svg>
+	
+		Who they were<span class="header__focus">Voyagers</span>
+		
 
 </h2>
+	<figure class="shipProws">
+		<img class="shipProws__prows" src="images/ship-prows.jpg" />
+		<img class="shipProws__ship" src="images/ship.png" />
+	</figure>
 	<article class="blurb blurb--voyagers">
 		<h3><strong>Sailing the seas,</strong> connecting to distant lands</h3>
 		<p>The ship was an ancient symbol in Scandinavian culture and a vital factor in Viking expansion, travel, and trade. Archaeological finds, written sources, and rock carvings (or “Picture Stones”) indicate that the Vikings built many different types of ships.</p>
 	</article>
-	<ul class="zooms zooms--voyagers">
+	<ul class="zooms zooms--voyagers only-three">
 		
 			<li class="zoom minimized" onclick="vikings.zoom.toggle(this)">
 	<div class="zoom__wrapper"></div>
 	<button type="button" class="zoom__expander">
 		&times;
 	</button>
-	<figure class="zoom__figure ">
-		<button type="button" class="zoom__nav zoom__nav--back" onclick="return vikings.zoom.nav(this, true)">
+	<figure class="zoom__figure hasThumbnail" onclick="return vikings.zoom.figureClick(this, event)">
+		<button type="button" class="zoom__nav zoom__nav--back" onclick="return vikings.zoom.nav(this, event, true)">
 		</button>
 		
-		<img src="images/spice.jpg" alt="" title="" class="detail" />
-		<figcaption>
-			<h4>Warships</h4>
-			<p>Longships, which could hold 50 to 100 rowers, were mainly used for combat and raiding trips. It’s estimated that one 30-meter-long warship (excavated in Denmark) could sail at a top speed of 11.5 MPH and sail from Scandinavia to Britain in just a few days.</p>
+		<img src="images/thumbs/insert-warship-2x.gif" alt="" title="" class="thumbnail" />
+		
+		<img src="images/detail/War-Ship-Longship.gif" alt="" title="" class="detail zoom__sliders warships" />
+		<figcaption class="zoom__sliders">
+			<h4 class="zoom__title">Warships</h4>
+			<p>Longships, which could hold 50 to 100 rowers, were mainly used
+for combat and raiding trips. It’s estimated that one
+30-meter-long warship (excavated in Denmark)
+could sail at a top speed of 11.5 MPH and
+sail from Scandinavia to Britain
+in just a few days.</p>
 		</figcaption>
-		<button type="button" class="zoom__nav zoom__nav--next" onclick="return vikings.zoom.nav(this)">
+		<button type="button" class="zoom__nav zoom__nav--next" onclick="return vikings.zoom.nav(this, event)">
 		</button>
 	</figure>
 </li>
+
 		
 			<li class="zoom minimized" onclick="vikings.zoom.toggle(this)">
 	<div class="zoom__wrapper"></div>
 	<button type="button" class="zoom__expander">
 		&times;
 	</button>
-	<figure class="zoom__figure ">
-		<button type="button" class="zoom__nav zoom__nav--back" onclick="return vikings.zoom.nav(this, true)">
+	<figure class="zoom__figure hasThumbnail" onclick="return vikings.zoom.figureClick(this, event)">
+		<button type="button" class="zoom__nav zoom__nav--back" onclick="return vikings.zoom.nav(this, event, true)">
 		</button>
 		
-		<img src="images/spice.jpg" alt="" title="" class="detail" />
-		<figcaption>
-			<h4>Cargo Ships</h4>
-			<p>The Knarr was the largest cargo ship of the Viking Age. It had a deep hull with high sides and was big enough to carry live animals, including cattle. These qualities made it ideal for settlers crossing the North Sea to the British isles, the Faroes, Iceland, and beyond.</p>
+		<img src="images/thumbs/insert-cargo-ship-2x.gif" alt="" title="" class="thumbnail" />
+		
+		<img src="images/detail/Ocean-Going-Trading-Ship.gif" alt="" title="" class="detail zoom__sliders cargoShips" />
+		<figcaption class="zoom__sliders">
+			<h4 class="zoom__title">Cargo Ships</h4>
+			<p>The Knarr was the largest cargo ship of the Viking Age.
+It had a deep hull with high sides and was big enough to carry
+live animals, including cattle. These qualities made it ideal
+for settlers crossing the North Sea to the British isles,
+the Faroes, Iceland, and beyond.</p>
 		</figcaption>
-		<button type="button" class="zoom__nav zoom__nav--next" onclick="return vikings.zoom.nav(this)">
+		<button type="button" class="zoom__nav zoom__nav--next" onclick="return vikings.zoom.nav(this, event)">
 		</button>
 	</figure>
 </li>
+
 		
 			<li class="zoom minimized" onclick="vikings.zoom.toggle(this)">
 	<div class="zoom__wrapper"></div>
 	<button type="button" class="zoom__expander">
 		&times;
 	</button>
-	<figure class="zoom__figure ">
-		<button type="button" class="zoom__nav zoom__nav--back" onclick="return vikings.zoom.nav(this, true)">
+	<figure class="zoom__figure hasThumbnail" onclick="return vikings.zoom.figureClick(this, event)">
+		<button type="button" class="zoom__nav zoom__nav--back" onclick="return vikings.zoom.nav(this, event, true)">
 		</button>
 		
-		<img src="images/spice.jpg" alt="" title="" class="detail" />
-		<figcaption>
-			<h4>Coastal and River Ships</h4>
-			<p>To explore lands east of Scandinavia, the Vikings used smaller ships, which could be pulled across land between rivers. Accommodating a crew of 10 or 11 people, the <em>Krampmacken</em>, a reconstructed Viking river ship (on display in front of the exhibition), could navigate the waves of the Baltic Sea and the shallow rivers of eastern Europe.</p>
+		<img src="images/thumbs/insert-coastal-ship-2x.gif" alt="" title="" class="thumbnail" />
+		
+		<img src="images/detail/Coastal-River-Sailing-Ship.gif" alt="" title="" class="detail zoom__sliders coastalRiverShips" />
+		<figcaption class="zoom__sliders">
+			<h4 class="zoom__title">Coastal and River Ships</h4>
+			<p>To explore lands east of Scandinavia, the Vikings used smaller ships,
+which could be pulled across land between rivers. Accommodating
+a crew of 10 or 11 people, the <em>Krampmacken</em>, a reconstructed
+Viking river ship (on display in front of the exhibition), could
+navigate the waves of the Baltic Sea and the
+shallow rivers of eastern Europe.</p>
 		</figcaption>
-		<button type="button" class="zoom__nav zoom__nav--next" onclick="return vikings.zoom.nav(this)">
+		<button type="button" class="zoom__nav zoom__nav--next" onclick="return vikings.zoom.nav(this, event)">
 		</button>
 	</figure>
 </li>
+
 		
 	</ul>
 </section>
@@ -345,75 +516,99 @@ Who they were<span class="header__focus">Voyagers</span>
 
 	<section id="believers" class="slide slide--believers">
 	<h2 class="whoTheyWere whoTheyWere--face whoTheyWere--believers">
-<span class="whoTheyWere__rune"></span>
-Who they were<span class="header__focus">Believers</span>
+	<svg class="whoTheyWere__rune">
+		<use xlink:href="#k"></use>
+	</svg>
+	
+		Who they were<span class="header__focus">Believers</span>
+		
 
 </h2>
 	<figure class="aurora">
-		<img src="images/aurora.jpg" />
 	</figure>
 	<article class="blurb blurb--believers">
 		<h3><strong class="nobr">Honoring the dead,</strong> <span class="nobr">revering the sacred</span></h3>
 		<p>During the Viking Age, practitioners of Scandinavia’s old Norse religion worshipped many gods—both male and female. Although no contemporary sources survive that describe Viking rituals, later medieval written sources record Old Norse beliefs including descriptions of the Viking gods and the story of how the world was formed.</p>
 	</article>
-	<ul class="zooms zooms--believers">
+	<ul class="zooms zooms--believers only-three">
 		
 			<li class="zoom minimized" onclick="vikings.zoom.toggle(this)">
 	<div class="zoom__wrapper"></div>
 	<button type="button" class="zoom__expander">
 		&times;
 	</button>
-	<figure class="zoom__figure ">
-		<button type="button" class="zoom__nav zoom__nav--back" onclick="return vikings.zoom.nav(this, true)">
+	<figure class="zoom__figure hasThumbnail" onclick="return vikings.zoom.figureClick(this, event)">
+		<button type="button" class="zoom__nav zoom__nav--back" onclick="return vikings.zoom.nav(this, event, true)">
 		</button>
 		
-		<img src="images/spice.jpg" alt="" title="" class="detail" />
-		<figcaption>
-			<h4>The Living and the Dead</h4>
-			<p>Burial rituals provide clues about the Viking’s beliefs regarding life and death. Cremation was thought to free a person’s soul from the body, so that it could begin a new existence in the realm of the dead. Valhalla was the realm of death for warriors and the aristocracy. In Valhalla, the hall of the fallen, Odin receives dead warriors chosen by the Valkyries.</p>
+		<img src="images/thumbs/Oseberg-Ship-Burial.jpg" alt="" title="" class="thumbnail" />
+		
+		<img src="images/detail/Oseberg-Ship-Burial.jpg" alt="" title="" class="detail zoom__sliders livingDead" />
+		<figcaption class="zoom__sliders">
+			<h4 class="zoom__title">The Living and the Dead</h4>
+			<p>Burial rituals provide clues about the Vikings’ beliefs regarding life and death.
+Cremation was thought to free a person’s soul from the body, so that it
+could begin a new existence in the realm of the dead. Valhalla was the
+realm of death for warriors and the aristocracy. In Valhalla,
+the hall of the fallen, Odin receives dead warriors
+chosen by the Valkyries.</p>
 		</figcaption>
-		<button type="button" class="zoom__nav zoom__nav--next" onclick="return vikings.zoom.nav(this)">
+		<button type="button" class="zoom__nav zoom__nav--next" onclick="return vikings.zoom.nav(this, event)">
 		</button>
 	</figure>
 </li>
+
 		
 			<li class="zoom minimized" onclick="vikings.zoom.toggle(this)">
 	<div class="zoom__wrapper"></div>
 	<button type="button" class="zoom__expander">
 		&times;
 	</button>
-	<figure class="zoom__figure ">
-		<button type="button" class="zoom__nav zoom__nav--back" onclick="return vikings.zoom.nav(this, true)">
+	<figure class="zoom__figure hasThumbnail" onclick="return vikings.zoom.figureClick(this, event)">
+		<button type="button" class="zoom__nav zoom__nav--back" onclick="return vikings.zoom.nav(this, event, true)">
 		</button>
 		
-		<img src="images/spice.jpg" alt="" title="" class="detail" />
-		<figcaption>
-			<h4>Norse Gods and the Days of the Week</h4>
-			<p>Some of our weekdays were named after the Old Norse gods and goddesses: <dl><dt>Tuesday</dt><dd>is the god Tyr’s day.</dd><dt>Wednesday</dt><dd>is the god Odin’s (or Wotan’s) day.</dd><dt>Thursday</dt><dd>is the god Thor’s day.</dd><dt>Friday</dt><dd>is the goddess Frigg’s day.</dd></dl></p>
+		<img src="images/thumbs/Frigg-Pendant.jpg" alt="" title="" class="thumbnail" />
+		
+		<img src="images/detail/Frigg-Pendant.jpg" alt="" title="" class="detail zoom__sliders norseGodsDaysWeek" />
+		<figcaption class="zoom__sliders">
+			<h4 class="zoom__title">Norse Gods and the Days of the Week</h4>
+			<p>Some of our weekdays were named after the Old Norse gods and goddesses: <dl> <dt>Tuesday</dt> <dd>is the god Tyr’s day.</dd> <dt>Wednesday</dt> <dd>is the god Odin’s (or Wotan’s) day.</dd> <dt>Thursday</dt> <dd>is the god Thor’s day.</dd> <dt>Friday</dt> <dd>is the goddess Frigg’s day.</dd> </dl></p>
 		</figcaption>
-		<button type="button" class="zoom__nav zoom__nav--next" onclick="return vikings.zoom.nav(this)">
+		<button type="button" class="zoom__nav zoom__nav--next" onclick="return vikings.zoom.nav(this, event)">
 		</button>
 	</figure>
 </li>
+
 		
 			<li class="zoom minimized" onclick="vikings.zoom.toggle(this)">
 	<div class="zoom__wrapper"></div>
 	<button type="button" class="zoom__expander">
 		&times;
 	</button>
-	<figure class="zoom__figure ">
-		<button type="button" class="zoom__nav zoom__nav--back" onclick="return vikings.zoom.nav(this, true)">
+	<figure class="zoom__figure hasThumbnail" onclick="return vikings.zoom.figureClick(this, event)">
+		<button type="button" class="zoom__nav zoom__nav--back" onclick="return vikings.zoom.nav(this, event, true)">
 		</button>
 		
-		<img src="images/spice.jpg" alt="" title="" class="detail" />
-		<figcaption>
-			<h4>Christianity</h4>
-			<p>At the beginning of the Viking Age, around AD 750, Christianity was established in many parts of Europe. Over the next few centuries, Christianity spread slowly over Scandinavia. By around 1100 it had become the only religion, at least officially. Old Norse traditions and Christianity co-existed for several centuries, as evidenced by rune stones and ornamentation on jewelry combining Norse and Christian symbols.</p>
+		<img src="images/thumbs/Crucifix-Pendant.jpg" alt="" title="" class="thumbnail" />
+		
+		<img src="images/detail/Crucifix-Pendant.jpg" alt="" title="" class="detail zoom__sliders christianity" />
+		<figcaption class="zoom__sliders">
+			<h4 class="zoom__title">Christianity</h4>
+			<p>At the beginning of the Viking Age, around AD 750, Christianity was established in
+many parts of Europe. Over the next few centuries, Christianity spread slowly
+over Scandinavia. By around 1100 it had become the only religion, at least
+officially. Old Norse traditions and Christianity co-existed for
+ several centuries, as evidenced by rune stones and
+ornamentation on jewelry combining Norse
+and Christian symbols.
+</p>
 		</figcaption>
-		<button type="button" class="zoom__nav zoom__nav--next" onclick="return vikings.zoom.nav(this)">
+		<button type="button" class="zoom__nav zoom__nav--next" onclick="return vikings.zoom.nav(this, event)">
 		</button>
 	</figure>
 </li>
+
 		
 	</ul>
 </section>
@@ -422,83 +617,166 @@ Who they were<span class="header__focus">Believers</span>
 
 	<section id="visit" class="slide slide--visit">
 	<h2 class="discoverMore">
-<span class="whoTheyWere__rune"></span>
-<span class="header__focus">Discover more</span>about the Vikings
+	<svg class="whoTheyWere__rune">
+		<use xlink:href="#h"></use>
+	</svg>
+	
+		<span class="header__focus">Discover</span>The Vikings
+	
 
 </h2>
-	<article class="blurb blurb--visit">
-		<h3>Discover the Vikings in Chicago</h3>
-		<p>Visit The Field Museum and experience <em>Vikings</em>, through October 4, 2015. Get your tickets now!</p>
-	</article>
 	<figure class="filmstrip">
 	</figure>
+	<figure class="thorStone">
+		<img src="images/thor-stone.svg" class="stone">
+		<img src="images/magic.png" class="magic">
+	</figure>
+	<article class="blurb blurb--visit">
+		<h3>Visit The Field Museum and experience <em>Vikings</em></h3>
+		<h4>through October 4, 2015</h4>
+		<a href="https://tickets.fieldmuseum.org/" class="button--cta button--red" onclick="vikings.analytics.buyTicketsButtonClick(this, 'outro')">
+			<span class="button__leader">
+				<svg class="icon" viewBox="10 0 180 100">
+					<use xlink:href="#ticket-3"></use>
+				</svg>
+			</span>
+			Get your tickets now
+		</a>
+		<p>The Field Museum is open from 9am-5pm every day of the year except Christmas Day. Last admission is at 4pm daily.</p>
+		<p>The Museum is located at 1400 South Lake Shore Drive in the heart of Chicago's Museum Campus and is easily accessible <a href="http://www.fieldmuseum.org/visit/directions#by-car" onclick="vikings.analytics.visitClick(this)">via car</a> or <a href="http://www.fieldmuseum.org/visit/directions#public-transit" onclick="vikings.analytics.visitClick(this)">public transit</a>.<p>
+	</article>
+	<small class="sponsorLine">The exhibition was organized by the Swedish History Museum in Sweden, in partnership with MuseumsPartner in Austria.</small>
+	<footer class="sponsorLogos">
+			
+			<figure class="sponsorLogo sponsorLogo--discover">
+				<span class="is--visHidden">Discover</span>
+				<img src="images/discover.svg" alt="Discover" title="Discover" />
+			</figure>
+			
+			<figure class="sponsorLogo sponsorLogo--viking-cruises">
+				<span class="is--visHidden">Viking Cruises</span>
+				<img src="images/viking-cruises.svg" alt="Viking Cruises" title="Viking Cruises" />
+			</figure>
+			
+			<figure class="sponsorLogo sponsorLogo--swedish-museum">
+				<span class="is--visHidden">The Swedish History Museum</span>
+				<img src="images/swedish-history-museum.svg" alt="The Swedish History Museum" title="The Swedish History Museum" />
+			</figure>
+			
+			<figure class="sponsorLogo sponsorLogo--museums-partner">
+				<span class="is--visHidden">Museums Partner</span>
+				<img src="images/museums-partner.svg" alt="Museums Partner" title="Museums Partner" />
+			</figure>
+			
+		</footer>
 </section>
     
 
 
 
 
-	<nav class="jumpNav">
+		<nav class="jumpNav">
+	<svg class="runesMaster" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
+		<path id="f" d="M6.9,13.5v6.1H5.5V0h1.4v6.6L13.6,0l1,1L6.9,8.5v3l6.7-6.6l1,1L6.9,13.5z"/>
+		<path id="u" d="M4.6,19.7V0.3L5.9,0l10.2,19.3L14.8,20L6,3.2v16.5H4.6z"/>
+		<path id="th" d="M6,19.6V0h1.4v4L14,8.8v1.1l-6.7,4.9v4.8H6z M7.4,13.1l5.1-3.7L7.4,5.7V13.1z"/>
+		<path id="a" d="M9.4,19.6v-8L4.4,9.7l0.5-1.3l4.5,1.7V7.2L4.4,5.3L4.9,4l4.5,1.7V0h1.4v6.2L15.6,8l-0.5,1.3l-4.3-1.6
+			v2.9l4.8,1.8l-0.5,1.3l-4.3-1.6v7.5H9.4z"/>
+		<path id="r" d="M6.4,19.6V0h1.4l6.1,4.6v1.1L8.2,10l6.1,9.3L13.2,20l-5.4-8.4v8H6.4z M7.8,8.7l4.5-3.5L7.8,1.8V8.7z"
+			/>
+		<path id="k" d="M5.5,19.6V0h1.4v6.6L13.6,0l1,1L6.9,8.5v11H5.5z"/>
+		<path id="h" d="M9.2,19.6v-8.9l-2.7,2.4l-0.9-1l3.3-3l-3.3-3l0.9-1l2.7,2.4V0h1.4v7.5L13.3,5l0.9,1l-3.3,3l3.3,3
+			l-0.9,1l-2.7-2.4v8.9H9.2z"/>
+	</svg>
+
 	<ol>
 		
 		<li>
-			<a href="#introduction" class="jumpNav__link js--jumpNav__link--introduction" title="Introduction">
-				<span class="is--visHidden">Introduction</span>
+			<a href="#introduction" class="jumpNav__link js--jumpNav__link--introduction" onclick="vikings.analytics.jumpNavClick(this)">
+				<svg class="rune">
+					<use xlink:href="#f"></use>
+				</svg>
+				<span class="jumpNav__link__name">Introduction</span>
 			</a>
 		</li>
         
 		<li>
-			<a href="#world" class="jumpNav__link js--jumpNav__link--world" title="The world of the Vikings">
-				<span class="is--visHidden">The world of the Vikings</span>
+			<a href="#world" class="jumpNav__link js--jumpNav__link--world" onclick="vikings.analytics.jumpNavClick(this)">
+				<svg class="rune">
+					<use xlink:href="#u"></use>
+				</svg>
+				<span class="jumpNav__link__name">The world of the Vikings</span>
 			</a>
 		</li>
         
 		<li>
-			<a href="#farmers" class="jumpNav__link js--jumpNav__link--farmers" title="Who they were: Farmers">
-				<span class="is--visHidden">Who they were: Farmers</span>
+			<a href="#farmers" class="jumpNav__link js--jumpNav__link--farmers" onclick="vikings.analytics.jumpNavClick(this)">
+				<svg class="rune">
+					<use xlink:href="#th"></use>
+				</svg>
+				<span class="jumpNav__link__name">Who they were: Farmers</span>
 			</a>
 		</li>
         
 		<li>
-			<a href="#traders-craftspeople" class="jumpNav__link js--jumpNav__link--traders-craftspeople" title="Who they were: Traders & Craftspeople">
-				<span class="is--visHidden">Who they were: Traders & Craftspeople</span>
+			<a href="#traders-craftspeople" class="jumpNav__link js--jumpNav__link--traders-craftspeople" onclick="vikings.analytics.jumpNavClick(this)">
+				<svg class="rune">
+					<use xlink:href="#a"></use>
+				</svg>
+				<span class="jumpNav__link__name">Who they were: Traders & Craftspeople</span>
 			</a>
 		</li>
         
 		<li>
-			<a href="#voyagers" class="jumpNav__link js--jumpNav__link--voyagers" title="Who they were: Voyagers">
-				<span class="is--visHidden">Who they were: Voyagers</span>
+			<a href="#voyagers" class="jumpNav__link js--jumpNav__link--voyagers" onclick="vikings.analytics.jumpNavClick(this)">
+				<svg class="rune">
+					<use xlink:href="#r"></use>
+				</svg>
+				<span class="jumpNav__link__name">Who they were: Voyagers</span>
 			</a>
 		</li>
         
 		<li>
-			<a href="#believers" class="jumpNav__link js--jumpNav__link--believers" title="Who they were: Believers">
-				<span class="is--visHidden">Who they were: Believers</span>
+			<a href="#believers" class="jumpNav__link js--jumpNav__link--believers" onclick="vikings.analytics.jumpNavClick(this)">
+				<svg class="rune">
+					<use xlink:href="#k"></use>
+				</svg>
+				<span class="jumpNav__link__name">Who they were: Believers</span>
 			</a>
 		</li>
         
 		<li>
-			<a href="#visit" class="jumpNav__link js--jumpNav__link--visit" title="Discover more about the Vikings">
-				<span class="is--visHidden">Discover more about the Vikings</span>
+			<a href="#visit" class="jumpNav__link js--jumpNav__link--visit" onclick="vikings.analytics.jumpNavClick(this)">
+				<svg class="rune">
+					<use xlink:href="#h"></use>
+				</svg>
+				<span class="jumpNav__link__name">Discover The Vikings</span>
 			</a>
 		</li>
         
 	</ol>
 </nav>
-	<header class="logoHeader">
-  <figure class="logoHeader__fieldLogo">
-    <span class="logoHeader__fieldLogo__name is--visHidden">The Field Museum</span>
-    <img src="images/field-logo-white.svg" />
-  </figure>
-  <h1 class="logoHeader__vikingsLogo">
-    <span class="logoHeader__vikingsLogo__name is--visHidden">Vikings</span>
-    <img src="images/vikings-logo.svg" />
-  </h1>
+		<header class="logoHeader">
+	<nav class="logoHeader__globalItems">
+		<ul>
+			<li><a href="https://www.fieldmuseum.org/visit/" onclick="vikings.analytics.headerNavClick(this);">Plan your Visit</a></li>
+			<li><a href="https://store.fieldmuseum.org/field-favorites/current-exhibits/vikings.html" onclick="vikings.analytics.headerNavClick(this);">Shop Vikings</a></li>
+			<li><a href="https://tickets.fieldmuseum.org/" onclick="vikings.analytics.buyTicketsButtonClick(this, 'header')">Buy Tickets</a></li>
+			<!--<li><a href="" onclick="vikings.analytics.headerNavClick(this);">For Educators</a></li>-->
+		</ul>
+	</nav>
+	<a class="logoHeader__fieldLogo" href="https://www.fieldmuseum.org/" onclick="vikings.analytics.headerNavClick(this);">
+		<span class="logoHeader__fieldLogo__name is--visHidden">The Field Museum</span>
+		<img src="images/field-logo-white.svg" />
+	</a>
+	<a class="logoHeader__vikingsLogo" href="#">
+		<span class="logoHeader__vikingsLogo__name is--visHidden" onclick="vikings.analytics.headerNavClick(this);">Vikings</span>
+		<img src="images/vikings-logo.svg" />
+	</a>
 </header>
 
 
-	<div class="overlay hidden" onclick="vikings.zoom.toggle()"></div>
-
-  </body>
-
+		<div class="overlay hidden" onclick="vikings.zoom.toggle()"></div>
+	</body>
 </html>
