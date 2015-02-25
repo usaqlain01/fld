@@ -45,8 +45,14 @@ window.vikings.analytics.event = function(category, action, label) {
 
 	window.vikings.onScroll = onScroll;
 
-	window.vikings.sectionFrontMargin = function() {
-		return 100;
+
+	window.vikings.sectionFrontMargin = function(target) {
+		if (target.attr("id") == "believers")
+			return -1 * $(window).height() / 2;
+		if (target.attr("id") == "world")
+			return 0;
+		else 
+			return 100;
 	}
 
 	$(function(){
@@ -100,13 +106,12 @@ vikings.onScroll(function(down, scrollTop, last){
 $(function(){
 
 	var slideTops = {};
-
 	var refreshSlideTops = function() {
 		slideTops = {};
 		$(".slide").each(function(){
 			var $this = $(this);
 			var offset = $(this).offset();
-			slideTops[Math.max(offset.top - vikings.sectionFrontMargin(), 0)] = this.id;
+			slideTops[Math.max(offset.top - vikings.sectionFrontMargin($this), 0)] = this.id;
 		});
 	}
 
