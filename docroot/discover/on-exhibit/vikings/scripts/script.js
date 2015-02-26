@@ -412,6 +412,9 @@ vikings.zoom.figureClick = function(figure, event) {
 		event.stopPropagation();
 }
 
+$(function(){ 
+	$(".slide--intro").height($(window).height());
+});
 
 //make sure all scroll callbacks fire on first load
 $(function(){ 
