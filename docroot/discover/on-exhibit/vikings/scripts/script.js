@@ -412,9 +412,68 @@ vikings.zoom.figureClick = function(figure, event) {
 		event.stopPropagation();
 }
 
+function updateProgressBar() {
+	if (currentlyPlaying && currentlyPlayingPb) {
+		currentlyPlayingPb.css("width", currentlyPlaying.currentTime * 100 / currentlyPlaying.duration + "%");
+
+		if (!currentlyPlaying.paused) {
+			requestAnimationFrame(updateProgressBar);
+		}
+	}
+}
+
+var currentlyPlaying = null;
+var currentlyPlayingPb = null;
+
+$(function(){
+	$(".audioPlayer__playPause").click(function(){
+		var container = $(this).closest(".audioPlayer");
+		var audio = container.find("audio")[0];
+		var playing = !audio.paused;
+		if (playing) {
+			audio.pause();
+		}
+		else {
+			if (currentlyPlaying && !currentlyPlaying.paused) {
+				currentlyPlaying.pause();
+			}
+			audio.play();
+			currentlyPlaying = audio;
+			currentlyPlayingPb = container.find(".audioPlayer__progressBar__progress");
+			container.addClass("playing");
+			requestAnimationFrame(updateProgressBar);
+		}
+	});
+	$(".audioPlayer audio").on("pause", function(){
+		$(this).closest(".audioPlayer").removeClass("playing");
+	});
+})
+
+
+var svgManifest = [
+	"images/field-logo-white.svg",
+	"images/vikings-logo.svg"
+];
+
+$(function(){
+	for(var key in svgManifest) {
+		$.ajax({ 
+			url: svgManifest[key],
+		 	complete: function(data){ 
+				$(".svgHideContainer").append(data.responseText); 
+			}
+		});
+	} 
+});
+
+
+
+
+/*
 $(function(){ 
 	$(".slide--intro").height($(window).height());
 });
+*/
 
 //make sure all scroll callbacks fire on first load
 $(function(){ 
