@@ -28,6 +28,10 @@ window.vikings.analytics.visitClick = function(link) {
 	window.vikings.analytics.event("one-page", "visit-click", text)
 }
 
+window.vikings.analytics.introFMLogoClick = function() {
+	window.vikings.analytics.event("one-page", "intro-fm-logo-click")
+}
+
 window.vikings.analytics.event = function(category, action, label) {
 	ga('send', 'event', category, action, label);
 	//console.log("category: " + category + " action: " + action + " label: " + label)
