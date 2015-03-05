@@ -902,3 +902,5 @@ $(window).resize(function(){
   };
 
 }));
+
+viewportUnitsBuggyfill.init();
