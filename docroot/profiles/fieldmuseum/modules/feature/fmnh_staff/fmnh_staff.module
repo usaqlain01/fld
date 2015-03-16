@@ -171,9 +171,9 @@ function fmnh_staff_filter($selected = '') {
       'public-relations' => 'Public Relations',
       'exhibitions' => 'Exhibitions',
       'communications' => 'Communications',
-      'marketing' => 'marketing',
+      'marketing' => 'Marketing',
       'guest-relations' => 'Guest Relations',
-      'theater' => 'Theater',
+#     'theater' => 'Theater',
     ),
     'Operations' => array(
       'special-events-and-group-sales' => 'Special Events and Group Sales',
