@@ -23,7 +23,7 @@ class EntityQueue {
   /**
    * @var string $language
    */
-  public $langauge = '';
+  public $language = '';
 
   /**
    * @var string $handler
@@ -48,7 +48,7 @@ class EntityQueue {
   /**
    * @var int $export_type
    */
-  public $export_type = EXPORT_IN_CODE;
+  public $export_type = '';
 
   /**
    * @var bool $is_new
