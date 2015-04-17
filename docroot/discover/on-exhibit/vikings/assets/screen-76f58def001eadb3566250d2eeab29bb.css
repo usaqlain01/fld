@@ -1,0 +1,2238 @@
+/* line 5, /Users/gtroyerjoy/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, /Users/gtroyerjoy/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, /Users/gtroyerjoy/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, /Users/gtroyerjoy/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, /Users/gtroyerjoy/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, /Users/gtroyerjoy/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, /Users/gtroyerjoy/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, /Users/gtroyerjoy/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, /Users/gtroyerjoy/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 1, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+* {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smoothing: antialiased;
+}
+
+/* line 7, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.serif, body, .header__focus, .discoverMore {
+  font-family: "freight-text-pro",Georgia,Times,"Times New Roman",serif;
+  line-height: 1.5;
+}
+
+/* line 11, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.sans, h1, h2, h3, h4, h5, h6, .jumpNav__link__name, .logoHeader__globalItems li a, .audioPlayer__description, .button--cta, .world__exploreTitle {
+  font-family: "proxima-nova","Helvetica Neue",Helmet,Freesans,sans-serif;
+  line-height: 1.2;
+}
+
+/* line 15, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+body {
+  text-align: center;
+}
+
+/* line 19, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 900;
+  font-size: 2em;
+}
+
+/* line 24, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+button, a {
+  cursor: pointer;
+}
+
+/* line 27, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+strong {
+  font-weight: 900;
+}
+
+/* line 30, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+em {
+  font-style: italic;
+}
+
+/* line 36, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.browserWarning {
+  display: none;
+  position: fixed;
+  z-index: 9000;
+  height: 100%;
+  width: 100%;
+  background: #000;
+  color: #fff;
+  right: 0px;
+  top: 0px;
+}
+
+/* line 47, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.browserWarning__text {
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* line 52, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.browserWarning__text a {
+  color: #fff;
+}
+
+/* line 55, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.browserWarning__text h1 {
+  margin-bottom: .75em;
+}
+
+/* line 58, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.browserWarning__text p,
+.browserWarning__hide {
+  margin-bottom: 2em;
+}
+
+/* line 63, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.browserWarning__hide {
+  background: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  font-size: 0.9em;
+}
+
+/* line 69, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.oldIE .browserWarning {
+  display: block;
+}
+
+/* line 72, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.is--visHidden, audio {
+  position: absolute !important;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+/* line 81, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.nobr {
+  white-space: nowrap;
+}
+
+/* line 85, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.slide {
+  background-size: cover;
+}
+
+/* Jump Nav */
+/* line 91, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.jumpNav {
+  position: fixed;
+  right: 0;
+  top: calc(50vh - 130px);
+  /* minus half height */
+}
+
+/* line 96, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.jumpNav__link {
+  background: rgba(255, 255, 255, 0.625);
+  width: 1.75em;
+  height: 1.75em;
+  display: block;
+  margin: .5em 1em;
+  border-radius: 50%;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.25);
+  -moz-transition: background-color 0.5s;
+  -o-transition: background-color 0.5s;
+  -webkit-transition: background-color 0.5s;
+  transition: background-color 0.5s;
+  position: relative;
+}
+
+/* line 107, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.jumpNav__link__name {
+  color: #000;
+  position: absolute;
+  text-decoration: none;
+  right: 35px;
+  white-space: nowrap;
+  bottom: calc(50% - 9px);
+  opacity: 0;
+  visibility: hidden;
+  -moz-transition: opacity 0.25s linear, visibility 0s 0.25s;
+  -o-transition: opacity 0.25s linear, visibility 0s 0.25s;
+  -webkit-transition: opacity 0.25s linear, visibility 0s;
+  -webkit-transition-delay: 0s, 0.25s;
+  transition: opacity 0.25s linear, visibility 0s 0.25s;
+}
+
+/* line 119, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.jumpNav__link:hover .jumpNav__link__name {
+  opacity: 1;
+  visibility: visible;
+  -moz-transition: opacity 0.1s linear, visibility 0s 0.1s;
+  -o-transition: opacity 0.1s linear, visibility 0s 0.1s;
+  -webkit-transition: opacity 0.1s linear, visibility 0s;
+  -webkit-transition-delay: 0s, 0.1s;
+  transition: opacity 0.1s linear, visibility 0s 0.1s;
+}
+
+/* line 125, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.jumpNav__link svg {
+  width: 20px;
+  height: 20px;
+  margin: 4px;
+  fill: #000;
+  -moz-transform: scale(0.6, 0.6);
+  -ms-transform: scale(0.6, 0.6);
+  -webkit-transform: scale(0.6, 0.6);
+  transform: scale(0.6, 0.6);
+}
+
+/* line 133, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.jumpNav__link--selected {
+  background: #d72f35;
+}
+
+/* line 136, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.jumpNav__link--selected svg {
+  fill: #fff;
+}
+
+/* line 140, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.svgHideContainer {
+  display: none;
+}
+
+/* Logo Header */
+/* line 146, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.logoHeader {
+  width: 100%;
+  height: 65px;
+  background: #000;
+  background: rgba(0, 0, 0, 0.85);
+  position: fixed;
+  top: 0;
+  overflow: hidden;
+  display: none;
+}
+
+/* line 157, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.logoHeader__fieldLogo,
+.logoHeader__vikingsLogo {
+  display: block;
+  height: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* line 164, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.logoHeader a {
+  -moz-transition: background 1s, color 1s;
+  -o-transition: background 1s, color 1s;
+  -webkit-transition: background 1s, color 1s;
+  transition: background 1s, color 1s;
+}
+
+/* line 167, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.logoHeader a:hover {
+  -moz-transition: background 0.25s, color 0.25s;
+  -o-transition: background 0.25s, color 0.25s;
+  -webkit-transition: background 0.25s, color 0.25s;
+  transition: background 0.25s, color 0.25s;
+}
+
+/* line 170, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.logoHeader__fieldLogo {
+  float: left;
+  height: 100%;
+}
+
+/* line 174, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.logoHeader__fieldLogo:hover {
+  background: #84a726;
+}
+
+/* line 177, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.logoHeader__vikingsLogo {
+  margin: auto;
+  width: 140px;
+}
+
+@media screen and (max-width: 64.0625em) {
+  /* line 182, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+  .logoHeader__vikingsLogo {
+    float: left;
+  }
+}
+/* line 186, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.logoHeader__vikingsLogo:hover {
+  background: #d72f35;
+}
+
+/* line 189, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.logoHeader__fieldLogo svg,
+.logoHeader__vikingsLogo img {
+  height: 100%;
+}
+
+/* line 194, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.logoHeader__globalItems {
+  float: right;
+}
+
+/* line 197, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.logoHeader__globalItems li {
+  display: inline;
+}
+
+/* line 200, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.logoHeader__globalItems li a {
+  height: 65px;
+  display: inline-block;
+  line-height: 65px;
+  margin: 0 13px;
+  text-decoration: none;
+  color: #fff;
+}
+
+/* line 209, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.logoHeader__globalItems li a:hover {
+  color: #d72f35;
+}
+
+/* Subheaders */
+/* line 215, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.whoTheyWere, .discoverMore {
+  background: url(../images/coins.svg);
+  background-size: 430px;
+  display: block;
+  margin: auto;
+  width: 200px;
+  height: 200px;
+  padding: 12px 0px;
+  box-sizing: border-box;
+  font-weight: normal;
+  font-size: 1.2em;
+}
+
+/* line 227, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.whoTheyWere--quadrants {
+  background-position: -10px -10px;
+}
+
+/* line 230, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.whoTheyWere--cross,
+.discoverMore {
+  background-position: -220px -10px;
+}
+
+/* line 234, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.whoTheyWere--blueCross {
+  background-position: -220px -220px;
+}
+
+/* line 237, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.whoTheyWere--face {
+  background-position: -10px -220px;
+}
+
+/* line 241, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.whoTheyWere__rune {
+  display: block;
+  height: 20px;
+  width: 18px;
+  -moz-transform: scale(1.25, 1.25);
+  -ms-transform: scale(1.25, 1.25);
+  -webkit-transform: scale(1.25, 1.25);
+  transform: scale(1.25, 1.25);
+  margin: 0.1em auto 0.7em;
+}
+
+/* line 249, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.slide:nth-child(3) .whoTheyWere__rune {
+  background-position: center top;
+}
+
+/* line 252, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.slide:nth-child(4) .whoTheyWere__rune {
+  background-position: center -25px;
+}
+
+/* line 255, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.slide:nth-child(5) .whoTheyWere__rune {
+  background-position: center -50px;
+}
+
+/* line 258, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.slide:nth-child(6) .whoTheyWere__rune {
+  background-position: center -75px;
+}
+
+/* line 261, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.slide:nth-child(7) .whoTheyWere__rune {
+  background-position: center -100px;
+}
+
+/* line 265, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.header__focus {
+  display: block;
+}
+
+/* line 268, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.header__focus, .discoverMore {
+  font-size: 1.8em;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+/* blurbs */
+/* line 278, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.blurb,
+.subBlurb {
+  max-width: 650px;
+  margin: 1em auto;
+  padding: 0 4em;
+}
+
+/* line 284, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.blurb h3 {
+  font-weight: 100;
+  margin-bottom: 1em;
+}
+
+/* line 288, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.blurb h3 strong {
+  font-weight: 900;
+}
+
+/* player */
+/* line 294, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.audioPlayer {
+  padding: 10px 0px;
+  text-align: left;
+  max-width: 525px;
+}
+
+/* line 299, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.audioPlayer__description {
+  display: block;
+  color: #000;
+}
+
+/* line 304, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.audioPlayer__description .title {
+  display: block;
+  padding-bottom: 5px;
+}
+
+/* line 308, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.audioPlayer,
+.audioPlayer__progressBar {
+  overflow: hidden;
+}
+
+/* line 313, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.audioPlayer__playPause {
+  margin: 0;
+  padding: 0;
+  border: 1px solid black;
+  background: transparent;
+  width: 50px;
+  height: 50px;
+  outline: none;
+  float: left;
+  margin-right: 10px;
+}
+
+/* line 324, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.audioPlayer__playPause .play,
+.playing .audioPlayer__playPause .pause {
+  display: block;
+}
+
+/* line 328, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.playing .audioPlayer__playPause .play,
+.audioPlayer__playPause .pause {
+  display: none;
+}
+
+/* line 332, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.audioPlayer__progressBar {
+  background: grey;
+  height: 3px;
+  position: relative;
+  background: rgba(0, 0, 0, 0.25);
+}
+
+/* line 339, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.audioPlayer__progressBar__progress {
+  position: absolute;
+  height: 100%;
+  background: red;
+}
+
+/* line 344, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.audioPlayer__playPause .play,
+.audioPlayer__playPause .pause {
+  width: 100%;
+  height: 100%;
+}
+
+/* tray */
+/* line 351, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.sections {
+  position: relative;
+  right: 0;
+}
+
+/* line 357, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.tray {
+  text-align: left;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  overflow: scroll;
+  width: 700px;
+  background: transparent;
+  -moz-transform: translateX(110%);
+  -ms-transform: translateX(110%);
+  -webkit-transform: translateX(110%);
+  transform: translateX(110%);
+  padding: 50px;
+  box-sizing: border-box;
+  box-shadow: -25px 0px 50px -20px rgba(0, 0, 0, 0.5);
+  background: #fff;
+  z-index: 500000;
+}
+
+/* line 376, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.sections,
+.tray,
+.jumpNav,
+.logoHeader {
+  -moz-transition: -moz-transform 0.5s ease-in-out;
+  -o-transition: -o-transform 0.5s ease-in-out;
+  -webkit-transition: -webkit-transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out;
+}
+
+/* line 382, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.trayOpen {
+  overflow: hidden;
+}
+
+/* line 386, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.trayOpen .tray {
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+}
+/* line 389, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.trayOpen .sections, .trayOpen .jumpNav, .trayOpen .logoHeader {
+  z-index: -500;
+}
+
+/* line 400, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.trayOpen--visit .tray .educators,
+.trayOpen--visit .tray .programs {
+  display: none;
+}
+
+/* line 406, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.trayOpen--educators .tray .visit,
+.trayOpen--educators .tray .programs {
+  display: none;
+}
+
+/* line 412, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.trayOpen--programs .tray .visit,
+.trayOpen--programs .tray .educators {
+  display: none;
+}
+
+/* line 418, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.tray__closeButton {
+  float: right;
+  border: none;
+  background: #d72f35;
+  color: #fff;
+  font-size: 1.5em;
+  line-height: 0.5em;
+  vertical-align: baseline;
+  padding: 0.4em 0.5em 0.65em;
+  display: inline;
+  outline: none;
+}
+
+/* line 430, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.tray__sectionHeader {
+  color: #2FA4DC;
+  font-weight: 800;
+  font-size: 2.25em;
+}
+
+/* line 435, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.tray__programHeader {
+  font-size: 1.25em;
+  margin-bottom: 0.25em;
+  color: #666;
+}
+
+/* line 440, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.tray__programHeader a {
+  color: #666;
+  text-decoration: none;
+}
+
+/* line 444, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.tray__programs > li {
+  margin: 1em 0 2em 0;
+}
+
+/* line 447, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.tray__programIconWrapper {
+  float: left;
+  background: #000;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+/* line 453, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.tray__programIconWrapper,
+.tray__programIcon {
+  height: 100px;
+  width: 100px;
+}
+
+/* line 458, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.tray__programs li p {
+  margin-bottom: 1em;
+}
+
+/* line 461, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.tray__programs li h3,
+.tray__programs li p,
+.tray__programs li ul,
+.tray__programs li dl {
+  margin-left: 140px;
+}
+
+/* line 467, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.tray__programs li ul {
+  border-left: 1px solid gray;
+  padding: 0 1em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+/* line 473, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.tray__programs li ul li {
+  margin: .5em 0;
+}
+
+/* line 476, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_base.scss */
+.tray__programs li ul .date {
+  font-weight: bold;
+}
+
+/* line 1, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_from-pattern-lab.scss */
+dl {
+  margin: 1em 0;
+  list-style-type: none;
+}
+
+/* line 5, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_from-pattern-lab.scss */
+dt {
+  display: inline;
+  color: #497d8d;
+  font-weight: 700;
+  font-family: "proxima-nova", "Helvetica Neue", Helmet, Freesans, sans-serif;
+}
+
+/* line 11, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_from-pattern-lab.scss */
+dt:after {
+  margin-left: 4px;
+  color: silver;
+  content: '\2022';
+}
+
+/* line 17, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_from-pattern-lab.scss */
+dd {
+  display: inline;
+}
+
+/* line 20, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_from-pattern-lab.scss */
+dd:after {
+  display: block;
+  clear: both;
+  margin-bottom: 0.5em;
+  width: 100%;
+  content: '';
+}
+
+/* line 28, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_from-pattern-lab.scss */
+.button--cta {
+  border: 0;
+  background: #a0c6d2;
+  padding: 0.5em 1em;
+  color: white;
+  font-size: 1em;
+  margin: 0 0.5em 0.5em 0;
+  display: inline-block;
+  overflow: hidden;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 500;
+  line-height: 1;
+}
+
+/* line 45, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_from-pattern-lab.scss */
+.button__leader {
+  display: inline-block;
+  color: white;
+  font-weight: 800;
+}
+
+/* line 51, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_from-pattern-lab.scss */
+.button--cta .button__leader {
+  background: #708a93;
+  margin: -0.5em 0.5em -0.5em -1em;
+  padding: 0.5em 0.5em 0.5em;
+}
+
+/* line 57, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_from-pattern-lab.scss */
+.button__leader .icon {
+  margin: -0.25em 0;
+  width: 1.25em;
+  height: 1.25em;
+  fill: white;
+}
+
+@media screen and (max-width: 46.875em) {
+  /* line 2, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_mobile.scss */
+  .jumpNav__link {
+    margin: 0.5em;
+  }
+
+  /* line 5, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_mobile.scss */
+  .jumpNav .jumpNav__link__name {
+    display: none;
+  }
+
+  /* line 8, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_mobile.scss */
+  .jumpNav {
+    display: none;
+  }
+
+  /* line 11, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_mobile.scss */
+  .logoHeader {
+    display: none !important;
+  }
+
+  /* line 14, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_mobile.scss */
+  .zooms {
+    display: none;
+  }
+
+  /* line 17, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_mobile.scss */
+  h1, h2, h3, h4, h5, h6 {
+    font-size: 1.5em;
+  }
+
+  /* line 20, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_mobile.scss */
+  .blurb, .subBlurb {
+    padding: 15px;
+  }
+
+  /* line 23, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_mobile.scss */
+  .slide--visit {
+    padding: 0;
+  }
+
+  /* line 26, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/_mobile.scss */
+  .map {
+    display: none !important;
+  }
+}
+/* line 4, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+.zoomOverOuter, .zoom__expander, .zoom__figure {
+  z-index: 5;
+}
+
+/* line 11, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+.zoom {
+  text-align: center;
+  display: inline-block;
+  border-radius: 50%;
+  position: relative;
+  width: 50vw;
+  height: 50vw;
+  box-shadow: none;
+}
+
+/* line 23, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+.zoom.minimized {
+  background: rgba(0, 0, 0, 0.35);
+  width: 200px;
+  height: 200px;
+  box-shadow: 0px 0px 10px #000;
+  bottom: calc(50% - 100px);
+  cursor: pointer;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* line 39, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+.zoom__wrapper {
+  display: none;
+  border: 1px solid white;
+  border-radius: 50%;
+  padding: 5px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: -6px;
+}
+
+/* line 50, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+.zoom.minimized .zoom__wrapper {
+  display: block;
+}
+
+/* line 56, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+.zoom__expander {
+  width: 40px;
+  height: 40px;
+  outline: none;
+  margin: 0 auto;
+  position: absolute;
+  border: none;
+  display: block;
+  text-align: center;
+  border-radius: 100px 100px 0px 0px;
+  font-size: 1.25em;
+  line-height: 0em;
+  top: -40px;
+  left: calc(50% - 20px);
+  box-shadow: -2px 0px 10px -2px #000;
+  -moz-transition: -moz-transform 1s, -moz-transform-origin 1s, background 1s, color 1s;
+  -o-transition: -o-transform 1s, -o-transform-origin 1s, background 1s, color 1s;
+  -webkit-transition: -webkit-transform 1s, -webkit-transform-origin 1s, background 1s, color 1s;
+  transition: transform 1s, transform-origin 1s, background 1s, color 1s;
+}
+
+/* line 78, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+.zoom__expander {
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+  -moz-transform-origin: 20px calc(25vw + 39px);
+  -ms-transform-origin: 20px calc(25vw + 39px);
+  -webkit-transform-origin: 20px calc(25vw + 39px);
+  transform-origin: 20px calc(25vw + 39px);
+  color: #fff;
+  background: #d72f35;
+}
+
+/* line 86, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+.zoom.minimized .zoom__expander {
+  cursor: pointer;
+  color: #000;
+  background: #fff;
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  -moz-transform-origin: 23px 137px;
+  -ms-transform-origin: 23px 137px;
+  -webkit-transform-origin: 23px 137px;
+  transform-origin: 23px 137px;
+}
+
+/* line 94, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+.zoom__figure {
+  overflow: hidden;
+  border-radius: 50%;
+  border: 5px solid white;
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* line 106, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+.zoom__figure .detail {
+  height: 50%;
+  width: auto;
+  margin: 7% 0 3%;
+}
+
+/* line 113, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+.zoom__figure .keysForLady {
+  height: 48%;
+  margin: 9% 0 3%;
+}
+/* line 117, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+.zoom__figure .landFamilyFarming {
+  height: auto;
+  width: 100%;
+  margin: 0 0 3%;
+}
+/* line 122, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+.zoom__figure .longhouses {
+  width: 80%;
+  height: auto;
+  margin: 10% 0 3%;
+}
+/* line 127, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+.zoom__figure .ironAxe {
+  width: 60%;
+  height: auto;
+  margin: 12% 0 3%;
+}
+/* line 132, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+.zoom__figure .ringHeadedBrooch {
+  width: 70%;
+  height: auto;
+  margin: 12% 0 3%;
+}
+/* line 137, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+.zoom__figure .warships, .zoom__figure .cargoShips, .zoom__figure .coastalRiverShips {
+  width: 100%;
+  height: auto;
+}
+/* line 141, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+.zoom__figure .warships {
+  margin: 9% 0 3%;
+}
+/* line 144, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+.zoom__figure .cargoShips {
+  margin: 14.5% 0 3%;
+}
+/* line 147, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+.zoom__figure .coastalRiverShips {
+  margin: 35.3% 0 3%;
+}
+/* line 150, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+.zoom__figure .livingDead {
+  width: 100%;
+  height: auto;
+  margin-top: 0;
+}
+/* line 155, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+.zoom__figure .norseGodsDaysWeek, .zoom__figure .christianity {
+  margin-top: 5%;
+}
+
+/* line 160, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+.zoom.minimized .detail,
+.zoom .thumbnail,
+.zoom.minimized figcaption p,
+.zoom.minimized figcaption dl {
+  display: none;
+}
+
+/* line 166, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+.zoom.minimized .thumbnail {
+  display: block;
+  height: 100%;
+  width: auto;
+}
+
+/* line 172, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+.zoom.minimized .zoom__figure figcaption {
+  width: 100%;
+  height: 100%;
+  background: #d72f35;
+  background: rgba(215, 47, 53, 0.85);
+  color: #fff;
+}
+
+/* line 179, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+.zoom.minimized .zoom__figure figcaption h4 {
+  font-weight: 300;
+}
+
+/* line 183, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+.zoom.minimized .zoom__figure figcaption {
+  display: none;
+}
+
+/* line 186, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+.zoom.minimized:hover .zoom__figure figcaption {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+}
+
+/* line 194, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+.zoom__figure figcaption p,
+.zoom__figure figcaption dl {
+  font-size: 1.2vw;
+  line-height: 2vw;
+  white-space: pre-line;
+}
+
+/* line 200, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+.zoom__figure figcaption h4 {
+  font-size: 2.25vw;
+  line-height: 3.25vw;
+  margin-bottom: .5vw;
+}
+
+/* line 205, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+.zoom.minimized .zoom__figure figcaption h4 {
+  font-size: 1.8em;
+  line-height: 1.25em;
+  margin-bottom: 0;
+}
+
+/* line 211, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+.zoom.minimized {
+  z-index: 0;
+}
+
+/* line 215, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+.zoom.animating {
+  box-shadow: none;
+}
+
+/* line 218, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+.zoom.animating .zoom__figure {
+  background: transparent;
+}
+
+/* line 221, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+.zoom.animating .zoom__figure * {
+  display: none !important;
+}
+
+/* line 225, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+.zoom {
+  background: #fff;
+  position: absolute;
+  display: inline-block;
+  border-radius: 50%;
+  bottom: 0px;
+  right: calc(50% - 25vw);
+  -moz-transition: bottom 1s, right 1s, width 1s, height 1s, background 1s;
+  -o-transition: bottom 1s, right 1s, width 1s, height 1s, background 1s;
+  -webkit-transition: bottom 1s, right 1s, width 1s, height 1s, background 1s;
+  transition: bottom 1s, right 1s, width 1s, height 1s, background 1s;
+  z-index: 1;
+}
+
+/* line 235, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+.zooms.zooms--absolute .zoom {
+  bottom: calc(50% - 25vw);
+}
+
+/* line 238, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+.zoom__figure {
+  background: #fff;
+  overflow: hidden;
+  height: 100%;
+}
+
+/* line 244, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+.zoom.minimized .zoom__figure {
+  background: transparent;
+}
+/* line 247, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+.zoom.minimized .zoom__figure.hasThumbnail {
+  background: #fff;
+}
+
+/* line 252, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+.zoom.minimized:nth-last-child(1) {
+  right: calc(23% - 100px);
+}
+
+/* line 255, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+.zoom.minimized:nth-last-child(2) {
+  right: calc(43% - 100px);
+}
+
+/* line 258, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+.zoom.minimized:nth-last-child(3) {
+  right: calc(63% - 100px);
+}
+
+/* line 261, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+.zoom.minimized:nth-last-child(4) {
+  right: calc(83% - 100px);
+}
+
+/* line 265, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+.only-three .zoom.minimized:nth-last-child(1) {
+  right: calc(25% - 100px);
+}
+
+/* line 268, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+.only-three .zoom.minimized:nth-last-child(2) {
+  right: calc(50% - 100px);
+}
+
+/* line 271, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+.only-three .zoom.minimized:nth-last-child(3) {
+  right: calc(75% - 100px);
+}
+
+/* line 275, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+.zoom:last-child .zoom__nav--next,
+.zoom:first-child .zoom__nav--back {
+  display: none;
+}
+
+/* line 282, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+.zoom__nav {
+  outline: none;
+  border: none;
+  background: url(../images/arrows.svg);
+  width: 3vw;
+  height: 5.4vw;
+  background-size: 200%;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  position: absolute;
+  top: calc(50% - 2.7vw);
+}
+
+/* line 295, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+.zoom__nav--back {
+  background-position: top left;
+  left: .5vw;
+  z-index: 5;
+}
+
+/* line 300, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+.zoom__nav--next {
+  background-position: top right;
+  right: .5vw;
+}
+
+/* line 304, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+.zoom.minimized .zoom__nav {
+  display: none;
+}
+
+/* line 308, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+.zoom__navigating--hide .zoom__sliders {
+  -moz-transform: translateX(-100%);
+  -ms-transform: translateX(-100%);
+  -webkit-transform: translateX(-100%);
+  transform: translateX(-100%);
+}
+
+/* line 312, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+.zoom__navigating--show .zoom__sliders {
+  -moz-transform: translateX(100%);
+  -ms-transform: translateX(100%);
+  -webkit-transform: translateX(100%);
+  transform: translateX(100%);
+}
+
+/* line 316, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+.zoom__navigating.zoom,
+.zoom__navigating.zoom.minimized,
+.zoom__navigating .zoom__expander {
+  -moz-transition: none;
+  -o-transition: none;
+  -webkit-transition: none;
+  transition: none;
+}
+
+/* line 322, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+.zoom__sliders {
+  -moz-transition: -moz-transform 1s;
+  -o-transition: -o-transform 1s;
+  -webkit-transition: -webkit-transform 1s;
+  transition: transform 1s;
+  -moz-transform: translateX(0%);
+  -ms-transform: translateX(0%);
+  -webkit-transform: translateX(0%);
+  transform: translateX(0%);
+}
+
+/* line 328, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.75);
+  -moz-transition: background 0.5s linear 0.5s;
+  -o-transition: background 0.5s linear 0.5s;
+  -webkit-transition: background 0.5s linear;
+  -webkit-transition-delay: 0.5s;
+  transition: background 0.5s linear 0.5s;
+}
+
+/* line 337, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+.overlay.hidden {
+  background: transparent;
+  visibility: hidden;
+}
+
+/* line 342, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+.zooms {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  padding: 2em 0;
+}
+
+/* line 348, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+.zooms .zoom {
+  bottom: 2em;
+}
+
+@media screen and (max-width: 64.0625em) {
+  /* line 357, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+  .zoom.minimized {
+    width: 145px;
+    height: 145px;
+    -moz-transform: none;
+    -ms-transform: none;
+    -webkit-transform: none;
+    transform: none;
+  }
+
+  /* line 362, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+  .zoom.minimized .zoom__expander {
+    -moz-transform-origin: 23px 109.5px;
+    -ms-transform-origin: 23px 109.5px;
+    -webkit-transform-origin: 23px 109.5px;
+    transform-origin: 23px 109.5px;
+  }
+
+  /* line 365, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+  .zoom.minimized .zoom__wrapper {
+    display: none;
+  }
+
+  /* line 368, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+  .zoom {
+    -moz-transform: scale(1.5, 1.5);
+    -ms-transform: scale(1.5, 1.5);
+    -webkit-transform: scale(1.5, 1.5);
+    transform: scale(1.5, 1.5);
+  }
+
+  /* line 371, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+  .zoom.minimized .zoom__figure figcaption h4 {
+    font-size: 1.2em;
+  }
+
+  /* line 377, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+  .zoom.minimized:nth-last-child(1) {
+    right: calc(20% - 72.5px);
+  }
+
+  /* line 380, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+  .zoom.minimized:nth-last-child(2) {
+    right: calc(40% - 72.5px);
+  }
+
+  /* line 383, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+  .zoom.minimized:nth-last-child(3) {
+    right: calc(60% - 72.5px);
+  }
+
+  /* line 386, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+  .zoom.minimized:nth-last-child(4) {
+    right: calc(80% - 72.5px);
+  }
+}
+@media screen and (max-width: 46.875em) {
+  /* line 391, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/zoom.scss */
+  .zooms {
+    display: none;
+  }
+}
+/*	.zoom,
+	.zooms .zoom,
+	.zooms.zooms--absolute .zoom {
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		width: 100%;
+		height: 100%;
+		@include transform(none);
+	}
+
+	$mobileZoomDiameter: 50px;
+	.zoom.minimized,
+	.zooms .zoom.minimized,
+	.zooms.zooms--absolute .zoom.minimized  {
+		width: $mobileZoomDiameter;
+		height: $mobileZoomDiameter;
+		background: none;
+		box-shadow: none;
+		position: relative;
+	}
+	.zoom.minimized .zoom__expander {
+		@include transform-origin(center, center);
+		background: transparent;
+		box-shadow: none;
+		position: absolute;
+		padding: 0;
+		margin: 0;
+		width: 100%;
+		height: 100%;
+		top: -0.1em;
+		left: -0.1em;
+		color: #fff;
+		font-size: 3em;
+	}
+	.zoom.minimized .zoom__figure {
+		border-width: 1px;
+	}
+
+	.zoom.minimized:nth-last-child(1) {
+		right: calc(20% - 25px);
+	}
+	.zoom.minimized:nth-last-child(2) {
+		right: calc(40% - 25px);
+	}
+	.zoom.minimized:nth-last-child(3) {
+		right: calc(60% - 25px);
+	}
+	.zoom.minimized:nth-last-child(4) {
+		right: calc(80% - 25px);
+	}
+
+	.zoom,
+	.zoom__expander {
+		@include transition(none);
+	}
+
+	.zoom__figure figcaption p, .zoom__figure figcaption dl {
+		font-size: 1em;
+		line-height: 1.5em;
+		white-space: normal;
+	}
+	.zoom__figure figcaption h4 {
+		font-size: 5vw;
+		line-height: 7vw;
+		margin-bottom: .5vw;
+	}
+}
+*/
+/* line 1, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/1-introduction.scss */
+.slide--intro {
+  background: #000813 url(../images/ship.jpg) center center no-repeat;
+  background-size: cover;
+  height: 100vh;
+  position: relative;
+}
+
+/* line 8, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/1-introduction.scss */
+.fieldLogo {
+  padding: 1%;
+  width: 10%;
+  min-width: 100px;
+  float: left;
+}
+
+/* line 14, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/1-introduction.scss */
+.vikingsLogo {
+  margin: 0 auto;
+  width: 25%;
+  top: calc(13vh - 4.84693877551vw);
+  position: absolute;
+  left: 37.5%;
+  min-width: 200px;
+}
+
+/* line 22, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/1-introduction.scss */
+.underwater {
+  position: absolute;
+  width: 100%;
+  top: 70%;
+  bottom: 0%;
+  color: #fff;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  padding: 1vh 2vw 0;
+  box-sizing: border-box;
+}
+
+/*.underwater h2 {
+	font-weight: normal;
+	margin-bottom: .5em;
+}*/
+/* line 38, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/1-introduction.scss */
+.buttonWrapper {
+  line-height: .5;
+}
+
+/* line 42, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/1-introduction.scss */
+.buttonLights--large,
+.buttonLights--small {
+  background: url(../images/water.png);
+  background-size: cover;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.5;
+}
+
+@-moz-keyframes waterLarge {
+  0% {
+    -moz-transform: translate3D(0px, -400px, 0px);
+    transform: translate3D(0px, -400px, 0px);
+  }
+  100% {
+    -moz-transform: translate3D(-600px, 0px, 0px);
+    transform: translate3D(-600px, 0px, 0px);
+  }
+}
+@-webkit-keyframes waterLarge {
+  0% {
+    -webkit-transform: translate3D(0px, -400px, 0px);
+    transform: translate3D(0px, -400px, 0px);
+  }
+  100% {
+    -webkit-transform: translate3D(-600px, 0px, 0px);
+    transform: translate3D(-600px, 0px, 0px);
+  }
+}
+@keyframes waterLarge {
+  0% {
+    -moz-transform: translate3D(0px, -400px, 0px);
+    -ms-transform: translate3D(0px, -400px, 0px);
+    -webkit-transform: translate3D(0px, -400px, 0px);
+    transform: translate3D(0px, -400px, 0px);
+  }
+  100% {
+    -moz-transform: translate3D(-600px, 0px, 0px);
+    -ms-transform: translate3D(-600px, 0px, 0px);
+    -webkit-transform: translate3D(-600px, 0px, 0px);
+    transform: translate3D(-600px, 0px, 0px);
+  }
+}
+/* line 65, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/1-introduction.scss */
+.buttonLights--large {
+  background-size: 600px 400px;
+  width: 774px;
+  height: 432px;
+  -moz-animation: waterLarge 20s linear infinite;
+  -webkit-animation: waterLarge 20s linear infinite;
+  animation: waterLarge 20s linear infinite;
+}
+
+@-moz-keyframes waterSmall {
+  0% {
+    -moz-transform: translate3D(0px, 0px, 0px);
+    transform: translate3D(0px, 0px, 0px);
+  }
+  100% {
+    -moz-transform: translate3D(-300px, -200px, 0px);
+    transform: translate3D(-300px, -200px, 0px);
+  }
+}
+@-webkit-keyframes waterSmall {
+  0% {
+    -webkit-transform: translate3D(0px, 0px, 0px);
+    transform: translate3D(0px, 0px, 0px);
+  }
+  100% {
+    -webkit-transform: translate3D(-300px, -200px, 0px);
+    transform: translate3D(-300px, -200px, 0px);
+  }
+}
+@keyframes waterSmall {
+  0% {
+    -moz-transform: translate3D(0px, 0px, 0px);
+    -ms-transform: translate3D(0px, 0px, 0px);
+    -webkit-transform: translate3D(0px, 0px, 0px);
+    transform: translate3D(0px, 0px, 0px);
+  }
+  100% {
+    -moz-transform: translate3D(-300px, -200px, 0px);
+    -ms-transform: translate3D(-300px, -200px, 0px);
+    -webkit-transform: translate3D(-300px, -200px, 0px);
+    transform: translate3D(-300px, -200px, 0px);
+  }
+}
+/* line 81, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/1-introduction.scss */
+.buttonLights--small {
+  background-size: 300px 200px;
+  width: 474px;
+  height: 232px;
+  -moz-animation: waterSmall 20s linear infinite;
+  -webkit-animation: waterSmall 20s linear infinite;
+  animation: waterSmall 20s linear infinite;
+}
+
+/* line 88, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/1-introduction.scss */
+.button--water {
+  background-color: #1E2C3F;
+  position: relative;
+}
+
+/* line 92, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/1-introduction.scss */
+.button--water .button__leader {
+  background-color: #304664;
+}
+
+/* line 95, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/1-introduction.scss */
+.underwater .button--cta {
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  margin: 0;
+}
+
+@-moz-keyframes bob {
+  0% {
+    -moz-transform: translate3D(0px, -4px, 0px);
+    transform: translate3D(0px, -4px, 0px);
+  }
+  50% {
+    -moz-transform: translate3D(0px, 4px, 0px);
+    transform: translate3D(0px, 4px, 0px);
+  }
+  100% {
+    -moz-transform: translate3D(0px, -4px, 0px);
+    transform: translate3D(0px, -4px, 0px);
+  }
+}
+@-webkit-keyframes bob {
+  0% {
+    -webkit-transform: translate3D(0px, -4px, 0px);
+    transform: translate3D(0px, -4px, 0px);
+  }
+  50% {
+    -webkit-transform: translate3D(0px, 4px, 0px);
+    transform: translate3D(0px, 4px, 0px);
+  }
+  100% {
+    -webkit-transform: translate3D(0px, -4px, 0px);
+    transform: translate3D(0px, -4px, 0px);
+  }
+}
+@keyframes bob {
+  0% {
+    -moz-transform: translate3D(0px, -4px, 0px);
+    -ms-transform: translate3D(0px, -4px, 0px);
+    -webkit-transform: translate3D(0px, -4px, 0px);
+    transform: translate3D(0px, -4px, 0px);
+  }
+  50% {
+    -moz-transform: translate3D(0px, 4px, 0px);
+    -ms-transform: translate3D(0px, 4px, 0px);
+    -webkit-transform: translate3D(0px, 4px, 0px);
+    transform: translate3D(0px, 4px, 0px);
+  }
+  100% {
+    -moz-transform: translate3D(0px, -4px, 0px);
+    -ms-transform: translate3D(0px, -4px, 0px);
+    -webkit-transform: translate3D(0px, -4px, 0px);
+    transform: translate3D(0px, -4px, 0px);
+  }
+}
+/* line 112, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/1-introduction.scss */
+.button--excited {
+  -moz-animation: bob 4s -1s ease-in-out infinite;
+  -webkit-animation: bob 4s -1s ease-in-out infinite;
+  animation: bob 4s -1s ease-in-out infinite;
+  background: transparent;
+  border: 1px solid #465569;
+  color: #fff;
+  padding: 7px;
+}
+
+/* line 119, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/1-introduction.scss */
+.button--excited .button__leader {
+  background: transparent;
+  float: right;
+  margin: -8px -8px -8px 8px;
+  padding: 8px !important;
+  border-left: 1px solid #465569;
+}
+
+/* line 126, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/1-introduction.scss */
+.button--excited:hover {
+  border: 1px solid #fff;
+  -moz-animation-play-state: paused;
+  -webkit-animation-play-state: paused;
+  animation-play-state: paused;
+}
+
+/* line 130, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/1-introduction.scss */
+.sponsors,
+.partners {
+  display: inline-block;
+  vertical-align: top;
+  height: 100%;
+}
+
+/* line 136, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/1-introduction.scss */
+.sponsors {
+  width: 37%;
+}
+
+/* line 139, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/1-introduction.scss */
+.partners {
+  width: 60%;
+  max-width: 500px;
+  border-left: 1px solid #414a58;
+}
+
+/* line 145, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/1-introduction.scss */
+.sponsorLogos h2 {
+  display: block;
+  color: #576066;
+  font-size: .9em;
+  line-height: 1.2;
+  font-weight: normal;
+  height: 20%;
+}
+
+/* line 153, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/1-introduction.scss */
+.partners h2 {
+  height: 50%;
+}
+
+/* line 156, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/1-introduction.scss */
+.sponsorLogos {
+  height: 20vw;
+  max-height: 12vh;
+  margin: 0 auto;
+  position: relative;
+  max-width: 770px;
+}
+
+/* line 163, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/1-introduction.scss */
+.sponsorLogo {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0px .5em;
+}
+
+/* line 168, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/1-introduction.scss */
+.sponsorLogo img {
+  height: 100%;
+  width: auto;
+  vertical-align: top;
+}
+
+/* line 173, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/1-introduction.scss */
+.sponsorLogo--discover {
+  height: 17px;
+}
+
+/* line 176, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/1-introduction.scss */
+.sponsorLogo--viking-cruises {
+  height: 75px;
+}
+
+/* line 179, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/1-introduction.scss */
+.sponsorLogo--swedish-museum {
+  height: 27px;
+}
+
+/* line 182, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/1-introduction.scss */
+.sponsorLogo--museums-partner {
+  height: 20px;
+}
+
+/*
+@include media-query($tablet) {
+	.sponsorLogos {
+		height: 5vw;
+	}
+}
+
+@media only screen and (max-height : 400px) {
+	.slide--intro .button--cta, .sponsorLogos h2 {
+		font-size: .6em;
+		line-height: 1em;
+	}
+}
+
+@media only screen and (max-height : 700px) {
+	.sponsorLogos h2 {
+		font-size: .8em;
+	}
+}
+*/
+@media screen and (max-width: 46.875em) {
+  /* line 208, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/1-introduction.scss */
+  .slide--intro {
+    height: 130vh;
+    background-position: top center;
+    background-size: auto 77%;
+  }
+
+  /* line 213, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/1-introduction.scss */
+  .fieldLogo {
+    width: 100px;
+    height: 53px;
+  }
+
+  /* line 217, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/1-introduction.scss */
+  .vikingsLogo {
+    width: 200px;
+    height: 85px;
+    left: calc(50% - 100px);
+    top: 5%;
+  }
+
+  /* line 223, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/1-introduction.scss */
+  .sponsorLogos {
+    display: block;
+    width: auto;
+    min-width: 0;
+    height: 40vh;
+    max-height: none !important;
+  }
+
+  /* line 230, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/1-introduction.scss */
+  .underwater {
+    position: absolute;
+    width: 100%;
+    top: 52%;
+  }
+
+  /* line 235, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/1-introduction.scss */
+  .sponsors,
+  .partners {
+    display: block;
+    width: auto;
+    border: none;
+    height: 40%;
+    margin: auto;
+  }
+
+  /* line 243, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/1-introduction.scss */
+  .partners h2 {
+    height: 60%;
+    margin-bottom: 1em;
+  }
+
+  /* line 247, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/1-introduction.scss */
+  .sponsorLogo {
+    margin-right: .5em;
+  }
+}
+/* line 1, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/2-world.scss */
+.slide--world {
+  background-image: linear-gradient(to bottom, #000813, rgba(40, 166, 225, 0) 10%, rgba(40, 166, 225, 0) 50%, #28a6e1 100%);
+  background-position: center center;
+  position: relative;
+  height: 120vh;
+}
+
+/* line 7, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/2-world.scss */
+.map {
+  background-color: #000813;
+  background: #28a6e1;
+  position: fixed;
+  top: 0;
+  z-index: -100;
+  height: 100%;
+  width: 100%;
+}
+
+/* line 16, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/2-world.scss */
+.map img {
+  width: 100%;
+  height: auto;
+}
+
+/* line 21, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/2-world.scss */
+.trayOpen .map img {
+  display: none;
+}
+
+@media only screen and (max-aspect-ratio: 1223 / 972) {
+  /* line 25, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/2-world.scss */
+  .map img {
+    width: auto;
+    height: 100%;
+  }
+}
+/* line 30, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/2-world.scss */
+.world__exploreTitle {
+  position: absolute;
+  width: 100%;
+  top: 10vh;
+  font-size: 20vw;
+  letter-spacing: -0.3vw;
+  font-weight: 600;
+  color: rgba(0, 8, 19, 0.42);
+  z-index: -10;
+}
+
+/* line 41, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/2-world.scss */
+.blurb--world {
+  background: rgba(255, 255, 255, 0.49);
+  padding: 2.5em 10em;
+  box-sizing: border-box;
+  text-align: left;
+  position: relative;
+  top: 50%;
+  width: 100%;
+  left: 0;
+}
+
+/* line 51, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/2-world.scss */
+.blurb--world .helmet {
+  width: 350px;
+  height: 350px;
+  float: left;
+  overflow: hidden;
+  border-radius: 50%;
+  text-align: center;
+  position: relative;
+  top: -120px;
+  border: 1px solid #fff;
+  margin: 2em;
+}
+
+/* line 63, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/2-world.scss */
+.blurb--world .helmet img {
+  height: 100%;
+}
+
+@media screen and (max-width: 64.0625em) {
+  /* line 67, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/2-world.scss */
+  .helmet {
+    display: none;
+  }
+}
+@media only screen and (max-width: 1150px) {
+  /* line 72, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/2-world.scss */
+  .blurb--world {
+    padding: 2.5em 5em;
+  }
+}
+@media screen and (max-width: 46.875em) {
+  /* line 78, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/2-world.scss */
+  .map {
+    display: none !important;
+  }
+
+  /* line 81, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/2-world.scss */
+  .blurb--world {
+    padding: 15px;
+    position: static;
+    text-align: center;
+  }
+
+  /* line 86, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/2-world.scss */
+  .slide--world {
+    background: #28a6e1;
+    height: auto;
+    padding-bottom: 20px;
+  }
+}
+/* line 1, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/3-farmers.scss */
+.slide--farmers {
+  background: #28a6e1 url(../images/fjord.jpg) center bottom no-repeat;
+  background-size: 100% auto;
+  height: 75vw;
+  min-height: 1000px;
+  position: relative;
+}
+
+/* line 9, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/3-farmers.scss */
+.whoTheyWere--farmers {
+  color: #fff;
+}
+
+/* line 12, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/3-farmers.scss */
+.whoTheyWere--farmers svg {
+  fill: #fff;
+}
+
+/* line 15, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/3-farmers.scss */
+.blurb--farmers {
+  color: #fff;
+}
+
+/* line 18, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/3-farmers.scss */
+.blurb--farmers h3 strong {
+  color: #9CDB7B;
+}
+
+/* line 21, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/3-farmers.scss */
+.zooms--farmers {
+  position: static;
+}
+
+/* line 24, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/3-farmers.scss */
+.zooms--farmers .zoom.minimized {
+  bottom: calc(19.5vw - 100px);
+}
+
+@media screen and (max-width: 64.0625em) {
+  /* line 28, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/3-farmers.scss */
+  .zooms--farmers .zoom.minimized {
+    bottom: calc(19.5vw - 75px);
+  }
+
+  /* line 31, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/3-farmers.scss */
+  .slide--farmers {
+    height: 95vw;
+    min-height: 800px;
+  }
+}
+/*
+@include media-query($mobile) {
+	.zooms--farmers .zoom.minimized {
+		bottom: calc(19.5vw - 25px);
+	}
+}
+*/
+/* line 1, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/4-traders-craftspeople.scss */
+.slide--tradersCraftspeople {
+  background: linear-gradient(to bottom, white 0%, rgba(255, 255, 225, 0) 25%, rgba(255, 255, 225, 0) 75%, white 100%), #fff url(../images/traders-craftspeople.jpg) left bottom no-repeat;
+  padding-bottom: 13em;
+}
+
+/* line 5, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/4-traders-craftspeople.scss */
+.whoTheyWere--tradersCraftspeople .header__focus {
+  font-size: 1.7em;
+  line-height: 0.7em;
+  margin: 0.3em 0;
+}
+
+/* line 10, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/4-traders-craftspeople.scss */
+.whoTheyWere--tradersCraftspeople .header__focus .cram {
+  font-size: 0.7em;
+  line-height: 0.7em;
+}
+
+/* line 14, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/4-traders-craftspeople.scss */
+.whoTheyWere--tradersCraftspeople,
+.blurb--tradersCraftspeople {
+  color: #75212D;
+}
+
+/* line 18, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/4-traders-craftspeople.scss */
+.whoTheyWere--tradersCraftspeople svg {
+  fill: #75212D;
+}
+
+/* line 22, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/4-traders-craftspeople.scss */
+.blurb--tradersCraftspeople {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 27, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/4-traders-craftspeople.scss */
+.blurb--tradersCraftspeople .materialsRule {
+  background: url(../images/materials-rule.png);
+  background-size: 100% auto;
+  border: none;
+  height: 9vw;
+}
+
+@media screen and (max-width: 46.875em) {
+  /* line 34, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/4-traders-craftspeople.scss */
+  .blurb--tradersCraftspeople .nobr {
+    white-space: normal;
+  }
+}
+/* line 1, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/5-voyagers.scss */
+.slide--voyagers {
+  background-color: #fff;
+  background: url(../images/varnafirdinga-cap.svg) -25vh center no-repeat, url(../images/varnafirdinga-cap.svg) calc(100vw - 25vh) center no-repeat;
+  background-size: auto 60vh;
+}
+
+/* line 7, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/5-voyagers.scss */
+.blurb--voyagers h3 strong {
+  color: #2FA4DC;
+}
+
+/* line 10, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/5-voyagers.scss */
+.shipProws {
+  width: 40vw;
+  margin: 10vw auto 0;
+  position: relative;
+}
+
+/* line 15, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/5-voyagers.scss */
+.shipProws__prows,
+.shipProws__ship {
+  width: 100%;
+}
+
+/* line 19, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/5-voyagers.scss */
+.shipProws__prows {
+  position: absolute;
+  width: 150%;
+  z-index: -10;
+  left: -25%;
+  top: -32%;
+}
+
+@media screen and (max-width: 46.875em) {
+  /* line 27, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/5-voyagers.scss */
+  .slide--voyagers {
+    background: #fff;
+  }
+}
+/* line 1, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/6-believers.scss */
+.slide--believers {
+  background: transparent;
+  padding-top: 90vh;
+  min-height: 740px;
+}
+
+/* line 6, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/6-believers.scss */
+.whoTheyWere--believers {
+  color: #fff;
+}
+
+/* line 9, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/6-believers.scss */
+.whoTheyWere--believers svg {
+  fill: #fff;
+}
+
+/* line 12, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/6-believers.scss */
+.blurb--believers {
+  width: 500px;
+}
+
+/* line 15, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/6-believers.scss */
+.blurb--believers h3 strong {
+  color: #255976;
+}
+
+/* line 18, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/6-believers.scss */
+.aurora {
+  background: url(../images/aurora.jpg) center bottom no-repeat;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -100;
+  opacity: 1;
+  background-size: cover;
+}
+
+@media screen and (max-width: 46.875em) {
+  /* line 30, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/6-believers.scss */
+  .blurb--believers {
+    width: auto;
+    max-width: 500px;
+  }
+
+  /* line 34, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/6-believers.scss */
+  .aurora {
+    opacity: 1 !important;
+  }
+}
+/* line 1, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/7-visit.scss */
+.slide--visit {
+  min-height: 100vh;
+  padding: 2em 2em 1em;
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+/* line 7, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/7-visit.scss */
+.discoverMore .header__focus {
+  font-size: 1.25em;
+  line-height: 0.7em;
+  margin: 0.9em 0 0;
+}
+
+/* line 12, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/7-visit.scss */
+.discoverMore {
+  color: #84a726;
+  font-size: 1.8em;
+}
+
+/* line 16, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/7-visit.scss */
+.discoverMore svg {
+  fill: #84a726;
+}
+
+/* line 19, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/7-visit.scss */
+.slide--visit .blurb {
+  max-width: 666px;
+}
+
+/* line 22, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/7-visit.scss */
+.slide--visit .blurb p {
+  max-width: 530px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* line 28, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/7-visit.scss */
+.slide--visit h3 {
+  margin: 0;
+}
+
+/* line 31, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/7-visit.scss */
+.slide--visit h4 {
+  font-weight: normal;
+  font-size: 1.5em;
+  margin-bottom: 1em;
+}
+
+/* line 36, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/7-visit.scss */
+.slide--visit p {
+  margin-bottom: 1em;
+}
+
+/* line 40, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/7-visit.scss */
+.filmstrip {
+  margin: 2em auto 1em;
+  width: 300px;
+  height: 300px;
+  border-radius: 150px;
+  background: url(../images/filmstrip.jpg) top center;
+  background-size: 100% auto;
+}
+
+/* line 48, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/7-visit.scss */
+.button--red {
+  background: #d72f35;
+  margin-bottom: 1em;
+}
+
+/* line 52, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/7-visit.scss */
+.button--red .button__leader {
+  background: #000;
+}
+
+/* line 55, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/7-visit.scss */
+.thorStone {
+  margin: auto;
+  position: relative;
+  z-index: -1;
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+/* line 61, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/7-visit.scss */
+.thorStone .stone,
+.thorStone .magic {
+  position: absolute;
+  z-index: 0;
+  width: auto;
+}
+
+/* line 67, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/7-visit.scss */
+.thorStone .stone {
+  bottom: -20px;
+  height: 1400px;
+  left: calc(50% - 321px);
+}
+
+/* line 72, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/7-visit.scss */
+.thorStone .magic {
+  bottom: 972px;
+  height: 572px;
+  left: calc(50% - 344px);
+}
+
+@media screen and (max-width: 46.875em) {
+  /* line 79, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/7-visit.scss */
+  .slide--visit {
+    padding: 0;
+    background: #fff;
+  }
+
+  /* line 83, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/7-visit.scss */
+  .sections {
+    overflow: hidden;
+    max-width: 100vw;
+  }
+
+  /* line 87, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/7-visit.scss */
+  .slide--visit .sponsorLogos {
+    height: 340px;
+  }
+
+  /* line 90, /Users/gtroyerjoy/Code/vikings/_assets/stylesheets/7-visit.scss */
+  .slide--visit .blurb {
+    padding-bottom: 0;
+  }
+}
