@@ -275,6 +275,40 @@ function hook_redirect_delete($redirect) {
 }
 
 /**
+ * Respond to redirect disabling.
+ *
+ * This hook is invoked from redirect_disable_multiple() after the redirect has
+ * been disabled in the redirect table in the database.
+ *
+ * @param $redirect
+ *   The redirect that is being disabled.
+ *
+ * @see redirect_disable_multiple()
+ * @ingroup redirect_api_hooks
+ */
+function hook_redirect_disable($redirect) {
+
+}
+
+/**
+ * Respond to redirect enabling.
+ *
+ * This hook is invoked from redirect_enable_multiple() after the redirect has
+ * been enabled in the redirect table in the database or from redirect_save()
+ * after the redirect has been changed from disabled to enabled.
+ *
+ * @param $redirect
+ *   The redirect that is being enabled.
+ *
+ * @see redirect_enable_multiple()
+ * @see redirect_save()
+ * @ingroup redirect_api_hooks
+ */
+function hook_redirect_enable($redirect) {
+
+}
+
+/**
  * Act on a redirect being redirected.
  *
  * This hook is invoked from redirect_redirect() before the redirect callback
