@@ -405,50 +405,6 @@
         "description": "Assetic service provider for Pimple"
     },
     {
-        "name": "bangpound/assetic-cli",
-        "version": "dev-develop",
-        "version_normalized": "dev-develop",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/bangpound/Assetic-CLI.git",
-            "reference": "ceaa11f55be6e284a81ac0c70e1a55cf1d7c1faa"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/bangpound/Assetic-CLI/zipball/ceaa11f55be6e284a81ac0c70e1a55cf1d7c1faa",
-            "reference": "ceaa11f55be6e284a81ac0c70e1a55cf1d7c1faa",
-            "shasum": ""
-        },
-        "require": {
-            "bangpound/assetic-service-provider": "~1.0@dev",
-            "php": ">=5.3.3"
-        },
-        "require-dev": {
-            "symfony/debug": "~2.3"
-        },
-        "time": "2014-11-02 23:45:20",
-        "bin": [
-            "bin/assetic"
-        ],
-        "type": "project",
-        "extra": {
-            "branch-alias": {
-                "dev-develop": "1.1.x-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Bangpound\\Assetic\\": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "description": "Assetic as a command line tool"
-    },
-    {
         "name": "zacoza/assetic-filters",
         "version": "dev-master",
         "version_normalized": "9999999-dev",

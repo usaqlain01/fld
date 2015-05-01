@@ -35,7 +35,6 @@
         "mongolito404/phingdrushtask": "7.1.*@dev",
         "pear-pear.php.net/VersionControl_Git": "*",
         "pimple/pimple": "~3.0",
-        "bangpound/assetic-cli": "~1.1@dev",
         "bangpound/assetic-service-provider": "~1.0@dev",
         "zacoza/assetic-filters": "dev-master",
         "bangpound/assetic-codekit": "1.0.*@dev"
