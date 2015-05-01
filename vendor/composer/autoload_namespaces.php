@@ -14,6 +14,7 @@ return array(
     'Symfony\\Component\\Finder\\' => array($vendorDir . '/symfony/finder'),
     'Symfony\\Component\\Debug\\' => array($vendorDir . '/symfony/debug'),
     'Symfony\\Component\\Console\\' => array($vendorDir . '/symfony/console'),
+    'Psr\\Log\\' => array($vendorDir . '/psr/log'),
     'Pimple' => array($vendorDir . '/pimple/pimple/src'),
     'Drupal\\bangpoundmedia\\' => array($baseDir . '/docroot/profiles/fieldmuseum/modules/bangpound/bangpoundmedia/lib'),
     'Assetic' => array($vendorDir . '/kriswallsmith/assetic/src'),

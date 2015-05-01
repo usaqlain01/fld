@@ -245,7 +245,6 @@ class PropertyTask extends Task
     /**
      * Creates a filterchain
      *
-     * @access public
      * @return object The created filterchain object
      */
     public function createFilterChain()
@@ -309,10 +308,25 @@ class PropertyTask extends Task
         if (($this->name !== null) && ($this->reference !== null)) {
             // get the refereced property
             try {
-                $this->addProperty($this->name, $this->reference->getReferencedObject($this->project)->toString());
+                $referencedObject = $this->reference->getReferencedObject($this->project);
+
+                if ($referencedObject instanceof Exception) {
+                    $reference = $referencedObject->getMessage();
+                } else {
+                    $reference = $referencedObject->toString();
+                }
+
+                $this->addProperty($this->name, $reference);
             } catch (BuildException $be) {
                 if ($this->fallback !== null) {
-                    $this->addProperty($this->name, $this->reference->getReferencedObject($this->fallback)->toString());
+                    $referencedObject = $this->reference->getReferencedObject($this->fallback);
+
+                    if ($referencedObject instanceof Exception) {
+                        $reference = $referencedObject->getMessage();
+                    } else {
+                        $reference = $referencedObject->toString();
+                    }
+                    $this->addProperty($this->name, $reference);
                 } else {
                     throw $be;
                 }

@@ -44,7 +44,6 @@ include_once 'phing/filters/ChainableReader.php';
  * @author    <a href="mailto:yl@seasonfive.com">Yannick Lecaillez</a>
  * @author    hans lellelid, hans@velum.net
  * @version   $Id$
- * @access    public
  * @see       BaseParamFilterReader
  * @package   phing.filters
  */
@@ -363,10 +362,10 @@ class ReplaceTokens extends BaseParamFilterReader implements ChainableReader
                             if ($type === "tokensource") {
                                 // Store data from nested tags in local array
                                 $arr = array();
+
                                 $subparams = $params[$i]->getParams();
-                                $count = count($subparams);
-                                for ($i = 0; $i < $count; $i++) {
-                                    $arr[$subparams[$i]->getName()] = $subparams[$i]->getValue();
+                                foreach ($subparams as $subparam) {
+                                    $arr[$subparam->getName()] = $subparam->getValue();
                                 }
 
                                 // Create TokenSource

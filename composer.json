@@ -2,12 +2,13 @@
     "require": {
         "symfony/property-access": "~2.0",
         "php": ">=5.3.0",
-        "stojg/crop": "dev-develop",
+        "stojg/crop": "~1.2.6",
         "bangpound/crop-extension": "dev-master",
         "symfony/yaml": "2.4.2"
     },
     "config": {
         "autoloader-suffix": "ComposerManager",
+        "preferred-install": "dist",
         "vendor-dir": "docroot/../vendor"
     },
     "autoload": {
@@ -40,10 +41,6 @@
         "bangpound/assetic-codekit": "1.0.*@dev"
     },
     "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/bangpound/crop.git"
-        },
         {
             "type": "pear",
             "url": "http://pear.php.net"

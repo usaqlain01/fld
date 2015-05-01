@@ -37,7 +37,6 @@ include_once 'phing/filters/ChainableReader.php';
  * @author    <a href="mailto:yl@seasonfive.com">Yannick Lecaillez</a>
  * @author    hans lellelid, hans@velum.net
  * @version   $Id$
- * @access    public
  * @see       BaseParamFilterReader
  * @package   phing.filters
  */
@@ -141,7 +140,7 @@ class StripLineBreaks extends BaseParamFilterReader implements ChainableReader
         $params = $this->getParameters();
         if ($params !== null) {
             for ($i = 0; $i < count($params); $i++) {
-                if (self::LINE_BREAKS_KEY === $params[$i]->getName()) {
+                if (self::LINES_BREAKS_KEY === $params[$i]->getName()) {
                     $userDefinedLineBreaks = $params[$i]->getValue();
                     break;
                 }

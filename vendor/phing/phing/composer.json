@@ -33,18 +33,19 @@
         "phpdocumentor/phpdocumentor": "2.x",
 	"phploc/phploc": "2.x",
 	"sebastian/phpcpd": "2.x",
-	"pear/pear_exception": "@dev",
-	"pear/versioncontrol_svn": "@dev",
+	"pear/pear_exception": "~1.0",
+	"pear/versioncontrol_svn": "~0.5",
 	"pear/versioncontrol_git": "@dev",
-	"pdepend/pdepend": "1.x",
+	"pdepend/pdepend": "2.x",
         "pear-pear.php.net/HTTP_Request2": "2.2.x",
         "pear-pear.php.net/Net_Growl": "2.7.x",
 	"pear-pear.php.net/PEAR_PackageFileManager": "1.7.x",
 	"pear-pear.php.net/PEAR_PackageFileManager2": "1.0.x",
 	"pear-pear.php.net/XML_Serializer": "0.20.x",
-	"squizlabs/php_codesniffer": "1.5.x",
+	"squizlabs/php_codesniffer": "~2.2",
 	"lastcraft/simpletest": "@dev",
-	"ext-pdo_sqlite": "*"
+	"ext-pdo_sqlite": "*",
+        "phpmd/phpmd": "~2.2"
     },
     "autoload": {
         "classmap": ["classes/phing/"]
@@ -58,7 +59,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "2.9.x-dev"
+            "dev-master": "2.10.x-dev"
         }
     },
     "suggest": {

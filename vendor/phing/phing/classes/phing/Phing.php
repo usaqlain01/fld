@@ -17,6 +17,7 @@
  * <http://phing.info>.
  */
 
+require_once 'phing/Diagnostics.php';
 require_once 'phing/Project.php';
 require_once 'phing/ProjectComponent.php';
 require_once 'phing/Target.php';
@@ -39,6 +40,7 @@ include_once 'phing/system/util/Properties.php';
 include_once 'phing/util/StringHelper.php';
 include_once 'phing/system/io/PhingFile.php';
 include_once 'phing/system/io/OutputStream.php';
+include_once 'phing/system/io/PrintStream.php';
 include_once 'phing/system/io/FileOutputStream.php';
 include_once 'phing/system/io/FileReader.php';
 include_once 'phing/system/util/Register.php';
@@ -64,6 +66,9 @@ class Phing
 
     /** The default build file name */
     const DEFAULT_BUILD_FILENAME = "build.xml";
+    const PHING_HOME = 'phing.home';
+    const PHP_VERSION = 'php.version';
+    const PHP_INTERPRETER = 'php.interpreter';
 
     /** Our current message output status. Follows Project::MSG_XXX */
     private static $msgOutputLevel = Project::MSG_INFO;
@@ -320,6 +325,12 @@ class Phing
 
         if (in_array('-version', $args) || in_array('-v', $args)) {
             $this->printVersion();
+
+            return;
+        }
+
+        if (in_array('-diagnostics', $args)) {
+            Diagnostics::doReport(new PrintStream(self::$out));
 
             return;
         }
@@ -913,6 +924,7 @@ class Phing
         $msg .= "  -q -quiet              be extra quiet" . PHP_EOL;
         $msg .= "  -verbose               be extra verbose" . PHP_EOL;
         $msg .= "  -debug                 print debugging information" . PHP_EOL;
+        $msg .= "  -diagnostics           print diagnostics information" . PHP_EOL;
         $msg .= "  -longtargets           show target descriptions during build" . PHP_EOL;
         $msg .= "  -logfile <file>        use given file for log" . PHP_EOL;
         $msg .= "  -logger <classname>    the class which is to perform logging" . PHP_EOL;
@@ -937,6 +949,26 @@ class Phing
     }
 
     /**
+     * Copied from https://github.com/sebastianbergmann/version/blob/master/src/Version.php
+     * @param string $path
+     * @return bool|string
+     */
+    private static function getGitInformation($path)
+    {
+        if (!is_dir($path . DIRECTORY_SEPARATOR . '.git')) {
+            return false;
+        }
+        $dir = getcwd();
+        chdir($path);
+        $result = @exec('git describe --tags 2>&1', $output, $returnCode);
+        chdir($dir);
+        if ($returnCode !== 0) {
+            return false;
+        }
+        return $result;
+    }
+
+    /**
      * Gets the current Phing version based on VERSION.TXT file.
      *
      * @throws ConfigurationException
@@ -945,6 +977,14 @@ class Phing
      */
     public static function getPhingVersion()
     {
+        $path = dirname(dirname(dirname(__FILE__)));
+
+        $gitInformation = self::getGitInformation($path);
+
+        if ($gitInformation) {
+            return "Phing " . $gitInformation;
+        }
+
         $versionPath = self::getResourcePath("phing/etc/VERSION.TXT");
         if ($versionPath === null) {
             $versionPath = self::getResourcePath("etc/VERSION.TXT");
@@ -953,18 +993,14 @@ class Phing
             throw new ConfigurationException("No VERSION.TXT file found; try setting phing.home environment variable.");
         }
         try { // try to read file
-            $buffer = null;
             $file = new PhingFile($versionPath);
             $reader = new FileReader($file);
-            $reader->readInto($buffer);
-            $buffer = trim($buffer);
-            //$buffer = "PHING version 1.0, Released 2002-??-??";
-            $phingVersion = $buffer;
+            $phingVersion = trim($reader->read());
         } catch (IOException $iox) {
             throw new ConfigurationException("Can't read version information file");
         }
 
-        return $phingVersion;
+        return "Phing " . $phingVersion;
     }
 
     /**
@@ -1222,7 +1258,7 @@ class Phing
         }
 
         // Check for the property phing.home
-        $homeDir = self::getProperty('phing.home');
+        $homeDir = self::getProperty(self::PHING_HOME);
         if ($homeDir) {
             $testPath = $homeDir . DIRECTORY_SEPARATOR . $path;
             if (file_exists($testPath)) {
@@ -1357,9 +1393,14 @@ class Phing
         self::setProperty('line.separator', PHP_EOL);
         self::setProperty('php.version', PHP_VERSION);
         self::setProperty('php.tmpdir', sys_get_temp_dir());
-        self::setProperty('user.home', getenv('HOME'));
+        if (strtoupper(substr(PHP_OS, 0, 3)) !== 'WIN') {
+            self::setProperty('user.home', getenv('HOME'));
+        } else {
+            self::setProperty('user.home', getenv('HOMEDRIVE') . getenv('HOMEPATH'));
+        }
         self::setProperty('application.startdir', getcwd());
         self::setProperty('phing.startTime', gmdate('D, d M Y H:i:s', time()) . ' GMT');
+        self::setProperty('php.tmpdir', sys_get_temp_dir());
 
         // try to detect machine dependent information
         $sysInfo = array();
@@ -1373,7 +1414,6 @@ class Phing
             $sysInfo['release'] = php_uname('r');
             $sysInfo['version'] = php_uname('v');
         }
-
 
         self::setProperty("host.name", isset($sysInfo['nodename']) ? $sysInfo['nodename'] : "unknown");
         self::setProperty("host.arch", isset($sysInfo['machine']) ? $sysInfo['machine'] : "unknown");
@@ -1612,6 +1652,7 @@ class Phing
      */
     public static function shutdown()
     {
+        self::$msgOutputLevel = Project::MSG_INFO;
         self::restoreIni();
         self::getTimer()->stop();
     }

@@ -558,11 +558,11 @@ class Win32FileSystem extends FileSystem
      */
     public function listRoots()
     {
-        $ds = _nativeListRoots();
+        $ds = $this->_nativeListRoots();
         $n = 0;
         for ($i = 0; $i < 26; $i++) {
             if ((($ds >> $i) & 1) !== 0) {
-                if (!$this->access((string) (chr(ord('A') + $i) . ':' . $this->slash))) {
+                if (!$this->_access((string) (chr(ord('A') + $i) . ':' . $this->slash))) {
                     $ds &= ~(1 << $i);
                 } else {
                     $n++;
@@ -571,7 +571,7 @@ class Win32FileSystem extends FileSystem
         }
         $fs = array();
         $j = (int) 0;
-        $slash = (string) $this->slash;
+
         for ($i = 0; $i < 26; $i++) {
             if ((($ds >> $i) & 1) !== 0) {
                 $fs[$j++] = new PhingFile(chr(ord('A') + $i) . ':' . $this->slash);
@@ -586,14 +586,14 @@ class Win32FileSystem extends FileSystem
     /** compares file paths lexicographically
      * @param PhingFile $f1
      * @param PhingFile $f2
-     * @return bool|void
+     * @return int
      */
     public function compare(PhingFile $f1, PhingFile $f2)
     {
         $f1Path = $f1->getPath();
         $f2Path = $f2->getPath();
 
-        return (boolean) strcasecmp((string) $f1Path, (string) $f2Path);
+        return strcasecmp((string) $f1Path, (string) $f2Path);
     }
 
     /**
