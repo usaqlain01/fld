@@ -10,5 +10,5 @@ return array(
     'Bangpound\\stojg\\crop\\' => array($vendorDir . '/bangpound/crop-extension/src'),
     'Bangpound\\Pimple\\Provider\\' => array($vendorDir . '/bangpound/assetic-service-provider'),
     'Bangpound\\Assetic\\Filter\\' => array($vendorDir . '/bangpound/assetic-codekit'),
-    '' => array($baseDir . '/docroot/profiles/fieldmuseum/lib'),
+    '' => array($baseDir . '/docroot/profiles/fieldmuseum/lib', $baseDir . '/src'),
 );
