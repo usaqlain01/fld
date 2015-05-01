@@ -8,6 +8,7 @@
     },
     "config": {
         "autoloader-suffix": "ComposerManager",
+        "bin-dir": "bin",
         "preferred-install": "dist",
         "vendor-dir": "docroot/../vendor"
     },
