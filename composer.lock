@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "016323dfd4e0c402df432e3f12565d23",
+    "hash": "9351d22e3b46e3f61b56964439cb48af",
     "packages": [
         {
             "name": "bangpound/crop-extension",
@@ -200,6 +200,48 @@
         }
     ],
     "packages-dev": [
+        {
+            "name": "bangpound/assetic-cli",
+            "version": "dev-develop",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bangpound/Assetic-CLI.git",
+                "reference": "ceaa11f55be6e284a81ac0c70e1a55cf1d7c1faa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bangpound/Assetic-CLI/zipball/ceaa11f55be6e284a81ac0c70e1a55cf1d7c1faa",
+                "reference": "ceaa11f55be6e284a81ac0c70e1a55cf1d7c1faa",
+                "shasum": ""
+            },
+            "require": {
+                "bangpound/assetic-service-provider": "~1.0@dev",
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "symfony/debug": "~2.3"
+            },
+            "bin": [
+                "bin/assetic"
+            ],
+            "type": "project",
+            "extra": {
+                "branch-alias": {
+                    "dev-develop": "1.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Bangpound\\Assetic\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Assetic as a command line tool",
+            "time": "2014-11-02 23:45:20"
+        },
         {
             "name": "bangpound/assetic-codekit",
             "version": "dev-master",
@@ -698,7 +740,9 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "bangpound/crop-extension": 20,
-        "bangpound/assetic-codekit": 20,
+        "phing/phing": 20,
+        "mongolito404/phingdrushtask": 20,
+        "bangpound/assetic-cli": 20,
         "bangpound/assetic-service-provider": 20,
         "zacoza/assetic-filters": 20
     },

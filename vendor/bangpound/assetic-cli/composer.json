@@ -1,0 +1,31 @@
+{
+    "name": "bangpound/assetic-cli",
+    "license": "MIT",
+    "type": "project",
+    "description": "Assetic as a command line tool",
+    "require": {
+        "php": ">=5.3.3",
+        "bangpound/assetic-service-provider": "~1.0@dev"
+    },
+    "require-dev": {
+        "symfony/debug": "~2.3"
+    },
+    "bin": [
+        "bin/assetic"
+    ],
+    "config": {
+        "bin-dir": "bin"
+    },
+    "scripts": {
+    },
+    "autoload": {
+        "psr-4": {
+            "Bangpound\\Assetic\\": "src/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-develop": "1.1.x-dev"
+        }
+    }
+}

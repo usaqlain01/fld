@@ -31,6 +31,7 @@
         "symfony/yaml": "2.4.2"
     },
     "require-dev": {
+        "bangpound/assetic-cli": "~1.1@dev",
         "bangpound/assetic-codekit": "1.0.*@dev",
         "bangpound/assetic-service-provider": "~1.0@dev",
         "pimple/pimple": "~3.0",
