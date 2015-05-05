@@ -282,6 +282,7 @@ Version: 3.4.6 Timestamp: Sat Mar 22 22:30:15 EDT 2014
   background-color: #fff;
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #eee), color-stop(0.5, #fff));
   background-image: -webkit-linear-gradient(center bottom, #eee 0%, #fff 50%);
+  background-image: -moz-linear-gradient(center bottom, #eee 0%, #fff 50%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#ffffff', endColorstr = '#eeeeee', GradientType = 0);
   background-image: -webkit-gradient(linear, left bottom, left top, from(#eee), color-stop(50%, #fff));
   background-image: -webkit-linear-gradient(bottom, #eee 0%, #fff 50%);
@@ -292,6 +293,7 @@ Version: 3.4.6 Timestamp: Sat Mar 22 22:30:15 EDT 2014
   border-radius: 0 0 4px 4px;
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #eee), color-stop(0.9, #fff));
   background-image: -webkit-linear-gradient(center bottom, #eee 0%, #fff 90%);
+  background-image: -moz-linear-gradient(center bottom, #eee 0%, #fff 90%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#eeeeee', GradientType=0);
   background-image: -webkit-gradient(linear, left top, left bottom, from(#eee), color-stop(90%, #fff));
   background-image: -webkit-linear-gradient(top, #eee 0%, #fff 90%);
@@ -396,6 +398,7 @@ Version: 3.4.6 Timestamp: Sat Mar 22 22:30:15 EDT 2014
   background: #ccc;
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #ccc), color-stop(0.6, #eee));
   background-image: -webkit-linear-gradient(center bottom, #ccc 0%, #eee 60%);
+  background-image: -moz-linear-gradient(center bottom, #ccc 0%, #eee 60%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#eeeeee', endColorstr = '#cccccc', GradientType = 0);
   background-image: -webkit-gradient(linear, left bottom, left top, from(#ccc), color-stop(60%, #eee));
   background-image: -webkit-linear-gradient(bottom, #ccc 0%, #eee 60%);
@@ -465,6 +468,7 @@ Version: 3.4.6 Timestamp: Sat Mar 22 22:30:15 EDT 2014
   background-color: #eee;
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #fff), color-stop(0.5, #eee));
   background-image: -webkit-linear-gradient(center bottom, #fff 0%, #eee 50%);
+  background-image: -moz-linear-gradient(center bottom, #fff 0%, #eee 50%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#ffffff', GradientType=0);
   background-image: -webkit-gradient(linear, left bottom, left top, from(#fff), color-stop(50%, #eee));
   background-image: -webkit-linear-gradient(bottom, #fff 0%, #eee 50%);
@@ -476,6 +480,7 @@ Version: 3.4.6 Timestamp: Sat Mar 22 22:30:15 EDT 2014
   border-top-color: transparent;
   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff), color-stop(0.5, #eee));
   background-image: -webkit-linear-gradient(center top, #fff 0%, #eee 50%);
+  background-image: -moz-linear-gradient(center top, #fff 0%, #eee 50%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#ffffff', GradientType=0);
   background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), color-stop(50%, #eee));
   background-image: -webkit-linear-gradient(top, #fff 0%, #eee 50%);
@@ -779,7 +784,7 @@ html[dir="rtl"] .select2-search-choice-close {
   overflow: scroll; }
 
 /* Retina-ize icons */
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 2dppx) {
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-resolution: 2dppx) {
   .select2-search input,
   .select2-search-choice-close,
   .select2-container .select2-choice abbr,
@@ -1056,21 +1061,17 @@ body {
 .l--content {
   float: right;
   margin: 0 40px 40px 0;
-  width: -webkit-calc(100% - 325px);
   width: calc(100% - 325px); }
   @media (min-width: 100.0625em) {
     .l--content {
       margin: 0 50px 50px 0;
-      width: -webkit-calc(100% - 380px);
       width: calc(100% - 380px); } }
   @media (min-width: 118.8125em) {
     .l--content {
       margin: 0 100px 100px 0;
-      width: -webkit-calc(100% - 555px);
       width: calc(100% - 555px); } }
   @media (min-width: 64.125em) and (max-width: 81.25em) {
     .l--content {
-      width: -webkit-calc(100% - 300px);
       width: calc(100% - 300px); } }
   @media (max-width: 64.0625em) {
     .l--content {
@@ -1134,7 +1135,6 @@ body {
 
 .l--body__content {
   float: left;
-  width: -webkit-calc(100% - (200px + 40px));
   width: calc(100% - (200px + 40px)); }
   .no-csscalc .l--body__content {
     padding-right: 240px;
@@ -1150,12 +1150,10 @@ body {
         padding-right: 0; } }
   @media (min-width: 100.0625em) {
     .l--body__content {
-      width: -webkit-calc(100% - (250px + 50px));
       width: calc(100% - (250px + 50px));
       font-size: 1.1875rem; } }
   @media (min-width: 118.8125em) {
     .l--body__content {
-      width: -webkit-calc(100% - (275px + 100px));
       width: calc(100% - (275px + 100px));
       font-size: 1.375rem; } }
   @media (max-width: 81.25em) {
@@ -2115,7 +2113,7 @@ a {
     top: -0.1em;
     margin-left: 0.5em;
     content: ''; }
-    @media (-o-min-device-pixel-ratio: 1.5 / 1), (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+    @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
       .link--more:after {
         background-image: url("../images/icons/sprite_2x.png");
         background-size: 11px 108px; } }
@@ -2126,7 +2124,7 @@ a {
     width: 11px;
     height: 7px;
     background-position: 0 -36px; }
-    @media (-o-min-device-pixel-ratio: 1.5 / 1), (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+    @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
       .link--more:hover:after {
         background-image: url("../images/icons/sprite_2x.png");
         background-size: 11px 108px; } }
@@ -2149,7 +2147,7 @@ a {
     top: 1px;
     margin-left: 0.5em;
     content: ''; }
-    @media (-o-min-device-pixel-ratio: 1.5 / 1), (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+    @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
       .link--top:after {
         background-image: url("../images/icons/sprite_2x.png");
         background-size: 11px 108px; } }
@@ -2160,7 +2158,7 @@ a {
     width: 7px;
     height: 11px;
     background-position: 0 -50px; }
-    @media (-o-min-device-pixel-ratio: 1.5 / 1), (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+    @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
       .link--top:hover:after {
         background-image: url("../images/icons/sprite_2x.png");
         background-size: 11px 108px; } }
@@ -3630,7 +3628,7 @@ form {
   background-image: url("../images/icons/loading.gif");
   background-position: 50% 50%;
   background-repeat: no-repeat; }
-  @media (-o-min-device-pixel-ratio: 1.5 / 1), (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+  @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
     .viewer__viewport {
       background-image: url("../images/icons/loading_2x.gif");
       background-size: 64px 64px; } }
@@ -4635,7 +4633,7 @@ form {
     background-position: 0 -97px;
     margin-left: 0.5em;
     content: ''; }
-    @media (-o-min-device-pixel-ratio: 1.5 / 1), (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+    @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
       .navSectionJump:after {
         background-image: url("../images/icons/sprite_2x.png");
         background-size: 11px 108px; } }
