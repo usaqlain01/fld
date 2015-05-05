@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "9351d22e3b46e3f61b56964439cb48af",
+    "hash": "67cc4009c9caa4c2d59be7c9069cbe1c",
     "packages": [
         {
             "name": "bangpound/crop-extension",
@@ -41,6 +41,106 @@
             ],
             "description": "Extension of stojg/crop",
             "time": "2014-08-06 23:42:11"
+        },
+        {
+            "name": "cilex/console-service-provider",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Cilex/console-service-provider.git",
+                "reference": "3abf600fd9f6ac54f56cf1ce7fb3a7c0c533cd03"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Cilex/console-service-provider/zipball/3abf600fd9f6ac54f56cf1ce7fb3a7c0c533cd03",
+                "reference": "3abf600fd9f6ac54f56cf1ce7fb3a7c0c533cd03",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "pimple/pimple": ">=2.1,<4",
+                "symfony/console": "~2.4"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Cilex\\Provider\\Console": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mike van Riel",
+                    "email": "me@mikevanriel.com"
+                },
+                {
+                    "name": "Beau Simensen",
+                    "email": "beau@dflydev.com"
+                }
+            ],
+            "description": "Console Service Provider",
+            "keywords": [
+                "cilex",
+                "console",
+                "pimple",
+                "service-provider",
+                "silex"
+            ],
+            "time": "2014-07-28 20:37:06"
+        },
+        {
+            "name": "pimple/pimple",
+            "version": "v3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/silexphp/Pimple.git",
+                "reference": "876bf0899d01feacd2a2e83f04641e51350099ef"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/silexphp/Pimple/zipball/876bf0899d01feacd2a2e83f04641e51350099ef",
+                "reference": "876bf0899d01feacd2a2e83f04641e51350099ef",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Pimple": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                }
+            ],
+            "description": "Pimple is a simple Dependency Injection Container for PHP 5.3",
+            "homepage": "http://pimple.sensiolabs.org",
+            "keywords": [
+                "container",
+                "dependency injection"
+            ],
+            "time": "2014-07-24 09:48:15"
         },
         {
             "name": "stojg/crop",
@@ -87,6 +187,114 @@
                 "image"
             ],
             "time": "2014-10-25 08:42:29"
+        },
+        {
+            "name": "symfony/console",
+            "version": "v2.6.6",
+            "target-dir": "Symfony/Component/Console",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/Console.git",
+                "reference": "5b91dc4ed5eb08553f57f6df04c4730a73992667"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/Console/zipball/5b91dc4ed5eb08553f57f6df04c4730a73992667",
+                "reference": "5b91dc4ed5eb08553f57f6df04c4730a73992667",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "psr/log": "~1.0",
+                "symfony/event-dispatcher": "~2.1",
+                "symfony/phpunit-bridge": "~2.7",
+                "symfony/process": "~2.1"
+            },
+            "suggest": {
+                "psr/log": "For using the console logger",
+                "symfony/event-dispatcher": "",
+                "symfony/process": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.6-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Symfony\\Component\\Console\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                },
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                }
+            ],
+            "description": "Symfony Console Component",
+            "homepage": "http://symfony.com",
+            "time": "2015-03-30 15:54:10"
+        },
+        {
+            "name": "symfony/filesystem",
+            "version": "v2.6.6",
+            "target-dir": "Symfony/Component/Filesystem",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/Filesystem.git",
+                "reference": "4983964b3693e4f13449cb3800c64a9112c301b4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/Filesystem/zipball/4983964b3693e4f13449cb3800c64a9112c301b4",
+                "reference": "4983964b3693e4f13449cb3800c64a9112c301b4",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "symfony/phpunit-bridge": "~2.7"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.6-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Symfony\\Component\\Filesystem\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                },
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                }
+            ],
+            "description": "Symfony Filesystem Component",
+            "homepage": "http://symfony.com",
+            "time": "2015-03-22 16:55:57"
         },
         {
             "name": "symfony/property-access",
@@ -206,12 +414,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bangpound/Assetic-CLI.git",
-                "reference": "ceaa11f55be6e284a81ac0c70e1a55cf1d7c1faa"
+                "reference": "5c3110f83bceb4c0c049db1cda8c295f62d3c3b4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bangpound/Assetic-CLI/zipball/ceaa11f55be6e284a81ac0c70e1a55cf1d7c1faa",
-                "reference": "ceaa11f55be6e284a81ac0c70e1a55cf1d7c1faa",
+                "url": "https://api.github.com/repos/bangpound/Assetic-CLI/zipball/5c3110f83bceb4c0c049db1cda8c295f62d3c3b4",
+                "reference": "5c3110f83bceb4c0c049db1cda8c295f62d3c3b4",
                 "shasum": ""
             },
             "require": {
@@ -240,7 +448,7 @@
                 "MIT"
             ],
             "description": "Assetic as a command line tool",
-            "time": "2014-11-02 23:45:20"
+            "time": "2015-05-05 18:34:13"
         },
         {
             "name": "bangpound/assetic-codekit",
@@ -289,12 +497,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bangpound/assetic-service-provider.git",
-                "reference": "075e8ca3128f8bda3b728dffb8c4cbb835435088"
+                "reference": "2a9361b332ee526bf2f58b79ee023c988a46e12c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bangpound/assetic-service-provider/zipball/075e8ca3128f8bda3b728dffb8c4cbb835435088",
-                "reference": "075e8ca3128f8bda3b728dffb8c4cbb835435088",
+                "url": "https://api.github.com/repos/bangpound/assetic-service-provider/zipball/2a9361b332ee526bf2f58b79ee023c988a46e12c",
+                "reference": "2a9361b332ee526bf2f58b79ee023c988a46e12c",
                 "shasum": ""
             },
             "require": {
@@ -318,7 +526,7 @@
                 "MIT"
             ],
             "description": "Assetic service provider for Pimple",
-            "time": "2014-10-05 20:36:38"
+            "time": "2015-05-05 14:48:25"
         },
         {
             "name": "kriswallsmith/assetic",
@@ -395,52 +603,6 @@
             "time": "2014-12-12 05:04:05"
         },
         {
-            "name": "pimple/pimple",
-            "version": "v3.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/silexphp/Pimple.git",
-                "reference": "876bf0899d01feacd2a2e83f04641e51350099ef"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/silexphp/Pimple/zipball/876bf0899d01feacd2a2e83f04641e51350099ef",
-                "reference": "876bf0899d01feacd2a2e83f04641e51350099ef",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Pimple": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                }
-            ],
-            "description": "Pimple is a simple Dependency Injection Container for PHP 5.3",
-            "homepage": "http://pimple.sensiolabs.org",
-            "keywords": [
-                "container",
-                "dependency injection"
-            ],
-            "time": "2014-07-24 09:48:15"
-        },
-        {
             "name": "psr/log",
             "version": "1.0.0",
             "source": {
@@ -477,64 +639,6 @@
                 "psr-3"
             ],
             "time": "2012-12-21 11:40:51"
-        },
-        {
-            "name": "symfony/console",
-            "version": "v2.6.6",
-            "target-dir": "Symfony/Component/Console",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/Console.git",
-                "reference": "5b91dc4ed5eb08553f57f6df04c4730a73992667"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Console/zipball/5b91dc4ed5eb08553f57f6df04c4730a73992667",
-                "reference": "5b91dc4ed5eb08553f57f6df04c4730a73992667",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3"
-            },
-            "require-dev": {
-                "psr/log": "~1.0",
-                "symfony/event-dispatcher": "~2.1",
-                "symfony/phpunit-bridge": "~2.7",
-                "symfony/process": "~2.1"
-            },
-            "suggest": {
-                "psr/log": "For using the console logger",
-                "symfony/event-dispatcher": "",
-                "symfony/process": ""
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.6-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Symfony\\Component\\Console\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Symfony Community",
-                    "homepage": "http://symfony.com/contributors"
-                },
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                }
-            ],
-            "description": "Symfony Console Component",
-            "homepage": "http://symfony.com",
-            "time": "2015-03-30 15:54:10"
         },
         {
             "name": "symfony/debug",
@@ -740,9 +844,9 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "bangpound/crop-extension": 20,
-        "phing/phing": 20,
-        "mongolito404/phingdrushtask": 20,
+        "cilex/console-service-provider": 20,
         "bangpound/assetic-cli": 20,
+        "bangpound/assetic-codekit": 20,
         "bangpound/assetic-service-provider": 20,
         "zacoza/assetic-filters": 20
     },

@@ -86,172 +86,6 @@
         "description": "Extension of stojg/crop"
     },
     {
-        "name": "symfony/property-access",
-        "version": "v2.6.6",
-        "version_normalized": "2.6.6.0",
-        "target-dir": "Symfony/Component/PropertyAccess",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/symfony/PropertyAccess.git",
-            "reference": "b342f127c3ab73dd4069c2104cb76f1a1ef7c7e7"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/symfony/PropertyAccess/zipball/b342f127c3ab73dd4069c2104cb76f1a1ef7c7e7",
-            "reference": "b342f127c3ab73dd4069c2104cb76f1a1ef7c7e7",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.3"
-        },
-        "require-dev": {
-            "symfony/phpunit-bridge": "~2.7"
-        },
-        "time": "2015-03-30 15:54:10",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.6-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "Symfony\\Component\\PropertyAccess\\": ""
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Symfony Community",
-                "homepage": "http://symfony.com/contributors"
-            },
-            {
-                "name": "Fabien Potencier",
-                "email": "fabien@symfony.com"
-            }
-        ],
-        "description": "Symfony PropertyAccess Component",
-        "homepage": "http://symfony.com",
-        "keywords": [
-            "access",
-            "array",
-            "extraction",
-            "index",
-            "injection",
-            "object",
-            "property",
-            "property path",
-            "reflection"
-        ]
-    },
-    {
-        "name": "symfony/yaml",
-        "version": "v2.4.2",
-        "version_normalized": "2.4.2.0",
-        "target-dir": "Symfony/Component/Yaml",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/symfony/Yaml.git",
-            "reference": "bb6ddaf8956139d1b8c360b4b713ed0138e876b3"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/symfony/Yaml/zipball/bb6ddaf8956139d1b8c360b4b713ed0138e876b3",
-            "reference": "bb6ddaf8956139d1b8c360b4b713ed0138e876b3",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.3"
-        },
-        "time": "2014-01-07 13:28:54",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.4-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "Symfony\\Component\\Yaml\\": ""
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Fabien Potencier",
-                "email": "fabien@symfony.com",
-                "homepage": "http://fabien.potencier.org",
-                "role": "Lead Developer"
-            },
-            {
-                "name": "Symfony Community",
-                "homepage": "http://symfony.com/contributors"
-            }
-        ],
-        "description": "Symfony Yaml Component",
-        "homepage": "http://symfony.com"
-    },
-    {
-        "name": "symfony/process",
-        "version": "v2.6.6",
-        "version_normalized": "2.6.6.0",
-        "target-dir": "Symfony/Component/Process",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/symfony/Process.git",
-            "reference": "a8bebaec1a9dc6cde53e0250e32917579b0be552"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/symfony/Process/zipball/a8bebaec1a9dc6cde53e0250e32917579b0be552",
-            "reference": "a8bebaec1a9dc6cde53e0250e32917579b0be552",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.3"
-        },
-        "require-dev": {
-            "symfony/phpunit-bridge": "~2.7"
-        },
-        "time": "2015-03-30 15:54:10",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.6-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "Symfony\\Component\\Process\\": ""
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Symfony Community",
-                "homepage": "http://symfony.com/contributors"
-            },
-            {
-                "name": "Fabien Potencier",
-                "email": "fabien@symfony.com"
-            }
-        ],
-        "description": "Symfony Process Component",
-        "homepage": "http://symfony.com"
-    },
-    {
         "name": "kriswallsmith/assetic",
         "version": "v1.2.1",
         "version_normalized": "1.2.1.0",
@@ -425,12 +259,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/bangpound/assetic-service-provider.git",
-            "reference": "075e8ca3128f8bda3b728dffb8c4cbb835435088"
+            "reference": "2a9361b332ee526bf2f58b79ee023c988a46e12c"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/bangpound/assetic-service-provider/zipball/075e8ca3128f8bda3b728dffb8c4cbb835435088",
-            "reference": "075e8ca3128f8bda3b728dffb8c4cbb835435088",
+            "url": "https://api.github.com/repos/bangpound/assetic-service-provider/zipball/2a9361b332ee526bf2f58b79ee023c988a46e12c",
+            "reference": "2a9361b332ee526bf2f58b79ee023c988a46e12c",
             "shasum": ""
         },
         "require": {
@@ -438,7 +272,7 @@
             "php": ">=5.3.3",
             "pimple/pimple": ">=2.1,<4"
         },
-        "time": "2014-10-05 20:36:38",
+        "time": "2015-05-05 14:48:25",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -456,6 +290,301 @@
             "MIT"
         ],
         "description": "Assetic service provider for Pimple"
+    },
+    {
+        "name": "psr/log",
+        "version": "1.0.0",
+        "version_normalized": "1.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/php-fig/log.git",
+            "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/php-fig/log/zipball/fe0936ee26643249e916849d48e3a51d5f5e278b",
+            "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b",
+            "shasum": ""
+        },
+        "time": "2012-12-21 11:40:51",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Psr\\Log\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "PHP-FIG",
+                "homepage": "http://www.php-fig.org/"
+            }
+        ],
+        "description": "Common interface for logging libraries",
+        "keywords": [
+            "log",
+            "psr",
+            "psr-3"
+        ]
+    },
+    {
+        "name": "zacoza/assetic-filters",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/SimonDegraeve/assetic-filters.git",
+            "reference": "c1a16eb93faa8eb0d325e525dfd0bf77720fa400"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/SimonDegraeve/assetic-filters/zipball/c1a16eb93faa8eb0d325e525dfd0bf77720fa400",
+            "reference": "c1a16eb93faa8eb0d325e525dfd0bf77720fa400",
+            "shasum": ""
+        },
+        "require": {
+            "kriswallsmith/assetic": "1.2.*@dev",
+            "php": ">=5.3.0"
+        },
+        "time": "2014-02-05 02:01:30",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "ZaCoZa\\Assetic": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Simon Degraeve",
+                "email": "simon.degraeve@gmail.com",
+                "homepage": "http://about.me/SimonDegraeve",
+                "role": "Developer"
+            }
+        ]
+    },
+    {
+        "name": "bangpound/assetic-cli",
+        "version": "dev-develop",
+        "version_normalized": "dev-develop",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/bangpound/Assetic-CLI.git",
+            "reference": "5c3110f83bceb4c0c049db1cda8c295f62d3c3b4"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/bangpound/Assetic-CLI/zipball/5c3110f83bceb4c0c049db1cda8c295f62d3c3b4",
+            "reference": "5c3110f83bceb4c0c049db1cda8c295f62d3c3b4",
+            "shasum": ""
+        },
+        "require": {
+            "bangpound/assetic-service-provider": "~1.0@dev",
+            "php": ">=5.3.3"
+        },
+        "require-dev": {
+            "symfony/debug": "~2.3"
+        },
+        "time": "2015-05-05 18:34:13",
+        "bin": [
+            "bin/assetic"
+        ],
+        "type": "project",
+        "extra": {
+            "branch-alias": {
+                "dev-develop": "1.1.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Bangpound\\Assetic\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "description": "Assetic as a command line tool"
+    },
+    {
+        "name": "cilex/console-service-provider",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Cilex/console-service-provider.git",
+            "reference": "3abf600fd9f6ac54f56cf1ce7fb3a7c0c533cd03"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Cilex/console-service-provider/zipball/3abf600fd9f6ac54f56cf1ce7fb3a7c0c533cd03",
+            "reference": "3abf600fd9f6ac54f56cf1ce7fb3a7c0c533cd03",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.3",
+            "pimple/pimple": ">=2.1,<4",
+            "symfony/console": "~2.4"
+        },
+        "time": "2014-07-28 20:37:06",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.0-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Cilex\\Provider\\Console": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Mike van Riel",
+                "email": "me@mikevanriel.com"
+            },
+            {
+                "name": "Beau Simensen",
+                "email": "beau@dflydev.com"
+            }
+        ],
+        "description": "Console Service Provider",
+        "keywords": [
+            "cilex",
+            "console",
+            "pimple",
+            "service-provider",
+            "silex"
+        ]
+    },
+    {
+        "name": "symfony/property-access",
+        "version": "v2.6.6",
+        "version_normalized": "2.6.6.0",
+        "target-dir": "Symfony/Component/PropertyAccess",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/PropertyAccess.git",
+            "reference": "b342f127c3ab73dd4069c2104cb76f1a1ef7c7e7"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/PropertyAccess/zipball/b342f127c3ab73dd4069c2104cb76f1a1ef7c7e7",
+            "reference": "b342f127c3ab73dd4069c2104cb76f1a1ef7c7e7",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.3"
+        },
+        "require-dev": {
+            "symfony/phpunit-bridge": "~2.7"
+        },
+        "time": "2015-03-30 15:54:10",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.6-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Symfony\\Component\\PropertyAccess\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Symfony Community",
+                "homepage": "http://symfony.com/contributors"
+            },
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            }
+        ],
+        "description": "Symfony PropertyAccess Component",
+        "homepage": "http://symfony.com",
+        "keywords": [
+            "access",
+            "array",
+            "extraction",
+            "index",
+            "injection",
+            "object",
+            "property",
+            "property path",
+            "reflection"
+        ]
+    },
+    {
+        "name": "symfony/filesystem",
+        "version": "v2.6.6",
+        "version_normalized": "2.6.6.0",
+        "target-dir": "Symfony/Component/Filesystem",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/Filesystem.git",
+            "reference": "4983964b3693e4f13449cb3800c64a9112c301b4"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/Filesystem/zipball/4983964b3693e4f13449cb3800c64a9112c301b4",
+            "reference": "4983964b3693e4f13449cb3800c64a9112c301b4",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.3"
+        },
+        "require-dev": {
+            "symfony/phpunit-bridge": "~2.7"
+        },
+        "time": "2015-03-22 16:55:57",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.6-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Symfony\\Component\\Filesystem\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Symfony Community",
+                "homepage": "http://symfony.com/contributors"
+            },
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            }
+        ],
+        "description": "Symfony Filesystem Component",
+        "homepage": "http://symfony.com"
     },
     {
         "name": "symfony/console",
@@ -516,46 +645,6 @@
         ],
         "description": "Symfony Console Component",
         "homepage": "http://symfony.com"
-    },
-    {
-        "name": "psr/log",
-        "version": "1.0.0",
-        "version_normalized": "1.0.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/php-fig/log.git",
-            "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/php-fig/log/zipball/fe0936ee26643249e916849d48e3a51d5f5e278b",
-            "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b",
-            "shasum": ""
-        },
-        "time": "2012-12-21 11:40:51",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "Psr\\Log\\": ""
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "PHP-FIG",
-                "homepage": "http://www.php-fig.org/"
-            }
-        ],
-        "description": "Common interface for logging libraries",
-        "keywords": [
-            "log",
-            "psr",
-            "psr-3"
-        ]
     },
     {
         "name": "symfony/debug",
@@ -673,30 +762,38 @@
         "homepage": "http://symfony.com"
     },
     {
-        "name": "zacoza/assetic-filters",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
+        "name": "symfony/process",
+        "version": "v2.6.6",
+        "version_normalized": "2.6.6.0",
+        "target-dir": "Symfony/Component/Process",
         "source": {
             "type": "git",
-            "url": "https://github.com/SimonDegraeve/assetic-filters.git",
-            "reference": "c1a16eb93faa8eb0d325e525dfd0bf77720fa400"
+            "url": "https://github.com/symfony/Process.git",
+            "reference": "a8bebaec1a9dc6cde53e0250e32917579b0be552"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/SimonDegraeve/assetic-filters/zipball/c1a16eb93faa8eb0d325e525dfd0bf77720fa400",
-            "reference": "c1a16eb93faa8eb0d325e525dfd0bf77720fa400",
+            "url": "https://api.github.com/repos/symfony/Process/zipball/a8bebaec1a9dc6cde53e0250e32917579b0be552",
+            "reference": "a8bebaec1a9dc6cde53e0250e32917579b0be552",
             "shasum": ""
         },
         "require": {
-            "kriswallsmith/assetic": "1.2.*@dev",
-            "php": ">=5.3.0"
+            "php": ">=5.3.3"
         },
-        "time": "2014-02-05 02:01:30",
+        "require-dev": {
+            "symfony/phpunit-bridge": "~2.7"
+        },
+        "time": "2015-03-30 15:54:10",
         "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.6-dev"
+            }
+        },
         "installation-source": "dist",
         "autoload": {
             "psr-0": {
-                "ZaCoZa\\Assetic": "src/"
+                "Symfony\\Component\\Process\\": ""
             }
         },
         "notification-url": "https://packagist.org/downloads/",
@@ -705,11 +802,66 @@
         ],
         "authors": [
             {
-                "name": "Simon Degraeve",
-                "email": "simon.degraeve@gmail.com",
-                "homepage": "http://about.me/SimonDegraeve",
-                "role": "Developer"
+                "name": "Symfony Community",
+                "homepage": "http://symfony.com/contributors"
+            },
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
             }
-        ]
+        ],
+        "description": "Symfony Process Component",
+        "homepage": "http://symfony.com"
+    },
+    {
+        "name": "symfony/yaml",
+        "version": "v2.4.2",
+        "version_normalized": "2.4.2.0",
+        "target-dir": "Symfony/Component/Yaml",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/Yaml.git",
+            "reference": "bb6ddaf8956139d1b8c360b4b713ed0138e876b3"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/Yaml/zipball/bb6ddaf8956139d1b8c360b4b713ed0138e876b3",
+            "reference": "bb6ddaf8956139d1b8c360b4b713ed0138e876b3",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.3"
+        },
+        "time": "2014-01-07 13:28:54",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.4-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Symfony\\Component\\Yaml\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com",
+                "homepage": "http://fabien.potencier.org",
+                "role": "Lead Developer"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "http://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony Yaml Component",
+        "homepage": "http://symfony.com"
     }
 ]

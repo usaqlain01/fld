@@ -25,8 +25,10 @@
     "prefer-stable": true,
     "require": {
         "bangpound/crop-extension": "dev-master",
+        "cilex/console-service-provider": "~2.0@dev",
         "php": ">=5.3.0",
         "stojg/crop": "~1.2.6",
+        "symfony/filesystem": "~2.3",
         "symfony/property-access": "~2.0",
         "symfony/yaml": "2.4.2"
     },

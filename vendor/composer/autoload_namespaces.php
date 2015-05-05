@@ -12,10 +12,12 @@ return array(
     'Symfony\\Component\\PropertyAccess\\' => array($vendorDir . '/symfony/property-access'),
     'Symfony\\Component\\Process\\' => array($vendorDir . '/symfony/process'),
     'Symfony\\Component\\Finder\\' => array($vendorDir . '/symfony/finder'),
+    'Symfony\\Component\\Filesystem\\' => array($vendorDir . '/symfony/filesystem'),
     'Symfony\\Component\\Debug\\' => array($vendorDir . '/symfony/debug'),
     'Symfony\\Component\\Console\\' => array($vendorDir . '/symfony/console'),
     'Psr\\Log\\' => array($vendorDir . '/psr/log'),
     'Pimple' => array($vendorDir . '/pimple/pimple/src'),
     'Drupal\\bangpoundmedia\\' => array($baseDir . '/docroot/profiles/fieldmuseum/modules/bangpound/bangpoundmedia/lib'),
+    'Cilex\\Provider\\Console' => array($vendorDir . '/cilex/console-service-provider/src'),
     'Assetic' => array($vendorDir . '/kriswallsmith/assetic/src'),
 );
