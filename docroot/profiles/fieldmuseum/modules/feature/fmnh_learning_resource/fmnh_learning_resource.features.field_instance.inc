@@ -30,7 +30,7 @@ function fmnh_learning_resource_field_default_field_instances() {
           'field_formatter_class' => '',
         ),
         'type' => 'text_default',
-        'weight' => 1,
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'hidden',
@@ -77,12 +77,9 @@ function fmnh_learning_resource_field_default_field_instances() {
       ),
       'default' => array(
         'label' => 'hidden',
-        'module' => 'file',
-        'settings' => array(
-          'field_formatter_class' => '',
-        ),
-        'type' => 'file_default',
-        'weight' => 3,
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 2,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -147,7 +144,7 @@ function fmnh_learning_resource_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 2,
+        'weight' => 3,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -187,7 +184,7 @@ function fmnh_learning_resource_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 1,
       ),
       'teaser' => array(
         'label' => 'hidden',

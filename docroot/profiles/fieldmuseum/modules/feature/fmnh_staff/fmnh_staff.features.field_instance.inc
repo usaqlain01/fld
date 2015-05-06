@@ -807,9 +807,12 @@ function fmnh_staff_field_default_field_instances() {
         'weight' => 26,
       ),
       'list_item' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(
+          'field_formatter_class' => '',
+        ),
+        'type' => 'text_default',
         'weight' => 26,
       ),
       'summary' => array(

@@ -43,8 +43,9 @@ function fmnh_program_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(
           'field_formatter_class' => '',
+          'trim_length' => 600,
         ),
-        'type' => 'text_default',
+        'type' => 'text_summary_or_trimmed',
         'weight' => 1,
       ),
       'teaser' => array(

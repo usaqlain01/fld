@@ -147,19 +147,21 @@ function fmnh_department_strongarm() {
       'default' => array(
         'status' => 0,
         'default' => 0,
-        'default display' => 0,
         'choice' => 0,
       ),
       'teaser' => array(
         'status' => 0,
         'default' => 0,
-        'default display' => 0,
+        'choice' => 0,
+      ),
+      'banner' => array(
+        'status' => 0,
+        'default' => 0,
         'choice' => 0,
       ),
       'promo' => array(
         'status' => 0,
         'default' => 0,
-        'default display' => 0,
         'choice' => 0,
       ),
     ),
@@ -169,9 +171,37 @@ function fmnh_department_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'panelizer_node:department:banner_selection';
+  $strongarm->value = 0;
+  $export['panelizer_node:department:banner_selection'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'panelizer_node:department:default_selection';
+  $strongarm->value = 0;
+  $export['panelizer_node:department:default_selection'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'panelizer_node:department:page_manager_selection';
   $strongarm->value = 'node:department:default';
   $export['panelizer_node:department:page_manager_selection'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'panelizer_node:department:promo_selection';
+  $strongarm->value = 0;
+  $export['panelizer_node:department:promo_selection'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'panelizer_node:department:teaser_selection';
+  $strongarm->value = 0;
+  $export['panelizer_node:department:teaser_selection'] = $strongarm;
 
   return $export;
 }

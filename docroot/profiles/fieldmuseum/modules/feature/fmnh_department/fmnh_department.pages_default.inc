@@ -127,7 +127,7 @@ function fmnh_department_default_page_manager_pages() {
     $pane->configuration = array(
       'admin_title' => '',
       'title' => '',
-      'body' => '<h1>%node:title &mdash; Staff</h1>',
+      'body' => '<h1>%node:title &mdash; People</h1>',
       'format' => 'unfiltered',
       'substitute' => 1,
     );

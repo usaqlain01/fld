@@ -64,7 +64,7 @@ http://fieldmuseum.org
         'weight' => -49,
         'status' => 1,
         'settings' => array(
-          'allowed_html' => '<a> <em> <strong> <cite> <blockquote> <code> <ul> <ol> <li> <dl> <dt> <dd> <img> <br> <p> <h2> <h3> <h4> <table> <th> <tr> <td> <hr> <iframe> <u>',
+          'allowed_html' => '<a> <em> <strong> <cite> <blockquote> <code> <ul> <ol> <li> <dl> <dt> <dd> <img> <br> <p> <h2> <h3> <h4> <h5> <table> <th> <tr> <td> <hr> <iframe> <u>',
           'filter_html_help' => 1,
           'filter_html_nofollow' => 0,
         ),
@@ -281,6 +281,11 @@ http://fieldmuseum.org
     'status' => 1,
     'weight' => -4,
     'filters' => array(
+      'media_filter' => array(
+        'weight' => 2,
+        'status' => 1,
+        'settings' => array(),
+      ),
       'pathologic' => array(
         'weight' => 50,
         'status' => 1,

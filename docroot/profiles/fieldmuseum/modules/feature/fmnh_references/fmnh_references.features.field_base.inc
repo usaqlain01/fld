@@ -36,9 +36,6 @@ function fmnh_references_field_default_field_bases() {
       'handler' => 'base',
       'handler_settings' => array(
         'behaviors' => array(
-          'entityqueue' => array(
-            'status' => 0,
-          ),
           'views-select-list' => array(
             'status' => 0,
           ),

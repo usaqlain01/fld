@@ -232,6 +232,7 @@ function fmnh_media_user_default_permissions() {
     'name' => 'download any document files',
     'roles' => array(
       'administrator' => 'administrator',
+      'anonymous user' => 'anonymous user',
     ),
     'module' => 'file_entity',
   );
@@ -441,6 +442,7 @@ function fmnh_media_user_default_permissions() {
     'name' => 'view files',
     'roles' => array(
       'administrator' => 'administrator',
+      'anonymous user' => 'anonymous user',
       'authenticated user' => 'authenticated user',
       'author' => 'author',
       'publisher' => 'publisher',

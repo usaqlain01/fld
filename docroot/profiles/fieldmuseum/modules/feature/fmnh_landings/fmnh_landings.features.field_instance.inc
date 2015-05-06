@@ -24,7 +24,7 @@ function fmnh_landings_field_default_field_instances() {
           'field_formatter_class' => '',
         ),
         'type' => 'link_default',
-        'weight' => 3,
+        'weight' => 4,
       ),
       'excerpt' => array(
         'label' => 'hidden',
@@ -61,7 +61,7 @@ function fmnh_landings_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 5,
+      'weight' => 4,
     ),
   );
 
@@ -167,7 +167,7 @@ function fmnh_landings_field_default_field_instances() {
           'file_view_mode' => 'banner_5x3',
         ),
         'type' => 'file_rendered',
-        'weight' => 0,
+        'weight' => 1,
       ),
       'excerpt' => array(
         'label' => 'hidden',
@@ -225,7 +225,7 @@ function fmnh_landings_field_default_field_instances() {
         ),
       ),
       'type' => 'media_generic',
-      'weight' => 0,
+      'weight' => 1,
     ),
   );
 
@@ -304,7 +304,7 @@ function fmnh_landings_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 5,
+        'weight' => 6,
       ),
       'excerpt' => array(
         'label' => 'above',
@@ -328,7 +328,7 @@ function fmnh_landings_field_default_field_instances() {
         'display_label' => 0,
       ),
       'type' => 'options_onoff',
-      'weight' => 6,
+      'weight' => 5,
     ),
   );
 
@@ -338,6 +338,7 @@ function fmnh_landings_field_default_field_instances() {
     'default_value' => array(
       0 => array(
         'value' => 'Read more<span class="element-invisible"> about @title</span>',
+        'format' => 'unfiltered_phrase_html',
       ),
     ),
     'deleted' => 0,
@@ -345,12 +346,9 @@ function fmnh_landings_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'text',
-        'settings' => array(
-          'field_formatter_class' => '',
-        ),
-        'type' => 'text_default',
-        'weight' => 6,
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 5,
       ),
       'excerpt' => array(
         'label' => 'above',
@@ -417,7 +415,7 @@ function fmnh_landings_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 8,
+      'weight' => 6,
     ),
   );
 
