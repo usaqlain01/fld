@@ -415,12 +415,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bangpound/Assetic-CLI.git",
-                "reference": "5c3110f83bceb4c0c049db1cda8c295f62d3c3b4"
+                "reference": "f07c876fc559f70086fc8df5e7622dd514f0809e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bangpound/Assetic-CLI/zipball/5c3110f83bceb4c0c049db1cda8c295f62d3c3b4",
-                "reference": "5c3110f83bceb4c0c049db1cda8c295f62d3c3b4",
+                "url": "https://api.github.com/repos/bangpound/Assetic-CLI/zipball/f07c876fc559f70086fc8df5e7622dd514f0809e",
+                "reference": "f07c876fc559f70086fc8df5e7622dd514f0809e",
                 "shasum": ""
             },
             "require": {
@@ -449,7 +449,7 @@
                 "MIT"
             ],
             "description": "Assetic as a command line tool",
-            "time": "2015-05-05 18:34:13"
+            "time": "2015-05-05 18:51:14"
         },
         {
             "name": "bangpound/assetic-codekit",
