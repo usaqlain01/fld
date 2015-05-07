@@ -295,6 +295,7 @@ function fmnh_media_strongarm() {
     'primary_2x1' => 0,
     'banner_5x2' => 0,
     'banner_5x3' => 0,
+    'resource' => 0,
     'headshot' => 0,
     'teaser' => 0,
     'full' => 0,
@@ -346,6 +347,7 @@ function fmnh_media_strongarm() {
     'primary_2x1' => 0,
     'banner_5x2' => 0,
     'banner_5x3' => 0,
+    'resource' => 0,
     'headshot' => 0,
     'teaser' => 0,
     'full' => 0,
@@ -411,6 +413,7 @@ function fmnh_media_strongarm() {
     'wysiwyg' => 'wysiwyg',
     'token' => 'token',
     'embed' => 0,
+    'resource' => 0,
   );
   $export['media_wysiwyg_view_mode_image_wysiwyg_restricted_view_modes'] = $strongarm;
 
@@ -448,6 +451,7 @@ function fmnh_media_strongarm() {
     'primary_2x1' => 0,
     'banner_5x2' => 0,
     'banner_5x3' => 0,
+    'resource' => 0,
     'headshot' => 0,
     'teaser' => 0,
     'full' => 0,
@@ -499,6 +503,7 @@ function fmnh_media_strongarm() {
     'primary_2x1' => 0,
     'banner_5x2' => 0,
     'banner_5x3' => 0,
+    'resource' => 0,
     'headshot' => 0,
     'teaser' => 0,
     'full' => 0,
