@@ -335,7 +335,7 @@ function fmnh_blog_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 8,
+        'weight' => 7,
       ),
       'promo' => array(
         'label' => 'above',
@@ -398,7 +398,7 @@ function fmnh_blog_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 7,
+        'weight' => 6,
       ),
       'promo' => array(
         'label' => 'above',
@@ -461,7 +461,7 @@ function fmnh_blog_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 6,
+        'weight' => 5,
       ),
       'promo' => array(
         'label' => 'above',
@@ -524,7 +524,7 @@ function fmnh_blog_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 3,
+        'weight' => 4,
       ),
       'promo' => array(
         'label' => 'above',
@@ -587,7 +587,7 @@ function fmnh_blog_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 9,
+        'weight' => 8,
       ),
       'promo' => array(
         'label' => 'above',
@@ -647,10 +647,15 @@ function fmnh_blog_field_default_field_instances() {
         'weight' => 0,
       ),
       'default' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 4,
+        'label' => 'hidden',
+        'module' => 'entityreference',
+        'settings' => array(
+          'field_formatter_class' => '',
+          'links' => 1,
+          'view_mode' => 'entity_label',
+        ),
+        'type' => 'entityreference_entity_view',
+        'weight' => 3,
       ),
       'promo' => array(
         'label' => 'above',
