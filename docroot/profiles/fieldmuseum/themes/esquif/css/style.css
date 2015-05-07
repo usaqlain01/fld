@@ -2550,7 +2550,9 @@ td {
   display: block; }
 
 .promo__image {
-  display: block; }
+  display: block;
+  width: 100%;
+}
 
 .promo__description {
   position: absolute;
