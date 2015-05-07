@@ -69,6 +69,37 @@ function fmnh_staff_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_imported|user|user|form';
+  $field_group->group_name = 'group_imported';
+  $field_group->entity_type = 'user';
+  $field_group->bundle = 'user';
+  $field_group->mode = 'form';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Imported',
+    'weight' => '7',
+    'children' => array(
+      0 => 'field_business_unit',
+      1 => 'field_home_department',
+      2 => 'field_position',
+      3 => 'field_givenname',
+      4 => 'field_surname',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'formatter' => 'collapsible',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-imported field-group-fieldset',
+        'required_fields' => 1,
+      ),
+    ),
+  );
+  $export['group_imported|user|user|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_location_region|profile2|main|form';
   $field_group->group_name = 'group_location_region';
   $field_group->entity_type = 'profile2';

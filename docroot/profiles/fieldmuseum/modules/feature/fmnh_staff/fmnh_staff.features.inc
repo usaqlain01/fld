@@ -104,5 +104,18 @@ function fmnh_staff_default_profile2_type() {
     },
     "rdf_mapping" : []
   }');
+  $items['override'] = entity_import('profile2_type', '{
+    "userCategory" : true,
+    "userView" : true,
+    "type" : "override",
+    "label" : "Override",
+    "weight" : "0",
+    "data" : {
+      "registration" : 0,
+      "roles" : { "2" : "2", "4" : "4", "5" : "5", "6" : "6", "3" : "3" },
+      "use_page" : 0
+    },
+    "rdf_mapping" : []
+  }');
   return $items;
 }
