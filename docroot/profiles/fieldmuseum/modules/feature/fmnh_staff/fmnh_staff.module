@@ -331,3 +331,19 @@ function fmnh_staff_preprocess_field(&$variables, $hook) {
     $variables['classes_array'][] = 'l--module';
   }
 }
+
+/**
+ * Implements hook_entity_update().
+ *
+ * This resets the user's main profile label whenever the user account is saved.
+ *
+ * @param $entity
+ * @param $type
+ */
+function fmnh_staff_entity_update($entity, $type) {
+  if ($type === 'user') {
+    $profile = profile2_load_by_user($entity, 'main');
+    $profile->label = AUTO_ENTITYLABEL_PLACEHOLDER;
+    profile2_save($profile);
+  }
+}
