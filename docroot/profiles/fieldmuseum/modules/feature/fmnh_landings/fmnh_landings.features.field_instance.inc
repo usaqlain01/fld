@@ -10,7 +10,8 @@
 function fmnh_landings_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'fieldable_panels_pane-banner_description_and_list-field_action_link'
+  // Exported field_instance:
+  // 'fieldable_panels_pane-banner_description_and_list-field_action_link'
   $field_instances['fieldable_panels_pane-banner_description_and_list-field_action_link'] = array(
     'bundle' => 'banner_description_and_list',
     'default_value' => NULL,
@@ -65,7 +66,8 @@ function fmnh_landings_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'fieldable_panels_pane-banner_description_and_list-field_banner_description'
+  // Exported field_instance:
+  // 'fieldable_panels_pane-banner_description_and_list-field_banner_description'
   $field_instances['fieldable_panels_pane-banner_description_and_list-field_banner_description'] = array(
     'bundle' => 'banner_description_and_list',
     'default_value' => NULL,
@@ -153,7 +155,8 @@ function fmnh_landings_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'fieldable_panels_pane-banner_description_and_list-field_image'
+  // Exported field_instance:
+  // 'fieldable_panels_pane-banner_description_and_list-field_image'
   $field_instances['fieldable_panels_pane-banner_description_and_list-field_image'] = array(
     'bundle' => 'banner_description_and_list',
     'deleted' => 0,
@@ -229,7 +232,8 @@ function fmnh_landings_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'fieldable_panels_pane-banner_description_and_list-field_link'
+  // Exported field_instance:
+  // 'fieldable_panels_pane-banner_description_and_list-field_link'
   $field_instances['fieldable_panels_pane-banner_description_and_list-field_link'] = array(
     'bundle' => 'banner_description_and_list',
     'default_value' => NULL,
@@ -289,7 +293,8 @@ function fmnh_landings_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'fieldable_panels_pane-banner_description_and_list-field_more_link'
+  // Exported field_instance:
+  // 'fieldable_panels_pane-banner_description_and_list-field_more_link'
   $field_instances['fieldable_panels_pane-banner_description_and_list-field_more_link'] = array(
     'bundle' => 'banner_description_and_list',
     'default_value' => array(
@@ -332,7 +337,8 @@ function fmnh_landings_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'fieldable_panels_pane-banner_description_and_list-field_read_more_label'
+  // Exported field_instance:
+  // 'fieldable_panels_pane-banner_description_and_list-field_read_more_label'
   $field_instances['fieldable_panels_pane-banner_description_and_list-field_read_more_label'] = array(
     'bundle' => 'banner_description_and_list',
     'default_value' => array(

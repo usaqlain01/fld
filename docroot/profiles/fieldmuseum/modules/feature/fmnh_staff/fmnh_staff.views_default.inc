@@ -172,7 +172,7 @@ function fmnh_staff_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'entity';
   $handler->display->display_options['row_options']['view_mode'] = 'summary';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: User: Home Department (field_home_department) */
+  /* Contextual filter: Field: Home Department (field_home_department) */
   $handler->display->display_options['arguments']['field_home_department_value']['id'] = 'field_home_department_value';
   $handler->display->display_options['arguments']['field_home_department_value']['table'] = 'field_data_field_home_department';
   $handler->display->display_options['arguments']['field_home_department_value']['field'] = 'field_home_department_value';
@@ -234,7 +234,7 @@ function fmnh_staff_views_default_views() {
   $handler->display->display_options['sorts']['field_givenname_value']['id'] = 'field_givenname_value';
   $handler->display->display_options['sorts']['field_givenname_value']['table'] = 'field_data_field_givenname';
   $handler->display->display_options['sorts']['field_givenname_value']['field'] = 'field_givenname_value';
-  /* Contextual filter: User: Home Department (field_home_department) */
+  /* Contextual filter: Field: Home Department (field_home_department) */
   $handler->display->display_options['arguments']['field_home_department_value']['id'] = 'field_home_department_value';
   $handler->display->display_options['arguments']['field_home_department_value']['table'] = 'field_data_field_home_department';
   $handler->display->display_options['arguments']['field_home_department_value']['field'] = 'field_home_department_value';

@@ -267,5 +267,4 @@ features[variable][] = user_admin_role
 features[wysiwyg][] = filtered_wysiwyg
 features[wysiwyg][] = full_wysiwyg
 files[] = handlers/bangpound_views_handler_area_groupings_menu.inc
-mtime = 1430944050
 required = 1
