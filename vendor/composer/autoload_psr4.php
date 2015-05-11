@@ -11,5 +11,5 @@ return array(
     'Bangpound\\Pimple\\Provider\\' => array($vendorDir . '/bangpound/assetic-service-provider'),
     'Bangpound\\Assetic\\Filter\\' => array($vendorDir . '/bangpound/assetic-codekit'),
     'Bangpound\\Assetic\\' => array($vendorDir . '/bangpound/assetic-cli/src'),
-    '' => array($baseDir . '/docroot/profiles/fieldmuseum/lib', $baseDir . '/src'),
+    '' => array($baseDir . '/docroot/profiles/fieldmuseum/lib'),
 );

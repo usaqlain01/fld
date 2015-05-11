@@ -1,45 +1,43 @@
 {
+    "require": {
+        "symfony/property-access": "~2.0",
+        "php": ">=5.3.0",
+        "sabberworm/php-css-parser": "*",
+        "stojg/crop": "dev-master",
+        "bangpound/crop-extension": "dev-master",
+        "symfony/yaml": "~2.3",
+        "symfony/filesystem": "~2.3"
+    },
+    "config": {
+        "autoloader-suffix": "ComposerManager",
+        "vendor-dir": "docroot/../vendor"
+    },
     "autoload": {
         "psr-0": {
             "Drupal\\bangpoundmedia\\": [
-                "docroot/profiles/fieldmuseum/modules/bangpound/bangpoundmedia/lib/"
+                "docroot/profiles/fieldmuseum/modules/bangpound/bangpoundmedia/lib"
             ]
         },
         "psr-4": {
             "": [
-                "docroot/profiles/fieldmuseum/lib/",
-                "src/"
+                "docroot/profiles/fieldmuseum/lib"
             ],
             "Drupal\\inline\\": [
-                "docroot/profiles/fieldmuseum/modules/contrib/inline/lib/Drupal/inline/"
+                "docroot/profiles/fieldmuseum/modules/contrib/inline/lib/Drupal/inline"
             ]
         }
     },
-    "config": {
-        "autoloader-suffix": "ComposerManager",
-        "bin-dir": "bin",
-        "preferred-install": "dist",
-        "vendor-dir": "docroot/../vendor"
+    "require-dev": {
+        "symfony/console": "~2.4",
+        "symfony/debug": "~2.4",
+        "symfony/finder": "~2.4",
+        "pimple/pimple": "~3.0",
+        "cilex/console-service-provider": "~2.0@dev",
+        "bangpound/assetic-cli": "~1.1@dev",
+        "bangpound/assetic-service-provider": "~1.0@dev",
+        "zacoza/assetic-filters": "dev-master",
+        "bangpound/assetic-codekit": "1.0.*@dev"
     },
     "minimum-stability": "dev",
-    "prefer-stable": true,
-    "require": {
-        "bangpound/crop-extension": "dev-master",
-        "cilex/console-service-provider": "~2.0@dev",
-        "php": ">=5.3.0",
-        "stojg/crop": "~1.2.6",
-        "symfony/filesystem": "~2.6",
-        "symfony/property-access": "~2.6",
-        "symfony/yaml": "~2.6"
-    },
-    "require-dev": {
-        "bangpound/assetic-cli": "~1.1@dev",
-        "bangpound/assetic-codekit": "1.0.*@dev",
-        "bangpound/assetic-service-provider": "~1.0@dev",
-        "pimple/pimple": "~3.0",
-        "symfony/console": "~2.6",
-        "symfony/debug": "~2.6",
-        "symfony/finder": "~2.6",
-        "zacoza/assetic-filters": "dev-master"
-    }
+    "prefer-stable": true
 }
