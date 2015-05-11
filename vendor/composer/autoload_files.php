@@ -7,4 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     $vendorDir . '/kriswallsmith/assetic/src/functions.php',
+    $vendorDir . '/symfony/var-dumper/Symfony/Component/VarDumper/Resources/functions/dump.php',
 );

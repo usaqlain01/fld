@@ -31,6 +31,7 @@
         "symfony/console": "~2.4",
         "symfony/debug": "~2.4",
         "symfony/finder": "~2.4",
+        "symfony/var-dumper": "~2.6",
         "pimple/pimple": "~3.0",
         "cilex/console-service-provider": "~2.0@dev",
         "bangpound/assetic-cli": "~1.1@dev",
@@ -38,6 +39,6 @@
         "zacoza/assetic-filters": "dev-master",
         "bangpound/assetic-codekit": "1.0.*@dev"
     },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "preferred-install": "dist"
 }

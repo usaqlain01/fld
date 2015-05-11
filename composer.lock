@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "2fb122562053c5d23ba31c0ad2e2150f",
+    "hash": "8e2cc102cdd79a40865b635d9f1a00b4",
     "packages": [
         {
             "name": "bangpound/crop-extension",
@@ -381,12 +381,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bangpound/assetic-service-provider.git",
-                "reference": "2a9361b332ee526bf2f58b79ee023c988a46e12c"
+                "reference": "f2e4dded1fcda8dfeb666889566642a4fbb21984"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bangpound/assetic-service-provider/zipball/2a9361b332ee526bf2f58b79ee023c988a46e12c",
-                "reference": "2a9361b332ee526bf2f58b79ee023c988a46e12c",
+                "url": "https://api.github.com/repos/bangpound/assetic-service-provider/zipball/f2e4dded1fcda8dfeb666889566642a4fbb21984",
+                "reference": "f2e4dded1fcda8dfeb666889566642a4fbb21984",
                 "shasum": ""
             },
             "require": {
@@ -410,7 +410,7 @@
                 "MIT"
             ],
             "description": "Assetic service provider for Pimple",
-            "time": "2015-05-05 14:48:25"
+            "time": "2015-05-11 19:42:21"
         },
         {
             "name": "cilex/console-service-provider",
@@ -844,6 +844,66 @@
             "time": "2015-05-02 15:18:45"
         },
         {
+            "name": "symfony/var-dumper",
+            "version": "v2.6.7",
+            "target-dir": "Symfony/Component/VarDumper",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/var-dumper.git",
+                "reference": "89eec96645fb44af4a454a26c74c72ba6311f5bc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/89eec96645fb44af4a454a26c74c72ba6311f5bc",
+                "reference": "89eec96645fb44af4a454a26c74c72ba6311f5bc",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "symfony/phpunit-bridge": "~2.7"
+            },
+            "suggest": {
+                "ext-symfony_debug": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.6-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "Resources/functions/dump.php"
+                ],
+                "psr-0": {
+                    "Symfony\\Component\\VarDumper\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony mechanism for exploring and dumping PHP variables",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "debug",
+                "dump"
+            ],
+            "time": "2015-05-01 14:14:24"
+        },
+        {
             "name": "zacoza/assetic-filters",
             "version": "dev-master",
             "source": {
@@ -883,7 +943,7 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "stability-flags": {
         "stojg/crop": 20,
         "bangpound/crop-extension": 20,
@@ -894,6 +954,7 @@
         "bangpound/assetic-codekit": 20
     },
     "prefer-stable": true,
+    "prefer-lowest": false,
     "platform": {
         "php": ">=5.3.0"
     },
