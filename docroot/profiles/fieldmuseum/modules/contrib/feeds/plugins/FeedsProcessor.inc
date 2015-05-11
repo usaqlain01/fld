@@ -375,6 +375,8 @@ abstract class FeedsProcessor extends FeedsPlugin {
 
     $select->condition('fi.id', $this->id);
     $select->condition('fi.feed_nid', $source->feed_nid);
+    // No need to remove item again if same method of removal was already used.
+    $select->condition('fi.hash', $this->config['update_non_existent'], '<>');
     $entities = $select->execute();
     // If not found on process, existing entities will be deleted.
     foreach ($entities as $entity) {
@@ -1010,6 +1012,21 @@ abstract class FeedsProcessor extends FeedsPlugin {
     $message .= '<h3>Entity</h3>';
     $message .= '<pre>' . drupal_var_export($entity) . '</pre>';
     return $message;
+  }
+
+  /**
+   * Overrides FeedsPlugin::dependencies().
+   */
+  public function dependencies() {
+    $dependencies = parent::dependencies();
+
+    // Find out which module defined the entity type.
+    $info = $this->entityInfo();
+    if (isset($info['module'])) {
+      $dependencies[$info['module']] = $info['module'];
+    }
+
+    return $dependencies;
   }
 
 }

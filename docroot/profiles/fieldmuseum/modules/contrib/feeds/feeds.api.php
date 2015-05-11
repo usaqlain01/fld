@@ -136,16 +136,16 @@ function hook_feeds_before_update(FeedsSource $source, $item, $entity_id) {
  * Invoked before a feed item is saved.
  *
  * @param FeedsSource $source
- *  FeedsSource object that describes the source that is being imported.
+ *   FeedsSource object that describes the source that is being imported.
  * @param $entity
  *   The entity object.
  * @param array $item
  *   The parser result for this entity.
  * @param int|null $entity_id
- *  The id of the current item which is going to be updated. If this is a new
- *  item, then NULL is passed.
+ *   The id of the current item which is going to be updated. If this is a new
+ *   item, then NULL is passed.
  */
-function hook_feeds_presave(FeedsSource $source, $entity, $item) {
+function hook_feeds_presave(FeedsSource $source, $entity, $item, $entity_id) {
   if ($entity->feeds_item->entity_type == 'node') {
     // Skip saving this entity.
     $entity->feeds_item->skip = TRUE;
@@ -257,8 +257,10 @@ function my_source_get_source(FeedsSource $source, FeedsParserResult $result, $k
 }
 
 /**
- * Alter mapping targets for entities. Use this hook to add additional target
- * options to the mapping form of Node processors.
+ * Alters mapping targets for processors.
+ *
+ * This hook allows additional target options to be added to the processors
+ * mapping form.
  *
  * If the key in $targets[] does not correspond to the actual key on the node
  * object ($node->key), real_target MUST be specified. See mappers/link.inc
@@ -395,7 +397,7 @@ function my_module_form_callback($mapping, $target, $form, $form_state) {
  *   The unique values to be checked.
  *
  * @return int
- *   The existing entity id, or 0 if not found.
+ *   The existing entity id, or NULL if no existing entity is found.
  *
  * @see hook_feeds_processor_targets_alter()
  * @see FeedsProcessor::existingEntityId()
