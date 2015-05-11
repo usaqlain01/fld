@@ -137,6 +137,25 @@ function fmnh_staff_status_callback($source, $entity, $target, array $values, $m
 }
 
 /**
+ * Implements hook_feeds_presave().
+ */
+function fmnh_staff_feeds_presave(FeedsSource $source, $entity, $item) {
+  if ($source->id === 'from_hr') {
+    $profile = profile2_load_by_user($entity, 'override');
+    if ($profile) {
+      $field_names = array('field_surname', 'field_givenname', 'field_home_department', 'field_business_unit', 'field_position');
+      foreach ($field_names as $field_name) {
+        $items = field_get_items('profile2', $profile, $field_name);
+        if ($items) {
+          $langcode = field_language('user', $entity, $field_name);
+          $entity->{$field_name}[$langcode] = $items;
+        }
+      }
+    }
+  }
+}
+
+/**
  * Generates user names for missing values.
  *
  * @param $source
