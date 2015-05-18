@@ -1,0 +1,25 @@
+<?php
+
+/**
+ * Set default value for field_ticket_text on existing event nodes.
+ */
+function fmnh_calendar_update_7000(&$sandbox) {
+  $query = new EntityFieldQuery();
+  $query->entityCondition('entity_type', 'node');
+  $query->entityCondition('bundle', 'event');
+  $query->entityOrderBy('entity_id');
+  $result = $query->execute();
+  if (!empty($result['node'])) {
+    $entities = entity_load('node', array_keys($result['node']));
+    foreach ($entities as $entity) {
+      $entity->field_ticket_text = array(
+        LANGUAGE_NONE => array(
+          array(
+            'value' => 'Buy Tickets',
+          ),
+        ),
+      );
+      node_save($entity);
+    }
+  }
+}
