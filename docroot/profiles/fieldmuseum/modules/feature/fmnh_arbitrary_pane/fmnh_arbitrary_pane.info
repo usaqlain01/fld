@@ -1,6 +1,6 @@
-name = fmnh arbitrary pane
+name = Field Museum arbitrary pane
 core = 7.x
-package = Features
+package = The Field Museum
 dependencies[] = ctools
 dependencies[] = features
 dependencies[] = fieldable_panels_panes
