@@ -60,8 +60,16 @@ function fmnh_arbitrary_pane_entity_view_alter(&$build, $type) {
   }
 }
 
+/**
+ * @param $variables
+ * @param $hook
+ */
 function fmnh_arbitrary_pane_preprocess_fieldable_panels_pane(&$variables, $hook) {
   if ($variables['elements']['#bundle'] === 'markup_styles_scripts') {
     $variables['attributes_array']['id'] = $variables['elements']['#attributes']['id'];
+    $items = field_get_items('fieldable_panels_pane', $variables['elements']['#element'], 'field_target_link');
+    if ($items) {
+      $variables['attributes_array']['href'] = $items[0]['url'];
+    }
   }
 }
