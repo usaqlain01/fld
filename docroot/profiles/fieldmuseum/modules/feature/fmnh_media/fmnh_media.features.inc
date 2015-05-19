@@ -490,14 +490,21 @@ function fmnh_media_image_default_styles() {
   $styles['gallery_1000w'] = array(
     'label' => 'Gallery 1000w',
     'effects' => array(
-      427 => array(
+      443 => array(
+        'name' => 'imagecrop_reuse',
+        'data' => array(
+          'imagecrop_style' => 'gallery_2400w',
+        ),
+        'weight' => -10,
+      ),
+      444 => array(
         'name' => 'image_scale',
         'data' => array(
           'width' => 1000,
           'height' => '',
           'upscale' => 0,
         ),
-        'weight' => 1,
+        'weight' => -9,
       ),
     ),
   );
@@ -506,14 +513,21 @@ function fmnh_media_image_default_styles() {
   $styles['gallery_1200w'] = array(
     'label' => 'Gallery 1200w',
     'effects' => array(
-      429 => array(
+      441 => array(
+        'name' => 'imagecrop_reuse',
+        'data' => array(
+          'imagecrop_style' => 'gallery_2400w',
+        ),
+        'weight' => -10,
+      ),
+      442 => array(
         'name' => 'image_scale',
         'data' => array(
           'width' => 1200,
           'height' => '',
           'upscale' => 0,
         ),
-        'weight' => 1,
+        'weight' => -9,
       ),
     ),
   );
@@ -522,14 +536,21 @@ function fmnh_media_image_default_styles() {
   $styles['gallery_1600w'] = array(
     'label' => 'Gallery 1600w',
     'effects' => array(
-      427 => array(
+      439 => array(
+        'name' => 'imagecrop_reuse',
+        'data' => array(
+          'imagecrop_style' => 'gallery_2400w',
+        ),
+        'weight' => -10,
+      ),
+      440 => array(
         'name' => 'image_scale',
         'data' => array(
           'width' => 1600,
           'height' => '',
           'upscale' => 0,
         ),
-        'weight' => 1,
+        'weight' => -9,
       ),
     ),
   );
@@ -538,14 +559,28 @@ function fmnh_media_image_default_styles() {
   $styles['gallery_2400w'] = array(
     'label' => 'Gallery 2400w',
     'effects' => array(
-      427 => array(
+      437 => array(
+        'name' => 'imagecrop_javascript',
+        'data' => array(
+          'width' => 2400,
+          'height' => 1800,
+          'xoffset' => 'center',
+          'yoffset' => 'center',
+          'resizable' => 1,
+          'downscaling' => 0,
+          'aspect_ratio' => '',
+          'disable_if_no_data' => 1,
+        ),
+        'weight' => -10,
+      ),
+      438 => array(
         'name' => 'image_scale',
         'data' => array(
           'width' => 2400,
           'height' => '',
           'upscale' => 0,
         ),
-        'weight' => 1,
+        'weight' => -9,
       ),
     ),
   );
@@ -554,14 +589,21 @@ function fmnh_media_image_default_styles() {
   $styles['gallery_500w'] = array(
     'label' => 'Gallery 500w',
     'effects' => array(
-      427 => array(
+      435 => array(
+        'name' => 'imagecrop_reuse',
+        'data' => array(
+          'imagecrop_style' => 'gallery_2400w',
+        ),
+        'weight' => -10,
+      ),
+      436 => array(
         'name' => 'image_scale',
         'data' => array(
           'width' => 500,
           'height' => '',
           'upscale' => 0,
         ),
-        'weight' => 1,
+        'weight' => -9,
       ),
     ),
   );
@@ -570,14 +612,21 @@ function fmnh_media_image_default_styles() {
   $styles['gallery_800w'] = array(
     'label' => 'Gallery 800w',
     'effects' => array(
-      428 => array(
+      434 => array(
+        'name' => 'imagecrop_reuse',
+        'data' => array(
+          'imagecrop_style' => 'gallery_2400w',
+        ),
+        'weight' => -10,
+      ),
+      433 => array(
         'name' => 'image_scale',
         'data' => array(
           'width' => 800,
           'height' => '',
           'upscale' => 0,
         ),
-        'weight' => 1,
+        'weight' => -9,
       ),
     ),
   );
