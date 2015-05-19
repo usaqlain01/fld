@@ -122,7 +122,7 @@ function fmnh_media_image_default_styles() {
 
   // Exported image style: 2x1_2400w.
   $styles['2x1_2400w'] = array(
-    'label' => '2x1 2400w',
+    'label' => '2x1 2400w (Primary)',
     'effects' => array(
       271 => array(
         'name' => 'imagecrop_javascript',
@@ -267,7 +267,7 @@ function fmnh_media_image_default_styles() {
 
   // Exported image style: 5x2_2400w.
   $styles['5x2_2400w'] = array(
-    'label' => '5x2 2400w',
+    'label' => '5x2 2400w (Home page banner)',
     'effects' => array(
       331 => array(
         'name' => 'imagecrop_javascript',
@@ -412,7 +412,7 @@ function fmnh_media_image_default_styles() {
 
   // Exported image style: 5x3_2400w.
   $styles['5x3_2400w'] = array(
-    'label' => '5x3 2400w',
+    'label' => '5x3 2400w (Banner)',
     'effects' => array(
       421 => array(
         'name' => 'imagecrop_javascript',
