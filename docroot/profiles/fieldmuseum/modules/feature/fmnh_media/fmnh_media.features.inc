@@ -26,13 +26,27 @@ function fmnh_media_image_default_styles() {
   $styles['1x1_300w'] = array(
     'label' => '1x1 300w',
     'effects' => array(
-      237 => array(
+      441 => array(
+        'name' => 'imagecrop_javascript',
+        'data' => array(
+          'width' => 300,
+          'height' => 300,
+          'xoffset' => 'center',
+          'yoffset' => 'center',
+          'resizable' => 1,
+          'downscaling' => 1,
+          'aspect_ratio' => 'CROP',
+          'disable_if_no_data' => 0,
+        ),
+        'weight' => -10,
+      ),
+      436 => array(
         'name' => 'image_scale_and_crop',
         'data' => array(
           'width' => 300,
           'height' => 300,
         ),
-        'weight' => 1,
+        'weight' => -9,
       ),
     ),
   );
