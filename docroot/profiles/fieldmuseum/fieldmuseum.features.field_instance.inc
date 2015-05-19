@@ -469,6 +469,7 @@ function fieldmuseum_field_default_field_instances() {
     'default_value' => array(
       0 => array(
         'value' => 'Read more<span class="element-invisible"> about @title</span>',
+        'format' => 'unfiltered_phrase_html',
       ),
     ),
     'deleted' => 0,
