@@ -55,7 +55,7 @@
     <?php
     } ?>
   <?php endif; ?>
-  <?php hide($content['field_ticket_link']); ?>
+  <?php hide($content['field_ticket_link']); hide($content['field_ticket_text']); ?>
   <?php
   // We hide the comments and links now so that we can render them later.
   hide($content['comments']);

@@ -47,7 +47,7 @@
       <?php endif; ?>
       <a class="eventsList__link" href="<?php print $node_url; ?>">Event Details</a>
 
-      <?php if ($field_ticket_link): ?>
+      <?php hide($content['field_ticket_text']); if ($field_ticket_link): ?>
         &bull;
         <?php $items = field_get_items('node', $node, 'field_ticket_link');
         if ($items) {
@@ -56,7 +56,7 @@
               <svg class="icon icon--ticket-2" viewBox="0 0 500 500">
                 <use xlink:href="#ticket-2"></use>
               </svg>
-              Buy Tickets
+              <?php print render($content['field_ticket_text']); ?>
             </a>
           <?php }
           hide($content['field_ticket_link']);
