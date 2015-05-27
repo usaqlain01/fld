@@ -106,18 +106,22 @@ function fmnh_calendar_field_default_field_bases() {
     'entity_types' => array(),
     'field_name' => 'field_ticket_text',
     'indexes' => array(
-      'format' => array(
-        0 => 'format',
+      'value' => array(
+        0 => 'value',
       ),
     ),
     'locked' => 0,
-    'module' => 'text',
+    'module' => 'list',
     'settings' => array(
-      'max_length' => 255,
+      'allowed_values' => array(
+        'Buy Tickets' => 'Buy Tickets',
+        'Register' => 'Register',
+      ),
+      'allowed_values_function' => '',
       'profile2_private' => FALSE,
     ),
     'translatable' => 0,
-    'type' => 'text',
+    'type' => 'list_text',
   );
 
   return $field_bases;
