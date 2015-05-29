@@ -28,15 +28,19 @@ function fmnh_arbitrary_pane_entity_view_alter(&$build, $type) {
   if ($type === 'fieldable_panels_pane' && $build['#bundle'] === 'markup_styles_scripts') {
     $entity = $build['#fieldable_panels_pane'];
 
+    // Generate an ID for use in the pane and for targeting JS and CSS blocks.
+    $id = drupal_html_id('arbitrary');
+
     $items = field_get_items($type, $entity, 'field_js');
     if ($items) {
+      $js = '(function ($) {$(\'#'.$id.'\').each(function () {'.$items[0]['value'].'});})(jQuery);';
+
       $build['#attached']['js'][] = array(
-        'data' => $items[0]['value'],
+        'data' => $js,
         'type' => 'inline'
       );
     }
 
-    $id = drupal_html_id('arbitrary');
     $items = field_get_items($type, $entity, 'field_css');
     if ($items) {
 
