@@ -1110,9 +1110,12 @@ function fmnh_calendar_field_default_field_instances() {
         'weight' => 7,
       ),
       'list_item' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
+        'label' => 'hidden',
+        'module' => 'list',
+        'settings' => array(
+          'field_formatter_class' => '',
+        ),
+        'type' => 'list_default',
         'weight' => 0,
       ),
       'summary' => array(
