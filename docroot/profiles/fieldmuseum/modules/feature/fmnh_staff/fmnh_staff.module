@@ -192,7 +192,7 @@ function fmnh_staff_filter($selected = '') {
     ),
     'Science and Education' => array(
       'science-and-education' => 'Science and Education',
-      'action-center' => 'Action Center',
+      'keller-science-action-center' => 'Keller Science Action Center',
       'gantz-family-collections-center' => 'Gantz Family Collections Center',
       'integrative-research-center' => 'Integrative Research Center',
       'repatriation' => 'Repatriation',
