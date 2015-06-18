@@ -25,6 +25,10 @@
         "bin-dir": "bin"
     },
     "scripts": {
+        "sync": [
+            "/usr/local/bin/drush --root=docroot sql-sync @fldmuse.prod @self",
+            "/usr/local/bin/drush --root=docroot rsync @fldmuse.prod:%files @self:%files -Pv"
+        ],
         "drush:composer": [
             "drush --root=docroot composer-json-rebuild",
             "drush --root=docroot composer-manager update"
