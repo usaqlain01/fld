@@ -25,6 +25,9 @@
         "bin-dir": "bin"
     },
     "scripts": {
+        "rvm": [
+            "rvm use ruby-2.2.2@fldmuse"
+        ],
         "sync": [
             "/usr/local/bin/drush --root=docroot sql-sync @fldmuse.prod @self",
             "/usr/local/bin/drush --root=docroot rsync @fldmuse.prod:%files @self:%files -Pv"
@@ -36,6 +39,11 @@
         "assetic": [
             "./bin/assetic prepare",
             "./bin/assetic dump"
+        ],
+        "theme:build": [
+            "composer rvm",
+            "composer assetic",
+            "compass compile -e production -s compact --force docroot/profiles/fieldmuseum/themes/esquif"
         ]
     }
 }
