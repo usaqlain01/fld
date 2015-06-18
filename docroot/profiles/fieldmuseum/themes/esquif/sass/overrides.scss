@@ -5,7 +5,7 @@
 }
 
 %drupal-region {
-  ul, ol {
+  > ul, ol {
     @extend %tablexi-reset-ul;
   }
   ul.inline {
