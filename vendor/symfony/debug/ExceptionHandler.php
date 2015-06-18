@@ -380,7 +380,7 @@ EOF;
         $file = preg_match('#[^/\\\\]*$#', $path, $file) ? $file[0] : $path;
 
         if ($linkFormat = $this->fileLinkFormat) {
-            $link = str_replace(array('%f', '%l'), array($path, $line), $linkFormat);
+            $link = strtr($this->escapeHtml($linkFormat), array('%f' => $path, '%l' => (int) $line));
 
             return sprintf(' in <a href="%s" title="Go to source">%s line %d</a>', $link, $file, $line);
         }
@@ -422,26 +422,19 @@ EOF;
     }
 
     /**
-     * Returns an UTF-8 and HTML encoded string
+     * Returns an UTF-8 and HTML encoded string.
+     *
+     * @deprecated since version 2.7, to be removed in 3.0.
      */
     protected static function utf8Htmlize($str)
     {
-        if (!preg_match('//u', $str) && function_exists('iconv')) {
-            set_error_handler('var_dump', 0);
-            $charset = ini_get('default_charset');
-            if ('UTF-8' === $charset || $str !== @iconv($charset, $charset, $str)) {
-                $charset = 'CP1252';
-            }
-            restore_error_handler();
-
-            $str = iconv($charset, 'UTF-8', $str);
-        }
+        @trigger_error('The '.__METHOD__.' method is deprecated since version 2.7 and will be removed in 3.0.', E_USER_DEPRECATED);
 
         return htmlspecialchars($str, ENT_QUOTES | (PHP_VERSION_ID >= 50400 ? ENT_SUBSTITUTE : 0), 'UTF-8');
     }
 
     /**
-     * HTML-encodes a string
+     * HTML-encodes a string.
      */
     private function escapeHtml($str)
     {

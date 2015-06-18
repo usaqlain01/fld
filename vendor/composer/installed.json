@@ -6,18 +6,18 @@
         "source": {
             "type": "git",
             "url": "https://github.com/stojg/crop.git",
-            "reference": "bcba0f18bb745bb12b2d8bfe47cfe03b0a4c439a"
+            "reference": "6eba14a4659fc09156fdef2209d68a263d22f414"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/stojg/crop/zipball/bcba0f18bb745bb12b2d8bfe47cfe03b0a4c439a",
-            "reference": "bcba0f18bb745bb12b2d8bfe47cfe03b0a4c439a",
+            "url": "https://api.github.com/repos/stojg/crop/zipball/6eba14a4659fc09156fdef2209d68a263d22f414",
+            "reference": "6eba14a4659fc09156fdef2209d68a263d22f414",
             "shasum": ""
         },
         "require": {
             "php": ">=5.3.0"
         },
-        "time": "2014-12-21 20:15:43",
+        "time": "2015-06-12 13:20:47",
         "type": "library",
         "installation-source": "source",
         "autoload": {
@@ -86,37 +86,130 @@
         "description": "Extension of stojg/crop"
     },
     {
-        "name": "symfony/property-access",
-        "version": "v2.6.7",
-        "version_normalized": "2.6.7.0",
-        "target-dir": "Symfony/Component/PropertyAccess",
+        "name": "sabberworm/php-css-parser",
+        "version": "6.0.0",
+        "version_normalized": "6.0.0.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/symfony/PropertyAccess.git",
-            "reference": "1a913a7c2f2441e37485c79e658a261350546351"
+            "url": "https://github.com/sabberworm/PHP-CSS-Parser.git",
+            "reference": "ef95a38fe0c0f093f46a25029a4dd2d57ebe847e"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/PropertyAccess/zipball/1a913a7c2f2441e37485c79e658a261350546351",
-            "reference": "1a913a7c2f2441e37485c79e658a261350546351",
+            "url": "https://api.github.com/repos/sabberworm/PHP-CSS-Parser/zipball/ef95a38fe0c0f093f46a25029a4dd2d57ebe847e",
+            "reference": "ef95a38fe0c0f093f46a25029a4dd2d57ebe847e",
             "shasum": ""
         },
         "require": {
-            "php": ">=5.3.3"
+            "php": ">=5.3.2"
+        },
+        "time": "2014-07-03 21:45:17",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Sabberworm\\CSS": "lib/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Raphael Schweikert"
+            }
+        ],
+        "description": "Parser for CSS Files written in PHP",
+        "homepage": "http://www.sabberworm.com/blog/2010/6/10/php-css-parser",
+        "keywords": [
+            "css",
+            "parser",
+            "stylesheet"
+        ]
+    },
+    {
+        "name": "symfony/filesystem",
+        "version": "v2.7.1",
+        "version_normalized": "2.7.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/Filesystem.git",
+            "reference": "a0d43eb3e17d4f4c6990289805a488a0482a07f3"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/Filesystem/zipball/a0d43eb3e17d4f4c6990289805a488a0482a07f3",
+            "reference": "a0d43eb3e17d4f4c6990289805a488a0482a07f3",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.9"
         },
         "require-dev": {
             "symfony/phpunit-bridge": "~2.7"
         },
-        "time": "2015-05-02 15:18:45",
+        "time": "2015-06-08 09:37:21",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "2.6-dev"
+                "dev-master": "2.7-dev"
             }
         },
-        "installation-source": "dist",
+        "installation-source": "source",
         "autoload": {
-            "psr-0": {
+            "psr-4": {
+                "Symfony\\Component\\Filesystem\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony Filesystem Component",
+        "homepage": "https://symfony.com"
+    },
+    {
+        "name": "symfony/property-access",
+        "version": "v2.7.1",
+        "version_normalized": "2.7.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/PropertyAccess.git",
+            "reference": "c30871f355c311b33bd0b9be7d07514f920f2f8d"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/PropertyAccess/zipball/c30871f355c311b33bd0b9be7d07514f920f2f8d",
+            "reference": "c30871f355c311b33bd0b9be7d07514f920f2f8d",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.9"
+        },
+        "require-dev": {
+            "symfony/phpunit-bridge": "~2.7"
+        },
+        "time": "2015-06-08 09:37:21",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.7-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
                 "Symfony\\Component\\PropertyAccess\\": ""
             }
         },
@@ -149,80 +242,36 @@
         ]
     },
     {
-        "name": "sabberworm/php-css-parser",
-        "version": "6.0.0",
-        "version_normalized": "6.0.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/sabberworm/PHP-CSS-Parser.git",
-            "reference": "ef95a38fe0c0f093f46a25029a4dd2d57ebe847e"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/sabberworm/PHP-CSS-Parser/zipball/ef95a38fe0c0f093f46a25029a4dd2d57ebe847e",
-            "reference": "ef95a38fe0c0f093f46a25029a4dd2d57ebe847e",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.2"
-        },
-        "time": "2014-07-03 21:45:17",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "Sabberworm\\CSS": "lib/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Raphael Schweikert"
-            }
-        ],
-        "description": "Parser for CSS Files written in PHP",
-        "homepage": "http://www.sabberworm.com/blog/2010/6/10/php-css-parser",
-        "keywords": [
-            "css",
-            "parser",
-            "stylesheet"
-        ]
-    },
-    {
         "name": "symfony/yaml",
-        "version": "v2.6.7",
-        "version_normalized": "2.6.7.0",
-        "target-dir": "Symfony/Component/Yaml",
+        "version": "v2.7.1",
+        "version_normalized": "2.7.1.0",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/Yaml.git",
-            "reference": "f157ab074e453ecd4c0fa775f721f6e67a99d9e2"
+            "reference": "9808e75c609a14f6db02f70fccf4ca4aab53c160"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/Yaml/zipball/f157ab074e453ecd4c0fa775f721f6e67a99d9e2",
-            "reference": "f157ab074e453ecd4c0fa775f721f6e67a99d9e2",
+            "url": "https://api.github.com/repos/symfony/Yaml/zipball/9808e75c609a14f6db02f70fccf4ca4aab53c160",
+            "reference": "9808e75c609a14f6db02f70fccf4ca4aab53c160",
             "shasum": ""
         },
         "require": {
-            "php": ">=5.3.3"
+            "php": ">=5.3.9"
         },
         "require-dev": {
             "symfony/phpunit-bridge": "~2.7"
         },
-        "time": "2015-05-02 15:18:45",
+        "time": "2015-06-10 15:30:22",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "2.6-dev"
+                "dev-master": "2.7-dev"
             }
         },
-        "installation-source": "dist",
+        "installation-source": "source",
         "autoload": {
-            "psr-0": {
+            "psr-4": {
                 "Symfony\\Component\\Yaml\\": ""
             }
         },
@@ -241,58 +290,6 @@
             }
         ],
         "description": "Symfony Yaml Component",
-        "homepage": "https://symfony.com"
-    },
-    {
-        "name": "symfony/filesystem",
-        "version": "v2.6.7",
-        "version_normalized": "2.6.7.0",
-        "target-dir": "Symfony/Component/Filesystem",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/symfony/Filesystem.git",
-            "reference": "f73904bd2dae525c42ea1f0340c7c98480ecacde"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/symfony/Filesystem/zipball/f73904bd2dae525c42ea1f0340c7c98480ecacde",
-            "reference": "f73904bd2dae525c42ea1f0340c7c98480ecacde",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.3"
-        },
-        "require-dev": {
-            "symfony/phpunit-bridge": "~2.7"
-        },
-        "time": "2015-05-08 00:09:07",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.6-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "Symfony\\Component\\Filesystem\\": ""
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Fabien Potencier",
-                "email": "fabien@symfony.com"
-            },
-            {
-                "name": "Symfony Community",
-                "homepage": "https://symfony.com/contributors"
-            }
-        ],
-        "description": "Symfony Filesystem Component",
         "homepage": "https://symfony.com"
     },
     {
@@ -320,7 +317,7 @@
                 "dev-master": "3.0.x-dev"
             }
         },
-        "installation-source": "dist",
+        "installation-source": "source",
         "autoload": {
             "psr-0": {
                 "Pimple": "src/"
@@ -344,153 +341,36 @@
         ]
     },
     {
-        "name": "symfony/console",
-        "version": "v2.6.7",
-        "version_normalized": "2.6.7.0",
-        "target-dir": "Symfony/Component/Console",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/symfony/Console.git",
-            "reference": "ebc5679854aa24ed7d65062e9e3ab0b18a917272"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/symfony/Console/zipball/ebc5679854aa24ed7d65062e9e3ab0b18a917272",
-            "reference": "ebc5679854aa24ed7d65062e9e3ab0b18a917272",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.3"
-        },
-        "require-dev": {
-            "psr/log": "~1.0",
-            "symfony/event-dispatcher": "~2.1",
-            "symfony/phpunit-bridge": "~2.7",
-            "symfony/process": "~2.1"
-        },
-        "suggest": {
-            "psr/log": "For using the console logger",
-            "symfony/event-dispatcher": "",
-            "symfony/process": ""
-        },
-        "time": "2015-05-02 15:18:45",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.6-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "Symfony\\Component\\Console\\": ""
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Fabien Potencier",
-                "email": "fabien@symfony.com"
-            },
-            {
-                "name": "Symfony Community",
-                "homepage": "https://symfony.com/contributors"
-            }
-        ],
-        "description": "Symfony Console Component",
-        "homepage": "https://symfony.com"
-    },
-    {
-        "name": "cilex/console-service-provider",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/Cilex/console-service-provider.git",
-            "reference": "3abf600fd9f6ac54f56cf1ce7fb3a7c0c533cd03"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/Cilex/console-service-provider/zipball/3abf600fd9f6ac54f56cf1ce7fb3a7c0c533cd03",
-            "reference": "3abf600fd9f6ac54f56cf1ce7fb3a7c0c533cd03",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.3",
-            "pimple/pimple": ">=2.1,<4",
-            "symfony/console": "~2.4"
-        },
-        "time": "2014-07-28 20:37:06",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.0-dev"
-            }
-        },
-        "installation-source": "source",
-        "autoload": {
-            "psr-0": {
-                "Cilex\\Provider\\Console": "src"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Mike van Riel",
-                "email": "me@mikevanriel.com"
-            },
-            {
-                "name": "Beau Simensen",
-                "email": "beau@dflydev.com"
-            }
-        ],
-        "description": "Console Service Provider",
-        "keywords": [
-            "cilex",
-            "console",
-            "pimple",
-            "service-provider",
-            "silex"
-        ]
-    },
-    {
         "name": "symfony/process",
-        "version": "v2.6.7",
-        "version_normalized": "2.6.7.0",
-        "target-dir": "Symfony/Component/Process",
+        "version": "v2.7.1",
+        "version_normalized": "2.7.1.0",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/Process.git",
-            "reference": "9f3c4baaf840ed849e1b1f7bfd5ae246e8509562"
+            "reference": "552d8efdc80980cbcca50b28d626ac8e36e3cdd1"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/Process/zipball/9f3c4baaf840ed849e1b1f7bfd5ae246e8509562",
-            "reference": "9f3c4baaf840ed849e1b1f7bfd5ae246e8509562",
+            "url": "https://api.github.com/repos/symfony/Process/zipball/552d8efdc80980cbcca50b28d626ac8e36e3cdd1",
+            "reference": "552d8efdc80980cbcca50b28d626ac8e36e3cdd1",
             "shasum": ""
         },
         "require": {
-            "php": ">=5.3.3"
+            "php": ">=5.3.9"
         },
         "require-dev": {
             "symfony/phpunit-bridge": "~2.7"
         },
-        "time": "2015-05-02 15:18:45",
+        "time": "2015-06-08 09:37:21",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "2.6-dev"
+                "dev-master": "2.7-dev"
             }
         },
-        "installation-source": "dist",
+        "installation-source": "source",
         "autoload": {
-            "psr-0": {
+            "psr-4": {
                 "Symfony\\Component\\Process\\": ""
             }
         },
@@ -559,7 +439,7 @@
                 "dev-master": "1.2-dev"
             }
         },
-        "installation-source": "dist",
+        "installation-source": "source",
         "autoload": {
             "psr-0": {
                 "Assetic": "src/"
@@ -671,46 +551,6 @@
         "description": "Assetic as a command line tool"
     },
     {
-        "name": "zacoza/assetic-filters",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/SimonDegraeve/assetic-filters.git",
-            "reference": "c1a16eb93faa8eb0d325e525dfd0bf77720fa400"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/SimonDegraeve/assetic-filters/zipball/c1a16eb93faa8eb0d325e525dfd0bf77720fa400",
-            "reference": "c1a16eb93faa8eb0d325e525dfd0bf77720fa400",
-            "shasum": ""
-        },
-        "require": {
-            "kriswallsmith/assetic": "1.2.*@dev",
-            "php": ">=5.3.0"
-        },
-        "time": "2014-02-05 02:01:30",
-        "type": "library",
-        "installation-source": "source",
-        "autoload": {
-            "psr-0": {
-                "ZaCoZa\\Assetic": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Simon Degraeve",
-                "email": "simon.degraeve@gmail.com",
-                "homepage": "http://about.me/SimonDegraeve",
-                "role": "Developer"
-            }
-        ]
-    },
-    {
         "name": "bangpound/assetic-codekit",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
@@ -754,6 +594,121 @@
         "description": "Assetic filters to support proprietary Codekit extensions"
     },
     {
+        "name": "symfony/console",
+        "version": "v2.7.1",
+        "version_normalized": "2.7.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/Console.git",
+            "reference": "564398bc1f33faf92fc2ec86859983d30eb81806"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/Console/zipball/564398bc1f33faf92fc2ec86859983d30eb81806",
+            "reference": "564398bc1f33faf92fc2ec86859983d30eb81806",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.9"
+        },
+        "require-dev": {
+            "psr/log": "~1.0",
+            "symfony/event-dispatcher": "~2.1",
+            "symfony/phpunit-bridge": "~2.7",
+            "symfony/process": "~2.1"
+        },
+        "suggest": {
+            "psr/log": "For using the console logger",
+            "symfony/event-dispatcher": "",
+            "symfony/process": ""
+        },
+        "time": "2015-06-10 15:30:22",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.7-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Symfony\\Component\\Console\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony Console Component",
+        "homepage": "https://symfony.com"
+    },
+    {
+        "name": "cilex/console-service-provider",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Cilex/console-service-provider.git",
+            "reference": "3abf600fd9f6ac54f56cf1ce7fb3a7c0c533cd03"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Cilex/console-service-provider/zipball/3abf600fd9f6ac54f56cf1ce7fb3a7c0c533cd03",
+            "reference": "3abf600fd9f6ac54f56cf1ce7fb3a7c0c533cd03",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.3",
+            "pimple/pimple": ">=2.1,<4",
+            "symfony/console": "~2.4"
+        },
+        "time": "2014-07-28 20:37:06",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.0-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Cilex\\Provider\\Console": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Mike van Riel",
+                "email": "me@mikevanriel.com"
+            },
+            {
+                "name": "Beau Simensen",
+                "email": "beau@dflydev.com"
+            }
+        ],
+        "description": "Console Service Provider",
+        "keywords": [
+            "cilex",
+            "console",
+            "pimple",
+            "service-provider",
+            "silex"
+        ]
+    },
+    {
         "name": "psr/log",
         "version": "1.0.0",
         "version_normalized": "1.0.0.0",
@@ -770,7 +725,7 @@
         },
         "time": "2012-12-21 11:40:51",
         "type": "library",
-        "installation-source": "dist",
+        "installation-source": "source",
         "autoload": {
             "psr-0": {
                 "Psr\\Log\\": ""
@@ -795,22 +750,21 @@
     },
     {
         "name": "symfony/debug",
-        "version": "v2.6.7",
-        "version_normalized": "2.6.7.0",
-        "target-dir": "Symfony/Component/Debug",
+        "version": "v2.7.1",
+        "version_normalized": "2.7.1.0",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/Debug.git",
-            "reference": "ad4511a8fddce7ec163b513ba39a30ea4f32c9e7"
+            "reference": "075070230c5bbc65abde8241191655bbce0716e2"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/Debug/zipball/ad4511a8fddce7ec163b513ba39a30ea4f32c9e7",
-            "reference": "ad4511a8fddce7ec163b513ba39a30ea4f32c9e7",
+            "url": "https://api.github.com/repos/symfony/Debug/zipball/075070230c5bbc65abde8241191655bbce0716e2",
+            "reference": "075070230c5bbc65abde8241191655bbce0716e2",
             "shasum": ""
         },
         "require": {
-            "php": ">=5.3.3",
+            "php": ">=5.3.9",
             "psr/log": "~1.0"
         },
         "conflict": {
@@ -826,16 +780,16 @@
             "symfony/http-foundation": "",
             "symfony/http-kernel": ""
         },
-        "time": "2015-05-08 13:17:44",
+        "time": "2015-06-08 09:37:21",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "2.6-dev"
+                "dev-master": "2.7-dev"
             }
         },
-        "installation-source": "dist",
+        "installation-source": "source",
         "autoload": {
-            "psr-0": {
+            "psr-4": {
                 "Symfony\\Component\\Debug\\": ""
             }
         },
@@ -858,36 +812,35 @@
     },
     {
         "name": "symfony/finder",
-        "version": "v2.6.7",
-        "version_normalized": "2.6.7.0",
-        "target-dir": "Symfony/Component/Finder",
+        "version": "v2.7.1",
+        "version_normalized": "2.7.1.0",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/Finder.git",
-            "reference": "704c64c8b12c8882640d5c0330a8414b1e06dc99"
+            "reference": "c13a40d638aeede1e8400f8c956c7f9246c05f75"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/Finder/zipball/704c64c8b12c8882640d5c0330a8414b1e06dc99",
-            "reference": "704c64c8b12c8882640d5c0330a8414b1e06dc99",
+            "url": "https://api.github.com/repos/symfony/Finder/zipball/c13a40d638aeede1e8400f8c956c7f9246c05f75",
+            "reference": "c13a40d638aeede1e8400f8c956c7f9246c05f75",
             "shasum": ""
         },
         "require": {
-            "php": ">=5.3.3"
+            "php": ">=5.3.9"
         },
         "require-dev": {
             "symfony/phpunit-bridge": "~2.7"
         },
-        "time": "2015-05-02 15:18:45",
+        "time": "2015-06-04 20:11:48",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "2.6-dev"
+                "dev-master": "2.7-dev"
             }
         },
-        "installation-source": "dist",
+        "installation-source": "source",
         "autoload": {
-            "psr-0": {
+            "psr-4": {
                 "Symfony\\Component\\Finder\\": ""
             }
         },
@@ -910,22 +863,21 @@
     },
     {
         "name": "symfony/var-dumper",
-        "version": "v2.6.7",
-        "version_normalized": "2.6.7.0",
-        "target-dir": "Symfony/Component/VarDumper",
+        "version": "v2.7.1",
+        "version_normalized": "2.7.1.0",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/var-dumper.git",
-            "reference": "89eec96645fb44af4a454a26c74c72ba6311f5bc"
+            "reference": "c509921f260353bf07b257f84017777c8b0aa4bc"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/var-dumper/zipball/89eec96645fb44af4a454a26c74c72ba6311f5bc",
-            "reference": "89eec96645fb44af4a454a26c74c72ba6311f5bc",
+            "url": "https://api.github.com/repos/symfony/var-dumper/zipball/c509921f260353bf07b257f84017777c8b0aa4bc",
+            "reference": "c509921f260353bf07b257f84017777c8b0aa4bc",
             "shasum": ""
         },
         "require": {
-            "php": ">=5.3.3"
+            "php": ">=5.3.9"
         },
         "require-dev": {
             "symfony/phpunit-bridge": "~2.7"
@@ -933,19 +885,19 @@
         "suggest": {
             "ext-symfony_debug": ""
         },
-        "time": "2015-05-01 14:14:24",
+        "time": "2015-06-08 09:37:21",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "2.6-dev"
+                "dev-master": "2.7-dev"
             }
         },
-        "installation-source": "dist",
+        "installation-source": "source",
         "autoload": {
             "files": [
                 "Resources/functions/dump.php"
             ],
-            "psr-0": {
+            "psr-4": {
                 "Symfony\\Component\\VarDumper\\": ""
             }
         },
@@ -968,6 +920,46 @@
         "keywords": [
             "debug",
             "dump"
+        ]
+    },
+    {
+        "name": "zacoza/assetic-filters",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/SimonDegraeve/assetic-filters.git",
+            "reference": "c1a16eb93faa8eb0d325e525dfd0bf77720fa400"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/SimonDegraeve/assetic-filters/zipball/c1a16eb93faa8eb0d325e525dfd0bf77720fa400",
+            "reference": "c1a16eb93faa8eb0d325e525dfd0bf77720fa400",
+            "shasum": ""
+        },
+        "require": {
+            "kriswallsmith/assetic": "1.2.*@dev",
+            "php": ">=5.3.0"
+        },
+        "time": "2014-02-05 02:01:30",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "ZaCoZa\\Assetic": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Simon Degraeve",
+                "email": "simon.degraeve@gmail.com",
+                "homepage": "http://about.me/SimonDegraeve",
+                "role": "Developer"
+            }
         ]
     }
 ]

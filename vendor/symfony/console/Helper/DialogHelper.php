@@ -19,14 +19,21 @@ use Symfony\Component\Console\Formatter\OutputFormatterStyle;
  *
  * @author Fabien Potencier <fabien@symfony.com>
  *
- * @deprecated Deprecated since version 2.5, to be removed in 3.0.
- *             Use the question helper instead.
+ * @deprecated since version 2.5, to be removed in 3.0.
+ *             Use {@link \Symfony\Component\Console\Helper\QuestionHelper} instead.
  */
 class DialogHelper extends InputAwareHelper
 {
     private $inputStream;
     private static $shell;
     private static $stty;
+
+    public function __construct($triggerDeprecationError = true)
+    {
+        if ($triggerDeprecationError) {
+            @trigger_error('"Symfony\Component\Console\Helper\DialogHelper" is deprecated since version 2.5 and will be removed in 3.0. Use "Symfony\Component\Console\Helper\QuestionHelper" instead.', E_USER_DEPRECATED);
+        }
+    }
 
     /**
      * Asks the user to select a value.
@@ -138,7 +145,7 @@ class DialogHelper extends InputAwareHelper
                 // Backspace Character
                 if ("\177" === $c) {
                     if (0 === $numMatches && 0 !== $i) {
-                        $i--;
+                        --$i;
                         // Move cursor backwards
                         $output->write("\033[1D");
                     }
@@ -191,7 +198,7 @@ class DialogHelper extends InputAwareHelper
                 } else {
                     $output->write($c);
                     $ret .= $c;
-                    $i++;
+                    ++$i;
 
                     $numMatches = 0;
                     $ofs = 0;

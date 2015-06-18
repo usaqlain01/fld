@@ -16,7 +16,7 @@
         }
     ],
     "require": {
-        "php": ">=5.3.3",
+        "php": ">=5.3.9",
         "psr/log": "~1.0"
     },
     "conflict": {
@@ -33,13 +33,12 @@
         "symfony/http-kernel": ""
     },
     "autoload": {
-        "psr-0": { "Symfony\\Component\\Debug\\": "" }
+        "psr-4": { "Symfony\\Component\\Debug\\": "" }
     },
-    "target-dir": "Symfony/Component/Debug",
     "minimum-stability": "dev",
     "extra": {
         "branch-alias": {
-            "dev-master": "2.6-dev"
+            "dev-master": "2.7-dev"
         }
     }
 }
