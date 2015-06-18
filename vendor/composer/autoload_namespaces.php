@@ -6,12 +6,9 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'stojg\\crop' => array($vendorDir . '/stojg/crop/src'),
     'ZaCoZa\\Assetic' => array($vendorDir . '/zacoza/assetic-filters/src'),
-    'Sabberworm\\CSS' => array($vendorDir . '/sabberworm/php-css-parser/lib'),
     'Psr\\Log\\' => array($vendorDir . '/psr/log'),
     'Pimple' => array($vendorDir . '/pimple/pimple/src'),
-    'Drupal\\bangpoundmedia\\' => array($baseDir . '/docroot/profiles/fieldmuseum/modules/bangpound/bangpoundmedia/lib'),
     'Cilex\\Provider\\Console' => array($vendorDir . '/cilex/console-service-provider/src'),
     'Assetic' => array($vendorDir . '/kriswallsmith/assetic/src'),
 );

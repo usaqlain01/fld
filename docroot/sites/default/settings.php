@@ -24,8 +24,8 @@ ini_set('session.use_only_cookies', 1);
 ini_set('session.use_trans_sid',    0);
 ini_set('url_rewriter.tags',        '');
 
-$conf['composer_manager_vendor_dir'] = '../vendor';
-$conf['composer_manager_file_dir'] = '../';
+$conf['composer_manager_vendor_dir'] = '../lib/' . basename(__DIR__) . '/vendor';
+$conf['composer_manager_file_dir'] = '../lib/' . basename(__DIR__);
 
 // On Acquia Cloud, this include file configures Drupal to use the correct
 // database in each site environment (Dev, Stage, or Prod). To use this

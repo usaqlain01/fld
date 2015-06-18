@@ -1,36 +1,9 @@
 {
-    "require": {
-        "symfony/property-access": "~2.0",
-        "php": ">=5.3.0",
-        "sabberworm/php-css-parser": "*",
-        "stojg/crop": "dev-master",
-        "bangpound/crop-extension": "dev-master",
-        "symfony/yaml": "~2.3",
-        "symfony/filesystem": "~2.3"
-    },
-    "config": {
-        "autoloader-suffix": "ComposerManager",
-        "vendor-dir": "docroot/../vendor"
-    },
-    "autoload": {
-        "psr-0": {
-            "Drupal\\bangpoundmedia\\": [
-                "docroot/profiles/fieldmuseum/modules/bangpound/bangpoundmedia/lib"
-            ]
-        },
-        "psr-4": {
-            "": [
-                "docroot/profiles/fieldmuseum/lib"
-            ],
-            "Drupal\\inline\\": [
-                "docroot/profiles/fieldmuseum/modules/contrib/inline/lib/Drupal/inline"
-            ]
-        }
-    },
     "require-dev": {
         "symfony/console": "~2.4",
         "symfony/debug": "~2.4",
         "symfony/finder": "~2.4",
+        "symfony/filesystem": "~2.4",
         "symfony/var-dumper": "~2.6",
         "pimple/pimple": "~3.0",
         "cilex/console-service-provider": "~2.0@dev",
@@ -39,6 +12,26 @@
         "zacoza/assetic-filters": "dev-master",
         "bangpound/assetic-codekit": "1.0.*@dev"
     },
+    "autoload": {
+        "psr-4": {
+            "": "src/"
+        }
+    },
     "prefer-stable": true,
-    "preferred-install": "dist"
+    "config": {
+        "autoloader-suffix": "Repo",
+        "preferred-install": "dist",
+        "optimize-autoloader": true,
+        "bin-dir": "bin"
+    },
+    "scripts": {
+        "drush:composer": [
+            "drush --root=docroot composer-json-rebuild",
+            "drush --root=docroot composer-manager update"
+        ],
+        "assetic": [
+            "./bin/assetic prepare",
+            "./bin/assetic dump"
+        ]
+    }
 }

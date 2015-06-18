@@ -1,0 +1,33 @@
+{
+    "require": {
+        "symfony/property-access": "~2.0",
+        "php": ">=5.3.0",
+        "sabberworm/php-css-parser": "*",
+        "stojg/crop": "dev-master",
+        "bangpound/crop-extension": "dev-master",
+        "symfony/yaml": "~2.3",
+        "symfony/filesystem": "~2.3"
+    },
+    "config": {
+        "autoloader-suffix": "ComposerManager",
+        "vendor-dir": "../../docroot/../lib/default/vendor",
+        "preferred-install": "dist",
+        "optimize-autoloader": true
+    },
+    "autoload": {
+        "psr-0": {
+            "Drupal\\bangpoundmedia\\": [
+                "../../docroot/profiles/fieldmuseum/modules/bangpound/bangpoundmedia/lib"
+            ]
+        },
+        "psr-4": {
+            "": [
+                "../../docroot/profiles/fieldmuseum/lib"
+            ],
+            "Drupal\\inline\\": [
+                "../../docroot/profiles/fieldmuseum/modules/contrib/inline/lib/Drupal/inline"
+            ]
+        }
+    },
+    "prefer-stable": true
+}
