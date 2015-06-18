@@ -7,7 +7,6 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Bangpound\\DateInterval' => $baseDir . '/../../docroot/profiles/fieldmuseum/lib/Bangpound/DateInterval.php',
-    'Bangpound\\Drupal\\Driver\\Cores\\Drupal7' => $baseDir . '/../../docroot/profiles/fieldmuseum/lib/Bangpound/Drupal/Driver/Cores/Drupal7.php',
     'Bangpound\\stojg\\crop\\CropBalanced' => $vendorDir . '/bangpound/crop-extension/src/CropBalanced.php',
     'Bangpound\\stojg\\crop\\CropEntropy' => $vendorDir . '/bangpound/crop-extension/src/CropEntropy.php',
     'Drupal\\bangpoundmedia\\MediaFilterMacro' => $baseDir . '/../../docroot/profiles/fieldmuseum/modules/bangpound/bangpoundmedia/lib/Drupal/bangpoundmedia/MediaFilterMacro.php',
