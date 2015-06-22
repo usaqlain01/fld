@@ -330,8 +330,8 @@ function profile2_type_delete(ProfileType $type) {
 }
 
 /**
-* Implements hook_profile2_type_delete()
-*/
+ * Implements hook_profile2_type_delete()
+ */
 function profile2_profile2_type_delete(ProfileType $type) {
   // Delete all profiles of this type but only if this is not a revert.
   if (!$type->hasStatus(ENTITY_IN_CODE)) {
@@ -589,7 +589,7 @@ function profile2_form_after_user_register_submit_handler(&$form, &$form_state) 
     _user_mail_notify($op, $account);
   }
   // Administrator approval required.
-  elseif (!$admin && $notify) {
+  elseif (!$admin) {
     _user_mail_notify('register_pending_approval', $account);
   }
 }
@@ -1001,14 +1001,12 @@ function profile2_form_field_ui_field_edit_form_alter(&$form, &$form_state) {
  */
 function profile2_field_access($op, $field, $entity_type, $profile = NULL, $account = NULL) {
   if ($entity_type == 'profile2' && $op == 'view' && !empty($field['settings']['profile2_private']) && !user_access('administer profiles', $account)) {
-    // For profiles, deny general view access for private fields.
-    if (!isset($profile)) {
-      return FALSE;
-    }
-    // Also deny view access, if someone else views a private field.
-    $account = isset($account) ? $account : $GLOBALS['user'];
-    if ($account->uid != $profile->uid) {
-      return FALSE;
+    // Deny view access, if someone else views a private field.
+    if (isset($profile)) {
+      $account = isset($account) ? $account : $GLOBALS['user'];
+      if ($account->uid != $profile->uid) {
+        return FALSE;
+      }
     }
   }
 }
