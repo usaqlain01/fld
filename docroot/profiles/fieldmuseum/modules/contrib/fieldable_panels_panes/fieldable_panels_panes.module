@@ -41,17 +41,23 @@ function fieldable_panels_panes_entity_info() {
       'id' => 'fpid',
       'revision' => 'vid',
       'bundle' => 'bundle',
-      'label' => 'admin_title',
+      'label' => 'title', // This key is required for proper integration with Title module.
       'language' => 'language',
       'uuid' => 'uuid',
       'revision uuid' => 'vuuid',
     ),
     'bundles' => $bundles,
     'bundle keys' => array('bundle' => 'name'),
+    'label callback' => 'fieldable_panels_panes_entity_label_callback',
+    'uri callback' => 'fieldable_panels_panes_entity_uri_callback',
     'view modes' => array(
       // @todo we should support view modes.
       'full' => array(
         'label'  => t('Full'),
+        'custom settings' => FALSE,
+      ),
+      'preview' => array(
+        'label'  => t('Preview'),
         'custom settings' => FALSE,
       ),
     ),
@@ -59,11 +65,12 @@ function fieldable_panels_panes_entity_info() {
       'controller' => 'FieldablePanelsPaneInlineEntityFormController',
     ),
 
-    // entity module callbacks
+    // Entity API module callbacks.
     'view callback' => 'entity_metadata_view_single',
     'creation callback' => 'fieldable_panels_panes_create',
     'access callback' => 'fieldable_panels_panes_access',
     'save callback' => 'fieldable_panels_panes_save',
+    'deletion callback' => 'fieldable_panels_panes_delete',
 
     // Entity translation support
     'translation' => array(
@@ -127,17 +134,34 @@ function fieldable_panels_panes_module_implements_alter(&$implementations, $hook
  */
 function fieldable_panels_panes_entity_info_alter(&$info) {
   $old_base_path = 'admin/structure/panels/entity/manage';
-  $new_base_path = 'admin/structure/fieldable-panels-panes/manage';
+  $new_base_path = 'admin/structure/fieldable-panels-panes';
 
   if (is_array($info) && !empty($info)) {
     foreach ($info['fieldable_panels_pane']['bundles'] as $name => &$bundle) {
       if (isset($bundle['admin']['path']) && strpos($bundle['admin']['path'], $old_base_path) !== FALSE) {
         $bundle['admin']['path'] = str_replace($old_base_path, $new_base_path, $bundle['admin']['path']);
         $bundle['admin']['real path'] = str_replace($old_base_path, $new_base_path, $bundle['admin']['real path']);
-        $bundle['admin']['bundle argument'] = $bundle['admin']['bundle argument'] - 1;
+        $bundle['admin']['bundle argument'] = $bundle['admin']['bundle argument'] - 2;
       }
     }
   }
+}
+
+/**
+ * Implements hook_hook_info().
+ */
+function fieldable_panels_panes_hook_info() {
+  $defaults = array(
+    'group' => 'fieldable_panels_panes',
+  );
+  $hooks = array(
+    'fieldable_panels_pane_delete' => $defaults,
+    'fieldable_panels_pane_insert' => $defaults,
+    'fieldable_panels_pane_presave' => $defaults,
+    'fieldable_panels_pane_update' => $defaults,
+    'fieldable_panels_pane_view' => $defaults,
+  );
+  return $hooks;
 }
 
 /**
@@ -167,6 +191,22 @@ function fieldable_panels_panes_field_extra_fields() {
   }
 
   return $extra;
+}
+
+/**
+ * Implements hook_field_extra_fields_display_alter().
+ */
+function fieldable_panels_panes_field_extra_fields_display_alter(&$displays, $context) {
+  if ($context['entity_type'] == 'fieldable_panels_pane' && $context['view_mode'] == 'full') {
+    // Hide display of the title field on the 'full' view mode (because it gets
+    // displayed as the Pane title).
+
+    // Ensure the 'title' key exists, since some other modules may have remove it. This
+    // is the case of the Title module for example.
+    if (isset($displays['title'])) {
+      $displays['title']['visible'] = FALSE;
+    }
+  }
 }
 
 /**
@@ -638,7 +678,7 @@ function fieldable_panels_panes_ctools_plugin_directory($owner, $plugin_type) {
 function fieldable_panels_panes_ctools_access_get($argument) {
   list($op, $fpid) = explode(':', $argument);
   $entity = fieldable_panels_panes_load($fpid);
-  if (!$entity || !fieldable_panels_panes_access('update', $entity)) {
+  if (empty($entity) || !fieldable_panels_panes_access('update', $entity)) {
     return;
   }
 
@@ -660,7 +700,7 @@ function fieldable_panels_panes_ctools_access_get($argument) {
 function fieldable_panels_panes_ctools_access_set($argument, $access) {
   list($op, $fpid) = explode(':', $argument);
   $entity = fieldable_panels_panes_load($fpid);
-  if (!$entity || !fieldable_panels_panes_access('update', $entity)) {
+  if (empty($entity) || !fieldable_panels_panes_access('update', $entity)) {
     return;
   }
 
@@ -674,7 +714,7 @@ function fieldable_panels_panes_ctools_access_set($argument, $access) {
 function fieldable_panels_panes_ctools_access_clear($argument) {
   list($op, $fpid) = explode(':', $argument);
   $entity = fieldable_panels_panes_load($fpid);
-  if (!$entity || !fieldable_panels_panes_access('update', $entity)) {
+  if (empty($entity) || !fieldable_panels_panes_access('update', $entity)) {
     return;
   }
 
@@ -710,11 +750,6 @@ function template_preprocess_fieldable_panels_pane(&$vars) {
   // Make the field variables available with the appropriate language.
   field_attach_preprocess('fieldable_panels_pane', $vars['elements']['#element'], $vars['content'], $vars);
 
-  $vars['fields'] = '';
-  foreach ($vars['content'] as $content) {
-    $vars['fields'] .= render($content);
-  }
-
   $vars['theme_hook_suggestions'][] = 'fieldable_panels_pane__' . $vars['elements']['#element']->bundle;
 }
 
@@ -723,13 +758,23 @@ function template_preprocess_fieldable_panels_pane(&$vars) {
  */
 function fieldable_panels_panes_preprocess_panels_pane(&$vars) {
   if ($vars['pane']->type == 'fieldable_panels_pane') {
-    if ($entity = fieldable_panels_panes_load_entity($vars['pane']->subtype)) {
-      if ($entity->link && !empty($vars['title'])) {
+    if (!empty($vars['content']['#fieldable_panels_pane']) && is_object($vars['content']['#fieldable_panels_pane'])) {
+      $entity = $vars['content']['#fieldable_panels_pane'];
+      if (!empty($entity->link) && !empty($vars['title'])) {
         $vars['title'] = l($vars['title'], $entity->path);
       }
       ctools_include('cleanstring');
       $vars['classes_array'][] = 'pane-bundle-' . ctools_cleanstring($entity->bundle, array('lower case' => TRUE));
     }
+  }
+}
+
+/**
+ * Process variables for fieldable-panels-pane.tpl.php.
+ */
+function fieldable_panels_panes_process_fieldable_panels_pane(&$variables) {
+  if (module_exists('title')) {
+    title_field_replacement_hide_label('fieldable_panels_pane', $variables['elements']['#element'], $variables['content']);
   }
 }
 
@@ -749,9 +794,7 @@ function fieldable_panels_panes_load($fpid, $vid = NULL) {
   $conditions = (isset($vid) ? array('vid' => $vid) : array());
 
   $entities = fieldable_panels_panes_load_multiple(array($fpid), $conditions);
-  if ($entities) {
-    return reset($entities);
-  }
+  return !empty($entities) ? reset($entities) : FALSE;
 }
 
 /**
@@ -794,7 +837,7 @@ function fieldable_panels_panes_delete_revision($fpid, $vid) {
   if ($revision = fieldable_panels_panes_load($fpid, $vid)) {
     // Prevent deleting the current revision.
     $entity = fieldable_panels_panes_load($revision->fpid);
-    if ($vid == $entity->vid) {
+    if (empty($entity) || empty($entity->vid)) {
       return FALSE;
     }
 
@@ -1159,4 +1202,58 @@ function fieldable_panels_panes_metadata_fpp_get_properties($entity, array $opti
   if ($name == 'path') {
     return url($entity->path);
   }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter for ctools_export_ui_edit_item_form.
+ *
+ * Minor improvements to the FPP bundle/type form.
+ */
+function fieldable_panels_panes_form_ctools_export_ui_edit_item_form_alter(&$form, &$form_state, $form_id) {
+  if (isset($form_state['plugin']['name']) && $form_state['plugin']['name'] == 'fieldable_panels_pane') {
+    $form['info']['description']['#description'] = t('The administrative description of this type. Also used as the icon tooltip when attempting to add an item of this type via the Panels interface.');
+  }
+}
+
+/**
+ * Callback function for the FPP entity label.
+ */
+function fieldable_panels_panes_entity_label_callback($entity, $type) {
+  // First, try the real label.
+  if (!empty($entity->admin_title)) {
+    return $entity->admin_title;
+  }
+
+  // Then, the user visible title.
+  if (!empty($entity->title)) {
+    return $entity->title;
+  }
+
+  // Then, the bundle label with FPID.
+  $info = entity_get_info($type);
+  if (!empty($info['bundles'][$entity->bundle]['label'])) {
+    return t('@label (id: @fpid)', array(
+      '@label' => $info['bundles'][$entity->bundle]['label'],
+      '@fpid' => $entity->fpid,
+    ));
+  }
+
+  // Finally, the ultimate fallback: the entity name with bundle and FPID.
+  return t('@label (type: @bundle, id: @fpid)', array(
+    // FYI, we use $info['label'] rather than the literal string in case it was
+    // translated.
+    '@label' => $info['label'],
+    '@bundle' => $entity->bundle,
+    '@fpid' => $entity->fpid,
+  ));
+}
+
+/**
+ * Callback function for the FPP entity uri.
+ */
+function fieldable_panels_panes_entity_uri_callback($entity) {
+  return array(
+    'path' => 'admin/structure/fieldable-panels-panes/view/' . $entity->fpid,
+    'options' => array(),
+  );
 }

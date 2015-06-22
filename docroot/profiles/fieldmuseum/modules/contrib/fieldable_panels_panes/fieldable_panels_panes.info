@@ -2,8 +2,8 @@ name = "Fieldable Panels Panes"
 description = "Allow the creation of fieldable panels pane entities."
 package = "Panels"
 core = "7.x"
-dependencies[] = ctools (>=1.4)
-dependencies[] = panels
+dependencies[] = ctools (>=1.6)
+dependencies[] = panels (>=3.5)
 dependencies[] = views
 
 configure = admin/structure/fieldable-panels-panes
@@ -32,9 +32,9 @@ files[] = fieldable_panels_panes.info.inc
 ; Inline Entity Form integration.
 files[] = includes/FieldablePanelsPaneInlineEntityFormController.class.php
 
-; Information added by Drupal.org packaging script on 2014-07-07
-version = "7.x-1.5+18-dev"
+; Information added by Drupal.org packaging script on 2015-05-29
+version = "7.x-1.6"
 core = "7.x"
 project = "fieldable_panels_panes"
-datestamp = "1404767029"
+datestamp = "1432918082"
 
