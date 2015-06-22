@@ -295,7 +295,10 @@ function media_gallery_view($node, $view_mode) {
         'localized_options' => array(
           'query' => array('render' => 'media-popup'),
           'attributes' => array(
-            'class' => 'media-gallery-add launcher',
+            'class' => array(
+              'media-gallery-add',
+              'launcher',
+            ),
           ),
         ),
       ),
@@ -303,6 +306,11 @@ function media_gallery_view($node, $view_mode) {
       '#prefix' => '<ul class="field action-links">',
       '#suffix' => '</ul>',
     );
+
+    // Prevent the overlay module to open an additional dialog.
+    if (module_exists('overlay')) {
+      $node->content['add_media_link']['#link']['localized_options']['attributes']['class'][] = 'overlay-exclude';
+    }
 
     // Enable the "Add media" link to launch the media browser.
     module_load_include('inc', 'media', 'includes/media.browser');
