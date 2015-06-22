@@ -86,6 +86,9 @@ of the module as documented above, but it works nonetheless.
 .fireflies__wrapper {
 	background: #000;
 }
+canvas {
+    vertical-align: bottom;
+}
 ```
 
 ```js
