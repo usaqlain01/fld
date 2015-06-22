@@ -178,12 +178,24 @@ class DrupalTextMetaTag extends DrupalDefaultMetaTag {
       $form['value']['#description'] .= ' ' . t('Multiple values may be used, separated by a comma. Note: Tokens that return multiple values will be handled automatically.');
     }
 
+    // Optional support for select_or_other.
+    if ($form['value']['#type'] == 'select' && !empty($this->info['select_or_other']) && module_exists('select_or_other')) {
+      $form['value']['#type'] = 'select_or_other';
+      $form['value']['#other'] = t('Other (please type a value)');
+      $form['value']['#multiple'] = FALSE;
+      $form['value']['#other_unknown_defaults'] = 'other';
+      $form['value']['#other_delimiter'] = FALSE;
+      $form['value']['#theme'] = 'select_or_other';
+      $form['value']['#select_type'] = 'select';
+      $form['value']['#element_validate'] = array('select_or_other_element_validate');
+    }
+
     // Support for dependencies, using Form API's #states system.
     // @see metatag.api.php.
     // @see https://api.drupal.org/drupal_process_states
     if (!empty($this->info['dependencies'])) {
       foreach ($this->info['dependencies'] as $specs) {
-        $form['value']['#states']['visible'][':input[name="metatags[' . $specs['dependency'] . '][' . $specs['attribute'] . ']"]'] = array(
+        $form['value']['#states']['visible'][':input[name*="[' . $specs['dependency'] . '][' . $specs['attribute'] . ']"]'] = array(
           $specs['condition'] => $specs['value'],
         );
       }
