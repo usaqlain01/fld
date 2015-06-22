@@ -12,6 +12,9 @@
  */
 function number_feeds_processor_targets_alter(&$targets, $entity_type, $bundle_name) {
   $numeric_types = array(
+    'list_integer',
+    'list_float',
+    'list_boolean',
     'number_integer',
     'number_decimal',
     'number_float',
@@ -34,18 +37,36 @@ function number_feeds_processor_targets_alter(&$targets, $entity_type, $bundle_n
  *
  * Ensure that $value is a numeric to avoid database errors.
  */
-function number_feeds_set_target($source, $entity, $target, array $values) {
+function number_feeds_set_target($source, $entity, $target, $value) {
+
+  // Do not perform the regular empty() check here. 0 is a valid value. That's
+  // really just a performance thing anyway.
+
+  if (!is_array($value)) {
+    $value = array($value);
+  }
+
+  $info = field_info_field($target);
+
   // Iterate over all values.
   $field = isset($entity->$target) ? $entity->$target : array('und' => array());
 
-  foreach ($values as $value) {
+  // Allow for multiple mappings to the same target.
+  $delta = count($field['und']);
 
-    if (is_object($value) && ($value instanceof FeedsElement)) {
-      $value = $value->getValue();
+  foreach ($value as $v) {
+
+    if ($info['cardinality'] == $delta) {
+      break;
     }
 
-    if (is_numeric($value)) {
-      $field['und'][] = array('value' => $value);
+    if (is_object($v) && ($v instanceof FeedsElement)) {
+      $v = $v->getValue();
+    }
+
+    if (is_numeric($v)) {
+      $field['und'][$delta]['value'] = $v;
+      $delta++;
     }
   }
 
