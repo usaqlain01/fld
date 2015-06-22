@@ -1,3 +1,3 @@
 <a class="<?php print $classes; ?>"<?php print $attributes; ?>>
-  <?php print $fields; ?>
+  <?php print render($content); ?>
 </a>
