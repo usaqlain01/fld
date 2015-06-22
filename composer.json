@@ -28,6 +28,13 @@
         "rvm": [
             "rvm use ruby-2.2.2@fldmuse"
         ],
+        "rvm:prepare": [
+            "gem install bundle",
+            "bundle install"
+        ],
+        "npm": [
+            "npm install -g coffee-script"
+        ],
         "sync": [
             "/usr/local/bin/drush --root=docroot sql-sync @fldmuse.prod @self",
             "/usr/local/bin/drush --root=docroot rsync @fldmuse.prod:%files @self:%files -Pv"
