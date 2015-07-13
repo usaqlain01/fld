@@ -181,12 +181,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/bangpound/assetic-service-provider.git",
-            "reference": "f2e4dded1fcda8dfeb666889566642a4fbb21984"
+            "reference": "e3b70ce2182e79abb01b49476cd1f14851e68f19"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/bangpound/assetic-service-provider/zipball/f2e4dded1fcda8dfeb666889566642a4fbb21984",
-            "reference": "f2e4dded1fcda8dfeb666889566642a4fbb21984",
+            "url": "https://api.github.com/repos/bangpound/assetic-service-provider/zipball/e3b70ce2182e79abb01b49476cd1f14851e68f19",
+            "reference": "e3b70ce2182e79abb01b49476cd1f14851e68f19",
             "shasum": ""
         },
         "require": {
@@ -194,7 +194,7 @@
             "php": ">=5.3.3",
             "pimple/pimple": ">=2.1,<4"
         },
-        "time": "2015-05-11 19:42:21",
+        "time": "2015-07-13 19:06:04",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -220,22 +220,23 @@
         "source": {
             "type": "git",
             "url": "https://github.com/bangpound/Assetic-CLI.git",
-            "reference": "f07c876fc559f70086fc8df5e7622dd514f0809e"
+            "reference": "5bd8a2e03b2d16c0629ec3b8983a6b371b638711"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/bangpound/Assetic-CLI/zipball/f07c876fc559f70086fc8df5e7622dd514f0809e",
-            "reference": "f07c876fc559f70086fc8df5e7622dd514f0809e",
+            "url": "https://api.github.com/repos/bangpound/Assetic-CLI/zipball/5bd8a2e03b2d16c0629ec3b8983a6b371b638711",
+            "reference": "5bd8a2e03b2d16c0629ec3b8983a6b371b638711",
             "shasum": ""
         },
         "require": {
             "bangpound/assetic-service-provider": "~1.0@dev",
-            "php": ">=5.3.3"
+            "php": ">=5.3.3",
+            "symfony/finder": "~2.3"
         },
         "require-dev": {
             "symfony/debug": "~2.3"
         },
-        "time": "2015-05-05 18:51:14",
+        "time": "2015-07-13 18:45:37",
         "bin": [
             "bin/assetic"
         ],
@@ -249,7 +250,10 @@
         "autoload": {
             "psr-4": {
                 "Bangpound\\Assetic\\": "src/"
-            }
+            },
+            "files": [
+                "src/functions.php"
+            ]
         },
         "notification-url": "https://packagist.org/downloads/",
         "license": [

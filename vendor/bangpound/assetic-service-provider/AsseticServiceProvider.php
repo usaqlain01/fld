@@ -36,11 +36,11 @@ class AsseticServiceProvider implements ServiceProviderInterface
 
         $pimple['assetic.register_functions'] = true;
 
-        $pimple['assetic.java.bin'] = '/usr/bin/java';
-        $pimple['assetic.node.bin'] = '/usr/bin/node';
+        $pimple['assetic.java.bin'] = \Bangpound\Assetic\find_executable('java', '/usr/bin/java');
+        $pimple['assetic.node.bin'] = \Bangpound\Assetic\find_executable('node', '/usr/bin/node');
         $pimple['assetic.node.paths'] = array();
-        $pimple['assetic.ruby.bin'] = '/usr/bin/ruby';
-        $pimple['assetic.sass.bin'] = '/usr/bin/sass';
+        $pimple['assetic.ruby.bin'] = \Bangpound\Assetic\find_executable('ruby', '/usr/bin/ruby');
+        $pimple['assetic.sass.bin'] = \Bangpound\Assetic\find_executable('sass', '/usr/bin/sass');
 
         /*
          * Finds IDs of all Asset Manager services.
