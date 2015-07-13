@@ -40,8 +40,8 @@
             "/usr/local/bin/drush --root=docroot rsync @fldmuse.prod:%files @self:%files -Pv"
         ],
         "drush:composer": [
-            "drush --root=docroot composer-json-rebuild",
-            "drush --root=docroot composer-manager update"
+            "/usr/local/bin/drush --root=docroot composer-json-rebuild",
+            "/usr/local/bin/drush --root=docroot composer-manager update"
         ],
         "assetic": [
             "./bin/assetic prepare",
