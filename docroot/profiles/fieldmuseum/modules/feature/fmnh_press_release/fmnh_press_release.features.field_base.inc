@@ -28,6 +28,7 @@ function fmnh_press_release_field_default_field_bases() {
       'allowed_values' => array(
         'science' => 'Science',
         'exhibit' => 'Exhibition',
+        'events-announcements' => 'Events & Announcements',
       ),
       'allowed_values_function' => '',
       'profile2_private' => FALSE,
