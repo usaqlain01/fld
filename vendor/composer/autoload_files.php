@@ -7,6 +7,6 @@ $baseDir = dirname($vendorDir);
 
 return array(
     $vendorDir . '/kriswallsmith/assetic/src/functions.php',
-    $vendorDir . '/bangpound/assetic-cli/src/functions.php',
     $vendorDir . '/symfony/var-dumper/Resources/functions/dump.php',
+    $vendorDir . '/bangpound/assetic-cli/src/functions.php',
 );

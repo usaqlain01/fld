@@ -9,6 +9,8 @@ return array(
     'ZaCoZa\\Assetic' => array($vendorDir . '/zacoza/assetic-filters/src'),
     'Psr\\Log\\' => array($vendorDir . '/psr/log'),
     'Pimple' => array($vendorDir . '/pimple/pimple/src'),
+    'Drush' => array($vendorDir . '/drush/drush/lib'),
     'Cilex\\Provider\\Console' => array($vendorDir . '/cilex/console-service-provider/src'),
+    'Boris' => array($vendorDir . '/d11wtq/boris/lib'),
     'Assetic' => array($vendorDir . '/kriswallsmith/assetic/src'),
 );
