@@ -20,6 +20,7 @@
     },
     "prefer-stable": true,
     "config": {
+        "process-timeout": 600,
         "autoloader-suffix": "Repo",
         "preferred-install": "dist",
         "optimize-autoloader": true,
