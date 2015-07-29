@@ -38,8 +38,10 @@ function fieldmuseum_menu_alter(&$items) {
     'node/%pm_arg/people' => array('users', 'ctools_context_2', TRUE),
   );
   foreach ($changes as $path => $access_arguments) {
-    $items[$path]['access callback'] = 'fieldmuseum_menu_access';
-    $items[$path]['access arguments'] = array_merge($access_arguments, $items[$path]['access arguments']);
+    if (isset($items[$path])) {
+      $items[$path]['access callback'] = 'fieldmuseum_menu_access';
+      $items[$path]['access arguments'] = array_merge($access_arguments, $items[$path]['access arguments']);
+    }
   }
 }
 
