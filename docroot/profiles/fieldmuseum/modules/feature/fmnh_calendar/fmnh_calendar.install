@@ -1,25 +1,41 @@
 <?php
 
 /**
+ * @return mixed
+ */
+function fmnh_calendar_update_dependencies() {
+  $dependencies['fmnh_calendar'][7000] = array(
+      'features' => 7200,
+  );
+  return $dependencies;
+}
+
+/**
  * Set default value for field_ticket_text on existing event nodes.
  */
 function fmnh_calendar_update_7000(&$sandbox) {
-  $query = new EntityFieldQuery();
-  $query->entityCondition('entity_type', 'node');
-  $query->entityCondition('bundle', 'event');
-  $query->entityOrderBy('entity_id');
-  $result = $query->execute();
-  if (!empty($result['node'])) {
-    $entities = entity_load('node', array_keys($result['node']));
-    foreach ($entities as $entity) {
-      $entity->field_ticket_text = array(
-        LANGUAGE_NONE => array(
-          array(
-            'value' => 'Buy Tickets',
-          ),
-        ),
-      );
-      node_save($entity);
+  $info = field_info_instance('node', 'field_ticket_text', 'event');
+  if ($info) {
+    $query = new EntityFieldQuery();
+    $query->entityCondition('entity_type', 'node');
+    $query->entityCondition('bundle', 'event');
+    $query->entityOrderBy('entity_id');
+    $result = $query->execute();
+    if (!empty($result['node'])) {
+      $entities = entity_load('node', array_keys($result['node']));
+      foreach ($entities as $entity) {
+        $entity->field_ticket_text = array(
+            LANGUAGE_NONE => array(
+                array(
+                    'value' => 'Buy Tickets',
+                ),
+            ),
+        );
+        node_save($entity);
+      }
     }
+  }
+  else {
+    throw new Exception('field_ticket_text does not exist on node event bundle');
   }
 }
