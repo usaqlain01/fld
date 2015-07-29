@@ -71,7 +71,8 @@ if (file_exists('/var/www/site-php')) {
         }
         break;
       case 'prod':
-
+        $conf['composer_manager_autobuild_file'] = 0;
+        $conf['composer_manager_autobuild_packages'] = 0;
         break;
     }
   }
