@@ -14,6 +14,7 @@
         "preferred-install": "dist",
         "optimize-autoloader": true
     },
+    "prefer-stable": true,
     "autoload": {
         "psr-0": {
             "Drupal\\bangpoundmedia\\": [
@@ -28,6 +29,5 @@
                 "../../docroot/profiles/fieldmuseum/modules/contrib/inline/lib/Drupal/inline"
             ]
         }
-    },
-    "prefer-stable": true
+    }
 }
