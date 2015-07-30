@@ -35,6 +35,10 @@ if (file_exists('/var/www/site-php')) {
   require('/var/www/site-php/fldmuse/fldmuse-settings.inc');
   if ($_ENV['AH_SITE_ENVIRONMENT']) {
 
+    // Avoid building composer products in Acquia environments.
+    $conf['composer_manager_autobuild_file'] = 0;
+    $conf['composer_manager_autobuild_packages'] = 0;
+
     // Use memcache.
     // @see https://docs.acquia.com/cloud/performance/memcached
     $conf['cache_backends'][] = './profiles/fieldmuseum/modules/contrib/memcache/memcache.inc';
@@ -69,10 +73,6 @@ if (file_exists('/var/www/site-php')) {
             exit;
           }
         }
-        break;
-      case 'prod':
-        $conf['composer_manager_autobuild_file'] = 0;
-        $conf['composer_manager_autobuild_packages'] = 0;
         break;
     }
   }
