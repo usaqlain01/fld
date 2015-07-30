@@ -5,7 +5,6 @@
  */
 
 include_once 'fieldmuseum.features.inc';
-composer_manager_register_autoloader();
 
 /**
  * Implement hook_menu().
