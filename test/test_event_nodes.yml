@@ -1,0 +1,190 @@
+-
+    title: 'Event that starts and ends today'
+    status: '1'
+    type: event
+    language: 'und'
+    field_date:
+        und:
+            -
+                value: @=date_format(date_create('now'), 'Y-m-d 22:00:00')
+                value2: @=date_format(date_create('now'), 'Y-m-d 23:00:00')
+                timezone: America/Chicago
+                timezone_db: UTC
+                date_type: datetime
+    field_program:
+        und:
+            -
+                target_id: '9901'
+    field_summary:
+        und:
+            -
+                value: "A sample node."
+                format: filtered_wysiwyg
+    field_audience:
+        und:
+            -
+                target_id: '11'
+            -
+                target_id: '21'
+    field_image:
+        und:
+            -
+                fid: '152866'
+                display: '1'
+                description: ''
+    field_ticket_text:
+        und:
+            -
+                value: 'Buy Tickets'
+-
+    title: 'Event that starts today and ends tomorrow'
+    status: '1'
+    type: event
+    language: 'und'
+    field_date:
+        und:
+            -
+                value: @=date_format(date_create('now'), 'Y-m-d H:i:s')
+                value2: @=date_format(date_create('now +1 day'), 'Y-m-d H:i:s')
+                timezone: America/Chicago
+                timezone_db: UTC
+                date_type: datetime
+    field_program:
+        und:
+            -
+                target_id: '9901'
+    field_summary:
+        und:
+            -
+                value: "A sample node."
+                format: filtered_wysiwyg
+    field_audience:
+        und:
+            -
+                target_id: '11'
+            -
+                target_id: '21'
+    field_image:
+        und:
+            -
+                fid: '152866'
+                display: '1'
+                description: ''
+    field_ticket_text:
+        und:
+            -
+                value: 'Buy Tickets'
+-
+    title: 'Event that happened yesterday'
+    status: '1'
+    type: event
+    language: 'und'
+    field_date:
+        und:
+            -
+                value: @=date_format(date_create('now -1 day'), 'Y-m-d 22:00:00')
+                value2: @=date_format(date_create('now -1 day'), 'Y-m-d 23:00:00')
+                timezone: America/Chicago
+                timezone_db: UTC
+                date_type: datetime
+    field_program:
+        und:
+            -
+                target_id: '9901'
+    field_summary:
+        und:
+            -
+                value: "A sample node."
+                format: filtered_wysiwyg
+    field_audience:
+        und:
+            -
+                target_id: '11'
+            -
+                target_id: '21'
+    field_image:
+        und:
+            -
+                fid: '152866'
+                display: '1'
+                description: ''
+    field_ticket_text:
+        und:
+            -
+                value: 'Buy Tickets'
+-
+    title: 'Event that started yesterday and ends today'
+    status: '1'
+    type: event
+    language: 'und'
+    field_date:
+        und:
+            -
+                value: @=date_format(date_create('now -1 day'), 'Y-m-d 22:00:00')
+                value2: @=date_format(date_create('now'), 'Y-m-d 22:00:00')
+                timezone: America/Chicago
+                timezone_db: UTC
+                date_type: datetime
+    field_program:
+        und:
+            -
+                target_id: '9901'
+    field_summary:
+        und:
+            -
+                value: "A sample node."
+                format: filtered_wysiwyg
+    field_audience:
+        und:
+            -
+                target_id: '11'
+            -
+                target_id: '21'
+    field_image:
+        und:
+            -
+                fid: '152866'
+                display: '1'
+                description: ''
+    field_ticket_text:
+        und:
+            -
+                value: 'Buy Tickets'
+-
+    title: 'Event that started yesterday and ends tomorrow'
+    status: '1'
+    type: event
+    language: 'und'
+    field_date:
+        und:
+            -
+                value: @=date_format(date_create('now -1 day'), 'Y-m-d 22:00:00')
+                value2: @=date_format(date_create('now +1 day'), 'Y-m-d 22:00:00')
+                timezone: America/Chicago
+                timezone_db: UTC
+                date_type: datetime
+    field_program:
+        und:
+            -
+                target_id: '9901'
+    field_summary:
+        und:
+            -
+                value: "A sample node."
+                format: filtered_wysiwyg
+    field_audience:
+        und:
+            -
+                target_id: '11'
+            -
+                target_id: '21'
+    field_image:
+        und:
+            -
+                fid: '152866'
+                display: '1'
+                description: ''
+    field_ticket_text:
+        und:
+            -
+                value: 'Buy Tickets'
