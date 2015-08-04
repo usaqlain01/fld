@@ -10,3 +10,5 @@ ul.tabs li { padding: 0; }
 
 .webform-container-inline .select2-display-none { display: none; }
 .webform-container-inline .select2-container { display: inline-block; width: auto; }
+
+.eventSummary__endDate:before { content: "\0020\2014\0020"; }
