@@ -5,7 +5,8 @@
  */
 function fmnh_calendar_update_dependencies() {
   $dependencies['fmnh_calendar'][7000] = array(
-      'features' => 7200,
+    'features' => 7200,
+    'feeds' => 7212,
   );
   return $dependencies;
 }
