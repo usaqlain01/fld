@@ -639,6 +639,7 @@ function fmnh_calendar_field_default_field_instances() {
       'file_directory' => '',
       'file_extensions' => 'png jpg gif jpeg',
       'imagecrop' => array(
+        '1x1_300w' => '1x1_300w',
         '2x1_2400w' => '2x1_2400w',
         '5x2_2400w' => '5x2_2400w',
         '5x3_2400w' => '5x3_2400w',
