@@ -21,7 +21,6 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\RequestMatcher;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Security;
-use Symfony\Component\Security\Core\SecurityContext;
 use Symfony\Component\Security\Core\SecurityContextInterface;
 use Symfony\Component\Security\Core\User\UserChecker;
 use Symfony\Component\Security\Core\User\InMemoryUserProvider;
@@ -568,10 +567,6 @@ class SecurityServiceProvider implements ServiceProviderInterface, EventListener
             $app['security.validator.user_password_validator'] = function ($app) {
                 return new UserPasswordValidator($app['security.token_storage'], $app['security.encoder_factory']);
             };
-
-            if (!isset($app['validator.validator_service_ids'])) {
-                $app['validator.validator_service_ids'] = array();
-            }
 
             $app['validator.validator_service_ids'] = array_merge($app['validator.validator_service_ids'], array('security.validator.user_password' => 'security.validator.user_password_validator'));
         }

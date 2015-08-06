@@ -147,12 +147,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/silexphp/Silex.git",
-                "reference": "6679a4eafdb953832e659acd2603ecabf23a2a47"
+                "reference": "48a3fdc483bc7e5e27750afaf2325682ea2b325f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silexphp/Silex/zipball/6679a4eafdb953832e659acd2603ecabf23a2a47",
-                "reference": "6679a4eafdb953832e659acd2603ecabf23a2a47",
+                "url": "https://api.github.com/repos/silexphp/Silex/zipball/48a3fdc483bc7e5e27750afaf2325682ea2b325f",
+                "reference": "48a3fdc483bc7e5e27750afaf2325682ea2b325f",
                 "shasum": ""
             },
             "require": {
@@ -221,12 +221,12 @@
                     "email": "igor@wiedler.ch"
                 }
             ],
-            "description": "The PHP micro-framework based on the Symfony2 Components",
+            "description": "The PHP micro-framework based on the Symfony Components",
             "homepage": "http://silex.sensiolabs.org",
             "keywords": [
                 "microframework"
             ],
-            "time": "2015-08-03 14:18:39"
+            "time": "2015-08-05 16:16:09"
         },
         {
             "name": "symfony/debug",
