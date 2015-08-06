@@ -49,7 +49,7 @@
     </h6>
     <h6 class="person__department">
       <?php print render($user_profile['field_home_department']); ?>
-      <?php if ($user_profile['field_business_unit']) { ?>
+      <?php if ($user_profile['field_business_unit'] && $user_profile['field_business_unit']['#items'] !== $user_profile['field_home_department']['#items']) { ?>
         (<?php print trim(render($user_profile['field_business_unit'])); ?>)
       <?php } ?>
     </h6>
