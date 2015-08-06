@@ -23,6 +23,15 @@ function fmnh_staff_navbar_alter(&$items) {
 }
 
 /**
+ * Implements hook_module_implements_alter().
+ */
+function fmnh_staff_module_implements_alter(&$implementations, $hook) {
+  if ($hook === 'form_user_profile_form_alter') {
+    unset($implementations['imagecrop']);
+  }
+}
+
+/**
  * Implement hook_menu_alter()
  *
  * @param $items
@@ -77,6 +86,41 @@ function fmnh_staff_profile2_page_title($type_name, $profile2 = NULL) {
  * @param $form_state
  */
 function fmnh_staff_form_user_profile_form_alter(&$form, &$form_state) {
+  $hooks = variable_get('imagecrop_modules', array());
+  if (!empty($form['picture']['picture']['#value']) && !empty($hooks['profile_picture'])) {
+    $styles = array_keys(array_filter(get_imagecrop_styles(), function ($style) {
+      return $style === 'headshot';
+    }, ARRAY_FILTER_USE_KEY));
+    if (count($styles) > 0) {
+
+      // Create fake file object for permission check.
+      $file = new stdClass();
+      $file->uid = $form['#user']->uid;
+
+      $imagecrop = new ImageCrop();
+      $imagecrop->setFile($file);
+
+      global $user;
+      if (!$imagecrop->hasUserAccess($user)) {
+        return;
+      }
+
+      $variables = array(
+        'styles' => $styles,
+        'js_file' => 'imagecrop_field.js',
+        'text' => t('Crop picture'),
+        'fid' => $form['picture']['picture']['#value']->fid,
+      );
+
+      $form['#entity_type'] = 'user';
+      $form['#bundle'] = 'user';
+      $form['#field_name'] = 'profile_picture';
+
+      $form['picture']['picture_current']['#markup'] .= imagecrop_linkitem($form, $variables);
+    }
+  }
+
+
   if (!user_access('administer users')) {
     $form['field_givenname']['#access'] = user_access('administer users');
     $form['field_surname']['#access'] = user_access('administer users');
@@ -369,5 +413,20 @@ function fmnh_staff_entity_update($entity, $type) {
       $profile->label = AUTO_ENTITYLABEL_PLACEHOLDER;
       profile2_save($profile);
     }
+  }
+}
+
+/**
+ * @param $form
+ * @param $form_state
+ */
+function fmnh_staff_form_imagecrop_style_selection_form_alter(&$form, &$form_state) {
+  if (isset($form_state['build_info']['args'][1]) &&
+    $form_state['build_info']['args'][1]->getEntityType() === 'user' &&
+    $form_state['build_info']['args'][1]->getBundle() === 'user' &&
+    $form_state['build_info']['args'][1]->getFieldName() === 'profile_picture') {
+    $form['styles']['#options'] = array_filter($form['styles']['#options'], function ($style) {
+      return $style === 'headshot';
+    }, ARRAY_FILTER_USE_KEY);
   }
 }
