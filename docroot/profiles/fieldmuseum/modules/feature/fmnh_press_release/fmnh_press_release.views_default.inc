@@ -93,6 +93,10 @@ function fmnh_press_release_views_default_views() {
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  $handler->display->display_options['filter_groups']['groups'] = array(
+    1 => 'AND',
+    2 => 'OR',
+  );
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -107,6 +111,23 @@ function fmnh_press_release_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'press_release' => 'press_release',
   );
+  $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filter criterion: Content: Post date */
+  $handler->display->display_options['filters']['created']['id'] = 'created';
+  $handler->display->display_options['filters']['created']['table'] = 'node';
+  $handler->display->display_options['filters']['created']['field'] = 'created';
+  $handler->display->display_options['filters']['created']['operator'] = '>';
+  $handler->display->display_options['filters']['created']['value']['value'] = '-1 year';
+  $handler->display->display_options['filters']['created']['value']['type'] = 'offset';
+  $handler->display->display_options['filters']['created']['group'] = 2;
+  /* Filter criterion: Content: Press release type (field_press_release_type) */
+  $handler->display->display_options['filters']['field_press_release_type_value']['id'] = 'field_press_release_type_value';
+  $handler->display->display_options['filters']['field_press_release_type_value']['table'] = 'field_data_field_press_release_type';
+  $handler->display->display_options['filters']['field_press_release_type_value']['field'] = 'field_press_release_type_value';
+  $handler->display->display_options['filters']['field_press_release_type_value']['value'] = array(
+    'exhibit' => 'exhibit',
+  );
+  $handler->display->display_options['filters']['field_press_release_type_value']['group'] = 2;
 
   /* Display: Content pane */
   $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');

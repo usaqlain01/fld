@@ -13,9 +13,9 @@ function fmnh_program_default_page_manager_pages() {
   $page->api_version = 1;
   $page->name = 'field_trip_programs';
   $page->task = 'page';
-  $page->admin_title = 'Field trip programs';
+  $page->admin_title = 'Field trip experiences';
   $page->admin_description = '';
-  $page->path = 'educators/field-trips/programs';
+  $page->path = 'educators/field-trips/experiences';
   $page->access = array(
     'plugins' => array(
       0 => array(
@@ -33,7 +33,7 @@ function fmnh_program_default_page_manager_pages() {
   );
   $page->menu = array(
     'type' => 'normal',
-    'title' => 'Field trip programs',
+    'title' => 'Field trip experiences',
     'name' => 'main-menu',
     'weight' => '0',
     'parent' => array(
@@ -88,7 +88,7 @@ function fmnh_program_default_page_manager_pages() {
     ),
   );
   $display->cache = array();
-  $display->title = 'Field Trip Programs';
+  $display->title = 'Field Trip Experiences';
   $display->uuid = '29dae451-7137-44fd-a6bc-fd5eb79071ea';
   $display->content = array();
   $display->panels = array();

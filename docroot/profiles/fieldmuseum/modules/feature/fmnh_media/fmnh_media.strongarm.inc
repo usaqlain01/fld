@@ -398,6 +398,7 @@ function fmnh_media_strongarm() {
     'primary_2x1' => 'primary_2x1',
     'banner_5x2' => 'banner_5x2',
     'banner_5x3' => 'banner_5x3',
+    'resource' => 'resource',
     'headshot' => 'headshot',
     'teaser' => 'teaser',
     'full' => 'full',
@@ -413,7 +414,6 @@ function fmnh_media_strongarm() {
     'wysiwyg' => 'wysiwyg',
     'token' => 'token',
     'embed' => 0,
-    'resource' => 0,
   );
   $export['media_wysiwyg_view_mode_image_wysiwyg_restricted_view_modes'] = $strongarm;
 
