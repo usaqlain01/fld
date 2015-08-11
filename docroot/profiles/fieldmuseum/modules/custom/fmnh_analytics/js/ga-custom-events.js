@@ -158,6 +158,10 @@
             category: 'support',
             label:    'click-give-member'
           },
+          'member-global': { 
+            category: 'support', 
+            label: 'members-global-nav-click' 
+          },
 
           // ------ Educator Click Events -----
           'explore-resources': {
