@@ -10,7 +10,7 @@ use Bangpound\Assetic\Filter\CodekitCoffeeScriptFilter;
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
 
-class FieldAsseticServiceProvider implements ServiceProviderInterface
+class ProjectAsseticServiceProvider implements ServiceProviderInterface
 {
     public function register(Container $pimple)
     {
