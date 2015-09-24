@@ -1,6 +1,7 @@
 <?php
 $update_free_access = FALSE;
 $drupal_hash_salt = 'l2MKidUCwLpwuZtpFHB2hXQa4vytP4d44tofDi1JsXQ';
+$cookie_domain = '.fieldmuseum.org';
 ini_set('arg_separator.output',     '&amp;');
 ini_set('magic_quotes_runtime',     0);
 ini_set('magic_quotes_sybase',      0);
