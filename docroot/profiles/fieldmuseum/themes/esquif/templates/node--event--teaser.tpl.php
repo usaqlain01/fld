@@ -40,9 +40,9 @@
           $date2 = new DateObject($item['value2'], $item['timezone_db'], date_type_format($item['date_type']));
           $date2->setTimezone(new DateTimeZone($item['timezone']));
           $interval = $date2->diff($date);
-          print '<time class="eventSummary__datetime" property="schema:endDate" datatype="xsd:dateTime" content="'. $date2->format('c') .'">';
+          print '<time class="eventSummary__datetime eventSummary__endDate" property="schema:endDate" datatype="xsd:dateTime" content="'. $date2->format('c') .'">';
           if ($interval->days) {
-            print '<span class="eventSummary__date eventSummary__endDate">';
+            print '<span class="eventSummary__date">';
             print $date2->format('l, F j');
             print '</span> ';
           }
