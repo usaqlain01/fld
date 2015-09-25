@@ -9,7 +9,7 @@
   <?php print render($results_searchbox_form); ?>
 <?php endif; ?>
 
-<div id="google-cse-results">
+<div class="gcse-searchresults-only" id="google-cse-results" data-queryParameterName="query">
   <noscript>
     <?php print $noscript; ?>
   </noscript>
