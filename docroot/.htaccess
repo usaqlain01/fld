@@ -56,14 +56,14 @@ DirectoryIndex index.php index.html index.htm
 <IfModule mod_rewrite.c>
   RewriteEngine on
 
-  RewriteCond %{HTTP_HOST} !prod\.acquia-sites\.com [NC]  # exclude Acquia domains
-  RewriteCond %{HTTP_HOST} !staging\.fieldmuseum\.org [NC]  # exclude Acquia domains
-  RewriteCond %{HTTP_HOST} !^www\. [NC]
-  RewriteRule ^ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+#  RewriteCond %{HTTP_HOST} !prod\.acquia-sites\.com [NC]  # exclude Acquia domains
+#  RewriteCond %{HTTP_HOST} !staging\.fieldmuseum\.org [NC]  # exclude Acquia domains
+#  RewriteCond %{HTTP_HOST} !^www\. [NC]
+#  RewriteRule ^ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
   # ensure https
-  RewriteCond %{HTTP:X-Forwarded-Proto} !https
-  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+#  RewriteCond %{HTTP:X-Forwarded-Proto} !https
+#  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
   # Set "protossl" to "s" if we were accessed via https://.  This is used later
   # if you enable "www." stripping or enforcement, in order to ensure that
