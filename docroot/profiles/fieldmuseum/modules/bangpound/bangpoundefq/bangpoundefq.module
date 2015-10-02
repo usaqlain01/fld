@@ -179,7 +179,8 @@ function bangpoundefq_entitylist_handlers() {
  */
 function bangpoundefq_menu_tree_collect_entity_links(&$tree, &$entity_links, $entity_type, $access) {
   $info = entity_get_info($entity_type);
-  $path = preg_replace('/%' . DRUPAL_PHP_FUNCTION_PATTERN . '/', '%', $info['path']);
+  // @todo this is actually based on a property created by redirect module.
+  $path = preg_replace('/%' . DRUPAL_PHP_FUNCTION_PATTERN . '/', '%', $info['default path']);
   foreach ($tree as $key => $v) {
     if ($tree[$key]['link']['router_path'] == $path) {
       $entity_id = substr($tree[$key]['link']['link_path'], strlen($path) - 1);
