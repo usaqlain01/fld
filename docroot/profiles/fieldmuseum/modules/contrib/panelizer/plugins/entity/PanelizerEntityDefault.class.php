@@ -643,6 +643,7 @@ abstract class PanelizerEntityDefault implements PanelizerEntityInterface {
       // Also make clones of all the export UI menu items. Again there is some
       // duplicated code here because of subtle differences.
       // Load the $plugin information.
+      ctools_include('export-ui');
       $plugin = ctools_get_export_ui('panelizer_defaults');
 
       $ui_items = $plugin['menu']['items'];
@@ -1737,7 +1738,7 @@ abstract class PanelizerEntityDefault implements PanelizerEntityInterface {
           $entity->panelizer[$view_mode] = $panelizer = $this->clone_panelizer($panelizer, $entity);
 
           // Update the cache key since we are adding a new display
-          $panelizer->display->cache_key = implode(':', array('panelizer', $panelizer->entity_type, $panelizer->entity_id, $view_mode, $revision_id));
+          $panelizer->display->cache_key = implode(':', array_filter(array('panelizer', $panelizer->entity_type, $panelizer->entity_id, $view_mode, $revision_id)));
         }
 
         // First write the display
@@ -1782,7 +1783,7 @@ abstract class PanelizerEntityDefault implements PanelizerEntityInterface {
       // is done after the entity is updated to ensure that the next page load
       // gets the new file.
       ctools_include('css');
-      $cache_key = implode(':', array('panelizer', $this->entity_type, $entity_id, $view_mode, $revision_id));
+      $cache_key = implode(':', array_filter(array('panelizer', $this->entity_type, $entity_id, $view_mode, $revision_id)));
       $filename = ctools_css_retrieve($cache_key);
       if ($filename) {
         ctools_css_clear($cache_key);
@@ -2448,7 +2449,7 @@ abstract class PanelizerEntityDefault implements PanelizerEntityInterface {
     $form_state = array(
       'entity' => $entity,
       'revision info' => $this->entity_allows_revisions($entity),
-      'display cache' => panels_edit_cache_get(implode(':', array('panelizer', $this->entity_type, $entity_id, $view_mode, $revision_id))),
+      'display cache' => panels_edit_cache_get(implode(':', array_filter(array('panelizer', $this->entity_type, $entity_id, $view_mode, $revision_id)))),
       'no_redirect' => TRUE,
     );
 
@@ -3311,7 +3312,7 @@ abstract class PanelizerEntityDefault implements PanelizerEntityInterface {
 
     // This means the IPE will use our cache which means it will get appropriate
     // allowed content should it be selected.
-    $display->cache_key = implode(':', array('panelizer', $this->entity_type, $entity_id, $view_mode, $revision_id));
+    $display->cache_key = implode(':', array_filter(array('panelizer', $this->entity_type, $entity_id, $view_mode, $revision_id)));
 
     // Check to see if there is any CSS.
     if (!empty($panelizer->css)) {

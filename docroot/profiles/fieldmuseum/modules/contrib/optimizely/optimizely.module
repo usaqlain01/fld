@@ -45,9 +45,7 @@ entry to apply the project settings while not needing to remove the actual entry
     case 'admin/config/system/optimizely/settings':
       return t('Add the Optimizely account ID supplied by the Optimizely website. The account ID is essential to setting up the initial site wide default project entry.');
       break;
-
   }
-
 }
 
 /**
@@ -131,7 +129,6 @@ function optimizely_menu() {
   );
 
   return $items;
-
 }
 
 /**
@@ -174,7 +171,7 @@ function optimizely_theme($existing, $type, $theme, $path) {
       'template' => 'optimizely-add-update-form',
       'path' => drupal_get_path('module', 'optimizely') . '/templates',
       '#project_code' => 'project_code',
-     ),
+    ),
   );
 }
 
@@ -197,12 +194,13 @@ function optimizely_theme($existing, $type, $theme, $path) {
  * A disabled project entry will be ignored allowing entries to persist but be applied.
  */
 function optimizely_init() {
-	
-	$current_path = current_path();
-	$current_path_alias = drupal_lookup_path('alias', $current_path);
-	
-	$wildcard_match = FALSE;
-	$add_snippet = FALSE;
+
+  $current_path = current_path();
+  $current_path_alias = drupal_lookup_path('alias', $current_path);
+
+  $wildcard_match = FALSE;
+  $add_snippet = FALSE;
+  $every_page = FALSE;
 
   // Load all entries in the optimizely table
   $query = db_select('optimizely', 'o', array('target' => 'slave'))
@@ -222,10 +220,10 @@ function optimizely_init() {
       // Only process the entries that are enabled
       if ($project['enabled']) {
 
-			  // Target paths from database for project and get real path for <front> if a part of target paths for project
+        // Target paths from database for project and get real path for <front> if a part of target paths for project
         $project_paths = unserialize($project['path']);
-				$front_index = array_search('<front>', $project_paths);
-				!is_int($front_index) ?: $project_paths[$front_index] = variable_get('site_frontpage');
+        $front_index = array_search('<front>', $project_paths);
+        !is_int($front_index) ?: $project_paths[$front_index] = variable_get('site_frontpage');
 
 				// Check all paths for alias or sytem URL values, foreach loop based on
 				// orginal array value, addiitonal values added will not effect the array
@@ -243,65 +241,63 @@ function optimizely_init() {
               $add_snippet = TRUE;
               break 2;
             }
-
           }
 
-				  if (strpos($project_path, '*') !== FALSE) {
+          if (strpos($project_path, '*') !== FALSE) {
 
-						// Sitewide wild card
-						if ($project_path == '*') {
-							$add_snippet = TRUE;
-							break 2;
-						}
-						else {
+            // Sitewide wild card
+            if ($project_path == '*') {
+              $add_snippet = TRUE;
+              $every_page = TRUE;
+              break 2;
+            }
+            else {
 
-							// Remove wildcard, get base path(s)
-							$project_path = substr($project_path, 0, -2);
+              // Remove wildcard, get base path(s)
+              $project_path = substr($project_path, 0, -2);
 
-							// Look for wildcard match
-							if ( stristr($current_path, $project_path) ||
-									 stristr(drupal_lookup_path('alias', $current_path), $project_path) ||
-									 stristr(drupal_lookup_path('source', $current_path), $project_path) ) {
-								$add_snippet = TRUE;
-								break 2;
-							}
+              // Look for wildcard match
+              if ( stristr($current_path, $project_path) ||
+                   stristr(drupal_lookup_path('alias', $current_path), $project_path) ||
+                   stristr(drupal_lookup_path('source', $current_path), $project_path) ) {
+                $add_snippet = TRUE;
+                break 2;
+              }
+            }
+          }
 
-						}
+          // Build out $project_paths with possible source and alias values to
+          // test with drupal_match_path()
+          $project_path_source = drupal_lookup_path('source', $project_path);
+          !$project_path_source ?: $project_paths[] = $project_path_source;
 
-				  }
-
-					// Build out $project_paths with possible source and alias values to
-					// test with drupal_match_path()
-					$project_path_source = drupal_lookup_path('source', $project_path);
-					!$project_path_source ?: $project_paths[] = $project_path_source;
-
-					$project_path_alias = drupal_lookup_path('alias', $project_path);
-					!$project_path_alias ?: $project_paths[] = $project_path_alias;
-
-				}
+          $project_path_alias = drupal_lookup_path('alias', $project_path);
+          !$project_path_alias ?: $project_paths[] = $project_path_alias;
+        }
 
 				// Prep for drupal_match_path()
         $project_paths = implode("\n", array_unique($project_paths));
 
-				if (drupal_match_path($current_path, $project_paths) ||
-						drupal_match_path($current_path_alias, $project_paths)) {
+        if (drupal_match_path($current_path, $project_paths) ||
+            drupal_match_path($current_path_alias, $project_paths)) {
           $add_snippet = TRUE;
-					break;
+          break;
 				}
-
       }
-
     }
 
-		if ($add_snippet) {
+    if ($add_snippet) {
 
-		  // Adjust path to support secure pages
-			$protocol = isset($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) == 'on' ? 'https' : 'http';
+      $options = array(
+        'type' => 'external',
+        'every_page' => $every_page,
+        'group' => JS_LIBRARY,
+        'weight' => 0,
+      );
 
 			// Add javascript call to page markup
-			drupal_add_js($protocol . '://cdn.optimizely.com/js/' . $project['project_code'] . '.js', 'external');
-
-		}
+			drupal_add_js('//cdn.optimizely.com/js/' . $project['project_code'] . '.js', $options);
+    }
 
   }
 

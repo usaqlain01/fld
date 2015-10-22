@@ -60,6 +60,20 @@ By DamienMcKenna: Updated comments around entity_allows_revisions().
   pages and in hook_requirements when Panelizer is being used and field output
   is redundant.
 By DamienMcKenna: Ensure all ksort() calls only happen on arrays.
+#1963124 by DamienMcKenna: Require CTools 1.9 so that it has show.js.
+#2533402 by badjava: Incorrect usage of the 'clone' keyword.
+#2151837 by DamienMcKenna, muschpusch: Improved the README.txt file.
+#2514068 by mpotter, hefox, DamienMcKenna: entity_extract_ids() may return a
+  NULL for revision_id.
+#2512342 by sonfordangeles, DamienMcKenna: panelizer_add_revision_info_form()
+  was not handling the entity object correctly, so the revision functionality
+  was not going to work correctly.
+#2524258 by kovacsaba, DamienMcKenna: hook_views_plugins_alter() needs to know
+  what module the plugin comes from.
+#2565449 by benjy, DamienMcKenna: CTools export-ui library not always loaded.
+#2382879 by mglaman: Allow layout selection to be assigned as the default via
+  the IPE interface.
+#2579983 by DamienMcKenna: Split up the test file into separate pieces.
 
 
 Panelizer 7.x-3.2-beta1, 2015-02-02
