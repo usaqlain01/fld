@@ -1,6 +1,6 @@
 parameters:
-    read_from: /Users/bjd/workspace/caxy/fldmuse/build/fieldmuseum-website/patternlab/source
-    write_to: /Users/bjd/workspace/caxy/fldmuse/docroot/profiles/fieldmuseum/themes/esquif
+    read_from: /Users/gtroyerjoy/workspace/caxy/fldmuse/build/fieldmuseum-website/patternlab/source
+    write_to: /Users/gtroyerjoy/workspace/caxy/fldmuse/docroot/profiles/fieldmuseum/themes/esquif
     node_bin: /usr/local/bin/node
     java_bin: /usr/bin/java
     ruby_bin: /usr/bin/ruby
@@ -25,7 +25,7 @@ providers:
         assetic.filter.coffeescript.bin: /usr/local/bin/coffee
 
     Bangpound\Pimple\Provider\Filter\CompassFilterServiceProvider:
-        assetic.filter.compass.bin: /Users/bjd/.rvm/gems/ruby-1.9.3-p545@fmnh/bin/compass
+        assetic.filter.compass.bin: /Users/gtroyerjoy/.rvm/gems/ruby-1.9.3-p545/bin/compass
         assetic.filter.compass.no_line_comments: true
         assetic.filter.compass.style: nested
 
