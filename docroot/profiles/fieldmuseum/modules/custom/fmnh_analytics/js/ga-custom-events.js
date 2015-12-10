@@ -73,6 +73,12 @@
             page:     '#'
           },
 
+          // ---------- Visit Click Events ------------
+          'view-packages': {
+            category: 'visit',
+            label:    'view-ticket-packages'
+          },
+
           // ---------- Ticketing Click Events ------------
           'ticketing-global': {
             category: 'ticketing',
