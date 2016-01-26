@@ -1,2 +1,2 @@
 <?php print render($title_suffix); ?>
-<?php print $fields; ?>
+<?php print render($content); ?>

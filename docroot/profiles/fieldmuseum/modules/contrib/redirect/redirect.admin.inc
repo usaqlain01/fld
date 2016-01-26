@@ -264,6 +264,10 @@ function redirect_list_form_operations_submit($form, &$form_state) {
     }
     call_user_func_array($function, $args);
 
+    // We display the number of redirects the user selected, regardless of
+    // how many redirects actually changed status. Eg. if 1 enabled and 1
+    // disabled redirects are checked for being enabled, we'll still display
+    // "Enabled 1 redirect."
     $count = count($form_state['values']['rids']);
     watchdog('redirect', '@action @count redirects.', array('@action' => $operation['action_past'], '@count' => $count));
     drupal_set_message(format_plural(count($rids), '@action @count redirect.', '@action @count redirects.', array('@action' => $operation['action_past'], '@count' => $count)));
@@ -535,7 +539,8 @@ function redirect_edit_form_validate($form, &$form_state) {
   $redirect = (object) $form_state['values'];
 
   if (empty($form_state['values']['override'])) {
-    // Find out if any (disabled or enabled) redirect with this source already exists.
+    // Find out if any (disabled or enabled) redirect with this source already
+    // exists.
     if ($existing = redirect_load_by_source($redirect->source, $redirect->language, array(), FALSE)) {
       if ($redirect->rid != $existing->rid && $redirect->language == $existing->language) {
         // The "from" path should not conflict with another (disabled or
@@ -638,7 +643,7 @@ function redirect_settings_form($form, &$form_state) {
     '#type' => 'checkbox',
     '#title' => t('Allow redirects to be saved into the page cache.'),
     '#default_value' => variable_get('redirect_page_cache', 0),
-    '#description' => t('This feature requires <a href="@performance">Cache pages for anonymous users</a> to be enabled and the %variable variable to be TRUE.', array('@performance' => url('admin/config/development/performance'), '%variable' => "\$conf['page_cache_invoke_hooks']")),
+    '#description' => t('This feature requires <a href="@performance">Cache pages for anonymous users</a> to be enabled and the %variable variable to be true (currently set to @value).', array('@performance' => url('admin/config/development/performance'), '%variable' => "\$conf['page_cache_invoke_hooks']", '@value' => var_export(variable_get('page_cache_invoke_hooks', TRUE), TRUE))),
     '#disabled' => !variable_get('cache', 0) || !variable_get('page_cache_invoke_hooks', TRUE),
   );
   $form['redirect_purge_inactive'] = array(

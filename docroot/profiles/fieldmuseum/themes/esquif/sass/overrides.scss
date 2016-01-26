@@ -1,11 +1,11 @@
 %tablexi-reset-ul {
   li::before {
-    display: none;
+    content: '';
   }
 }
 
 %drupal-region {
-  ul, ol {
+  > ul, > ol {
     @extend %tablexi-reset-ul;
   }
   ul.inline {
@@ -21,7 +21,7 @@
 }
 
 .drupal-navbar {
-  @extend %drupal-region;
+  @extend %tablexi-reset-ul;
 }
 
 .contextual-links-wrapper {
@@ -55,4 +55,8 @@ ul.tabs {
     display: inline-block;
     width: auto;
   }
+}
+
+.eventSummary__endDate:before {
+  content: "\0020\2014\0020";
 }

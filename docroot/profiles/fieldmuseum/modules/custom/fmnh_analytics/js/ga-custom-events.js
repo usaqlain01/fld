@@ -73,6 +73,12 @@
             page:     '#'
           },
 
+          // ---------- Visit Click Events ------------
+          'view-packages': {
+            category: 'visit',
+            label:    'view-ticket-packages'
+          },
+
           // ---------- Ticketing Click Events ------------
           'ticketing-global': {
             category: 'ticketing',
@@ -157,6 +163,10 @@
           'give-member': {
             category: 'support',
             label:    'click-give-member'
+          },
+          'member-global': { 
+            category: 'support', 
+            label: 'members-global-nav-click' 
           },
 
           // ------ Educator Click Events -----

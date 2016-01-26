@@ -219,6 +219,9 @@ class MigrateDestinationTerm extends MigrateDestinationEntity {
       if (!isset($term->format)) {
         $term->format = $this->textFormat;
       }
+      if (!isset($term->language)) {
+        $term->language = $this->language;
+      }
       $this->prepare($term, $row);
 
       if (empty($term->name)) {
@@ -253,6 +256,9 @@ class MigrateDestinationTerm extends MigrateDestinationEntity {
     else {
       $updating = FALSE;
     }
+
+    // Validate field data prior to saving.
+    MigrateDestinationEntity::fieldAttachValidate('taxonomy_term', $term);
 
     migrate_instrument_start('taxonomy_term_save');
     $status = taxonomy_term_save($term);

@@ -1,45 +1,63 @@
 {
+    "require-dev": {
+        "drush/drush": "~7.0",
+        "symfony/console": "~2.4",
+        "symfony/debug": "~2.4",
+        "symfony/finder": "~2.4",
+        "symfony/filesystem": "~2.4",
+        "symfony/var-dumper": "~2.6",
+        "pimple/pimple": "~3.0",
+        "cilex/console-service-provider": "~2.0@dev",
+        "bangpound/assetic-cli": "~1.1@dev",
+        "bangpound/assetic-service-provider": "~1.0@dev",
+        "zacoza/assetic-filters": "dev-master",
+        "bangpound/assetic-codekit": "1.0.*@dev"
+    },
     "autoload": {
-        "psr-0": {
-            "Drupal\\bangpoundmedia\\": [
-                "docroot/profiles/fieldmuseum/modules/bangpound/bangpoundmedia/lib/"
-            ]
-        },
         "psr-4": {
-            "": [
-                "docroot/profiles/fieldmuseum/lib/",
-                "src/"
-            ],
-            "Drupal\\inline\\": [
-                "docroot/profiles/fieldmuseum/modules/contrib/inline/lib/Drupal/inline/"
-            ]
+            "": "src/"
         }
     },
-    "config": {
-        "autoloader-suffix": "ComposerManager",
-        "bin-dir": "bin",
-        "preferred-install": "dist",
-        "vendor-dir": "docroot/../vendor"
-    },
-    "minimum-stability": "dev",
     "prefer-stable": true,
-    "require": {
-        "bangpound/crop-extension": "dev-master",
-        "cilex/console-service-provider": "~2.0@dev",
-        "php": ">=5.3.0",
-        "stojg/crop": "~1.2.6",
-        "symfony/filesystem": "~2.6",
-        "symfony/property-access": "~2.6",
-        "symfony/yaml": "~2.6"
+    "config": {
+        "process-timeout": 600,
+        "autoloader-suffix": "Repo",
+        "preferred-install": "dist",
+        "optimize-autoloader": true,
+        "bin-dir": "bin"
     },
-    "require-dev": {
-        "bangpound/assetic-cli": "~1.1@dev",
-        "bangpound/assetic-codekit": "1.0.*@dev",
-        "bangpound/assetic-service-provider": "~1.0@dev",
-        "pimple/pimple": "~3.0",
-        "symfony/console": "~2.6",
-        "symfony/debug": "~2.6",
-        "symfony/finder": "~2.6",
-        "zacoza/assetic-filters": "dev-master"
+    "scripts": {
+        "rvm": [
+            "rvm use ruby-2.2.2@fldmuse --create"
+        ],
+        "rvm:prepare": [
+            "gem install bundle",
+            "bundle install"
+        ],
+        "npm": [
+            "npm install -g coffee-script"
+        ],
+        "sync": [
+            "./bin/drush --yes --root=docroot sql-sync @fldmuse.prod @self",
+            "./bin/drush --yes --root=docroot rsync @fldmuse.prod:%files @self:%files -Pv"
+        ],
+        "drush:composer": [
+            "./bin/drush --root=docroot composer-json-rebuild",
+            "./bin/drush --root=docroot composer-manager update"
+        ],
+        "assetic": [
+            "./bin/assetic prepare",
+            "./bin/assetic dump"
+        ],
+        "theme:build": [
+            "composer rvm",
+            "composer assetic",
+            "compass compile -e production -s compact --force docroot/profiles/fieldmuseum/themes/esquif"
+        ]
+    },
+    "require": {
+        "drufony/drupal-bridge": "dev-develop",
+        "symfony/expression-language": "^2.7",
+        "silex/silex": "~2.0@dev"
     }
 }

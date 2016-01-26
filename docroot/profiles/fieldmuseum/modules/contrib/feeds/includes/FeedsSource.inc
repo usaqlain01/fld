@@ -88,6 +88,7 @@ class FeedsState {
   public $updated;
   public $deleted;
   public $unpublished;
+  public $blocked;
   public $skipped;
   public $failed;
 
@@ -106,6 +107,7 @@ class FeedsState {
     $this->updated =
     $this->deleted =
     $this->unpublished =
+    $this->blocked =
     $this->skipped =
     $this->failed = 0;
   }
@@ -797,6 +799,14 @@ class FeedsSource extends FeedsConfigurable {
    */
   protected function releaseLock() {
     lock_release("feeds_source_{$this->id}_{$this->feed_nid}");
+  }
+
+  /**
+   * Implements FeedsConfigurable::dependencies().
+   */
+  public function dependencies() {
+    $dependencies = parent::dependencies();
+    return array_merge($dependencies, $this->importer()->dependencies());
   }
 
 }

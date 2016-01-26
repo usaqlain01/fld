@@ -1,12 +1,4 @@
 <?php
-/**
- * This settings.php file was created by the Acquia Cloud ah-site-archive-import
- * Drush command. The imported archive did not contain a settings.php file, so
- * the import process created this file by default. You can replace this file
- * with the standard default settings.php file for your version of Drupal.
- * However, be sure to keep the last line that loads the "Acquia Cloud settings
- * include file", which provides the correct database credentials for your site.
- */
 $update_free_access = FALSE;
 $drupal_hash_salt = 'l2MKidUCwLpwuZtpFHB2hXQa4vytP4d44tofDi1JsXQ';
 ini_set('arg_separator.output',     '&amp;');
@@ -24,8 +16,16 @@ ini_set('session.use_only_cookies', 1);
 ini_set('session.use_trans_sid',    0);
 ini_set('url_rewriter.tags',        '');
 
-$conf['composer_manager_vendor_dir'] = '../vendor';
-$conf['composer_manager_file_dir'] = '../';
+$conf['composer_manager_vendor_dir'] = '../lib/' . basename(__DIR__) . '/vendor';
+$conf['composer_manager_file_dir'] = '../lib/' . basename(__DIR__);
+
+if (file_exists($conf['composer_manager_vendor_dir'] . '/autoload.php')) {
+  require $conf['composer_manager_vendor_dir'] . '/autoload.php';
+}
+else {
+  $message = t('Autoloader not found: @file', array('@file' => $conf['composer_manager_vendor_dir'] . '/autoload.php'));
+  throw new \RuntimeException($message);
+}
 
 // On Acquia Cloud, this include file configures Drupal to use the correct
 // database in each site environment (Dev, Stage, or Prod). To use this
@@ -34,6 +34,10 @@ $conf['composer_manager_file_dir'] = '../';
 if (file_exists('/var/www/site-php')) {
   require('/var/www/site-php/fldmuse/fldmuse-settings.inc');
   if ($_ENV['AH_SITE_ENVIRONMENT']) {
+
+    // Avoid building composer products in Acquia environments.
+    $conf['composer_manager_autobuild_file'] = 0;
+    $conf['composer_manager_autobuild_packages'] = 0;
 
     // Use memcache.
     // @see https://docs.acquia.com/cloud/performance/memcached
@@ -53,6 +57,9 @@ if (file_exists('/var/www/site-php')) {
     //$_ENV['MAGICK_TEMPORARY_PATH'] = $conf['file_temporary_path'] = '/mnt/tmp/fldmuse.test';
     
     switch ($_ENV['AH_SITE_ENVIRONMENT']) {
+      case 'prod':
+        $cookie_domain = '.fieldmuseum.org';
+        break;
       case 'dev':
       case 'test':
         // Make sure Drush keeps working.
@@ -69,9 +76,6 @@ if (file_exists('/var/www/site-php')) {
             exit;
           }
         }
-        break;
-      case 'prod':
-
         break;
     }
   }

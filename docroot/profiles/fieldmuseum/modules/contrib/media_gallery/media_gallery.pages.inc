@@ -402,6 +402,7 @@ function media_gallery_media_page_multiedit($node) {
     $fids[] = $item['fid'];
   }
   $files = file_load_multiple($fids);
+  $files = media_gallery_filter_media_access($files, 'update');
 
   // Load the Media module include file containing the form callback.
   // @todo To support AJAX enabled widgets within the form, we need to also add

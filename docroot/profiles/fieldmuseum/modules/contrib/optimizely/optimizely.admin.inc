@@ -579,13 +579,7 @@ function optimizely_delete_page_confirm_submit($form, &$form_state) {
  *   json response details for AJAX call. 
  */
 function optimizely_ajax_enable() {
-  
-  
-$bla = FALSE;
-if ($bla) {
-  $bla = TRUE;
-}
-  
+
   // Default
   $unique_path = FALSE;
   $default_project = FALSE;
@@ -981,8 +975,8 @@ function _optimizely_valid_paths($project_paths) {
       $project_parmpath = substr($project_path, 0, strpos($project_path, '?'));
 
       // Look for entry in url_alias table
-      if (drupal_lookup_path('alias', $project_path) === FALSE &&
-          drupal_lookup_path('source', $project_path) === FALSE &&
+      if (drupal_lookup_path('alias', $project_parmpath) === FALSE &&
+          drupal_lookup_path('source', $project_parmpath) === FALSE &&
           drupal_valid_path($project_parmpath, TRUE) === FALSE) {
         return $project_path;
       }

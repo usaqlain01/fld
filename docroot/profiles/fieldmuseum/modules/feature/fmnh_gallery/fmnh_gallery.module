@@ -146,3 +146,12 @@ function fmnh_gallery_admin_paths() {
   return $paths;
 }
 
+/**
+ * Add the imagecrop button on multiedit forms for media galleries.
+ */
+function fmnh_gallery_form_alter(&$form, $form_state, $form_id) {
+  if (strpos($form_id, 'media_edit_') === 0) {
+    imagecrop_form_file_entity_edit_alter($form, $form_state);
+    $form['imagecrop'] = $form['actions']['imagecrop'];
+  }
+}

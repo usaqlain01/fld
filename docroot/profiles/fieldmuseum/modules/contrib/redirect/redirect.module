@@ -552,14 +552,15 @@ function redirect_load_by_hash($hash, $reset = FALSE) {
  * @param $enabled_only
  *   Boolean that indicates whether to only load enabled redirects.
  *
- * @return
+ * @return array
  *   An indexed array of IDs, or an empty array if there is no result set.
  */
 function redirect_fetch_rids_by_path($source, $language, $enabled_only = FALSE) {
   // Run a case-insensitive query for matching RIDs first.
   $rid_query = db_select('redirect');
   $rid_query->addField('redirect', 'rid');
-  if ($enabled_only) {
+  // Prevent errors if redirect_update_7101() has not yet been run.
+  if ($enabled_only && db_field_exists('redirect', 'status')) {
     $rid_query->condition('status', 1);
   }
   if ($source != variable_get('site_frontpage', 'node')) {
@@ -795,15 +796,6 @@ function redirect_save($redirect) {
       $redirect->access = 0;
     }
 
-    // Invoke post-disable hooks if disabling a redirect.
-    if ($redirect->status == 0 && isset($redirect->original) && $redirect->original->status == 1) {
-      module_invoke_all('redirect_disable', $redirect);
-    }
-    // Invoke post-re-enable hooks if re-enabling a redirect.
-    if ($redirect->status == 1 && isset($redirect->original) && $redirect->original->status == 0) {
-      module_invoke_all('redirect_enable', $redirect);
-    }
-
     // Allow other modules to alter the redirect before saving.
     module_invoke_all('redirect_presave', $redirect);
     module_invoke_all('entity_presave', $redirect, 'redirect');
@@ -862,22 +854,6 @@ function redirect_redirect_update($redirect) {
  */
 function redirect_redirect_delete($redirect) {
   redirect_page_cache_clear($redirect);
-}
-
-/**
- * Implements hook_redirect_enable().
- */
-function redirect_redirect_enable($redirect) {
-  $redirect_link = l($redirect->redirect, $redirect->redirect) . '=> ' . l($redirect->source, $redirect->source);
-  watchdog('redirect', t('Enabled redirect: !redirect_source_link', array('!redirect_link' => $redirect_link)));
-}
-
-/**
- * Implements hook_redirect_disable().
- */
-function redirect_redirect_disable($redirect) {
-  $redirect_link = l($redirect->redirect, $redirect->redirect) . '=> ' . l($redirect->source, $redirect->source);
-  watchdog('redirect', t('Disabled redirect: !redirect_source_link', array('!redirect_link' => $redirect_link)));
 }
 
 /**
@@ -973,24 +949,42 @@ function redirect_delete_by_entity_path($entity_type, $entity) {
 /**
  * Change the status of multiple URL redirects.
  *
- * @param $rids
+ * @param array $rids
  *   An array of redirect IDs to disable.
- * @param $status
- *   The status to set the redirect to.
+ * @param int|string $status
+ *   The status to set the redirect to: either disabled (0) or enabled (1).
  *
  * @ingroup redirect_api
  */
 function redirect_change_status_multiple(array $rids, $status) {
+  if ($status !== 0 && $status !== 1 && $status !== '0' && $status !== '1') {
+    watchdog('Cannot change redirect status to %status', array('%status' => $status));
+    drupal_set_message(t('Cannot change redirect status to %status', array('%status' => $status)));
+    return;
+  }
   if (!empty($rids)) {
     $redirects = redirect_load_multiple($rids, array(), TRUE);
 
     foreach ($redirects as $rid => $redirect) {
+      if (isset($redirect->status) && $redirect->status == $status) {
+        // We no-op if the redirect is not actually changing status.
+        // So if a disabled redirect is disabled, neither redirect_save() is
+        // triggered, nor do we log any message.
+        continue;
+      }
+
       $redirect->status = $status;
       redirect_save($redirect);
-    }
 
-    // Clear the redirect_load_multiple cache.
-    entity_get_controller('redirect')->resetCache();
+      if ($status) {
+        $redirect_link = l($redirect->redirect, $redirect->redirect) . '=> ' . l($redirect->source, $redirect->source);
+        watchdog('redirect', 'Enabled redirect: !redirect_source_link', array('!redirect_link' => $redirect_link));
+      }
+      else {
+        $redirect_link = l($redirect->redirect, $redirect->redirect) . '=> ' . l($redirect->source, $redirect->source);
+        watchdog('redirect', 'Disabled redirect: !redirect_source_link', array('!redirect_link' => $redirect_link));
+      }
+    }
   }
 }
 
@@ -1048,10 +1042,15 @@ function redirect_purge_inactive_redirects(array $types = array('redirect'), $in
     $interval = variable_get('redirect_purge_inactive', 0);
   }
 
-  if (!$interval || !variable_get('redirect_page_cache', 0) || !variable_get('page_cache_invoke_hooks', TRUE)) {
+  if (!$interval) {
+    return FALSE;
+  }
+
+  if (variable_get('redirect_page_cache', 0) && !variable_get('page_cache_invoke_hooks', TRUE)) {
     // If serving redirects from the page cache is enabled and hooks are not
     // executed during page caching, then we cannot track when a redirect is
     // used. Therefore, we cannot remove unused redirects.
+    watchdog('redirect', 'Due to existing settings, could not track when a redirect is used, so could not remove unused redirects.');
     return FALSE;
   }
 
@@ -1244,7 +1243,7 @@ function redirect_can_redirect() {
     $path = current_path();
     $can_redirect = TRUE;
 
-    if ($_SERVER['SCRIPT_NAME'] != $GLOBALS['base_path'] . 'index.php') {
+    if (!preg_match('/index\.php$/', $_SERVER['SCRIPT_NAME'])) {
       // Do not redirect if the root script is not /index.php.
       $can_redirect = FALSE;
     }
@@ -1256,7 +1255,7 @@ function redirect_can_redirect() {
       // If this is a command line request (Drush, etc), skip processing.
       $can_redirect = FALSE;
     }
-    elseif (variable_get('maintenance_mode', 0) || defined('MAINTENANCE_MODE')) {
+    elseif ((variable_get('maintenance_mode', 0) || defined('MAINTENANCE_MODE')) && !user_access('access site in maintenance mode')) {
       // Do not redirect in offline or maintenance mode.
       $can_redirect = FALSE;
     }
@@ -1661,14 +1660,14 @@ function redirect_redirect_operations() {
     'action' => t('Disable'),
     'action_past' => t('Disabled'),
     'callback' => 'redirect_change_status_multiple',
-    'callback arguments' => 0,
+    'callback arguments' => array(0),
     'confirm' => TRUE,
   );
   $operations['enable'] = array(
     'action' => t('Enable'),
     'action_past' => t('Enabled'),
     'callback' => 'redirect_change_status_multiple',
-    'callback arguments' => 1,
+    'callback arguments' => array(1),
     'confirm' => TRUE,
   );
   return $operations;

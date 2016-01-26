@@ -51,7 +51,7 @@ function fmnh_staff_image_default_styles() {
           'yoffset' => '',
           'resizable' => 1,
           'downscaling' => 1,
-          'aspect_ratio' => 'KEEP',
+          'aspect_ratio' => 'CROP',
           'disable_if_no_data' => 0,
         ),
         'weight' => -10,

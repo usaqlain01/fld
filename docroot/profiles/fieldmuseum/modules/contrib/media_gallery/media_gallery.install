@@ -1305,9 +1305,21 @@ function media_gallery_update_7010() {
 }
 
 /**
- * Converts old media_gallery_media field to media_gallery_file.
+ * Empty update function.
+ */
+function media_gallery_update_7011() {
+}
+
+/**
+ * Deprecated update function. Moved to 7200.
  */
 function media_gallery_update_7012() {
+}
+
+/**
+ * Converts old media_gallery_media field to media_gallery_file field.
+ */
+function media_gallery_update_7200() {
   // Create fields (but not instances yet) for media_gallery nodes and
   // for the gallery collection vocabulary.
   foreach (_media_gallery_controlled_fields() as $field) {

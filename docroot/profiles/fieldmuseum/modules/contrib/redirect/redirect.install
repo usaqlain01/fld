@@ -90,7 +90,7 @@ function redirect_schema() {
       ),
       'status' => array(
         'type' => 'int',
-        'unsigned' => TRUE,
+        'size' => 'small',
         'not null' => TRUE,
         'default' => 1,
         'description' => 'Boolean indicating whether the redirect is enabled (visible to non-administrators).',
@@ -275,48 +275,47 @@ function redirect_update_7000(&$sandbox) {
 }
 
 /**
- * Add status field and disable redirects that could cause infinite loops.
+ * Rebuild the registry and clear the entity info cache.
+ */
+function redirect_update_7100() {
+  if (!class_exists('RedirectController')) {
+    registry_rebuild();
+    entity_info_cache_clear();
+  }
+}
+
+/**
+ * Add status field.
  */
 function redirect_update_7101() {
-  $field = array(
+  db_add_field('redirect', 'status', array(
     'type' => 'int',
-    'unsigned' => TRUE,
+    'size' => 'small',
     'not null' => TRUE,
     'default' => 1,
     'description' => 'Boolean indicating whether the redirect is enabled (visible to non-administrators).',
-  );
-  db_add_field('redirect', 'status', $field);
+  ));
   db_drop_index('redirect', 'source_language');
   db_add_index('redirect', 'status_source_language', array(
     'status',
     'source',
     'language',
   ));
+}
 
-  $result = db_query(
-    "SELECT r.rid, r.source, r.redirect
-    FROM {redirect} r
-      INNER JOIN {url_alias} u
-        ON r.source = u.alias
-        AND r.redirect = u.source
-        AND r.language = u.language
-        GROUP BY r.rid"
-  );
-
-  if ($result->rowCount() > 0) {
-    $rids_to_disable = array();
-
-    foreach ($result as $row) {
-      $rids_to_disable[] = $row->rid;
-    }
-
+/**
+ * Disable redirects that could cause infinite loops.
+ */
+function redirect_update_7102() {
+  $rids = db_query("SELECT r.rid FROM {redirect} r INNER JOIN {url_alias} u ON r.source = u.alias AND r.redirect = u.source AND r.language = u.language")->fetchCol();
+  if ($rids) {
     // Disable redirects
-    db_update('redirect')
+    $count = db_update('redirect')
       ->fields(array('status' => 0))
-      ->condition('rid', $rids_to_disable)
+      ->condition('rid', $rids)
       ->execute();
 
-    $disabled_redirects_message = format_plural(count($rids_to_disable),
+    $disabled_redirects_message = format_plural($count,
       '1 circular redirect causing infinite loop was disabled.',
       '@count circular redirects causing infinite loop were disabled.');
 

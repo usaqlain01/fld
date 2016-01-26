@@ -5,7 +5,6 @@
  */
 
 include_once 'fieldmuseum.features.inc';
-composer_manager_register_autoloader();
 
 /**
  * Implement hook_menu().
@@ -38,8 +37,10 @@ function fieldmuseum_menu_alter(&$items) {
     'node/%pm_arg/people' => array('users', 'ctools_context_2', TRUE),
   );
   foreach ($changes as $path => $access_arguments) {
-    $items[$path]['access callback'] = 'fieldmuseum_menu_access';
-    $items[$path]['access arguments'] = array_merge($access_arguments, $items[$path]['access arguments']);
+    if (isset($items[$path])) {
+      $items[$path]['access callback'] = 'fieldmuseum_menu_access';
+      $items[$path]['access arguments'] = array_merge($access_arguments, $items[$path]['access arguments']);
+    }
   }
 }
 
@@ -342,8 +343,9 @@ function esquif_panels_settings_submit(&$form_state, &$display, $layout, $settin
  * @param $json
  */
 function fieldmuseum_composer_json_alter(&$json) {
-  $json['minimum-stability'] = 'dev';
   $json['prefer-stable'] = true;
+  $json['config']['preferred-install'] = 'dist';
+  $json['config']['optimize-autoloader'] = true;
 }
 
 /**

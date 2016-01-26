@@ -41,21 +41,7 @@
 
   &bull;
   <a class="eventsList__link" href="<?php print $node_url; ?>">Event Details</a>
-  <?php if ($field_ticket_link && FALSE): ?>
-    &bull;
-    <?php $items = field_get_items('node', $node, 'field_ticket_link');
-    foreach ($items as $item) {
-      ?>
-      <a data-analytics="ticketing-event" class="eventsList__link" href="<?php print check_plain(url($item['url'])); ?>"<?php if (isset($node->rdf_mapping['field_ticket_link'])) { print drupal_attributes(rdf_rdfa_attributes($node->rdf_mapping['field_ticket_link'])); } ?>>
-        <svg class="icon icon--ticket-2" viewBox="0 0 500 500">
-          <use xlink:href="#ticket-2"></use>
-        </svg>
-        Buy Tickets
-      </a>
-    <?php
-    } ?>
-  <?php endif; ?>
-  <?php hide($content['field_ticket_link']); ?>
+  <?php hide($content['field_ticket_link']); hide($content['field_ticket_text']); ?>
   <?php
   // We hide the comments and links now so that we can render them later.
   hide($content['comments']);

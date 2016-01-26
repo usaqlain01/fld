@@ -159,8 +159,9 @@ projects[libraries][subdir] = contrib
 projects[libraries][version] = 2.2
 
 projects[link][subdir] = contrib
-projects[link][version] = 1.2
-projects[link][patch][] = https://gist.githubusercontent.com/bangpound/df89f3401c9dbde94e2b/raw/24b19e5241a662f6e81e66023e9ccc78f987a93f/link-insecure-svg.patch
+projects[link][version] = 1.x-dev
+projects[link][patch][] = https://gist.github.com/bangpound/df89f3401c9dbde94e2b/raw/14de9a37317d1429b421e91bac699985bf270f49/link-insecure-svg.patch
+projects[link][patch][] = https://gist.githubusercontent.com/bangpound/df89f3401c9dbde94e2b/raw/14de9a37317d1429b421e91bac699985bf270f49/allow-underscores-in-class.patch
 
 projects[markdown][subdir] = contrib
 projects[markdown][version] = 1.2

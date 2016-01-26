@@ -30,7 +30,7 @@ function fmnh_blog_field_default_field_instances() {
           'field_formatter_class' => '',
         ),
         'type' => 'text_default',
-        'weight' => 1,
+        'weight' => 2,
       ),
       'promo' => array(
         'label' => 'hidden',
@@ -145,7 +145,7 @@ function fmnh_blog_field_default_field_instances() {
           'field_formatter_class' => '',
         ),
         'type' => 'file_default',
-        'weight' => 2,
+        'weight' => 3,
       ),
       'promo' => array(
         'label' => 'above',
@@ -237,7 +237,7 @@ function fmnh_blog_field_default_field_instances() {
           'file_view_mode' => 'primary_2x1',
         ),
         'type' => 'file_rendered',
-        'weight' => 0,
+        'weight' => 1,
       ),
       'promo' => array(
         'label' => 'above',
@@ -651,11 +651,10 @@ function fmnh_blog_field_default_field_instances() {
         'module' => 'entityreference',
         'settings' => array(
           'field_formatter_class' => '',
-          'links' => 1,
-          'view_mode' => 'entity_label',
+          'link' => 1,
         ),
-        'type' => 'entityreference_entity_view',
-        'weight' => 3,
+        'type' => 'entityreference_label',
+        'weight' => 0,
       ),
       'promo' => array(
         'label' => 'above',

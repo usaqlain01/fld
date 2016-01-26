@@ -32,11 +32,11 @@ $c->register(new \Bangpound\Pimple\Provider\AsseticServiceProvider(), array(
 
 ));
 $c->register(new \Bangpound\Pimple\Provider\Filter\CompassFilterServiceProvider(), array(
-  'assetic.filter.compass.bin'              => '/Users/bjd/.rvm/gems/ruby-2.2.2@fldmuse/bin/compass',
+  'assetic.filter.compass.bin'              => '/Users/gtroyerjoy/.rvm/gems/ruby-2.2.2@fldmuse/bin/compass',
   'assetic.filter.compass.no_line_comments' => true,
   'assetic.filter.compass.style'            => 'nested'
 ));
-$c->register(new FieldAsseticServiceProvider());
+$c->register(new ProjectAsseticServiceProvider());
 
 $c['assetic.prepare.command'] = function (\Pimple\Container $c) {
     return new PrepareCommand($c);
