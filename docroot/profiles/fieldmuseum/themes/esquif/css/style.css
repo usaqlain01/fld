@@ -2103,7 +2103,8 @@ button[type="reset"] {
 
 .image--primary, .excerpt--featured .excerpt__image {
   margin-bottom: 13.33333px;
-  border-radius: 4px; }
+  border-radius: 4px; 
+  width: 100% }
 
 .headshot {
   border-radius: 4px; }
