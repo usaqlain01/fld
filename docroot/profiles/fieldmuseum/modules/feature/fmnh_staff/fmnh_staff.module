@@ -238,7 +238,7 @@ function fmnh_staff_filter($selected = '') {
       'guest-relations' => 'Guest Relations',
 #     'theater' => 'Theater',
     ),
-    'Finance & Facilities' => array(
+    'Finance and Facilities' => array(
       'special-events-and-group-sales' => 'Special Events and Group Sales',
       'cfo' => 'CFO',
       'protection-services' => 'Protection Services',
