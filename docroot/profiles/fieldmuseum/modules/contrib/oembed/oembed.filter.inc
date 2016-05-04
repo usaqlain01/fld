@@ -13,6 +13,7 @@ define('OEMBED_PATTERN_EMBED_UNWRAP', '/<p>\s*+(\[embed\b.*?\].+?\[\/embed\])\s*
  * Implements hook_filter_info().
  */
 function oembed_filter_info() {
+  $filters = array();
   $filters['oembed'] = array(
     'title' => t('oEmbed filter'),
     'description' => t('Embeds content for oEmbed-enabled web addresses and turns the rest, and e-mail addresses, into clickable links.'),
