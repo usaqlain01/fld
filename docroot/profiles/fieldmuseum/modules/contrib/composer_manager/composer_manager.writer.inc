@@ -82,7 +82,6 @@ function composer_manager_build_json(array $data) {
       'suggest',
       'repositories',
       'prefer-stable',
-      'config',
     );
 
     foreach ($to_merge as $key) {
@@ -96,38 +95,35 @@ function composer_manager_build_json(array $data) {
       }
     }
 
-    $autoload_blocks = array('autoload', 'autoload-dev');
-    foreach ($autoload_blocks as $autoload_block) {
-      $autoload_options = array('psr-0', 'psr-4');
-      foreach ($autoload_options as $option) {
-        if (isset($json[$autoload_block][$option])) {
-          $namespaces = (array) $json[$autoload_block][$option];
-          foreach ($json[$autoload_block][$option] as $namespace => $dirs) {
-            $dirs = (array) $dirs;
-            array_walk($dirs, 'composer_manager_relative_autoload_path', $module);
-            if (!isset($combined[$autoload_block][$option][$namespace])) {
-              $combined[$autoload_block][$option][$namespace] = array();
-            }
-            $combined[$autoload_block][$option][$namespace] = array_merge(
-              $combined[$autoload_block][$option][$namespace], $dirs
-            );
-          }
-        }
-      }
-
-      // Merge in the "classmap" and "files" autoload options.
-      $autoload_options = array('classmap', 'files');
-      foreach ($autoload_options as $option) {
-        if (isset($json[$autoload_block][$option])) {
-          $dirs = (array) $json[$autoload_block][$option];
+    $autoload_options = array('psr-0', 'psr-4');
+    foreach ($autoload_options as $option) {
+      if (isset($json['autoload'][$option])) {
+        $namespaces = (array) $json['autoload'][$option];
+        foreach ($json['autoload'][$option] as $namesapce => $dirs) {
+          $dirs = (array) $dirs;
           array_walk($dirs, 'composer_manager_relative_autoload_path', $module);
-          if (!isset($combined[$autoload_block][$option])) {
-            $combined[$autoload_block][$option] = array();
+          if (!isset($combined['autoload'][$option][$namesapce])) {
+            $combined['autoload'][$option][$namesapce] = array();
           }
-          $combined[$autoload_block][$option] = array_merge(
-            $combined[$autoload_block][$option], $dirs
+          $combined['autoload'][$option][$namesapce] = array_merge(
+            $combined['autoload'][$option][$namesapce], $dirs
           );
         }
+      }
+    }
+
+    // Merge in the "classmap" and "files" autoload options.
+    $autoload_options = array('classmap', 'files');
+    foreach ($autoload_options as $option) {
+      if (isset($json['autoload'][$option])) {
+        $dirs = (array) $json['autoload'][$option];
+        array_walk($dirs, 'composer_manager_relative_autoload_path', $module);
+        if (!isset($combined['autoload'][$option])) {
+          $combined['autoload'][$option] = array();
+        }
+        $combined['autoload'][$option] = array_merge(
+          $combined['autoload'][$option], $dirs
+        );
       }
     }
 
@@ -171,7 +167,7 @@ function composer_manager_put_file($dir_uri, array $json) {
   }
 
   $file_uri = $dir_uri . '/composer.json';
-  if (!@file_put_contents($file_uri, json_encode($json, $json_options) . PHP_EOL)) {
+  if (!@file_put_contents($file_uri, json_encode($json, $json_options))) {
     throw new \RuntimeException(t('Error writing composer.json file: @file', array('@file' => $file_uri)));
   }
 
@@ -201,7 +197,7 @@ function composer_manager_put_file($dir_uri, array $json) {
  * @return bool
  */
 function composer_manager_prepare_directory($directory) {
-  if (!file_prepare_directory($directory, FILE_CREATE_DIRECTORY | FILE_MODIFY_PERMISSIONS)) {
+  if (!file_prepare_directory($directory, FILE_CREATE_DIRECTORY)) {
     return FALSE;
   }
   if (0 === strpos($directory, 'public://')) {

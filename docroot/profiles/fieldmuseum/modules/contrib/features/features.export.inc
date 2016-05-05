@@ -46,7 +46,7 @@ function features_populate($info, $module_name) {
  */
 function _features_populate($pipe, &$export, $module_name = '', $reset = FALSE) {
   // Ensure that the export will be created in the english language.
-  $language = _features_export_language();
+  _features_set_export_language();
 
   if ($reset) {
     drupal_static_reset(__FUNCTION__);
@@ -92,7 +92,6 @@ function _features_populate($pipe, &$export, $module_name = '', $reset = FALSE) 
       }
     }
   }
-  _features_export_language($language);
   return $export;
 }
 
@@ -844,13 +843,6 @@ function features_get_default($component, $module_name = NULL, $alter = TRUE, $r
 
 /**
  * Get a map of components to their providing modules.
- *
- * @param string $component
- * @param string $attribute
- * @param callable $callback
- * @param bool $reset
- *
- * @return array|bool
  */
 function features_get_default_map($component, $attribute = NULL, $callback = NULL, $reset = FALSE) {
   $map = &drupal_static(__FUNCTION__, array());
@@ -900,7 +892,7 @@ function features_get_default_map($component, $attribute = NULL, $callback = NUL
  */
 function features_get_component_states($features = array(), $rebuild_only = TRUE, $reset = FALSE) {
   // Ensure that the export will be created in the English language.
-  $language = _features_export_language();
+  _features_set_export_language();
 
   if ($reset) {
     drupal_static_reset(__FUNCTION__);
@@ -912,7 +904,7 @@ function features_get_component_states($features = array(), $rebuild_only = TRUE
 
   // Retrieve only rebuildable components if requested.
   features_include();
-  $components = array_keys(features_get_components(NULL, NULL, $reset));
+  $components = array_keys(features_get_components());
   if ($rebuild_only) {
     foreach ($components as $k => $component) {
       if (!features_hook($component, 'features_rebuild')) {
@@ -995,9 +987,6 @@ function features_get_component_states($features = array(), $rebuild_only = TRUE
   foreach ($return as $k => $v) {
     $return[$k] = array_intersect_key($return[$k], array_flip($components));
   }
-
-  _features_export_language($language);
-
   return $return;
 }
 
