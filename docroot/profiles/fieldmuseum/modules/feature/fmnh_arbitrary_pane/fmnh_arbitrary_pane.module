@@ -1,0 +1,79 @@
+<?php
+/**
+ * @file
+ * Code for the fmnh arbitrary pane feature.
+ */
+
+include_once 'fmnh_arbitrary_pane.features.inc';
+
+/**
+ *
+ */
+function fmnh_arbitrary_pane_theme() {
+  return array(
+    'fieldable_panels_pane__markup_styles_scripts' => array(
+      'render element' => 'elements',
+      'template'  => 'fieldable-panels-pane--markup-styles-scripts',
+    ),
+  );
+}
+
+/**
+ * Implement hook_pane_entity_view_alter().
+ *
+ * @param $build
+ * @param $type
+ */
+function fmnh_arbitrary_pane_entity_view_alter(&$build, $type) {
+  if ($type === 'fieldable_panels_pane' && $build['#bundle'] === 'markup_styles_scripts') {
+    $entity = $build['#fieldable_panels_pane'];
+
+    // Generate an ID for use in the pane and for targeting JS and CSS blocks.
+    $id = drupal_html_id('arbitrary');
+
+    $items = field_get_items($type, $entity, 'field_js');
+    if ($items) {
+      $js = '(function ($) {$(\'#'.$id.'\').each(function () {'.$items[0]['value'].'});})(jQuery);';
+
+      $build['#attached']['js'][] = array(
+        'data' => $js,
+        'type' => 'inline'
+      );
+    }
+
+    $items = field_get_items($type, $entity, 'field_css');
+    if ($items) {
+
+      $parser = new Sabberworm\CSS\Parser($items[0]['value']);
+      $css = $parser->parse();
+
+      /** @var \Sabberworm\CSS\RuleSet\DeclarationBlock $block */
+      foreach ($css->getAllDeclarationBlocks() as $block) {
+        /** @var \Sabberworm\CSS\Property\Selector $selector */
+        foreach ($block->getSelectors() as $selector) {
+          $selector->setSelector('#'. $id.' '.$selector->getSelector());
+        }
+      }
+      $build['#attached']['css'][] = array(
+        'data' => $css->render(),
+        'type' => 'inline'
+      );
+    }
+
+    $build['#attributes']['id'] = $id;
+  }
+}
+
+/**
+ * @param $variables
+ * @param $hook
+ */
+function fmnh_arbitrary_pane_preprocess_fieldable_panels_pane(&$variables, $hook) {
+  if ($variables['elements']['#bundle'] === 'markup_styles_scripts') {
+    $variables['attributes_array']['id'] = $variables['elements']['#attributes']['id'];
+    $items = field_get_items('fieldable_panels_pane', $variables['elements']['#element'], 'field_target_link');
+    if ($items) {
+      $variables['attributes_array']['href'] = $items[0]['url'];
+    }
+  }
+}

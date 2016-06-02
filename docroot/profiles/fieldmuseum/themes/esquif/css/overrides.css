@@ -1,1 +1,14 @@
-.panels-ipe-region ul li::before,.drupal-navbar ul li::before,.contextual-links-wrapper ul li::before,.krumo-root ul li::before,.panels-ipe-region ol li::before,.drupal-navbar ol li::before,.contextual-links-wrapper ol li::before,.krumo-root ol li::before,ul.tabs li::before{display:none}.panels-ipe-region ul.inline,.drupal-navbar ul.inline,.contextual-links-wrapper ul.inline,.krumo-root ul.inline{margin:0}.panels-ipe-region ul.inline li,.drupal-navbar ul.inline li,.contextual-links-wrapper ul.inline li,.krumo-root ul.inline li{display:inline}ul.tabs li{padding:0}.workbench-moderation-moderate-form{margin-bottom:0;display:inline}.workbench-moderation-moderate-form .form-select{width:50%}.webform-container-inline .select2-display-none{display:none}.webform-container-inline .select2-container{display:inline-block}
+.panels-ipe-region > ul li::before, .contextual-links-wrapper > ul li::before, .krumo-root > ul li::before, .panels-ipe-region > ol li::before, .contextual-links-wrapper > ol li::before, .krumo-root > ol li::before, .drupal-navbar li::before, ul.tabs li::before { content: ''; }
+
+.panels-ipe-region ul.inline, .contextual-links-wrapper ul.inline, .krumo-root ul.inline { margin: 0; }
+.panels-ipe-region ul.inline li, .contextual-links-wrapper ul.inline li, .krumo-root ul.inline li { display: inline; }
+
+ul.tabs li { padding: 0; }
+
+.workbench-moderation-moderate-form { margin-bottom: 0; display: inline; }
+.workbench-moderation-moderate-form .form-select { width: 50%; }
+
+.webform-container-inline .select2-display-none { display: none; }
+.webform-container-inline .select2-container { display: inline-block; width: auto; }
+
+.eventSummary__endDate:before { content: "\0020\2014\0020"; }

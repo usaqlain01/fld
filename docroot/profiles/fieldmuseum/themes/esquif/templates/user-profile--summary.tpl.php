@@ -36,9 +36,9 @@
 ?>
 <section class="personSummary <?php print $classes; ?>" <?php print $attributes; ?>>
   <figure class="personSummary__image">
-    <?php if ($url): ?><a href="<?php print $url; ?>"><?php endif; ?>
+    <?php if (isset($url)): ?><a href="<?php print $url; ?>"><?php endif; ?>
       <?php print render($user_profile['user_picture']); ?>
-    <?php if ($url): ?></a><?php endif; ?>
+    <?php if (isset($url)): ?></a><?php endif; ?>
   </figure>
   <figcaption class="person__details">
     <h3 class="person__name"<?php print $title_attributes; ?>>
@@ -49,7 +49,9 @@
     </h6>
     <h6 class="person__department">
       <?php print render($user_profile['field_home_department']); ?>
-      (<?php print trim(render($user_profile['field_business_unit'])); ?>)
+      <?php if ($user_profile['field_business_unit'] && $user_profile['field_business_unit']['#items'] !== $user_profile['field_home_department']['#items']) { ?>
+        (<?php print trim(render($user_profile['field_business_unit'])); ?>)
+      <?php } ?>
     </h6>
   </figcaption>
 </section>

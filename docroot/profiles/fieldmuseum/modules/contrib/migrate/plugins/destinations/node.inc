@@ -262,6 +262,9 @@ class MigrateDestinationNode extends MigrateDestinationEntity {
       unset($node->is_new);
     }
 
+    // Validate field data prior to saving.
+    MigrateDestinationEntity::fieldAttachValidate('node', $node);
+
     migrate_instrument_start('node_save');
     node_save($node);
     migrate_instrument_stop('node_save');

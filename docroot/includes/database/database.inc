@@ -626,7 +626,7 @@ abstract class DatabaseConnection extends PDO {
    *   A sanitized version of the query comment string.
    */
   protected function filterComment($comment = '') {
-    return preg_replace('/(\/\*\s*)|(\s*\*\/)/', '', $comment);
+    return strtr($comment, array('*' => ' * '));
   }
 
   /**
@@ -656,7 +656,7 @@ abstract class DatabaseConnection extends PDO {
    * @return DatabaseStatementInterface
    *   This method will return one of: the executed statement, the number of
    *   rows affected by the query (not the number matched), or the generated
-   *   insert IT of the last query, depending on the value of
+   *   insert ID of the last query, depending on the value of
    *   $options['return']. Typically that value will be set by default or a
    *   query builder and should not be set by a user. If there is an error,
    *   this method will return NULL and may throw an exception if
@@ -736,7 +736,7 @@ abstract class DatabaseConnection extends PDO {
     // to expand it out into a comma-delimited set of placeholders.
     foreach (array_filter($args, 'is_array') as $key => $data) {
       $new_keys = array();
-      foreach ($data as $i => $value) {
+      foreach (array_values($data) as $i => $value) {
         // This assumes that there are no other placeholders that use the same
         // name.  For example, if the array placeholder is defined as :example
         // and there is already an :example_2 placeholder, this will generate

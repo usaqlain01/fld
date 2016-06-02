@@ -1,0 +1,304 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "780ada54b64a3714ccb24539c56ffcdf",
+    "packages": [
+        {
+            "name": "bangpound/crop-extension",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bangpound/crop-extension.git",
+                "reference": "e49f34be8198b16914c44d0835452722a7b3e51a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bangpound/crop-extension/zipball/e49f34be8198b16914c44d0835452722a7b3e51a",
+                "reference": "e49f34be8198b16914c44d0835452722a7b3e51a",
+                "shasum": ""
+            },
+            "require": {
+                "stojg/crop": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Bangpound\\stojg\\crop\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Benjamin Doherty",
+                    "email": "bjd@bangpound.org"
+                }
+            ],
+            "description": "Extension of stojg/crop",
+            "time": "2014-08-06 23:42:11"
+        },
+        {
+            "name": "sabberworm/php-css-parser",
+            "version": "6.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sabberworm/PHP-CSS-Parser.git",
+                "reference": "ef95a38fe0c0f093f46a25029a4dd2d57ebe847e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sabberworm/PHP-CSS-Parser/zipball/ef95a38fe0c0f093f46a25029a4dd2d57ebe847e",
+                "reference": "ef95a38fe0c0f093f46a25029a4dd2d57ebe847e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Sabberworm\\CSS": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Raphael Schweikert"
+                }
+            ],
+            "description": "Parser for CSS Files written in PHP",
+            "homepage": "http://www.sabberworm.com/blog/2010/6/10/php-css-parser",
+            "keywords": [
+                "css",
+                "parser",
+                "stylesheet"
+            ],
+            "time": "2014-07-03 21:45:17"
+        },
+        {
+            "name": "stojg/crop",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/stojg/crop.git",
+                "reference": "6eba14a4659fc09156fdef2209d68a263d22f414"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/stojg/crop/zipball/6eba14a4659fc09156fdef2209d68a263d22f414",
+                "reference": "6eba14a4659fc09156fdef2209d68a263d22f414",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "stojg\\crop": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-2"
+            ],
+            "authors": [
+                {
+                    "name": "Stig Lindqvist",
+                    "email": "stojg.lindqvist@gmail.com",
+                    "homepage": "https://stojg.se/"
+                },
+                {
+                    "name": "Julien Deniau jdeniau",
+                    "email": "julien.deniau@gmail.com",
+                    "homepage": "http://www.mapado.com"
+                }
+            ],
+            "description": "Image cropping classes",
+            "homepage": "http://github.com/stojg/crop",
+            "keywords": [
+                "image"
+            ],
+            "time": "2015-06-12 13:20:47"
+        },
+        {
+            "name": "symfony/filesystem",
+            "version": "v2.7.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/Filesystem.git",
+                "reference": "2d7b2ddaf3f548f4292df49a99d19c853d43f0b8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/Filesystem/zipball/2d7b2ddaf3f548f4292df49a99d19c853d43f0b8",
+                "reference": "2d7b2ddaf3f548f4292df49a99d19c853d43f0b8",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.9"
+            },
+            "require-dev": {
+                "symfony/phpunit-bridge": "~2.7"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.7-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Filesystem\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Filesystem Component",
+            "homepage": "https://symfony.com",
+            "time": "2015-07-09 16:07:40"
+        },
+        {
+            "name": "symfony/property-access",
+            "version": "v2.7.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/PropertyAccess.git",
+                "reference": "e7e04d79fcf9c2bac53810cfd78c1afc3ac55005"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/PropertyAccess/zipball/e7e04d79fcf9c2bac53810cfd78c1afc3ac55005",
+                "reference": "e7e04d79fcf9c2bac53810cfd78c1afc3ac55005",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.9"
+            },
+            "require-dev": {
+                "symfony/phpunit-bridge": "~2.7"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.7-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\PropertyAccess\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony PropertyAccess Component",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "access",
+                "array",
+                "extraction",
+                "index",
+                "injection",
+                "object",
+                "property",
+                "property path",
+                "reflection"
+            ],
+            "time": "2015-06-16 13:26:24"
+        },
+        {
+            "name": "symfony/yaml",
+            "version": "v2.7.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/Yaml.git",
+                "reference": "4bfbe0ed3909bfddd75b70c094391ec1f142f860"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/Yaml/zipball/4bfbe0ed3909bfddd75b70c094391ec1f142f860",
+                "reference": "4bfbe0ed3909bfddd75b70c094391ec1f142f860",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.9"
+            },
+            "require-dev": {
+                "symfony/phpunit-bridge": "~2.7"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.7-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Yaml\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Yaml Component",
+            "homepage": "https://symfony.com",
+            "time": "2015-07-01 11:25:50"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "stojg/crop": 20,
+        "bangpound/crop-extension": 20
+    },
+    "prefer-stable": true,
+    "prefer-lowest": false,
+    "platform": {
+        "php": ">=5.3.0"
+    },
+    "platform-dev": []
+}

@@ -76,15 +76,13 @@ function fieldmuseum_rdf_default_mappings() {
   // Exported RDF mapping: page
   $schemaorg['node']['page'] = array(
     'rdftype' => array(
-      0 => 'sioc:Item',
-      1 => 'foaf:Document',
-      2 => 'schema:Article',
+      0 => 'schema:Article',
+      1 => 'sioc:Item',
+      2 => 'foaf:Document',
     ),
     'title' => array(
       'predicates' => array(
-        0 => 'dc:title',
-        1 => 'schema:name',
-        2 => 'schema:headline',
+        0 => 'schema:name',
       ),
     ),
     'created' => array(
@@ -116,8 +114,7 @@ function fieldmuseum_rdf_default_mappings() {
     ),
     'name' => array(
       'predicates' => array(
-        0 => 'foaf:name',
-        1 => 'schema:name',
+        0 => 'schema:name',
       ),
     ),
     'comment_count' => array(
@@ -155,6 +152,9 @@ function fieldmuseum_rdf_default_mappings() {
     'field_attachment' => array(
       'predicates' => array(),
       'type' => 'rel',
+    ),
+    'field_read_more_label' => array(
+      'predicates' => array(),
     ),
   );
 

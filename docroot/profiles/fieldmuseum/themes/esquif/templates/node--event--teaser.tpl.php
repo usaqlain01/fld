@@ -35,6 +35,27 @@
         }
         print '</span>';
         print '</time>';
+
+        if ($item['value'] !== $item['value2']) {
+          $date2 = new DateObject($item['value2'], $item['timezone_db'], date_type_format($item['date_type']));
+          $date2->setTimezone(new DateTimeZone($item['timezone']));
+          $interval = $date2->diff($date);
+          print '<time class="eventSummary__datetime eventSummary__endDate" property="schema:endDate" datatype="xsd:dateTime" content="'. $date2->format('c') .'">';
+          if ($interval->days) {
+            print '<span class="eventSummary__date">';
+            print $date2->format('l, F j');
+            print '</span> ';
+          }
+          print ' <span class="eventSummary__time">';
+          if (intval($date2->format('i')) > 0) {
+            print $date2->format('g:ia');
+          }
+          else {
+            print $date2->format('ga');
+          }
+          print '</span>';
+          print '</time>';
+        }
       }
     }
     hide($content['field_date']);
@@ -45,7 +66,7 @@
       <h3<?php print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a></h3>
     <?php endif; ?>
     <?php print render($title_suffix); ?>
-    <p class="eventSummary__description"<?php print drupal_attributes(rdf_rdfa_attributes($node->rdf_mapping['body'])); ?>>
+    <p class="eventSummary__description"<?php if (isset($node->rdf_mapping['body'])) { print drupal_attributes(rdf_rdfa_attributes($node->rdf_mapping['body'])); } ?>>
       <?php print check_markup(render($content['body']), 'unfiltered_phrase_html', '', TRUE); ?>
       <?php print render($content['links']['node']); ?>
     </p>

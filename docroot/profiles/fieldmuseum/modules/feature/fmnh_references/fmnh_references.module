@@ -37,7 +37,14 @@ function theme_field__field_references($variables) {
       'title_attributes' => array('class' => 'explore__subheading'),
       'content_attributes' => array('class' => 'promos--3up'),
       'view_mode' => 'promo',
-      'bundles' => array('exhibit', 'collection'),
+      'bundles' => array('collection'),
+    ),
+    array(
+      'title' => t('In Our Exhibitions'),
+      'title_attributes' => array('class' => 'explore__subheading'),
+      'content_attributes' => array('class' => 'promos--3up'),
+      'view_mode' => 'promo',
+      'bundles' => array('exhibit'),
     ),
     array(
       'title' => t('From Our Galleries'),
@@ -90,7 +97,9 @@ function theme_field__field_references($variables) {
   foreach ($items as $item) {
     $entity = $item['entity'];
     list($id, $vid, $bundle) = entity_extract_ids('node', $entity);
-    $groups[$map[$bundle]][] = node_view($entity, $settings[$map[$bundle]]['view_mode']);
+    $entity->in_references = TRUE;
+    $element = node_view($entity, $settings[$map[$bundle]]['view_mode']);
+    $groups[$map[$bundle]][] = $element;
   }
 
   foreach ($settings as $weight => $setting) {

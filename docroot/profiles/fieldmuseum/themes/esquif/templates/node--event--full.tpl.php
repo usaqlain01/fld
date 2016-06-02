@@ -20,14 +20,29 @@
           foreach ($items as $item) {
             $date = new DateObject($item['value'], $item['timezone_db'], date_type_format($item['date_type']));
             $date->setTimezone(new DateTimeZone($item['timezone']));
+            if ($item['value'] !== $item['value2']) {
+              $date2 = new DateObject($item['value2'], $item['timezone_db'], date_type_format($item['date_type']));
+              $date2->setTimezone(new DateTimeZone($item['timezone']));
+              /** @var \DateInterval $diff */
+              $diff = \Bangpound\DateInterval::createFromDateInterval($date->diff($date2));
+            }
             ?>
-            <time<?php print drupal_attributes(rdf_rdfa_attributes($node->rdf_mapping['field_date'])); ?>>
+            <time<?php if (isset($node->rdf_mapping['field_date'])) { print drupal_attributes(rdf_rdfa_attributes($node->rdf_mapping['field_date'])); } ?>>
               <?php print $date->format('l, F j, Y'); ?> @ <?php
               if (intval($date->format('i')) > 0) {
                 print $date->format('g:ia');
               }
               else {
                 print $date->format('ga');
+              }
+              if (isset($diff) && strpos($diff, 'PT') === 0) {
+                print ' - ';
+                if (intval($date2->format('i')) > 0) {
+                  print $date2->format('g:ia');
+                }
+                else {
+                  print $date2->format('ga');
+                }
               }
               ?>
             </time>
@@ -44,7 +59,7 @@
     <?php endif; ?>
   </header>
   <?php print render($content['field_image']); ?>
-  <section class="article__body"<?php print drupal_attributes(rdf_rdfa_attributes($node->rdf_mapping['body'])); ?>>
+  <section class="article__body"<?php if (isset($node->rdf_mapping['body'])) { print drupal_attributes(rdf_rdfa_attributes($node->rdf_mapping['body'])); } ?>>
     <?php print render($content['field_summary']); ?>
     <?php print render($content['body']); ?>
   </section>

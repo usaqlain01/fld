@@ -93,6 +93,9 @@ function fieldmuseum_strongarm() {
         'redirect' => array(
           'weight' => '9',
         ),
+        'xmlsitemap' => array(
+          'weight' => '30',
+        ),
       ),
       'display' => array(),
     ),
@@ -194,25 +197,26 @@ function fieldmuseum_strongarm() {
       'default' => array(
         'status' => 0,
         'default' => 0,
-        'default display' => 0,
         'choice' => 0,
       ),
       'teaser' => array(
         'status' => 0,
         'default' => 0,
-        'default display' => 0,
+        'choice' => 0,
+      ),
+      'banner' => array(
+        'status' => 0,
+        'default' => 0,
         'choice' => 0,
       ),
       'promo' => array(
         'status' => 0,
         'default' => 0,
-        'default display' => 0,
         'choice' => 0,
       ),
       'summary' => array(
         'status' => 0,
         'default' => 0,
-        'default display' => 0,
         'choice' => 0,
       ),
     ),
@@ -222,9 +226,41 @@ function fieldmuseum_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'panelizer_node:page:default_selection';
+  $strongarm->value = 0;
+  $export['panelizer_node:page:default_selection'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'panelizer_node:page:page_manager_selection';
   $strongarm->value = 'node:page:default';
   $export['panelizer_node:page:page_manager_selection'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'readmorecontrol_behaviour__node__page__summary';
+  $strongarm->value = 'always';
+  $export['readmorecontrol_behaviour__node__page__summary'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'readmorecontrol_format__node__page__summary';
+  $strongarm->value = array(
+    'enabled' => 'custom',
+    'text' => '[node:field-read-more-label:value]',
+    'href' => '',
+    'query' => '',
+    'fragment' => '',
+    'title' => '',
+    'class' => '',
+    'rel' => '',
+    'target' => '',
+    'placement' => 'none',
+  );
+  $export['readmorecontrol_format__node__page__summary'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */

@@ -7,6 +7,7 @@
  * @see https://drupal.org/node/1728096
  */
 
+include_once 'includes/template.pager.inc';
 
 /**
  * Implements HOOK_theme().
@@ -246,6 +247,9 @@ function esquif_preprocess_node(&$variables, $hook) {
       array_splice($variables['theme_hook_suggestions'], 1, 0, array('node__'. $variables['view_mode']));
       $variables['classes_array'] = array_diff($variables['classes_array'], array($node->type));
       $variables['title_attributes_array']['class'][] = 'promo__title';
+      $variables['content_attributes_array']['class'][] = 'promo__link';
+      $variables['content_attributes_array']['href'] = $variables['node_url'];
+      $variables['content_attributes_array']['property'] = 'url';
 
       if (isset($variables['content']['field_image'])) {
         if ('image_formatter' == $variables['content']['field_image'][0]['file']['#theme']) {
@@ -444,7 +448,9 @@ function esquif_preprocess_node_collection(&$variables, $hook) {
 }
 
 function esquif_preprocess_node_learning_resource(&$variables, $hook) {
-  $variables['title_attributes_array']['class'][] = 'resource__title';
+  if ($variables['view_mode'] == 'teaser') {
+    $variables['title_attributes_array']['class'][] = 'resource__title';
+  }
 }
 
 function esquif_preprocess_node_department(&$variables, $hook) {
@@ -452,6 +458,12 @@ function esquif_preprocess_node_department(&$variables, $hook) {
     $variables['classes_array'][] = 'excerpt';
     $variables['title_attributes_array']['class'][] = 'excerpt__title';
     $variables['content']['field_image'][0]['file']['#item']['attributes']['class'][] = 'excerpt__image';
+  }
+}
+
+function esquif_preprocess_node_media_gallery(&$variables, $hook) {
+  if ($variables['view_mode'] == 'teaser') {
+    $variables['content']['media_gallery_file'][0]['file']['#item']['attributes']['class'][] = 'excerpt__image';
   }
 }
 
@@ -515,6 +527,9 @@ function esquif_preprocess_taxonomy_term(&$variables, $hook) {
       $variables['classes_array'][] = 'promo';
       $variables['title_attributes_array']['class'][] = 'promo__title';
       $variables['term_url'] = url('science/blog/'. drupal_strtolower(str_replace(' ', '-', $variables['name'])));
+      $variables['content_attributes_array']['class'][] = 'promo__link';
+      $variables['content_attributes_array']['href'] = $variables['term_url'];
+      $variables['content_attributes_array']['property'] = 'url';
       $variables['content']['field_image'][0]['file']['#item']['attributes']['class'][] = 'promo__image';
       break;
     case 'summary':
@@ -563,6 +578,21 @@ function esquif_preprocess_file_entity(&$variables, $hook) {
     case 'banner_5x3':
     case 'primary_2x1':
       $variables['theme_hook_suggestion'] = 'file_entity__naked';
+      break;
+    case 'embed':
+      $variables['theme_hook_suggestion'] = 'file_entity__embed';
+      $variables['classes_array'][] = 'article__image';
+      if (isset($variables['override']['attributes']['align'])) {
+        $variables['classes_array'][] = 'article__image--'. $variables['override']['attributes']['align'];
+      }
+      break;
+    case 'resource':
+      $variables['theme_hook_suggestion'] = 'file_entity__resource';
+      $variables['classes_array'][] = 'resource';
+      $variables['title_attributes_array']['class'][] = 'resource__title';
+      $variables['title_attributes_array']['class'] = array_diff($variables['title_attributes_array']['class'], array('element-invisible'));
+      $variables['content_attributes_array']['class'][] = 'resource__description';
+      $variables['file_url'] = file_entity_access('view', $variables['file']) ? $variables['file_url'] : file_create_url($variables['file']->uri);
       break;
   }
 }
@@ -1055,6 +1085,9 @@ function esquif_form_search_block_form_alter(&$form, &$form_state) {
   $form['search_block_form']['#attributes']['class'][] = 'search__input';
   $form['search_block_form']['#attributes']['placeholder'] = 'Search fieldmuseum.org';
   $form['search_block_form']['#size'] = 22;
+
+  // Unwrap the search button.
+  unset($form['actions']['#type']);
   $form['actions']['submit']['#attributes']['class'][] = 'search__button';
   $form['actions']['submit']['#theme_wrappers'][0] = 'button__search_box';
   $form['actions']['submit'][] = array(
@@ -1082,108 +1115,15 @@ function esquif_js_alter(&$js) {
 }
 
 function esquif_preprocess_pager(&$variables) {
-  $variables['quantity'] = 5;
-}
+  global $pager_total;
 
-/**
- * @param $variables
- * @return string
- * @see theme_pager
- */
-function esquif_pager($variables) {
-  $tags = $variables['tags'];
   $element = $variables['element'];
-  $parameters = $variables['parameters'];
-  $quantity = $variables['quantity'];
-  global $pager_page_array, $pager_total;
 
-  // Calculate various markers within this pager piece:
-  // Middle is used to "center" pages around the current page.
-  $pager_middle = ceil($quantity / 2);
-  // current is the page we are currently paged to
-  $pager_current = $pager_page_array[$element] + 1;
-  // first is the first page listed by this pager piece (re quantity)
-  $pager_first = $pager_current - $pager_middle + 1;
-  // last is the last page listed by this pager piece (re quantity)
-  $pager_last = $pager_current + $quantity - $pager_middle;
-  // max is the maximum page number
-  $pager_max = $pager_total[$element];
-  // End of marker calculations.
+  $variables['quantity'] = 5;
 
-  // Prepare for generation loop.
-  $i = $pager_first;
-  if ($pager_last > $pager_max) {
-    // Adjust "center" if at end of query.
-    $i = $i + ($pager_max - $pager_last);
-    $pager_last = $pager_max;
-  }
-  if ($i <= 0) {
-    // Adjust "center" if at start of query.
-    $pager_last = $pager_last + (1 - $i);
-    $i = 1;
-  }
-  // End of generation loop preparation.
-
-  $li_first = theme('pager_first', array('text' => (1), 'element' => $element, 'parameters' => $parameters));
-  $li_last = theme('pager_last', array('text' => ($pager_max), 'element' => $element, 'parameters' => $parameters));
-
-  if ($pager_total[$element] > 1) {
-    if ($li_first && $pager_current > 3 && $pager_max > 5) {
-      $items[] = array(
-        'class' => array('pagination__first'),
-        'data' => $li_first,
-      );
-    }
-
-    // When there is more than one page, create the pager list.
-    if ($i != $pager_max) {
-      if ($i > 1 && $pager_current > 4) {
-        $items[] = array(
-          'class' => array('pagination__gap'),
-          'data' => '<span class="pagination__unlinked">…</span>',
-        );
-      }
-      // Now generate the actual pager piece.
-      for (; $i <= $pager_last && $i <= $pager_max; $i++) {
-        if ($i < $pager_current) {
-          $items[] = array(
-            'class' => array('pagination__item'),
-            'data' => theme('pager_previous', array('text' => $i, 'element' => $element, 'interval' => ($pager_current - $i), 'parameters' => $parameters)),
-          );
-        }
-        if ($i == $pager_current) {
-          $items[] = array(
-            'class' => array('pagination__active'),
-            'data' => '<span class="pagination__unlinked">'. $i .'</span>',
-          );
-        }
-        if ($i > $pager_current) {
-          $items[] = array(
-            'class' => array('pagination__item'),
-            'data' => theme('pager_next', array('text' => $i, 'element' => $element, 'interval' => ($i - $pager_current), 'parameters' => $parameters)),
-          );
-        }
-      }
-      if ($i < $pager_max) {
-        $items[] = array(
-          'class' => array('pagination__gap'),
-          'data' => '<span class="pagination__unlinked">…</span>',
-        );
-      }
-    }
-    // End generation.
-    if ($li_last && $pager_current < $pager_max && $pager_max > 5) {
-      $items[] = array(
-        'class' => array('pagination__last'),
-        'data' => $li_last,
-      );
-    }
-    return '<h2 class="element-invisible">' . t('Pages') . '</h2>' . theme('item_list__pager', array(
-      'items' => $items,
-      'type' => 'ol',
-      'attributes' => array('class' => array('pagination__list')),
-    ));
-  }
+  // Override the labels for the first and last pager elements.
+  $variables['tags'][0] = '1';
+  $variables['tags'][4] = $pager_total[$element];
 }
 
 /**
@@ -1244,159 +1184,6 @@ function esquif_item_list__pager($variables) {
     $output .= "</$type>";
   }
   $output .= '</nav>';
-  return $output;
-}
-
-/**
- * Returns HTML for the "first page" link in a query pager.
- *
- * @param $variables
- *   An associative array containing:
- *   - text: The name (or image) of the link.
- *   - element: An optional integer to distinguish between multiple pagers on
- *     one page.
- *   - parameters: An associative array of query string parameters to append to
- *     the pager links.
- *
- * @return string
- * @ingroup themeable
- */
-function esquif_pager_first($variables) {
-  $text = $variables['text'];
-  $element = $variables['element'];
-  $parameters = $variables['parameters'];
-  $attributes = array(
-    'class' => array('pagination__link')
-  );
-
-  global $pager_page_array;
-  $output = '';
-
-  // If we are anywhere but the first page
-  if ($pager_page_array[$element] > 0) {
-    $output = theme('pager_link', array('text' => $text, 'page_new' => pager_load_array(0, $element, $pager_page_array), 'element' => $element, 'parameters' => $parameters, 'attributes' => $attributes));
-  }
-
-  return $output;
-}
-
-/**
- * Returns HTML for the "previous page" link in a query pager.
- *
- * @param $variables
- *   An associative array containing:
- *   - text: The name (or image) of the link.
- *   - element: An optional integer to distinguish between multiple pagers on
- *     one page.
- *   - interval: The number of pages to move backward when the link is clicked.
- *   - parameters: An associative array of query string parameters to append to
- *     the pager links.
- *
- * @return string
- * @ingroup themeable
- */
-function esquif_pager_previous($variables) {
-  $text = $variables['text'];
-  $element = $variables['element'];
-  $interval = $variables['interval'];
-  $parameters = $variables['parameters'];
-  $attributes = array(
-    'class' => array('pagination__link')
-  );
-
-  global $pager_page_array;
-  $output = '';
-
-  // If we are anywhere but the first page
-  if ($pager_page_array[$element] > 0) {
-    $page_new = pager_load_array($pager_page_array[$element] - $interval, $element, $pager_page_array);
-
-    // If the previous page is the first page, mark the link as such.
-    if ($page_new[$element] == 0) {
-      $output = theme('pager_first', array('text' => $text, 'element' => $element, 'parameters' => $parameters, 'attributes' => $attributes));
-    }
-    // The previous page is not the first page.
-    else {
-      $output = theme('pager_link', array('text' => $text, 'page_new' => $page_new, 'element' => $element, 'parameters' => $parameters, 'attributes' => $attributes));
-    }
-  }
-
-  return $output;
-}
-
-/**
- * Returns HTML for the "next page" link in a query pager.
- *
- * @param $variables
- *   An associative array containing:
- *   - text: The name (or image) of the link.
- *   - element: An optional integer to distinguish between multiple pagers on
- *     one page.
- *   - interval: The number of pages to move forward when the link is clicked.
- *   - parameters: An associative array of query string parameters to append to
- *     the pager links.
- *
- * @return string
- * @ingroup themeable
- */
-function esquif_pager_next($variables) {
-  $text = $variables['text'];
-  $element = $variables['element'];
-  $interval = $variables['interval'];
-  $parameters = $variables['parameters'];
-  $attributes = array(
-    'class' => array('pagination__link')
-  );
-
-  global $pager_page_array, $pager_total;
-  $output = '';
-
-  // If we are anywhere but the last page
-  if ($pager_page_array[$element] < ($pager_total[$element] - 1)) {
-    $page_new = pager_load_array($pager_page_array[$element] + $interval, $element, $pager_page_array);
-    // If the next page is the last page, mark the link as such.
-    if ($page_new[$element] == ($pager_total[$element] - 1)) {
-      $output = theme('pager_last', array('text' => $text, 'element' => $element, 'parameters' => $parameters, 'attributes' => $attributes));
-    }
-    // The next page is not the last page.
-    else {
-      $output = theme('pager_link', array('text' => $text, 'page_new' => $page_new, 'element' => $element, 'parameters' => $parameters, 'attributes' => $attributes));
-    }
-  }
-
-  return $output;
-}
-
-/**
- * Returns HTML for the "last page" link in query pager.
- *
- * @param $variables
- *   An associative array containing:
- *   - text: The name (or image) of the link.
- *   - element: An optional integer to distinguish between multiple pagers on
- *     one page.
- *   - parameters: An associative array of query string parameters to append to
- *     the pager links.
- *
- * @return string
- * @ingroup themeable
- */
-function esquif_pager_last($variables) {
-  $text = $variables['text'];
-  $element = $variables['element'];
-  $parameters = $variables['parameters'];
-  $attributes = array(
-    'class' => array('pagination__link')
-  );
-
-  global $pager_page_array, $pager_total;
-  $output = '';
-
-  // If we are anywhere but the last page
-  if ($pager_page_array[$element] < ($pager_total[$element] - 1)) {
-    $output = theme('pager_link', array('text' => $text, 'page_new' => pager_load_array($pager_total[$element] - 1, $element, $pager_page_array), 'element' => $element, 'parameters' => $parameters, 'attributes' => $attributes));
-  }
-
   return $output;
 }
 
@@ -2272,6 +2059,62 @@ function esquif_field___custom_display__field_image__department($variables) {
   foreach ($variables['items'] as $delta => $item) {
     $output .=  drupal_render($item);
   }
+
+  return $output;
+}
+
+function esquif_field___custom_display__field_image__topic($variables) {
+  $variables['items'][0]['file']['#item']['attributes']['class'][] = 'image--primary';
+  $output = '';
+
+  foreach ($variables['items'] as $delta => $item) {
+    $output .=  drupal_render($item);
+  }
+
+  return $output;
+}
+
+function esquif_field__media_gallery_file__media_gallery(&$variables) {
+  $output = '';
+
+  // Render the label, if it's not hidden.
+  if (!$variables['label_hidden']) {
+    $output .= '<div class="field-label"' . $variables['title_attributes'] . '>' . $variables['label'] . ':&nbsp;</div>';
+  }
+
+  // Render the items.
+  foreach ($variables['items'] as $delta => $item) {
+    $output .= drupal_render($item);
+  }
+
+  return $output;
+}
+
+function esquif_element_info_alter(&$type) {
+  array_unshift($type['fieldset']['#process'], 'esquif_form_process_fieldset');
+}
+
+function esquif_form_process_fieldset(&$element, &$form_state) {
+  $element['#collapsible'] = FALSE;
+  $element['#collapsed'] = FALSE;
+  return $element;
+}
+
+function esquif_field__profile2__main__wrapped($variables) {
+  $output = '';
+
+  // Render the label, if it's not hidden.
+  if (!$variables['label_hidden']) {
+    $output .= '<h3' . $variables['title_attributes'] . '>' . $variables['label'] . '</h3>';
+  }
+
+  // Render the items.
+  foreach ($variables['items'] as $delta => $item) {
+    $output .= drupal_render($item);
+  }
+
+  // Render the top-level DIV.
+  $output = '<div class="' . $variables['classes'] . '"' . $variables['attributes'] . '>' . $output . '</div>';
 
   return $output;
 }

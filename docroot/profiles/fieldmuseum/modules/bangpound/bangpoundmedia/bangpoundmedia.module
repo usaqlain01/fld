@@ -1,0 +1,141 @@
+<?php
+/**
+ * @file
+ * Code for the bangpoundmedia module.
+ */
+
+// Load all Field module hooks for !&# Media.
+require_once dirname(__FILE__) . '/bangpoundmedia.field.inc';
+
+/**
+ * Implementation of hook_module_implements_alter().
+ */
+function bangpoundmedia_module_implements_alter(&$implementations, $hook) {
+  if ($hook == 'media_wysiwyg_token_to_markup_alter') {
+    $group = $implementations['bangpoundmedia'];
+    unset($implementations['bangpoundmedia']);
+    $implementations['bangpoundmedia'] = $group;
+  }
+}
+
+/**
+ * Implementation of hook_filter_info_alter()
+ */
+function bangpoundmedia_filter_info_alter(&$info) {
+  if ($info['media_filter']['process callback'] == 'media_wysiwyg_filter') {
+    $info['media_filter']['process callback'] = 'bangpoundmedia_filter';
+  }
+}
+
+/**
+ * Filter callback for media markup filter.
+ *
+ * Replaces Media filter tags with inline macro which is decoded when entity is viewed.
+ */
+function bangpoundmedia_filter($text) {
+  $text = preg_replace_callback(MEDIA_WYSIWYG_TOKEN_REGEX, 'bangpoundmedia_token_to_inline', $text);
+  return $text;
+}
+
+/**
+ * Implement hook_preprocess_file_entity().
+ */
+function bangpoundmedia_preprocess_file_entity(&$variables) {
+  $elements = $variables['elements'];
+  if (isset($elements['#media_filter'])) {
+    $variables['attributes_array'] = array_merge($variables['attributes_array'], $elements['#attributes']);
+    if (isset($variables['attributes_array']['style'])) {
+      $variables['attributes_array']['style'] = preg_replace('|height: ?.+?\;|', '', $variables['attributes_array']['style']);
+    }
+    if (!isset($elements['#attributes']['class'])) {
+      $elements['#attributes']['class'] = array();
+    }
+    else if (!is_array($elements['#attributes']['class'])) {
+      $elements['#attributes']['class'] = explode(' ', $elements['#attributes']['class']);
+    }
+    $variables['classes_array'] = array_merge($variables['classes_array'], $elements['#attributes']['class']);
+  }
+}
+
+/**
+ * Implements hook_wysiwyg_editor_settings_alter().
+ *
+ * @param array $settings
+ * @param array $context
+ */
+function bangpoundmedia_wysiwyg_editor_settings_alter(&$settings, $context) {
+
+  // Style sets are a feature of CKEditor.
+  if ($context['profile']->editor == 'ckeditor') {
+
+    // Add these styles only to profiles whose format uses the media filter.
+    if (isset($context['profile']->format)) {
+
+      // Load all filter configurations for this format.
+      $filters = filter_list_format($context['profile']->format);
+      if ($filters && array_key_exists('media_filter', $filters)) {
+        if ($filters['media_filter']->status != 0) {
+
+          // The media-element class attribute value must be added to every style to
+          // prevent the media filter from detaching from the WYSIWYG images it uses
+          // as placeholders.
+
+          // Left alignment style.
+          $settings['stylesSet'][] = array(
+            'name' => 'Media left',
+            'element' => 'img',
+            'attributes' => array(
+              'align' => 'left',
+            ),
+          );
+
+          // Right alignment style.
+          $settings['stylesSet'][] = array(
+            'name' => 'Media right',
+            'element' => 'img',
+            'attributes' => array(
+              'align' => 'right',
+            ),
+          );
+
+          // Stylesheet with those styles defined as minimally as possible
+          // so they work reliably in the WYSIWYG editor and when viewing
+          // content.
+          $css = drupal_get_path('module', 'bangpoundmedia') .'/bangpoundmedia.css';
+          $settings['contentsCss'][] = url($css);
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Encodes Media filter tag as inline macro.
+ */
+function bangpoundmedia_token_to_inline($match) {
+  $tag = str_replace(array('[[', ']]'), '', $match[0]);
+
+  $tag_info = drupal_json_decode($tag);
+  drupal_alter('bangpoundmedia_wysiwyg_token', $tag_info);
+  $tag = drupal_json_encode($tag_info);
+
+  // Using the serialize method on the parser causes
+  // `Fatal error:  Class 'MediaFilterMacro' not found`
+  // because __FUNCTION__ may be called before bootstrap is complete.
+
+  $macro_params = array();
+  $macro_params[] = 'media_filter';
+  $macro_params[] = 'tag='. base64_encode($tag);
+  $output = '[' . implode('|', $macro_params) . ']';
+  return $output;
+}
+
+/**
+ * Implements hook_inline_info().
+ */
+function bangpoundmedia_inline_info() {
+  $info['media_filter'] = array(
+    'class' => 'Drupal\bangpoundmedia\MediaFilterMacro',
+  );
+  return $info;
+}

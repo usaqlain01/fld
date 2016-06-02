@@ -21,7 +21,7 @@ function fmnh_calendar_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 11,
       ),
       'default' => array(
         'label' => 'hidden',
@@ -125,7 +125,7 @@ function fmnh_calendar_field_default_field_instances() {
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
-      'weight' => 43,
+      'weight' => 10,
     ),
   );
 
@@ -140,13 +140,13 @@ function fmnh_calendar_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 7,
       ),
       'default' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 10,
+        'weight' => 11,
       ),
       'event' => array(
         'label' => 'hidden',
@@ -182,6 +182,7 @@ function fmnh_calendar_field_default_field_instances() {
     'label' => 'Action link',
     'required' => 0,
     'settings' => array(
+      'absolute_url' => 1,
       'attributes' => array(
         'class' => '',
         'configurable_title' => 0,
@@ -195,6 +196,7 @@ function fmnh_calendar_field_default_field_instances() {
       'enable_tokens' => 1,
       'rel_remove' => 'default',
       'title' => 'optional',
+      'title_label_use_field_label' => FALSE,
       'title_maxlength' => 128,
       'title_value' => '',
       'url' => 0,
@@ -206,7 +208,7 @@ function fmnh_calendar_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 41,
+      'weight' => 9,
     ),
   );
 
@@ -221,13 +223,13 @@ function fmnh_calendar_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 3,
       ),
       'default' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 11,
+        'weight' => 12,
       ),
       'event' => array(
         'label' => 'above',
@@ -272,7 +274,7 @@ function fmnh_calendar_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 49,
+      'weight' => 14,
     ),
   );
 
@@ -284,16 +286,19 @@ function fmnh_calendar_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'banner' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(
+          'field_formatter_class' => '',
+        ),
+        'type' => 'text_default',
+        'weight' => 1,
       ),
       'default' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 8,
+        'weight' => 9,
       ),
       'list_item' => array(
         'label' => 'above',
@@ -372,7 +377,7 @@ function fmnh_calendar_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 55,
+      'weight' => 17,
     ),
   );
 
@@ -383,16 +388,20 @@ function fmnh_calendar_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'banner' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
+        'label' => 'hidden',
+        'module' => 'file_entity',
+        'settings' => array(
+          'field_formatter_class' => '',
+          'file_view_mode' => 'banner_5x2',
+        ),
+        'type' => 'file_rendered',
         'weight' => 0,
       ),
       'default' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 7,
+        'weight' => 8,
       ),
       'list_item' => array(
         'label' => 'above',
@@ -414,22 +423,21 @@ function fmnh_calendar_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'fences_wrapper' => 'div',
+    'fences_wrapper' => 'no_wrapper',
     'field_name' => 'field_banner_image',
     'label' => 'Banner image',
+    'readmore_behaviour' => 'default',
     'required' => 0,
     'settings' => array(
       'description_field' => 0,
       'file_directory' => '',
       'file_extensions' => 'jpg gif jpeg png',
       'imagecrop' => array(
-        '2x1_2400w' => 0,
-        '5x2_2400w' => 0,
-        '5x3_2400w' => 0,
-        'large' => 0,
+        '2x1_2400w' => '2x1_2400w',
+        '5x2_2400w' => '5x2_2400w',
+        '5x3_2400w' => '5x3_2400w',
         'media_gallery_large' => 0,
         'media_gallery_thumbnail' => 0,
-        'medium' => 0,
         'thumbnail' => 0,
       ),
       'max_filesize' => '',
@@ -458,7 +466,7 @@ function fmnh_calendar_field_default_field_instances() {
         ),
       ),
       'type' => 'media_generic',
-      'weight' => 53,
+      'weight' => 16,
     ),
   );
 
@@ -472,7 +480,7 @@ function fmnh_calendar_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 8,
       ),
       'default' => array(
         'label' => 'hidden',
@@ -562,7 +570,7 @@ function fmnh_calendar_field_default_field_instances() {
         'year_range' => '-1:+1',
       ),
       'type' => 'date_select',
-      'weight' => -4,
+      'weight' => 1,
     ),
   );
 
@@ -576,7 +584,7 @@ function fmnh_calendar_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 4,
       ),
       'default' => array(
         'label' => 'hidden',
@@ -625,19 +633,21 @@ function fmnh_calendar_field_default_field_instances() {
     'fences_wrapper' => 'no_wrapper',
     'field_name' => 'field_image',
     'label' => 'Image',
+    'readmore_behaviour' => 'default',
     'required' => 0,
     'settings' => array(
       'description_field' => 0,
       'file_directory' => '',
       'file_extensions' => 'png jpg gif jpeg',
       'imagecrop' => array(
+        '1x1_300w' => '1x1_300w',
         '2x1_2400w' => '2x1_2400w',
         '5x2_2400w' => '5x2_2400w',
         '5x3_2400w' => '5x3_2400w',
-        'large' => 0,
+        'gallery_2400w' => 0,
+        'headshot' => 0,
         'media_gallery_large' => 0,
         'media_gallery_thumbnail' => 0,
-        'medium' => 0,
         'thumbnail' => 'thumbnail',
       ),
       'max_filesize' => '',
@@ -666,7 +676,7 @@ function fmnh_calendar_field_default_field_instances() {
         ),
       ),
       'type' => 'media_generic',
-      'weight' => 51,
+      'weight' => 15,
     ),
   );
 
@@ -681,7 +691,7 @@ function fmnh_calendar_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 5,
       ),
       'default' => array(
         'label' => 'hidden',
@@ -745,7 +755,7 @@ function fmnh_calendar_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 47,
+      'weight' => 13,
     ),
   );
 
@@ -760,13 +770,13 @@ function fmnh_calendar_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 9,
       ),
       'default' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 9,
+        'weight' => 10,
       ),
       'event' => array(
         'label' => 'above',
@@ -810,7 +820,7 @@ function fmnh_calendar_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'entityreference_autocomplete',
-      'weight' => -3,
+      'weight' => 2,
     ),
   );
 
@@ -825,7 +835,7 @@ function fmnh_calendar_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 10,
       ),
       'default' => array(
         'label' => 'above',
@@ -879,7 +889,7 @@ function fmnh_calendar_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'entityreference_autocomplete',
-      'weight' => 46,
+      'weight' => 12,
     ),
   );
 
@@ -894,7 +904,7 @@ function fmnh_calendar_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 6,
       ),
       'default' => array(
         'label' => 'hidden',
@@ -988,7 +998,7 @@ function fmnh_calendar_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 44,
+      'weight' => 11,
     ),
   );
 
@@ -1003,7 +1013,7 @@ function fmnh_calendar_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 2,
       ),
       'default' => array(
         'label' => 'hidden',
@@ -1049,8 +1059,10 @@ function fmnh_calendar_field_default_field_instances() {
     'fences_wrapper' => 'span',
     'field_name' => 'field_ticket_link',
     'label' => 'Ticket link',
+    'readmore_behaviour' => 'default',
     'required' => 0,
     'settings' => array(
+      'absolute_url' => 1,
       'attributes' => array(
         'class' => 'button--buy eventSummary__offer',
         'configurable_title' => 0,
@@ -1064,8 +1076,9 @@ function fmnh_calendar_field_default_field_instances() {
       'enable_tokens' => 1,
       'rel_remove' => 'default',
       'title' => 'value',
+      'title_label_use_field_label' => FALSE,
       'title_maxlength' => 128,
-      'title_value' => '<span class="button__leader">[node:field_price]</span> Buy Tickets',
+      'title_value' => '<span class="button__leader">[node:field_price]</span> [node:field_ticket_text]',
       'url' => 0,
       'user_register_form' => FALSE,
       'validate_url' => 1,
@@ -1075,7 +1088,112 @@ function fmnh_calendar_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 6,
+      'weight' => 3,
+    ),
+  );
+
+  // Exported field_instance: 'node-event-field_ticket_text'
+  $field_instances['node-event-field_ticket_text'] = array(
+    'bundle' => 'event',
+    'default_value' => array(
+      0 => array(
+        'value' => 'Buy Tickets',
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'banner' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 7,
+      ),
+      'list_item' => array(
+        'label' => 'hidden',
+        'module' => 'list',
+        'settings' => array(
+          'field_formatter_class' => '',
+        ),
+        'type' => 'list_default',
+        'weight' => 0,
+      ),
+      'summary' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'fences_wrapper' => 'no_wrapper',
+    'field_name' => 'field_ticket_text',
+    'label' => 'Ticket text',
+    'readmore_behaviour' => 'default',
+    'required' => 1,
+    'settings' => array(
+      'better_formats' => array(
+        'allowed_formats' => array(
+          'filtered_html' => 'filtered_html',
+          'filtered_wysiwyg' => 'filtered_wysiwyg',
+          'full_html' => 'full_html',
+          'full_wysiwyg' => 'full_wysiwyg',
+          'markdown' => 'markdown',
+          'plain_text' => 'plain_text',
+          'unfiltered' => 'unfiltered',
+          'unfiltered_phrase_html' => 'unfiltered_phrase_html',
+        ),
+        'allowed_formats_toggle' => 0,
+        'default_order_toggle' => 0,
+        'default_order_wrapper' => array(
+          'formats' => array(
+            'filtered_html' => array(
+              'weight' => -9,
+            ),
+            'filtered_wysiwyg' => array(
+              'weight' => -10,
+            ),
+            'full_html' => array(
+              'weight' => -7,
+            ),
+            'full_wysiwyg' => array(
+              'weight' => -8,
+            ),
+            'markdown' => array(
+              'weight' => -6,
+            ),
+            'plain_text' => array(
+              'weight' => -3,
+            ),
+            'unfiltered' => array(
+              'weight' => -4,
+            ),
+            'unfiltered_phrase_html' => array(
+              'weight' => -5,
+            ),
+          ),
+        ),
+      ),
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 4,
     ),
   );
 
@@ -1094,6 +1212,7 @@ function fmnh_calendar_field_default_field_instances() {
   t('References');
   t('This is displayed below the image.');
   t('Ticket link');
+  t('Ticket text');
 
   return $field_instances;
 }

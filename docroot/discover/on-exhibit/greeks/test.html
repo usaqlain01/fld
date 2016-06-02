@@ -1,0 +1,49 @@
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+<script>
+	function flerp(li){
+		$(li).addClass("selected")
+		$("ul").addClass("selected")
+	}
+
+</script>
+<style>
+
+	li, ul, body {
+		margin: 0;
+		padding: 0;
+	}
+	div {
+		width: 100%;
+		overflow: hidden;
+	}
+	ul {
+		position: relative;
+		width: 600%;
+	}
+	li {
+		width: 16.666666666666666%;
+		height: 500px;
+		float: left;
+		margin-right:-13.86%;
+		transition: margin-right 1s;
+	}
+	.selected li.selected {
+		margin-right: 100%;
+	}
+	.selected li {
+		margin-right: -16.666666666666666%;
+	}
+
+</style>
+
+<div>
+<ul>
+	<li style="background:red" onclick="flerp(this);"></li>	
+	<li style="background:orange" onclick="flerp(this);"></li>
+	<li style="background:yellow" onclick="flerp(this);"></li>
+	<li style="background:green" onclick="flerp(this);"></li>
+	<li style="background:blue" onclick="flerp(this);"></li>
+	<li style="background:purple" onclick="flerp(this);"></li>
+</ul>
+</div>

@@ -23,7 +23,7 @@
         );
         ?>
         <time class="eventsList__time"<?php print drupal_attributes(rdf_rdfa_attributes($node->rdf_mapping['field_date']) + $base_attributes); ?>>
-          <?php print $date->format('m/j'); ?>
+          <?php print $date->format('n/j'); ?>
         </time>
       <?php }
     }
@@ -47,16 +47,16 @@
       <?php endif; ?>
       <a class="eventsList__link" href="<?php print $node_url; ?>">Event Details</a>
 
-      <?php if ($field_ticket_link): ?>
+      <?php hide($content['field_ticket_text']); if ($field_ticket_link): ?>
         &bull;
         <?php $items = field_get_items('node', $node, 'field_ticket_link');
         if ($items) {
           foreach ($items as $item) { ?>
-            <a class="eventsList__link" href="<?php print check_plain(url($item['url'])); ?>"<?php print drupal_attributes(rdf_rdfa_attributes($node->rdf_mapping['field_ticket_link'])); ?>>
+            <a data-analytics="ticketing-event" class="eventsList__link" href="<?php print check_plain(url($item['url'])); ?>"<?php if (isset($node->rdf_mapping['field_ticket_link'])) { print drupal_attributes(rdf_rdfa_attributes($node->rdf_mapping['field_ticket_link'])); } ?>>
               <svg class="icon icon--ticket-2" viewBox="0 0 500 500">
                 <use xlink:href="#ticket-2"></use>
               </svg>
-              Buy Tickets
+              <?php print render($content['field_ticket_text']); ?>
             </a>
           <?php }
           hide($content['field_ticket_link']);

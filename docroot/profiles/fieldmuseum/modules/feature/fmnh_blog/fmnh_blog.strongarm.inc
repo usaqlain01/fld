@@ -55,6 +55,9 @@ function fmnh_blog_strongarm() {
       'banner' => array(
         'custom_settings' => TRUE,
       ),
+      'list_item' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(

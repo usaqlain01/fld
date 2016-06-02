@@ -98,7 +98,7 @@ function fmnh_gallery_entity_load($entities, $type) {
       list(,,$bundle) = entity_extract_ids($type, $entity);
       if ($bundle == 'media_gallery') {
         $entity->media_gallery_columns['und'][0]['value'] = '6';
-        $entity->media_gallery_rows['und'][0]['value'] = PHP_INT_MAX;
+        $entity->media_gallery_rows['und'][0]['value'] = pow(2, 29);
       }
     }
   }
@@ -146,3 +146,12 @@ function fmnh_gallery_admin_paths() {
   return $paths;
 }
 
+/**
+ * Add the imagecrop button on multiedit forms for media galleries.
+ */
+function fmnh_gallery_form_alter(&$form, $form_state, $form_id) {
+  if (strpos($form_id, 'media_edit_') === 0) {
+    imagecrop_form_file_entity_edit_alter($form, $form_state);
+    $form['imagecrop'] = $form['actions']['imagecrop'];
+  }
+}

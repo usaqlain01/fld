@@ -8,7 +8,9 @@
  */
 ?>
 <article class="node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
-  <?php print render($content['field_image']); ?>
+  <a href="<?php print $node_url; ?>">
+    <?php print render($content['field_image']); ?>
+  </a>
 
   <header class="excerpt__header">
     <?php print render($title_prefix); ?>

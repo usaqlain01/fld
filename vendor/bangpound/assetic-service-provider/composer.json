@@ -1,0 +1,19 @@
+{
+    "name": "bangpound/assetic-service-provider",
+    "license": "MIT",
+    "type": "library",
+    "description": "Assetic service provider for Pimple",
+    "autoload": {
+        "psr-4": { "Bangpound\\Pimple\\Provider\\": "" }
+    },
+    "require": {
+        "php": ">=5.3.3",
+        "pimple/pimple": ">=2.1,<4",
+        "kriswallsmith/assetic": "~1.1"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
+}

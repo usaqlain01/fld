@@ -12,11 +12,37 @@ function fmnh_media_file_default_displays() {
 
   $file_display = new stdClass();
   $file_display->api_version = 1;
+  $file_display->name = 'document__default__file_field_pdf_default';
+  $file_display->weight = 0;
+  $file_display->status = TRUE;
+  $file_display->settings = array(
+    'keep_pdfjs' => 0,
+    'width' => '100%',
+    'height' => '800px',
+  );
+  $export['document__default__file_field_pdf_default'] = $file_display;
+
+  $file_display = new stdClass();
+  $file_display->api_version = 1;
   $file_display->name = 'document__default__file_field_x3d';
   $file_display->weight = 0;
   $file_display->status = TRUE;
   $file_display->settings = '';
   $export['document__default__file_field_x3d'] = $file_display;
+
+  $file_display = new stdClass();
+  $file_display->api_version = 1;
+  $file_display->name = 'document__resource__pdf_to_image';
+  $file_display->weight = 0;
+  $file_display->status = TRUE;
+  $file_display->settings = array(
+    'image_style' => 'resource_thumbnail',
+    'alt' => '[file:field_file_image_alt_text]',
+    'title' => '[file:field_file_image_title_text]',
+    'density' => '100x100',
+    'extra_args' => '',
+  );
+  $export['document__resource__pdf_to_image'] = $file_display;
 
   $file_display = new stdClass();
   $file_display->api_version = 1;
@@ -35,7 +61,7 @@ function fmnh_media_file_default_displays() {
   $file_display->weight = 0;
   $file_display->status = TRUE;
   $file_display->settings = array(
-    'image_style' => '5x3_800w',
+    'image_style' => '5x3_500w',
     'image_link' => '',
   );
   $export['image__banner_5x3__file_field_image'] = $file_display;

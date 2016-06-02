@@ -78,6 +78,7 @@ features[variable][] = node_options_program
 features[variable][] = node_preview_program
 features[variable][] = node_submitted_program
 features[variable][] = panelizer_defaults_node_program
+features[variable][] = panelizer_node:program:default_selection
 features[variable][] = panelizer_node:program:page_manager_selection
 features[variable][] = pathauto_node_program_pattern
 features[views_view][] = field_trip_programs

@@ -13,9 +13,9 @@ function fmnh_program_default_page_manager_pages() {
   $page->api_version = 1;
   $page->name = 'field_trip_programs';
   $page->task = 'page';
-  $page->admin_title = 'Field trip programs';
+  $page->admin_title = 'Field trip experiences';
   $page->admin_description = '';
-  $page->path = 'educators/field-trip-programs';
+  $page->path = 'educators/field-trips/experiences';
   $page->access = array(
     'plugins' => array(
       0 => array(
@@ -33,7 +33,7 @@ function fmnh_program_default_page_manager_pages() {
   );
   $page->menu = array(
     'type' => 'normal',
-    'title' => 'Field trip programs',
+    'title' => 'Field trip experiences',
     'name' => 'main-menu',
     'weight' => '0',
     'parent' => array(
@@ -88,7 +88,7 @@ function fmnh_program_default_page_manager_pages() {
     ),
   );
   $display->cache = array();
-  $display->title = 'Field Trip Programs';
+  $display->title = 'Field Trip Experiences';
   $display->uuid = '29dae451-7137-44fd-a6bc-fd5eb79071ea';
   $display->content = array();
   $display->panels = array();
@@ -425,7 +425,7 @@ function fmnh_program_default_page_manager_pages() {
     ),
   );
   $display->cache = array();
-  $display->title = 'Field Trip Programs for %term:name';
+  $display->title = 'Field Trip Programs: %term:name';
   $display->uuid = '29dae451-7137-44fd-a6bc-fd5eb79071ea';
   $display->content = array();
   $display->panels = array();
@@ -601,7 +601,7 @@ function fmnh_program_default_page_manager_pages() {
     $pane->uuid = '7480f094-23af-4ffa-8c1d-10da8efcc047';
     $display->content['new-7480f094-23af-4ffa-8c1d-10da8efcc047'] = $pane;
     $display->panels['nav'][0] = 'new-7480f094-23af-4ffa-8c1d-10da8efcc047';
-  $display->hide_title = PANELS_TITLE_PANE;
+  $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = 'new-0c09adad-5d8a-49b0-bb06-5ccea9fc28d0';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;

@@ -23,6 +23,15 @@ function fmnh_staff_navbar_alter(&$items) {
 }
 
 /**
+ * Implements hook_module_implements_alter().
+ */
+function fmnh_staff_module_implements_alter(&$implementations, $hook) {
+  if ($hook === 'form_user_profile_form_alter') {
+    unset($implementations['imagecrop']);
+  }
+}
+
+/**
  * Implement hook_menu_alter()
  *
  * @param $items
@@ -34,6 +43,40 @@ function fmnh_staff_menu_alter(&$items) {
   if (isset($_ENV['AH_SITE_ENVIRONMENT']) && $_ENV['AH_SITE_ENVIRONMENT'] == 'prod') {
     $items['import/%/delete-items']['access callback'] = FALSE;
   }
+
+  $profile_type = profile2_get_types('main');
+  $base_path = profile2_page_get_base_path($profile_type);
+  foreach ($items as $path => &$item) {
+    if (strpos($path, $base_path) === 0) {
+
+      // Force title to use the auto entity label value which for
+      // this is based on fields from the user account only.
+      if (isset($item['title callback']) && $item['title callback'] == 'profile2_page_title') {
+        $item['title callback'] = 'fmnh_staff_profile2_page_title';
+      }
+    }
+  }
+}
+
+/**
+ * Menu title callback.
+ */
+function fmnh_staff_profile2_page_title($type_name, $profile2 = NULL) {
+  $type = profile2_get_types($type_name);
+  // If no profile is given, we are at the general path pointing to the own
+  // profile.
+  if (!isset($profile2)) {
+    return t('My @profile-label', array('@profile-label' => drupal_strtolower($type->getTranslation('label'))));
+  }
+
+  if (!$profile2->pid) {
+    $pattern = variable_get('auto_entitylabel_pattern_profile2_' . $type_name, '');
+    if ($pattern) {
+      $profile2->label = decode_entities(_auto_entitylabel_patternprocessor($pattern, $profile2, 'profile2'));
+      return $profile2->label;
+    }
+  }
+  return drupal_ucfirst($profile2->label());
 }
 
 /**
@@ -43,6 +86,41 @@ function fmnh_staff_menu_alter(&$items) {
  * @param $form_state
  */
 function fmnh_staff_form_user_profile_form_alter(&$form, &$form_state) {
+  $hooks = variable_get('imagecrop_modules', array());
+  if (!empty($form['picture']['picture']['#value']) && !empty($hooks['profile_picture'])) {
+    $styles = array_keys(array_filter(get_imagecrop_styles(), function ($style) {
+      return $style === 'headshot';
+    }, ARRAY_FILTER_USE_KEY));
+    if (count($styles) > 0) {
+
+      // Create fake file object for permission check.
+      $file = new stdClass();
+      $file->uid = $form['#user']->uid;
+
+      $imagecrop = new ImageCrop();
+      $imagecrop->setFile($file);
+
+      global $user;
+      if (!$imagecrop->hasUserAccess($user)) {
+        return;
+      }
+
+      $variables = array(
+        'styles' => $styles,
+        'js_file' => 'imagecrop_field.js',
+        'text' => t('Crop picture'),
+        'fid' => $form['picture']['picture']['#value']->fid,
+      );
+
+      $form['#entity_type'] = 'user';
+      $form['#bundle'] = 'user';
+      $form['#field_name'] = 'profile_picture';
+
+      $form['picture']['picture_current']['#markup'] .= imagecrop_linkitem($form, $variables);
+    }
+  }
+
+
   if (!user_access('administer users')) {
     $form['field_givenname']['#access'] = user_access('administer users');
     $form['field_surname']['#access'] = user_access('administer users');
@@ -63,18 +141,15 @@ function fmnh_staff_preprocess_entity(&$variables, $hook) {
     list($id, $vid, $bundle) = entity_extract_ids('profile2', $variables['profile2']);
     if ($bundle == 'main' && $variables['elements']['#view_mode'] == 'page') {
       $account = user_load($variables['profile2']->uid);
-
-      $items = field_get_items('profile2', $variables['profile2'], 'field_image');
-      if (!$items) {
-        $variables['content']['field_image'] = array(
-          '#theme' => 'user_picture',
-          '#account' => $account,
-        );
-      }
+      $variables['content']['field_image'] = array(
+        '#theme' => 'user_picture',
+        '#account' => $account,
+      );
 
       foreach (array('field_business_unit', 'field_home_department', 'field_position') as $field_name) {
         $items = field_get_items('user', $account, $field_name);
         if ($items) {
+          $variables['content'][$field_name] = array();
           foreach ($items as $item) {
             $variables['content'][$field_name][] = field_view_value('user', $account, $field_name, $item);
           }
@@ -95,6 +170,32 @@ function fmnh_staff_preprocess_entity(&$variables, $hook) {
 function fmnh_staff_feeds_processor_targets_alter(&$targets, $entity_type, $bundle_name) {
   if ($entity_type == 'user' && $bundle_name == 'user') {
     $targets['name']['callback'] = 'fmnh_staff_user_name_callback';
+    $targets['status']['callback'] = 'fmnh_staff_status_callback';
+  }
+}
+
+function fmnh_staff_status_callback($source, $entity, $target, array $values, $mapping) {
+  if ($target == 'status') {
+    $entity->status = ($values[0] == 'D') ? 0 : 1;
+  }
+}
+
+/**
+ * Implements hook_feeds_presave().
+ */
+function fmnh_staff_feeds_presave(FeedsSource $source, $entity, $item) {
+  if ($source->id === 'from_hr') {
+    $profile = profile2_load_by_user($entity, 'override');
+    if ($profile) {
+      $field_names = array('field_surname', 'field_givenname', 'field_home_department', 'field_business_unit', 'field_position');
+      foreach ($field_names as $field_name) {
+        $items = field_get_items('profile2', $profile, $field_name);
+        if ($items) {
+          $langcode = field_language('user', $entity, $field_name);
+          $entity->{$field_name}[$langcode] = $items;
+        }
+      }
+    }
   }
 }
 
@@ -129,11 +230,20 @@ function fmnh_staff_filter($selected = '') {
       'external-affairs' => 'External Affairs',
       'membership' => 'Membership',
     ),
-    'Operations' => array(
+    'Marketing and Public Engagement' => array(
+      'public-relations' => 'Public Relations',
+      'exhibitions' => 'Exhibitions',
+      'communications' => 'Communications',
+      'marketing' => 'Marketing',
+      'guest-relations' => 'Guest Relations',
+#     'theater' => 'Theater',
+    ),
+    'Finance and Facilities' => array(
+      'special-events-and-group-sales' => 'Special Events and Group Sales',
+      'cfo' => 'CFO',
       'protection-services' => 'Protection Services',
       'housekeeping' => 'Housekeeping',
       'finance' => 'Finance',
-      'office-of-executive-vice-president' => 'Office of Executive Vice President',
       'print-shop' => 'Print Shop',
       'facilities' => 'Facilities',
     ),
@@ -143,22 +253,13 @@ function fmnh_staff_filter($selected = '') {
       'office-of-vp-and-general-counsel' => 'Office of VP and General Counsel',
       'office-of-president/ceo' => 'Office of President/CEO',
     ),
-    'Public Programs and Education' => array(
-      'exhibitions' => 'Exhibitions',
-      'education' => 'Education',
-      'theater' => 'Theater',
-      'guest-relations' => 'Guest Relations',
-      'public-relations' => 'Public Relations',
-      'special-events-and-group-sales' => 'Special Events and Group Sales',
-      'communications' => 'Communications',
-      'public-programs-and-education' => 'Public Programs and Education',
-    ),
     'Science and Education' => array(
       'science-and-education' => 'Science and Education',
-      'action-center' => 'Action Center',
-      'collections-center' => 'Collections Center',
+      'keller-science-action-center' => 'Keller Science Action Center',
+      'gantz-family-collections-center' => 'Gantz Family Collections Center',
       'integrative-research-center' => 'Integrative Research Center',
       'repatriation' => 'Repatriation',
+      'learning-center' => 'Learning Center',
     ),
   );
 
@@ -202,5 +303,130 @@ function fmnh_staff_profile2_access($op, $profile = NULL, $account = NULL) {
   if (($op == 'view') && (isset($profile))) {
     $account2 = user_load($profile->uid);
     return $account2->status == 0 ? FALSE : TRUE;
+  }
+}
+
+function fmnh_staff_preprocess_user_picture(&$variables, $hook) {
+  $variables['user_picture'] = '';
+  if (variable_get('user_pictures', 0)) {
+    $account = $variables['account'];
+    if (!empty($account->picture)) {
+      // @TODO: Ideally this function would only be passed file objects, but
+      // since there's a lot of legacy code that JOINs the {users} table to
+      // {node} or {comments} and passes the results into this function if we
+      // a numeric value in the picture field we'll assume it's a file id
+      // and load it for them. Once we've got user_load_multiple() and
+      // comment_load_multiple() functions the user module will be able to load
+      // the picture files in mass during the object's load process.
+      if (is_numeric($account->picture)) {
+        $account->picture = file_load($account->picture);
+      }
+      if (!empty($account->picture->uri)) {
+        $filepath = $account->picture->uri;
+      }
+    }
+    elseif (variable_get('user_picture_default', '')) {
+      $filepath = variable_get('user_picture_default', '');
+    }
+    if (isset($filepath)) {
+      $profile = profile2_by_uid_load($account->uid, 'main');
+      $path = "about/staff/profile/$profile->pid";
+      $attributes = array();
+      // Append active class.
+      $attributes['class'] = array('bio__image', 'headshot');
+
+      $alt = t("@user's picture", array('@user' => format_username($account)));
+      // If the image does not have a valid Drupal scheme (for eg. HTTP),
+      // don't load image styles.
+      if (module_exists('image') && file_valid_uri($filepath) && $style = variable_get('user_picture_style', '')) {
+        $variables['user_picture'] = theme('image_style', array('style_name' => $style, 'path' => $filepath, 'alt' => $alt, 'title' => $alt, 'attributes' => $attributes));
+      }
+      else {
+        $variables['user_picture'] = theme('image', array('path' => $filepath, 'alt' => $alt, 'title' => $alt, 'attributes' => $attributes));
+      }
+
+      if (!empty($account->uid) && user_access('access user profiles') && $path != $_GET['q']) {
+        $options = array('attributes' => array('title' => t('View user profile.')), 'html' => TRUE);
+        if (profile2_access('view', $profile) && !isset($profile->is_new)) {
+          $item = menu_get_item();
+          $variables['user_picture'] = l($variables['user_picture'], $path, $options);
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_field_formatter_view().
+ *
+ * Merge field formatter class into link class attribute on email formatter.
+ */
+function fmnh_staff_field_attach_view_alter(&$output, $context) {
+  foreach (element_children($output) as $key) {
+    if ($output[$key]['#formatter'] == 'email_default') {
+      list(,,$bundle) = entity_extract_ids($context['entity_type'], $context['entity']);
+      $instance = field_info_instance($context['entity_type'], $key, $bundle);
+      $display = field_get_display($instance, $context['view_mode'], $context['entity']);
+      foreach ($output[$key]['#items'] as $delta => $item) {
+        $output[$key][$delta] = array('#markup' => l($item['email'], 'mailto:' . $item['email'], array('attributes' => array('class' => $display['settings']['field_formatter_class']))));
+      }
+    }
+  }
+}
+
+function fmnh_staff_preprocess_field(&$variables, $hook) {
+  $entity_type = $variables['element']['#entity_type'];
+  $bundle = $variables['element']['#bundle'];
+  $field_name = $variables['element']['#field_name'];
+
+  $field_names = array(
+    'field_education',
+    'field_interests',
+    'field_grants_awards',
+    'field_publications',
+    'field_work_experience',
+    'field_accomplishments',
+    'field_professional_affiliations',
+  );
+
+  if ($entity_type == 'profile2' && $bundle == 'main' && in_array($field_name, $field_names)) {
+    $variables['theme_hook_suggestions'][] = 'field__profile2__main__wrapped';
+    $variables['classes_array'][] = 'l--module';
+  }
+}
+
+/**
+ * Implements hook_entity_update().
+ *
+ * This resets the user's main profile label whenever the user account is saved.
+ *
+ * @param $entity
+ * @param $type
+ */
+function fmnh_staff_entity_update($entity, $type) {
+  if ($type === 'user') {
+    $profile = profile2_load_by_user($entity, 'main');
+    if ($profile) {
+      // Reset the cache early so the profile's entity label has fresh
+      // values when tokens are generated.
+      entity_get_controller($type)->resetCache(array($entity->uid));
+      $profile->label = AUTO_ENTITYLABEL_PLACEHOLDER;
+      profile2_save($profile);
+    }
+  }
+}
+
+/**
+ * @param $form
+ * @param $form_state
+ */
+function fmnh_staff_form_imagecrop_style_selection_form_alter(&$form, &$form_state) {
+  if (isset($form_state['build_info']['args'][1]) &&
+    $form_state['build_info']['args'][1]->getEntityType() === 'user' &&
+    $form_state['build_info']['args'][1]->getBundle() === 'user' &&
+    $form_state['build_info']['args'][1]->getFieldName() === 'profile_picture') {
+    $form['styles']['#options'] = array_filter($form['styles']['#options'], function ($style) {
+      return $style === 'headshot';
+    }, ARRAY_FILTER_USE_KEY);
   }
 }

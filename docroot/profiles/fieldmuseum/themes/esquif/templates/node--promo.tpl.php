@@ -8,7 +8,7 @@
  */
 ?>
 <div class="node-<?php print $node->nid; ?> <?php print $classes; ?>"<?php print $attributes; ?>>
-  <a class="promo__link" itemprop="url" href="<?php print $node_url; ?>">
+  <a<?php print $content_attributes; ?>>
     <figure>
       <?php print render($content['field_image']); ?>
       <figcaption class="promo__description">

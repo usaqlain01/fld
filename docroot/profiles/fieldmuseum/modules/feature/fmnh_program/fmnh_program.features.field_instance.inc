@@ -43,8 +43,9 @@ function fmnh_program_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(
           'field_formatter_class' => '',
+          'trim_length' => 600,
         ),
-        'type' => 'text_default',
+        'type' => 'text_summary_or_trimmed',
         'weight' => 1,
       ),
       'teaser' => array(
@@ -398,13 +399,11 @@ function fmnh_program_field_default_field_instances() {
       'file_directory' => '',
       'file_extensions' => 'jpg gif jpeg png',
       'imagecrop' => array(
-        '2x1_2400w' => 0,
-        '5x2_2400w' => 0,
-        '5x3_2400w' => 0,
-        'large' => 0,
+        '2x1_2400w' => '2x1_2400w',
+        '5x2_2400w' => '5x2_2400w',
+        '5x3_2400w' => '5x3_2400w',
         'media_gallery_large' => 0,
         'media_gallery_thumbnail' => 0,
-        'medium' => 0,
         'thumbnail' => 0,
       ),
       'max_filesize' => '',

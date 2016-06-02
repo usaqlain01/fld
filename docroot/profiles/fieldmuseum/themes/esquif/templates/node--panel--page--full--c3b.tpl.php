@@ -11,18 +11,28 @@
 <h1<?php print $title_attributes; ?>><?php print $title; ?></h1>
 <?php print render($title_suffix); ?>
 
-<?php print render($content['field_image']); ?>
-
 <?php if ($unpublished): ?>
   <mark class="unpublished"><?php print t('Unpublished'); ?></mark>
 <?php endif; ?>
 
-<?php print render($content['field_image']); ?>
-<?php print render($content['field_summary']); ?>
+<?php
+$items = field_get_items('node', $node, 'field_image');
+if ($items) {
+  foreach ((array) $items as $item) {
+    $element = field_view_value('node', $node, 'field_image', $item, array('type' => 'file_rendered_image', 'settings' => array(
+      'file_view_mode' => 'default',
+      'image_style' => 'thumbnail',
+      'image_link' => 'file',
+    )));
+    $element['file']['#path']['options']['attributes']['class'][] = 'float--rightPadded';
+    print render($element);
+  }
+}
+hide($content['field_image']);
+?>
+<?php hide($content['field_summary']); ?>
 
-<section class="article__body"<?php print drupal_attributes(rdf_rdfa_attributes($node->rdf_mapping['body'])); ?>>
-  <?php print render($content['body']); ?>
-</section>
+<?php print render($content['body']); ?>
 
 <?php
 // We hide the comments and links now so that we can render them later.

@@ -1,49 +1,26 @@
-## Site install commands
+## Asset building
 
-```php
-drush @fieldmusefacelift.prod si fieldmuseum --account-mail=bdoherty@caxy.com --account-name=admin --account-pass=# --site-name="The Field Museum"
-drush @fieldmusefacelift.prod en metatag_dc metatag_opengraph metatag_twitter_cards metatag_ui siteverification
-drush @fieldmusefacelift.prod en fmnh_blog fmnh_calendar fmnh_collection fmnh_department fmnh_exhibit fmnh_faq fmnh_gallery fmnh_landings fmnh_learning_resource fmnh_media fmnh_newsletter fmnh_podcast fmnh_press_release fmnh_program fmnh_project fmnh_references fmnh_science_tags fmnh_staff fmnh_traveling_exhibit fmnh_video
-drush @fieldmusefacelift.prod en shortcut dblog
-drush @fieldmusefacelift.test en fmnh_migrate migrate_ui
-drush @fieldmusefacelift.test migrate-import --all
-```
+Commands to build the front end assets from Table XI and any additional/overrides in the
+theme are implemented as [Composer scripts](https://getcomposer.org/doc/articles/scripts.md)
+at the root level of the repository.
 
-## Site migration commands
+For now, these scripts serve primarily as documentation, and they may require modification
+to work on your development environment. Composer scripts are simple ways to execute a
+series of commands. You can inspect and modify the commands in `composer.json` in the root
+directory of the repository under "scripts."
 
-```php
-drush @fieldmusefacelift.test en fmnh_migrate migrate_ui
-drush @fieldmusefacelift.test migrate-import --all
-```
+### One time instructions
 
+1. Install composer. <https://getcomposer.org/download/> This is the PHP dependency
+   manager.
+2. Install rvm. <http://rvm.io> This lets you maintain multiple installations of Ruby
+   in your environment (and prevents these instructions from creating conflicts with
+   any other ruby uses you already have).
+3. Install node.js and npm. <https://nodejs.org/download/> On Mac, I recommend homebrew.
+   <http://blog.teamtreehouse.com/install-node-js-npm-mac>
+4. Run `composer rvm`, `composer rvm:prepare` and `composer npm`. If these run
+   without error, you are able to build the assets.
 
+### Build instructions
 
-## Maintaining the migration data and assets
-
-```bash
-drush --yes rsync @fldmuse.prod:%files/ sites/default/files -v
-rsync -azv -e ssh /Users/bjd/nobackup/fldmuse/docroot/sites/default/files/ fieldmusefacelift@srv-3298.devcloud.hosting.acquia.com:/vol/ebs1/gfs/home/fieldmusefacelift/prod/migrate/files
-```
-
-```bash
-drush @fldmuse.prod sql-dump > ~/Desktop/fldmuse.prod.sql
-scp ~/Desktop/fldmuse.prod.sql fieldmusefacelift@srv-3298.devcloud.hosting.acquia.com:/vol/ebs1/gfs/home/fieldmusefacelift/prod/migrate/fldmuse.prod.sql
-```
-
-## Subtree merge
-
-### Initial setup:
-
-```bash
-git remote add profile git@codebasehq.com:caxy/field-museum-main-site/field-museum-caxy.git
-git merge -s ours --no-commit profile/develop
-git read-tree --prefix=docroot/profiles/fieldmuseum -u profile/develop
-git commit -m "subtree merge fieldmuseum profile."
-```
-
-### Further merges
-
-```bash
-git pull -s subtree -X subtree=docroot/profiles/fieldmuseum profile develop
-```
-
+1. From the root directory of the repository, run `composer theme:build`.

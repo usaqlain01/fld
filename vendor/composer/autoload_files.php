@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    $vendorDir . '/symfony/var-dumper/Resources/functions/dump.php',
     $vendorDir . '/kriswallsmith/assetic/src/functions.php',
-    $vendorDir . '/raulfraile/ladybug-themes/Ladybug/Plugin/Extra/Resources/php/helpers.php',
+    $vendorDir . '/bangpound/assetic-cli/src/functions.php',
 );

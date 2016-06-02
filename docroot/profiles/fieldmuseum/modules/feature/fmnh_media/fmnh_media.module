@@ -46,7 +46,25 @@ function fmnh_media_preprocess_image_style(&$variables, $hook) {
 
 function fmnh_media_srcset($style_prefix, $path) {
   $srcsets = array();
-  foreach (array_keys(image_styles()) as $style_name) {
+  $style_names = array_keys(image_styles());
+
+  usort($style_names, function ($a, $b) {
+    $matchesA = $matchesB = array();
+    preg_match('/([0-9]+)?/i', substr($a, strpos($a, '_') + 1), $matchesA);
+    preg_match('/([0-9]+)?/i', substr($b, strpos($b, '_') + 1), $matchesB);
+    if (!isset($matchesA[1])) {
+      $matchesA[1] = 0;
+    }
+    if (!isset($matchesB[1])) {
+      $matchesB[1] = 0;
+    }
+    if ((!isset($matchesA[1]) && !isset($matchesB[1])) || ($matchesA[1] == $matchesB[1])) {
+      return 0;
+    }
+    return ($matchesA[1] > $matchesB[1]) ? -1 : 1;
+  });
+
+  foreach ($style_names as $style_name) {
     if (strpos($style_name, $style_prefix) === 0) {
       list(, $candidate_string) = explode('_', $style_name);
       $srcset = image_style_url($style_name, $path);
@@ -77,17 +95,19 @@ function fmnh_media_ctools_plugin_directory($module, $plugin) {
 function theme_tablexi_gallery($variables) {
   $node = $variables['node'];
   $items = field_get_items('node', $node, 'media_gallery_file');
-  if ($items) {
-
+  if (!$items) {
+    return '';
   }
   $item = reset($items);
-  $href = image_style_url('gallery_1200w', $item['uri']);
+  $href = file_create_url($item['uri']);
   $src = image_style_url('gallery_800w', $item['uri']);
   $srcset = implode(',', fmnh_media_srcset('gallery', $item['uri']));
   $alt = $item['alt'];
 
-  if (isset($item['field_caption'])) {
-    $caption = $item['field_caption'][LANGUAGE_NONE][0]['safe_value'];
+  $caption_items = field_get_items('file', (object) $item, 'field_caption');
+  if ($caption_items) {
+    $element = field_view_value('file', (object) $item, 'field_caption', $caption_items[0]);
+    $caption = drupal_render($element);
   }
   else {
     $caption = '';
@@ -109,7 +129,7 @@ function theme_tablexi_gallery($variables) {
 				<a class="viewer__link" href="$href">
 <!-- CAXY: Don't focus on these image sizes just yet. Let us work through the responsive layer and then we'll supply image size targets. -->
 <!-- CAXY: We'll also update the sizes attribute after we've passed in the responsive layer. -->
-				<img class="viewer__image" src="$src" srcset="$srcset" sizes="100vw" alt="$alt" /> </a>
+				<img class="viewer__image" src="$src" srcset="$srcset" sizes="(min-width: 118.8125em) calc(100% - 555px),(min-width: 100.0625em) calc(100% - 380px),(min-width: 81.3125em) calc(100% - 325px),(min-width: 62.5625em) calc(100% - 300px),100vw" alt="$alt" /> </a>
 				<figcaption class="viewer__caption">$caption</figcaption>
 			</figure>
 
@@ -128,14 +148,23 @@ EOT;
   foreach ($items as $item) {
     $output .= '<li class="carousel__item js--carousel__item" ';
 
+    $caption_items = field_get_items('file', (object) $item, 'field_caption');
+    if ($caption_items) {
+      $element = field_view_value('file', (object) $item, 'field_caption', $caption_items[0]);
+      $caption = drupal_render($element);
+    }
+    else {
+      $caption = '';
+    }
+
     $attributes = array(
       'data-type' => $item['type'],
-      'data-sizes' => '100vw',
-      'data-href' => image_style_url('gallery_1200w', $item['uri']),
-      'data-src' => image_style_url('gallery_1200w', $item['uri']),
+      'data-sizes' => '(min-width: 118.8125em) calc(100% - 555px),(min-width: 100.0625em) calc(100% - 380px),(min-width: 81.3125em) calc(100% - 325px),(min-width: 62.5625em) calc(100% - 300px),100vw',
+      'data-href' => file_create_url($item['uri']),
+      'data-src' => image_style_url('gallery_800w', $item['uri']),
       'data-srcset' => implode(',', fmnh_media_srcset('gallery', $item['uri'])),
       'data-alt' => $item['alt'],
-      'data-caption' => $item['field_caption'][LANGUAGE_NONE][0]['safe_value'],
+      'data-caption' => $caption,
     );
 
     $output .= drupal_attributes($attributes);
@@ -161,4 +190,24 @@ EOT;
 EOT;
 
   return $output;
+}
+
+/**
+ * Implement hook_bangpoundmedia_wysiwyg_token_alter().
+ *
+ * Force the view mode and add the correct class attribute for aligned media.
+ *
+ * @param $tag_info
+ */
+function fmnh_media_bangpoundmedia_wysiwyg_token_alter(&$tag_info) {
+  if ($tag_info['view_mode'] != 'full') {
+    $tag_info['view_mode'] = 'embed';
+  }
+
+  /** @todo parse the style attribute for floats. */
+  if (isset($tag_info['attributes']['align'])) {
+    $tag_info['attributes']['class'] .= ' article__image--'. $tag_info['attributes']['align'];
+  }
+
+  /** @todo rewrite the dimension style and attributes to trigger image resize filter. */
 }

@@ -18,6 +18,9 @@ function fmnh_analytics_init() {
 function fmnh_analytics_theme_registry_alter(&$theme_registry) {
   $theme_registry['field']['preprocess functions'] = array_diff($theme_registry['field']['preprocess functions'], array('fmnh_analytics_preprocess_field'));
   $theme_registry['field']['preprocess functions'][] = 'fmnh_analytics_preprocess_field';
+
+  $theme_registry['node']['preprocess functions'] = array_diff($theme_registry['node']['preprocess functions'], array('fmnh_analytics_preprocess_node'));
+  $theme_registry['node']['preprocess functions'][] = 'fmnh_analytics_preprocess_node';
 }
 
 /**
@@ -126,7 +129,18 @@ function fmnh_analytics_preprocess_field(&$variables) {
 
   if ($field_name == 'field_ticket_link') {
     foreach ($variables['items'] as $delta => &$value) {
-      $value['#element']['attributes']['data-analytics'] = 'ticketing-'. $bundle;
+
+      $attr = null;
+
+      switch ($bundle) {
+        case "exhibit":
+          $attr = 'ticketing-exhibition';
+          break;
+        default:
+          $attr = 'ticketing-'. $bundle;
+      }
+
+      $value['#element']['attributes']['data-analytics'] = $attr;
     }
   }
 }
@@ -250,5 +264,23 @@ function fmnh_analytics_ctools_plugin_directory($module, $plugin) {
 function fmnh_analytics_ctools_plugin_api($module, $api) {
   if ($module == 'fmnh_analytics' && $api == 'default_fmnh_analytics_floodlight') {
     return array('version' => 1);
+  }
+}
+
+/**
+ * @param $variables
+ * @param $hook
+ */
+function fmnh_analytics_preprocess_node(&$variables, $hook) {
+  if (isset($variables['node']->in_references) && $variables['node']->in_references) {
+    if ($variables['view_mode'] == 'entity_label') {
+      $key = 'title_attributes_array';
+    }
+    else if ($variables['view_mode'] == 'promo') {
+      $key = 'content_attributes_array';
+    }
+    if (isset($key)) {
+      $variables[$key]['data-analytics'] = 'explore-'. strtr($variables['type'], '_', '-');
+    }
   }
 }

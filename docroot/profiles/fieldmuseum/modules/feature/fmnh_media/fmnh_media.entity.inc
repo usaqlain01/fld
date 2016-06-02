@@ -18,5 +18,9 @@ function fmnh_media_entity_view_mode_info() {
     'label' => t('Banner 5x3'),
     'custom_settings' => TRUE,
   );
+  $view_modes['file']['resource'] = array(
+    'label' => t('Resource'),
+    'custom_settings' => TRUE,
+  );
   return $view_modes;
 }

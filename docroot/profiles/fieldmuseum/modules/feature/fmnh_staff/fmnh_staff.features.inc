@@ -40,23 +40,30 @@ function fmnh_staff_image_default_styles() {
 
   // Exported image style: headshot.
   $styles['headshot'] = array(
-    'name' => 'headshot',
     'label' => 'Headshot',
     'effects' => array(
-      237 => array(
-        'label' => 'Scale and crop',
-        'help' => 'Scale and crop will maintain the aspect-ratio of the original image, then crop the larger dimension. This is most useful for creating perfectly square thumbnails without stretching the image.',
-        'effect callback' => 'image_scale_and_crop_effect',
-        'dimensions callback' => 'image_resize_dimensions',
-        'form callback' => 'image_resize_form',
-        'summary theme' => 'image_resize_summary',
-        'module' => 'image',
-        'name' => 'image_scale_and_crop',
+      451 => array(
+        'name' => 'imagecrop_javascript',
         'data' => array(
           'width' => 600,
           'height' => 800,
+          'xoffset' => '',
+          'yoffset' => '',
+          'resizable' => 1,
+          'downscaling' => 1,
+          'aspect_ratio' => 'CROP',
+          'disable_if_no_data' => 0,
         ),
-        'weight' => 1,
+        'weight' => -10,
+      ),
+      456 => array(
+        'name' => 'image_scale',
+        'data' => array(
+          'width' => 600,
+          'height' => 800,
+          'upscale' => 0,
+        ),
+        'weight' => 2,
       ),
     ),
   );
@@ -79,6 +86,19 @@ function fmnh_staff_default_profile2_type() {
       "registration" : 0,
       "roles" : { "2" : "2", "4" : "4", "5" : "5", "6" : "6", "3" : "3" },
       "use_page" : 1
+    },
+    "rdf_mapping" : []
+  }');
+  $items['override'] = entity_import('profile2_type', '{
+    "userCategory" : true,
+    "userView" : true,
+    "type" : "override",
+    "label" : "Override",
+    "weight" : "0",
+    "data" : {
+      "registration" : 0,
+      "roles" : { "2" : "2", "4" : "4", "5" : "5", "6" : "6", "3" : "3" },
+      "use_page" : 0
     },
     "rdf_mapping" : []
   }');

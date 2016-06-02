@@ -62,6 +62,7 @@ function composer_manager_build_json(array $data) {
         'config'  => array(
           'autoloader-suffix' => 'ComposerManager',
         ),
+        'prefer-stable' => TRUE,
       );
 
       $vendor_dir = composer_manager_relative_vendor_dir();
@@ -80,6 +81,7 @@ function composer_manager_build_json(array $data) {
       'provide',
       'suggest',
       'repositories',
+      'prefer-stable',
     );
 
     foreach ($to_merge as $key) {
@@ -236,24 +238,6 @@ function composer_manager_compare_stability($a, $b) {
 }
 
 /**
- * Returns the realpath to the Composer file directory.
- *
- * @return string
- *
- * @throws \RuntimeException
- */
-function composer_manager_file_dir() {
-  $dir_uri = variable_get('composer_manager_file_dir', file_default_scheme() . '://composer');
-  if (!composer_manager_prepare_directory($dir_uri)) {
-    throw new \RuntimeException(t('Error creating directory: @dir', array('@dir' => $dir_uri)));
-  }
-  if (!$realpath = drupal_realpath($dir_uri)) {
-    throw new \RuntimeException(t('Error resolving directory: @dir', array('@dir' => $dir_uri)));
-  }
-  return $realpath;
-}
-
-/**
  * Returns the path for the autoloaded directory or class relative to the
  * directory containing the composer.json file.
  */
@@ -262,7 +246,7 @@ function composer_manager_relative_autoload_path(&$path, $key, $module) {
   if (NULL === $dir_from) {
     $dir_from = composer_manager_file_dir();
   }
-  $dir_to = DRUPAL_ROOT . '/' . drupal_get_path('module', $module) . '/' . $path;
+  $dir_to = drupal_realpath(DRUPAL_ROOT . '/' . drupal_get_path('module', $module) . '/' . $path);
   $path = composer_manager_relative_dir($dir_to, $dir_from);
 }
 

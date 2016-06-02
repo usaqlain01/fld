@@ -1,0 +1,11 @@
+name = !&# Media
+description = Provides media extensions
+core = 7.x
+php = 5.2.4
+package = !&#
+dependencies[] = image_resize_filter
+dependencies[] = inline
+dependencies[] = media
+dependencies[] = oembed
+dependencies[] = plupload
+stylesheets[all][] = bangpoundmedia.css

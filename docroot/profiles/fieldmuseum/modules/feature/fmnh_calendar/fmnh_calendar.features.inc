@@ -149,7 +149,7 @@ function fmnh_calendar_rdf_default_mappings() {
         0 => 'schema:offers',
       ),
     ),
-    'field_price' => array(
+    'field_ticket_text' => array(
       'predicates' => array(),
     ),
   );

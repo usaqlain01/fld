@@ -325,7 +325,7 @@ function devel_menu() {
  */
 function _devel_switch_user_access($name) {
   // Suppress notices when on other pages when menu system still checks access.
-  return user_access('switch users') && drupal_valid_token(@$_GET['token'], "devel/switch/$name|" . @$_GET['destination'], TRUE);
+  return user_access('switch users') && drupal_valid_token(@$_GET['token'], "devel/switch/$name", TRUE);
 }
 
 /**
@@ -881,7 +881,7 @@ function devel_switch_user_list() {
       $links[$account->uid] = array(
         'title' => drupal_placeholder(format_username($account)),
         'href' => $path,
-        'query' => $dest + array('token' => drupal_get_token($path . '|' . $dest['destination'])),
+        'query' => $dest + array('token' => drupal_get_token($path)),
         'attributes' => array('title' => t('This user can switch back.')),
         'html' => TRUE,
         'last_access' => $account->access,
@@ -897,7 +897,7 @@ function devel_switch_user_list() {
         $links[$account->uid] = array(
           'title' => format_username($account),
           'href' => $path,
-          'query' => $dest + array('token' => drupal_get_token($path . '|' . $dest['destination'])),
+          'query' => array('token' => drupal_get_token($path)),
           'attributes' => array('title' => t('Caution: this user will be unable to switch back.')),
           'last_access' => $account->access,
         );
@@ -909,7 +909,7 @@ function devel_switch_user_list() {
       $link = array(
         'title' => format_username(drupal_anonymous_user()),
         'href' => $path,
-        'query' => $dest + array('token' => drupal_get_token($path . '/|' . $dest['destination'])),
+        'query' => $dest + array('token' => drupal_get_token($path)),
         'attributes' => array('title' => t('Caution: the anonymous user will be unable to switch back.')),
       );
       if (user_access('switch users', drupal_anonymous_user())) {
@@ -1114,6 +1114,12 @@ function devel_shutdown_real() {
 
     if (isset($user) && user_access('access devel information')) {
       $queries = (devel_query_enabled() ? Database::getLog('devel', 'default') : NULL);
+      if (!empty($queries)) {
+        // Remove caller args to avoid recursion.
+        foreach ($queries as &$query) {
+          unset($query['caller']['args']);
+        }
+      }
       $output .= devel_shutdown_summary($queries);
       $output .= devel_shutdown_query($queries);
     }
@@ -2091,5 +2097,25 @@ function devel_form_system_modules_alter(&$form, &$form_state) {
         }
       }
     }
+  }
+}
+
+/**
+ * Implements hook_query_TAG_alter().
+ *
+ * Makes debugging EntityFieldQuery much easier.
+ *
+ * Example usage:
+ *   $q = new EntityFieldQuery;
+ *   $q->entityCondition('entity_type', 'node')
+ *     ->addTag('debug')
+ *     ->execute();
+ *
+ * @param QueryAlterableInterface $query
+ */
+function devel_query_debug_alter(QueryAlterableInterface $query) {
+  if (!$query->hasTag('debug-semaphore')) {
+    $query->addTag('debug-semaphore');
+    dpq($query);
   }
 }

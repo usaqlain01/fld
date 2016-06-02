@@ -219,6 +219,7 @@ function fmnh_press_release_field_default_field_instances() {
     'fences_wrapper' => 'div',
     'field_name' => 'field_press_release_type',
     'label' => 'Press release type',
+    'readmore_behaviour' => 'default',
     'required' => 1,
     'settings' => array(
       'user_register_form' => FALSE,

@@ -68,6 +68,21 @@ function entityqueue_views_data_alter(&$data) {
             'field_name' => $field_name,
             'real field' => 'delta',
           );
+          $relationship['filter'] = array(
+            'handler' => 'entityqueue_handler_filter_in_queue',
+            'group' => t('Entityqueue'),
+            'title' => t('@target In Queue', array(
+              '@target' => $target_entity_info['label'],
+            )),
+            'label' => t('@target In Queue', array(
+              '@target' => $target_entity_info['label'],
+            )),
+            'help' => t('Filter for entities that are not/in a entityqueue in the @target queue.', array(
+              '@target' => $target_entity_info['label'],
+            )),
+            'field table' => $field_table,
+            'field field' => $field['field_name'] . '_target_id',
+          );
         }
       }
 
@@ -77,23 +92,6 @@ function entityqueue_views_data_alter(&$data) {
     }
   }
 
-  $data['entityqueue_subqueue']['queue'] = array(
-    'title' => t('Queue Name'),
-    'label' => t('Queue Name'),
-    'group' => t('Entityqueue'),
-    'help' => t('The entityqueue machine name.'),
-    'sort' => array(
-      'handler' => 'views_handler_sort',
-    ),
-  );
-
-  $data['entityqueue_subqueue']['name'] = array(
-    'title' => t('Subqueue Name'),
-    'label' => t('Subqueue Name'),
-    'group' => t('Entityqueue'),
-    'help' => t('The subqueue machine name.'),
-    'sort' => array(
-      'handler' => 'views_handler_sort',
-    ),
-  );
+  // Use our argument handler
+  $data['entityqueue_subqueue']['subqueue_id']['argument']['handler'] = 'entityqueue_handler_argument_subqueue_id';
 }

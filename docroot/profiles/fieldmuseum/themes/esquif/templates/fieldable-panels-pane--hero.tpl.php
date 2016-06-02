@@ -1,3 +1,3 @@
 <figcaption class="hero__caption">
-  <?php print $fields; ?>
+  <?php print render($content); ?>
 </figcaption>

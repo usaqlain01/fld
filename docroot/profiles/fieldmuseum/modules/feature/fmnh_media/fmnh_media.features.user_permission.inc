@@ -45,6 +45,8 @@ function fmnh_media_user_default_permissions() {
     'name' => 'administer files',
     'roles' => array(
       'administrator' => 'administrator',
+      'publisher' => 'publisher',
+      'reviewer' => 'reviewer',
     ),
     'module' => 'file_entity',
   );
@@ -100,6 +102,8 @@ function fmnh_media_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'author' => 'author',
+      'publisher' => 'publisher',
+      'reviewer' => 'reviewer',
     ),
     'module' => 'file_entity',
   );
@@ -228,6 +232,8 @@ function fmnh_media_user_default_permissions() {
     'name' => 'download any document files',
     'roles' => array(
       'administrator' => 'administrator',
+      'anonymous user' => 'anonymous user',
+      'authenticated user' => 'authenticated user',
     ),
     'module' => 'file_entity',
   );
@@ -437,6 +443,7 @@ function fmnh_media_user_default_permissions() {
     'name' => 'view files',
     'roles' => array(
       'administrator' => 'administrator',
+      'anonymous user' => 'anonymous user',
       'authenticated user' => 'authenticated user',
       'author' => 'author',
       'publisher' => 'publisher',
@@ -461,6 +468,8 @@ function fmnh_media_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'author' => 'author',
+      'publisher' => 'publisher',
+      'reviewer' => 'reviewer',
     ),
     'module' => 'file_entity',
   );

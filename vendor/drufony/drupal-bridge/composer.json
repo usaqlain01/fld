@@ -1,0 +1,32 @@
+{
+    "name": "drufony/drupal-bridge",
+    "description": "Symfony Drupal bridge",
+    "suggest": {
+        "bangpound/drupal-bootstrap": "Replace Drupal 7 bootstrap with a Pimple container",
+        "bangpound/legacy-php-http-kernel": "Run bad controllers on the Symfony kernel",
+        "symfony/class-loader": "Replace Drupal's class registry with Symfony's class loader",
+        "drufony/druplex": "Drupal inside Silex",
+        "drufony/drufony": "Drupal inside Symfony Standard Edition",
+        "guzzle/guzzle": "Replace Drupal's HTTP function with Guzzle"
+    },
+    "require-dev": {
+        "composer/composer": "~1.0@dev",
+        "guzzle/guzzle": "~3.8",
+        "symfony/filesystem": "~2.5"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Benjamin Doherty",
+            "email": "bjd@bangpound.org"
+        }
+    ],
+    "autoload": {
+        "psr-4": { "Drufony\\Bridge\\": "" }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-develop": "1.1.x-dev"
+        }
+    }
+}

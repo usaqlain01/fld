@@ -29,16 +29,39 @@ function fieldmuseum_menu() {
  */
 function fieldmuseum_menu_alter(&$items) {
   $changes = array(
-    'at-the-field/programs/%pm_arg' => array('programs', 'ctools_context_1'),
-    'at-the-field/calendar/%pm_arg' => array('calendar', 'ctools_context_1'),
-    'at-the-field/exhibitions/%pm_arg' => array('exhibitions', 'ctools_context_1'),
-    'educators/field-trip-programs/%pm_arg' => array('field_trip_programs', 'ctools_context_1'),
-    'educators/resources/%pm_arg' => array('learning_resources', 'ctools_context_1'),
-    'node/%pm_arg/people' => array('users', 'ctools_context_2'),
+    'at-the-field/programs/%pm_arg' => array('programs', 'ctools_context_1', FALSE),
+    'at-the-field/calendar/%pm_arg' => array('calendar', 'ctools_context_1', FALSE),
+    'at-the-field/exhibitions/%pm_arg' => array('exhibitions', 'ctools_context_1', FALSE),
+    'educators/field-trip-programs/%pm_arg' => array('field_trip_programs', 'ctools_context_1', FALSE),
+    'educators/resources/%pm_arg' => array('learning_resources', 'ctools_context_1', FALSE),
+    'node/%pm_arg/people' => array('users', 'ctools_context_2', TRUE),
   );
   foreach ($changes as $path => $access_arguments) {
-    $items[$path]['access callback'] = 'fieldmuseum_menu_access';
-    $items[$path]['access arguments'] = array_merge($access_arguments, $items[$path]['access arguments']);
+    if (isset($items[$path])) {
+      $items[$path]['access callback'] = 'fieldmuseum_menu_access';
+      $items[$path]['access arguments'] = array_merge($access_arguments, $items[$path]['access arguments']);
+    }
+  }
+}
+
+/**
+ * Implements hook_menu_get_item_alter().
+ *
+ * When Drupal matches a Page Manager callback without a trailing argument,
+ * this returns "not found" if the requested path is longer than the
+ * matched path.
+ *
+ * @param $router_item
+ * @param $path
+ * @param $original_map
+ */
+function fieldmuseum_menu_get_item_alter(&$router_item, $path, $original_map) {
+  if (!strpos($router_item['path'], '%', strlen($router_item['path']) - 1)
+    && $router_item['access_callback'] === 'ctools_access_menu'
+    && $router_item['page_callback'] === 'page_manager_page_execute'
+    && count($original_map) > $router_item['number_parts'])  {
+
+    $router_item['page_callback'] = 'drupal_not_found';
   }
 }
 
@@ -52,15 +75,17 @@ function fieldmuseum_menu_alter(&$items) {
  * @param $display
  * @return bool|mixed
  */
-function fieldmuseum_menu_access($view_name, $display) {
+function fieldmuseum_menu_access($view_name, $display, $inline) {
   $args = func_get_args();
-  $args = array_splice($args, 2);
-  $result = views_get_view_result($view_name, $display, $args[1]->get_argument());
+  $args = array_splice($args, 3);
+  if (call_user_func_array('ctools_access_menu', $args)) {
+    $result = views_get_view_result($view_name, $display, $args[1]->get_argument());
 
-  if (!empty($result)) {
-    return call_user_func_array('ctools_access_menu', $args);
+    if (!empty($result)) {
+      return TRUE;
+    }
   }
-  return user_access('administer menu');
+  return !$inline && user_access('administer menu');
 }
 
 /**
@@ -318,8 +343,9 @@ function esquif_panels_settings_submit(&$form_state, &$display, $layout, $settin
  * @param $json
  */
 function fieldmuseum_composer_json_alter(&$json) {
-  $json['minimum-stability'] = 'dev';
   $json['prefer-stable'] = true;
+  $json['config']['preferred-install'] = 'dist';
+  $json['config']['optimize-autoloader'] = true;
 }
 
 /**
@@ -459,7 +485,8 @@ function fieldmuseum_panels_pane_content_alter($content, $pane, $panel_args, $co
   // Entity view plugin only displays one entity, so restructure array to align with
   // existing entity rendering content type plugins.
   if ($pane->type == 'entity_view') {
-    $content->content = array_pop(array_pop($content->content));
+    $temp = array_pop($content->content);
+    $content->content = array_pop($temp);
   }
 
   if (isset($pane->style['style'])) {

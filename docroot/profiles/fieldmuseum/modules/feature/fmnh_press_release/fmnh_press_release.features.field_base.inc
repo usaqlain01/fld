@@ -17,7 +17,6 @@ function fmnh_press_release_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_press_release_type',
-    'foreign keys' => array(),
     'indexes' => array(
       'value' => array(
         0 => 'value',
@@ -29,6 +28,7 @@ function fmnh_press_release_field_default_field_bases() {
       'allowed_values' => array(
         'science' => 'Science',
         'exhibit' => 'Exhibition',
+        'events-announcements' => 'Events & Announcements',
       ),
       'allowed_values_function' => '',
       'profile2_private' => FALSE,

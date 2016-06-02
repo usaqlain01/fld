@@ -17,7 +17,6 @@ function fmnh_calendar_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_price',
-    'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'number',
@@ -38,14 +37,6 @@ function fmnh_calendar_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_program',
-    'foreign keys' => array(
-      'node' => array(
-        'columns' => array(
-          'target_id' => 'nid',
-        ),
-        'table' => 'node',
-      ),
-    ),
     'indexes' => array(
       'target_id' => array(
         0 => 'target_id',
@@ -84,7 +75,6 @@ function fmnh_calendar_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_ticket_link',
-    'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'link',
@@ -106,6 +96,32 @@ function fmnh_calendar_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'link_field',
+  );
+
+  // Exported field_base: 'field_ticket_text'
+  $field_bases['field_ticket_text'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_ticket_text',
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        'Buy Tickets' => 'Buy Tickets',
+        'Register' => 'Register',
+      ),
+      'allowed_values_function' => '',
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'list_text',
   );
 
   return $field_bases;

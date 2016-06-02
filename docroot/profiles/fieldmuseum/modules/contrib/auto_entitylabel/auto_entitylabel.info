@@ -4,9 +4,9 @@ core = 7.x
 
 dependencies[] = entity
 
-; Information added by Drupal.org packaging script on 2014-06-12
-version = "7.x-1.2+7-dev"
+; Information added by Drupal.org packaging script on 2014-12-28
+version = "7.x-1.3"
 core = "7.x"
 project = "auto_entitylabel"
-datestamp = "1402568029"
+datestamp = "1419756181"
 
