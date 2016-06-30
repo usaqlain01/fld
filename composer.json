@@ -27,6 +27,12 @@
         "bin-dir": "bin"
     },
     "scripts": {
+        "drupal:unlock": [
+            "chmod +w docroot/sites/default && chmod +w docroot/sites/default/settings.*"
+        ],
+        "drush:login": [
+            "drush --yes --root=docroot uli"
+        ],
         "rvm": [
             "rvm use ruby-2.2.2@fldmuse --create"
         ],
@@ -38,16 +44,16 @@
             "npm install -g coffee-script"
         ],
         "sync": [
-            "./bin/drush --yes --root=docroot sql-sync @fldmuse.prod @self",
-            "./bin/drush --yes --root=docroot rsync @fldmuse.prod:%files @self:%files -Pv"
+            "drush --yes --root=docroot sql-sync @fldmuse.prod @self",
+            "drush --yes --root=docroot rsync @fldmuse.prod:%files @self:%files -Pv"
         ],
         "drush:composer": [
-            "./bin/drush --root=docroot composer-json-rebuild",
-            "./bin/drush --root=docroot composer-manager update"
+            "drush --root=docroot composer-json-rebuild",
+            "drush --rot=docroot composer-manager update"
         ],
         "assetic": [
-            "./bin/assetic prepare",
-            "./bin/assetic dump"
+            "bin/assetic prepare",
+            "bin/assetic dump"
         ],
         "theme:build": [
             "composer rvm",
