@@ -1,5 +1,5 @@
-TranslationServiceProvider
-==========================
+Translation
+===========
 
 The *TranslationServiceProvider* provides a service for translating your
 application into different languages.
@@ -44,9 +44,7 @@ Registering
 
 .. note::
 
-    The Symfony Translation Component comes with the "fat" Silex archive but
-    not with the regular one. If you are using Composer, add it as a
-    dependency:
+    Add the Symfony Translation Component as a dependency:
 
     .. code-block:: bash
 
@@ -185,15 +183,8 @@ Accessing translations in Twig templates
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Once loaded, the translation service provider is available from within Twig
-templates:
-
-.. code-block:: jinja
-
-    {{ app.translator.trans('translation_key') }}
-
-Moreover, when using the Twig bridge provided by Symfony (see
-:doc:`TwigServiceProvider </providers/twig>`), you will be allowed to translate
-strings in the Twig way:
+templates when using the Twig bridge provided by Symfony (see
+:doc:`TwigServiceProvider </providers/twig>`):
 
 .. code-block:: jinja
 

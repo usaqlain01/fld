@@ -63,6 +63,6 @@
     "require": {
         "drufony/drupal-bridge": "dev-develop",
         "symfony/expression-language": "^2.7",
-        "silex/silex": "~2.0@dev"
+        "silex/silex": "~2.0"
     }
 }
