@@ -39,7 +39,7 @@ function fmnh_media_preprocess_image_style(&$variables, $hook) {
       $srcsets = fmnh_media_srcset($style_prefix, $variables['path']);
       $variables['attributes']['srcset'] = implode(',', $srcsets);
       $variables['attributes']['class'][] = 'js--pictureFill';
-      $variables['attributes']['sizes'] = '(min-width: 118.8125em) calc(100% - 555px),(min-width: 100.0625em) calc(100% - 380px),(min-width: 81.3125em) calc(100% - 325px),(min-width: 62.5625em) calc(100% - 300px),100vw';
+      $variables['attributes']['sizes'] = '(min-width: 118.8125em) calc(100vw - 555px),(min-width: 100.0625em) calc(100vw - 380px),(min-width: 81.3125em) calc(100vw - 325px),(min-width: 62.5625em) calc(100vw - 300px),100vw';
     }
   }
 }
@@ -129,7 +129,7 @@ function theme_tablexi_gallery($variables) {
 				<a class="viewer__link" href="$href">
 <!-- CAXY: Don't focus on these image sizes just yet. Let us work through the responsive layer and then we'll supply image size targets. -->
 <!-- CAXY: We'll also update the sizes attribute after we've passed in the responsive layer. -->
-				<img class="viewer__image" src="$src" srcset="$srcset" sizes="(min-width: 118.8125em) calc(100% - 555px),(min-width: 100.0625em) calc(100% - 380px),(min-width: 81.3125em) calc(100% - 325px),(min-width: 62.5625em) calc(100% - 300px),100vw" alt="$alt" /> </a>
+				<img class="viewer__image" src="$src" srcset="$srcset" sizes="(min-width: 118.8125em) calc(100vw - 555px),(min-width: 100.0625em) calc(100vw - 380px),(min-width: 81.3125em) calc(100vw - 325px),(min-width: 62.5625em) calc(100vw - 300px),100vw" alt="$alt" /> </a>
 				<figcaption class="viewer__caption">$caption</figcaption>
 			</figure>
 
@@ -159,7 +159,7 @@ EOT;
 
     $attributes = array(
       'data-type' => $item['type'],
-      'data-sizes' => '(min-width: 118.8125em) calc(100% - 555px),(min-width: 100.0625em) calc(100% - 380px),(min-width: 81.3125em) calc(100% - 325px),(min-width: 62.5625em) calc(100% - 300px),100vw',
+      'data-sizes' => '(min-width: 118.8125em) calc(100vw - 555px),(min-width: 100.0625em) calc(100vw - 380px),(min-width: 81.3125em) calc(100vw - 325px),(min-width: 62.5625em) calc(100vw - 300px),100vw',
       'data-href' => file_create_url($item['uri']),
       'data-src' => image_style_url('gallery_800w', $item['uri']),
       'data-srcset' => implode(',', fmnh_media_srcset('gallery', $item['uri'])),
