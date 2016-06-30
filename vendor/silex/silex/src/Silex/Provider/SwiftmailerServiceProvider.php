@@ -75,6 +75,13 @@ class SwiftmailerServiceProvider implements ServiceProviderInterface, EventListe
                 $transport->registerPlugin(new \Swift_Plugins_ImpersonatePlugin($app['swiftmailer.sender_address']));
             }
 
+            if (!empty($app['swiftmailer.delivery_addresses'])) {
+                $transport->registerPlugin(new \Swift_Plugins_RedirectingPlugin(
+                    $app['swiftmailer.delivery_addresses'],
+                    $app['swiftmailer.delivery_whitelist']
+                ));
+            }
+
             return $transport;
         };
 
@@ -95,14 +102,17 @@ class SwiftmailerServiceProvider implements ServiceProviderInterface, EventListe
         };
 
         $app['swiftmailer.sender_address'] = null;
+        $app['swiftmailer.delivery_addresses'] = [];
+        $app['swiftmailer.delivery_whitelist'] = [];
     }
 
     public function subscribe(Container $app, EventDispatcherInterface $dispatcher)
     {
-        $onTerminate = function (PostResponseEvent $event) use ($app) {
+        // Event has no typehint as it can be either a PostResponseEvent or a ConsoleTerminateEvent
+        $onTerminate = function ($event) use ($app) {
             // To speed things up (by avoiding Swift Mailer initialization), flush
             // messages only if our mailer has been created (potentially used)
-            if ($app['mailer.initialized']) {
+            if ($app['mailer.initialized'] && $app['swiftmailer.use_spool'] && $app['swiftmailer.spooltransport'] instanceof \Swift_Transport_SpoolTransport) {
                 $app['swiftmailer.spooltransport']->getSpool()->flushQueue($app['swiftmailer.transport']);
             }
         };

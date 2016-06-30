@@ -1,5 +1,5 @@
-MonologServiceProvider
-======================
+Monolog
+=======
 
 The *MonologServiceProvider* provides a default logging mechanism through
 Jordi Boggiano's `Monolog <https://github.com/Seldaek/monolog>`_ library.
@@ -12,8 +12,8 @@ Parameters
 ----------
 
 * **monolog.logfile**: File where logs are written to.
-* **monolog.bubble** = (optional) Whether the messages that are handled can bubble up the stack or not.
-* **monolog.permission** = (optional) File permissions default (null), nothing change.
+* **monolog.bubble**: (optional) Whether the messages that are handled can bubble up the stack or not.
+* **monolog.permission**: (optional) File permissions default (null), nothing change.
 
 * **monolog.level** (optional): Level of logging, defaults
   to ``DEBUG``. Must be one of ``Logger::DEBUG``, ``Logger::INFO``,
@@ -30,6 +30,14 @@ Parameters
 
 * **monolog.exception.logger_filter** (optional): An anonymous function that
   filters which exceptions should be logged.
+
+* **monolog.use_error_handler** (optional): Whether errors and uncaught exceptions
+  should be handled by the Monolog ``ErrorHandler`` class and added to the log.
+  By default the error handler is enabled unless the application ``debug`` parameter
+  is set to true.
+
+  Please note that enabling the error handler may silence some errors,
+  ignoring the PHP ``display_errors`` configuration setting.
 
 Services
 --------
@@ -53,8 +61,7 @@ Registering
 
 .. note::
 
-    Monolog comes with the "fat" Silex archive but not with the regular one.
-    If you are using Composer, add it as a dependency:
+    Add Monolog as a dependency:
 
     .. code-block:: bash
 
