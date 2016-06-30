@@ -9,7 +9,6 @@
         "cilex/console-service-provider": "~2.0@dev",
         "bangpound/assetic-cli": "~1.1@dev",
         "bangpound/assetic-service-provider": "~1.0@dev",
-        "zacoza/assetic-filters": "dev-master",
         "bangpound/assetic-codekit": "1.0.*@dev"
     },
     "autoload": {
@@ -40,7 +39,8 @@
             "bundle install"
         ],
         "npm": [
-            "npm install -g coffee-script"
+            "npm install -g coffee-script",
+            "npm install --global postcss-cli autoprefixer"
         ],
         "sync": [
             "drush --yes --root=docroot sql-sync @fldmuse.prod @self",
