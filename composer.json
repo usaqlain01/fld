@@ -44,7 +44,11 @@
         ],
         "sync": [
             "drush --yes --root=docroot sql-sync @fldmuse.prod @self",
-            "drush --yes --root=docroot rsync @fldmuse.prod:%files @self:%files -Pv"
+            "drush --yes --root=docroot rsync @fldmuse.prod:%files @self:%files -Pv",
+            "@prepare:dev"
+        ],
+        "prepare:dev": [
+            "drush --yes --root=docroot dis domain_301_redirect securelogin"
         ],
         "drush:composer": [
             "drush --root=docroot composer-json-rebuild",
