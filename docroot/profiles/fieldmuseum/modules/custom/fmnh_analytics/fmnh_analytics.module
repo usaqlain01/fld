@@ -8,6 +8,7 @@ function fmnh_analytics_init() {
     drupal_add_library('fmnh_analytics', 'analytics', TRUE);
   }
   drupal_add_library('fmnh_analytics', 'chartbeat', TRUE);
+  drupal_add_library('fmnh_analytics', 'siteimprove', TRUE);
 }
 
 /**
@@ -55,6 +56,19 @@ var oldonload = window.onload;
 window.onload = (typeof window.onload != \'function\') ?
      loadChartbeat : function() { oldonload(); loadChartbeat(); };
 })();' => array('type' => 'inline', 'scope' => 'footer'),
+    ),
+  );
+  $libraries['siteimprove'] = array(
+    'title' => 'SiteImprove',
+    'version' => '1.0',
+    'js' => array(
+      '/*<![CDATA[*/
+(function() {
+var sz = document.createElement("script"); sz.type = "text/javascript"; sz.async = true;
+sz.src = "//siteimproveanalytics.com/js/siteanalyze_1728.js";
+var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(sz, s);
+})();
+/*]]>*/' => array('type' => 'inline', 'scope' => 'footer'),
     ),
   );
   return $libraries;
