@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "761ef2829736679f3487599cacec66e7",
-    "content-hash": "a0c40240fccc435d6fb261a0adfbc07f",
+    "hash": "7eb1c9746d847a8c9fa944550b5d543c",
+    "content-hash": "cf517fb64a3c3b3501eb7d497d708053",
     "packages": [],
     "packages-dev": [
         {
@@ -14,12 +14,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bangpound/Assetic-CLI.git",
-                "reference": "fb02a0c0158cae72ebb122db166233c839a9b0c2"
+                "reference": "33ca6cec7875edada61b76c080d3ecc61a9a5d0c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bangpound/Assetic-CLI/zipball/fb02a0c0158cae72ebb122db166233c839a9b0c2",
-                "reference": "fb02a0c0158cae72ebb122db166233c839a9b0c2",
+                "url": "https://api.github.com/repos/bangpound/Assetic-CLI/zipball/33ca6cec7875edada61b76c080d3ecc61a9a5d0c",
+                "reference": "33ca6cec7875edada61b76c080d3ecc61a9a5d0c",
                 "shasum": ""
             },
             "require": {
@@ -52,7 +52,7 @@
                 "MIT"
             ],
             "description": "Assetic as a command line tool",
-            "time": "2016-06-30 17:33:17"
+            "time": "2016-07-10 06:01:13"
         },
         {
             "name": "bangpound/assetic-codekit",
@@ -101,12 +101,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bangpound/assetic-service-provider.git",
-                "reference": "e3b70ce2182e79abb01b49476cd1f14851e68f19"
+                "reference": "bb3581bf24431637d42841579ad3dba3a6c479ce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bangpound/assetic-service-provider/zipball/e3b70ce2182e79abb01b49476cd1f14851e68f19",
-                "reference": "e3b70ce2182e79abb01b49476cd1f14851e68f19",
+                "url": "https://api.github.com/repos/bangpound/assetic-service-provider/zipball/bb3581bf24431637d42841579ad3dba3a6c479ce",
+                "reference": "bb3581bf24431637d42841579ad3dba3a6c479ce",
                 "shasum": ""
             },
             "require": {
@@ -130,7 +130,7 @@
                 "MIT"
             ],
             "description": "Assetic service provider for Pimple",
-            "time": "2015-07-13 19:06:04"
+            "time": "2016-07-10 07:01:52"
         },
         {
             "name": "cilex/console-service-provider",
@@ -409,33 +409,33 @@
         },
         {
             "name": "symfony/debug",
-            "version": "v2.8.8",
+            "version": "v3.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/debug.git",
-                "reference": "2477199ad1dd1c43fe18a84d7907fffa025eff10"
+                "reference": "06e2d52e307ef880ac739f44ee6c2418ca9e3283"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/debug/zipball/2477199ad1dd1c43fe18a84d7907fffa025eff10",
-                "reference": "2477199ad1dd1c43fe18a84d7907fffa025eff10",
+                "url": "https://api.github.com/repos/symfony/debug/zipball/06e2d52e307ef880ac739f44ee6c2418ca9e3283",
+                "reference": "06e2d52e307ef880ac739f44ee6c2418ca9e3283",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.9",
+                "php": ">=5.5.9",
                 "psr/log": "~1.0"
             },
             "conflict": {
                 "symfony/http-kernel": ">=2.3,<2.3.24|~2.4.0|>=2.5,<2.5.9|>=2.6,<2.6.2"
             },
             "require-dev": {
-                "symfony/class-loader": "~2.2|~3.0.0",
-                "symfony/http-kernel": "~2.3.24|~2.5.9|~2.6,>=2.6.2|~3.0.0"
+                "symfony/class-loader": "~2.8|~3.0",
+                "symfony/http-kernel": "~2.8|~3.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.8-dev"
+                    "dev-master": "3.1-dev"
                 }
             },
             "autoload": {
@@ -462,29 +462,29 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
-            "time": "2016-06-29 05:29:29"
+            "time": "2016-06-29 05:41:56"
         },
         {
             "name": "symfony/filesystem",
-            "version": "v2.8.8",
+            "version": "v3.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
-                "reference": "7258ddd6f987053f21fa43d03430580ba54e6096"
+                "reference": "322da5f0910d8aa0b25fa65ffccaba68dbddb890"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/filesystem/zipball/7258ddd6f987053f21fa43d03430580ba54e6096",
-                "reference": "7258ddd6f987053f21fa43d03430580ba54e6096",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/322da5f0910d8aa0b25fa65ffccaba68dbddb890",
+                "reference": "322da5f0910d8aa0b25fa65ffccaba68dbddb890",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.9"
+                "php": ">=5.5.9"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.8-dev"
+                    "dev-master": "3.1-dev"
                 }
             },
             "autoload": {
@@ -511,7 +511,7 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "https://symfony.com",
-            "time": "2016-06-29 05:31:50"
+            "time": "2016-06-29 05:41:56"
         },
         {
             "name": "symfony/finder",
@@ -672,20 +672,20 @@
         },
         {
             "name": "symfony/var-dumper",
-            "version": "v2.8.8",
+            "version": "v3.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
-                "reference": "eb21798f1cd2d3a1c1e1e4d0632b6d04a798f210"
+                "reference": "39492b8b8fe514163e677bf154fd80f6cc995759"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/eb21798f1cd2d3a1c1e1e4d0632b6d04a798f210",
-                "reference": "eb21798f1cd2d3a1c1e1e4d0632b6d04a798f210",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/39492b8b8fe514163e677bf154fd80f6cc995759",
+                "reference": "39492b8b8fe514163e677bf154fd80f6cc995759",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.9",
+                "php": ">=5.5.9",
                 "symfony/polyfill-mbstring": "~1.0"
             },
             "require-dev": {
@@ -697,7 +697,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.8-dev"
+                    "dev-master": "3.1-dev"
                 }
             },
             "autoload": {
@@ -731,7 +731,7 @@
                 "debug",
                 "dump"
             ],
-            "time": "2016-06-29 05:29:29"
+            "time": "2016-06-29 05:41:56"
         }
     ],
     "aliases": [],
