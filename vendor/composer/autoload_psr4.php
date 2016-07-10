@@ -14,6 +14,5 @@ return array(
     'Symfony\\Component\\Debug\\' => array($vendorDir . '/symfony/debug'),
     'Bangpound\\Pimple\\Provider\\' => array($vendorDir . '/bangpound/assetic-service-provider'),
     'Bangpound\\Assetic\\Filter\\' => array($vendorDir . '/bangpound/assetic-codekit'),
-    'Bangpound\\Assetic\\' => array($vendorDir . '/bangpound/assetic-cli/src'),
     '' => array($baseDir . '/src'),
 );

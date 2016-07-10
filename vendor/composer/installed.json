@@ -329,54 +329,6 @@
         "description": "Assetic service provider for Pimple"
     },
     {
-        "name": "bangpound/assetic-cli",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/bangpound/Assetic-CLI.git",
-            "reference": "33ca6cec7875edada61b76c080d3ecc61a9a5d0c"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/bangpound/Assetic-CLI/zipball/33ca6cec7875edada61b76c080d3ecc61a9a5d0c",
-            "reference": "33ca6cec7875edada61b76c080d3ecc61a9a5d0c",
-            "shasum": ""
-        },
-        "require": {
-            "bangpound/assetic-service-provider": "~1.0@dev",
-            "php": ">=5.3.3",
-            "symfony/finder": "~2.3"
-        },
-        "require-dev": {
-            "symfony/debug": "~2.3"
-        },
-        "time": "2016-07-10 06:01:13",
-        "bin": [
-            "bin/assetic"
-        ],
-        "type": "project",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.1.x-dev"
-            }
-        },
-        "installation-source": "source",
-        "autoload": {
-            "psr-4": {
-                "Bangpound\\Assetic\\": "src/"
-            },
-            "files": [
-                "src/functions.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "description": "Assetic as a command line tool"
-    },
-    {
         "name": "bangpound/assetic-codekit",
         "version": "dev-master",
         "version_normalized": "9999999-dev",

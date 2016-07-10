@@ -9,7 +9,6 @@ class ComposerStaticInitRepo
     public static $files = array (
         'ce89ac35a6c330c55f4710717db9ff78' => __DIR__ . '/..' . '/kriswallsmith/assetic/src/functions.php',
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
-        'f9176f21ab2dd6a72dba78c13bcc1d2c' => __DIR__ . '/..' . '/bangpound/assetic-cli/src/functions.php',
         '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
     );
 
@@ -27,7 +26,6 @@ class ComposerStaticInitRepo
         array (
             'Bangpound\\Pimple\\Provider\\' => 26,
             'Bangpound\\Assetic\\Filter\\' => 25,
-            'Bangpound\\Assetic\\' => 18,
         ),
     );
 
@@ -63,10 +61,6 @@ class ComposerStaticInitRepo
         'Bangpound\\Assetic\\Filter\\' => 
         array (
             0 => __DIR__ . '/..' . '/bangpound/assetic-codekit',
-        ),
-        'Bangpound\\Assetic\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/bangpound/assetic-cli/src',
         ),
     );
 
@@ -203,9 +197,6 @@ class ComposerStaticInitRepo
         'Assetic\\Util\\TraversableString' => __DIR__ . '/..' . '/kriswallsmith/assetic/src/Assetic/Util/TraversableString.php',
         'Assetic\\Util\\VarUtils' => __DIR__ . '/..' . '/kriswallsmith/assetic/src/Assetic/Util/VarUtils.php',
         'Assetic\\ValueSupplierInterface' => __DIR__ . '/..' . '/kriswallsmith/assetic/src/Assetic/ValueSupplierInterface.php',
-        'Bangpound\\Assetic\\Command\\AbstractCommand' => __DIR__ . '/..' . '/bangpound/assetic-cli/src/Command/AbstractCommand.php',
-        'Bangpound\\Assetic\\Command\\DumpCommand' => __DIR__ . '/..' . '/bangpound/assetic-cli/src/Command/DumpCommand.php',
-        'Bangpound\\Assetic\\Command\\WatchCommand' => __DIR__ . '/..' . '/bangpound/assetic-cli/src/Command/WatchCommand.php',
         'Bangpound\\Assetic\\Filter\\CodekitCoffeeScriptFilter' => __DIR__ . '/..' . '/bangpound/assetic-codekit/CodekitCoffeeScriptFilter.php',
         'Bangpound\\Pimple\\Provider\\AsseticServiceProvider' => __DIR__ . '/..' . '/bangpound/assetic-service-provider/AsseticServiceProvider.php',
         'Bangpound\\Pimple\\Provider\\Filter\\CompassFilterServiceProvider' => __DIR__ . '/..' . '/bangpound/assetic-service-provider/Filter/CompassFilterServiceProvider.php',
@@ -217,7 +208,6 @@ class ComposerStaticInitRepo
         'Pimple\\Tests\\Fixtures\\Service' => __DIR__ . '/..' . '/pimple/pimple/src/Pimple/Tests/Fixtures/Service.php',
         'Pimple\\Tests\\PimpleServiceProviderInterfaceTest' => __DIR__ . '/..' . '/pimple/pimple/src/Pimple/Tests/PimpleServiceProviderInterfaceTest.php',
         'Pimple\\Tests\\PimpleTest' => __DIR__ . '/..' . '/pimple/pimple/src/Pimple/Tests/PimpleTest.php',
-        'PrepareCommand' => __DIR__ . '/../..' . '/src/PrepareCommand.php',
         'ProjectAsseticServiceProvider' => __DIR__ . '/../..' . '/src/ProjectAsseticServiceProvider.php',
         'Psr\\Log\\AbstractLogger' => __DIR__ . '/..' . '/psr/log/Psr/Log/AbstractLogger.php',
         'Psr\\Log\\InvalidArgumentException' => __DIR__ . '/..' . '/psr/log/Psr/Log/InvalidArgumentException.php',
