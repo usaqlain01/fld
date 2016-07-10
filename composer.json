@@ -63,10 +63,5 @@
             "composer assetic",
             "compass compile -e production -s compact --force docroot/profiles/fieldmuseum/themes/esquif"
         ]
-    },
-    "require": {
-        "drufony/drupal-bridge": "dev-develop",
-        "symfony/expression-language": "^2.7",
-        "silex/silex": "~2.0"
     }
 }
