@@ -1,5 +1,6 @@
 <?php
 
+use Assetic\AssetWriter;
 use Robo\Tasks;
 
 /**
@@ -42,10 +43,6 @@ class RoboFile extends Tasks
     ));
     $c->register(new ProjectAsseticServiceProvider());
 
-    $c['assetic.writer'] = function ($app) {
-      return new \Assetic\AssetWriter($app['assetic.write_to']);
-    };
-
     $this->pimple = $c;
   }
 
@@ -66,7 +63,13 @@ class RoboFile extends Tasks
   }
 
   public function dump() {
-    $this->pimple['assetic.writer']->writeManagerAssets($this->pimple['assetic.asset_manager']);
+    $aw = new AssetWriter($this->pimple['assetic.write_to']);
+    /** @var \Assetic\AssetManager $am */
+    $am = $this->pimple['assetic.asset_manager'];
+    foreach ($am->getNames() as $name) {
+      $this->say(sprintf('writing %s', $name));
+      $aw->writeAsset($am->get($name));
+    }
   }
 
   protected static function find_executable($name, $default) {
