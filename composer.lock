@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "009f5d79174e8d207a0eaf2f4d532eb7",
+    "hash": "9f251e162dcdf267ef2c395fea389313",
     "content-hash": "f85df47108d2f1d63272a85cda70784f",
     "packages": [
         {
@@ -670,12 +670,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bangpound/Assetic-CLI.git",
-                "reference": "ced3f3308c65d168b349bc2aafbe4b0dc7021b3a"
+                "reference": "fb02a0c0158cae72ebb122db166233c839a9b0c2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bangpound/Assetic-CLI/zipball/ced3f3308c65d168b349bc2aafbe4b0dc7021b3a",
-                "reference": "ced3f3308c65d168b349bc2aafbe4b0dc7021b3a",
+                "url": "https://api.github.com/repos/bangpound/Assetic-CLI/zipball/fb02a0c0158cae72ebb122db166233c839a9b0c2",
+                "reference": "fb02a0c0158cae72ebb122db166233c839a9b0c2",
                 "shasum": ""
             },
             "require": {
@@ -708,7 +708,7 @@
                 "MIT"
             ],
             "description": "Assetic as a command line tool",
-            "time": "2015-08-27 21:25:40"
+            "time": "2016-06-30 17:33:17"
         },
         {
             "name": "bangpound/assetic-codekit",

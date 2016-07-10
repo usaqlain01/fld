@@ -506,12 +506,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/bangpound/Assetic-CLI.git",
-            "reference": "ced3f3308c65d168b349bc2aafbe4b0dc7021b3a"
+            "reference": "fb02a0c0158cae72ebb122db166233c839a9b0c2"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/bangpound/Assetic-CLI/zipball/ced3f3308c65d168b349bc2aafbe4b0dc7021b3a",
-            "reference": "ced3f3308c65d168b349bc2aafbe4b0dc7021b3a",
+            "url": "https://api.github.com/repos/bangpound/Assetic-CLI/zipball/fb02a0c0158cae72ebb122db166233c839a9b0c2",
+            "reference": "fb02a0c0158cae72ebb122db166233c839a9b0c2",
             "shasum": ""
         },
         "require": {
@@ -522,7 +522,7 @@
         "require-dev": {
             "symfony/debug": "~2.3"
         },
-        "time": "2015-08-27 21:25:40",
+        "time": "2016-06-30 17:33:17",
         "bin": [
             "bin/assetic"
         ],
