@@ -1,7 +1,7 @@
 {
     "require-dev": {
         "symfony/debug": "^3.0",
-        "symfony/finder": "~2.4",
+        "symfony/finder": "^3.0",
         "symfony/filesystem": "^3.0",
         "symfony/var-dumper": "^3.0",
         "pimple/pimple": "~3.0",
