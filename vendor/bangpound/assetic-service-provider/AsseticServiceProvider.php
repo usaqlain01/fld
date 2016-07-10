@@ -7,8 +7,6 @@ use Assetic\AssetWriter;
 use Assetic\Factory\AssetFactory;
 use Assetic\Factory\LazyAssetManager;
 use Assetic\FilterManager;
-use Bangpound\Assetic\Command\DumpCommand;
-use Bangpound\Assetic\Command\WatchCommand;
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
 use Symfony\Component\Console\Command\Command;
@@ -128,28 +126,6 @@ class AsseticServiceProvider implements ServiceProviderInterface
             }
 
             return $lazy;
-        };
-
-        /*
-         * Console commands.
-         */
-
-        /*
-         * Dumps all assets.
-         *
-         * @param Container $c
-         * @return \Symfony\Component\Console\Command\Command
-         */
-        $pimple['assetic.dump.command'] = function (Container $c) {
-            return new DumpCommand($c['assetic.asset_manager'], $c['assetic.asset_writer'], $c['assetic.write_to'], $c['assetic.variables'], $c['debug']);
-        };
-
-        /*
-         * @param Container $c
-         * @return Command
-         */
-        $pimple['assetic.watch.command'] = function (Container $c) {
-            return new WatchCommand($c['assetic.asset_manager'], $c['assetic.asset_writer'], $c['assetic.write_to'], $c['assetic.variables'], $c['debug']);
         };
     }
 }
