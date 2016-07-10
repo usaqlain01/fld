@@ -52,8 +52,8 @@
             "drush --root=docroot composer-manager update"
         ],
         "assetic": [
-            "bin/assetic prepare",
-            "bin/assetic dump"
+            "robo prepare",
+            "robo dump"
         ],
         "theme:build": [
             "composer rvm",
