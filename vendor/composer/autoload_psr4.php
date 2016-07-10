@@ -12,7 +12,6 @@ return array(
     'Symfony\\Component\\Finder\\' => array($vendorDir . '/symfony/finder'),
     'Symfony\\Component\\Filesystem\\' => array($vendorDir . '/symfony/filesystem'),
     'Symfony\\Component\\Debug\\' => array($vendorDir . '/symfony/debug'),
-    'Symfony\\Component\\Console\\' => array($vendorDir . '/symfony/console'),
     'Bangpound\\Pimple\\Provider\\' => array($vendorDir . '/bangpound/assetic-service-provider'),
     'Bangpound\\Assetic\\Filter\\' => array($vendorDir . '/bangpound/assetic-codekit'),
     'Bangpound\\Assetic\\' => array($vendorDir . '/bangpound/assetic-cli/src'),
