@@ -50,6 +50,9 @@ class RoboFile extends Tasks
     $this->pimple = $c;
   }
 
+  /**
+   * Copy images, bower components and fonts to theme.
+   */
   public function prepare() {
     $repoDir = 'build/fieldmuseum-website';
     $themeDir = 'docroot/profiles/fieldmuseum/themes/esquif';
@@ -66,6 +69,9 @@ class RoboFile extends Tasks
     $this->say('Copied fonts');
   }
 
+  /**
+   * Dumps all assets to the filesystem
+   */
   public function dump() {
     $aw = new AssetWriter($this->pimple['assetic.write_to']);
     /** @var \Assetic\AssetManager $am */
