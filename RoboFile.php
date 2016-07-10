@@ -1,7 +1,11 @@
 <?php
 
 use Assetic\AssetWriter;
+use Bangpound\Pimple\Provider\AsseticServiceProvider;
+use Bangpound\Pimple\Provider\Filter\CompassFilterServiceProvider;
+use Pimple\Container;
 use Robo\Tasks;
+use Symfony\Component\Process\ExecutableFinder;
 
 /**
  * This is project's console commands configuration for Robo task runner.
@@ -10,7 +14,7 @@ use Robo\Tasks;
  */
 class RoboFile extends Tasks
 {
-  /** @var \Pimple\Container  */
+  /** @var Container  */
   private $pimple;
 
   public function __construct()
@@ -19,13 +23,13 @@ class RoboFile extends Tasks
 
     require_once FLDMUSE_ROOT.'/vendor/autoload.php';
 
-    $c = new Pimple\Container(array(
+    $c = new Container(array(
       'debug' => true,
     ));
-    $c->register(new \Bangpound\Pimple\Provider\AsseticServiceProvider(), array(
+    $c->register(new AsseticServiceProvider(), array(
       'assetic.read_from' => FLDMUSE_ROOT .'/build/fieldmuseum-website/patternlab/source',
       'assetic.write_to' => FLDMUSE_ROOT .'/docroot/profiles/fieldmuseum/themes/esquif',
-      'assetic.filter.postcss.bin' => self::find_executable('autoprefixer', '/usr/local/bin/postcss'),
+      'assetic.filter.postcss.bin' => self::find_executable('postcss', '/usr/local/bin/postcss'),
       'assetic.filter.coffeescript.bin' => self::find_executable('coffee', '/usr/local/bin/coffee'),
       'assetic.filter.autoprefixer.browsers' => array(
         '> 1%',
@@ -36,7 +40,7 @@ class RoboFile extends Tasks
         'Android >= 3'
       ),
     ));
-    $c->register(new \Bangpound\Pimple\Provider\Filter\CompassFilterServiceProvider(), array(
+    $c->register(new CompassFilterServiceProvider(), array(
       'assetic.filter.compass.bin'              => self::find_executable('compass', '/usr/bin/compass'),
       'assetic.filter.compass.no_line_comments' => true,
       'assetic.filter.compass.style'            => 'nested'
@@ -73,7 +77,7 @@ class RoboFile extends Tasks
   }
 
   protected static function find_executable($name, $default) {
-    $finder = new \Symfony\Component\Process\ExecutableFinder();
+    $finder = new ExecutableFinder();
     return $finder->find($name, $default);
   }
 }
