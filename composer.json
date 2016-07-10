@@ -52,7 +52,7 @@
         ],
         "drush:composer": [
             "drush --root=docroot composer-json-rebuild",
-            "drush --rot=docroot composer-manager update"
+            "drush --root=docroot composer-manager update"
         ],
         "assetic": [
             "bin/assetic prepare",
