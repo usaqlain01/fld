@@ -42,9 +42,6 @@ class RoboFile extends Tasks
     ));
     $c->register(new ProjectAsseticServiceProvider());
 
-    $c['assetic.prepare.command'] = function (\Pimple\Container $c) {
-      return new PrepareCommand($c);
-    };
     $c['assetic.writer'] = function ($app) {
       return new \Assetic\AssetWriter($app['assetic.write_to']);
     };
@@ -53,7 +50,19 @@ class RoboFile extends Tasks
   }
 
   public function prepare() {
-    $this->taskSymfonyCommand($this->pimple['assetic.prepare.command'])->run();
+    $repoDir = 'build/fieldmuseum-website';
+    $themeDir = 'docroot/profiles/fieldmuseum/themes/esquif';
+
+    $this->taskMirrorDir([$repoDir.'/patternlab/source/bower_components' => $themeDir.'/bower_components'])->run();
+    $this->say('Copied bower');
+
+    $this->taskFilesystemStack()->mirror($repoDir.'/patternlab/source/images', $themeDir.'/images', null, array(
+      'override' => true,
+    ))->run();
+    $this->say('Copied images');
+
+    $this->taskMirrorDir([$repoDir.'/patternlab/source/fonts' => $themeDir.'/fonts'])->run();
+    $this->say('Copied fonts');
   }
 
   public function dump() {
