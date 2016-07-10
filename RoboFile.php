@@ -24,8 +24,8 @@ class RoboFile extends Tasks
     $c->register(new \Bangpound\Pimple\Provider\AsseticServiceProvider(), array(
       'assetic.read_from' => FLDMUSE_ROOT .'/build/fieldmuseum-website/patternlab/source',
       'assetic.write_to' => FLDMUSE_ROOT .'/docroot/profiles/fieldmuseum/themes/esquif',
-      'assetic.filter.postcss.bin' => \Bangpound\Assetic\find_executable('autoprefixer', '/usr/local/bin/postcss'),
-      'assetic.filter.coffeescript.bin' => \Bangpound\Assetic\find_executable('coffee', '/usr/local/bin/coffee'),
+      'assetic.filter.postcss.bin' => self::find_executable('autoprefixer', '/usr/local/bin/postcss'),
+      'assetic.filter.coffeescript.bin' => self::find_executable('coffee', '/usr/local/bin/coffee'),
       'assetic.filter.autoprefixer.browsers' => array(
         '> 1%',
         'last 3 versions',
@@ -36,7 +36,7 @@ class RoboFile extends Tasks
       ),
     ));
     $c->register(new \Bangpound\Pimple\Provider\Filter\CompassFilterServiceProvider(), array(
-      'assetic.filter.compass.bin'              => Bangpound\Assetic\find_executable('compass', '/usr/bin/compass'),
+      'assetic.filter.compass.bin'              => self::find_executable('compass', '/usr/bin/compass'),
       'assetic.filter.compass.no_line_comments' => true,
       'assetic.filter.compass.style'            => 'nested'
     ));
@@ -66,6 +66,11 @@ class RoboFile extends Tasks
   }
 
   public function dump() {
-    $this->taskSymfonyCommand($this->pimple['assetic.dump.command'])->run();
+    $this->pimple['assetic.writer']->writeManagerAssets($this->pimple['assetic.asset_manager']);
+  }
+
+  protected static function find_executable($name, $default) {
+    $finder = new \Symfony\Component\Process\ExecutableFinder();
+    return $finder->find($name, $default);
   }
 }
