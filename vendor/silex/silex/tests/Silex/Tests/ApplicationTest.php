@@ -183,6 +183,15 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('Hello Fabien', $app->handle(Request::create('/Fabien'))->getContent());
     }
 
+    public function testApplicationTypeHintWorks()
+    {
+        $app = new SpecialApplication();
+
+        $app->get('/{name}', 'Silex\Tests\FooController::barSpecialAction');
+
+        $this->assertEquals('Hello Fabien in Silex\Tests\SpecialApplication', $app->handle(Request::create('/Fabien'))->getContent());
+    }
+
     public function testHttpSpec()
     {
         $app = new Application();
@@ -464,7 +473,7 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @expectedException        \LogicException
-     * @expectedExceptionMessage The "mount" method takes either a "ControllerCollection" or a "ControllerProviderInterface" instance.
+     * @expectedExceptionMessage The "mount" method takes either a "ControllerCollection" instance, "ControllerProviderInterface" instance, or a callable.
      */
     public function testMountNullException()
     {
@@ -480,6 +489,18 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
     {
         $app = new Application();
         $app->mount('/exception', new IncorrectControllerCollection());
+    }
+
+    public function testMountCallable()
+    {
+        $app = new Application();
+        $app->mount('/prefix', function (ControllerCollection $coll) {
+            $coll->get('/path');
+        });
+
+        $app->flush();
+
+        $this->assertEquals(1, $app['routes']->count());
     }
 
     public function testSendFile()
@@ -507,7 +528,7 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
     {
         $app = new Application();
 
-        ErrorHandler::register();
+        ErrorHandler::register(null, false);
         $app['monolog.logfile'] = 'php://memory';
         $app->register(new MonologServiceProvider());
         $app->get('/foo/', function () { return 'ok'; });
@@ -567,9 +588,6 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('Hello world', $response->getContent());
     }
 
-    /**
-     * @requires PHP 5.4
-     */
     public function testViewListenerWithCallableTypeHint()
     {
         $app = new Application();
@@ -659,6 +677,11 @@ class FooController
     {
         return 'Hello '.$app->escape($name);
     }
+
+    public function barSpecialAction(SpecialApplication $app, $name)
+    {
+        return 'Hello '.$app->escape($name).' in '.get_class($app);
+    }
 }
 
 class IncorrectControllerCollection implements ControllerProviderInterface
@@ -670,5 +693,9 @@ class IncorrectControllerCollection implements ControllerProviderInterface
 }
 
 class RouteCollectionSubClass extends RouteCollection
+{
+}
+
+class SpecialApplication extends Application
 {
 }

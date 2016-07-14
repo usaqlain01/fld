@@ -13,6 +13,8 @@ namespace Silex\Tests\Provider;
 
 use Silex\Application;
 use Silex\Provider\FormServiceProvider;
+use Silex\Provider\CsrfServiceProvider;
+use Silex\Provider\SessionServiceProvider;
 use Silex\Provider\TranslationServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
 use Symfony\Component\Form\AbstractType;
@@ -22,8 +24,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Translation\Exception\NotFoundResourceException;
-use Symfony\Component\Security\Csrf\CsrfToken;
-use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 
 class FormServiceProviderTest extends \PHPUnit_Framework_TestCase
 {
@@ -46,11 +46,56 @@ class FormServiceProviderTest extends \PHPUnit_Framework_TestCase
             return $extensions;
         });
 
-        $form = $app['form.factory']->createBuilder('form', array())
+        $form = $app['form.factory']->createBuilder('Symfony\Component\Form\Extension\Core\Type\FormType', array())
+            ->add('dummy', 'Silex\Tests\Provider\DummyFormType')
+            ->getForm();
+
+        $this->assertInstanceOf('Symfony\Component\Form\Form', $form);
+    }
+
+    public function testFormServiceProviderWillLoadTypesServices()
+    {
+        $app = new Application();
+
+        $app->register(new FormServiceProvider());
+
+        $app['dummy'] = function () {
+            return new DummyFormType();
+        };
+        $app->extend('form.types', function ($extensions) {
+            $extensions[] = 'dummy';
+
+            return $extensions;
+        });
+
+        $form = $app['form.factory']
+            ->createBuilder('Symfony\Component\Form\Extension\Core\Type\FormType', array())
             ->add('dummy', 'dummy')
             ->getForm();
 
         $this->assertInstanceOf('Symfony\Component\Form\Form', $form);
+    }
+
+    /**
+     * @expectedException \Symfony\Component\Form\Exception\InvalidArgumentException
+     * @expectedExceptionMessage Invalid form type. The silex service "dummy" does not exist.
+     */
+    public function testNonExistentTypeService()
+    {
+        $app = new Application();
+
+        $app->register(new FormServiceProvider());
+
+        $app->extend('form.types', function ($extensions) {
+            $extensions[] = 'dummy';
+
+            return $extensions;
+        });
+
+        $app['form.factory']
+            ->createBuilder('Symfony\Component\Form\Extension\Core\Type\FormType', array())
+            ->add('dummy', 'dummy')
+            ->getForm();
     }
 
     public function testFormServiceProviderWillLoadTypeExtensions()
@@ -65,11 +110,56 @@ class FormServiceProviderTest extends \PHPUnit_Framework_TestCase
             return $extensions;
         });
 
-        $form = $app['form.factory']->createBuilder('form', array())
-            ->add('file', 'file', array('image_path' => 'webPath'))
+        $form = $app['form.factory']->createBuilder('Symfony\Component\Form\Extension\Core\Type\FormType', array())
+            ->add('file', 'Symfony\Component\Form\Extension\Core\Type\FileType', array('image_path' => 'webPath'))
             ->getForm();
 
         $this->assertInstanceOf('Symfony\Component\Form\Form', $form);
+    }
+
+    public function testFormServiceProviderWillLoadTypeExtensionsServices()
+    {
+        $app = new Application();
+
+        $app->register(new FormServiceProvider());
+
+        $app['dummy.form.type.extension'] = function () {
+            return new DummyFormTypeExtension();
+        };
+        $app->extend('form.type.extensions', function ($extensions) {
+            $extensions[] = 'dummy.form.type.extension';
+
+            return $extensions;
+        });
+
+        $form = $app['form.factory']
+            ->createBuilder('Symfony\Component\Form\Extension\Core\Type\FormType', array())
+            ->add('file', 'Symfony\Component\Form\Extension\Core\Type\FileType', array('image_path' => 'webPath'))
+            ->getForm();
+
+        $this->assertInstanceOf('Symfony\Component\Form\Form', $form);
+    }
+
+    /**
+     * @expectedException \Symfony\Component\Form\Exception\InvalidArgumentException
+     * @expectedExceptionMessage Invalid form type extension. The silex service "dummy.form.type.extension" does not exist.
+     */
+    public function testNonExistentTypeExtensionService()
+    {
+        $app = new Application();
+
+        $app->register(new FormServiceProvider());
+
+        $app->extend('form.type.extensions', function ($extensions) {
+            $extensions[] = 'dummy.form.type.extension';
+
+            return $extensions;
+        });
+
+        $app['form.factory']
+            ->createBuilder('Symfony\Component\Form\Extension\Core\Type\FormType', array())
+            ->add('dummy', 'dummy.form.type')
+            ->getForm();
     }
 
     public function testFormServiceProviderWillLoadTypeGuessers()
@@ -87,6 +177,43 @@ class FormServiceProviderTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf('Symfony\Component\Form\FormFactory', $app['form.factory']);
     }
 
+    public function testFormServiceProviderWillLoadTypeGuessersServices()
+    {
+        $app = new Application();
+
+        $app->register(new FormServiceProvider());
+
+        $app['dummy.form.type.guesser'] = function () {
+            return new FormTypeGuesserChain(array());
+        };
+        $app->extend('form.type.guessers', function ($guessers) {
+            $guessers[] = 'dummy.form.type.guesser';
+
+            return $guessers;
+        });
+
+        $this->assertInstanceOf('Symfony\Component\Form\FormFactory', $app['form.factory']);
+    }
+
+    /**
+     * @expectedException \Symfony\Component\Form\Exception\InvalidArgumentException
+     * @expectedExceptionMessage Invalid form type guesser. The silex service "dummy.form.type.guesser" does not exist.
+     */
+    public function testNonExistentTypeGuesserService()
+    {
+        $app = new Application();
+
+        $app->register(new FormServiceProvider());
+
+        $app->extend('form.type.guessers', function ($extensions) {
+            $extensions[] = 'dummy.form.type.guesser';
+
+            return $extensions;
+        });
+
+        $factory = $app['form.factory'];
+    }
+
     public function testFormServiceProviderWillUseTranslatorIfAvailable()
     {
         $app = new Application();
@@ -102,11 +229,11 @@ class FormServiceProviderTest extends \PHPUnit_Framework_TestCase
         );
         $app['locale'] = 'de';
 
-        $app['form.csrf_provider'] = function () {
-            return new FakeCsrfProvider();
+        $app['csrf.token_manager'] = function () {
+            return $this->getMock('Symfony\Component\Security\Csrf\CsrfTokenManagerInterface');
         };
 
-        $form = $app['form.factory']->createBuilder('form', array())
+        $form = $app['form.factory']->createBuilder('Symfony\Component\Form\Extension\Core\Type\FormType', array())
             ->getForm();
 
         $form->handleRequest($req = Request::create('/', 'POST', array('form' => array(
@@ -144,16 +271,54 @@ class FormServiceProviderTest extends \PHPUnit_Framework_TestCase
             $this->fail('Form factory should not add a translation resource that does not exist');
         }
     }
+
+    public function testFormCsrf()
+    {
+        $app = new Application();
+        $app->register(new FormServiceProvider());
+        $app->register(new SessionServiceProvider());
+        $app->register(new CsrfServiceProvider());
+        $app['session.test'] = true;
+
+        $form = $app['form.factory']->createBuilder('Symfony\Component\Form\Extension\Core\Type\FormType', array())->getForm();
+
+        $this->assertTrue(isset($form->createView()['_token']));
+    }
+
+    public function testUserExtensionCanConfigureDefaultExtensions()
+    {
+        $app = new Application();
+        $app->register(new FormServiceProvider());
+        $app->register(new SessionServiceProvider());
+        $app->register(new CsrfServiceProvider());
+        $app['session.test'] = true;
+
+        $app->extend('form.type.extensions', function ($extensions) {
+            $extensions[] = new FormServiceProviderTest\DisableCsrfExtension();
+
+            return $extensions;
+        });
+        $form = $app['form.factory']->createBuilder('Symfony\Component\Form\Extension\Core\Type\FormType', array())->getForm();
+
+        $this->assertFalse($form->getConfig()->getOption('csrf_protection'));
+    }
 }
 
-class DummyFormType extends AbstractType
-{
-    /**
-     * @return string The name of this type
-     */
-    public function getName()
+if (!class_exists('Symfony\Component\Form\Deprecated\FormEvents')) {
+    class DummyFormType extends AbstractType
     {
-        return 'dummy';
+    }
+} else {
+    // FormTypeInterface::getName() is needed by the form component 2.8.x
+    class DummyFormType extends AbstractType
+    {
+        /**
+         * @return string The name of this type
+         */
+        public function getName()
+        {
+            return 'dummy';
+        }
     }
 }
 
@@ -162,7 +327,7 @@ if (method_exists('Symfony\Component\Form\AbstractType', 'configureOptions')) {
     {
         public function getExtendedType()
         {
-            return 'file';
+            return 'Symfony\Component\Form\Extension\Core\Type\FileType';
         }
 
         public function configureOptions(OptionsResolver $resolver)
@@ -175,7 +340,7 @@ if (method_exists('Symfony\Component\Form\AbstractType', 'configureOptions')) {
     {
         public function getExtendedType()
         {
-            return 'file';
+            return 'Symfony\Component\Form\Extension\Core\Type\FileType';
         }
 
         public function setDefaultOptions(OptionsResolverInterface $resolver)
@@ -186,27 +351,5 @@ if (method_exists('Symfony\Component\Form\AbstractType', 'configureOptions')) {
                 $resolver->setDefined(array('image_path'));
             }
         }
-    }
-}
-
-class FakeCsrfProvider implements CsrfTokenManagerInterface
-{
-    public function getToken($tokenId)
-    {
-        return new CsrfToken($tokenId, '123');
-    }
-
-    public function refreshToken($tokenId)
-    {
-        return new CsrfToken($tokenId, '123');
-    }
-
-    public function removeToken($tokenId)
-    {
-    }
-
-    public function isTokenValid(CsrfToken $token)
-    {
-        return '123' === $token->getValue();
     }
 }

@@ -1,10 +1,37 @@
 Changelog
 =========
 
-2.0.0 (2015-XX-XX)
+2.0.2 (2016-06-14)
 ------------------
 
-* bumped minimum version of Symfony to 2.7
+* fixed Symfony 3.1 deprecations
+
+2.0.1 (2016-05-27)
+------------------
+
+* fixed the silex form extension registration to allow overriding default ones
+* removed support for the obsolete Locale Symfony component (uses the Intl one now)
+* added support for Symfony 3.1
+
+2.0.0 (2016-05-18)
+------------------
+
+* decoupled the exception handler from HttpKernelServiceProvider
+* Switched to BCrypt as the default encoder in the security provider
+* added full support for RequestMatcher
+* added support for Symfony Guard
+* added support for callables in CallbackResolver
+* added FormTrait::namedForm()
+* added support for delivery_addresses, delivery_whitelist, and sender_address
+* added support to register form types / form types extensions / form types guessers as services
+* added support for callable in mounts (allow nested route collection to be built easily)
+* added support for conditions on routes
+* added support for the Symfony VarDumper Component
+* added a global Twig variable (an AppVariable instance)
+* [BC BREAK] CSRF has been moved to a standalone provider (``form.secret`` is not available anymore)
+* added support for the Symfony HttpFoundation Twig bridge extension
+* added support for the Symfony Asset Component
+* bumped minimum version of Symfony to 2.8
 * bumped minimum version of PHP to 5.5.0
 * Updated Pimple to 3.0
 * Updated session listeners to extends HttpKernel ones
@@ -19,10 +46,34 @@ Changelog
 * ``monolog.exception.logger_filter`` option added to Monolog service provider
 * [BC BREAK] ``$app['request']`` service removed, use ``$app['request_stack']`` instead
 
-1.3.2 (2015-XX-XX)
+1.3.6 (2016-XX-XX)
 ------------------
 
 * n/a
+
+1.3.5 (2016-01-06)
+------------------
+
+* fixed typo in SecurityServiceProvider
+
+1.3.4 (2015-09-15)
+------------------
+
+* fixed some new deprecations
+* fixed translation registration for the validators
+
+1.3.3 (2015-09-08)
+------------------
+
+* added support for Symfony 3.0 and Twig 2.0
+* fixed some Form deprecations
+* removed deprecated method call in the exception handler
+* fixed Swiftmailer spool flushing when spool is not enabled
+
+1.3.2 (2015-08-24)
+------------------
+
+* no changes
 
 1.3.1 (2015-08-04)
 ------------------

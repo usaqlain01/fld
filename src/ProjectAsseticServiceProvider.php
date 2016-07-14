@@ -2,7 +2,6 @@
 
 use Assetic\Asset\AssetInterface;
 use Assetic\AssetManager;
-use Assetic\Filter\AutoprefixerFilter;
 use Assetic\Filter\CallablesFilter;
 use Assetic\Filter\CoffeeScriptFilter;
 use Assetic\Util\CssUtils;
@@ -35,10 +34,33 @@ class ProjectAsseticServiceProvider implements ServiceProviderInterface
 
         // Assetic filter service to support autoprefixer tool.
         $pimple['assetic.filter.autoprefixer'] = function ($c) {
-            $filter = new AutoprefixerFilter($c['assetic.filter.autoprefixer.bin']);
-            $filter->setBrowsers($c['assetic.filter.autoprefixer.browsers']);
-            return $filter;
+            return new CallablesFilter($c['assetic.filter.autoprefixer.loader'], $c['assetic.filter.autoprefixer.dumper'], $c['assetic.filter.autoprefixer.extractor']);
         };
+
+        $pimple['assetic.filter.autoprefixer.loader'] = null;
+        $pimple['assetic.filter.autoprefixer.dumper'] = $pimple->protect(function (AssetInterface $asset) use ($pimple) {
+            $input = $asset->getContent();
+            $pb = new \Symfony\Component\Process\ProcessBuilder([$pimple['assetic.filter.postcss.bin']]);
+
+            $pb->add('--use')->add('autoprefixer');
+
+            $pb->setInput($input);
+            if ($pimple['assetic.filter.autoprefixer.browsers']) {
+                $pb->add('--autoprefixer.browsers')->add(implode(',', $pimple['assetic.filter.autoprefixer.browsers']));
+            }
+
+            $output = \Assetic\Util\FilesystemUtils::createTemporaryFile('autoprefixer');
+            $pb->add('-o')->add($output);
+
+            $proc = $pb->getProcess();
+            if (0 !== $proc->run()) {
+                throw \Assetic\Exception\FilterException::fromProcess($proc)->setInput($asset->getContent());
+            }
+
+            $asset->setContent(file_get_contents($output));
+            unlink($output);
+        });
+        $pimple['assetic.filter.autoprefixer.extractor'] = null;
 
         // Assetic filter service that rewrites absolute paths to be relative.
         $pimple['assetic.filter.pathfixer.css.loader'] = null;

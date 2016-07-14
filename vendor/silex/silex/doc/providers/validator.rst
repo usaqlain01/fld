@@ -1,5 +1,5 @@
-ValidatorServiceProvider
-========================
+Validator
+=========
 
 The *ValidatorServiceProvider* provides a service for validating data. It is
 most useful when used with the *FormServiceProvider*, but can also be used
@@ -34,8 +34,7 @@ Registering
 
 .. note::
 
-    The Symfony Validator Component comes with the "fat" Silex archive but not
-    with the regular one. If you are using Composer, add it as a dependency:
+    Add the Symfony Validator Component as a dependency:
 
     .. code-block:: bash
 
@@ -49,13 +48,13 @@ The Validator provider provides a ``validator`` service.
 Validating Values
 ~~~~~~~~~~~~~~~~~
 
-You can validate values directly using the ``validateValue`` validator
+You can validate values directly using the ``validate`` validator
 method::
 
     use Symfony\Component\Validator\Constraints as Assert;
 
     $app->get('/validate/{email}', function ($email) use ($app) {
-        $errors = $app['validator']->validateValue($email, new Assert\Email());
+        $errors = $app['validator']->validate($email, new Assert\Email());
 
         if (count($errors) > 0) {
             return (string) $errors;
@@ -87,7 +86,7 @@ collection of constraints::
             'last_name'  => new Assert\Length(array('min' => 10)),
         )),
     ));
-    $errors = $app['validator']->validateValue($book, $constraint);
+    $errors = $app['validator']->validate($book, $constraint);
 
     if (count($errors) > 0) {
         foreach ($errors as $error) {
