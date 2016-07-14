@@ -19,7 +19,6 @@ function oembed_media_parse($url, $options = array()) {
  * Implements hook_media_internet_providers();
  */
 function oembed_media_internet_providers() {
-  $info = array();
   $info['MediaInternetOEmbedHandler'] = array(
     'title' => t('oEmbed'),
   );

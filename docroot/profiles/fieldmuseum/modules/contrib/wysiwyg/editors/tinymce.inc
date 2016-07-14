@@ -31,15 +31,15 @@ function wysiwyg_tinymce_editor() {
     'settings form callback' => 'wysiwyg_tinymce_settings_form',
     'init callback' => 'wysiwyg_tinymce_init',
     'settings callback' => 'wysiwyg_tinymce_settings',
-    'plugin callback' => '_wysiwyg_tinymce_plugins',
-    'plugin meta callback' => '_wysiwyg_tinymce_plugin_meta',
+    'plugin callback' => 'wysiwyg_tinymce_plugins',
+    'plugin settings callback' => 'wysiwyg_tinymce_plugin_settings',
     'proxy plugin' => array(
       'drupal' => array(
         'load' => TRUE,
         'proxy' => TRUE,
       ),
     ),
-    'proxy plugin settings callback' => '_wysiwyg_tinymce_proxy_plugin_settings',
+    'proxy plugin settings callback' => 'wysiwyg_tinymce_proxy_plugin_settings',
     'versions' => array(
       '2.1' => array(
         'js files' => array('tinymce-2.js'),
@@ -478,18 +478,42 @@ function wysiwyg_tinymce_settings($editor, $config, $theme) {
 }
 
 /**
- * Build a JS settings array with global metadata for native external plugins.
+ * Build a JS settings array of native external plugins that need to be loaded separately.
+ *
+ * TinyMCE requires that external plugins (i.e. not residing in the editor's
+ * directory) are loaded (once) upon initializing the editor.
  */
-function _wysiwyg_tinymce_plugin_meta($editor, $plugin) {
-  $meta = NULL;
-  if (!empty($plugin['load'])) {
-    // Add path for native external plugins; internal ones are loaded
-    // automatically.
-    if (empty($plugin['internal']) && isset($plugin['filename'])) {
-      $meta = base_path() . $plugin['path'] . '/' . $plugin['filename'];
+function wysiwyg_tinymce_plugin_settings($editor, $profile, $plugins) {
+  $settings = array();
+  foreach ($plugins as $name => $plugin) {
+    if (!empty($plugin['load'])) {
+      // Add path for native external plugins; internal ones are loaded
+      // automatically.
+      if (empty($plugin['internal']) && isset($plugin['filename'])) {
+        $settings[$name] = base_path() . $plugin['path'] . '/' . $plugin['filename'];
+      }
     }
   }
-  return $meta;
+  return $settings;
+}
+
+/**
+ * Build a JS settings array for Drupal plugins loaded via the proxy plugin.
+ */
+function wysiwyg_tinymce_proxy_plugin_settings($editor, $profile, $plugins) {
+  $settings = array();
+  foreach ($plugins as $name => $plugin) {
+    // Populate required plugin settings.
+    $settings[$name] = $plugin['dialog settings'] + array(
+      'title' => $plugin['title'],
+      'icon' => base_path() . $plugin['icon path'] . '/' . $plugin['icon file'],
+      'iconTitle' => $plugin['icon title'],
+    );
+    if (isset($plugin['css file'])) {
+      $settings[$name]['css'] = base_path() . $plugin['css path'] . '/' . $plugin['css file'];
+    }
+  }
+  return $settings;
 }
 
 /**
@@ -519,44 +543,32 @@ function _wysiwyg_tinymce_plugin_name($op, $name) {
 }
 
 /**
- * Build a JS settings array for Drupal plugins loaded via the proxy plugin.
- */
-function _wysiwyg_tinymce_proxy_plugin_settings($editor, $profile, $plugins) {
-  $settings = array();
-  foreach ($plugins as $name => $plugin) {
-    // Just need a list of all enabled plugins for each instance.
-    $settings[$name] = TRUE;
-  }
-  return $settings;
-}
-
-/**
  * Return internal plugins for this editor; semi-implementation of hook_wysiwyg_plugin().
  */
-function _wysiwyg_tinymce_plugins($editor) {
+function wysiwyg_tinymce_plugins($editor) {
   $plugins = array(
     'default' => array(
       'path' => $editor['library path'] . '/themes/advanced',
       'buttons' => array(
         'bold' => t('Bold'), 'italic' => t('Italic'), 'underline' => t('Underline'),
-        'strikethrough' => t('Strikethrough'),
-        'justifyleft' => t('Align left'), 'justifycenter' => t('Align center'), 'justifyright' => t('Align right'), 'justifyfull' => t('Align full'),
-        'bullist' => t('Unordered list'), 'numlist' => t('Ordered list'),
+        'strikethrough' => t('Strike-through'),
+        'justifyleft' => t('Align left'), 'justifycenter' => t('Align center'), 'justifyright' => t('Align right'), 'justifyfull' => t('Justify'),
+        'bullist' => t('Bullet list'), 'numlist' => t('Numbered list'),
         'outdent' => t('Outdent'), 'indent' => t('Indent'),
         'undo' => t('Undo'), 'redo' => t('Redo'),
         'link' => t('Link'), 'unlink' => t('Unlink'), 'anchor' => t('Anchor'),
         'image' => t('Image'),
-        'cleanup' => t('Cleanup messy code'),
-        'forecolor' => t('Select text color'), 'backcolor' => t('Select background color'),
+        'cleanup' => t('Clean-up'),
         'formatselect' => t('Block format'), 'styleselect' => t('Styles'),
         'fontselect' => t('Font'), 'fontsizeselect' => t('Font size'),
+        'forecolor' => t('Forecolor'), 'backcolor' => t('Backcolor'),
         'sup' => t('Superscript'), 'sub' => t('Subscript'),
-        'blockquote' => t('Blockquote'), 'code' => t('Edit HTML Source'),
-        'hr' => t('Insert horizontal ruler'),
+        'blockquote' => t('Blockquote'), 'code' => t('Source code'),
+        'hr' => t('Horizontal rule'),
         'cut' => t('Cut'), 'copy' => t('Copy'), 'paste' => t('Paste'),
-        'visualaid' => t('Toggle guidelines/invisible elements'),
-        'removeformat' => t('Remove formatting'),
-        'charmap' => t('Insert custom character'),
+        'visualaid' => t('Visual aid'),
+        'removeformat' => t('Remove format'),
+        'charmap' => t('Character map'),
         'help' => t('Help'),
       ),
       'internal' => TRUE,

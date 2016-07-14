@@ -22,8 +22,6 @@ function media_file_edit_modal($form, &$form_state, $file, $js) {
 
     if ($form_state['executed']) {
       $commands = array(ctools_modal_command_dismiss(t('File saved')));
-      $preview = media_get_thumbnail_preview($file);
-      $commands[] = ajax_command_replace('.media-item[data-fid=' . $file->fid . ']', render($preview));
     }
 
     print ajax_render($commands);

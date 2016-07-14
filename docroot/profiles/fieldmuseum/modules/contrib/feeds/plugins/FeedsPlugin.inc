@@ -53,7 +53,7 @@ abstract class FeedsPlugin extends FeedsConfigurable implements FeedsSourceInter
       throw new InvalidArgumentException(t('Empty configuration identifier.'));
     }
 
-    $instances = &drupal_static(__METHOD__, array());
+    static $instances = array();
 
     if (!isset($instances[$class][$id])) {
       $instance = new $class($id);

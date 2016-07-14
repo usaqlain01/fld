@@ -165,14 +165,16 @@ function _parser_common_syndication_atom10_parse($feed_XML) {
       }
     }
 
-    $original_author = '';
+    $author_found = FALSE;
     if (!empty($news->source->author->name)) {
       $original_author = "{$news->source->author->name}";
+      $author_found = TRUE;
     }
     elseif (!empty($news->author->name)) {
       $original_author = "{$news->author->name}";
+      $author_found = TRUE;
     }
-    elseif (!empty($feed_XML->author->name)) {
+    if (!empty($feed_XML->author->name) && !$author_found) {
       $original_author = "{$feed_XML->author->name}";
     }
 
