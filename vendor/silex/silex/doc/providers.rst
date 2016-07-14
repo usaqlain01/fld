@@ -52,19 +52,25 @@ There are a few providers that you get out of the box. All of these are within
 the ``Silex\Provider`` namespace:
 
 * :doc:`DoctrineServiceProvider <providers/doctrine>`
-* :doc:`MonologServiceProvider <providers/monolog>`
-* :doc:`SessionServiceProvider <providers/session>`
-* :doc:`SerializerServiceProvider <providers/serializer>`
-* :doc:`SwiftmailerServiceProvider <providers/swiftmailer>`
-* :doc:`TwigServiceProvider <providers/twig>`
-* :doc:`TranslationServiceProvider <providers/translation>`
-* :doc:`UrlGeneratorServiceProvider <providers/url_generator>`
-* :doc:`ValidatorServiceProvider <providers/validator>`
-* :doc:`HttpCacheServiceProvider <providers/http_cache>`
 * :doc:`FormServiceProvider <providers/form>`
-* :doc:`SecurityServiceProvider <providers/security>`
+* :doc:`HttpCacheServiceProvider <providers/http_cache>`
+* :doc:`MonologServiceProvider <providers/monolog>`
 * :doc:`RememberMeServiceProvider <providers/remember_me>`
+* :doc:`SecurityServiceProvider <providers/security>`
+* :doc:`SerializerServiceProvider <providers/serializer>`
 * :doc:`ServiceControllerServiceProvider <providers/service_controller>`
+* :doc:`SessionServiceProvider <providers/session>`
+* :doc:`SwiftmailerServiceProvider <providers/swiftmailer>`
+* :doc:`TranslationServiceProvider <providers/translation>`
+* :doc:`TwigServiceProvider <providers/twig>`
+* :doc:`ValidatorServiceProvider <providers/validator>`
+
+.. note::
+
+    The Silex core team maintains a `WebProfiler
+    <https://github.com/silexphp/Silex-WebProfiler>`_ provider that helps debug
+    code in the development environment thanks to the Symfony web debug toolbar
+    and the Symfony profiler.
 
 Third party providers
 ~~~~~~~~~~~~~~~~~~~~~
@@ -97,11 +103,11 @@ application which then may make use of other services and parameters.
     and Silex work, but may allow your provider to be used outside of Silex.
 
 Optionally, your service provider can implement the
-``Silex\Api\BootableServiceProviderInterface``. A BootableServiceProvider must
+``Silex\Api\BootableProviderInterface``. A bootable provider must
 implement the ``boot()`` method, with which you can configure the application, just
 before it handles a request::
 
-    interface BootableServiceProviderInterface
+    interface BootableProviderInterface
     {
         function boot(Application $app);
     }
@@ -128,7 +134,7 @@ Here is an example of such a provider::
     use Symfony\Component\HttpKernel\KernelEvents;
     use Symfony\Component\HttpKernel\Event\FilterResponseEvent;
 
-    class HelloServiceProvider implements ServiceProviderInterface, BootableServiceProviderInterface, EventListenerProviderInterface
+    class HelloServiceProvider implements ServiceProviderInterface, BootableProviderInterface, EventListenerProviderInterface
     {
         public function register(Container $app)
         {
@@ -159,14 +165,16 @@ given. If the default is also missing, it will use an empty string.
 
 You can now use this provider as follows::
 
+    use Symfony\Component\HttpFoundation\Request;
+
     $app = new Silex\Application();
 
     $app->register(new Acme\HelloServiceProvider(), array(
         'hello.default_name' => 'Igor',
     ));
 
-    $app->get('/hello', function () use ($app) {
-        $name = $app['request']->get('name');
+    $app->get('/hello', function (Request $request) use ($app) {
+        $name = $request->get('name');
 
         return $app['hello']($name);
     });

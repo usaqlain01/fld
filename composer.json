@@ -1,6 +1,5 @@
 {
     "require-dev": {
-        "drush/drush": "~7.0",
         "symfony/console": "~2.4",
         "symfony/debug": "~2.4",
         "symfony/finder": "~2.4",
@@ -10,7 +9,6 @@
         "cilex/console-service-provider": "~2.0@dev",
         "bangpound/assetic-cli": "~1.1@dev",
         "bangpound/assetic-service-provider": "~1.0@dev",
-        "zacoza/assetic-filters": "dev-master",
         "bangpound/assetic-codekit": "1.0.*@dev"
     },
     "autoload": {
@@ -27,6 +25,12 @@
         "bin-dir": "bin"
     },
     "scripts": {
+        "drupal:unlock": [
+            "chmod +w docroot/sites/default && chmod +w docroot/sites/default/settings.*"
+        ],
+        "drush:login": [
+            "drush --yes --root=docroot uli"
+        ],
         "rvm": [
             "rvm use ruby-2.2.2@fldmuse --create"
         ],
@@ -35,19 +39,24 @@
             "bundle install"
         ],
         "npm": [
-            "npm install -g coffee-script"
+            "npm install -g coffee-script",
+            "npm install --global postcss-cli autoprefixer"
         ],
         "sync": [
-            "./bin/drush --yes --root=docroot sql-sync @fldmuse.prod @self",
-            "./bin/drush --yes --root=docroot rsync @fldmuse.prod:%files @self:%files -Pv"
+            "drush --yes --root=docroot sql-sync @fldmuse.prod @self",
+            "drush --yes --root=docroot rsync @fldmuse.prod:%files @self:%files -Pv",
+            "@prepare:dev"
+        ],
+        "prepare:dev": [
+            "drush --yes --root=docroot dis domain_301_redirect securelogin"
         ],
         "drush:composer": [
-            "./bin/drush --root=docroot composer-json-rebuild",
-            "./bin/drush --root=docroot composer-manager update"
+            "drush --root=docroot composer-json-rebuild",
+            "drush --rot=docroot composer-manager update"
         ],
         "assetic": [
-            "./bin/assetic prepare",
-            "./bin/assetic dump"
+            "bin/assetic prepare",
+            "bin/assetic dump"
         ],
         "theme:build": [
             "composer rvm",
@@ -58,6 +67,6 @@
     "require": {
         "drufony/drupal-bridge": "dev-develop",
         "symfony/expression-language": "^2.7",
-        "silex/silex": "~2.0@dev"
+        "silex/silex": "~2.0"
     }
 }

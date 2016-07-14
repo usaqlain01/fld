@@ -11,8 +11,11 @@
 
 namespace Silex\Tests\Provider;
 
+use Pimple\Container;
 use Silex\Application;
+use Silex\Provider\RoutingServiceProvider;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 /**
  * RoutingProvider test cases.
@@ -61,7 +64,7 @@ class RoutingServiceProviderTest extends \PHPUnit_Framework_TestCase
             ->bind('hello');
 
         $app->get('/', function () use ($app) {
-            return $app['url_generator']->generate('hello', array('name' => 'john'), true);
+            return $app['url_generator']->generate('hello', array('name' => 'john'), UrlGeneratorInterface::ABSOLUTE_URL);
         });
 
         $request = Request::create('https://localhost:81/');
@@ -104,5 +107,15 @@ class RoutingServiceProviderTest extends \PHPUnit_Framework_TestCase
         $response = $app->handle($request);
 
         $this->assertEquals('https://localhost/secure', $response->getContent());
+    }
+
+    public function testControllersFactory()
+    {
+        $app = new Container();
+        $app->register(new RoutingServiceProvider());
+        $coll = $app['controllers_factory'];
+        $coll->mount('/blog', function ($blog) {
+            $this->assertInstanceOf('Silex\ControllerCollection', $blog);
+        });
     }
 }

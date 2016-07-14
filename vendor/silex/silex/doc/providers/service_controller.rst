@@ -1,5 +1,5 @@
-ServiceControllerServiceProvider
-================================
+Service Controllers
+===================
 
 As your Silex application grows, you may wish to begin organizing your
 controllers in a more formal fashion. Silex can use controller classes out of
@@ -114,3 +114,29 @@ followed by a single colon (:), followed by the method name.
     };
 
     $app->get('/posts.json', "posts.controller:indexJsonAction");
+
+In addition to using classes for service controllers, you can define any
+callable as a service in the application to be used for a route.
+
+.. code-block:: php
+
+    namespace Demo\Controller;
+
+    use Demo\Repository\PostRepository;
+    use Symfony\Component\HttpFoundation\JsonResponse;
+
+    function postIndexJson(PostRepository $repo) {
+        return function() use ($repo) {
+            return new JsonResponse($repo->findAll());
+        };
+    }
+
+And when defining your route, the code would look like the following:
+
+.. code-block:: php
+
+    $app['posts.controller'] = function($app) {
+        return Demo\Controller\postIndexJson($app['posts.repository']);
+    };
+
+    $app->get('/posts.json', 'posts.controller');

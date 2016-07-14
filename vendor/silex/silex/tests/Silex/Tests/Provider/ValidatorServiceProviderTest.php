@@ -19,6 +19,8 @@ use Symfony\Component\Translation\Exception\NotFoundResourceException;
 use Symfony\Component\Validator\Constraints as Assert;
 use Silex\Tests\Provider\ValidatorServiceProviderTest\Constraint\Custom;
 use Silex\Tests\Provider\ValidatorServiceProviderTest\Constraint\CustomValidator;
+use Symfony\Component\Validator\ValidatorInterface as LegacyValidatorInterface;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 /**
  * ValidatorServiceProvider.
@@ -69,10 +71,6 @@ class ValidatorServiceProviderTest extends \PHPUnit_Framework_TestCase
      */
     public function testConstraintValidatorFactoryWithExpression($app)
     {
-        if (!class_exists('Symfony\Component\Validator\Constraints\Expression')) {
-            $this->markTestSkipped('Expression are not supported by this version of Symfony');
-        }
-
         $constraint = new Assert\Expression('true');
         $validator = $app['validator.validator_factory']->getInstance($constraint);
         $this->assertInstanceOf('Symfony\Component\Validator\Constraints\ExpressionValidator', $validator);
@@ -83,12 +81,12 @@ class ValidatorServiceProviderTest extends \PHPUnit_Framework_TestCase
      */
     public function testValidatorServiceIsAValidator($app)
     {
-        $this->assertInstanceOf('Symfony\Component\Validator\ValidatorInterface', $app['validator']);
+        $this->assertTrue($app['validator'] instanceof ValidatorInterface || $app['validator'] instanceof LegacyValidatorInterface );
     }
 
     /**
      * @depends testRegister
-     * @dataProvider testValidatorConstraintProvider
+     * @dataProvider getTestValidatorConstraintProvider
      */
     public function testValidatorConstraint($email, $isValid, $nbGlobalError, $nbEmailError, $app)
     {
@@ -99,13 +97,12 @@ class ValidatorServiceProviderTest extends \PHPUnit_Framework_TestCase
             ),
         ));
 
-        $builder = $app['form.factory']->createBuilder('form', array(), array(
+        $builder = $app['form.factory']->createBuilder('Symfony\Component\Form\Extension\Core\Type\FormType', array(), array(
             'constraints' => $constraints,
-            'csrf_protection' => false,
         ));
 
         $form = $builder
-            ->add('email', 'email', array('label' => 'Email'))
+            ->add('email', 'Symfony\Component\Form\Extension\Core\Type\EmailType', array('label' => 'Email'))
             ->getForm()
         ;
 
@@ -137,9 +134,9 @@ class ValidatorServiceProviderTest extends \PHPUnit_Framework_TestCase
         }
     }
 
-    public function testValidatorConstraintProvider()
+    public function getTestValidatorConstraintProvider()
     {
-        // Email, form is valid , nb global error, nb email error
+        // Email, form is valid, nb global error, nb email error
         return array(
             array('', false, 0, 1),
             array('not an email', false, 0, 1),
@@ -147,7 +144,10 @@ class ValidatorServiceProviderTest extends \PHPUnit_Framework_TestCase
         );
     }
 
-    public function testAddResource()
+    /**
+     * @dataProvider getAddResourceData
+     */
+    public function testAddResource($registerValidatorFirst)
     {
         $app = new Application();
         $app['locale'] = 'fr';
@@ -160,9 +160,16 @@ class ValidatorServiceProviderTest extends \PHPUnit_Framework_TestCase
             return $translator;
         });
 
-        $app['validator'];
+        if ($registerValidatorFirst) {
+            $app['validator'];
+        }
 
         $this->assertEquals('Pas vide', $app['translator']->trans('This value should not be blank.', array(), 'validators', 'fr'));
+    }
+
+    public function getAddResourceData()
+    {
+        return array(array(false), array(true));
     }
 
     public function testAddResourceAlternate()
