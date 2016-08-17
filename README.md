@@ -1,3 +1,23 @@
+## Developer instructions
+
+Preparing your development environment is largely automated if you have access to the
+Acquia environments.
+
+```bash
+composer sync
+```
+
+This is shorthand or these commands:
+
+```bash
+drush --yes --root=docroot sql-sync @fldmuse.prod @self
+drush --yes --root=docroot rsync @fldmuse.prod:%files @self:%files -Pv
+drush --yes --root=docroot dis domain_301_redirect securelogin
+```
+
+Those commands synchronize database and files with production. The last command disables
+modules which redirect you to <www.fieldmuseum.org>.
+
 ## Asset building
 
 Commands to build the front end assets from Table XI and any additional/overrides in the
