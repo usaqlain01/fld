@@ -13,6 +13,7 @@ directory of the repository under "scripts."
 
 1. Install composer. <https://getcomposer.org/download/> This is the PHP dependency
    manager.
+1. Install robo. <http://robo.li> This is a PHP task runner.
 2. Install rvm. <http://rvm.io> This lets you maintain multiple installations of Ruby
    in your environment (and prevents these instructions from creating conflicts with
    any other ruby uses you already have).
