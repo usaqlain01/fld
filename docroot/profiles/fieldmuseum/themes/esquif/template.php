@@ -241,9 +241,18 @@ function esquif_preprocess_node(&$variables, $hook) {
       $variables['content']['field_banner_image'][0]['file']['#item']['attributes']['class'][] = 'banner__image';
       $variables['content_attributes_array']['class'][] = 'banner__description';
       $variables['theme_hook_suggestions'][] = 'node__banner';
+
+      // To avoid unclear/repetitive text inside links, remove alt tag
+      // text and set role to presentation to let screen readers know
+      // the element is decorative per WCAG recommentations:
+      // https://www.w3.org/WAI/tutorials/images/decorative/
+      $variables['content']['field_banner_image'][0]['file']['#item']['attributes']['role'] = 'presentation';
+      $variables['content']['field_banner_image'][0]['file']['#item']['alt'] = '';
+      
       break;
 
     case 'promo':
+
       array_splice($variables['theme_hook_suggestions'], 1, 0, array('node__'. $variables['view_mode']));
       $variables['classes_array'] = array_diff($variables['classes_array'], array($node->type));
       $variables['title_attributes_array']['class'][] = 'promo__title';
@@ -252,6 +261,14 @@ function esquif_preprocess_node(&$variables, $hook) {
       $variables['content_attributes_array']['property'] = 'url';
 
       if (isset($variables['content']['field_image'])) {
+
+        // To avoid unclear/repetitive text inside links, remove alt tag
+        // text and set role to presentation to let screen readers know
+        // the element is decorative per WCAG recommentations:
+        // https://www.w3.org/WAI/tutorials/images/decorative/
+        $variables['content']['field_image'][0]['file']['#item']['attributes']['role'] = 'presentation';
+        $variables['content']['field_image'][0]['file']['#item']['alt'] = '';
+
         if ('image_formatter' == $variables['content']['field_image'][0]['file']['#theme']) {
           $variables['content']['field_image'][0]['file']['#item']['attributes']['class'][] = 'promo__image';
         }
@@ -521,6 +538,14 @@ function esquif_preprocess_taxonomy_term(&$variables, $hook) {
       $variables['content']['field_banner_image'][0]['file']['#item']['attributes']['class'][] = 'banner__image';
       $variables['content_attributes_array']['class'][] = 'banner__description';
       $variables['theme_hook_suggestions'][] = 'taxonomy_term__banner';
+
+      // To avoid unclear/repetitive text inside links, remove alt tag
+      // text and set role to presentation to let screen readers know
+      // the element is decorative per WCAG recommentations:
+      // https://www.w3.org/WAI/tutorials/images/decorative/
+      $variables['content']['field_banner_image'][0]['file']['#item']['attributes']['role'] = 'presentation';
+      $variables['content']['field_banner_image'][0]['file']['#item']['alt'] = '';
+
       break;
     case 'promo':
       $variables['theme_hook_suggestions'][] = 'taxonomy_term__promo';
@@ -531,6 +556,14 @@ function esquif_preprocess_taxonomy_term(&$variables, $hook) {
       $variables['content_attributes_array']['href'] = $variables['term_url'];
       $variables['content_attributes_array']['property'] = 'url';
       $variables['content']['field_image'][0]['file']['#item']['attributes']['class'][] = 'promo__image';
+      
+      // To avoid unclear/repetitive text inside links, remove alt tag
+      // text and set role to presentation to let screen readers know
+      // the element is decorative per WCAG recommentations:
+      // https://www.w3.org/WAI/tutorials/images/decorative/
+      $variables['content']['field_image'][0]['file']['#item']['attributes']['role'] = 'presentation';
+      $variables['content']['field_image'][0]['file']['#item']['alt'] = '';
+
       break;
     case 'summary':
       $variables['theme_hook_suggestions'][] = 'taxonomy_term__summary';
