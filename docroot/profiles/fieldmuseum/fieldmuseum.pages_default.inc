@@ -709,7 +709,7 @@ function fieldmuseum_default_page_manager_pages() {
     $pane->pid = 'new-b338a46e-f4cc-4470-975b-5b05d656cdf5';
     $pane->panel = 'main';
     $pane->type = 'fieldable_panels_pane';
-    $pane->subtype = 'fpid:536';
+    $pane->subtype = 'current:536';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -4214,7 +4214,7 @@ function fieldmuseum_default_page_manager_pages() {
     $pane->pid = 'new-d660e9e1-5e72-4eed-8a92-05b999184a57';
     $pane->panel = 'top_b';
     $pane->type = 'fieldable_panels_pane';
-    $pane->subtype = 'fpid:246';
+    $pane->subtype = 'current:246';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -4587,7 +4587,7 @@ function fieldmuseum_default_page_manager_pages() {
       'identifier' => '',
       'build_mode' => 'banner',
       'link_node_title' => 0,
-      'override_title' => 0,
+      'override_title' => 1,
       'override_title_text' => '',
       'override_title_heading' => 'h2',
     );
@@ -4607,26 +4607,26 @@ function fieldmuseum_default_page_manager_pages() {
     $display->content['new-337c47fb-b577-44bc-b793-403b8fb146ac'] = $pane;
     $display->panels['main'][0] = 'new-337c47fb-b577-44bc-b793-403b8fb146ac';
     $pane = new stdClass();
-    $pane->pid = 'new-48479416-8676-4857-b7e6-2a829120836c';
+    $pane->pid = 'new-c32b2e83-d097-478c-a3e2-c80fbfb16af5';
     $pane->panel = 'main';
     $pane->type = 'node';
     $pane->subtype = 'node';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'nid' => '17856',
+      'nid' => '19786',
       'links' => 0,
       'leave_node_title' => 0,
       'identifier' => '',
       'build_mode' => 'banner',
       'link_node_title' => 0,
-      'override_title' => 0,
+      'override_title' => 1,
       'override_title_text' => '',
       'override_title_heading' => 'h2',
     );
     $pane->cache = array();
     $pane->style = array(
-      'style' => 'naked',
+      'style' => 'default',
       'settings' => NULL,
     );
     $pane->css = array(
@@ -4636,30 +4636,30 @@ function fieldmuseum_default_page_manager_pages() {
     $pane->extras = array();
     $pane->position = 1;
     $pane->locks = array();
-    $pane->uuid = '48479416-8676-4857-b7e6-2a829120836c';
-    $display->content['new-48479416-8676-4857-b7e6-2a829120836c'] = $pane;
-    $display->panels['main'][1] = 'new-48479416-8676-4857-b7e6-2a829120836c';
+    $pane->uuid = 'c32b2e83-d097-478c-a3e2-c80fbfb16af5';
+    $display->content['new-c32b2e83-d097-478c-a3e2-c80fbfb16af5'] = $pane;
+    $display->panels['main'][1] = 'new-c32b2e83-d097-478c-a3e2-c80fbfb16af5';
     $pane = new stdClass();
-    $pane->pid = 'new-740363a4-1e44-4463-98c3-7d73f1f280c9';
+    $pane->pid = 'new-97198ca3-ac98-4a1e-a09a-48f5050a4d34';
     $pane->panel = 'main';
     $pane->type = 'node';
     $pane->subtype = 'node';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'nid' => '17081',
+      'nid' => '20671',
       'links' => 0,
       'leave_node_title' => 0,
       'identifier' => '',
       'build_mode' => 'banner',
       'link_node_title' => 0,
-      'override_title' => 0,
+      'override_title' => 1,
       'override_title_text' => '',
       'override_title_heading' => 'h2',
     );
     $pane->cache = array();
     $pane->style = array(
-      'style' => 'naked',
+      'style' => 'default',
       'settings' => NULL,
     );
     $pane->css = array(
@@ -4669,30 +4669,30 @@ function fieldmuseum_default_page_manager_pages() {
     $pane->extras = array();
     $pane->position = 2;
     $pane->locks = array();
-    $pane->uuid = '740363a4-1e44-4463-98c3-7d73f1f280c9';
-    $display->content['new-740363a4-1e44-4463-98c3-7d73f1f280c9'] = $pane;
-    $display->panels['main'][2] = 'new-740363a4-1e44-4463-98c3-7d73f1f280c9';
+    $pane->uuid = '97198ca3-ac98-4a1e-a09a-48f5050a4d34';
+    $display->content['new-97198ca3-ac98-4a1e-a09a-48f5050a4d34'] = $pane;
+    $display->panels['main'][2] = 'new-97198ca3-ac98-4a1e-a09a-48f5050a4d34';
     $pane = new stdClass();
-    $pane->pid = 'new-11b54b23-4f70-4324-83c7-1d22cddd1f0a';
+    $pane->pid = 'new-3a137e98-e2b6-4b27-8803-6bb3f0c6ffe9';
     $pane->panel = 'main';
     $pane->type = 'node';
     $pane->subtype = 'node';
     $pane->shown = FALSE;
     $pane->access = array();
     $pane->configuration = array(
-      'nid' => '18181',
+      'nid' => '561',
       'links' => 0,
       'leave_node_title' => 0,
       'identifier' => '',
       'build_mode' => 'banner',
       'link_node_title' => 0,
-      'override_title' => 0,
+      'override_title' => 1,
       'override_title_text' => '',
       'override_title_heading' => 'h2',
     );
     $pane->cache = array();
     $pane->style = array(
-      'style' => 'naked',
+      'style' => 'default',
       'settings' => NULL,
     );
     $pane->css = array(
@@ -4702,9 +4702,42 @@ function fieldmuseum_default_page_manager_pages() {
     $pane->extras = array();
     $pane->position = 3;
     $pane->locks = array();
-    $pane->uuid = '11b54b23-4f70-4324-83c7-1d22cddd1f0a';
-    $display->content['new-11b54b23-4f70-4324-83c7-1d22cddd1f0a'] = $pane;
-    $display->panels['main'][3] = 'new-11b54b23-4f70-4324-83c7-1d22cddd1f0a';
+    $pane->uuid = '3a137e98-e2b6-4b27-8803-6bb3f0c6ffe9';
+    $display->content['new-3a137e98-e2b6-4b27-8803-6bb3f0c6ffe9'] = $pane;
+    $display->panels['main'][3] = 'new-3a137e98-e2b6-4b27-8803-6bb3f0c6ffe9';
+    $pane = new stdClass();
+    $pane->pid = 'new-2e0bc293-7385-4436-8c27-bdc02001e5eb';
+    $pane->panel = 'main';
+    $pane->type = 'node';
+    $pane->subtype = 'node';
+    $pane->shown = FALSE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'nid' => '19511',
+      'links' => 0,
+      'leave_node_title' => 0,
+      'identifier' => '',
+      'build_mode' => 'banner',
+      'link_node_title' => 0,
+      'override_title' => 1,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'default',
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'banner--primary',
+    );
+    $pane->extras = array();
+    $pane->position = 4;
+    $pane->locks = array();
+    $pane->uuid = '2e0bc293-7385-4436-8c27-bdc02001e5eb';
+    $display->content['new-2e0bc293-7385-4436-8c27-bdc02001e5eb'] = $pane;
+    $display->panels['main'][4] = 'new-2e0bc293-7385-4436-8c27-bdc02001e5eb';
     $pane = new stdClass();
     $pane->pid = 'new-8b8be7db-8724-4b9e-a42a-1f434514ab74';
     $pane->panel = 'main';
@@ -4733,11 +4766,11 @@ function fieldmuseum_default_page_manager_pages() {
       'css_class' => 'banner--secondary',
     );
     $pane->extras = array();
-    $pane->position = 4;
+    $pane->position = 5;
     $pane->locks = array();
     $pane->uuid = '8b8be7db-8724-4b9e-a42a-1f434514ab74';
     $display->content['new-8b8be7db-8724-4b9e-a42a-1f434514ab74'] = $pane;
-    $display->panels['main'][4] = 'new-8b8be7db-8724-4b9e-a42a-1f434514ab74';
+    $display->panels['main'][5] = 'new-8b8be7db-8724-4b9e-a42a-1f434514ab74';
     $pane = new stdClass();
     $pane->pid = 'new-d5f05a84-3274-4e9d-8692-f4dceed42d98';
     $pane->panel = 'main';
@@ -4765,44 +4798,11 @@ function fieldmuseum_default_page_manager_pages() {
       'css_class' => 'banner--secondary',
     );
     $pane->extras = array();
-    $pane->position = 5;
+    $pane->position = 6;
     $pane->locks = array();
     $pane->uuid = 'd5f05a84-3274-4e9d-8692-f4dceed42d98';
     $display->content['new-d5f05a84-3274-4e9d-8692-f4dceed42d98'] = $pane;
-    $display->panels['main'][5] = 'new-d5f05a84-3274-4e9d-8692-f4dceed42d98';
-    $pane = new stdClass();
-    $pane->pid = 'new-f3f111ad-597a-47ef-965e-96491a8df4d0';
-    $pane->panel = 'main';
-    $pane->type = 'node';
-    $pane->subtype = 'node';
-    $pane->shown = FALSE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'nid' => '17861',
-      'links' => 0,
-      'leave_node_title' => 0,
-      'identifier' => '',
-      'build_mode' => 'banner',
-      'link_node_title' => 0,
-      'override_title' => 0,
-      'override_title_text' => '',
-      'override_title_heading' => 'h2',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'style' => 'naked',
-      'settings' => NULL,
-    );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => 'banner--primary',
-    );
-    $pane->extras = array();
-    $pane->position = 6;
-    $pane->locks = array();
-    $pane->uuid = 'f3f111ad-597a-47ef-965e-96491a8df4d0';
-    $display->content['new-f3f111ad-597a-47ef-965e-96491a8df4d0'] = $pane;
-    $display->panels['main'][6] = 'new-f3f111ad-597a-47ef-965e-96491a8df4d0';
+    $display->panels['main'][6] = 'new-d5f05a84-3274-4e9d-8692-f4dceed42d98';
     $pane = new stdClass();
     $pane->pid = 'new-ee08722e-0cd3-41a6-bb8b-ad831f6f426a';
     $pane->panel = 'main';
@@ -4836,7 +4836,40 @@ function fieldmuseum_default_page_manager_pages() {
     $display->content['new-ee08722e-0cd3-41a6-bb8b-ad831f6f426a'] = $pane;
     $display->panels['main'][7] = 'new-ee08722e-0cd3-41a6-bb8b-ad831f6f426a';
     $pane = new stdClass();
-    $pane->pid = 'new-22bdca7e-aa61-475c-8dab-4df6de5476cb';
+    $pane->pid = 'new-e0ec235e-270a-4a9a-8e74-c4e4bd0f2ec7';
+    $pane->panel = 'main';
+    $pane->type = 'node';
+    $pane->subtype = 'node';
+    $pane->shown = FALSE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'nid' => '20226',
+      'links' => 0,
+      'leave_node_title' => 0,
+      'identifier' => '',
+      'build_mode' => 'banner',
+      'link_node_title' => 0,
+      'override_title' => 1,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'default',
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'banner--secondary',
+    );
+    $pane->extras = array();
+    $pane->position = 8;
+    $pane->locks = array();
+    $pane->uuid = 'e0ec235e-270a-4a9a-8e74-c4e4bd0f2ec7';
+    $display->content['new-e0ec235e-270a-4a9a-8e74-c4e4bd0f2ec7'] = $pane;
+    $display->panels['main'][8] = 'new-e0ec235e-270a-4a9a-8e74-c4e4bd0f2ec7';
+    $pane = new stdClass();
+    $pane->pid = 'new-f4adf0a7-8ecf-4ce1-9c0c-7da922fdc98d';
     $pane->panel = 'summary_a';
     $pane->type = 'custom';
     $pane->subtype = 'custom';
@@ -4847,24 +4880,21 @@ function fieldmuseum_default_page_manager_pages() {
       'title' => '',
       'body' => '<h2 class="heading--stroked">Science at The Field</h2>
 ',
-      'format' => 'unfiltered',
+      'format' => 'filtered_wysiwyg',
       'substitute' => 1,
     );
     $pane->cache = array();
     $pane->style = array(
-      'style' => 'naked',
+      'style' => 'default',
       'settings' => NULL,
     );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => 'banner--secondary',
-    );
+    $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = '22bdca7e-aa61-475c-8dab-4df6de5476cb';
-    $display->content['new-22bdca7e-aa61-475c-8dab-4df6de5476cb'] = $pane;
-    $display->panels['summary_a'][0] = 'new-22bdca7e-aa61-475c-8dab-4df6de5476cb';
+    $pane->uuid = 'f4adf0a7-8ecf-4ce1-9c0c-7da922fdc98d';
+    $display->content['new-f4adf0a7-8ecf-4ce1-9c0c-7da922fdc98d'] = $pane;
+    $display->panels['summary_a'][0] = 'new-f4adf0a7-8ecf-4ce1-9c0c-7da922fdc98d';
     $pane = new stdClass();
     $pane->pid = 'new-77d37ea5-2880-4081-8f7b-5ddfb9537655';
     $pane->panel = 'summary_a';
@@ -4880,7 +4910,7 @@ function fieldmuseum_default_page_manager_pages() {
     );
     $pane->cache = array();
     $pane->style = array(
-      'style' => 'default',
+      'style' => 'naked',
       'settings' => NULL,
     );
     $pane->css = array(
@@ -4916,12 +4946,78 @@ function fieldmuseum_default_page_manager_pages() {
     $display->content['new-0ab51121-6321-4678-a275-1ecb739b6dda'] = $pane;
     $display->panels['summary_a'][2] = 'new-0ab51121-6321-4678-a275-1ecb739b6dda';
     $pane = new stdClass();
-    $pane->pid = 'new-6c883c9c-cd31-4e90-8521-a3c1dd2d6526';
+    $pane->pid = 'new-c05b337f-b451-43da-9a40-38ca9da4feee';
     $pane->panel = 'summary_a';
     $pane->type = 'node';
     $pane->subtype = 'node';
     $pane->shown = FALSE;
     $pane->access = array();
+    $pane->configuration = array(
+      'nid' => '20521',
+      'links' => 0,
+      'leave_node_title' => 0,
+      'identifier' => '',
+      'build_mode' => 'banner',
+      'link_node_title' => 0,
+      'override_title' => 1,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'default',
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'banner--secondary',
+    );
+    $pane->extras = array();
+    $pane->position = 3;
+    $pane->locks = array();
+    $pane->uuid = 'c05b337f-b451-43da-9a40-38ca9da4feee';
+    $display->content['new-c05b337f-b451-43da-9a40-38ca9da4feee'] = $pane;
+    $display->panels['summary_a'][3] = 'new-c05b337f-b451-43da-9a40-38ca9da4feee';
+    $pane = new stdClass();
+    $pane->pid = 'new-5c7e4829-74ee-4b8c-9985-56b615d4cb50';
+    $pane->panel = 'summary_a';
+    $pane->type = 'fieldable_panels_pane';
+    $pane->subtype = 'fpid:691';
+    $pane->shown = FALSE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'view_mode' => 'naked',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'default',
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 4;
+    $pane->locks = array();
+    $pane->uuid = '5c7e4829-74ee-4b8c-9985-56b615d4cb50';
+    $display->content['new-5c7e4829-74ee-4b8c-9985-56b615d4cb50'] = $pane;
+    $display->panels['summary_a'][4] = 'new-5c7e4829-74ee-4b8c-9985-56b615d4cb50';
+    $pane = new stdClass();
+    $pane->pid = 'new-6c883c9c-cd31-4e90-8521-a3c1dd2d6526';
+    $pane->panel = 'summary_a';
+    $pane->type = 'node';
+    $pane->subtype = 'node';
+    $pane->shown = FALSE;
+    $pane->access = array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'sunrise_sunset',
+          'settings' => array(
+            'sunrise' => '2015-09-12 14:00',
+            'sunset' => '2025-09-10 12:17',
+          ),
+          'not' => FALSE,
+        ),
+      ),
+    );
     $pane->configuration = array(
       'nid' => '9901',
       'links' => 0,
@@ -4942,11 +5038,91 @@ function fieldmuseum_default_page_manager_pages() {
       'css_class' => 'banner--secondary',
     );
     $pane->extras = array();
-    $pane->position = 3;
+    $pane->position = 5;
     $pane->locks = array();
     $pane->uuid = '6c883c9c-cd31-4e90-8521-a3c1dd2d6526';
     $display->content['new-6c883c9c-cd31-4e90-8521-a3c1dd2d6526'] = $pane;
-    $display->panels['summary_a'][3] = 'new-6c883c9c-cd31-4e90-8521-a3c1dd2d6526';
+    $display->panels['summary_a'][5] = 'new-6c883c9c-cd31-4e90-8521-a3c1dd2d6526';
+    $pane = new stdClass();
+    $pane->pid = 'new-ab89e0db-67e9-48a7-8893-8fa81127e36c';
+    $pane->panel = 'summary_a';
+    $pane->type = 'fieldable_panels_pane';
+    $pane->subtype = 'fpid:581';
+    $pane->shown = FALSE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'view_mode' => 'naked',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'naked',
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => '',
+    );
+    $pane->extras = array();
+    $pane->position = 6;
+    $pane->locks = array();
+    $pane->uuid = 'ab89e0db-67e9-48a7-8893-8fa81127e36c';
+    $display->content['new-ab89e0db-67e9-48a7-8893-8fa81127e36c'] = $pane;
+    $display->panels['summary_a'][6] = 'new-ab89e0db-67e9-48a7-8893-8fa81127e36c';
+    $pane = new stdClass();
+    $pane->pid = 'new-7c4b0df9-3be6-4b44-9088-cd282093a511';
+    $pane->panel = 'summary_a';
+    $pane->type = 'node';
+    $pane->subtype = 'node';
+    $pane->shown = FALSE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'nid' => '20021',
+      'links' => 0,
+      'leave_node_title' => 0,
+      'identifier' => '',
+      'build_mode' => 'banner',
+      'link_node_title' => 0,
+      'override_title' => 1,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'default',
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'banner--secondary',
+    );
+    $pane->extras = array();
+    $pane->position = 7;
+    $pane->locks = array();
+    $pane->uuid = '7c4b0df9-3be6-4b44-9088-cd282093a511';
+    $display->content['new-7c4b0df9-3be6-4b44-9088-cd282093a511'] = $pane;
+    $display->panels['summary_a'][7] = 'new-7c4b0df9-3be6-4b44-9088-cd282093a511';
+    $pane = new stdClass();
+    $pane->pid = 'new-30da2a5a-116e-430b-8fd4-41979bc94e7a';
+    $pane->panel = 'summary_a';
+    $pane->type = 'fieldable_panels_pane';
+    $pane->subtype = 'fpid:656';
+    $pane->shown = FALSE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'view_mode' => 'naked',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'default',
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 8;
+    $pane->locks = array();
+    $pane->uuid = '30da2a5a-116e-430b-8fd4-41979bc94e7a';
+    $display->content['new-30da2a5a-116e-430b-8fd4-41979bc94e7a'] = $pane;
+    $display->panels['summary_a'][8] = 'new-30da2a5a-116e-430b-8fd4-41979bc94e7a';
     $pane = new stdClass();
     $pane->pid = 'new-f84c318e-b8e3-4c00-a60d-3dd10189ce1b';
     $pane->panel = 'summary_a';
@@ -4964,72 +5140,65 @@ function fieldmuseum_default_page_manager_pages() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 4;
+    $pane->position = 9;
     $pane->locks = array();
     $pane->uuid = 'f84c318e-b8e3-4c00-a60d-3dd10189ce1b';
     $display->content['new-f84c318e-b8e3-4c00-a60d-3dd10189ce1b'] = $pane;
-    $display->panels['summary_a'][4] = 'new-f84c318e-b8e3-4c00-a60d-3dd10189ce1b';
+    $display->panels['summary_a'][9] = 'new-f84c318e-b8e3-4c00-a60d-3dd10189ce1b';
+    $pane = new stdClass();
+    $pane->pid = 'new-8e1e97a5-9ea3-4c6f-adfb-a243410fa790';
+    $pane->panel = 'summary_a';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => 'Explode Science With Us!',
+      'title' => '',
+      'body' => '<h3 class="scale--5">Explore Science With Us</h3>
+<ul class="contentLinks ">
+	<li class="contentLinks__item"><a href="/science/blog">Science Blogs &amp; Videos</a></li>
+	<li class="contentLinks__item"><a href="/science/research">Research &amp; Collections</a></li>
+	<li class="contentLinks__item"><a href="/science/conservation">Conservation &amp; Community</a></li>
+	<li class="contentLinks__item"><a href="/at-the-field/programs/meet-scientist">Meet A Scientist</a></li>
+</ul>',
+      'format' => 'filtered_wysiwyg',
+      'substitute' => 1,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'default',
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 10;
+    $pane->locks = array();
+    $pane->uuid = '8e1e97a5-9ea3-4c6f-adfb-a243410fa790';
+    $display->content['new-8e1e97a5-9ea3-4c6f-adfb-a243410fa790'] = $pane;
+    $display->panels['summary_a'][10] = 'new-8e1e97a5-9ea3-4c6f-adfb-a243410fa790';
     $pane = new stdClass();
     $pane->pid = 'new-053eadd0-b8e7-4df7-8182-8b1fa1ec39bc';
     $pane->panel = 'summary_a';
     $pane->type = 'fieldable_panels_pane';
     $pane->subtype = 'fpid:556';
-    $pane->shown = TRUE;
+    $pane->shown = FALSE;
     $pane->access = array();
     $pane->configuration = array(
       'view_mode' => 'naked',
     );
     $pane->cache = array();
     $pane->style = array(
-      'style' => 'semantic_panels',
-      'settings' => array(
-        'element_title' => array(
-          'type' => 'h4',
-          'class_enable' => 1,
-          'class' => 'scale--5',
-          'attributes' => array(),
-          'link_enabled' => 0,
-          'link' => array(
-            'path' => '',
-            'class_enable' => 0,
-            'class' => '',
-            'attributes' => array(),
-            'attributes_array' => array(),
-          ),
-          'attributes_array' => array(),
-        ),
-        'element_content' => array(
-          'type' => '0',
-          'class_enable' => 0,
-          'class' => '',
-          'attributes' => array(),
-          'link_enabled' => 0,
-          'link' => array(
-            'path' => '',
-            'class_enable' => 0,
-            'class' => '',
-            'attributes' => array(),
-            'attributes_array' => array(),
-          ),
-          'attributes_array' => array(),
-        ),
-        'element_wrapper' => array(
-          'type' => '0',
-          'class_enable' => 0,
-          'class' => '',
-          'attributes' => array(),
-          'attributes_array' => array(),
-        ),
-        'add_default_classes' => 1,
-      ),
+      'style' => 'naked',
+      'settings' => NULL,
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 5;
+    $pane->position = 11;
     $pane->locks = array();
     $pane->uuid = '053eadd0-b8e7-4df7-8182-8b1fa1ec39bc';
     $display->content['new-053eadd0-b8e7-4df7-8182-8b1fa1ec39bc'] = $pane;
-    $display->panels['summary_a'][5] = 'new-053eadd0-b8e7-4df7-8182-8b1fa1ec39bc';
+    $display->panels['summary_a'][11] = 'new-053eadd0-b8e7-4df7-8182-8b1fa1ec39bc';
     $pane = new stdClass();
     $pane->pid = 'new-9c7c967d-f6dd-4d2e-9592-fcc315666935';
     $pane->panel = 'summary_b';
@@ -5057,7 +5226,7 @@ function fieldmuseum_default_page_manager_pages() {
     $display->content['new-9c7c967d-f6dd-4d2e-9592-fcc315666935'] = $pane;
     $display->panels['summary_b'][0] = 'new-9c7c967d-f6dd-4d2e-9592-fcc315666935';
     $pane = new stdClass();
-    $pane->pid = 'new-da6b8fae-1a5b-4dd2-9fb8-b8285a74e777';
+    $pane->pid = 'new-18495c36-87d1-4bdf-ae72-396b7889b8d1';
     $pane->panel = 'summary_b';
     $pane->type = 'node';
     $pane->subtype = 'node';
@@ -5076,25 +5245,182 @@ function fieldmuseum_default_page_manager_pages() {
     );
     $pane->cache = array();
     $pane->style = array(
-      'style' => 'naked',
+      'style' => 'default',
       'settings' => NULL,
     );
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 1;
     $pane->locks = array();
-    $pane->uuid = 'da6b8fae-1a5b-4dd2-9fb8-b8285a74e777';
-    $display->content['new-da6b8fae-1a5b-4dd2-9fb8-b8285a74e777'] = $pane;
-    $display->panels['summary_b'][1] = 'new-da6b8fae-1a5b-4dd2-9fb8-b8285a74e777';
+    $pane->uuid = '18495c36-87d1-4bdf-ae72-396b7889b8d1';
+    $display->content['new-18495c36-87d1-4bdf-ae72-396b7889b8d1'] = $pane;
+    $display->panels['summary_b'][1] = 'new-18495c36-87d1-4bdf-ae72-396b7889b8d1';
     $pane = new stdClass();
-    $pane->pid = 'new-ab89e0db-67e9-48a7-8893-8fa81127e36c';
+    $pane->pid = 'new-596028eb-0f7c-4621-ab0b-97a2986c3083';
     $pane->panel = 'summary_b';
     $pane->type = 'fieldable_panels_pane';
-    $pane->subtype = 'fpid:581';
+    $pane->subtype = 'current:601';
     $pane->shown = TRUE;
+    $pane->access = array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'sunrise_sunset',
+          'settings' => array(
+            'sunrise' => '2015-09-12 14:00',
+            'sunset' => '2025-09-05 10:16',
+          ),
+          'not' => FALSE,
+        ),
+      ),
+    );
+    $pane->configuration = array(
+      'view_mode' => 'naked',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'default',
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'banner--secondary',
+    );
+    $pane->extras = array();
+    $pane->position = 2;
+    $pane->locks = array();
+    $pane->uuid = '596028eb-0f7c-4621-ab0b-97a2986c3083';
+    $display->content['new-596028eb-0f7c-4621-ab0b-97a2986c3083'] = $pane;
+    $display->panels['summary_b'][2] = 'new-596028eb-0f7c-4621-ab0b-97a2986c3083';
+    $pane = new stdClass();
+    $pane->pid = 'new-3248e5d0-7446-40ac-9007-2dc638f59131';
+    $pane->panel = 'summary_b';
+    $pane->type = 'node';
+    $pane->subtype = 'node';
+    $pane->shown = FALSE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'nid' => '20966',
+      'links' => 0,
+      'leave_node_title' => 0,
+      'identifier' => '',
+      'build_mode' => 'banner',
+      'link_node_title' => 0,
+      'override_title' => 1,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'default',
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'banner--secondary',
+    );
+    $pane->extras = array();
+    $pane->position = 3;
+    $pane->locks = array();
+    $pane->uuid = '3248e5d0-7446-40ac-9007-2dc638f59131';
+    $display->content['new-3248e5d0-7446-40ac-9007-2dc638f59131'] = $pane;
+    $display->panels['summary_b'][3] = 'new-3248e5d0-7446-40ac-9007-2dc638f59131';
+    $pane = new stdClass();
+    $pane->pid = 'new-4191f758-d5c8-4ae3-9fa4-897bf0c24007';
+    $pane->panel = 'summary_b';
+    $pane->type = 'fieldable_panels_pane';
+    $pane->subtype = 'current:676';
+    $pane->shown = FALSE;
     $pane->access = array();
     $pane->configuration = array(
       'view_mode' => 'naked',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'default',
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 4;
+    $pane->locks = array();
+    $pane->uuid = '4191f758-d5c8-4ae3-9fa4-897bf0c24007';
+    $display->content['new-4191f758-d5c8-4ae3-9fa4-897bf0c24007'] = $pane;
+    $display->panels['summary_b'][4] = 'new-4191f758-d5c8-4ae3-9fa4-897bf0c24007';
+    $pane = new stdClass();
+    $pane->pid = 'new-b57175a1-373f-481c-81d6-89a58e83bd4a';
+    $pane->panel = 'summary_b';
+    $pane->type = 'node';
+    $pane->subtype = 'node';
+    $pane->shown = FALSE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'nid' => '9651',
+      'links' => 0,
+      'leave_node_title' => 0,
+      'identifier' => '',
+      'build_mode' => 'banner',
+      'link_node_title' => 0,
+      'override_title' => 1,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'default',
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'banner--secondary',
+    );
+    $pane->extras = array();
+    $pane->position = 5;
+    $pane->locks = array();
+    $pane->uuid = 'b57175a1-373f-481c-81d6-89a58e83bd4a';
+    $display->content['new-b57175a1-373f-481c-81d6-89a58e83bd4a'] = $pane;
+    $display->panels['summary_b'][5] = 'new-b57175a1-373f-481c-81d6-89a58e83bd4a';
+    $pane = new stdClass();
+    $pane->pid = 'new-8163ab9b-bf72-48ae-bd9e-ecde388fd394';
+    $pane->panel = 'summary_b';
+    $pane->type = 'fieldable_panels_pane';
+    $pane->subtype = 'current:701';
+    $pane->shown = FALSE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'view_mode' => 'naked',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'default',
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'banner--secondary',
+    );
+    $pane->extras = array();
+    $pane->position = 6;
+    $pane->locks = array();
+    $pane->uuid = '8163ab9b-bf72-48ae-bd9e-ecde388fd394';
+    $display->content['new-8163ab9b-bf72-48ae-bd9e-ecde388fd394'] = $pane;
+    $display->panels['summary_b'][6] = 'new-8163ab9b-bf72-48ae-bd9e-ecde388fd394';
+    $pane = new stdClass();
+    $pane->pid = 'new-da6b8fae-1a5b-4dd2-9fb8-b8285a74e777';
+    $pane->panel = 'summary_b';
+    $pane->type = 'node';
+    $pane->subtype = 'node';
+    $pane->shown = FALSE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'nid' => '9901',
+      'links' => 0,
+      'leave_node_title' => 0,
+      'identifier' => '',
+      'build_mode' => 'banner',
+      'link_node_title' => 0,
+      'override_title' => 1,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -5103,14 +5429,124 @@ function fieldmuseum_default_page_manager_pages() {
     );
     $pane->css = array(
       'css_id' => '',
-      'css_class' => '',
+      'css_class' => 'banner--secondary',
     );
     $pane->extras = array();
-    $pane->position = 2;
+    $pane->position = 7;
     $pane->locks = array();
-    $pane->uuid = 'ab89e0db-67e9-48a7-8893-8fa81127e36c';
-    $display->content['new-ab89e0db-67e9-48a7-8893-8fa81127e36c'] = $pane;
-    $display->panels['summary_b'][2] = 'new-ab89e0db-67e9-48a7-8893-8fa81127e36c';
+    $pane->uuid = 'da6b8fae-1a5b-4dd2-9fb8-b8285a74e777';
+    $display->content['new-da6b8fae-1a5b-4dd2-9fb8-b8285a74e777'] = $pane;
+    $display->panels['summary_b'][7] = 'new-da6b8fae-1a5b-4dd2-9fb8-b8285a74e777';
+    $pane = new stdClass();
+    $pane->pid = 'new-17565d7f-9821-4d6c-9c18-c16f5346c994';
+    $pane->panel = 'summary_b';
+    $pane->type = 'node';
+    $pane->subtype = 'node';
+    $pane->shown = FALSE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'nid' => '7566',
+      'links' => 0,
+      'leave_node_title' => 0,
+      'identifier' => '',
+      'build_mode' => 'banner',
+      'link_node_title' => 0,
+      'override_title' => 1,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'default',
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'banner--secondary',
+    );
+    $pane->extras = array();
+    $pane->position = 8;
+    $pane->locks = array();
+    $pane->uuid = '17565d7f-9821-4d6c-9c18-c16f5346c994';
+    $display->content['new-17565d7f-9821-4d6c-9c18-c16f5346c994'] = $pane;
+    $display->panels['summary_b'][8] = 'new-17565d7f-9821-4d6c-9c18-c16f5346c994';
+    $pane = new stdClass();
+    $pane->pid = 'new-f4e3dd7c-7ead-4719-9b46-aa2be127acba';
+    $pane->panel = 'summary_b';
+    $pane->type = 'fieldable_panels_pane';
+    $pane->subtype = 'fpid:671';
+    $pane->shown = FALSE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'view_mode' => 'naked',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'default',
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 9;
+    $pane->locks = array();
+    $pane->uuid = 'f4e3dd7c-7ead-4719-9b46-aa2be127acba';
+    $display->content['new-f4e3dd7c-7ead-4719-9b46-aa2be127acba'] = $pane;
+    $display->panels['summary_b'][9] = 'new-f4e3dd7c-7ead-4719-9b46-aa2be127acba';
+    $pane = new stdClass();
+    $pane->pid = 'new-9fbc2cce-d51d-4701-b9f4-11572e747cfc';
+    $pane->panel = 'summary_b';
+    $pane->type = 'node';
+    $pane->subtype = 'node';
+    $pane->shown = FALSE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'nid' => '9881',
+      'links' => 0,
+      'leave_node_title' => 0,
+      'identifier' => '',
+      'build_mode' => 'banner',
+      'link_node_title' => 0,
+      'override_title' => 1,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'default',
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'banner--secondary',
+    );
+    $pane->extras = array();
+    $pane->position = 10;
+    $pane->locks = array();
+    $pane->uuid = '9fbc2cce-d51d-4701-b9f4-11572e747cfc';
+    $display->content['new-9fbc2cce-d51d-4701-b9f4-11572e747cfc'] = $pane;
+    $display->panels['summary_b'][10] = 'new-9fbc2cce-d51d-4701-b9f4-11572e747cfc';
+    $pane = new stdClass();
+    $pane->pid = 'new-df2eaef5-e874-49ca-8ce2-2f51686a407c';
+    $pane->panel = 'summary_b';
+    $pane->type = 'fieldable_panels_pane';
+    $pane->subtype = 'fpid:651';
+    $pane->shown = FALSE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'view_mode' => 'naked',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'default',
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 11;
+    $pane->locks = array();
+    $pane->uuid = 'df2eaef5-e874-49ca-8ce2-2f51686a407c';
+    $display->content['new-df2eaef5-e874-49ca-8ce2-2f51686a407c'] = $pane;
+    $display->panels['summary_b'][11] = 'new-df2eaef5-e874-49ca-8ce2-2f51686a407c';
     $pane = new stdClass();
     $pane->pid = 'new-03c85560-2098-43ee-8420-f26f6f41d842';
     $pane->panel = 'summary_b';
@@ -5128,11 +5564,80 @@ function fieldmuseum_default_page_manager_pages() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 3;
+    $pane->position = 12;
     $pane->locks = array();
     $pane->uuid = '03c85560-2098-43ee-8420-f26f6f41d842';
     $display->content['new-03c85560-2098-43ee-8420-f26f6f41d842'] = $pane;
-    $display->panels['summary_b'][3] = 'new-03c85560-2098-43ee-8420-f26f6f41d842';
+    $display->panels['summary_b'][12] = 'new-03c85560-2098-43ee-8420-f26f6f41d842';
+    $pane = new stdClass();
+    $pane->pid = 'new-4b3de0e1-9766-48d3-8d39-f77d9927cb87';
+    $pane->panel = 'summary_b';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = FALSE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => 'field trips',
+      'title' => '',
+      'body' => '  <a class="node node-event view-mode-banner banner banner--secondary" about="/educators/field-trips" typeof="schema:Event sioc:Item foaf:Document" href="/educators/field-trips">
+  <figure>
+  <img class="banner__image js--pictureFill" srcset="https://www.fieldmuseum.org/sites/default/files/styles/5x2_2400w/public/GN90383_05d.jpg?itok=OV14lw9S 2400w,https://www.fieldmuseum.org/sites/default/files/styles/5x2_1600w/public/GN90383_05d.jpg?itok=Nis5cB7f 1600w,https://www.fieldmuseum.org/sites/default/files/styles/5x2_1200w/public/GN90383_05d.jpg?itok=BsRF0Tky 1200w,https://www.fieldmuseum.org/sites/default/files/styles/5x2_1000w/public/GN90383_05d.jpg?itok=YxF3xVFq 1000w,https://www.fieldmuseum.org/sites/default/files/styles/5x2_800w/public/GN90383_05d.jpg?itok=Rqg65iQq 800w,https://www.fieldmuseum.org/sites/default/files/styles/5x2_500w/public/GN90383_05d.jpg?itok=GBFGVoKA 500w" sizes="(min-width: 118.8125em) calc(100% - 555px),(min-width: 100.0625em) calc(100% - 380px),(min-width: 81.3125em) calc(100% - 325px),(min-width: 62.5625em) calc(100% - 300px),100vw" typeof="foaf:Image" src="https://www.fieldmuseum.org/sites/default/files/styles/5x2_800w/public/GN90383_05d.jpg?itok=Rqg65iQq" alt="">    <figcaption class="banner__description">
+      
+  <p>Visit over two dozen exhibits to journey to another place and time, experience a new culture, study real artifacts and specimens, and engage with Field Museum scientists and educators along the way.</p>    </figcaption>
+  </figure>
+</a>
+
+ 
+  
+<h3 class="summary__title">
+    <a href="/educators/field-trips">Field Trips</a>
+</h3>
+
+<div class="summary__description">
+  
+  <p>Illinois school groups receive free general admission with pre-registration and can experience ticketed exhibitions and 3D movies at a discounted rate. Get started mapping your focused field trip today by exploring popular content connections, planning student learning experiences, or reviewing our Field Trip Planning Guide!</p></div>
+',
+      'format' => 'filtered_wysiwyg',
+      'substitute' => 1,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'default',
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 13;
+    $pane->locks = array();
+    $pane->uuid = '4b3de0e1-9766-48d3-8d39-f77d9927cb87';
+    $display->content['new-4b3de0e1-9766-48d3-8d39-f77d9927cb87'] = $pane;
+    $display->panels['summary_b'][13] = 'new-4b3de0e1-9766-48d3-8d39-f77d9927cb87';
+    $pane = new stdClass();
+    $pane->pid = 'new-f9126474-b3ad-4275-b18c-1bf04352d01d';
+    $pane->panel = 'summary_b';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = FALSE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => 'This week at the field header',
+      'title' => '',
+      'body' => '<h3 class="scale--4">This Week at the Field<h3>',
+      'format' => 'filtered_wysiwyg',
+      'substitute' => 1,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'default',
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 14;
+    $pane->locks = array();
+    $pane->uuid = 'f9126474-b3ad-4275-b18c-1bf04352d01d';
+    $display->content['new-f9126474-b3ad-4275-b18c-1bf04352d01d'] = $pane;
+    $display->panels['summary_b'][14] = 'new-f9126474-b3ad-4275-b18c-1bf04352d01d';
     $pane = new stdClass();
     $pane->pid = 'new-fe76340e-2b72-479f-94e7-8af5b372ed18';
     $pane->panel = 'summary_b';
@@ -5189,11 +5694,11 @@ function fieldmuseum_default_page_manager_pages() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 4;
+    $pane->position = 15;
     $pane->locks = array();
     $pane->uuid = 'fe76340e-2b72-479f-94e7-8af5b372ed18';
     $display->content['new-fe76340e-2b72-479f-94e7-8af5b372ed18'] = $pane;
-    $display->panels['summary_b'][4] = 'new-fe76340e-2b72-479f-94e7-8af5b372ed18';
+    $display->panels['summary_b'][15] = 'new-fe76340e-2b72-479f-94e7-8af5b372ed18';
     $pane = new stdClass();
     $pane->pid = 'new-068cd16e-eeeb-4c11-b499-3580eec2e766';
     $pane->panel = 'summary_b';
@@ -5215,20 +5720,20 @@ function fieldmuseum_default_page_manager_pages() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 5;
+    $pane->position = 16;
     $pane->locks = array();
     $pane->uuid = '068cd16e-eeeb-4c11-b499-3580eec2e766';
     $display->content['new-068cd16e-eeeb-4c11-b499-3580eec2e766'] = $pane;
-    $display->panels['summary_b'][5] = 'new-068cd16e-eeeb-4c11-b499-3580eec2e766';
+    $display->panels['summary_b'][16] = 'new-068cd16e-eeeb-4c11-b499-3580eec2e766';
     $pane = new stdClass();
-    $pane->pid = 'new-b3ab8333-121a-45bf-8741-ca4bf1a692bf';
+    $pane->pid = 'new-90505db1-2d4a-4db9-ba27-15f7db4c2ed6';
     $pane->panel = 'summary_b';
     $pane->type = 'node';
     $pane->subtype = 'node';
-    $pane->shown = FALSE;
+    $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'nid' => '17646',
+      'nid' => '17851',
       'links' => 0,
       'leave_node_title' => 0,
       'identifier' => '',
@@ -5240,19 +5745,16 @@ function fieldmuseum_default_page_manager_pages() {
     );
     $pane->cache = array();
     $pane->style = array(
-      'style' => 'naked',
+      'style' => 'default',
       'settings' => NULL,
     );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => '',
-    );
+    $pane->css = array();
     $pane->extras = array();
-    $pane->position = 6;
+    $pane->position = 17;
     $pane->locks = array();
-    $pane->uuid = 'b3ab8333-121a-45bf-8741-ca4bf1a692bf';
-    $display->content['new-b3ab8333-121a-45bf-8741-ca4bf1a692bf'] = $pane;
-    $display->panels['summary_b'][6] = 'new-b3ab8333-121a-45bf-8741-ca4bf1a692bf';
+    $pane->uuid = '90505db1-2d4a-4db9-ba27-15f7db4c2ed6';
+    $display->content['new-90505db1-2d4a-4db9-ba27-15f7db4c2ed6'] = $pane;
+    $display->panels['summary_b'][17] = 'new-90505db1-2d4a-4db9-ba27-15f7db4c2ed6';
   $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
@@ -5654,7 +6156,7 @@ function fieldmuseum_default_page_manager_pages() {
     $pane->pid = 'new-7e5ed173-6aed-41f8-b2a1-cb6763ac6aa4';
     $pane->panel = 'main';
     $pane->type = 'fieldable_panels_pane';
-    $pane->subtype = 'fpid:431';
+    $pane->subtype = 'current:431';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -5982,7 +6484,7 @@ function fieldmuseum_default_page_manager_pages() {
     $pane->pid = 'new-a71e2534-a474-4c2d-ad4f-2f7b7e5f8da2';
     $pane->panel = 'main';
     $pane->type = 'fieldable_panels_pane';
-    $pane->subtype = 'fpid:211';
+    $pane->subtype = 'current:211';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -6657,7 +7159,7 @@ function fieldmuseum_default_page_manager_pages() {
     $pane->access = array();
     $pane->configuration = array(
       'range' => array(
-        'offset' => '0',
+        'offset' => '1',
         'limit' => '0',
       ),
       'view_mode' => 'node:summary',
@@ -6666,6 +7168,7 @@ function fieldmuseum_default_page_manager_pages() {
       'context' => 'context_entitylist:menu_children_visible_1',
       'override_title' => 0,
       'override_title_text' => '',
+      'override_title_heading' => 'h2',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -10875,11 +11378,33 @@ function fieldmuseum_default_page_manager_pages() {
     $display->content['new-f064e1c6-8a1f-46a7-838d-9fd1f7b944c8'] = $pane;
     $display->panels['summary_b'][1] = 'new-f064e1c6-8a1f-46a7-838d-9fd1f7b944c8';
     $pane = new stdClass();
-    $pane->pid = 'new-02799c49-c186-4dbf-bffb-a32712fecd21';
+    $pane->pid = 'new-8b74bad4-3232-4f74-94b2-d30b5e04775c';
     $pane->panel = 'summary_c';
+    $pane->type = 'fieldable_panels_pane';
+    $pane->subtype = 'fpid:416';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'view_mode' => 'naked',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'naked',
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '8b74bad4-3232-4f74-94b2-d30b5e04775c';
+    $display->content['new-8b74bad4-3232-4f74-94b2-d30b5e04775c'] = $pane;
+    $display->panels['summary_c'][0] = 'new-8b74bad4-3232-4f74-94b2-d30b5e04775c';
+    $pane = new stdClass();
+    $pane->pid = 'new-02799c49-c186-4dbf-bffb-a32712fecd21';
+    $pane->panel = 'summary_d';
     $pane->type = 'node';
     $pane->subtype = 'node';
-    $pane->shown = TRUE;
+    $pane->shown = FALSE;
     $pane->access = array();
     $pane->configuration = array(
       'nid' => '9566',
@@ -10902,29 +11427,7 @@ function fieldmuseum_default_page_manager_pages() {
     $pane->locks = array();
     $pane->uuid = '02799c49-c186-4dbf-bffb-a32712fecd21';
     $display->content['new-02799c49-c186-4dbf-bffb-a32712fecd21'] = $pane;
-    $display->panels['summary_c'][0] = 'new-02799c49-c186-4dbf-bffb-a32712fecd21';
-    $pane = new stdClass();
-    $pane->pid = 'new-8b74bad4-3232-4f74-94b2-d30b5e04775c';
-    $pane->panel = 'summary_d';
-    $pane->type = 'fieldable_panels_pane';
-    $pane->subtype = 'fpid:416';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'view_mode' => 'naked',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'style' => 'naked',
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = '8b74bad4-3232-4f74-94b2-d30b5e04775c';
-    $display->content['new-8b74bad4-3232-4f74-94b2-d30b5e04775c'] = $pane;
-    $display->panels['summary_d'][0] = 'new-8b74bad4-3232-4f74-94b2-d30b5e04775c';
+    $display->panels['summary_d'][0] = 'new-02799c49-c186-4dbf-bffb-a32712fecd21';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
@@ -11481,7 +11984,7 @@ function fieldmuseum_default_page_manager_pages() {
       'admin_title' => '',
       'title' => '',
       'body' => '<h1>
-  Tickets & Hours
+  Tickets &amp; Hours
 </h1>
 <section class="callout">
   <p>
@@ -11491,13 +11994,14 @@ function fieldmuseum_default_page_manager_pages() {
 <p>
   The Crown Family PlayLab is free with Basic admission and is open Thursdays through Mondays from 10am to 4pm. The last admission for the PlayLab is 3pm. <a href="/at-the-field/exhibitions/crown-family-playlab" class="link--more">Find Out More</a>
 </p>
+
 <h2 class="heading--stroked">
   CityPASS
 </h2>
 <div class="l--2up">
   <div class="l--module">
     <p>
-      <strong>Save 52% or more</strong> on All-Access Field Museum admission plus 4 other famous Chicago attractions!
+      <strong>Save 53% or more</strong> on All-Access Field Museum admission plus 4 other famous Chicago attractions!
     </p>
     <a href="http://www.citypass.com/chicago?mv_source=field&campaign=admissions-hours-explore" class="button--cta">Explore the CityPASS</a>
   </div>
@@ -11505,12 +12009,12 @@ function fieldmuseum_default_page_manager_pages() {
     <ul class="priceList">
       <li class="priceList__item">
       <div class="priceList__details">
-        <span class="priceList__label"> Adults </span> <span class="priceList__price">$96</span>
+        <span class="priceList__label"> Adults </span> <span class="priceList__price">$98</span>
       </div>
       </li>
       <li class="priceList__item">
       <div class="priceList__details">
-        <span class="priceList__label"> Children </span> <span class="priceList__price">$79</span>
+        <span class="priceList__label"> Children </span> <span class="priceList__price">$82</span>
       </div>
       <p class="priceList__condition">
         (ages 3 – 11)
@@ -11520,9 +12024,27 @@ function fieldmuseum_default_page_manager_pages() {
     <a href="http://www.citypass.com/chicago?mv_source=field&campaign=admissions-hours" class="button--buy" data-analytics="ticketing-city-pass"> <span class="button__leader"> <svg class="icon icon--ticket-2" viewbox="0 0 500 500"> <use xlink:href="#ticket-2"></use> </svg> </span> Buy CityPASS Online </a>
   </div>
 </div>
+
 <h2 class="heading--stroked">
   Field Museum Tickets
 </h2>
+
+<section class="callout">
+<p>See <em><a href="https://www.fieldmuseum.org/at-the-field/exhibitions/chinas-first-emperor-and-his-terracotta-warriors">China\'s First Emperor and His Terracotta Warriors</a></em> with a blockbuster All-Access Pass or Discovery Pass.</p><p>Your blockbuster pass gives you access to the only exhibition of these larger-than-life warriors in North America this year, on view at The Field Museum through January 8, 2017.</p>
+</section>
+
+<style scoped>
+  .noTcwPricing,
+  .noTcw .tcwPricing {
+    display: none !important;
+  }
+  .tcwPricing,
+  .noTcw .noTcwPricing {
+    display: block !important;
+  }
+</style>
+
+<span class="toggle"><a class="toggle__option toggle__option--selected" href="javascript:void(0);" onclick="jQuery(this).parent().parent().removeClass(\'noTcw\')"><em>Terracotta Warriors</em> blockbuster passes</a><a class="toggle__option" href="javascript:void(0);" onclick="jQuery(this).parent().parent().addClass(\'noTcw\')">Non-blockbuster passes</a></span>
 
 <!-- CAXY: This will only be displayed at wide content column widths. That CSS is NOT written yet, but the markup is complete. -->
 <section class="tickets is--visible--wide">
@@ -11533,24 +12055,41 @@ function fieldmuseum_default_page_manager_pages() {
     <h4 class="tickets__heading">
       <svg class="icon icon--ticket-2 tickets__icon" viewbox="0 0 500 500"> <use xlink:href="#ticket-2"></use> </svg> Discovery
     </h4>
-    <h4 class="tickets__heading">
+    <h4 class="tickets__heading tcwPricing" style="padding-top: 1em;
+    padding-bottom: .75em;
+    margin: 0 !important;
+    background: #aaa;
+    border-radius: 0 3px 0 0;">
       <svg class="icon icon--ticket-1 tickets__icon" viewbox="0 0 500 500"> <use xlink:href="#ticket-1"></use> </svg> Basic
     </h4>
-    <p class="tickets__details">
-      See it all! Our All-Access Pass entitles you entry into all <a href="/at-the-field/exhibitions/ticketed">ticketed exhibitions</a>, one <a href="/at-the-field/exhibitions/3d-movie">3D movie</a> and all of the <a href="/at-the-field/exhibitions/permanent">permanent exhibitions</a> at The Field Museum.
-    </p>
-    <p class="tickets__details">
-      Explore all of the <a href="/at-the-field/exhibitions/permanent">permanent exhibitions</a> at The Field Museum, plus one <a href="/at-the-field/exhibitions/3d-movie">3D movie</a> or <a href="/at-the-field/exhibitions/ticketed">ticketed exhibition</a>.
-    </p>
-    <p class="tickets__details">
-      Enjoy all of the <a href="/at-the-field/exhibitions/permanent">permanent exhibitions</a> of the Museum. This package does not include <a href="/at-the-field/exhibitions/ticketed">ticketed exhibitions</a> or <a href="/at-the-field/exhibitions/3d-movie">3D movies</a>.
-    </p>
-    <button class="tickets__toggle js--toggleTickets">Learn More About Our Ticket Packages</button>
+ <h4 class="tickets__heading noTcwPricing">
+      <svg class="icon icon--ticket-1 tickets__icon" viewbox="0 0 500 500"> <use xlink:href="#ticket-1"></use> </svg> Basic
+    </h4>
+      <p class="tickets__details tcwPricing">
+        See it all! With an All-Access Pass you can experience all <a href="/at-the-field/exhibitions/ticketed">ticketed exhibitions</a>, one <a href="/at-the-field/exhibitions/3d-movie">3D movie</a> and all <a href="/at-the-field/exhibitions/permanent">general admission exhibitions</a> at The Field Museum.
+      </p>
+      <p class="tickets__details noTcwPricing">
+        With an All-Access Pass you can experience <a href="/at-the-field/exhibitions/ticketed">ticketed exhibitions</a>, one <a href="/at-the-field/exhibitions/3d-movie">3D movie</a> and all <a href="/at-the-field/exhibitions/permanent">general admission exhibitions</a> at The Field Museum.
+      </p>
+
+      <p class="tickets__details tcwPricing">
+        Explore all <a href="/at-the-field/exhibitions/permanent">general admission exhibitions</a> at The Field Museum, plus <em>Terracotta Warriors</em>.
+      </p>
+      <p class="tickets__details noTcwPricing">
+        Explore all <a href="/at-the-field/exhibitions/permanent">general admission exhibitions</a> at The Field Museum, plus <a href="/at-the-field/exhibitions/3d-movie">one 3D movie</a> or <a href="/at-the-field/exhibitions/ticketed">ticketed exhibition</a>.
+      </p>
+      <p class="tickets__details tcwPricing">
+        Enjoy all <a href="/at-the-field/exhibitions/permanent">general admission exhibitions</a> of the Museum. This package does not include <a href="/at-the-field/exhibitions/ticketed">ticketed exhibitions</a>  or <a href="/at-the-field/exhibitions/3d-movie">3D movies</a>.
+      </p>
+      <p class="tickets__details noTcwPricing">
+        Enjoy all <a href="/at-the-field/exhibitions/permanent">general admission exhibitions</a> of the Museum. This package does not include <a href="/at-the-field/exhibitions/ticketed">ticketed exhibitions</a> or <a href="/at-the-field/exhibitions/3d-movie">3D movies</a>.
+      </p>
+    <button class="tickets__toggle js--toggleTickets" data-analytics="view-packages">Learn More About Our Ticket Packages</button>
   </header>
   <section class="ticketMatrix">
     <div class="ticketMatrix__column">
       <h3 class="ticketMatrix__heading">
-        <a href="/at-the-field/exhibitions/permanent" class="ticketMatrix__link">Permanent Exhibitions</a>
+        <a href="/at-the-field/exhibitions/permanent" class="ticketMatrix__link">General Admission Exhibitions</a>
       </h3>
       <h3 class="ticketMatrix__heading">
         <a href="/at-the-field/exhibitions/ticketed" class="ticketMatrix__link">Ticketed Exhibitions</a>
@@ -11563,10 +12102,18 @@ function fieldmuseum_default_page_manager_pages() {
       <div class="ticketMatrix__cell">
         <i class="icon--circle ticketMatrix__icon"></i>
       </div>
-      <div class="ticketMatrix__cell">
-        <i class="icon--circle ticketMatrix__icon"></i>
+      <div class="ticketMatrix__cell ticketMatrix__cell--text tcwPricing">
+        See <em>Terracotta Warriors</em> and other ticketed exhibitions.
       </div>
-      <div class="ticketMatrix__cell ticketMatrix__cell--text">
+      <div class="ticketMatrix__cell ticketMatrix__cell--text noTcwPricing">
+        See ticketed exhibitions, excluding <em>Terracotta Warriors</em>.
+      </div>
+      <div class="ticketMatrix__cell ticketMatrix__cell--text tcwPricing">
+        <p>
+          Your <strong>All-Access Pass</strong> also includes a single 3D movie.
+        </p>
+      </div>
+      <div class="ticketMatrix__cell ticketMatrix__cell--text noTcwPricing">
         <p>
           Your <strong>All-Access Pass</strong> includes a single 3D movie.
         </p>
@@ -11576,9 +12123,14 @@ function fieldmuseum_default_page_manager_pages() {
       <div class="ticketMatrix__cell">
         <i class="icon--circle ticketMatrix__icon"></i>
       </div>
-      <div class="ticketMatrix__cell ticketMatrix__cell--text ticketMatrix__cell--double">
+      <div class="ticketMatrix__cell ticketMatrix__cell--text ticketMatrix__cell--double tcwPricing">
         <p>
-          Your <strong>Discovery Pass</strong> includes a single ticketed exhibition or 3D movie.
+          See <em>Terracotta Warriors</em> with your blockbuster <strong>Discovery Pass</strong>. 
+        </p>
+      </div>
+      <div class="ticketMatrix__cell ticketMatrix__cell--text ticketMatrix__cell--double noTcwPricing">
+        <p>
+          Your <strong>Discovery Pass</strong> includes a 3D movie or single ticketed exhibition, excluding <em>Terracotta Warriors</em>.
         </p>
       </div>
     </div>
@@ -11586,7 +12138,12 @@ function fieldmuseum_default_page_manager_pages() {
       <div class="ticketMatrix__cell">
         <i class="icon--circle ticketMatrix__icon"></i>
       </div>
-      <div class="ticketMatrix__cell ticketMatrix__cell--text ticketMatrix__cell--double ticketMatrix__cell--disabled">
+      <div class="ticketMatrix__cell ticketMatrix__cell--text ticketMatrix__cell--double ticketMatrix__cell--disabled tcwPricing">
+        <p>
+          <em>Terracotta Warriors</em>, other ticketed exhibitions, and 3D movies are not included with <strong>Basic admission</strong>.
+        </p>
+      </div>      
+      <div class="ticketMatrix__cell ticketMatrix__cell--text ticketMatrix__cell--double ticketMatrix__cell--disabled noTcwPricing">
         <p>
           Ticketed exhibitions and 3D movies are not included with <strong>Basic admission</strong>.
         </p>
@@ -11594,107 +12151,233 @@ function fieldmuseum_default_page_manager_pages() {
     </div>
   </section>
   <section class="tickets__pricing">
-    <ul class="priceList">
+    <ul class="priceList noTcwPricing">
       <li class="priceList__item">
-      <div class="priceList__details">
-        <span class="priceList__label"> Adults </span> <span class="priceList__price">$31</span>
-      </div>
-      <p class="priceList__condition">
-        &nbsp;
-      </p>
+        <div class="priceList__details">
+          <span class="priceList__label">
+            Adults
+          </span>
+          <span class="priceList__price">$35</span>
+        </div>
+        <p class="priceList__condition">&nbsp;</p>
       </li>
       <li class="priceList__item">
-      <div class="priceList__details">
-        <span class="priceList__label"> Children </span> <span class="priceList__price">$21</span>
-      </div>
-      <p class="priceList__condition">
-        (ages 3 – 11)
-      </p>
+        <div class="priceList__details">
+          <span class="priceList__label">
+            Children
+          </span>
+          <span class="priceList__price">$24</span>
+        </div>
+        <p class="priceList__condition">(ages 3 – 11)</p>
       </li>
       <li class="priceList__item">
-      <div class="priceList__details">
-        <span class="priceList__label"> Seniors </span> <span class="priceList__price">$25</span>
-      </div>
-      <p class="priceList__condition">
-        (ages 65+)
-      </p>
+        <div class="priceList__details">
+          <span class="priceList__label">
+            Seniors
+          </span>
+          <span class="priceList__price">$30</span>
+        </div>
+        <p class="priceList__condition">(ages 65+)</p>
       </li>
       <li class="priceList__item">
-      <div class="priceList__details">
-        <span class="priceList__label"> Students </span> <span class="priceList__price">$25</span>
-      </div>
-      <p class="priceList__condition">
-        (w/ valid ID)
-      </p>
-      </li>
-    </ul>
-    <ul class="priceList">
-      <li class="priceList__item">
-      <div class="priceList__details">
-        <span class="priceList__label"> Adults </span> <span class="priceList__price">$25</span>
-      </div>
-      <p class="priceList__condition">
-        &nbsp;
-      </p>
-      </li>
-      <li class="priceList__item">
-      <div class="priceList__details">
-        <span class="priceList__label"> Children </span> <span class="priceList__price">$18</span>
-      </div>
-      <p class="priceList__condition">
-        (ages 3 – 11)
-      </p>
-      </li>
-      <li class="priceList__item">
-      <div class="priceList__details">
-        <span class="priceList__label"> Seniors </span> <span class="priceList__price">$20</span>
-      </div>
-      <p class="priceList__condition">
-        (ages 65+)
-      </p>
-      </li>
-      <li class="priceList__item">
-      <div class="priceList__details">
-        <span class="priceList__label"> Students </span> <span class="priceList__price">$20</span>
-      </div>
-      <p class="priceList__condition">
-        (w/ valid ID)
-      </p>
+        <div class="priceList__details">
+          <span class="priceList__label">
+            Students
+          </span>
+          <span class="priceList__price">$30</span>
+        </div>
+        <p class="priceList__condition">(w/ valid ID)</p>
       </li>
     </ul>
-    <ul class="priceList">
+    <ul class="priceList noTcwPricing">
       <li class="priceList__item">
-      <div class="priceList__details">
-        <span class="priceList__label"> Adults </span> <span class="priceList__price">$18</span>
-      </div>
-      <p class="priceList__condition">
-        &nbsp;
-      </p>
+        <div class="priceList__details">
+          <span class="priceList__label">
+            Adults
+          </span>
+          <span class="priceList__price">$29</span>
+        </div>
+        <p class="priceList__condition">&nbsp;</p>
       </li>
       <li class="priceList__item">
-      <div class="priceList__details">
-        <span class="priceList__label"> Children </span> <span class="priceList__price">$13</span>
-      </div>
-      <p class="priceList__condition">
-        (ages 3 – 11)
-      </p>
+        <div class="priceList__details">
+          <span class="priceList__label">
+            Children
+          </span>
+          <span class="priceList__price">$20</span>
+        </div>
+        <p class="priceList__condition">(ages 3 – 11)</p>
       </li>
       <li class="priceList__item">
-      <div class="priceList__details">
-        <span class="priceList__label"> Seniors </span> <span class="priceList__price">$15</span>
-      </div>
-      <p class="priceList__condition">
-        (ages 65+)
-      </p>
+        <div class="priceList__details">
+          <span class="priceList__label">
+            Seniors
+          </span>
+          <span class="priceList__price">$25</span>
+        </div>
+        <p class="priceList__condition">(ages 65+)</p>
       </li>
       <li class="priceList__item">
-      <div class="priceList__details">
-        <span class="priceList__label"> Students </span> <span class="priceList__price">$15</span>
-      </div>
-      <p class="priceList__condition">
-        (w/ valid ID)
-      </p>
+        <div class="priceList__details">
+          <span class="priceList__label">
+            Students
+          </span>
+          <span class="priceList__price">$25</span>
+        </div>
+        <p class="priceList__condition">(w/ valid ID)</p>
       </li>
+    </ul>
+    <ul class="priceList noTcwPricing">
+      <li class="priceList__item">
+        <div class="priceList__details">
+          <span class="priceList__label">
+            Adults
+          </span>
+          <span class="priceList__price">$22</span>
+        </div>
+        <p class="priceList__condition">&nbsp;</p>
+      </li>
+      <li class="priceList__item">
+        <div class="priceList__details">
+          <span class="priceList__label">
+            Children
+          </span>
+          <span class="priceList__price">$15</span>
+        </div>
+        <p class="priceList__condition">(ages 3 – 11)</p>
+      </li>
+      <li class="priceList__item">
+        <div class="priceList__details">
+          <span class="priceList__label">
+            Seniors
+          </span>
+          <span class="priceList__price">$19</span>
+        </div>
+        <p class="priceList__condition">(ages 65+)</p>
+      </li>
+      <li class="priceList__item">
+        <div class="priceList__details">
+          <span class="priceList__label">
+            Students
+          </span>
+          <span class="priceList__price">$19</span>
+        </div>
+        <p class="priceList__condition">(w/ valid ID)</p>
+      </li>
+    </ul>
+    <ul class="priceList tcwPricing">
+      <li class="priceList__item">
+        <div class="priceList__details">
+          <span class="priceList__label">
+            Adults
+          </span>
+          <span class="priceList__price">$38</span>
+        </div>
+        <p class="priceList__condition">&nbsp;</p>
+      </li>
+      <li class="priceList__item">
+        <div class="priceList__details">
+          <span class="priceList__label">
+            Children
+          </span>
+          <span class="priceList__price">$26</span>
+        </div>
+        <p class="priceList__condition">(ages 3 – 11)</p>
+      </li>
+      <li class="priceList__item">
+        <div class="priceList__details">
+          <span class="priceList__label">
+            Seniors
+          </span>
+          <span class="priceList__price">$32</span>
+        </div>
+        <p class="priceList__condition">(ages 65+)</p>
+      </li>
+      <li class="priceList__item">
+        <div class="priceList__details">
+          <span class="priceList__label">
+            Students
+          </span>
+          <span class="priceList__price">$32</span>
+        </div>
+        <p class="priceList__condition">(w/ valid ID)</p>
+      </li>
+    </ul>
+    <ul class="priceList tcwPricing">
+      <li class="priceList__item">
+        <div class="priceList__details">
+          <span class="priceList__label">
+            Adults
+          </span>
+          <span class="priceList__price">$31</span>
+        </div>
+        <p class="priceList__condition">&nbsp;</p>
+      </li>
+      <li class="priceList__item">
+        <div class="priceList__details">
+          <span class="priceList__label">
+            Children
+          </span>
+          <span class="priceList__price">$22</span>
+        </div>
+        <p class="priceList__condition">(ages 3 – 11)</p>
+      </li>
+      <li class="priceList__item">
+        <div class="priceList__details">
+          <span class="priceList__label">
+            Seniors
+          </span>
+          <span class="priceList__price">$26</span>
+        </div>
+        <p class="priceList__condition">(ages 65+)</p>
+      </li>
+      <li class="priceList__item">
+        <div class="priceList__details">
+          <span class="priceList__label">
+            Students
+          </span>
+          <span class="priceList__price">$26</span>
+        </div>
+        <p class="priceList__condition">(w/ valid ID)</p>
+      </li>
+    </ul>
+    <ul class="priceList tcwPricing" style="background:#e9e9e9;">
+      <!--li class="priceList__item">
+        <div class="priceList__details">
+          <span class="priceList__label">
+            Adults
+          </span>
+          <span class="priceList__price">$22</span>
+        </div>
+        <p class="priceList__condition">&nbsp;</p>
+      </li>
+      <li class="priceList__item">
+        <div class="priceList__details">
+          <span class="priceList__label">
+            Children
+          </span>
+          <span class="priceList__price">$15</span>
+        </div>
+        <p class="priceList__condition">(ages 3 – 11)</p>
+      </li>
+      <li class="priceList__item">
+        <div class="priceList__details">
+          <span class="priceList__label">
+            Seniors
+          </span>
+          <span class="priceList__price">$19</span>
+        </div>
+        <p class="priceList__condition">(ages 65+)</p>
+      </li>
+      <li class="priceList__item">
+        <div class="priceList__details">
+          <span class="priceList__label">
+            Students
+          </span>
+          <span class="priceList__price">$19</span>
+        </div>
+        <p class="priceList__condition">(w/ valid ID)</p>
+      </li-->
     </ul>
   </section>
   <section class="tickets__buttons">
@@ -11717,52 +12400,100 @@ function fieldmuseum_default_page_manager_pages() {
       <h4 class="tickets__heading">
         <svg class="icon icon--ticket-3 tickets__icon" viewbox="0 0 500 500"> <use xlink:href="#ticket-3"></use> </svg> All-Access
       </h4>
-      <p class="tickets__details">
-        See it all! Our All-Access Pass entitles you entry into all <a href="/at-the-field/exhibitions/ticketed">ticketed exhibitions</a>, one <a href="/at-the-field/exhibitions/3d-movie">3D movie</a> and all of the <a href="/at-the-field/exhibitions/permanent">permanent exhibitions</a> at The Field Museum.
+      <p class="tickets__details tcwPricing">
+        See it all! With an All-Access Pass you can experience all <a href="/at-the-field/exhibitions/ticketed">ticketed exhibitions</a>, one <a href="/at-the-field/exhibitions/3d-movie">3D movie</a> and all <a href="/at-the-field/exhibitions/permanent">general admission exhibitions</a> at The Field Museum.
       </p>
-      <ul class="priceList">
+      <p class="tickets__details noTcwPricing">
+        See it all! With an All-Access Pass you can experience all <a href="/at-the-field/exhibitions/ticketed">ticketed exhibitions</a> excluding <em>Terracotta Warriors</em>, one <a href="/at-the-field/exhibitions/3d-movie">3D movie</a> and all <a href="/at-the-field/exhibitions/permanent">general admission exhibitions</a> at The Field Museum.
+      </p>
+      <ul class="priceList noTcwPricing">
         <li class="priceList__item">
-        <div class="priceList__details">
-          <span class="priceList__label"> Adults </span> <span class="priceList__price">$31</span>
-        </div>
-        <p class="priceList__condition">
-          &nbsp;
-        </p>
+          <div class="priceList__details">
+            <span class="priceList__label">
+              Adults
+            </span>
+            <span class="priceList__price">$35</span>
+          </div>
+          <p class="priceList__condition">&nbsp;</p>
         </li>
         <li class="priceList__item">
-        <div class="priceList__details">
-          <span class="priceList__label"> Children </span> <span class="priceList__price">$21</span>
-        </div>
-        <p class="priceList__condition">
-          (ages 3 – 11)
-        </p>
+          <div class="priceList__details">
+            <span class="priceList__label">
+              Children
+            </span>
+            <span class="priceList__price">$24</span>
+          </div>
+          <p class="priceList__condition">(ages 3 – 11)</p>
         </li>
         <li class="priceList__item">
-        <div class="priceList__details">
-          <span class="priceList__label"> Seniors </span> <span class="priceList__price">$25</span>
-        </div>
-        <p class="priceList__condition">
-          (ages 65+)
-        </p>
+          <div class="priceList__details">
+            <span class="priceList__label">
+              Seniors
+            </span>
+            <span class="priceList__price">$30</span>
+          </div>
+          <p class="priceList__condition">(ages 65+)</p>
         </li>
         <li class="priceList__item">
-        <div class="priceList__details">
-          <span class="priceList__label"> Students </span> <span class="priceList__price">$25</span>
-        </div>
-        <p class="priceList__condition">
-          (w/ valid ID)
-        </p>
+          <div class="priceList__details">
+            <span class="priceList__label">
+              Students
+            </span>
+            <span class="priceList__price">$30</span>
+          </div>
+          <p class="priceList__condition">(w/ valid ID)</p>
+        </li>
+      </ul>
+      <ul class="priceList tcwPricing">
+        <li class="priceList__item">
+          <div class="priceList__details">
+            <span class="priceList__label">
+              Adults
+            </span>
+            <span class="priceList__price">$38</span>
+          </div>
+          <p class="priceList__condition">&nbsp;</p>
+        </li>
+        <li class="priceList__item">
+          <div class="priceList__details">
+            <span class="priceList__label">
+              Children
+            </span>
+            <span class="priceList__price">$26</span>
+          </div>
+          <p class="priceList__condition">(ages 3 – 11)</p>
+        </li>
+        <li class="priceList__item">
+          <div class="priceList__details">
+            <span class="priceList__label">
+              Seniors
+            </span>
+            <span class="priceList__price">$32</span>
+          </div>
+          <p class="priceList__condition">(ages 65+)</p>
+        </li>
+        <li class="priceList__item">
+          <div class="priceList__details">
+            <span class="priceList__label">
+              Students
+            </span>
+            <span class="priceList__price">$32</span>
+          </div>
+          <p class="priceList__condition">(w/ valid ID)</p>
         </li>
       </ul>
       <h5 class="tickets__subheading">
         Includes:
       </h5>
       <ul class="tickets__included">
-        <li><a href="/at-the-field/exhibitions/permanent">Permanent Exhibitions</a></li>
+        <li><a href="/at-the-field/exhibitions/permanent">General Admission Exhibitions</a></li>
         <li><a href="/at-the-field/exhibitions/ticketed">Ticketed Exhibitions</a></li>
-        <li><a href="/at-the-field/exhibitions/3d-movies">3D Movies</a></li>
+        <li><a href="/at-the-field/exhibitions/3d-movie">3D Movies</a></li>
       </ul>
-      <p class="tickets__disclaimer">
+      <p class="tickets__disclaimer tcwPricing">
+        Your blockbuster <strong>All-Access Pass</strong> includes a single 3D movie.
+      </p>
+      <p class="tickets__disclaimer noTcwPricing">
         Your <strong>All-Access Pass</strong> includes a single 3D movie.
       </p>
     </article>
@@ -11772,52 +12503,100 @@ function fieldmuseum_default_page_manager_pages() {
       <h4 class="tickets__heading">
         <svg class="icon icon--ticket-2 tickets__icon" viewbox="0 0 500 500"> <use xlink:href="#ticket-2"></use> </svg> Discovery
       </h4>
-      <p class="tickets__details">
-        Explore all of the <a href="/at-the-field/exhibitions/permanent">permanent exhibitions</a> at The Field Museum, plus <a href="/at-the-field/exhibitions/3d-movie">one 3D movie</a> or <a href="/at-the-field/exhibitions/ticketed">ticketed exhibition</a>.
+      <p class="tickets__details tcwPricing">
+        Explore all <a href="/at-the-field/exhibitions/permanent">general admission exhibitions</a> at The Field Museum, plus <em>Terracotta Warriors</em>.
       </p>
-      <ul class="priceList">
+      <p class="tickets__details noTcwPricing">
+        Explore all <a href="/at-the-field/exhibitions/permanent">general admission exhibitions</a> at The Field Museum, plus <a href="/at-the-field/exhibitions/3d-movie">one 3D movie</a> or <a href="/at-the-field/exhibitions/ticketed">ticketed exhibition</a> excluding <em>Terracotta Warriors</em>.
+      </p>
+      <ul class="priceList noTcwPricing">
         <li class="priceList__item">
-        <div class="priceList__details">
-          <span class="priceList__label"> Adults </span> <span class="priceList__price">$25</span>
-        </div>
-        <p class="priceList__condition">
-          &nbsp;
-        </p>
+          <div class="priceList__details">
+            <span class="priceList__label">
+              Adults
+            </span>
+            <span class="priceList__price">$29</span>
+          </div>
+          <p class="priceList__condition">&nbsp;</p>
         </li>
         <li class="priceList__item">
-        <div class="priceList__details">
-          <span class="priceList__label"> Children </span> <span class="priceList__price">$18</span>
-        </div>
-        <p class="priceList__condition">
-          (ages 3 – 11)
-        </p>
+          <div class="priceList__details">
+            <span class="priceList__label">
+              Children
+            </span>
+            <span class="priceList__price">$20</span>
+          </div>
+          <p class="priceList__condition">(ages 3 – 11)</p>
         </li>
         <li class="priceList__item">
-        <div class="priceList__details">
-          <span class="priceList__label"> Seniors </span> <span class="priceList__price">$20</span>
-        </div>
-        <p class="priceList__condition">
-          (ages 65+)
-        </p>
+          <div class="priceList__details">
+            <span class="priceList__label">
+              Seniors
+            </span>
+            <span class="priceList__price">$25</span>
+          </div>
+          <p class="priceList__condition">(ages 65+)</p>
         </li>
         <li class="priceList__item">
-        <div class="priceList__details">
-          <span class="priceList__label"> Students </span> <span class="priceList__price">$20</span>
-        </div>
-        <p class="priceList__condition">
-          (w/ valid ID)
-        </p>
+          <div class="priceList__details">
+            <span class="priceList__label">
+              Students
+            </span>
+            <span class="priceList__price">$25</span>
+          </div>
+          <p class="priceList__condition">(w/ valid ID)</p>
+        </li>
+      </ul>
+      <ul class="priceList tcwPricing">
+        <li class="priceList__item">
+          <div class="priceList__details">
+            <span class="priceList__label">
+              Adults
+            </span>
+            <span class="priceList__price">$31</span>
+          </div>
+          <p class="priceList__condition">&nbsp;</p>
+        </li>
+        <li class="priceList__item">
+          <div class="priceList__details">
+            <span class="priceList__label">
+              Children
+            </span>
+            <span class="priceList__price">$22</span>
+          </div>
+          <p class="priceList__condition">(ages 3 – 11)</p>
+        </li>
+        <li class="priceList__item">
+          <div class="priceList__details">
+            <span class="priceList__label">
+              Seniors
+            </span>
+            <span class="priceList__price">$26</span>
+          </div>
+          <p class="priceList__condition">(ages 65+)</p>
+        </li>
+        <li class="priceList__item">
+          <div class="priceList__details">
+            <span class="priceList__label">
+              Students
+            </span>
+            <span class="priceList__price">$26</span>
+          </div>
+          <p class="priceList__condition">(w/ valid ID)</p>
         </li>
       </ul>
       <h5 class="tickets__subheading">
         Includes:
       </h5>
       <ul class="tickets__included">
-        <li><a href="/at-the-field/exhibitions/permanent">Permanent Exhibitions</a></li>
+        <li><a href="/at-the-field/exhibitions/permanent">General Admission Exhibitions</a></li>
         <li><a href="/at-the-field/exhibitions/ticketed">Ticketed Exhibitions</a></li>
         <li><a href="/at-the-field/exhibitions/3d-movie">3D Movies</a></li>
       </ul>
-      <p class="tickets__disclaimer">
+      <p class="tickets__disclaimer tcwPricing">
+        Your blockbuster <strong>Discovery Pass</strong> includes a single ticket to the Terracotta Warriors.
+      </p>
+      <p class="tickets__disclaimer noTcwPricing">
         Your <strong>Discovery Pass</strong> includes a single ticketed exhibition or 3D movie.
       </p>
     </article>
@@ -11827,55 +12606,120 @@ function fieldmuseum_default_page_manager_pages() {
       <h4 class="tickets__heading">
         <svg class="icon icon--ticket-1 tickets__icon" viewbox="0 0 500 500"> <use xlink:href="#ticket-1"></use> </svg> Basic
       </h4>
-      <p class="tickets__details">
-        Enjoy all of the <a href="/at-the-field/exhibitions/permanent">permanent exhibitions</a> of the Museum. This package does not include <a href="/at-the-field/exhibitions/ticketed">ticketed exhibitions</a> or <a href="/at-the-field/exhibitions/3d-movie">3D movies</a>.
+      <p class="tickets__details tcwPricing">
+        Enjoy all <a href="/at-the-field/exhibitions/permanent">general admission exhibitions</a> of the Museum. This package does not include <a href="/at-the-field/exhibitions/ticketed">ticketed exhibitions</a> such as <em>Terracotta Warriors</em> or <a href="/at-the-field/exhibitions/3d-movie">3D movies</a>.
       </p>
-      <ul class="priceList">
+      <p class="tickets__details noTcwPricing">
+        Enjoy all <a href="/at-the-field/exhibitions/permanent">general admission exhibitions</a> of the Museum. This package does not include <a href="/at-the-field/exhibitions/ticketed">ticketed exhibitions</a> or <a href="/at-the-field/exhibitions/3d-movie">3D movies</a>.
+      </p>
+      <ul class="priceList noTcwPricing">
         <li class="priceList__item">
-        <div class="priceList__details">
-          <span class="priceList__label"> Adults </span> <span class="priceList__price">$18</span>
-        </div>
-        <p class="priceList__condition">
-          &nbsp;
-        </p>
+          <div class="priceList__details">
+            <span class="priceList__label">
+              Adults
+            </span>
+            <span class="priceList__price">$22</span>
+          </div>
+          <p class="priceList__condition">&nbsp;</p>
         </li>
         <li class="priceList__item">
-        <div class="priceList__details">
-          <span class="priceList__label"> Children </span> <span class="priceList__price">$13</span>
-        </div>
-        <p class="priceList__condition">
-          (ages 3 – 11)
-        </p>
+          <div class="priceList__details">
+            <span class="priceList__label">
+              Children
+            </span>
+            <span class="priceList__price">$15</span>
+          </div>
+          <p class="priceList__condition">(ages 3 – 11)</p>
         </li>
         <li class="priceList__item">
-        <div class="priceList__details">
-          <span class="priceList__label"> Seniors </span> <span class="priceList__price">$15</span>
-        </div>
-        <p class="priceList__condition">
-          (ages 65+)
-        </p>
+          <div class="priceList__details">
+            <span class="priceList__label">
+              Seniors
+            </span>
+            <span class="priceList__price">$19</span>
+          </div>
+          <p class="priceList__condition">(ages 65+)</p>
         </li>
         <li class="priceList__item">
-        <div class="priceList__details">
-          <span class="priceList__label"> Students </span> <span class="priceList__price">$15</span>
-        </div>
-        <p class="priceList__condition">
-          (w/ valid ID)
-        </p>
+          <div class="priceList__details">
+            <span class="priceList__label">
+              Students
+            </span>
+            <span class="priceList__price">$19</span>
+          </div>
+          <p class="priceList__condition">(w/ valid ID)</p>
         </li>
+      </ul>
+      <ul class="priceList tcwPricing" style="background:#e9e9e9;">
+        <!--li class="priceList__item">
+          <div class="priceList__details">
+            <span class="priceList__label">
+              Adults
+            </span>
+            <span class="priceList__price">$22</span>
+          </div>
+          <p class="priceList__condition">&nbsp;</p>
+        </li>
+        <li class="priceList__item">
+          <div class="priceList__details">
+            <span class="priceList__label">
+              Children
+            </span>
+            <span class="priceList__price">$15</span>
+          </div>
+          <p class="priceList__condition">(ages 3 – 11)</p>
+        </li>
+        <li class="priceList__item">
+          <div class="priceList__details">
+            <span class="priceList__label">
+              Seniors
+            </span>
+            <span class="priceList__price">$19</span>
+          </div>
+          <p class="priceList__condition">(ages 65+)</p>
+        </li>
+        <li class="priceList__item">
+          <div class="priceList__details">
+            <span class="priceList__label">
+              Students
+            </span>
+            <span class="priceList__price">$19</span>
+          </div>
+          <p class="priceList__condition">(w/ valid ID)</p>
+        </li-->
       </ul>
       <h5 class="tickets__subheading">
         Includes:
       </h5>
       <ul class="tickets__included">
-        <li><a href="/at-the-field/exhibitions/permanent">Permanent Exhibitions</a></li>
+        <li><a href="/at-the-field/exhibitions/permanent">General Admission Exhibitions</a></li>
       </ul>
-      <p class="tickets__disclaimer">
+      <p class="tickets__disclaimer tcwPricing">
+        <em>Terracotta Warriors</em>, other ticketed exhibitions, and 3D movies are not included with <strong>Basic admission</strong>.
+      </p>
+      <p class="tickets__disclaimer noTcwPricing">
         Ticketed exhibitions and 3D movies are not included with <strong>Basic admission</strong>.
       </p>
     </article>
   </section>
 </section>
+
+
+<h2 class="heading--stroked">
+  Offers
+</h2>
+<dl>
+  <dt>Chicago Residents</dt>
+  <dd>Chicago residents can save $5 or more on the price of their ticket.</dd>
+  <dt>Museums for All</dt>
+  <dd>Illinois families with EBT (Link) or WIC cards receive $3 Basic admission per person for up to six people.</dd>
+  <dt>Active Military Personnel</dt>
+  <dd>Active Military Personnel are welcome to enjoy complimentary Basic admission to the Museum.</dd>
+  <dt>Illinois Teachers</dt>
+  <dd>Illinois teachers (pre-K through 12) receive complimentary Basic admission to the Museum.</dd>
+</dl>
+<small>All special offers are available with valid ID and must be purchased on arrival at The Field Museum.</small>
+
 <h2 class="heading--stroked">
   Membership Pricing
 </h2>
@@ -11885,40 +12729,39 @@ function fieldmuseum_default_page_manager_pages() {
       <th>Individual</th>
       <th>Family Plus</th>
       <th>Family</th>
-      <th>Student & Senior</th>
+      <th>Student &amp; Senior</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td class="is--centered">
       <p>
-        $85 for 1yr<br />
-        $160 for 2yrs
+        $95 for 1yr<br />
+        $180 for 2yrs
+      </p>
+      </td>
+      <td class="is--centered">
+      <p>
+        $175 for 1yr<br />
+        $335 for 2yrs
       </p>
       </td>
       <td class="is--centered">
       <p>
         $145 for 1yr<br />
-        $280 for 2yrs
+        $275 for 2yrs
       </p>
       </td>
       <td class="is--centered">
       <p>
-        $120 for 1yr<br />
-        $230 for 2yrs
-      </p>
-      </td>
-      <td class="is--centered">
-      <p>
-        $70 for 1yr<br />
-        $130 for 2yrs
+        $80 for 1yr<br />
+        $150 for 2yrs
       </p>
       </td>
     </tr>
   </tbody>
 </table>
-<a href="/support/members/member-benefits" class="button--cta">View Member Benefits</a>
-',
+<a href="/support/members/member-benefits" class="button--cta">View Member Benefits</a>',
       'format' => 'unfiltered',
       'substitute' => TRUE,
     );

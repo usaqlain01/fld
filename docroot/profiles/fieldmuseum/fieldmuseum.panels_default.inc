@@ -1044,7 +1044,7 @@ function fieldmuseum_default_panels_mini() {
     $pane->pid = 'new-b80a7348-a8cb-42ba-9769-b3ed923919fc';
     $pane->panel = 'hero';
     $pane->type = 'fieldable_panels_pane';
-    $pane->subtype = 'fpid:86';
+    $pane->subtype = 'current:86';
     $pane->shown = TRUE;
     $pane->access = array(
       'plugins' => array(
