@@ -766,9 +766,14 @@ function fmnh_traveling_exhibit_default_page_manager_pages() {
               'enabled' => 1,
               'value' => 'navigation',
             ),
+            'aria-label' => array(
+              'enabled' => 1,
+              'value' => 'Section Menu',
+            ),
           ),
           'attributes_array' => array(
             'role' => 'navigation',
+            'aria-label' => 'Section Menu',
           ),
         ),
         'add_default_classes' => 1,
