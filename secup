@@ -1,0 +1,6 @@
+#!/bin/bash
+
+git fetch
+branch=$(git branch -r | grep -o 'origin\/AcquiaRA.*' | sort | tail -n 1)
+git merge "$branch" -m "merge secup $branch"
+
