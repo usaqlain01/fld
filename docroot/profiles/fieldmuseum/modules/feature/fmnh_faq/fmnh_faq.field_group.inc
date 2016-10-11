@@ -230,5 +230,16 @@ function fmnh_faq_field_group_info() {
   );
   $export['group_topic|node|faq|form'] = $field_group;
 
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Department');
+  t('Location/Region');
+  t('Public Tags');
+  t('Research area');
+  t('Science focus');
+  t('Science tags');
+  t('Stratigraphy');
+  t('Topic');
+
   return $export;
 }

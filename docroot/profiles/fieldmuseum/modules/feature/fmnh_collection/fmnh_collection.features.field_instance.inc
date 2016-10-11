@@ -10,7 +10,7 @@
 function fmnh_collection_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-collection-body'
+  // Exported field_instance: 'node-collection-body'.
   $field_instances['node-collection-body'] = array(
     'bundle' => 'collection',
     'default_value' => NULL,
@@ -116,7 +116,7 @@ function fmnh_collection_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-collection-field_acknowledgements'
+  // Exported field_instance: 'node-collection-field_acknowledgements'.
   $field_instances['node-collection-field_acknowledgements'] = array(
     'bundle' => 'collection',
     'default_value' => NULL,
@@ -166,7 +166,7 @@ function fmnh_collection_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-collection-field_collections_loan'
+  // Exported field_instance: 'node-collection-field_collections_loan'.
   $field_instances['node-collection-field_collections_loan'] = array(
     'bundle' => 'collection',
     'default_value' => NULL,
@@ -216,7 +216,7 @@ function fmnh_collection_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-collection-field_collections_related_info'
+  // Exported field_instance: 'node-collection-field_collections_related_info'.
   $field_instances['node-collection-field_collections_related_info'] = array(
     'bundle' => 'collection',
     'default_value' => NULL,
@@ -266,7 +266,7 @@ function fmnh_collection_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-collection-field_database_information'
+  // Exported field_instance: 'node-collection-field_database_information'.
   $field_instances['node-collection-field_database_information'] = array(
     'bundle' => 'collection',
     'default_value' => NULL,
@@ -316,7 +316,7 @@ function fmnh_collection_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-collection-field_department'
+  // Exported field_instance: 'node-collection-field_department'.
   $field_instances['node-collection-field_department'] = array(
     'bundle' => 'collection',
     'default_value' => NULL,
@@ -364,7 +364,7 @@ function fmnh_collection_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-collection-field_exhibit'
+  // Exported field_instance: 'node-collection-field_exhibit'.
   $field_instances['node-collection-field_exhibit'] = array(
     'bundle' => 'collection',
     'default_value' => NULL,
@@ -411,7 +411,7 @@ function fmnh_collection_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-collection-field_image'
+  // Exported field_instance: 'node-collection-field_image'.
   $field_instances['node-collection-field_image'] = array(
     'bundle' => 'collection',
     'deleted' => 0,
@@ -503,7 +503,7 @@ function fmnh_collection_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-collection-field_link'
+  // Exported field_instance: 'node-collection-field_link'.
   $field_instances['node-collection-field_link'] = array(
     'bundle' => 'collection',
     'default_value' => NULL,
@@ -574,7 +574,7 @@ function fmnh_collection_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-collection-field_location_region'
+  // Exported field_instance: 'node-collection-field_location_region'.
   $field_instances['node-collection-field_location_region'] = array(
     'bundle' => 'collection',
     'default_value' => NULL,
@@ -627,7 +627,7 @@ function fmnh_collection_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-collection-field_person'
+  // Exported field_instance: 'node-collection-field_person'.
   $field_instances['node-collection-field_person'] = array(
     'bundle' => 'collection',
     'default_value' => NULL,
@@ -678,7 +678,7 @@ function fmnh_collection_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-collection-field_person_additional'
+  // Exported field_instance: 'node-collection-field_person_additional'.
   $field_instances['node-collection-field_person_additional'] = array(
     'bundle' => 'collection',
     'default_value' => NULL,
@@ -728,7 +728,7 @@ function fmnh_collection_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-collection-field_policies'
+  // Exported field_instance: 'node-collection-field_policies'.
   $field_instances['node-collection-field_policies'] = array(
     'bundle' => 'collection',
     'default_value' => NULL,
@@ -778,7 +778,7 @@ function fmnh_collection_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-collection-field_references'
+  // Exported field_instance: 'node-collection-field_references'.
   $field_instances['node-collection-field_references'] = array(
     'bundle' => 'collection',
     'default_value' => NULL,
@@ -831,7 +831,7 @@ function fmnh_collection_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-collection-field_research_area'
+  // Exported field_instance: 'node-collection-field_research_area'.
   $field_instances['node-collection-field_research_area'] = array(
     'bundle' => 'collection',
     'default_value' => NULL,
@@ -884,7 +884,7 @@ function fmnh_collection_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-collection-field_science_focus'
+  // Exported field_instance: 'node-collection-field_science_focus'.
   $field_instances['node-collection-field_science_focus'] = array(
     'bundle' => 'collection',
     'default_value' => NULL,
@@ -937,7 +937,7 @@ function fmnh_collection_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-collection-field_stratigraphy'
+  // Exported field_instance: 'node-collection-field_stratigraphy'.
   $field_instances['node-collection-field_stratigraphy'] = array(
     'bundle' => 'collection',
     'default_value' => NULL,
@@ -990,7 +990,7 @@ function fmnh_collection_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-collection-field_topic'
+  // Exported field_instance: 'node-collection-field_topic'.
   $field_instances['node-collection-field_topic'] = array(
     'bundle' => 'collection',
     'default_value' => NULL,

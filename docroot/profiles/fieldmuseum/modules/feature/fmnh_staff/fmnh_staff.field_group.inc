@@ -41,6 +41,37 @@ function fmnh_staff_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_disabled|profile2|main|form';
+  $field_group->group_name = 'group_disabled';
+  $field_group->entity_type = 'profile2';
+  $field_group->bundle = 'main';
+  $field_group->mode = 'form';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Not used',
+    'weight' => '60',
+    'children' => array(
+      0 => 'field_givenname',
+      1 => 'field_image',
+      2 => 'field_position',
+      3 => 'field_surname',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'label' => 'Not used',
+      'instance_settings' => array(
+        'required_fields' => 1,
+        'classes' => 'group-disabled field-group-fieldset',
+        'description' => 'The fields in this fieldset are hidden from public and should not be used.',
+      ),
+      'formatter' => 'collapsed',
+    ),
+  );
+  $export['group_disabled|profile2|main|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_exhibit|profile2|main|form';
   $field_group->group_name = 'group_exhibit';
   $field_group->entity_type = 'profile2';
@@ -136,11 +167,11 @@ function fmnh_staff_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Public tags',
-    'weight' => '27',
+    'weight' => '11',
     'children' => array(
       0 => 'group_department',
-      1 => 'group_topic',
-      2 => 'group_exhibit',
+      1 => 'group_exhibit',
+      2 => 'group_topic',
     ),
     'format_type' => 'htabs',
     'format_settings' => array(
@@ -219,7 +250,7 @@ function fmnh_staff_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Science tags',
-    'weight' => '55',
+    'weight' => '22',
     'children' => array(
       0 => 'group_location_region',
       1 => 'group_research_area',
@@ -291,6 +322,20 @@ function fmnh_staff_field_group_info() {
     ),
   );
   $export['group_topic|profile2|main|form'] = $field_group;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Department');
+  t('Exhibit');
+  t('Imported');
+  t('Location/Region');
+  t('Not used');
+  t('Public tags');
+  t('Research area');
+  t('Science focus');
+  t('Science tags');
+  t('Stratigraphy');
+  t('Topic');
 
   return $export;
 }

@@ -63,7 +63,11 @@ function fmnh_staff_strongarm() {
       ),
     ),
     'extra_fields' => array(
-      'form' => array(),
+      'form' => array(
+        'redirect' => array(
+          'weight' => '12',
+        ),
+      ),
       'display' => array(
         'blogs_entity_view_2' => array(
           'default' => array(

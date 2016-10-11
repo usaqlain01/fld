@@ -10,7 +10,7 @@
 function fmnh_press_release_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-press_release-body'
+  // Exported field_instance: 'node-press_release-body'.
   $field_instances['node-press_release-body'] = array(
     'bundle' => 'press_release',
     'default_value' => NULL,
@@ -63,7 +63,7 @@ function fmnh_press_release_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-press_release-field_gallery'
+  // Exported field_instance: 'node-press_release-field_gallery'.
   $field_instances['node-press_release-field_gallery'] = array(
     'bundle' => 'press_release',
     'default_value' => NULL,
@@ -112,7 +112,7 @@ function fmnh_press_release_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-press_release-field_image'
+  // Exported field_instance: 'node-press_release-field_image'.
   $field_instances['node-press_release-field_image'] = array(
     'bundle' => 'press_release',
     'deleted' => 0,
@@ -189,7 +189,7 @@ function fmnh_press_release_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-press_release-field_press_release_type'
+  // Exported field_instance: 'node-press_release-field_press_release_type'.
   $field_instances['node-press_release-field_press_release_type'] = array(
     'bundle' => 'press_release',
     'default_value' => NULL,

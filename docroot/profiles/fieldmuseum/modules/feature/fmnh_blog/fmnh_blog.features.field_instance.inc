@@ -10,7 +10,7 @@
 function fmnh_blog_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-blog-body'
+  // Exported field_instance: 'node-blog-body'.
   $field_instances['node-blog-body'] = array(
     'bundle' => 'blog',
     'default_value' => NULL,
@@ -126,7 +126,7 @@ function fmnh_blog_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-blog-field_attachment'
+  // Exported field_instance: 'node-blog-field_attachment'.
   $field_instances['node-blog-field_attachment'] = array(
     'bundle' => 'blog',
     'deleted' => 0,
@@ -217,7 +217,7 @@ function fmnh_blog_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-blog-field_image'
+  // Exported field_instance: 'node-blog-field_image'.
   $field_instances['node-blog-field_image'] = array(
     'bundle' => 'blog',
     'deleted' => 0,
@@ -318,7 +318,7 @@ function fmnh_blog_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-blog-field_location_region'
+  // Exported field_instance: 'node-blog-field_location_region'.
   $field_instances['node-blog-field_location_region'] = array(
     'bundle' => 'blog',
     'default_value' => NULL,
@@ -381,7 +381,7 @@ function fmnh_blog_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-blog-field_references'
+  // Exported field_instance: 'node-blog-field_references'.
   $field_instances['node-blog-field_references'] = array(
     'bundle' => 'blog',
     'default_value' => NULL,
@@ -444,7 +444,7 @@ function fmnh_blog_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-blog-field_research_area'
+  // Exported field_instance: 'node-blog-field_research_area'.
   $field_instances['node-blog-field_research_area'] = array(
     'bundle' => 'blog',
     'default_value' => NULL,
@@ -507,7 +507,7 @@ function fmnh_blog_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-blog-field_science_focus'
+  // Exported field_instance: 'node-blog-field_science_focus'.
   $field_instances['node-blog-field_science_focus'] = array(
     'bundle' => 'blog',
     'default_value' => NULL,
@@ -570,7 +570,7 @@ function fmnh_blog_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-blog-field_stratigraphy'
+  // Exported field_instance: 'node-blog-field_stratigraphy'.
   $field_instances['node-blog-field_stratigraphy'] = array(
     'bundle' => 'blog',
     'default_value' => NULL,
@@ -633,7 +633,7 @@ function fmnh_blog_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-blog-field_topic'
+  // Exported field_instance: 'node-blog-field_topic'.
   $field_instances['node-blog-field_topic'] = array(
     'bundle' => 'blog',
     'default_value' => NULL,

@@ -10,7 +10,7 @@
 function fmnh_video_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-video-body'
+  // Exported field_instance: 'node-video-body'.
   $field_instances['node-video-body'] = array(
     'bundle' => 'video',
     'default_value' => NULL,
@@ -63,7 +63,7 @@ function fmnh_video_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-video-field_department'
+  // Exported field_instance: 'node-video-field_department'.
   $field_instances['node-video-field_department'] = array(
     'bundle' => 'video',
     'default_value' => NULL,
@@ -104,7 +104,7 @@ function fmnh_video_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-video-field_exhibit'
+  // Exported field_instance: 'node-video-field_exhibit'.
   $field_instances['node-video-field_exhibit'] = array(
     'bundle' => 'video',
     'default_value' => NULL,
@@ -145,7 +145,7 @@ function fmnh_video_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-video-field_location_region'
+  // Exported field_instance: 'node-video-field_location_region'.
   $field_instances['node-video-field_location_region'] = array(
     'bundle' => 'video',
     'default_value' => NULL,
@@ -192,7 +192,7 @@ function fmnh_video_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-video-field_research_area'
+  // Exported field_instance: 'node-video-field_research_area'.
   $field_instances['node-video-field_research_area'] = array(
     'bundle' => 'video',
     'default_value' => NULL,
@@ -239,7 +239,7 @@ function fmnh_video_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-video-field_science_focus'
+  // Exported field_instance: 'node-video-field_science_focus'.
   $field_instances['node-video-field_science_focus'] = array(
     'bundle' => 'video',
     'default_value' => NULL,
@@ -286,7 +286,7 @@ function fmnh_video_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-video-field_stratigraphy'
+  // Exported field_instance: 'node-video-field_stratigraphy'.
   $field_instances['node-video-field_stratigraphy'] = array(
     'bundle' => 'video',
     'default_value' => NULL,
@@ -333,7 +333,7 @@ function fmnh_video_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-video-field_topic'
+  // Exported field_instance: 'node-video-field_topic'.
   $field_instances['node-video-field_topic'] = array(
     'bundle' => 'video',
     'default_value' => NULL,
@@ -385,7 +385,7 @@ function fmnh_video_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-video-field_video'
+  // Exported field_instance: 'node-video-field_video'.
   $field_instances['node-video-field_video'] = array(
     'bundle' => 'video',
     'deleted' => 0,

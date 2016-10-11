@@ -10,7 +10,7 @@
 function fieldmuseum_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'body'
+  // Exported field_base: 'body'.
   $field_bases['body'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -33,7 +33,7 @@ function fieldmuseum_field_default_field_bases() {
     'type' => 'text_with_summary',
   );
 
-  // Exported field_base: 'field_acknowledgements'
+  // Exported field_base: 'field_acknowledgements'.
   $field_bases['field_acknowledgements'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -52,7 +52,7 @@ function fieldmuseum_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_action_link'
+  // Exported field_base: 'field_action_link'.
   $field_bases['field_action_link'] = array(
     'active' => 1,
     'cardinality' => -1,
@@ -82,7 +82,7 @@ function fieldmuseum_field_default_field_bases() {
     'type' => 'link_field',
   );
 
-  // Exported field_base: 'field_attachment'
+  // Exported field_base: 'field_attachment'.
   $field_bases['field_attachment'] = array(
     'active' => 1,
     'cardinality' => -1,
@@ -106,7 +106,7 @@ function fieldmuseum_field_default_field_bases() {
     'type' => 'file',
   );
 
-  // Exported field_base: 'field_collections_loan'
+  // Exported field_base: 'field_collections_loan'.
   $field_bases['field_collections_loan'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -125,7 +125,7 @@ function fieldmuseum_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_collections_related_info'
+  // Exported field_base: 'field_collections_related_info'.
   $field_bases['field_collections_related_info'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -144,7 +144,7 @@ function fieldmuseum_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_database_information'
+  // Exported field_base: 'field_database_information'.
   $field_bases['field_database_information'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -163,7 +163,7 @@ function fieldmuseum_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_date'
+  // Exported field_base: 'field_date'.
   $field_bases['field_date'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -194,7 +194,7 @@ function fieldmuseum_field_default_field_bases() {
     'type' => 'datetime',
   );
 
-  // Exported field_base: 'field_exhibit'
+  // Exported field_base: 'field_exhibit'.
   $field_bases['field_exhibit'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -229,7 +229,7 @@ function fieldmuseum_field_default_field_bases() {
     'type' => 'entityreference',
   );
 
-  // Exported field_base: 'field_grade_level'
+  // Exported field_base: 'field_grade_level'.
   $field_bases['field_grade_level'] = array(
     'active' => 1,
     'cardinality' => -1,
@@ -265,7 +265,7 @@ function fieldmuseum_field_default_field_bases() {
     'type' => 'entityreference',
   );
 
-  // Exported field_base: 'field_image'
+  // Exported field_base: 'field_image'.
   $field_bases['field_image'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -290,7 +290,7 @@ function fieldmuseum_field_default_field_bases() {
     'type' => 'file',
   );
 
-  // Exported field_base: 'field_link'
+  // Exported field_base: 'field_link'.
   $field_bases['field_link'] = array(
     'active' => 1,
     'cardinality' => -1,
@@ -320,7 +320,7 @@ function fieldmuseum_field_default_field_bases() {
     'type' => 'link_field',
   );
 
-  // Exported field_base: 'field_person'
+  // Exported field_base: 'field_person'.
   $field_bases['field_person'] = array(
     'active' => 1,
     'cardinality' => -1,
@@ -357,7 +357,7 @@ function fieldmuseum_field_default_field_bases() {
     'type' => 'entityreference',
   );
 
-  // Exported field_base: 'field_person_additional'
+  // Exported field_base: 'field_person_additional'.
   $field_bases['field_person_additional'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -376,7 +376,7 @@ function fieldmuseum_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_policies'
+  // Exported field_base: 'field_policies'.
   $field_bases['field_policies'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -395,7 +395,7 @@ function fieldmuseum_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_read_more_label'
+  // Exported field_base: 'field_read_more_label'.
   $field_bases['field_read_more_label'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -417,7 +417,7 @@ function fieldmuseum_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_research'
+  // Exported field_base: 'field_research'.
   $field_bases['field_research'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -438,7 +438,7 @@ function fieldmuseum_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_specification'
+  // Exported field_base: 'field_specification'.
   $field_bases['field_specification'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -457,7 +457,7 @@ function fieldmuseum_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_summary'
+  // Exported field_base: 'field_summary'.
   $field_bases['field_summary'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -476,7 +476,7 @@ function fieldmuseum_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_topic'
+  // Exported field_base: 'field_topic'.
   $field_bases['field_topic'] = array(
     'active' => 1,
     'cardinality' => -1,

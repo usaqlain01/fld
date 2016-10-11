@@ -10,7 +10,7 @@
 function fmnh_exhibit_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-exhibit-body'
+  // Exported field_instance: 'node-exhibit-body'.
   $field_instances['node-exhibit-body'] = array(
     'bundle' => 'exhibit',
     'default_value' => NULL,
@@ -115,7 +115,7 @@ function fmnh_exhibit_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-exhibit-field_action_link'
+  // Exported field_instance: 'node-exhibit-field_action_link'.
   $field_instances['node-exhibit-field_action_link'] = array(
     'bundle' => 'exhibit',
     'default_value' => NULL,
@@ -195,7 +195,7 @@ function fmnh_exhibit_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-exhibit-field_banner_description'
+  // Exported field_instance: 'node-exhibit-field_banner_description'.
   $field_instances['node-exhibit-field_banner_description'] = array(
     'bundle' => 'exhibit',
     'default_value' => NULL,
@@ -301,7 +301,7 @@ function fmnh_exhibit_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-exhibit-field_banner_image'
+  // Exported field_instance: 'node-exhibit-field_banner_image'.
   $field_instances['node-exhibit-field_banner_image'] = array(
     'bundle' => 'exhibit',
     'deleted' => 0,
@@ -391,7 +391,7 @@ function fmnh_exhibit_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-exhibit-field_date'
+  // Exported field_instance: 'node-exhibit-field_date'.
   $field_instances['node-exhibit-field_date'] = array(
     'bundle' => 'exhibit',
     'deleted' => 0,
@@ -413,6 +413,7 @@ function fmnh_exhibit_field_default_field_instances() {
           'multiple_from' => '',
           'multiple_number' => '',
           'multiple_to' => '',
+          'show_remaining_days' => FALSE,
         ),
         'type' => 'date_default',
         'weight' => 2,
@@ -427,6 +428,7 @@ function fmnh_exhibit_field_default_field_instances() {
           'multiple_from' => '',
           'multiple_number' => '',
           'multiple_to' => '',
+          'show_remaining_days' => FALSE,
         ),
         'type' => 'date_default',
         'weight' => 0,
@@ -447,6 +449,7 @@ function fmnh_exhibit_field_default_field_instances() {
           'multiple_from' => '',
           'multiple_number' => '',
           'multiple_to' => '',
+          'show_remaining_days' => FALSE,
         ),
         'type' => 'date_default',
         'weight' => 0,
@@ -480,7 +483,7 @@ function fmnh_exhibit_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-exhibit-field_exhibit_type'
+  // Exported field_instance: 'node-exhibit-field_exhibit_type'.
   $field_instances['node-exhibit-field_exhibit_type'] = array(
     'bundle' => 'exhibit',
     'default_value' => NULL,
@@ -544,7 +547,7 @@ function fmnh_exhibit_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-exhibit-field_grade_level'
+  // Exported field_instance: 'node-exhibit-field_grade_level'.
   $field_instances['node-exhibit-field_grade_level'] = array(
     'bundle' => 'exhibit',
     'default_value' => NULL,
@@ -597,7 +600,7 @@ function fmnh_exhibit_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-exhibit-field_image'
+  // Exported field_instance: 'node-exhibit-field_image'.
   $field_instances['node-exhibit-field_image'] = array(
     'bundle' => 'exhibit',
     'deleted' => 0,
@@ -691,7 +694,7 @@ function fmnh_exhibit_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-exhibit-field_location_region'
+  // Exported field_instance: 'node-exhibit-field_location_region'.
   $field_instances['node-exhibit-field_location_region'] = array(
     'bundle' => 'exhibit',
     'default_value' => NULL,
@@ -750,7 +753,7 @@ function fmnh_exhibit_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-exhibit-field_references'
+  // Exported field_instance: 'node-exhibit-field_references'.
   $field_instances['node-exhibit-field_references'] = array(
     'bundle' => 'exhibit',
     'default_value' => NULL,
@@ -809,7 +812,7 @@ function fmnh_exhibit_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-exhibit-field_research_area'
+  // Exported field_instance: 'node-exhibit-field_research_area'.
   $field_instances['node-exhibit-field_research_area'] = array(
     'bundle' => 'exhibit',
     'default_value' => NULL,
@@ -868,7 +871,7 @@ function fmnh_exhibit_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-exhibit-field_science_focus'
+  // Exported field_instance: 'node-exhibit-field_science_focus'.
   $field_instances['node-exhibit-field_science_focus'] = array(
     'bundle' => 'exhibit',
     'default_value' => NULL,
@@ -927,7 +930,7 @@ function fmnh_exhibit_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-exhibit-field_stratigraphy'
+  // Exported field_instance: 'node-exhibit-field_stratigraphy'.
   $field_instances['node-exhibit-field_stratigraphy'] = array(
     'bundle' => 'exhibit',
     'default_value' => NULL,
@@ -986,7 +989,7 @@ function fmnh_exhibit_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-exhibit-field_ticket_link'
+  // Exported field_instance: 'node-exhibit-field_ticket_link'.
   $field_instances['node-exhibit-field_ticket_link'] = array(
     'bundle' => 'exhibit',
     'default_value' => NULL,
@@ -1057,7 +1060,7 @@ function fmnh_exhibit_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-exhibit-field_ticketed'
+  // Exported field_instance: 'node-exhibit-field_ticketed'.
   $field_instances['node-exhibit-field_ticketed'] = array(
     'bundle' => 'exhibit',
     'default_value' => array(
@@ -1116,7 +1119,7 @@ function fmnh_exhibit_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-exhibit-field_topic'
+  // Exported field_instance: 'node-exhibit-field_topic'.
   $field_instances['node-exhibit-field_topic'] = array(
     'bundle' => 'exhibit',
     'default_value' => NULL,

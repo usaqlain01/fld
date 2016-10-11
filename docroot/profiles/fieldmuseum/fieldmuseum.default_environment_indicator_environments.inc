@@ -29,7 +29,7 @@ function fieldmuseum_default_environment_indicator_environment() {
   $environment->disabled = FALSE; /* Edit this to true to make a default environment disabled initially */
   $environment->api_version = 1;
   $environment->machine = 'production';
-  $environment->name = 'Production';
+  $environment->name = 'production';
   $environment->regexurl = 'www.fieldmuseum.org';
   $environment->settings = array(
     'color' => '#d00000',

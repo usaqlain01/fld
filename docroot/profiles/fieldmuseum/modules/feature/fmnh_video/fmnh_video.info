@@ -61,3 +61,5 @@ features[variable][] = menu_parent_video
 features[variable][] = node_options_video
 features[variable][] = node_preview_video
 features[variable][] = node_submitted_video
+features[variable][] = pathauto_node_video_pattern
+features[variable][] = xmlsitemap_settings_node_video

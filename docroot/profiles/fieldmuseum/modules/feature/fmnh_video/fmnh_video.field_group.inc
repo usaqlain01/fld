@@ -262,5 +262,17 @@ function fmnh_video_field_group_info() {
   );
   $export['group_topic|node|video|form'] = $field_group;
 
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Department');
+  t('Exhibit');
+  t('Location/Region');
+  t('Public tags');
+  t('Research area');
+  t('Science focus');
+  t('Science tags');
+  t('Stratigraphy');
+  t('Topic');
+
   return $export;
 }
