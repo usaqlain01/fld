@@ -10,7 +10,7 @@
 function fmnh_department_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'field_department'
+  // Exported field_base: 'field_department'.
   $field_bases['field_department'] = array(
     'active' => 1,
     'cardinality' => -1,

@@ -72,4 +72,6 @@ features[variable][] = menu_parent_collection
 features[variable][] = node_options_collection
 features[variable][] = node_preview_collection
 features[variable][] = node_submitted_collection
+features[variable][] = pathauto_node_collection_pattern
+features[variable][] = xmlsitemap_settings_node_collection
 features[views_view][] = collections

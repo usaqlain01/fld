@@ -44,4 +44,5 @@ features[variable][] = menu_parent_learning_resource
 features[variable][] = node_options_learning_resource
 features[variable][] = node_preview_learning_resource
 features[variable][] = node_submitted_learning_resource
+features[variable][] = pathauto_node_learning_resource_pattern
 features[views_view][] = learning_resources

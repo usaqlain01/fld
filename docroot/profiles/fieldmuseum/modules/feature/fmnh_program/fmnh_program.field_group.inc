@@ -92,5 +92,11 @@ function fmnh_program_field_group_info() {
   );
   $export['group_public_tags|node|program|form'] = $field_group;
 
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Audience');
+  t('Grade level');
+  t('Public tags');
+
   return $export;
 }

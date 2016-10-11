@@ -148,8 +148,8 @@ function fmnh_media_file_default_displays() {
   $file_display->weight = 0;
   $file_display->status = TRUE;
   $file_display->settings = array(
-    'width' => '800',
-    'height' => '600',
+    'width' => '400',
+    'height' => '300',
   );
   $export['model__default__file_model_qt'] = $file_display;
 
@@ -159,8 +159,8 @@ function fmnh_media_file_default_displays() {
   $file_display->weight = 0;
   $file_display->status = TRUE;
   $file_display->settings = array(
-    'width' => '800',
-    'height' => '600',
+    'width' => '400',
+    'height' => '300',
   );
   $export['model__default__file_model_x3d'] = $file_display;
 

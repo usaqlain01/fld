@@ -62,4 +62,5 @@ features[variable][] = menu_parent_faq
 features[variable][] = node_options_faq
 features[variable][] = node_preview_faq
 features[variable][] = node_submitted_faq
+features[variable][] = pathauto_node_faq_pattern
 features[views_view][] = faq

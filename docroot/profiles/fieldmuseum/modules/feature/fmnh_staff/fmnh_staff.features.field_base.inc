@@ -10,7 +10,7 @@
 function fmnh_staff_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'field_accomplishments'
+  // Exported field_base: 'field_accomplishments'.
   $field_bases['field_accomplishments'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -31,7 +31,7 @@ function fmnh_staff_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_bio_sketch'
+  // Exported field_base: 'field_bio_sketch'.
   $field_bases['field_bio_sketch'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -50,7 +50,7 @@ function fmnh_staff_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_business_unit'
+  // Exported field_base: 'field_business_unit'.
   $field_bases['field_business_unit'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -71,7 +71,7 @@ function fmnh_staff_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_cvfile'
+  // Exported field_base: 'field_cvfile'.
   $field_bases['field_cvfile'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -94,7 +94,7 @@ function fmnh_staff_field_default_field_bases() {
     'type' => 'file',
   );
 
-  // Exported field_base: 'field_education'
+  // Exported field_base: 'field_education'.
   $field_bases['field_education'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -115,7 +115,7 @@ function fmnh_staff_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_email'
+  // Exported field_base: 'field_email'.
   $field_bases['field_email'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -132,7 +132,7 @@ function fmnh_staff_field_default_field_bases() {
     'type' => 'email',
   );
 
-  // Exported field_base: 'field_executive_staff'
+  // Exported field_base: 'field_executive_staff'.
   $field_bases['field_executive_staff'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -156,7 +156,7 @@ function fmnh_staff_field_default_field_bases() {
     'type' => 'list_integer',
   );
 
-  // Exported field_base: 'field_fax'
+  // Exported field_base: 'field_fax'.
   $field_bases['field_fax'] = array(
     'active' => 1,
     'cardinality' => -1,
@@ -177,7 +177,7 @@ function fmnh_staff_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_givenname'
+  // Exported field_base: 'field_givenname'.
   $field_bases['field_givenname'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -193,12 +193,13 @@ function fmnh_staff_field_default_field_bases() {
     'module' => 'text',
     'settings' => array(
       'max_length' => 255,
+      'profile2_private' => 0,
     ),
     'translatable' => 1,
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_grants_awards'
+  // Exported field_base: 'field_grants_awards'.
   $field_bases['field_grants_awards'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -219,7 +220,7 @@ function fmnh_staff_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_home_department'
+  // Exported field_base: 'field_home_department'.
   $field_bases['field_home_department'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -240,7 +241,7 @@ function fmnh_staff_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_interests'
+  // Exported field_base: 'field_interests'.
   $field_bases['field_interests'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -261,7 +262,7 @@ function fmnh_staff_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_introduction'
+  // Exported field_base: 'field_introduction'.
   $field_bases['field_introduction'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -282,7 +283,7 @@ function fmnh_staff_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_office'
+  // Exported field_base: 'field_office'.
   $field_bases['field_office'] = array(
     'active' => 1,
     'cardinality' => -1,
@@ -303,7 +304,7 @@ function fmnh_staff_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_position'
+  // Exported field_base: 'field_position'.
   $field_bases['field_position'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -319,13 +320,13 @@ function fmnh_staff_field_default_field_bases() {
     'module' => 'text',
     'settings' => array(
       'max_length' => 255,
-      'profile2_private' => FALSE,
+      'profile2_private' => 0,
     ),
     'translatable' => 1,
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_professional_affiliations'
+  // Exported field_base: 'field_professional_affiliations'.
   $field_bases['field_professional_affiliations'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -346,7 +347,7 @@ function fmnh_staff_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_publications'
+  // Exported field_base: 'field_publications'.
   $field_bases['field_publications'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -367,7 +368,7 @@ function fmnh_staff_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_surname'
+  // Exported field_base: 'field_surname'.
   $field_bases['field_surname'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -383,12 +384,13 @@ function fmnh_staff_field_default_field_bases() {
     'module' => 'text',
     'settings' => array(
       'max_length' => 255,
+      'profile2_private' => 0,
     ),
     'translatable' => 1,
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_work_experience'
+  // Exported field_base: 'field_work_experience'.
   $field_bases['field_work_experience'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -409,7 +411,7 @@ function fmnh_staff_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_year_started'
+  // Exported field_base: 'field_year_started'.
   $field_bases['field_year_started'] = array(
     'active' => 1,
     'cardinality' => 1,

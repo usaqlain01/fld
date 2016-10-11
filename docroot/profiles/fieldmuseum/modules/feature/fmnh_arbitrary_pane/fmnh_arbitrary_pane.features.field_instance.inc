@@ -11,7 +11,7 @@ function fmnh_arbitrary_pane_field_default_field_instances() {
   $field_instances = array();
 
   // Exported field_instance:
-  // 'fieldable_panels_pane-markup_styles_scripts-field_css'
+  // 'fieldable_panels_pane-markup_styles_scripts-field_css'.
   $field_instances['fieldable_panels_pane-markup_styles_scripts-field_css'] = array(
     'bundle' => 'markup_styles_scripts',
     'default_value' => NULL,
@@ -88,7 +88,7 @@ function fmnh_arbitrary_pane_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'fieldable_panels_pane-markup_styles_scripts-field_js'
+  // 'fieldable_panels_pane-markup_styles_scripts-field_js'.
   $field_instances['fieldable_panels_pane-markup_styles_scripts-field_js'] = array(
     'bundle' => 'markup_styles_scripts',
     'default_value' => NULL,
@@ -165,7 +165,7 @@ function fmnh_arbitrary_pane_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'fieldable_panels_pane-markup_styles_scripts-field_markup'
+  // 'fieldable_panels_pane-markup_styles_scripts-field_markup'.
   $field_instances['fieldable_panels_pane-markup_styles_scripts-field_markup'] = array(
     'bundle' => 'markup_styles_scripts',
     'default_value' => NULL,
@@ -245,7 +245,7 @@ function fmnh_arbitrary_pane_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'fieldable_panels_pane-markup_styles_scripts-field_target_link'
+  // 'fieldable_panels_pane-markup_styles_scripts-field_target_link'.
   $field_instances['fieldable_panels_pane-markup_styles_scripts-field_target_link'] = array(
     'bundle' => 'markup_styles_scripts',
     'default_value' => NULL,

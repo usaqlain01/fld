@@ -10,7 +10,7 @@
 function fmnh_newsletter_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-newsletter-body'
+  // Exported field_instance: 'node-newsletter-body'.
   $field_instances['node-newsletter-body'] = array(
     'bundle' => 'newsletter',
     'default_value' => NULL,

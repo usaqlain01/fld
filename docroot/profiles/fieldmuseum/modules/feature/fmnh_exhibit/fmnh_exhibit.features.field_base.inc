@@ -10,7 +10,7 @@
 function fmnh_exhibit_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'field_banner_description'
+  // Exported field_base: 'field_banner_description'.
   $field_bases['field_banner_description'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -31,7 +31,7 @@ function fmnh_exhibit_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_banner_image'
+  // Exported field_base: 'field_banner_image'.
   $field_bases['field_banner_image'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -55,7 +55,7 @@ function fmnh_exhibit_field_default_field_bases() {
     'type' => 'file',
   );
 
-  // Exported field_base: 'field_exhibit_type'
+  // Exported field_base: 'field_exhibit_type'.
   $field_bases['field_exhibit_type'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -90,7 +90,7 @@ function fmnh_exhibit_field_default_field_bases() {
     'type' => 'entityreference',
   );
 
-  // Exported field_base: 'field_ticketed'
+  // Exported field_base: 'field_ticketed'.
   $field_bases['field_ticketed'] = array(
     'active' => 1,
     'cardinality' => 1,

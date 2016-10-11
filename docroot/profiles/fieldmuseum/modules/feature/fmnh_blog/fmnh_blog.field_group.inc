@@ -204,5 +204,15 @@ function fmnh_blog_field_group_info() {
   );
   $export['group_topic|node|blog|form'] = $field_group;
 
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Location/Region');
+  t('Public tags');
+  t('Research area');
+  t('Science focus');
+  t('Science tags');
+  t('Stratigraphy');
+  t('Topic');
+
   return $export;
 }

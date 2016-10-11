@@ -46,4 +46,5 @@ features[variable][] = node_options_press_release
 features[variable][] = node_preview_press_release
 features[variable][] = node_submitted_press_release
 features[variable][] = pathauto_node_press_release_pattern
+features[variable][] = xmlsitemap_settings_node_press_release
 features[views_view][] = press_releases

@@ -57,4 +57,5 @@ features[variable][] = node_options_traveling_exhibit
 features[variable][] = node_preview_traveling_exhibit
 features[variable][] = node_submitted_traveling_exhibit
 features[variable][] = pathauto_node_traveling_exhibit_pattern
+features[variable][] = xmlsitemap_settings_node_traveling_exhibit
 files[] = lib/TravelingExhibitEFQ.inc

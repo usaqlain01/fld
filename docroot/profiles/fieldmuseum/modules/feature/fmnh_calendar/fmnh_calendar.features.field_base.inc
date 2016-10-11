@@ -10,7 +10,7 @@
 function fmnh_calendar_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'field_price'
+  // Exported field_base: 'field_price'.
   $field_bases['field_price'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -30,7 +30,7 @@ function fmnh_calendar_field_default_field_bases() {
     'type' => 'number_decimal',
   );
 
-  // Exported field_base: 'field_program'
+  // Exported field_base: 'field_program'.
   $field_bases['field_program'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -68,7 +68,7 @@ function fmnh_calendar_field_default_field_bases() {
     'type' => 'entityreference',
   );
 
-  // Exported field_base: 'field_ticket_link'
+  // Exported field_base: 'field_ticket_link'.
   $field_bases['field_ticket_link'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -98,7 +98,7 @@ function fmnh_calendar_field_default_field_bases() {
     'type' => 'link_field',
   );
 
-  // Exported field_base: 'field_ticket_text'
+  // Exported field_base: 'field_ticket_text'.
   $field_bases['field_ticket_text'] = array(
     'active' => 1,
     'cardinality' => 1,

@@ -10,7 +10,7 @@
 function fmnh_podcast_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-podcast-body'
+  // Exported field_instance: 'node-podcast-body'.
   $field_instances['node-podcast-body'] = array(
     'bundle' => 'podcast',
     'default_value' => NULL,
@@ -63,7 +63,7 @@ function fmnh_podcast_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-podcast-field_attachment'
+  // Exported field_instance: 'node-podcast-field_attachment'.
   $field_instances['node-podcast-field_attachment'] = array(
     'bundle' => 'podcast',
     'deleted' => 0,
@@ -128,7 +128,7 @@ function fmnh_podcast_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-podcast-field_department'
+  // Exported field_instance: 'node-podcast-field_department'.
   $field_instances['node-podcast-field_department'] = array(
     'bundle' => 'podcast',
     'default_value' => NULL,
@@ -173,7 +173,7 @@ function fmnh_podcast_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-podcast-field_exhibit'
+  // Exported field_instance: 'node-podcast-field_exhibit'.
   $field_instances['node-podcast-field_exhibit'] = array(
     'bundle' => 'podcast',
     'default_value' => NULL,
@@ -218,7 +218,7 @@ function fmnh_podcast_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-podcast-field_image'
+  // Exported field_instance: 'node-podcast-field_image'.
   $field_instances['node-podcast-field_image'] = array(
     'bundle' => 'podcast',
     'deleted' => 0,
@@ -296,7 +296,7 @@ function fmnh_podcast_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-podcast-field_location_region'
+  // Exported field_instance: 'node-podcast-field_location_region'.
   $field_instances['node-podcast-field_location_region'] = array(
     'bundle' => 'podcast',
     'default_value' => NULL,
@@ -347,7 +347,7 @@ function fmnh_podcast_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-podcast-field_research_area'
+  // Exported field_instance: 'node-podcast-field_research_area'.
   $field_instances['node-podcast-field_research_area'] = array(
     'bundle' => 'podcast',
     'default_value' => NULL,
@@ -398,7 +398,7 @@ function fmnh_podcast_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-podcast-field_science_focus'
+  // Exported field_instance: 'node-podcast-field_science_focus'.
   $field_instances['node-podcast-field_science_focus'] = array(
     'bundle' => 'podcast',
     'default_value' => NULL,
@@ -449,7 +449,7 @@ function fmnh_podcast_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-podcast-field_stratigraphy'
+  // Exported field_instance: 'node-podcast-field_stratigraphy'.
   $field_instances['node-podcast-field_stratigraphy'] = array(
     'bundle' => 'podcast',
     'default_value' => NULL,
@@ -500,7 +500,7 @@ function fmnh_podcast_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-podcast-field_topic'
+  // Exported field_instance: 'node-podcast-field_topic'.
   $field_instances['node-podcast-field_topic'] = array(
     'bundle' => 'podcast',
     'default_value' => NULL,

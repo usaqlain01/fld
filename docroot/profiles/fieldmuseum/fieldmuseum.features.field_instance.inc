@@ -10,7 +10,7 @@
 function fieldmuseum_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-article-body'
+  // Exported field_instance: 'node-article-body'.
   $field_instances['node-article-body'] = array(
     'bundle' => 'article',
     'default_value' => NULL,
@@ -66,7 +66,7 @@ function fieldmuseum_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-page-body'
+  // Exported field_instance: 'node-page-body'.
   $field_instances['node-page-body'] = array(
     'bundle' => 'page',
     'default_value' => NULL,
@@ -186,7 +186,7 @@ function fieldmuseum_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-page-field_action_link'
+  // Exported field_instance: 'node-page-field_action_link'.
   $field_instances['node-page-field_action_link'] = array(
     'bundle' => 'page',
     'default_value' => NULL,
@@ -262,11 +262,11 @@ function fieldmuseum_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 1,
+      'weight' => 3,
     ),
   );
 
-  // Exported field_instance: 'node-page-field_attachment'
+  // Exported field_instance: 'node-page-field_attachment'.
   $field_instances['node-page-field_attachment'] = array(
     'bundle' => 'page',
     'deleted' => 0,
@@ -359,7 +359,7 @@ function fieldmuseum_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-page-field_image'
+  // Exported field_instance: 'node-page-field_image'.
   $field_instances['node-page-field_image'] = array(
     'bundle' => 'page',
     'deleted' => 0,
@@ -461,11 +461,11 @@ function fieldmuseum_field_default_field_instances() {
         ),
       ),
       'type' => 'media_generic',
-      'weight' => 2,
+      'weight' => 1,
     ),
   );
 
-  // Exported field_instance: 'node-page-field_read_more_label'
+  // Exported field_instance: 'node-page-field_read_more_label'.
   $field_instances['node-page-field_read_more_label'] = array(
     'bundle' => 'page',
     'default_value' => array(
@@ -567,11 +567,11 @@ function fieldmuseum_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 31,
+      'weight' => 11,
     ),
   );
 
-  // Exported field_instance: 'node-page-field_references'
+  // Exported field_instance: 'node-page-field_references'.
   $field_instances['node-page-field_references'] = array(
     'bundle' => 'page',
     'default_value' => NULL,
@@ -638,7 +638,7 @@ function fieldmuseum_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-page-field_summary'
+  // Exported field_instance: 'node-page-field_summary'.
   $field_instances['node-page-field_summary'] = array(
     'bundle' => 'page',
     'default_value' => NULL,
@@ -740,11 +740,11 @@ function fieldmuseum_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 3,
+      'weight' => 2,
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-topic-field_banner_description'
+  // Exported field_instance: 'taxonomy_term-topic-field_banner_description'.
   $field_instances['taxonomy_term-topic-field_banner_description'] = array(
     'bundle' => 'topic',
     'default_value' => NULL,
@@ -838,7 +838,7 @@ function fieldmuseum_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-topic-field_banner_image'
+  // Exported field_instance: 'taxonomy_term-topic-field_banner_image'.
   $field_instances['taxonomy_term-topic-field_banner_image'] = array(
     'bundle' => 'topic',
     'deleted' => 0,
@@ -922,7 +922,7 @@ function fieldmuseum_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-topic-field_image'
+  // Exported field_instance: 'taxonomy_term-topic-field_image'.
   $field_instances['taxonomy_term-topic-field_image'] = array(
     'bundle' => 'topic',
     'deleted' => 0,

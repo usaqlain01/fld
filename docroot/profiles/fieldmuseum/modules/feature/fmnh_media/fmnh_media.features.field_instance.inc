@@ -10,7 +10,7 @@
 function fmnh_media_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'file-image-field_caption'
+  // Exported field_instance: 'file-image-field_caption'.
   $field_instances['file-image-field_caption'] = array(
     'bundle' => 'image',
     'default_value' => NULL,
@@ -186,7 +186,7 @@ function fmnh_media_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'file-image-field_credit'
+  // Exported field_instance: 'file-image-field_credit'.
   $field_instances['file-image-field_credit'] = array(
     'bundle' => 'image',
     'default_value' => NULL,

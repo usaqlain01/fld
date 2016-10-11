@@ -10,7 +10,7 @@
 function fmnh_press_release_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'field_press_release_type'
+  // Exported field_base: 'field_press_release_type'.
   $field_bases['field_press_release_type'] = array(
     'active' => 1,
     'cardinality' => 1,
