@@ -224,9 +224,14 @@ function fieldmuseum_default_page_manager_handlers() {
               'enabled' => 1,
               'value' => 'navigation',
             ),
+            'aria-label' => array(
+              'enabled' => 1,
+              'value' => 'Section Menu',
+            ),
           ),
           'attributes_array' => array(
             'role' => 'navigation',
+            'aria-label' => 'Section Menu',
           ),
         ),
         'add_default_classes' => 1,
@@ -606,9 +611,14 @@ function fieldmuseum_default_page_manager_pages() {
               'enabled' => 1,
               'value' => 'navigation',
             ),
+            'aria-label' => array(
+              'enabled' => 1,
+              'value' => 'Section Menu',
+            ),
           ),
           'attributes_array' => array(
             'role' => 'navigation',
+            'aria-label' => 'Section Menu',
           ),
         ),
         'add_default_classes' => 1,
@@ -830,9 +840,14 @@ function fieldmuseum_default_page_manager_pages() {
               'enabled' => 1,
               'value' => 'navigation',
             ),
+            'aria-label' => array(
+              'enabled' => 1,
+              'value' => 'Section Menu',
+            ),
           ),
           'attributes_array' => array(
             'role' => 'navigation',
+            'aria-label' => 'Section Menu',
           ),
         ),
         'add_default_classes' => 1,
@@ -1137,9 +1152,14 @@ function fieldmuseum_default_page_manager_pages() {
               'enabled' => 1,
               'value' => 'navigation',
             ),
+            'aria-label' => array(
+              'enabled' => 1,
+              'value' => 'Section Menu',
+            ),
           ),
           'attributes_array' => array(
             'role' => 'navigation',
+            'aria-label' => 'Section Menu',
           ),
         ),
         'add_default_classes' => 1,
@@ -1444,9 +1464,14 @@ function fieldmuseum_default_page_manager_pages() {
               'enabled' => 1,
               'value' => 'navigation',
             ),
+            'aria-label' => array(
+              'enabled' => 1,
+              'value' => 'Section Menu',
+            ),
           ),
           'attributes_array' => array(
             'role' => 'navigation',
+            'aria-label' => 'Section Menu',
           ),
         ),
         'add_default_classes' => 1,
@@ -1752,9 +1777,14 @@ function fieldmuseum_default_page_manager_pages() {
               'enabled' => 1,
               'value' => 'navigation',
             ),
+            'aria-label' => array(
+              'enabled' => 1,
+              'value' => 'Section Menu',
+            ),
           ),
           'attributes_array' => array(
             'role' => 'navigation',
+            'aria-label' => 'Section Menu',
           ),
         ),
         'add_default_classes' => 1,
@@ -2104,9 +2134,14 @@ function fieldmuseum_default_page_manager_pages() {
               'enabled' => 1,
               'value' => 'navigation',
             ),
+            'aria-label' => array(
+              'enabled' => 1,
+              'value' => 'Section Menu',
+            ),
           ),
           'attributes_array' => array(
             'role' => 'navigation',
+            'aria-label' => 'Section Menu',
           ),
         ),
         'add_default_classes' => 1,
@@ -2357,9 +2392,14 @@ function fieldmuseum_default_page_manager_pages() {
               'enabled' => 1,
               'value' => 'navigation',
             ),
+            'aria-label' => array(
+              'enabled' => 1,
+              'value' => 'Section Menu',
+            ),
           ),
           'attributes_array' => array(
             'role' => 'navigation',
+            'aria-label' => 'Section Menu',
           ),
         ),
         'add_default_classes' => 1,
@@ -2664,9 +2704,14 @@ function fieldmuseum_default_page_manager_pages() {
               'enabled' => 1,
               'value' => 'navigation',
             ),
+            'aria-label' => array(
+              'enabled' => 1,
+              'value' => 'Section Menu',
+            ),
           ),
           'attributes_array' => array(
             'role' => 'navigation',
+            'aria-label' => 'Section Menu',
           ),
         ),
         'add_default_classes' => 1,
@@ -3356,9 +3401,14 @@ function fieldmuseum_default_page_manager_pages() {
               'enabled' => 1,
               'value' => 'navigation',
             ),
+            'aria-label' => array(
+              'enabled' => 1,
+              'value' => 'Section Menu',
+            ),
           ),
           'attributes_array' => array(
             'role' => 'navigation',
+            'aria-label' => 'Section Menu',
           ),
         ),
         'add_default_classes' => 1,
@@ -3663,9 +3713,14 @@ function fieldmuseum_default_page_manager_pages() {
               'enabled' => 1,
               'value' => 'navigation',
             ),
+            'aria-label' => array(
+              'enabled' => 1,
+              'value' => 'Section Menu',
+            ),
           ),
           'attributes_array' => array(
             'role' => 'navigation',
+            'aria-label' => 'Section Menu',
           ),
         ),
         'add_default_classes' => 1,
@@ -3936,9 +3991,14 @@ function fieldmuseum_default_page_manager_pages() {
               'enabled' => 1,
               'value' => 'navigation',
             ),
+            'aria-label' => array(
+              'enabled' => 1,
+              'value' => 'Section Menu',
+            ),
           ),
           'attributes_array' => array(
             'role' => 'navigation',
+            'aria-label' => 'Section Menu',
           ),
         ),
         'add_default_classes' => 1,
@@ -6126,9 +6186,14 @@ function fieldmuseum_default_page_manager_pages() {
               'enabled' => 1,
               'value' => 'navigation',
             ),
+            'aria-label' => array(
+              'enabled' => 1,
+              'value' => 'Section Menu',
+            ),
           ),
           'attributes_array' => array(
             'role' => 'navigation',
+            'aria-label' => 'Section Menu',
           ),
         ),
         'add_default_classes' => 1,
@@ -6755,9 +6820,14 @@ function fieldmuseum_default_page_manager_pages() {
               'enabled' => 1,
               'value' => 'navigation',
             ),
+            'aria-label' => array(
+              'enabled' => 1,
+              'value' => 'Section Menu',
+            ),
           ),
           'attributes_array' => array(
             'role' => 'navigation',
+            'aria-label' => 'Section Menu',
           ),
         ),
         'add_default_classes' => 1,
@@ -7057,9 +7127,14 @@ function fieldmuseum_default_page_manager_pages() {
               'enabled' => 1,
               'value' => 'navigation',
             ),
+            'aria-label' => array(
+              'enabled' => 1,
+              'value' => 'Section Menu',
+            ),
           ),
           'attributes_array' => array(
             'role' => 'navigation',
+            'aria-label' => 'Section Menu',
           ),
         ),
         'add_default_classes' => 1,
@@ -7432,9 +7507,14 @@ function fieldmuseum_default_page_manager_pages() {
               'enabled' => 1,
               'value' => 'navigation',
             ),
+            'aria-label' => array(
+              'enabled' => 1,
+              'value' => 'Section Menu',
+            ),
           ),
           'attributes_array' => array(
             'role' => 'navigation',
+            'aria-label' => 'Section Menu',
           ),
         ),
         'add_default_classes' => 1,
@@ -7842,9 +7922,14 @@ function fieldmuseum_default_page_manager_pages() {
               'enabled' => 1,
               'value' => 'navigation',
             ),
+            'aria-label' => array(
+              'enabled' => 1,
+              'value' => 'Section Menu',
+            ),
           ),
           'attributes_array' => array(
             'role' => 'navigation',
+            'aria-label' => 'Section Menu',
           ),
         ),
         'add_default_classes' => 1,
@@ -8107,9 +8192,14 @@ function fieldmuseum_default_page_manager_pages() {
               'enabled' => 1,
               'value' => 'navigation',
             ),
+            'aria-label' => array(
+              'enabled' => 1,
+              'value' => 'Section Menu',
+            ),
           ),
           'attributes_array' => array(
             'role' => 'navigation',
+            'aria-label' => 'Section Menu',
           ),
         ),
         'add_default_classes' => 1,
@@ -8463,9 +8553,14 @@ function fieldmuseum_default_page_manager_pages() {
               'enabled' => 1,
               'value' => 'navigation',
             ),
+            'aria-label' => array(
+              'enabled' => 1,
+              'value' => 'Section Menu',
+            ),
           ),
           'attributes_array' => array(
             'role' => 'navigation',
+            'aria-label' => 'Section Menu',
           ),
         ),
         'add_default_classes' => 1,
@@ -8770,9 +8865,14 @@ function fieldmuseum_default_page_manager_pages() {
               'enabled' => 1,
               'value' => 'navigation',
             ),
+            'aria-label' => array(
+              'enabled' => 1,
+              'value' => 'Section Menu',
+            ),
           ),
           'attributes_array' => array(
             'role' => 'navigation',
+            'aria-label' => 'Section Menu',
           ),
         ),
         'add_default_classes' => 1,
@@ -8980,9 +9080,14 @@ function fieldmuseum_default_page_manager_pages() {
               'enabled' => 1,
               'value' => 'navigation',
             ),
+            'aria-label' => array(
+              'enabled' => 1,
+              'value' => 'Section Menu',
+            ),
           ),
           'attributes_array' => array(
             'role' => 'navigation',
+            'aria-label' => 'Section Menu',
           ),
         ),
         'add_default_classes' => 1,
@@ -9418,9 +9523,14 @@ function fieldmuseum_default_page_manager_pages() {
               'enabled' => 1,
               'value' => 'navigation',
             ),
+            'aria-label' => array(
+              'enabled' => 1,
+              'value' => 'Section Menu',
+            ),
           ),
           'attributes_array' => array(
             'role' => 'navigation',
+            'aria-label' => 'Section Menu',
           ),
         ),
         'add_default_classes' => 1,
@@ -9773,9 +9883,14 @@ function fieldmuseum_default_page_manager_pages() {
               'enabled' => 1,
               'value' => 'navigation',
             ),
+            'aria-label' => array(
+              'enabled' => 1,
+              'value' => 'Section Menu',
+            ),
           ),
           'attributes_array' => array(
             'role' => 'navigation',
+            'aria-label' => 'Section Menu',
           ),
         ),
         'add_default_classes' => 1,
@@ -10361,9 +10476,14 @@ function fieldmuseum_default_page_manager_pages() {
               'enabled' => 1,
               'value' => 'navigation',
             ),
+            'aria-label' => array(
+              'enabled' => 1,
+              'value' => 'Section Menu',
+            ),
           ),
           'attributes_array' => array(
             'role' => 'navigation',
+            'aria-label' => 'Section Menu',
           ),
         ),
         'add_default_classes' => 1,
@@ -10790,9 +10910,14 @@ function fieldmuseum_default_page_manager_pages() {
               'enabled' => 1,
               'value' => 'navigation',
             ),
+            'aria-label' => array(
+              'enabled' => 1,
+              'value' => 'Section Menu',
+            ),
           ),
           'attributes_array' => array(
             'role' => 'navigation',
+            'aria-label' => 'Section Menu',
           ),
         ),
         'add_default_classes' => 1,
@@ -11066,9 +11191,14 @@ function fieldmuseum_default_page_manager_pages() {
               'enabled' => 1,
               'value' => 'navigation',
             ),
+            'aria-label' => array(
+              'enabled' => 1,
+              'value' => 'Section Menu',
+            ),
           ),
           'attributes_array' => array(
             'role' => 'navigation',
+            'aria-label' => 'Section Menu',
           ),
         ),
         'add_default_classes' => 1,
@@ -11906,9 +12036,14 @@ function fieldmuseum_default_page_manager_pages() {
               'enabled' => 1,
               'value' => 'navigation',
             ),
+            'aria-label' => array(
+              'enabled' => 1,
+              'value' => 'Section Menu',
+            ),
           ),
           'attributes_array' => array(
             'role' => 'navigation',
+            'aria-label' => 'Section Menu',
           ),
         ),
         'add_default_classes' => 1,
@@ -12922,9 +13057,14 @@ function fieldmuseum_default_page_manager_pages() {
               'enabled' => 1,
               'value' => 'navigation',
             ),
+            'aria-label' => array(
+              'enabled' => 1,
+              'value' => 'Section Menu',
+            ),
           ),
           'attributes_array' => array(
             'role' => 'navigation',
+            'aria-label' => 'Section Menu',
           ),
         ),
         'add_default_classes' => 1,
@@ -13634,9 +13774,14 @@ function fieldmuseum_default_page_manager_pages() {
               'enabled' => 1,
               'value' => 'navigation',
             ),
+            'aria-label' => array(
+              'enabled' => 1,
+              'value' => 'Section Menu',
+            ),
           ),
           'attributes_array' => array(
             'role' => 'navigation',
+            'aria-label' => 'Section Menu',
           ),
         ),
         'add_default_classes' => 1,
@@ -13914,15 +14059,19 @@ function fieldmuseum_default_page_manager_pages() {
         'element_wrapper' => array(
           'type' => 'nav',
           'class_enable' => 1,
-          'class' => 'navSection',
           'attributes' => array(
             'role' => array(
               'enabled' => 1,
               'value' => 'navigation',
             ),
+            'aria-label' => array(
+              'enabled' => 1,
+              'value' => 'Section Menu',
+            ),
           ),
           'attributes_array' => array(
             'role' => 'navigation',
+            'aria-label' => 'Section Menu',
           ),
         ),
         'add_default_classes' => 1,
