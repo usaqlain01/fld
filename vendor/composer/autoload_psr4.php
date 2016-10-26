@@ -12,6 +12,7 @@ return array(
     'Symfony\\Component\\Finder\\' => array($vendorDir . '/symfony/finder'),
     'Symfony\\Component\\Filesystem\\' => array($vendorDir . '/symfony/filesystem'),
     'Symfony\\Component\\Debug\\' => array($vendorDir . '/symfony/debug'),
+    'Psr\\Log\\' => array($vendorDir . '/psr/log/Psr/Log'),
     'Bangpound\\Pimple\\Provider\\' => array($vendorDir . '/bangpound/assetic-service-provider'),
     'Bangpound\\Assetic\\Filter\\' => array($vendorDir . '/bangpound/assetic-codekit'),
     '' => array($baseDir . '/src'),

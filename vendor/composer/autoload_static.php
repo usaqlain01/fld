@@ -22,6 +22,10 @@ class ComposerStaticInitRepo
             'Symfony\\Component\\Filesystem\\' => 29,
             'Symfony\\Component\\Debug\\' => 24,
         ),
+        'P' => 
+        array (
+            'Psr\\Log\\' => 8,
+        ),
         'B' => 
         array (
             'Bangpound\\Pimple\\Provider\\' => 26,
@@ -54,6 +58,10 @@ class ComposerStaticInitRepo
         array (
             0 => __DIR__ . '/..' . '/symfony/debug',
         ),
+        'Psr\\Log\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
+        ),
         'Bangpound\\Pimple\\Provider\\' => 
         array (
             0 => __DIR__ . '/..' . '/bangpound/assetic-service-provider',
@@ -71,10 +79,6 @@ class ComposerStaticInitRepo
     public static $prefixesPsr0 = array (
         'P' => 
         array (
-            'Psr\\Log\\' => 
-            array (
-                0 => __DIR__ . '/..' . '/psr/log',
-            ),
             'Pimple' => 
             array (
                 0 => __DIR__ . '/..' . '/pimple/pimple/src',
