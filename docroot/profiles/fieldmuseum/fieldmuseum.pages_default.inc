@@ -14059,6 +14059,7 @@ function fieldmuseum_default_page_manager_pages() {
         'element_wrapper' => array(
           'type' => 'nav',
           'class_enable' => 1,
+          'class' => 'navSection',
           'attributes' => array(
             'role' => array(
               'enabled' => 1,
