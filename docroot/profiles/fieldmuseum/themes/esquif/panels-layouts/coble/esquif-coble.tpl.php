@@ -15,7 +15,7 @@
  */
 ?>
 <section class="pageFooter__main">
-  <nav class="navFooter" role="navigation" aria-label="Footer Menu">
+  <nav class="navFooter" role="navigation" aria-label="Footer Navigation">
     <h2 class="is--visHidden">Footer Navigation</h2>
     <?php print $content['main_a']; ?>
   </nav>
