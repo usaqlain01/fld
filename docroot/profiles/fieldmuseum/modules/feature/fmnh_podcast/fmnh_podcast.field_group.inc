@@ -8,7 +8,7 @@
  * Implements hook_field_group_info().
  */
 function fmnh_podcast_field_group_info() {
-  $export = array();
+  $field_groups = array();
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -36,7 +36,7 @@ function fmnh_podcast_field_group_info() {
       ),
     ),
   );
-  $export['group_department|node|podcast|form'] = $field_group;
+  $field_groups['group_department|node|podcast|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -64,7 +64,7 @@ function fmnh_podcast_field_group_info() {
       ),
     ),
   );
-  $export['group_location_region|node|podcast|form'] = $field_group;
+  $field_groups['group_location_region|node|podcast|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -91,7 +91,7 @@ function fmnh_podcast_field_group_info() {
       ),
     ),
   );
-  $export['group_public_tags|node|podcast|form'] = $field_group;
+  $field_groups['group_public_tags|node|podcast|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -119,7 +119,7 @@ function fmnh_podcast_field_group_info() {
       ),
     ),
   );
-  $export['group_research_area|node|podcast|form'] = $field_group;
+  $field_groups['group_research_area|node|podcast|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -147,7 +147,7 @@ function fmnh_podcast_field_group_info() {
       ),
     ),
   );
-  $export['group_science_focus|node|podcast|form'] = $field_group;
+  $field_groups['group_science_focus|node|podcast|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -175,7 +175,7 @@ function fmnh_podcast_field_group_info() {
       ),
     ),
   );
-  $export['group_science_tags|node|podcast|form'] = $field_group;
+  $field_groups['group_science_tags|node|podcast|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -203,7 +203,7 @@ function fmnh_podcast_field_group_info() {
       ),
     ),
   );
-  $export['group_stratigraphy|node|podcast|form'] = $field_group;
+  $field_groups['group_stratigraphy|node|podcast|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -231,7 +231,7 @@ function fmnh_podcast_field_group_info() {
       ),
     ),
   );
-  $export['group_topic|node|podcast|form'] = $field_group;
+  $field_groups['group_topic|node|podcast|form'] = $field_group;
 
   // Translatables
   // Included for use with string extractors like potx.
@@ -244,5 +244,5 @@ function fmnh_podcast_field_group_info() {
   t('Stratigraphy');
   t('Topic');
 
-  return $export;
+  return $field_groups;
 }

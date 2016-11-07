@@ -17,7 +17,7 @@
 <?php endif; ?>
 
 <?php foreach ($items as $delta => $item): ?>
-  <span class="heading--1 <?php print $classes; ?>"<?php print $attributes; ?>>
+  <h1 class="<?php print $classes; ?>"<?php print $attributes; ?>>
     <?php print render($item); ?>
-  </span>
+  </h1>
 <?php endforeach; ?>

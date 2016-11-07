@@ -41,7 +41,7 @@ function fieldmuseum_default_environment_indicator_environment() {
   $export['production'] = $environment;
 
   $environment = new stdClass();
-  $environment->disabled = FALSE; /* Edit this to true to make a default environment disabled initially */
+  $environment->disabled = TRUE; /* Edit this to true to make a default environment disabled initially */
   $environment->api_version = 1;
   $environment->machine = 'test';
   $environment->name = 'Test';
