@@ -8,7 +8,7 @@
  * Implements hook_field_group_info().
  */
 function fmnh_program_field_group_info() {
-  $export = array();
+  $field_groups = array();
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -36,7 +36,7 @@ function fmnh_program_field_group_info() {
       ),
     ),
   );
-  $export['group_audience|node|program|form'] = $field_group;
+  $field_groups['group_audience|node|program|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -64,7 +64,7 @@ function fmnh_program_field_group_info() {
       ),
     ),
   );
-  $export['group_grade_level|node|program|form'] = $field_group;
+  $field_groups['group_grade_level|node|program|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -90,7 +90,7 @@ function fmnh_program_field_group_info() {
       ),
     ),
   );
-  $export['group_public_tags|node|program|form'] = $field_group;
+  $field_groups['group_public_tags|node|program|form'] = $field_group;
 
   // Translatables
   // Included for use with string extractors like potx.
@@ -98,5 +98,5 @@ function fmnh_program_field_group_info() {
   t('Grade level');
   t('Public tags');
 
-  return $export;
+  return $field_groups;
 }

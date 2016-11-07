@@ -42,6 +42,7 @@ http://www.fieldmuseum.org
 http://fieldmuseum.org
 ',
           'protocol_style' => 'proto-rel',
+          'settings_source' => 'global',
         ),
       ),
     ),
@@ -97,6 +98,7 @@ http://www.fieldmuseum.org
 http://fieldmuseum.org
 ',
           'protocol_style' => 'proto-rel',
+          'settings_source' => 'global',
         ),
       ),
     ),
@@ -137,6 +139,7 @@ http://www.fieldmuseum.org
 http://fieldmuseum.org
 ',
           'protocol_style' => 'proto-rel',
+          'settings_source' => 'global',
         ),
       ),
     ),
@@ -195,6 +198,7 @@ http://www.fieldmuseum.org
 http://fieldmuseum.org
 ',
           'protocol_style' => 'proto-rel',
+          'settings_source' => 'global',
         ),
       ),
     ),
@@ -228,6 +232,7 @@ http://www.fieldmuseum.org
 http://fieldmuseum.org
 ',
           'protocol_style' => 'proto-rel',
+          'settings_source' => 'global',
         ),
       ),
     ),
@@ -268,6 +273,7 @@ http://www.fieldmuseum.org
 http://fieldmuseum.org
 ',
           'protocol_style' => 'proto-rel',
+          'settings_source' => 'global',
         ),
       ),
     ),
@@ -296,6 +302,7 @@ http://www.fieldmuseum.org
 http://fieldmuseum.org
 ',
           'protocol_style' => 'proto-rel',
+          'settings_source' => 'global',
         ),
       ),
     ),
@@ -333,6 +340,7 @@ http://www.fieldmuseum.org
 http://fieldmuseum.org
 ',
           'protocol_style' => 'proto-rel',
+          'settings_source' => 'global',
         ),
       ),
     ),
