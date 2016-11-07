@@ -33,7 +33,7 @@
         "drupal/field_formatter_class": "1.*",
         "drupal/field_formatter_settings": "1.*",
         "drupal/field_group": "1.x-dev",
-        "drupal/fieldable_panels_panes": "^1.10",
+        "drupal/fieldable_panels_panes": "1.10",
         "drupal/file_entity": "2.*",
         "drupal/globalredirect": "1.x-dev",
         "drupal/google_analytics": "2.*",

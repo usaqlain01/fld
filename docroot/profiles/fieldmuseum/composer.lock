@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "da7cb5ab698c216558b8862a5c28f0f2",
-    "content-hash": "71bf4b83e4b4e10cf95047bf8c412f9a",
+    "hash": "02ab557e1670a9240a8e0b059455a9a0",
+    "content-hash": "cbdd5d4d365149898df5ab913009d48a",
     "packages": [
         {
             "name": "bangpound/crop-extension",
@@ -2010,17 +2010,17 @@
         },
         {
             "name": "drupal/fieldable_panels_panes",
-            "version": "1.11.0",
+            "version": "1.10.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/fieldable_panels_panes",
-                "reference": "7.x-1.11"
+                "reference": "7.x-1.10"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/fieldable_panels_panes-7.x-1.11.zip",
-                "reference": "7.x-1.11",
-                "shasum": "8eee458b49ce522df89b26768872ced9726011e6"
+                "url": "https://ftp.drupal.org/files/projects/fieldable_panels_panes-7.x-1.10.zip",
+                "reference": null,
+                "shasum": "70e78b59f172c61ad3b1f93482f68c7b925bec24"
             },
             "require": {
                 "drupal/ctools": "^1.8",
@@ -2033,7 +2033,6 @@
                 "drupal/entity": "Required by drupal/fieldable_panels_panes",
                 "drupal/panelizer": "Required by drupal/fieldable_panels_panes",
                 "drupal/panels": "Required by drupal/fieldable_panels_panes",
-                "drupal/pathauto": "Required by drupal/fieldable_panels_panes",
                 "drupal/revisioning": "Required by drupal/fieldable_panels_panes"
             },
             "type": "drupal-module",
@@ -2042,7 +2041,7 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "7.x-1.11",
+                    "version": "7.x-1.10",
                     "datestamp": "1478371740"
                 }
             },

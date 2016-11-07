@@ -3373,82 +3373,6 @@
         }
     },
     {
-        "name": "drupal/fieldable_panels_panes",
-        "version": "1.11.0",
-        "version_normalized": "1.11.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://git.drupal.org/project/fieldable_panels_panes",
-            "reference": "7.x-1.11"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://ftp.drupal.org/files/projects/fieldable_panels_panes-7.x-1.11.zip",
-            "reference": "7.x-1.11",
-            "shasum": "8eee458b49ce522df89b26768872ced9726011e6"
-        },
-        "require": {
-            "drupal/ctools": "^1.8",
-            "drupal/drupal": "~7.0",
-            "drupal/panels": "^3.5",
-            "drupal/views": "*"
-        },
-        "suggest": {
-            "drupal/devel": "Required by drupal/fieldable_panels_panes",
-            "drupal/entity": "Required by drupal/fieldable_panels_panes",
-            "drupal/panelizer": "Required by drupal/fieldable_panels_panes",
-            "drupal/panels": "Required by drupal/fieldable_panels_panes",
-            "drupal/pathauto": "Required by drupal/fieldable_panels_panes",
-            "drupal/revisioning": "Required by drupal/fieldable_panels_panes"
-        },
-        "type": "drupal-module",
-        "extra": {
-            "branch-alias": {
-                "dev-1.x": "1.x-dev"
-            },
-            "drupal": {
-                "version": "7.x-1.11",
-                "datestamp": "1478371740"
-            }
-        },
-        "installation-source": "dist",
-        "notification-url": "https://packages.drupal.org/7/downloads",
-        "license": [
-            "GPL-2.0+"
-        ],
-        "authors": [
-            {
-                "name": "DamienMcKenna",
-                "homepage": "https://www.drupal.org/user/108450"
-            },
-            {
-                "name": "Dave Reid",
-                "homepage": "https://www.drupal.org/user/53892"
-            },
-            {
-                "name": "John Morahan",
-                "homepage": "https://www.drupal.org/user/58170"
-            },
-            {
-                "name": "awebb",
-                "homepage": "https://www.drupal.org/user/45411"
-            },
-            {
-                "name": "cangeceiro",
-                "homepage": "https://www.drupal.org/user/176136"
-            },
-            {
-                "name": "merlinofchaos",
-                "homepage": "https://www.drupal.org/user/26979"
-            }
-        ],
-        "description": "Allow the creation of fieldable panels pane entities.",
-        "homepage": "https://www.drupal.org/project/fieldable_panels_panes",
-        "support": {
-            "source": "http://cgit.drupalcode.org/fieldable_panels_panes"
-        }
-    },
-    {
         "name": "drupal/google_analytics",
         "version": "2.3.0",
         "version_normalized": "2.3.0.0",
@@ -6018,5 +5942,80 @@
             "parser",
             "stylesheet"
         ]
+    },
+    {
+        "name": "drupal/fieldable_panels_panes",
+        "version": "1.10.0",
+        "version_normalized": "1.10.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupal.org/project/fieldable_panels_panes",
+            "reference": "7.x-1.10"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://ftp.drupal.org/files/projects/fieldable_panels_panes-7.x-1.10.zip",
+            "reference": null,
+            "shasum": "70e78b59f172c61ad3b1f93482f68c7b925bec24"
+        },
+        "require": {
+            "drupal/ctools": "^1.8",
+            "drupal/drupal": "~7.0",
+            "drupal/panels": "^3.5",
+            "drupal/views": "*"
+        },
+        "suggest": {
+            "drupal/devel": "Required by drupal/fieldable_panels_panes",
+            "drupal/entity": "Required by drupal/fieldable_panels_panes",
+            "drupal/panelizer": "Required by drupal/fieldable_panels_panes",
+            "drupal/panels": "Required by drupal/fieldable_panels_panes",
+            "drupal/revisioning": "Required by drupal/fieldable_panels_panes"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "branch-alias": {
+                "dev-1.x": "1.x-dev"
+            },
+            "drupal": {
+                "version": "7.x-1.10",
+                "datestamp": "1478371740"
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packages.drupal.org/7/downloads",
+        "license": [
+            "GPL-2.0+"
+        ],
+        "authors": [
+            {
+                "name": "DamienMcKenna",
+                "homepage": "https://www.drupal.org/user/108450"
+            },
+            {
+                "name": "Dave Reid",
+                "homepage": "https://www.drupal.org/user/53892"
+            },
+            {
+                "name": "John Morahan",
+                "homepage": "https://www.drupal.org/user/58170"
+            },
+            {
+                "name": "awebb",
+                "homepage": "https://www.drupal.org/user/45411"
+            },
+            {
+                "name": "cangeceiro",
+                "homepage": "https://www.drupal.org/user/176136"
+            },
+            {
+                "name": "merlinofchaos",
+                "homepage": "https://www.drupal.org/user/26979"
+            }
+        ],
+        "description": "Allow the creation of fieldable panels pane entities.",
+        "homepage": "https://www.drupal.org/project/fieldable_panels_panes",
+        "support": {
+            "source": "http://cgit.drupalcode.org/fieldable_panels_panes"
+        }
     }
 ]
