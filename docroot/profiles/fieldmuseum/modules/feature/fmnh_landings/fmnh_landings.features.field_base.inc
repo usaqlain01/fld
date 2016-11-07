@@ -10,7 +10,7 @@
 function fmnh_landings_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'field_body'
+  // Exported field_base: 'field_body'.
   $field_bases['field_body'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -31,7 +31,7 @@ function fmnh_landings_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_headline'
+  // Exported field_base: 'field_headline'.
   $field_bases['field_headline'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -52,7 +52,7 @@ function fmnh_landings_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_more_link'
+  // Exported field_base: 'field_more_link'.
   $field_bases['field_more_link'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -78,7 +78,7 @@ function fmnh_landings_field_default_field_bases() {
     'type' => 'list_boolean',
   );
 
-  // Exported field_base: 'field_subheadline'
+  // Exported field_base: 'field_subheadline'.
   $field_bases['field_subheadline'] = array(
     'active' => 1,
     'cardinality' => 1,

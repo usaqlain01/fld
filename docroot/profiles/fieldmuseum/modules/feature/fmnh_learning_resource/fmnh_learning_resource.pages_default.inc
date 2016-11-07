@@ -11,7 +11,7 @@ function fmnh_learning_resource_default_page_manager_handlers() {
   $export = array();
 
   $handler = new stdClass();
-  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->disabled = TRUE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
   $handler->name = 'node_view_panel_context_10';
   $handler->task = 'node_view';
@@ -61,139 +61,141 @@ function fmnh_learning_resource_default_page_manager_handlers() {
   $display->cache = array();
   $display->title = '';
   $display->uuid = 'eca48527-7719-4d4b-9c98-658a7285cd75';
+  $display->storage_type = 'page_manager';
+  $display->storage_id = 'node_view_panel_context_10';
   $display->content = array();
   $display->panels = array();
-    $pane = new stdClass();
-    $pane->pid = 'new-74eaef86-376c-403f-8337-f19b8410248a';
-    $pane->panel = 'main';
-    $pane->type = 'node_content';
-    $pane->subtype = 'node_content';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'links' => 1,
-      'no_extras' => 1,
-      'override_title' => 0,
-      'override_title_text' => '',
-      'identifier' => '',
-      'link' => 0,
-      'leave_node_title' => 1,
-      'build_mode' => 'full',
-      'context' => 'argument_entity_id:node_1',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'style' => 'naked',
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = '74eaef86-376c-403f-8337-f19b8410248a';
-    $display->content['new-74eaef86-376c-403f-8337-f19b8410248a'] = $pane;
-    $display->panels['main'][0] = 'new-74eaef86-376c-403f-8337-f19b8410248a';
-    $pane = new stdClass();
-    $pane->pid = 'new-06b5d2e0-1ebc-4041-9305-e1f4f585302e';
-    $pane->panel = 'nav';
-    $pane->type = 'menu_tree';
-    $pane->subtype = 'main-menu';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'menu_name' => 'main-menu',
-      'parent_mlid' => 0,
-      'parent' => 'main-menu:0',
-      'title_link' => 0,
-      'admin_title' => '',
-      'level' => '2',
-      'follow' => 0,
-      'depth' => '0',
-      'expanded' => 0,
-      'sort' => 0,
-      'override_title' => 1,
-      'override_title_text' => '',
-      'identifier' => 'section',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'style' => 'semantic_panels',
-      'settings' => array(
-        'element_title' => array(
-          'type' => '0',
+  $pane = new stdClass();
+  $pane->pid = 'new-74eaef86-376c-403f-8337-f19b8410248a';
+  $pane->panel = 'main';
+  $pane->type = 'node_content';
+  $pane->subtype = 'node_content';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'links' => 1,
+    'no_extras' => 1,
+    'override_title' => 0,
+    'override_title_text' => '',
+    'identifier' => '',
+    'link' => 0,
+    'leave_node_title' => 1,
+    'build_mode' => 'full',
+    'context' => 'argument_entity_id:node_1',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'style' => 'naked',
+    'settings' => NULL,
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 0;
+  $pane->locks = array();
+  $pane->uuid = '74eaef86-376c-403f-8337-f19b8410248a';
+  $display->content['new-74eaef86-376c-403f-8337-f19b8410248a'] = $pane;
+  $display->panels['main'][0] = 'new-74eaef86-376c-403f-8337-f19b8410248a';
+  $pane = new stdClass();
+  $pane->pid = 'new-06b5d2e0-1ebc-4041-9305-e1f4f585302e';
+  $pane->panel = 'nav';
+  $pane->type = 'menu_tree';
+  $pane->subtype = 'main-menu';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'menu_name' => 'main-menu',
+    'parent_mlid' => 0,
+    'parent' => 'main-menu:0',
+    'title_link' => 0,
+    'admin_title' => '',
+    'level' => '2',
+    'follow' => 0,
+    'depth' => '0',
+    'expanded' => 0,
+    'sort' => 0,
+    'override_title' => 1,
+    'override_title_text' => '',
+    'identifier' => 'section',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'style' => 'semantic_panels',
+    'settings' => array(
+      'element_title' => array(
+        'type' => '0',
+        'class_enable' => 0,
+        'class' => '',
+        'attributes' => array(),
+        'link_enabled' => 0,
+        'link' => array(
+          'path' => '',
           'class_enable' => 0,
           'class' => '',
           'attributes' => array(),
-          'link_enabled' => 0,
-          'link' => array(
-            'path' => '',
-            'class_enable' => 0,
-            'class' => '',
-            'attributes' => array(),
-            'attributes_array' => array(),
-          ),
           'attributes_array' => array(),
         ),
-        'element_content' => array(
-          'type' => '0',
-          'class_enable' => 0,
-          'class' => '',
-          'attributes' => array(),
-          'link_enabled' => 0,
-          'link' => array(
-            'path' => '',
-            'class_enable' => 0,
-            'class' => '',
-            'attributes' => array(),
-            'attributes_array' => array(),
-          ),
-          'attributes_array' => array(),
-        ),
-        'element_wrapper' => array(
-          'type' => 'nav',
-          'class_enable' => 1,
-          'class' => 'navSection',
-          'attributes' => array(),
-          'attributes_array' => array(),
-        ),
-        'add_default_classes' => 1,
+        'attributes_array' => array(),
       ),
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = '06b5d2e0-1ebc-4041-9305-e1f4f585302e';
-    $display->content['new-06b5d2e0-1ebc-4041-9305-e1f4f585302e'] = $pane;
-    $display->panels['nav'][0] = 'new-06b5d2e0-1ebc-4041-9305-e1f4f585302e';
-    $pane = new stdClass();
-    $pane->pid = 'new-6712c244-2fa6-4716-aaa7-0bdf75b12072';
-    $pane->panel = 'nav';
-    $pane->type = 'node_content_arbitrary';
-    $pane->subtype = 'node_content_arbitrary';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'override_title' => 0,
-      'override_title_text' => '',
-      'build_mode' => 'full',
-      'identifier' => '',
-      'property_path' => 'content[links][sharing]',
-      'link' => 0,
-      'context' => 'argument_entity_id:node_1',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'style' => 'naked',
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 1;
-    $pane->locks = array();
-    $pane->uuid = '6712c244-2fa6-4716-aaa7-0bdf75b12072';
-    $display->content['new-6712c244-2fa6-4716-aaa7-0bdf75b12072'] = $pane;
-    $display->panels['nav'][1] = 'new-6712c244-2fa6-4716-aaa7-0bdf75b12072';
+      'element_content' => array(
+        'type' => '0',
+        'class_enable' => 0,
+        'class' => '',
+        'attributes' => array(),
+        'link_enabled' => 0,
+        'link' => array(
+          'path' => '',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'attributes_array' => array(),
+      ),
+      'element_wrapper' => array(
+        'type' => 'nav',
+        'class_enable' => 1,
+        'class' => 'navSection',
+        'attributes' => array(),
+        'attributes_array' => array(),
+      ),
+      'add_default_classes' => 1,
+    ),
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 0;
+  $pane->locks = array();
+  $pane->uuid = '06b5d2e0-1ebc-4041-9305-e1f4f585302e';
+  $display->content['new-06b5d2e0-1ebc-4041-9305-e1f4f585302e'] = $pane;
+  $display->panels['nav'][0] = 'new-06b5d2e0-1ebc-4041-9305-e1f4f585302e';
+  $pane = new stdClass();
+  $pane->pid = 'new-6712c244-2fa6-4716-aaa7-0bdf75b12072';
+  $pane->panel = 'nav';
+  $pane->type = 'node_content_arbitrary';
+  $pane->subtype = 'node_content_arbitrary';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'override_title' => 0,
+    'override_title_text' => '',
+    'build_mode' => 'full',
+    'identifier' => '',
+    'property_path' => 'content[links][sharing]',
+    'link' => 0,
+    'context' => 'argument_entity_id:node_1',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'style' => 'naked',
+    'settings' => NULL,
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 1;
+  $pane->locks = array();
+  $pane->uuid = '6712c244-2fa6-4716-aaa7-0bdf75b12072';
+  $display->content['new-6712c244-2fa6-4716-aaa7-0bdf75b12072'] = $pane;
+  $display->panels['nav'][1] = 'new-6712c244-2fa6-4716-aaa7-0bdf75b12072';
   $display->hide_title = PANELS_TITLE_PANE;
   $display->title_pane = 'new-74eaef86-376c-403f-8337-f19b8410248a';
   $handler->conf['display'] = $display;
@@ -328,205 +330,207 @@ function fmnh_learning_resource_default_page_manager_pages() {
   $display->cache = array();
   $display->title = 'Learning Resources';
   $display->uuid = '708b5437-1b34-43a0-8a9d-62d0b2b4ef59';
+  $display->storage_type = 'page_manager';
+  $display->storage_id = 'page_learning_resources_filtered_panel_context';
   $display->content = array();
   $display->panels = array();
-    $pane = new stdClass();
-    $pane->pid = 'new-fb47c1d4-9cb9-425d-9253-2d7f2618b77b';
-    $pane->panel = 'main';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'admin_title' => '',
-      'title' => '',
-      'body' => '<h1>Learning Resources for %term:name</h1>
+  $pane = new stdClass();
+  $pane->pid = 'new-fb47c1d4-9cb9-425d-9253-2d7f2618b77b';
+  $pane->panel = 'main';
+  $pane->type = 'custom';
+  $pane->subtype = 'custom';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'admin_title' => '',
+    'title' => '',
+    'body' => '<h1>Learning Resources for %term:name</h1>
 ',
-      'format' => 'filtered_wysiwyg',
-      'substitute' => 1,
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'style' => 'semantic_panels',
-      'settings' => array(
-        'element_title' => array(
-          'type' => '',
-          'class_enable' => 0,
-          'class' => '',
-          'attributes' => array(),
-          'link_enabled' => 0,
-          'link' => array(
-            'path' => '',
-            'class_enable' => 0,
-            'class' => '',
-            'attributes' => array(),
-            'attributes_array' => array(),
-          ),
-          'attributes_array' => array(),
-        ),
-        'element_content' => array(
-          'type' => 'h1',
-          'class_enable' => 0,
-          'class' => '',
-          'attributes' => array(),
-          'link_enabled' => 0,
-          'link' => array(
-            'path' => '',
-            'class_enable' => 0,
-            'class' => '',
-            'attributes' => array(),
-            'attributes_array' => array(),
-          ),
-          'attributes_array' => array(),
-        ),
-        'element_wrapper' => array(
-          'type' => '',
+    'format' => 'filtered_wysiwyg',
+    'substitute' => 1,
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'style' => 'semantic_panels',
+    'settings' => array(
+      'element_title' => array(
+        'type' => '',
+        'class_enable' => 0,
+        'class' => '',
+        'attributes' => array(),
+        'link_enabled' => 0,
+        'link' => array(
+          'path' => '',
           'class_enable' => 0,
           'class' => '',
           'attributes' => array(),
           'attributes_array' => array(),
         ),
-        'add_default_classes' => 0,
+        'attributes_array' => array(),
       ),
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = 'fb47c1d4-9cb9-425d-9253-2d7f2618b77b';
-    $display->content['new-fb47c1d4-9cb9-425d-9253-2d7f2618b77b'] = $pane;
-    $display->panels['main'][0] = 'new-fb47c1d4-9cb9-425d-9253-2d7f2618b77b';
-    $pane = new stdClass();
-    $pane->pid = 'new-59012f6c-7ffe-4976-bd1a-83f2ce6aff8f';
-    $pane->panel = 'main';
-    $pane->type = 'views_row';
-    $pane->subtype = 'views_row';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'rows' => array(),
-      'use_fields' => 0,
-      'fields' => array(),
-      'context' => 'context_view:learning_resources-ctools_context_1_1',
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'style' => 'default',
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 1;
-    $pane->locks = array();
-    $pane->uuid = '59012f6c-7ffe-4976-bd1a-83f2ce6aff8f';
-    $display->content['new-59012f6c-7ffe-4976-bd1a-83f2ce6aff8f'] = $pane;
-    $display->panels['main'][1] = 'new-59012f6c-7ffe-4976-bd1a-83f2ce6aff8f';
-    $pane = new stdClass();
-    $pane->pid = 'new-06ccb6d7-cebb-4e7f-b829-eb7f66de3b73';
-    $pane->panel = 'main';
-    $pane->type = 'views_pager';
-    $pane->subtype = 'views_pager';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'context' => 'context_view:learning_resources-ctools_context_1_1',
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'style' => 'default',
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 2;
-    $pane->locks = array();
-    $pane->uuid = '06ccb6d7-cebb-4e7f-b829-eb7f66de3b73';
-    $display->content['new-06ccb6d7-cebb-4e7f-b829-eb7f66de3b73'] = $pane;
-    $display->panels['main'][2] = 'new-06ccb6d7-cebb-4e7f-b829-eb7f66de3b73';
-    $pane = new stdClass();
-    $pane->pid = 'new-171d9aa8-a3b0-4063-8d2e-187cc4a54118';
-    $pane->panel = 'nav';
-    $pane->type = 'menu_tree';
-    $pane->subtype = 'main-menu';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'menu_name' => 'main-menu',
-      'parent_mlid' => 0,
-      'parent' => 'main-menu:0',
-      'title_link' => 0,
-      'admin_title' => '',
-      'level' => '2',
-      'follow' => 0,
-      'depth' => '0',
-      'expanded' => 0,
-      'sort' => 0,
-      'override_title' => 1,
-      'override_title_text' => '',
-      'identifier' => 'section',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => array(
-        'element_title' => array(
-          'type' => '0',
+      'element_content' => array(
+        'type' => 'h1',
+        'class_enable' => 0,
+        'class' => '',
+        'attributes' => array(),
+        'link_enabled' => 0,
+        'link' => array(
+          'path' => '',
           'class_enable' => 0,
           'class' => '',
           'attributes' => array(),
-          'link_enabled' => 0,
-          'link' => array(
-            'path' => '',
-            'class_enable' => 0,
-            'class' => '',
-            'attributes' => array(),
-            'attributes_array' => array(),
-          ),
           'attributes_array' => array(),
         ),
-        'element_content' => array(
-          'type' => '0',
-          'class_enable' => 0,
-          'class' => '',
-          'attributes' => array(),
-          'link_enabled' => 0,
-          'link' => array(
-            'path' => '',
-            'class_enable' => 0,
-            'class' => '',
-            'attributes' => array(),
-            'attributes_array' => array(),
-          ),
-          'attributes_array' => array(),
-        ),
-        'element_wrapper' => array(
-          'type' => 'nav',
-          'class_enable' => 1,
-          'class' => 'navSection',
-          'attributes' => array(
-            'role' => array(
-              'enabled' => 1,
-              'value' => 'navigation',
-            ),
-          ),
-          'attributes_array' => array(
-            'role' => 'navigation',
-          ),
-        ),
-        'add_default_classes' => 1,
+        'attributes_array' => array(),
       ),
-      'style' => 'semantic_panels',
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = '171d9aa8-a3b0-4063-8d2e-187cc4a54118';
-    $display->content['new-171d9aa8-a3b0-4063-8d2e-187cc4a54118'] = $pane;
-    $display->panels['nav'][0] = 'new-171d9aa8-a3b0-4063-8d2e-187cc4a54118';
+      'element_wrapper' => array(
+        'type' => '',
+        'class_enable' => 0,
+        'class' => '',
+        'attributes' => array(),
+        'attributes_array' => array(),
+      ),
+      'add_default_classes' => 0,
+    ),
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 0;
+  $pane->locks = array();
+  $pane->uuid = 'fb47c1d4-9cb9-425d-9253-2d7f2618b77b';
+  $display->content['new-fb47c1d4-9cb9-425d-9253-2d7f2618b77b'] = $pane;
+  $display->panels['main'][0] = 'new-fb47c1d4-9cb9-425d-9253-2d7f2618b77b';
+  $pane = new stdClass();
+  $pane->pid = 'new-59012f6c-7ffe-4976-bd1a-83f2ce6aff8f';
+  $pane->panel = 'main';
+  $pane->type = 'views_row';
+  $pane->subtype = 'views_row';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'rows' => array(),
+    'use_fields' => 0,
+    'fields' => array(),
+    'context' => 'context_view:learning_resources-ctools_context_1_1',
+    'override_title' => 0,
+    'override_title_text' => '',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'style' => 'default',
+    'settings' => NULL,
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 1;
+  $pane->locks = array();
+  $pane->uuid = '59012f6c-7ffe-4976-bd1a-83f2ce6aff8f';
+  $display->content['new-59012f6c-7ffe-4976-bd1a-83f2ce6aff8f'] = $pane;
+  $display->panels['main'][1] = 'new-59012f6c-7ffe-4976-bd1a-83f2ce6aff8f';
+  $pane = new stdClass();
+  $pane->pid = 'new-06ccb6d7-cebb-4e7f-b829-eb7f66de3b73';
+  $pane->panel = 'main';
+  $pane->type = 'views_pager';
+  $pane->subtype = 'views_pager';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'context' => 'context_view:learning_resources-ctools_context_1_1',
+    'override_title' => 0,
+    'override_title_text' => '',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'style' => 'default',
+    'settings' => NULL,
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 2;
+  $pane->locks = array();
+  $pane->uuid = '06ccb6d7-cebb-4e7f-b829-eb7f66de3b73';
+  $display->content['new-06ccb6d7-cebb-4e7f-b829-eb7f66de3b73'] = $pane;
+  $display->panels['main'][2] = 'new-06ccb6d7-cebb-4e7f-b829-eb7f66de3b73';
+  $pane = new stdClass();
+  $pane->pid = 'new-171d9aa8-a3b0-4063-8d2e-187cc4a54118';
+  $pane->panel = 'nav';
+  $pane->type = 'menu_tree';
+  $pane->subtype = 'main-menu';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'menu_name' => 'main-menu',
+    'parent_mlid' => 0,
+    'parent' => 'main-menu:0',
+    'title_link' => 0,
+    'admin_title' => '',
+    'level' => '2',
+    'follow' => 0,
+    'depth' => '0',
+    'expanded' => 0,
+    'sort' => 0,
+    'override_title' => 1,
+    'override_title_text' => '',
+    'identifier' => 'section',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => array(
+      'element_title' => array(
+        'type' => '0',
+        'class_enable' => 0,
+        'class' => '',
+        'attributes' => array(),
+        'link_enabled' => 0,
+        'link' => array(
+          'path' => '',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'attributes_array' => array(),
+      ),
+      'element_content' => array(
+        'type' => '0',
+        'class_enable' => 0,
+        'class' => '',
+        'attributes' => array(),
+        'link_enabled' => 0,
+        'link' => array(
+          'path' => '',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'attributes_array' => array(),
+      ),
+      'element_wrapper' => array(
+        'type' => 'nav',
+        'class_enable' => 1,
+        'class' => 'navSection',
+        'attributes' => array(
+          'role' => array(
+            'enabled' => 1,
+            'value' => 'navigation',
+          ),
+        ),
+        'attributes_array' => array(
+          'role' => 'navigation',
+        ),
+      ),
+      'add_default_classes' => 1,
+    ),
+    'style' => 'semantic_panels',
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 0;
+  $pane->locks = array();
+  $pane->uuid = '171d9aa8-a3b0-4063-8d2e-187cc4a54118';
+  $display->content['new-171d9aa8-a3b0-4063-8d2e-187cc4a54118'] = $pane;
+  $display->panels['nav'][0] = 'new-171d9aa8-a3b0-4063-8d2e-187cc4a54118';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;

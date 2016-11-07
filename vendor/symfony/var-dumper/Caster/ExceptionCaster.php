@@ -183,42 +183,6 @@ class ExceptionCaster
         return $a;
     }
 
-    /**
-     * @deprecated since 2.8, to be removed in 3.0. Use the castTraceStub method instead.
-     */
-    public static function filterTrace(&$trace, $dumpArgs, $offset = 0)
-    {
-        @trigger_error('The '.__METHOD__.' method is deprecated since version 2.8 and will be removed in 3.0. Use the castTraceStub method instead.', E_USER_DEPRECATED);
-
-        if (0 > $offset || empty($trace[$offset])) {
-            return $trace = null;
-        }
-
-        $t = $trace[$offset];
-
-        if (empty($t['class']) && isset($t['function'])) {
-            if ('user_error' === $t['function'] || 'trigger_error' === $t['function']) {
-                ++$offset;
-            }
-        }
-
-        if ($offset) {
-            array_splice($trace, 0, $offset);
-        }
-
-        foreach ($trace as &$t) {
-            $t = array(
-                'call' => (isset($t['class']) ? $t['class'].$t['type'] : '').$t['function'].'()',
-                'file' => isset($t['line']) ? "{$t['file']}:{$t['line']}" : '',
-                'args' => &$t['args'],
-            );
-
-            if (!isset($t['args']) || !$dumpArgs) {
-                unset($t['args']);
-            }
-        }
-    }
-
     private static function filterExceptionArray($xClass, array $a, $xPrefix, $filter)
     {
         if (isset($a[$xPrefix.'trace'])) {
@@ -234,7 +198,7 @@ class ExceptionCaster
                 'file' => $a[Caster::PREFIX_PROTECTED.'file'],
                 'line' => $a[Caster::PREFIX_PROTECTED.'line'],
             ));
-            $a[$xPrefix.'trace'] = new TraceStub($trace);
+            $a[$xPrefix.'trace'] = new TraceStub($trace, self::$traceArgs);
         }
         if (empty($a[$xPrefix.'previous'])) {
             unset($a[$xPrefix.'previous']);
@@ -253,19 +217,24 @@ class ExceptionCaster
         }
 
         $ltrim = 0;
-        while (' ' === $src[0][$ltrim] || "\t" === $src[0][$ltrim]) {
-            $i = $srcContext << 1;
-            while ($i > 0 && $src[0][$ltrim] === $src[$i][$ltrim]) {
-                --$i;
-            }
-            if ($i) {
-                break;
+        do {
+            $pad = null;
+            for ($i = $srcContext << 1; $i >= 0; --$i) {
+                if (isset($src[$i][$ltrim]) && "\r" !== ($c = $src[$i][$ltrim]) && "\n" !== $c) {
+                    if (null === $pad) {
+                        $pad = $c;
+                    }
+                    if ((' ' !== $c && "\t" !== $c) || $pad !== $c) {
+                        break;
+                    }
+                }
             }
             ++$ltrim;
-        }
-        if ($ltrim) {
+        } while (0 > $i && null !== $pad);
+
+        if (--$ltrim) {
             foreach ($src as $i => $line) {
-                $src[$i] = substr($line, $ltrim);
+                $src[$i] = isset($line[$ltrim]) && "\r" !== $line[$ltrim] ? substr($line, $ltrim) : ltrim($line, " \t");
             }
         }
 

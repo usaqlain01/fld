@@ -58,3 +58,5 @@ features[variable][] = menu_parent_podcast
 features[variable][] = node_options_podcast
 features[variable][] = node_preview_podcast
 features[variable][] = node_submitted_podcast
+features[variable][] = pathauto_node_podcast_pattern
+features[variable][] = xmlsitemap_settings_node_podcast

@@ -6,8 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Psr\\Log\\' => array($vendorDir . '/psr/log'),
     'Pimple' => array($vendorDir . '/pimple/pimple/src'),
-    'Cilex\\Provider\\Console' => array($vendorDir . '/cilex/console-service-provider/src'),
     'Assetic' => array($vendorDir . '/kriswallsmith/assetic/src'),
 );

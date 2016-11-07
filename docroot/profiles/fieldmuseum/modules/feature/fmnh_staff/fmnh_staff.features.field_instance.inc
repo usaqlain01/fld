@@ -10,7 +10,7 @@
 function fmnh_staff_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'profile2-main-field_accomplishments'
+  // Exported field_instance: 'profile2-main-field_accomplishments'.
   $field_instances['profile2-main-field_accomplishments'] = array(
     'bundle' => 'main',
     'default_value' => NULL,
@@ -55,11 +55,11 @@ function fmnh_staff_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 41,
+      'weight' => 13,
     ),
   );
 
-  // Exported field_instance: 'profile2-main-field_bio_sketch'
+  // Exported field_instance: 'profile2-main-field_bio_sketch'.
   $field_instances['profile2-main-field_bio_sketch'] = array(
     'bundle' => 'main',
     'default_value' => NULL,
@@ -109,11 +109,11 @@ function fmnh_staff_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 14,
+      'weight' => 10,
     ),
   );
 
-  // Exported field_instance: 'profile2-main-field_cvfile'
+  // Exported field_instance: 'profile2-main-field_cvfile'.
   $field_instances['profile2-main-field_cvfile'] = array(
     'bundle' => 'main',
     'default_value' => NULL,
@@ -163,11 +163,11 @@ function fmnh_staff_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'file_generic',
-      'weight' => 11,
+      'weight' => 9,
     ),
   );
 
-  // Exported field_instance: 'profile2-main-field_department'
+  // Exported field_instance: 'profile2-main-field_department'.
   $field_instances['profile2-main-field_department'] = array(
     'bundle' => 'main',
     'default_value' => NULL,
@@ -217,7 +217,7 @@ function fmnh_staff_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'profile2-main-field_education'
+  // Exported field_instance: 'profile2-main-field_education'.
   $field_instances['profile2-main-field_education'] = array(
     'bundle' => 'main',
     'default_value' => NULL,
@@ -262,11 +262,11 @@ function fmnh_staff_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 42,
+      'weight' => 14,
     ),
   );
 
-  // Exported field_instance: 'profile2-main-field_email'
+  // Exported field_instance: 'profile2-main-field_email'.
   $field_instances['profile2-main-field_email'] = array(
     'bundle' => 'main',
     'default_value' => NULL,
@@ -319,11 +319,11 @@ function fmnh_staff_field_default_field_instances() {
         'size' => 50,
       ),
       'type' => 'email_textfield',
-      'weight' => 7,
+      'weight' => 5,
     ),
   );
 
-  // Exported field_instance: 'profile2-main-field_executive_staff'
+  // Exported field_instance: 'profile2-main-field_executive_staff'.
   $field_instances['profile2-main-field_executive_staff'] = array(
     'bundle' => 'main',
     'default_value' => NULL,
@@ -367,11 +367,11 @@ function fmnh_staff_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 5,
+      'weight' => 4,
     ),
   );
 
-  // Exported field_instance: 'profile2-main-field_exhibit'
+  // Exported field_instance: 'profile2-main-field_exhibit'.
   $field_instances['profile2-main-field_exhibit'] = array(
     'bundle' => 'main',
     'default_value' => NULL,
@@ -412,7 +412,7 @@ function fmnh_staff_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'profile2-main-field_fax'
+  // Exported field_instance: 'profile2-main-field_fax'.
   $field_instances['profile2-main-field_fax'] = array(
     'bundle' => 'main',
     'default_value' => NULL,
@@ -453,11 +453,109 @@ function fmnh_staff_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 10,
+      'weight' => 8,
     ),
   );
 
-  // Exported field_instance: 'profile2-main-field_grants_awards'
+  // Exported field_instance: 'profile2-main-field_givenname'.
+  $field_instances['profile2-main-field_givenname'] = array(
+    'bundle' => 'main',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Enter your first or given name.',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 15,
+      ),
+      'full' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'list_item' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 15,
+      ),
+      'summary' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(
+          'field_formatter_class' => '',
+        ),
+        'type' => 'text_default',
+        'weight' => 1,
+      ),
+    ),
+    'entity_type' => 'profile2',
+    'fences_wrapper' => 'div',
+    'field_name' => 'field_givenname',
+    'label' => 'First Name',
+    'readmore_behaviour' => 'default',
+    'required' => 0,
+    'settings' => array(
+      'better_formats' => array(
+        'allowed_formats' => array(
+          'filtered_html' => 'filtered_html',
+          'filtered_wysiwyg' => 'filtered_wysiwyg',
+          'full_html' => 'full_html',
+          'full_wysiwyg' => 'full_wysiwyg',
+          'markdown' => 'markdown',
+          'plain_text' => 'plain_text',
+          'unfiltered' => 'unfiltered',
+          'unfiltered_phrase_html' => 'unfiltered_phrase_html',
+        ),
+        'allowed_formats_toggle' => 0,
+        'default_order_toggle' => 0,
+        'default_order_wrapper' => array(
+          'formats' => array(
+            'filtered_html' => array(
+              'weight' => -9,
+            ),
+            'filtered_wysiwyg' => array(
+              'weight' => -10,
+            ),
+            'full_html' => array(
+              'weight' => -7,
+            ),
+            'full_wysiwyg' => array(
+              'weight' => -8,
+            ),
+            'markdown' => array(
+              'weight' => -6,
+            ),
+            'plain_text' => array(
+              'weight' => -3,
+            ),
+            'unfiltered' => array(
+              'weight' => -4,
+            ),
+            'unfiltered_phrase_html' => array(
+              'weight' => -5,
+            ),
+          ),
+        ),
+      ),
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 30,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 1,
+    ),
+  );
+
+  // Exported field_instance: 'profile2-main-field_grants_awards'.
   $field_instances['profile2-main-field_grants_awards'] = array(
     'bundle' => 'main',
     'default_value' => NULL,
@@ -502,11 +600,93 @@ function fmnh_staff_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 43,
+      'weight' => 15,
     ),
   );
 
-  // Exported field_instance: 'profile2-main-field_interests'
+  // Exported field_instance: 'profile2-main-field_image'.
+  $field_instances['profile2-main-field_image'] = array(
+    'bundle' => 'main',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'file_entity',
+        'settings' => array(
+          'field_formatter_class' => 'bio__image headshot',
+          'file_view_mode' => 'square',
+        ),
+        'type' => 'file_rendered',
+        'weight' => 0,
+      ),
+      'list_item' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 2,
+      ),
+      'summary' => array(
+        'label' => 'hidden',
+        'module' => 'file_entity',
+        'settings' => array(
+          'field_formatter_class' => 'headshot',
+          'file_view_mode' => 'headshot',
+        ),
+        'type' => 'file_rendered',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'profile2',
+    'fences_wrapper' => 'no_wrapper',
+    'field_name' => 'field_image',
+    'label' => 'Image',
+    'required' => 0,
+    'settings' => array(
+      'description_field' => 0,
+      'file_directory' => '[current-user:name]/[current-date:custom:Y]/[current-date:custom:m]/[current-date:custom:d]',
+      'file_extensions' => 'png gif jpg jpeg',
+      'imagecrop' => array(
+        '2x1_2400w' => '2x1_2400w',
+        '5x2_2400w' => '5x2_2400w',
+        '5x3_2400w' => '5x3_2400w',
+        'large' => 0,
+        'media_gallery_large' => 0,
+        'media_gallery_thumbnail' => 0,
+        'medium' => 0,
+        'thumbnail' => 'thumbnail',
+      ),
+      'max_filesize' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'media',
+      'settings' => array(
+        'allowed_schemes' => array(
+          'oembed' => 0,
+          'public' => 0,
+        ),
+        'allowed_types' => array(
+          'audio' => 0,
+          'document' => 0,
+          'image' => 'image',
+          'model' => 0,
+          'video' => 'video',
+        ),
+        'browser_plugins' => array(
+          'media_default--media_browser_1' => 0,
+          'media_default--media_browser_my_files' => 0,
+          'media_internet' => 0,
+          'upload' => 0,
+        ),
+      ),
+      'type' => 'media_generic',
+      'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance: 'profile2-main-field_interests'.
   $field_instances['profile2-main-field_interests'] = array(
     'bundle' => 'main',
     'default_value' => NULL,
@@ -551,11 +731,11 @@ function fmnh_staff_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 44,
+      'weight' => 16,
     ),
   );
 
-  // Exported field_instance: 'profile2-main-field_introduction'
+  // Exported field_instance: 'profile2-main-field_introduction'.
   $field_instances['profile2-main-field_introduction'] = array(
     'bundle' => 'main',
     'default_value' => NULL,
@@ -600,11 +780,11 @@ function fmnh_staff_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 45,
+      'weight' => 17,
     ),
   );
 
-  // Exported field_instance: 'profile2-main-field_location_region'
+  // Exported field_instance: 'profile2-main-field_location_region'.
   $field_instances['profile2-main-field_location_region'] = array(
     'bundle' => 'main',
     'default_value' => NULL,
@@ -657,7 +837,7 @@ function fmnh_staff_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'profile2-main-field_office'
+  // Exported field_instance: 'profile2-main-field_office'.
   $field_instances['profile2-main-field_office'] = array(
     'bundle' => 'main',
     'default_value' => NULL,
@@ -701,11 +881,115 @@ function fmnh_staff_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 8,
+      'weight' => 6,
     ),
   );
 
-  // Exported field_instance: 'profile2-main-field_professional_affiliations'
+  // Exported field_instance: 'profile2-main-field_position'.
+  $field_instances['profile2-main-field_position'] = array(
+    'bundle' => 'main',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Enter your title or staff position at The Field Museum',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(
+          'field_formatter_class' => '',
+        ),
+        'type' => 'text_default',
+        'weight' => 2,
+      ),
+      'full' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'list_item' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(
+          'field_formatter_class' => '',
+        ),
+        'type' => 'text_default',
+        'weight' => 0,
+      ),
+      'summary' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(
+          'field_formatter_class' => '',
+        ),
+        'type' => 'text_default',
+        'weight' => 4,
+      ),
+    ),
+    'entity_type' => 'profile2',
+    'fences_wrapper' => 'no_wrapper',
+    'field_name' => 'field_position',
+    'label' => 'Position',
+    'readmore_behaviour' => 'default',
+    'required' => 0,
+    'settings' => array(
+      'better_formats' => array(
+        'allowed_formats' => array(
+          'filtered_html' => 'filtered_html',
+          'filtered_wysiwyg' => 'filtered_wysiwyg',
+          'full_html' => 'full_html',
+          'full_wysiwyg' => 'full_wysiwyg',
+          'markdown' => 'markdown',
+          'plain_text' => 'plain_text',
+          'unfiltered' => 'unfiltered',
+          'unfiltered_phrase_html' => 'unfiltered_phrase_html',
+        ),
+        'allowed_formats_toggle' => 0,
+        'default_order_toggle' => 0,
+        'default_order_wrapper' => array(
+          'formats' => array(
+            'filtered_html' => array(
+              'weight' => -9,
+            ),
+            'filtered_wysiwyg' => array(
+              'weight' => -10,
+            ),
+            'full_html' => array(
+              'weight' => -7,
+            ),
+            'full_wysiwyg' => array(
+              'weight' => -8,
+            ),
+            'markdown' => array(
+              'weight' => -6,
+            ),
+            'plain_text' => array(
+              'weight' => -3,
+            ),
+            'unfiltered' => array(
+              'weight' => -4,
+            ),
+            'unfiltered_phrase_html' => array(
+              'weight' => -5,
+            ),
+          ),
+        ),
+      ),
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 30,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 3,
+    ),
+  );
+
+  // Exported field_instance: 'profile2-main-field_professional_affiliations'.
   $field_instances['profile2-main-field_professional_affiliations'] = array(
     'bundle' => 'main',
     'default_value' => NULL,
@@ -750,11 +1034,11 @@ function fmnh_staff_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 46,
+      'weight' => 18,
     ),
   );
 
-  // Exported field_instance: 'profile2-main-field_publications'
+  // Exported field_instance: 'profile2-main-field_publications'.
   $field_instances['profile2-main-field_publications'] = array(
     'bundle' => 'main',
     'default_value' => NULL,
@@ -799,11 +1083,11 @@ function fmnh_staff_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 47,
+      'weight' => 19,
     ),
   );
 
-  // Exported field_instance: 'profile2-main-field_research'
+  // Exported field_instance: 'profile2-main-field_research'.
   $field_instances['profile2-main-field_research'] = array(
     'bundle' => 'main',
     'default_value' => NULL,
@@ -845,11 +1129,11 @@ function fmnh_staff_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 48,
+      'weight' => 20,
     ),
   );
 
-  // Exported field_instance: 'profile2-main-field_research_area'
+  // Exported field_instance: 'profile2-main-field_research_area'.
   $field_instances['profile2-main-field_research_area'] = array(
     'bundle' => 'main',
     'default_value' => NULL,
@@ -906,7 +1190,7 @@ function fmnh_staff_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'profile2-main-field_science_focus'
+  // Exported field_instance: 'profile2-main-field_science_focus'.
   $field_instances['profile2-main-field_science_focus'] = array(
     'bundle' => 'main',
     'default_value' => NULL,
@@ -959,7 +1243,7 @@ function fmnh_staff_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'profile2-main-field_stratigraphy'
+  // Exported field_instance: 'profile2-main-field_stratigraphy'.
   $field_instances['profile2-main-field_stratigraphy'] = array(
     'bundle' => 'main',
     'default_value' => NULL,
@@ -1012,7 +1296,105 @@ function fmnh_staff_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'profile2-main-field_topic'
+  // Exported field_instance: 'profile2-main-field_surname'.
+  $field_instances['profile2-main-field_surname'] = array(
+    'bundle' => 'main',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Enter your last name or surname.',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 16,
+      ),
+      'full' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'list_item' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 16,
+      ),
+      'summary' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(
+          'field_formatter_class' => '',
+        ),
+        'type' => 'text_default',
+        'weight' => 2,
+      ),
+    ),
+    'entity_type' => 'profile2',
+    'fences_wrapper' => 'div',
+    'field_name' => 'field_surname',
+    'label' => 'Last Name',
+    'readmore_behaviour' => 'default',
+    'required' => 0,
+    'settings' => array(
+      'better_formats' => array(
+        'allowed_formats' => array(
+          'filtered_html' => 'filtered_html',
+          'filtered_wysiwyg' => 'filtered_wysiwyg',
+          'full_html' => 'full_html',
+          'full_wysiwyg' => 'full_wysiwyg',
+          'markdown' => 'markdown',
+          'plain_text' => 'plain_text',
+          'unfiltered' => 'unfiltered',
+          'unfiltered_phrase_html' => 'unfiltered_phrase_html',
+        ),
+        'allowed_formats_toggle' => 0,
+        'default_order_toggle' => 0,
+        'default_order_wrapper' => array(
+          'formats' => array(
+            'filtered_html' => array(
+              'weight' => -9,
+            ),
+            'filtered_wysiwyg' => array(
+              'weight' => -10,
+            ),
+            'full_html' => array(
+              'weight' => -7,
+            ),
+            'full_wysiwyg' => array(
+              'weight' => -8,
+            ),
+            'markdown' => array(
+              'weight' => -6,
+            ),
+            'plain_text' => array(
+              'weight' => -3,
+            ),
+            'unfiltered' => array(
+              'weight' => -4,
+            ),
+            'unfiltered_phrase_html' => array(
+              'weight' => -5,
+            ),
+          ),
+        ),
+      ),
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 30,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance: 'profile2-main-field_topic'.
   $field_instances['profile2-main-field_topic'] = array(
     'bundle' => 'main',
     'default_value' => NULL,
@@ -1053,7 +1435,7 @@ function fmnh_staff_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'profile2-main-field_work_experience'
+  // Exported field_instance: 'profile2-main-field_work_experience'.
   $field_instances['profile2-main-field_work_experience'] = array(
     'bundle' => 'main',
     'default_value' => NULL,
@@ -1098,11 +1480,11 @@ function fmnh_staff_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 49,
+      'weight' => 21,
     ),
   );
 
-  // Exported field_instance: 'profile2-main-field_year_started'
+  // Exported field_instance: 'profile2-main-field_year_started'.
   $field_instances['profile2-main-field_year_started'] = array(
     'bundle' => 'main',
     'default_value' => NULL,
@@ -1149,11 +1531,11 @@ function fmnh_staff_field_default_field_instances() {
         'size' => 4,
       ),
       'type' => 'text_textfield',
-      'weight' => 9,
+      'weight' => 7,
     ),
   );
 
-  // Exported field_instance: 'profile2-override-field_business_unit'
+  // Exported field_instance: 'profile2-override-field_business_unit'.
   $field_instances['profile2-override-field_business_unit'] = array(
     'bundle' => 'override',
     'default_value' => NULL,
@@ -1233,7 +1615,7 @@ function fmnh_staff_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'profile2-override-field_givenname'
+  // Exported field_instance: 'profile2-override-field_givenname'.
   $field_instances['profile2-override-field_givenname'] = array(
     'bundle' => 'override',
     'default_value' => NULL,
@@ -1313,7 +1695,7 @@ function fmnh_staff_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'profile2-override-field_home_department'
+  // Exported field_instance: 'profile2-override-field_home_department'.
   $field_instances['profile2-override-field_home_department'] = array(
     'bundle' => 'override',
     'default_value' => NULL,
@@ -1348,7 +1730,7 @@ function fmnh_staff_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'profile2-override-field_position'
+  // Exported field_instance: 'profile2-override-field_position'.
   $field_instances['profile2-override-field_position'] = array(
     'bundle' => 'override',
     'default_value' => NULL,
@@ -1428,7 +1810,7 @@ function fmnh_staff_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'profile2-override-field_surname'
+  // Exported field_instance: 'profile2-override-field_surname'.
   $field_instances['profile2-override-field_surname'] = array(
     'bundle' => 'override',
     'default_value' => NULL,
@@ -1508,7 +1890,7 @@ function fmnh_staff_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'user-user-field_business_unit'
+  // Exported field_instance: 'user-user-field_business_unit'.
   $field_instances['user-user-field_business_unit'] = array(
     'bundle' => 'user',
     'default_value' => NULL,
@@ -1593,7 +1975,7 @@ function fmnh_staff_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'user-user-field_givenname'
+  // Exported field_instance: 'user-user-field_givenname'.
   $field_instances['user-user-field_givenname'] = array(
     'bundle' => 'user',
     'default_value' => NULL,
@@ -1678,7 +2060,7 @@ function fmnh_staff_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'user-user-field_home_department'
+  // Exported field_instance: 'user-user-field_home_department'.
   $field_instances['user-user-field_home_department'] = array(
     'bundle' => 'user',
     'default_value' => NULL,
@@ -1763,7 +2145,7 @@ function fmnh_staff_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'user-user-field_position'
+  // Exported field_instance: 'user-user-field_position'.
   $field_instances['user-user-field_position'] = array(
     'bundle' => 'user',
     'default_value' => NULL,
@@ -1848,7 +2230,7 @@ function fmnh_staff_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'user-user-field_surname'
+  // Exported field_instance: 'user-user-field_surname'.
   $field_instances['user-user-field_surname'] = array(
     'bundle' => 'user',
     'default_value' => NULL,
@@ -1943,13 +2325,17 @@ function fmnh_staff_field_default_field_instances() {
   t('Department');
   t('Education');
   t('Enter the year you first became a Field Museum staff member');
+  t('Enter your first or given name.');
+  t('Enter your last name or surname.');
   t('Enter your preferred email address to be displayed on your profile');
+  t('Enter your title or staff position at The Field Museum');
   t('Executive Staff');
   t('Exhibit');
   t('Fax');
   t('First Name');
   t('Grants & awards');
   t('Home Department');
+  t('Image');
   t('Interests');
   t('Introduction');
   t('Last Name');

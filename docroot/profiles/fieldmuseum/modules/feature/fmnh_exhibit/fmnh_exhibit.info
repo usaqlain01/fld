@@ -87,4 +87,6 @@ features[variable][] = menu_parent_exhibit
 features[variable][] = node_options_exhibit
 features[variable][] = node_preview_exhibit
 features[variable][] = node_submitted_exhibit
+features[variable][] = pathauto_node_exhibit_pattern
+features[variable][] = xmlsitemap_settings_node_exhibit
 features[views_view][] = exhibitions

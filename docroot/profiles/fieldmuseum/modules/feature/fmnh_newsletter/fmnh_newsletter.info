@@ -28,3 +28,4 @@ features[variable][] = menu_parent_newsletter
 features[variable][] = node_options_newsletter
 features[variable][] = node_preview_newsletter
 features[variable][] = node_submitted_newsletter
+features[variable][] = pathauto_node_newsletter_pattern

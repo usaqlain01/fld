@@ -10,7 +10,7 @@
 function fmnh_references_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'field_references'
+  // Exported field_base: 'field_references'.
   $field_bases['field_references'] = array(
     'active' => 1,
     'cardinality' => -1,

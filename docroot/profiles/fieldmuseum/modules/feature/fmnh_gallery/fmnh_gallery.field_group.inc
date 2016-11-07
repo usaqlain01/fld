@@ -8,7 +8,7 @@
  * Implements hook_field_group_info().
  */
 function fmnh_gallery_field_group_info() {
-  $export = array();
+  $field_groups = array();
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -36,7 +36,7 @@ function fmnh_gallery_field_group_info() {
       ),
     ),
   );
-  $export['group_department|node|media_gallery|form'] = $field_group;
+  $field_groups['group_department|node|media_gallery|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -64,7 +64,7 @@ function fmnh_gallery_field_group_info() {
       ),
     ),
   );
-  $export['group_exhibit|node|media_gallery|form'] = $field_group;
+  $field_groups['group_exhibit|node|media_gallery|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -92,7 +92,7 @@ function fmnh_gallery_field_group_info() {
       ),
     ),
   );
-  $export['group_location_region|node|media_gallery|form'] = $field_group;
+  $field_groups['group_location_region|node|media_gallery|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -120,7 +120,7 @@ function fmnh_gallery_field_group_info() {
       ),
     ),
   );
-  $export['group_public_tags|node|media_gallery|form'] = $field_group;
+  $field_groups['group_public_tags|node|media_gallery|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -148,7 +148,7 @@ function fmnh_gallery_field_group_info() {
       ),
     ),
   );
-  $export['group_research_area|node|media_gallery|form'] = $field_group;
+  $field_groups['group_research_area|node|media_gallery|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -176,7 +176,7 @@ function fmnh_gallery_field_group_info() {
       ),
     ),
   );
-  $export['group_science_focus|node|media_gallery|form'] = $field_group;
+  $field_groups['group_science_focus|node|media_gallery|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -204,7 +204,7 @@ function fmnh_gallery_field_group_info() {
       ),
     ),
   );
-  $export['group_science_tags|node|media_gallery|form'] = $field_group;
+  $field_groups['group_science_tags|node|media_gallery|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -232,7 +232,7 @@ function fmnh_gallery_field_group_info() {
       ),
     ),
   );
-  $export['group_stratigraphy|node|media_gallery|form'] = $field_group;
+  $field_groups['group_stratigraphy|node|media_gallery|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -260,7 +260,19 @@ function fmnh_gallery_field_group_info() {
       ),
     ),
   );
-  $export['group_topic|node|media_gallery|form'] = $field_group;
+  $field_groups['group_topic|node|media_gallery|form'] = $field_group;
 
-  return $export;
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Department');
+  t('Exhibit');
+  t('Location/Region');
+  t('Public tags');
+  t('Research area');
+  t('Science focus');
+  t('Science tags');
+  t('Stratigraphy');
+  t('Topic');
+
+  return $field_groups;
 }

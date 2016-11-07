@@ -10,7 +10,7 @@
 function fmnh_arbitrary_pane_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'field_css'
+  // Exported field_base: 'field_css'.
   $field_bases['field_css'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -31,7 +31,7 @@ function fmnh_arbitrary_pane_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_js'
+  // Exported field_base: 'field_js'.
   $field_bases['field_js'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -52,7 +52,7 @@ function fmnh_arbitrary_pane_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_markup'
+  // Exported field_base: 'field_markup'.
   $field_bases['field_markup'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -73,7 +73,7 @@ function fmnh_arbitrary_pane_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_target_link'
+  // Exported field_base: 'field_target_link'.
   $field_bases['field_target_link'] = array(
     'active' => 1,
     'cardinality' => 1,

@@ -10,7 +10,7 @@
 function fmnh_science_tags_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'field_location_region'
+  // Exported field_base: 'field_location_region'.
   $field_bases['field_location_region'] = array(
     'active' => 1,
     'cardinality' => -1,
@@ -45,7 +45,7 @@ function fmnh_science_tags_field_default_field_bases() {
     'type' => 'entityreference',
   );
 
-  // Exported field_base: 'field_research_area'
+  // Exported field_base: 'field_research_area'.
   $field_bases['field_research_area'] = array(
     'active' => 1,
     'cardinality' => -1,
@@ -80,7 +80,7 @@ function fmnh_science_tags_field_default_field_bases() {
     'type' => 'entityreference',
   );
 
-  // Exported field_base: 'field_science_focus'
+  // Exported field_base: 'field_science_focus'.
   $field_bases['field_science_focus'] = array(
     'active' => 1,
     'cardinality' => -1,
@@ -115,7 +115,7 @@ function fmnh_science_tags_field_default_field_bases() {
     'type' => 'entityreference',
   );
 
-  // Exported field_base: 'field_stratigraphy'
+  // Exported field_base: 'field_stratigraphy'.
   $field_bases['field_stratigraphy'] = array(
     'active' => 1,
     'cardinality' => -1,

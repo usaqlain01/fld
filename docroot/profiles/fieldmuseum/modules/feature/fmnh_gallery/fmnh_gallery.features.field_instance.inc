@@ -10,7 +10,7 @@
 function fmnh_gallery_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-media_gallery-field_department'
+  // Exported field_instance: 'node-media_gallery-field_department'.
   $field_instances['node-media_gallery-field_department'] = array(
     'bundle' => 'media_gallery',
     'default_value' => NULL,
@@ -69,7 +69,7 @@ function fmnh_gallery_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-media_gallery-field_exhibit'
+  // Exported field_instance: 'node-media_gallery-field_exhibit'.
   $field_instances['node-media_gallery-field_exhibit'] = array(
     'bundle' => 'media_gallery',
     'default_value' => NULL,
@@ -128,7 +128,7 @@ function fmnh_gallery_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-media_gallery-field_science_focus'
+  // Exported field_instance: 'node-media_gallery-field_science_focus'.
   $field_instances['node-media_gallery-field_science_focus'] = array(
     'bundle' => 'media_gallery',
     'default_value' => NULL,
@@ -193,7 +193,7 @@ function fmnh_gallery_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-media_gallery-field_topic'
+  // Exported field_instance: 'node-media_gallery-field_topic'.
   $field_instances['node-media_gallery-field_topic'] = array(
     'bundle' => 'media_gallery',
     'default_value' => NULL,
