@@ -4,8 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "02ab557e1670a9240a8e0b059455a9a0",
-    "content-hash": "cbdd5d4d365149898df5ab913009d48a",
+    "content-hash": "5f5c9c6366a9d6da8eb1108e9f71c6d6",
     "packages": [
         {
             "name": "bangpound/crop-extension",
@@ -521,74 +520,6 @@
             "homepage": "https://www.drupal.org/project/classloader",
             "support": {
                 "source": "http://cgit.drupalcode.org/classloader"
-            }
-        },
-        {
-            "name": "drupal/composer_manager",
-            "version": "1.8.0",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupal.org/project/composer_manager",
-                "reference": "7.x-1.8"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/composer_manager-7.x-1.8.zip",
-                "reference": "7.x-1.8",
-                "shasum": "b1d055566570d35212179a9aac03cd58e03bd6b6"
-            },
-            "require": {
-                "drupal/drupal": "~7.0",
-                "php": ">=5.3.0"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "branch-alias": {
-                    "dev-1.x": "1.x-dev"
-                },
-                "drupal": {
-                    "version": "7.x-1.8",
-                    "datestamp": "1446212039"
-                }
-            },
-            "notification-url": "https://packages.drupal.org/7/downloads",
-            "license": [
-                "GPL-2.0"
-            ],
-            "authors": [
-                {
-                    "name": "Chris Pliakas",
-                    "homepage": "https://www.drupal.org/user/86106",
-                    "email": "opensource@chrispliakas.com",
-                    "role": "Project Lead"
-                },
-                {
-                    "name": "See contributors",
-                    "homepage": "http://drupal.org/node/1929436/committers",
-                    "role": "Developer"
-                },
-                {
-                    "name": "deviantintegral",
-                    "homepage": "https://www.drupal.org/user/71291"
-                },
-                {
-                    "name": "nhoag",
-                    "homepage": "https://www.drupal.org/user/2423844"
-                },
-                {
-                    "name": "pcambra",
-                    "homepage": "https://www.drupal.org/user/122101"
-                },
-                {
-                    "name": "psynaptic",
-                    "homepage": "https://www.drupal.org/user/93429"
-                }
-            ],
-            "description": "Composer Manager is a bridge to best-in-breed, standards compliant PHP libraries that are managed by Composer and Packagist.",
-            "homepage": "http://drupal.org/project/composer_manager",
-            "support": {
-                "source": "http://cgit.drupalcode.org/composer_manager",
-                "issues": "http://drupal.org/project/issues/composer_manager"
             }
         },
         {
@@ -2005,8 +1936,7 @@
             "homepage": "https://www.drupal.org/project/field_group",
             "support": {
                 "source": "http://cgit.drupalcode.org/field_group"
-            },
-            "time": "2016-02-28 11:12:13"
+            }
         },
         {
             "name": "drupal/fieldable_panels_panes",
@@ -2227,8 +2157,7 @@
             "homepage": "https://www.drupal.org/project/globalredirect",
             "support": {
                 "source": "http://cgit.drupalcode.org/globalredirect"
-            },
-            "time": "2013-03-27 10:07:22"
+            }
         },
         {
             "name": "drupal/google_analytics",
@@ -2512,8 +2441,7 @@
             "homepage": "https://www.drupal.org/project/inline",
             "support": {
                 "source": "http://cgit.drupalcode.org/inline"
-            },
-            "time": "2013-02-06 16:16:06"
+            }
         },
         {
             "name": "drupal/job_scheduler",
@@ -2577,8 +2505,7 @@
             "homepage": "https://www.drupal.org/project/job_scheduler",
             "support": {
                 "source": "http://cgit.drupalcode.org/job_scheduler"
-            },
-            "time": "2015-01-21 14:00:51"
+            }
         },
         {
             "name": "drupal/jquery_update",
@@ -3078,8 +3005,7 @@
             "homepage": "https://www.drupal.org/project/media_gallery",
             "support": {
                 "source": "http://cgit.drupalcode.org/media_gallery"
-            },
-            "time": "2015-10-17 15:09:44"
+            }
         },
         {
             "name": "drupal/memcache",
@@ -3746,8 +3672,7 @@
             "homepage": "https://www.drupal.org/project/oembed",
             "support": {
                 "source": "http://cgit.drupalcode.org/oembed"
-            },
-            "time": "2016-01-03 02:55:12"
+            }
         },
         {
             "name": "drupal/optimizely",
@@ -4439,8 +4364,7 @@
             "homepage": "https://www.drupal.org/project/profile2",
             "support": {
                 "source": "http://cgit.drupalcode.org/profile2"
-            },
-            "time": "2015-11-26 16:23:27"
+            }
         },
         {
             "name": "drupal/readmorecontrol",
@@ -4481,8 +4405,7 @@
             "homepage": "https://www.drupal.org/project/readmorecontrol",
             "support": {
                 "source": "http://cgit.drupalcode.org/readmorecontrol"
-            },
-            "time": "2014-08-13 07:42:55"
+            }
         },
         {
             "name": "drupal/redirect",
@@ -4859,8 +4782,7 @@
             "homepage": "https://www.drupal.org/project/strongarm",
             "support": {
                 "source": "http://cgit.drupalcode.org/strongarm"
-            },
-            "time": "2012-08-29 17:21:11"
+            }
         },
         {
             "name": "drupal/token",
@@ -5427,8 +5349,7 @@
             "homepage": "https://www.drupal.org/project/wysiwyg",
             "support": {
                 "source": "http://cgit.drupalcode.org/wysiwyg"
-            },
-            "time": "2016-09-29 15:11:16"
+            }
         },
         {
             "name": "drupal/xmlsitemap",

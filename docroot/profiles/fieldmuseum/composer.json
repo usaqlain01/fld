@@ -11,7 +11,6 @@
         "drupal/auto_entitylabel": "1.*",
         "drupal/better_formats": "1.*",
         "drupal/classloader": "1.*",
-        "drupal/composer_manager": "1.*",
         "drupal/ctools": "^1.9",
         "drupal/date": "2.*",
         "drupal/diff": "3.*",
