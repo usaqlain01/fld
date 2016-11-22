@@ -209,9 +209,6 @@ function fieldmuseum_metatag_export_default() {
       'og:audio:type' => array(
         'value' => '',
       ),
-      'og:video' => array(
-        'value' => '',
-      ),
       'og:video:secure_url' => array(
         'value' => '',
       ),
@@ -292,9 +289,6 @@ function fieldmuseum_metatag_export_default() {
       ),
       'twitter:description' => array(
         'value' => '[site:slogan]',
-      ),
-      'twitter:image:src' => array(
-        'value' => '',
       ),
       'twitter:image:width' => array(
         'value' => '',
@@ -378,6 +372,9 @@ function fieldmuseum_metatag_export_default() {
         'value' => '',
       ),
       'yandex_webmaster_verification' => array(
+        'value' => '',
+      ),
+      'twitter:image' => array(
         'value' => '',
       ),
       'og:street_address' => array(

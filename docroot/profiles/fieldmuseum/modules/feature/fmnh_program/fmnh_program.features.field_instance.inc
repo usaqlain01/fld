@@ -10,7 +10,7 @@
 function fmnh_program_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-program-body'
+  // Exported field_instance: 'node-program-body'.
   $field_instances['node-program-body'] = array(
     'bundle' => 'program',
     'default_value' => NULL,
@@ -123,7 +123,7 @@ function fmnh_program_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-program-field_always_visible'
+  // Exported field_instance: 'node-program-field_always_visible'.
   $field_instances['node-program-field_always_visible'] = array(
     'bundle' => 'program',
     'default_value' => array(
@@ -184,7 +184,7 @@ function fmnh_program_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-program-field_audience'
+  // Exported field_instance: 'node-program-field_audience'.
   $field_instances['node-program-field_audience'] = array(
     'bundle' => 'program',
     'default_value' => NULL,
@@ -242,7 +242,7 @@ function fmnh_program_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-program-field_banner_description'
+  // Exported field_instance: 'node-program-field_banner_description'.
   $field_instances['node-program-field_banner_description'] = array(
     'bundle' => 'program',
     'default_value' => NULL,
@@ -348,7 +348,7 @@ function fmnh_program_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-program-field_banner_image'
+  // Exported field_instance: 'node-program-field_banner_image'.
   $field_instances['node-program-field_banner_image'] = array(
     'bundle' => 'program',
     'deleted' => 0,
@@ -436,7 +436,7 @@ function fmnh_program_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-program-field_grade_level'
+  // Exported field_instance: 'node-program-field_grade_level'.
   $field_instances['node-program-field_grade_level'] = array(
     'bundle' => 'program',
     'default_value' => NULL,
@@ -504,7 +504,7 @@ function fmnh_program_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-program-field_image'
+  // Exported field_instance: 'node-program-field_image'.
   $field_instances['node-program-field_image'] = array(
     'bundle' => 'program',
     'deleted' => 0,
@@ -557,20 +557,22 @@ function fmnh_program_field_default_field_instances() {
     'fences_wrapper' => 'div',
     'field_name' => 'field_image',
     'label' => 'Image',
+    'readmore_behaviour' => 'default',
     'required' => 0,
     'settings' => array(
       'description_field' => 0,
       'file_directory' => '[current-user:name]/[current-date:custom:Y]/[current-date:custom:m]/[current-date:custom:d]',
       'file_extensions' => 'jpg gif jpeg png',
       'imagecrop' => array(
+        '1x1_300w' => '1x1_300w',
         '2x1_2400w' => '2x1_2400w',
         '5x2_2400w' => '5x2_2400w',
         '5x3_2400w' => '5x3_2400w',
-        'large' => 0,
+        'gallery_2400w' => 0,
+        'headshot' => 0,
         'media_gallery_large' => 0,
         'media_gallery_thumbnail' => 0,
-        'medium' => 0,
-        'thumbnail' => 'thumbnail',
+        'thumbnail' => 0,
       ),
       'max_filesize' => '',
       'user_register_form' => FALSE,
@@ -602,7 +604,7 @@ function fmnh_program_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-program-field_references'
+  // Exported field_instance: 'node-program-field_references'.
   $field_instances['node-program-field_references'] = array(
     'bundle' => 'program',
     'default_value' => NULL,
@@ -661,7 +663,7 @@ function fmnh_program_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-program-field_specification'
+  // Exported field_instance: 'node-program-field_specification'.
   $field_instances['node-program-field_specification'] = array(
     'bundle' => 'program',
     'default_value' => NULL,

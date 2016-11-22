@@ -83,19 +83,13 @@ function fmnh_calendar_strongarm() {
     'extra_fields' => array(
       'form' => array(
         'metatags' => array(
-          'weight' => '8',
+          'weight' => '40',
         ),
         'title' => array(
-          'weight' => '0',
+          'weight' => '-5',
         ),
         'path' => array(
-          'weight' => '6',
-        ),
-        'redirect' => array(
-          'weight' => '7',
-        ),
-        'xmlsitemap' => array(
-          'weight' => '5',
+          'weight' => '30',
         ),
       ),
       'display' => array(),
@@ -147,6 +141,16 @@ function fmnh_calendar_strongarm() {
   $strongarm->name = 'pathauto_node_event_pattern';
   $strongarm->value = 'at-the-field/calendar/[node:title]';
   $export['pathauto_node_event_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'xmlsitemap_settings_node_event';
+  $strongarm->value = array(
+    'status' => '1',
+    'priority' => '0.5',
+  );
+  $export['xmlsitemap_settings_node_event'] = $strongarm;
 
   return $export;
 }

@@ -10,7 +10,7 @@
 function fmnh_learning_resource_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-learning_resource-body'
+  // Exported field_instance: 'node-learning_resource-body'.
   $field_instances['node-learning_resource-body'] = array(
     'bundle' => 'learning_resource',
     'default_value' => NULL,
@@ -63,7 +63,7 @@ function fmnh_learning_resource_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-learning_resource-field_attachment'
+  // Exported field_instance: 'node-learning_resource-field_attachment'.
   $field_instances['node-learning_resource-field_attachment'] = array(
     'bundle' => 'learning_resource',
     'deleted' => 0,
@@ -127,7 +127,7 @@ function fmnh_learning_resource_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-learning_resource-field_grade_level'
+  // Exported field_instance: 'node-learning_resource-field_grade_level'.
   $field_instances['node-learning_resource-field_grade_level'] = array(
     'bundle' => 'learning_resource',
     'default_value' => NULL,
@@ -168,7 +168,7 @@ function fmnh_learning_resource_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-learning_resource-field_image'
+  // Exported field_instance: 'node-learning_resource-field_image'.
   $field_instances['node-learning_resource-field_image'] = array(
     'bundle' => 'learning_resource',
     'deleted' => 0,

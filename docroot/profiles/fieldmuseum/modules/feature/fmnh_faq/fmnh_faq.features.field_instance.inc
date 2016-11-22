@@ -10,7 +10,7 @@
 function fmnh_faq_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-faq-body'
+  // Exported field_instance: 'node-faq-body'.
   $field_instances['node-faq-body'] = array(
     'bundle' => 'faq',
     'default_value' => NULL,
@@ -63,7 +63,7 @@ function fmnh_faq_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-faq-field_department'
+  // Exported field_instance: 'node-faq-field_department'.
   $field_instances['node-faq-field_department'] = array(
     'bundle' => 'faq',
     'default_value' => NULL,
@@ -108,7 +108,7 @@ function fmnh_faq_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-faq-field_faq_topic'
+  // Exported field_instance: 'node-faq-field_faq_topic'.
   $field_instances['node-faq-field_faq_topic'] = array(
     'bundle' => 'faq',
     'default_value' => NULL,
@@ -159,7 +159,7 @@ function fmnh_faq_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-faq-field_location_region'
+  // Exported field_instance: 'node-faq-field_location_region'.
   $field_instances['node-faq-field_location_region'] = array(
     'bundle' => 'faq',
     'default_value' => NULL,
@@ -210,7 +210,7 @@ function fmnh_faq_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-faq-field_long_question'
+  // Exported field_instance: 'node-faq-field_long_question'.
   $field_instances['node-faq-field_long_question'] = array(
     'bundle' => 'faq',
     'default_value' => NULL,
@@ -258,7 +258,7 @@ function fmnh_faq_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-faq-field_research_area'
+  // Exported field_instance: 'node-faq-field_research_area'.
   $field_instances['node-faq-field_research_area'] = array(
     'bundle' => 'faq',
     'default_value' => NULL,
@@ -309,7 +309,7 @@ function fmnh_faq_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-faq-field_science_focus'
+  // Exported field_instance: 'node-faq-field_science_focus'.
   $field_instances['node-faq-field_science_focus'] = array(
     'bundle' => 'faq',
     'default_value' => NULL,
@@ -360,7 +360,7 @@ function fmnh_faq_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-faq-field_stratigraphy'
+  // Exported field_instance: 'node-faq-field_stratigraphy'.
   $field_instances['node-faq-field_stratigraphy'] = array(
     'bundle' => 'faq',
     'default_value' => NULL,
@@ -411,7 +411,7 @@ function fmnh_faq_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-faq-field_topic'
+  // Exported field_instance: 'node-faq-field_topic'.
   $field_instances['node-faq-field_topic'] = array(
     'bundle' => 'faq',
     'default_value' => NULL,

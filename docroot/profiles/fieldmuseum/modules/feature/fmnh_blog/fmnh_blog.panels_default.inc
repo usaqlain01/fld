@@ -35,19 +35,21 @@ function fmnh_blog_default_panels_mini() {
   $display->cache = array();
   $display->title = '';
   $display->uuid = '6c1fc849-5cae-45a2-8508-dc0cadcb0359';
+  $display->storage_type = 'panels_mini';
+  $display->storage_id = 'filter_menu';
   $display->content = array();
   $display->panels = array();
-    $pane = new stdClass();
-    $pane->pid = 'new-70984ff5-49ab-40cf-ab62-78793ccd4263';
-    $pane->panel = 'main';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'admin_title' => '',
-      'title' => '',
-      'body' => '<nav class="navFilters"> 
+  $pane = new stdClass();
+  $pane->pid = 'new-70984ff5-49ab-40cf-ab62-78793ccd4263';
+  $pane->panel = 'main';
+  $pane->type = 'custom';
+  $pane->subtype = 'custom';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'admin_title' => '',
+    'title' => '',
+    'body' => '<nav class="navFilters"> 
 <h6 class="navFilters__heading">
 	Shows 
 </h6>
@@ -98,21 +100,21 @@ function fmnh_blog_default_panels_mini() {
 --->
 <a class="link--more" href="/science/blog/list">View All Categories</a>
 </nav>',
-      'format' => 'unfiltered',
-      'substitute' => TRUE,
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'style' => 'naked',
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = '70984ff5-49ab-40cf-ab62-78793ccd4263';
-    $display->content['new-70984ff5-49ab-40cf-ab62-78793ccd4263'] = $pane;
-    $display->panels['main'][0] = 'new-70984ff5-49ab-40cf-ab62-78793ccd4263';
+    'format' => 'unfiltered',
+    'substitute' => TRUE,
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'style' => 'naked',
+    'settings' => NULL,
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 0;
+  $pane->locks = array();
+  $pane->uuid = '70984ff5-49ab-40cf-ab62-78793ccd4263';
+  $display->content['new-70984ff5-49ab-40cf-ab62-78793ccd4263'] = $pane;
+  $display->panels['main'][0] = 'new-70984ff5-49ab-40cf-ab62-78793ccd4263';
   $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = 'new-70984ff5-49ab-40cf-ab62-78793ccd4263';
   $mini->display = $display;

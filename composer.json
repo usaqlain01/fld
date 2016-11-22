@@ -1,13 +1,10 @@
 {
     "require-dev": {
-        "symfony/console": "~2.4",
-        "symfony/debug": "~2.4",
-        "symfony/finder": "~2.4",
-        "symfony/filesystem": "~2.4",
-        "symfony/var-dumper": "~2.6",
+        "symfony/debug": "^3.0",
+        "symfony/finder": "^3.0",
+        "symfony/filesystem": "^3.0",
+        "symfony/var-dumper": "^3.0",
         "pimple/pimple": "~3.0",
-        "cilex/console-service-provider": "~2.0@dev",
-        "bangpound/assetic-cli": "~1.1@dev",
         "bangpound/assetic-service-provider": "~1.0@dev",
         "bangpound/assetic-codekit": "1.0.*@dev"
     },
@@ -52,21 +49,16 @@
         ],
         "drush:composer": [
             "drush --root=docroot composer-json-rebuild",
-            "drush --rot=docroot composer-manager update"
+            "drush --root=docroot composer-manager update"
         ],
         "assetic": [
-            "bin/assetic prepare",
-            "bin/assetic dump"
+            "robo prepare",
+            "robo dump"
         ],
         "theme:build": [
             "composer rvm",
             "composer assetic",
             "compass compile -e production -s compact --force docroot/profiles/fieldmuseum/themes/esquif"
         ]
-    },
-    "require": {
-        "drufony/drupal-bridge": "dev-develop",
-        "symfony/expression-language": "^2.7",
-        "silex/silex": "~2.0"
     }
 }

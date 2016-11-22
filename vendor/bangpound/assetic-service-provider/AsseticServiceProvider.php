@@ -7,8 +7,6 @@ use Assetic\AssetWriter;
 use Assetic\Factory\AssetFactory;
 use Assetic\Factory\LazyAssetManager;
 use Assetic\FilterManager;
-use Bangpound\Assetic\Command\DumpCommand;
-use Bangpound\Assetic\Command\WatchCommand;
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
 use Symfony\Component\Console\Command\Command;
@@ -36,11 +34,11 @@ class AsseticServiceProvider implements ServiceProviderInterface
 
         $pimple['assetic.register_functions'] = true;
 
-        $pimple['assetic.java.bin'] = \Bangpound\Assetic\find_executable('java', '/usr/bin/java');
-        $pimple['assetic.node.bin'] = \Bangpound\Assetic\find_executable('node', '/usr/bin/node');
+        $pimple['assetic.java.bin'] = '/usr/bin/java';
+        $pimple['assetic.node.bin'] = '/usr/bin/node';
         $pimple['assetic.node.paths'] = array();
-        $pimple['assetic.ruby.bin'] = \Bangpound\Assetic\find_executable('ruby', '/usr/bin/ruby');
-        $pimple['assetic.sass.bin'] = \Bangpound\Assetic\find_executable('sass', '/usr/bin/sass');
+        $pimple['assetic.ruby.bin'] = '/usr/bin/ruby';
+        $pimple['assetic.sass.bin'] = '/usr/bin/sass';
 
         /*
          * Finds IDs of all Asset Manager services.
@@ -128,28 +126,6 @@ class AsseticServiceProvider implements ServiceProviderInterface
             }
 
             return $lazy;
-        };
-
-        /*
-         * Console commands.
-         */
-
-        /*
-         * Dumps all assets.
-         *
-         * @param Container $c
-         * @return \Symfony\Component\Console\Command\Command
-         */
-        $pimple['assetic.dump.command'] = function (Container $c) {
-            return new DumpCommand($c['assetic.asset_manager'], $c['assetic.write_to']);
-        };
-
-        /*
-         * @param Container $c
-         * @return Command
-         */
-        $pimple['assetic.watch.command'] = function (Container $c) {
-            return new WatchCommand($c['assetic.asset_manager'], $c['assetic.write_to']);
         };
     }
 }

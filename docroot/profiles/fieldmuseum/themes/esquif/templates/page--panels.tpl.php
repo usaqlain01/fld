@@ -9,7 +9,7 @@
 ?>
   <div class="l--main js--stickyParent"><!-- Main Site Panel -->
 
-    <nav class="navMain js--sticky" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+    <nav class="navMain js--sticky" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement" aria-label="Main Menu">
       <?php
       // This code snippet is hard to modify. We recommend turning off the
       // "Main menu" on your sub-theme's settings form, deleting this PHP

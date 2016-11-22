@@ -204,5 +204,15 @@ function fmnh_program_strongarm() {
   $strongarm->value = 'at-the-field/programs/[node:title]';
   $export['pathauto_node_program_pattern'] = $strongarm;
 
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'xmlsitemap_settings_node_program';
+  $strongarm->value = array(
+    'status' => '1',
+    'priority' => '0.5',
+  );
+  $export['xmlsitemap_settings_node_program'] = $strongarm;
+
   return $export;
 }

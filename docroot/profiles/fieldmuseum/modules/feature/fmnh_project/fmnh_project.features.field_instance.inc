@@ -10,7 +10,7 @@
 function fmnh_project_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-project-body'
+  // Exported field_instance: 'node-project-body'.
   $field_instances['node-project-body'] = array(
     'bundle' => 'project',
     'default_value' => NULL,
@@ -116,7 +116,7 @@ function fmnh_project_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-project-field_action_link'
+  // Exported field_instance: 'node-project-field_action_link'.
   $field_instances['node-project-field_action_link'] = array(
     'bundle' => 'project',
     'default_value' => NULL,
@@ -187,7 +187,7 @@ function fmnh_project_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-project-field_image'
+  // Exported field_instance: 'node-project-field_image'.
   $field_instances['node-project-field_image'] = array(
     'bundle' => 'project',
     'deleted' => 0,
@@ -275,7 +275,7 @@ function fmnh_project_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-project-field_references'
+  // Exported field_instance: 'node-project-field_references'.
   $field_instances['node-project-field_references'] = array(
     'bundle' => 'project',
     'default_value' => NULL,

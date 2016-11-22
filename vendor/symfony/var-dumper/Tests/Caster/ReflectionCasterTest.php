@@ -11,15 +11,17 @@
 
 namespace Symfony\Component\VarDumper\Tests\Caster;
 
-use Symfony\Component\VarDumper\Test\VarDumperTestCase;
+use Symfony\Component\VarDumper\Test\VarDumperTestTrait;
 use Symfony\Component\VarDumper\Tests\Fixtures\GeneratorDemo;
 use Symfony\Component\VarDumper\Tests\Fixtures\NotLoadableClass;
 
 /**
  * @author Nicolas Grekas <p@tchwork.com>
  */
-class ReflectionCasterTest extends VarDumperTestCase
+class ReflectionCasterTest extends \PHPUnit_Framework_TestCase
 {
+    use VarDumperTestTrait;
+
     public function testReflectionCaster()
     {
         $var = new \ReflectionClass('ReflectionClass');
@@ -74,7 +76,7 @@ Closure {
     \$b: & 123
   }
   file: "%sReflectionCasterTest.php"
-  line: "64 to 64"
+  line: "66 to 66"
 }
 EOTXT
             , $var
@@ -208,8 +210,8 @@ array:2 [
     executing: {
       Symfony\Component\VarDumper\Tests\Fixtures\GeneratorDemo::foo(): {
         %sGeneratorDemo.php:10: """
-                  yield 1;\n
-              }\n
+              yield 1;\n
+          }\n
           \n
           """
       }

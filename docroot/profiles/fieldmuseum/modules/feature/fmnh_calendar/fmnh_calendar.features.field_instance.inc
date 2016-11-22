@@ -10,7 +10,7 @@
 function fmnh_calendar_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-event-body'
+  // Exported field_instance: 'node-event-body'.
   $field_instances['node-event-body'] = array(
     'bundle' => 'event',
     'default_value' => NULL,
@@ -129,7 +129,7 @@ function fmnh_calendar_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-event-field_action_link'
+  // Exported field_instance: 'node-event-field_action_link'.
   $field_instances['node-event-field_action_link'] = array(
     'bundle' => 'event',
     'default_value' => NULL,
@@ -212,7 +212,7 @@ function fmnh_calendar_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-event-field_audience'
+  // Exported field_instance: 'node-event-field_audience'.
   $field_instances['node-event-field_audience'] = array(
     'bundle' => 'event',
     'default_value' => NULL,
@@ -278,7 +278,7 @@ function fmnh_calendar_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-event-field_banner_description'
+  // Exported field_instance: 'node-event-field_banner_description'.
   $field_instances['node-event-field_banner_description'] = array(
     'bundle' => 'event',
     'default_value' => NULL,
@@ -381,7 +381,7 @@ function fmnh_calendar_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-event-field_banner_image'
+  // Exported field_instance: 'node-event-field_banner_image'.
   $field_instances['node-event-field_banner_image'] = array(
     'bundle' => 'event',
     'deleted' => 0,
@@ -470,7 +470,7 @@ function fmnh_calendar_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-event-field_date'
+  // Exported field_instance: 'node-event-field_date'.
   $field_instances['node-event-field_date'] = array(
     'bundle' => 'event',
     'deleted' => 0,
@@ -492,6 +492,7 @@ function fmnh_calendar_field_default_field_instances() {
           'multiple_from' => '',
           'multiple_number' => '',
           'multiple_to' => '',
+          'show_remaining_days' => FALSE,
         ),
         'type' => 'date_default',
         'weight' => 0,
@@ -506,6 +507,7 @@ function fmnh_calendar_field_default_field_instances() {
           'multiple_from' => '',
           'multiple_number' => '',
           'multiple_to' => '',
+          'show_remaining_days' => FALSE,
         ),
         'type' => 'date_default',
         'weight' => 0,
@@ -520,6 +522,7 @@ function fmnh_calendar_field_default_field_instances() {
           'multiple_from' => '',
           'multiple_number' => '',
           'multiple_to' => '',
+          'show_remaining_days' => FALSE,
         ),
         'type' => 'date_default',
         'weight' => 0,
@@ -540,6 +543,7 @@ function fmnh_calendar_field_default_field_instances() {
           'multiple_from' => '',
           'multiple_number' => '',
           'multiple_to' => '',
+          'show_remaining_days' => FALSE,
         ),
         'type' => 'date_default',
         'weight' => 1,
@@ -574,7 +578,7 @@ function fmnh_calendar_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-event-field_image'
+  // Exported field_instance: 'node-event-field_image'.
   $field_instances['node-event-field_image'] = array(
     'bundle' => 'event',
     'deleted' => 0,
@@ -666,7 +670,7 @@ function fmnh_calendar_field_default_field_instances() {
           'document' => 0,
           'image' => 'image',
           'model' => 0,
-          'video' => 0,
+          'video' => 'video',
         ),
         'browser_plugins' => array(
           'media_default--media_browser_1' => 0,
@@ -680,7 +684,7 @@ function fmnh_calendar_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-event-field_price'
+  // Exported field_instance: 'node-event-field_price'.
   $field_instances['node-event-field_price'] = array(
     'bundle' => 'event',
     'default_value' => NULL,
@@ -759,7 +763,7 @@ function fmnh_calendar_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-event-field_program'
+  // Exported field_instance: 'node-event-field_program'.
   $field_instances['node-event-field_program'] = array(
     'bundle' => 'event',
     'default_value' => NULL,
@@ -824,7 +828,7 @@ function fmnh_calendar_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-event-field_references'
+  // Exported field_instance: 'node-event-field_references'.
   $field_instances['node-event-field_references'] = array(
     'bundle' => 'event',
     'default_value' => NULL,
@@ -893,7 +897,7 @@ function fmnh_calendar_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-event-field_summary'
+  // Exported field_instance: 'node-event-field_summary'.
   $field_instances['node-event-field_summary'] = array(
     'bundle' => 'event',
     'default_value' => NULL,
@@ -1002,7 +1006,7 @@ function fmnh_calendar_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-event-field_ticket_link'
+  // Exported field_instance: 'node-event-field_ticket_link'.
   $field_instances['node-event-field_ticket_link'] = array(
     'bundle' => 'event',
     'default_value' => NULL,
@@ -1092,7 +1096,7 @@ function fmnh_calendar_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-event-field_ticket_text'
+  // Exported field_instance: 'node-event-field_ticket_text'.
   $field_instances['node-event-field_ticket_text'] = array(
     'bundle' => 'event',
     'default_value' => array(

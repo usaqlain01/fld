@@ -10,7 +10,7 @@
 function fmnh_media_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'field_caption'
+  // Exported field_base: 'field_caption'.
   $field_bases['field_caption'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -29,7 +29,7 @@ function fmnh_media_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_credit'
+  // Exported field_base: 'field_credit'.
   $field_bases['field_credit'] = array(
     'active' => 1,
     'cardinality' => 1,

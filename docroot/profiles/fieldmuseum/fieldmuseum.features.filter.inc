@@ -27,7 +27,7 @@ function fieldmuseum_filter_default_formats() {
         'weight' => -47,
         'status' => 1,
         'settings' => array(
-          'allowed_html' => '<a> <em> <strong> <cite> <blockquote> <code> <ul> <ol> <li> <dl> <dt> <dd> <img> <br> <p> <h2> <h3> <h4> <h5> <table> <th> <tr> <td> <hr> <iframe> <u>',
+          'allowed_html' => '<a> <em> <strong> <cite> <blockquote> <code> <ul> <ol> <li> <dl> <dt> <dd> <img> <br> <p> <h2> <h3> <h4> <h5> <table> <thead> <tbody> <th> <tr> <td> <hr> <iframe> <u> <nobr> <sup> <small>',
           'filter_html_help' => 1,
           'filter_html_nofollow' => 0,
         ),
@@ -42,6 +42,7 @@ http://www.fieldmuseum.org
 http://fieldmuseum.org
 ',
           'protocol_style' => 'proto-rel',
+          'settings_source' => 'global',
         ),
       ),
     ),
@@ -64,7 +65,7 @@ http://fieldmuseum.org
         'weight' => -49,
         'status' => 1,
         'settings' => array(
-          'allowed_html' => '<a> <em> <strong> <cite> <blockquote> <code> <ul> <ol> <li> <dl> <dt> <dd> <img> <br> <p> <h2> <h3> <h4> <h5> <table> <th> <tr> <td> <hr> <iframe> <u>',
+          'allowed_html' => '<a> <em> <strong> <cite> <blockquote> <code> <ul> <ol> <li> <dl> <dt> <dd> <img> <br> <p> <h2> <h3> <h4> <h5> <table> <thead> <tbody> <th> <tr> <td> <hr> <iframe> <u> <nobr>',
           'filter_html_help' => 1,
           'filter_html_nofollow' => 0,
         ),
@@ -97,6 +98,7 @@ http://www.fieldmuseum.org
 http://fieldmuseum.org
 ',
           'protocol_style' => 'proto-rel',
+          'settings_source' => 'global',
         ),
       ),
     ),
@@ -137,6 +139,7 @@ http://www.fieldmuseum.org
 http://fieldmuseum.org
 ',
           'protocol_style' => 'proto-rel',
+          'settings_source' => 'global',
         ),
       ),
     ),
@@ -195,6 +198,7 @@ http://www.fieldmuseum.org
 http://fieldmuseum.org
 ',
           'protocol_style' => 'proto-rel',
+          'settings_source' => 'global',
         ),
       ),
     ),
@@ -228,6 +232,7 @@ http://www.fieldmuseum.org
 http://fieldmuseum.org
 ',
           'protocol_style' => 'proto-rel',
+          'settings_source' => 'global',
         ),
       ),
     ),
@@ -268,6 +273,7 @@ http://www.fieldmuseum.org
 http://fieldmuseum.org
 ',
           'protocol_style' => 'proto-rel',
+          'settings_source' => 'global',
         ),
       ),
     ),
@@ -296,6 +302,7 @@ http://www.fieldmuseum.org
 http://fieldmuseum.org
 ',
           'protocol_style' => 'proto-rel',
+          'settings_source' => 'global',
         ),
       ),
     ),
@@ -333,6 +340,7 @@ http://www.fieldmuseum.org
 http://fieldmuseum.org
 ',
           'protocol_style' => 'proto-rel',
+          'settings_source' => 'global',
         ),
       ),
     ),

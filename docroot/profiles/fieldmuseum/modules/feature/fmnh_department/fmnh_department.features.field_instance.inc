@@ -10,7 +10,7 @@
 function fmnh_department_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-department-body'
+  // Exported field_instance: 'node-department-body'.
   $field_instances['node-department-body'] = array(
     'bundle' => 'department',
     'default_value' => NULL,
@@ -116,7 +116,7 @@ function fmnh_department_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-department-field_image'
+  // Exported field_instance: 'node-department-field_image'.
   $field_instances['node-department-field_image'] = array(
     'bundle' => 'department',
     'deleted' => 0,
@@ -208,7 +208,7 @@ function fmnh_department_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-department-field_link'
+  // Exported field_instance: 'node-department-field_link'.
   $field_instances['node-department-field_link'] = array(
     'bundle' => 'department',
     'default_value' => NULL,
@@ -274,7 +274,7 @@ function fmnh_department_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-department-field_location_region'
+  // Exported field_instance: 'node-department-field_location_region'.
   $field_instances['node-department-field_location_region'] = array(
     'bundle' => 'department',
     'default_value' => NULL,
@@ -331,7 +331,7 @@ function fmnh_department_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-department-field_person'
+  // Exported field_instance: 'node-department-field_person'.
   $field_instances['node-department-field_person'] = array(
     'bundle' => 'department',
     'default_value' => NULL,
@@ -386,7 +386,7 @@ function fmnh_department_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-department-field_research_area'
+  // Exported field_instance: 'node-department-field_research_area'.
   $field_instances['node-department-field_research_area'] = array(
     'bundle' => 'department',
     'default_value' => NULL,
@@ -443,7 +443,7 @@ function fmnh_department_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-department-field_science_focus'
+  // Exported field_instance: 'node-department-field_science_focus'.
   $field_instances['node-department-field_science_focus'] = array(
     'bundle' => 'department',
     'default_value' => NULL,
@@ -500,7 +500,7 @@ function fmnh_department_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-department-field_stratigraphy'
+  // Exported field_instance: 'node-department-field_stratigraphy'.
   $field_instances['node-department-field_stratigraphy'] = array(
     'bundle' => 'department',
     'default_value' => NULL,
@@ -557,7 +557,7 @@ function fmnh_department_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-department-field_topic'
+  // Exported field_instance: 'node-department-field_topic'.
   $field_instances['node-department-field_topic'] = array(
     'bundle' => 'department',
     'default_value' => NULL,

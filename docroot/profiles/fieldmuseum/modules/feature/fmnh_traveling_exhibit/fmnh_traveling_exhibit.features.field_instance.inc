@@ -10,7 +10,7 @@
 function fmnh_traveling_exhibit_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-traveling_exhibit-body'
+  // Exported field_instance: 'node-traveling_exhibit-body'.
   $field_instances['node-traveling_exhibit-body'] = array(
     'bundle' => 'traveling_exhibit',
     'default_value' => NULL,
@@ -117,7 +117,7 @@ function fmnh_traveling_exhibit_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-traveling_exhibit-field_attachment'
+  // Exported field_instance: 'node-traveling_exhibit-field_attachment'.
   $field_instances['node-traveling_exhibit-field_attachment'] = array(
     'bundle' => 'traveling_exhibit',
     'deleted' => 0,
@@ -201,7 +201,7 @@ function fmnh_traveling_exhibit_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-traveling_exhibit-field_gallery'
+  // Exported field_instance: 'node-traveling_exhibit-field_gallery'.
   $field_instances['node-traveling_exhibit-field_gallery'] = array(
     'bundle' => 'traveling_exhibit',
     'default_value' => NULL,
@@ -258,7 +258,7 @@ function fmnh_traveling_exhibit_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-traveling_exhibit-field_image'
+  // Exported field_instance: 'node-traveling_exhibit-field_image'.
   $field_instances['node-traveling_exhibit-field_image'] = array(
     'bundle' => 'traveling_exhibit',
     'deleted' => 0,
@@ -346,7 +346,7 @@ function fmnh_traveling_exhibit_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-traveling_exhibit-field_link'
+  // Exported field_instance: 'node-traveling_exhibit-field_link'.
   $field_instances['node-traveling_exhibit-field_link'] = array(
     'bundle' => 'traveling_exhibit',
     'default_value' => NULL,
@@ -414,7 +414,7 @@ function fmnh_traveling_exhibit_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-traveling_exhibit-field_person'
+  // Exported field_instance: 'node-traveling_exhibit-field_person'.
   $field_instances['node-traveling_exhibit-field_person'] = array(
     'bundle' => 'traveling_exhibit',
     'default_value' => NULL,
@@ -467,7 +467,7 @@ function fmnh_traveling_exhibit_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-traveling_exhibit-field_references'
+  // Exported field_instance: 'node-traveling_exhibit-field_references'.
   $field_instances['node-traveling_exhibit-field_references'] = array(
     'bundle' => 'traveling_exhibit',
     'default_value' => NULL,
@@ -520,7 +520,7 @@ function fmnh_traveling_exhibit_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-traveling_exhibit-field_specification'
+  // Exported field_instance: 'node-traveling_exhibit-field_specification'.
   $field_instances['node-traveling_exhibit-field_specification'] = array(
     'bundle' => 'traveling_exhibit',
     'default_value' => NULL,
