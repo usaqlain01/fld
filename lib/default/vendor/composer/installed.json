@@ -5885,7 +5885,7 @@
         "dist": {
             "type": "zip",
             "url": "https://ftp.drupal.org/files/projects/fieldable_panels_panes-7.x-1.10.zip",
-            "reference": null,
+            "reference": "7.x-1.10",
             "shasum": "70e78b59f172c61ad3b1f93482f68c7b925bec24"
         },
         "require": {
@@ -5946,6 +5946,51 @@
         "homepage": "https://www.drupal.org/project/fieldable_panels_panes",
         "support": {
             "source": "http://cgit.drupalcode.org/fieldable_panels_panes"
+        }
+    },
+    {
+        "name": "drupal/google_tag",
+        "version": "1.0.0",
+        "version_normalized": "1.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupal.org/project/google_tag",
+            "reference": "7.x-1.0"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://ftp.drupal.org/files/projects/google_tag-7.x-1.0.zip",
+            "reference": null,
+            "shasum": "ba340d4565b7f1101098b61bfa3b88241e68448c"
+        },
+        "require": {
+            "drupal/drupal": "~7.0"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "branch-alias": {
+                "dev-1.x": "1.x-dev"
+            },
+            "drupal": {
+                "version": "7.x-1.0",
+                "datestamp": "1394123005"
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packages.drupal.org/7/downloads",
+        "license": [
+            "GPL-2.0+"
+        ],
+        "authors": [
+            {
+                "name": "solotandem",
+                "homepage": "https://www.drupal.org/user/240748"
+            }
+        ],
+        "description": "Allows your website analytics to be managed using Google Tag Manager.",
+        "homepage": "https://www.drupal.org/project/google_tag",
+        "support": {
+            "source": "http://cgit.drupalcode.org/google_tag"
         }
     }
 ]
