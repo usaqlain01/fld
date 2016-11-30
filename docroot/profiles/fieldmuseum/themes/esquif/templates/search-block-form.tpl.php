@@ -30,7 +30,7 @@
 ?>
 <fieldset>
   <legend class="is--visHidden">Search</legend>
-  <label for="search__input" class="is--visHidden">Search</label>
+  <label for="edit-search-block-form--2" class="is--visHidden">Search</label>
   <div class="search__visible">
     <?php print $search_form; ?>
   </div>
