@@ -20,6 +20,13 @@ modules which redirect you to <www.fieldmuseum.org>.
 
 ## Asset building
 
+For these build instructions to work, the `fieldmuseum-website` patternlab repository
+must be included in this proejct at `build/fieldmuseum-website`.
+
+```bash
+git clone git@github.com:fieldmuseum/fieldmuseum-website.git build/fieldmuseum-website
+```
+
 Commands to build the front end assets from Table XI and any additional/overrides in the
 theme are implemented as [Composer scripts](https://getcomposer.org/doc/articles/scripts.md)
 at the root level of the repository.
