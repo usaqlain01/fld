@@ -1,3 +1,0 @@
-[submodule "build/fieldmuseum-website"]
-	path = build/fieldmuseum-website
-	url = git@github.com:fieldmuseum/fieldmuseum-website.git
