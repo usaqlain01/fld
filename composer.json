@@ -36,8 +36,7 @@
             "bundle install"
         ],
         "npm": [
-            "npm install -g coffee-script",
-            "npm install --global postcss-cli autoprefixer"
+            "npm install -g coffee-script postcss-cli autoprefixer"
         ],
         "sync": [
             "drush --yes --root=docroot sql-sync @fldmuse.prod @self",

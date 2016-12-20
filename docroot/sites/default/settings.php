@@ -69,10 +69,11 @@ if (file_exists('/var/www/site-php')) {
     //$_ENV['MAGICK_TEMPORARY_PATH'] =
     $conf['file_temporary_path'] = '/mnt/tmp/fldmuse.'. $_ENV['AH_SITE_ENVIRONMENT'];
     //$_ENV['MAGICK_TEMPORARY_PATH'] = $conf['file_temporary_path'] = '/mnt/tmp/fldmuse.test';
-    
+
     switch ($_ENV['AH_SITE_ENVIRONMENT']) {
       case 'prod':
         $cookie_domain = '.fieldmuseum.org';
+        $conf['theme_debug'] = FALSE;
         break;
       case 'dev':
       case 'test':
@@ -90,7 +91,17 @@ if (file_exists('/var/www/site-php')) {
             exit;
           }
         }
+        $conf['googleanalytics_account'] = 'UA-11881432-34';
+        $conf['google_tag_container_id'] = 'GTM-56ZGP3B';
+        break;
+      case 'dev':
+        $conf['theme_debug'] = TRUE;
         break;
     }
   }
+}
+else {
+  $conf['googleanalytics_account'] = 'UA-11881432-34';
+  $conf['google_tag_container_id'] = 'GTM-56ZGP3B';
+  $conf['theme_debug'] = TRUE;
 }
