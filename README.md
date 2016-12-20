@@ -39,8 +39,9 @@ directory of the repository under "scripts."
    any other ruby uses you already have).
 3. Install node.js and npm. <https://nodejs.org/download/> On Mac, I recommend homebrew.
    <http://blog.teamtreehouse.com/install-node-js-npm-mac>
-4. Run `composer rvm`, `composer rvm:prepare` and `composer npm`. If these run
-   without error, you are able to build the assets.
+4. Run `rvm use ruby-2.2.2@fldmuse --create`, `gem install bundle && bundle install`
+   and `npm install -g coffee-script postcss-cli autoprefixer`. If these run without
+   error, you are able to build the assets.
 
 ### Build instructions
 
