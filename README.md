@@ -20,6 +20,13 @@ modules which redirect you to <www.fieldmuseum.org>.
 
 ## Asset building
 
+For these build instructions to work, the `fieldmuseum-website` patternlab repository
+must be included in this proejct at `build/fieldmuseum-website`.
+
+```bash
+git clone git@github.com:fieldmuseum/fieldmuseum-website.git build/fieldmuseum-website
+```
+
 Commands to build the front end assets from Table XI and any additional/overrides in the
 theme are implemented as [Composer scripts](https://getcomposer.org/doc/articles/scripts.md)
 at the root level of the repository.
@@ -39,8 +46,9 @@ directory of the repository under "scripts."
    any other ruby uses you already have).
 3. Install node.js and npm. <https://nodejs.org/download/> On Mac, I recommend homebrew.
    <http://blog.teamtreehouse.com/install-node-js-npm-mac>
-4. Run `composer rvm`, `composer rvm:prepare` and `composer npm`. If these run
-   without error, you are able to build the assets.
+4. Run `rvm use ruby-2.2.2@fldmuse --create`, `gem install bundle && bundle install`
+   and `npm install -g coffee-script postcss-cli autoprefixer`. If these run without
+   error, you are able to build the assets.
 
 ### Build instructions
 

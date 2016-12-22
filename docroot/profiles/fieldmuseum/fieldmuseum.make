@@ -38,9 +38,6 @@ projects[better_formats][version] = 1.x-dev
 projects[classloader][subdir] = contrib
 projects[classloader][version] = 1.1
 
-projects[composer_manager][subdir] = contrib
-projects[composer_manager][version] = 1.6
-
 projects[ctools][subdir] = contrib
 projects[ctools][version] = 1.4
 projects[ctools][patch][] = https://drupal.org/files/issues/field_not_empty-1188466-11.patch
