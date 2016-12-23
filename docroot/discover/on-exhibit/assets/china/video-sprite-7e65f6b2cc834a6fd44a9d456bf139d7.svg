@@ -16,7 +16,9 @@
 <polygon class="st2" points="18,19.5 19.5,18 25,23.5 30.5,18 32,19.5 26.5,25 32,30.5 30.5,32 25,26.5 19.5,32 18,30.5 23.5,25 "/>
 <rect x="20" y="68" class="st3" width="3.5" height="14"/>
 <rect x="26.5" y="68" class="st3" width="3.5" height="14"/>
-<polygon class="st3" points="32.1,125 20,132 20,118 "/>
+<g id="icon--play">
+	<polygon class="st3" points="32.1,125 20,132 20,118 "/>
+</g>
 <rect x="16.5" y="168.5" class="st4" width="2" height="13"/>
 <rect x="21.5" y="168.5" class="st4" width="2" height="13"/>
 <rect x="26.5" y="168.5" class="st4" width="2" height="13"/>
