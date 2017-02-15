@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6d8decfe-494a-4ef0-9b9b-f6cdaf950681" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docroot/sites/sites.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docroot/sites/default/settings.php" afterPath="$PROJECT_DIR$/docroot/sites/default/settings.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docroot/profiles/fieldmuseum/themes/esquif/templates/node--banner.tpl.php" afterPath="$PROJECT_DIR$/docroot/profiles/fieldmuseum/themes/esquif/templates/node--banner.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docroot/profiles/fieldmuseum/themes/esquif/templates/node--event--list-item.tpl.php" afterPath="$PROJECT_DIR$/docroot/profiles/fieldmuseum/themes/esquif/templates/node--event--list-item.tpl.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,8 +19,40 @@
   <component name="FavoritesManager">
     <favorites_list name="fldmuse-prod" />
   </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="node--banner.tpl.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/docroot/profiles/fieldmuseum/themes/esquif/templates/node--banner.tpl.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" column="53" lean-forward="false" selection-start-line="6" selection-start-column="53" selection-end-line="6" selection-end-column="53" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="node--event--list-item.tpl.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/docroot/profiles/fieldmuseum/themes/esquif/templates/node--event--list-item.tpl.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="480">
+              <caret line="38" column="14" lean-forward="false" selection-start-line="38" selection-start-column="14" selection-end-line="38" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/docroot/profiles/fieldmuseum/themes/esquif/templates/node--banner.tpl.php" />
+        <option value="$PROJECT_DIR$/docroot/profiles/fieldmuseum/themes/esquif/templates/node--event--list-item.tpl.php" />
+      </list>
+    </option>
   </component>
   <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
@@ -51,7 +83,20 @@
     <panes>
       <pane id="Scope" />
       <pane id="Scratches" />
-      <pane id="ProjectPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fldmuse-prod" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fldmuse-prod" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -67,19 +112,19 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1487193891833</updated>
-      <workItem from="1487193897857" duration="96000" />
+      <workItem from="1487193897857" duration="558000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="96000" />
+    <option name="totallyTimeSpent" value="558000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="2560" height="1333" extended-state="1" />
-    <editor active="false" />
+    <frame x="0" y="23" width="2560" height="1333" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Api Debugger" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24980143" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24980143" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -107,5 +152,23 @@
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/docroot/profiles/fieldmuseum/themes/esquif/templates/node--banner.tpl.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="53" lean-forward="false" selection-start-line="6" selection-start-column="53" selection-end-line="6" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docroot/profiles/fieldmuseum/themes/esquif/templates/node--event--list-item.tpl.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="38" column="14" lean-forward="false" selection-start-line="38" selection-start-column="14" selection-end-line="38" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
   </component>
 </project>
