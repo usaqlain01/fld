@@ -10,6 +10,23 @@
 <article class="article node-<?php print $node->nid; ?> <?php print $classes; ?>"<?php print $attributes; ?>>
 
   <header class="l--flex--titleButton">
+
+    <!-- Node's URL schema mapping-->
+    <span rel="schema:url" resource="/node/<?php print $node->nid; ?>" class="rdf-meta element-hidden"></span>
+
+    <!-- Exhibit startDate & endDate schema mapping -->
+    <span class="rdf-meta element-hidden">
+    <?php if ($content['field_date']): ?>
+      <?php print render($content['field_date']); ?>
+      <?php endif; ?>
+    </span>
+
+    <!-- Temp fix for schema location error, Todo replace with editable name and address fields -->
+    <div property="schema:location" typeof="schema:place">
+      <span property="schema:name" content="Field Museum" class="rdf-meta element-hidden"></span>
+      <span property="schema:address" content="Chicago, IL" class="rdf-meta element-hidden"></span>
+    </div>
+
     <?php print render($title_prefix); ?>
     <h1<?php print $title_attributes; ?>><?php print $title; ?></h1>
     <?php if (!$past): ?>
