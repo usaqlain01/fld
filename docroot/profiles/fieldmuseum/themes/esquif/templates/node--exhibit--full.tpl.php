@@ -21,6 +21,11 @@
       <?php endif; ?>
     </span>
 
+    <!-- Temp fix for schema location error, Todo replace with editable name and address fields -->
+    <div property="schema:location" typeof="schema:place">
+      <span property="schema:name" content="Field Museum" class="rdf-meta element-hidden"></span>
+      <span property="schema:address" content="Chicago, IL" class="rdf-meta element-hidden"></span>
+    </div>
 
     <?php print render($title_prefix); ?>
     <h1<?php print $title_attributes; ?>><?php print $title; ?></h1>
