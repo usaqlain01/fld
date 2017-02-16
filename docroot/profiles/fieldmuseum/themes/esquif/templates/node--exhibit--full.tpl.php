@@ -16,15 +16,24 @@
 
     <!-- Exhibit startDate & endDate schema mapping -->
     <span class="rdf-meta element-hidden">
-    <?php if ($content['field_date']): ?>
-      <?php print render($content['field_date']); ?>
+      <?php if ($content['field_date']): ?>
+        <?php print render($content['field_date']); ?>
       <?php endif; ?>
     </span>
 
-    <!-- Temp fix for schema location error, Todo replace with editable name and address fields -->
-    <div property="schema:location" typeof="schema:place">
+    <!-- Exhibit schema mapping for Location -->
+    <div property="schema:location" typeof="schema:place" class="rdf-meta element-hidden">
+    <?php if ($content['field_exhibit_location_name']): ?>
+      <?php print render($content['field_exhibit_location_name']) ?>
+    <?php else: ?>
       <span property="schema:name" content="Field Museum" class="rdf-meta element-hidden"></span>
+    <?php endif; ?>
+
+    <?php if ($content['field_exhibit_location_address']): ?>
+      <?php print render($content['field_exhibit_location_address']) ?>
+    <?php else: ?>
       <span property="schema:address" content="Chicago, IL" class="rdf-meta element-hidden"></span>
+    <?php endif; ?>
     </div>
 
     <?php print render($title_prefix); ?>
