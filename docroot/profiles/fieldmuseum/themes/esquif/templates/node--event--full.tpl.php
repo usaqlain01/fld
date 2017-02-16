@@ -9,6 +9,25 @@
 ?>
 <article class="article node-<?php print $node->nid; ?> <?php print $classes; ?>"<?php print $attributes; ?>>
   <header class="l--flex--titleButton">
+
+    <!-- Node's URL schema mapping-->
+    <span rel="schema:url" resource="/node/<?php print $node->nid; ?>" class="rdf-meta element-hidden"></span>
+
+    <!-- Event schema mapping for Location -->
+    <div property="schema:location" typeof="schema:place" class="rdf-meta element-hidden">
+      <?php if ($content['field_event_location_name']): ?>
+        <?php print render($content['field_event_location_name']) ?>
+      <?php else: ?>
+        <span property="schema:name" content="Field Museum" class="rdf-meta element-hidden"></span>
+      <?php endif; ?>
+
+      <?php if ($content['field_event_location_address']): ?>
+        <?php print render($content['field_event_location_address']) ?>
+      <?php else: ?>
+        <span property="schema:address" content="Chicago, IL" class="rdf-meta element-hidden"></span>
+      <?php endif; ?>
+    </div>
+
     <div>
       <?php print render($title_prefix); ?>
       <h1<?php print $title_attributes; ?>><?php print $title; ?></h1>
