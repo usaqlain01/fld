@@ -18,7 +18,7 @@
 
 <?php foreach ($items as $delta => $item): ?>
   <!-- Entity's body mapped to schema's description -->
-  <section class="<?php print $classes; ?>"<?php print $attributes; ?> property="schema:description content:encoded">
+  <section class="<?php print $classes; ?>"<?php print $attributes; ?> property="schema:description">
     <?php print render($item); ?>
   </section>
 <?php endforeach; ?>

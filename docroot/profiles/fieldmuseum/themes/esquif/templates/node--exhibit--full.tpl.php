@@ -21,6 +21,8 @@
       <?php endif; ?>
     </span>
 
+    <span property="schema:eventStatus" content="Exhibition" class="rdf-meta element-hidden"></span>
+
     <!-- Exhibit schema mapping for Location -->
     <div property="schema:location" typeof="schema:place" class="rdf-meta element-hidden">
     <?php if ($content['field_exhibit_location_name']): ?>
