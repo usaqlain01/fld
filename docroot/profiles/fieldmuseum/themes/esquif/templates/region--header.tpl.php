@@ -8,7 +8,7 @@
  */
 ?>
 <?php if ($content): ?>
-  <header id="header" class="<?php print $classes; ?>" itemscope itemtype="http://schema.org/WPHeader">
+  <header id="header" class="<?php print $classes; ?>" itemscope itemtype="http://schema.org/BreadcrumbList">
     <?php print $content; ?>
   </header>
 <?php endif; ?>
