@@ -23,6 +23,9 @@
     <?php endif; ?>
 
     <?php if ($content_html): ?>
+      <?php if (strpos($content_html, "itemprop=\"breadcrumb\"")): ?>
+        <?php $content_html = str_replace("itemprop=\"breadcrumb\"","itemprop=\"itemListElement\"",$content_html); ?>
+      <?php endif; ?>
       <?php print $content_html; ?>
     <?php endif; ?>
 
