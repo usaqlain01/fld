@@ -6,6 +6,13 @@
  * Complete documentation for this file is available online.
  * @see https://drupal.org/node/1728164
  */
+
+$inspect = $classes;
+$explore = $attributes;
+
+
+
+
 ?>
 <div class="node-<?php print $node->nid; ?> <?php print $classes; ?>"<?php print $attributes; ?>>
   <a<?php print $content_attributes; ?>>

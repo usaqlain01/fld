@@ -1522,6 +1522,7 @@ function theme_render_template($template_file, $variables) {
   // Start output buffering
   ob_start();
 
+  $x = $variables;
   // Include the template file
   include DRUPAL_ROOT . '/' . $template_file;
 
