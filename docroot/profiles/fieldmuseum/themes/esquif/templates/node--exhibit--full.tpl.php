@@ -16,10 +16,12 @@
 
     <!-- Exhibit startDate & endDate schema mapping -->
     <span class="rdf-meta element-hidden">
-      <?php if ($content['field_date']): ?>
-        <?php print render($content['field_date']); ?>
-      <?php endif; ?>
-    </span>
+    <?php if ($content['field_date']): ?>
+      <?php print render($content['field_date']) ?>
+    <?php else: ?>
+      <span property="schema:startDate" content="<?php print date('d/m/Y', $content['body']['#object']->created) ?>">DATE</span>
+    <?php endif; ?>
+     </span>
 
     <span property="schema:eventStatus" content="Exhibition" class="rdf-meta element-hidden"></span>
 
