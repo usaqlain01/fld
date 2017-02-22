@@ -28,6 +28,11 @@
       <?php endif; ?>
     </div>
 
+    <!-- Exhibit startDate & endDate schema mapping -->
+    <?php if (!$content['field_date']): ?>
+      <span property="schema:startDate" class="rdf-meta element-hidden" content="<?php print date('d/m/Y', $content['body']['#object']->created) ?>">DATE</span>
+    <?php endif; ?>
+
     <div>
       <?php print render($title_prefix); ?>
       <h1<?php print $title_attributes; ?>><?php print $title; ?></h1>
